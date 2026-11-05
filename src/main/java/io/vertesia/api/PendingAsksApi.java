@@ -68,22 +68,7 @@ public class PendingAsksApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for getPendingAsk
-     * @param askId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending question. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getPendingAskCall(
+    private okhttp3.Call getPendingAskCall(
             @jakarta.annotation.Nonnull String askId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -155,66 +140,14 @@ public class PendingAsksApi {
         return getPendingAskCall(askId, _callback);
     }
 
-    /**
-     * Retrieve a pending agent question
-     * Get a specific pending ask by ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param askId  (required)
-     * @return PendingAskData
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending question. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PendingAskData getPendingAsk(@jakarta.annotation.Nonnull String askId)
-            throws ApiException {
-        ApiResponse<PendingAskData> localVarResp = getPendingAskWithHttpInfo(askId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a pending agent question
-     * Get a specific pending ask by ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param askId  (required)
-     * @return ApiResponse&lt;PendingAskData&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending question. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PendingAskData> getPendingAskWithHttpInfo(
+    private ApiResponse<PendingAskData> getPendingAskWithHttpInfo(
             @jakarta.annotation.Nonnull String askId) throws ApiException {
         okhttp3.Call localVarCall = getPendingAskValidateBeforeCall(askId, null);
         Type localVarReturnType = new TypeToken<PendingAskData>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a pending agent question (asynchronously)
-     * Get a specific pending ask by ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param askId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending question. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getPendingAskAsync(
+    private okhttp3.Call getPendingAskAsync(
             @jakarta.annotation.Nonnull String askId, final ApiCallback<PendingAskData> _callback)
             throws ApiException {
 
@@ -224,21 +157,105 @@ public class PendingAsksApi {
         return localVarCall;
     }
 
+    public class APIgetPendingAskRequest {
+        @jakarta.annotation.Nonnull private final String askId;
+
+        private APIgetPendingAskRequest(@jakarta.annotation.Nonnull String askId) {
+            this.askId = askId;
+        }
+
+        /**
+         * Build call for getPendingAsk
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending question. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getPendingAskCall(askId, _callback);
+        }
+
+        /**
+         * Execute getPendingAsk request
+         * @return PendingAskData
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending question. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public PendingAskData execute() throws ApiException {
+            ApiResponse<PendingAskData> localVarResp = getPendingAskWithHttpInfo(askId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getPendingAsk request with HTTP info returned
+         * @return ApiResponse&lt;PendingAskData&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending question. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<PendingAskData> executeWithHttpInfo() throws ApiException {
+            return getPendingAskWithHttpInfo(askId);
+        }
+
+        /**
+         * Execute getPendingAsk request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending question. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PendingAskData> _callback)
+                throws ApiException {
+            return getPendingAskAsync(askId, _callback);
+        }
+    }
+
     /**
-     * Build call for listPendingAsks
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a pending agent question
+     * Get a specific pending ask by ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param askId  (required)
+     * @return APIgetPendingAskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending questions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Pending question. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listPendingAsksCall(final ApiCallback _callback) throws ApiException {
+    public APIgetPendingAskRequest getPendingAsk(@jakarta.annotation.Nonnull String askId) {
+        return new APIgetPendingAskRequest(askId);
+    }
+
+    private okhttp3.Call listPendingAsksCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -297,61 +314,13 @@ public class PendingAsksApi {
         return listPendingAsksCall(_callback);
     }
 
-    /**
-     * List pending agent questions
-     * List all pending asks for the current project.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @return ListPendingAsksResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending questions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ListPendingAsksResponse listPendingAsks() throws ApiException {
-        ApiResponse<ListPendingAsksResponse> localVarResp = listPendingAsksWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List pending agent questions
-     * List all pending asks for the current project.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @return ApiResponse&lt;ListPendingAsksResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending questions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ListPendingAsksResponse> listPendingAsksWithHttpInfo() throws ApiException {
+    private ApiResponse<ListPendingAsksResponse> listPendingAsksWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listPendingAsksValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<ListPendingAsksResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List pending agent questions (asynchronously)
-     * List all pending asks for the current project.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending questions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listPendingAsksAsync(final ApiCallback<ListPendingAsksResponse> _callback)
+    private okhttp3.Call listPendingAsksAsync(final ApiCallback<ListPendingAsksResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listPendingAsksValidateBeforeCall(_callback);
@@ -360,22 +329,101 @@ public class PendingAsksApi {
         return localVarCall;
     }
 
+    public class APIlistPendingAsksRequest {
+
+        private APIlistPendingAsksRequest() {}
+
+        /**
+         * Build call for listPendingAsks
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending questions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listPendingAsksCall(_callback);
+        }
+
+        /**
+         * Execute listPendingAsks request
+         * @return ListPendingAsksResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending questions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ListPendingAsksResponse execute() throws ApiException {
+            ApiResponse<ListPendingAsksResponse> localVarResp = listPendingAsksWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listPendingAsks request with HTTP info returned
+         * @return ApiResponse&lt;ListPendingAsksResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending questions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ListPendingAsksResponse> executeWithHttpInfo() throws ApiException {
+            return listPendingAsksWithHttpInfo();
+        }
+
+        /**
+         * Execute listPendingAsks request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending questions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ListPendingAsksResponse> _callback)
+                throws ApiException {
+            return listPendingAsksAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for registerPendingAsk
-     * @param registerPendingAskRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List pending agent questions
+     * List all pending asks for the current project.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @return APIlistPendingAsksRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Registration result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Pending questions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call registerPendingAskCall(
+    public APIlistPendingAsksRequest listPendingAsks() {
+        return new APIlistPendingAsksRequest();
+    }
+
+    private okhttp3.Call registerPendingAskCall(
             @jakarta.annotation.Nonnull RegisterPendingAskRequest registerPendingAskRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -445,45 +493,7 @@ public class PendingAsksApi {
         return registerPendingAskCall(registerPendingAskRequest, _callback);
     }
 
-    /**
-     * Register a pending agent question
-     * Register a new pending ask. Called when an agent calls ask_user.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param registerPendingAskRequest  (required)
-     * @return RegisterPendingAskResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Registration result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RegisterPendingAskResponse registerPendingAsk(
-            @jakarta.annotation.Nonnull RegisterPendingAskRequest registerPendingAskRequest)
-            throws ApiException {
-        ApiResponse<RegisterPendingAskResponse> localVarResp =
-                registerPendingAskWithHttpInfo(registerPendingAskRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Register a pending agent question
-     * Register a new pending ask. Called when an agent calls ask_user.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param registerPendingAskRequest  (required)
-     * @return ApiResponse&lt;RegisterPendingAskResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Registration result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RegisterPendingAskResponse> registerPendingAskWithHttpInfo(
+    private ApiResponse<RegisterPendingAskResponse> registerPendingAskWithHttpInfo(
             @jakarta.annotation.Nonnull RegisterPendingAskRequest registerPendingAskRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -492,23 +502,7 @@ public class PendingAsksApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Register a pending agent question (asynchronously)
-     * Register a new pending ask. Called when an agent calls ask_user.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param registerPendingAskRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Registration result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call registerPendingAskAsync(
+    private okhttp3.Call registerPendingAskAsync(
             @jakarta.annotation.Nonnull RegisterPendingAskRequest registerPendingAskRequest,
             final ApiCallback<RegisterPendingAskResponse> _callback)
             throws ApiException {
@@ -520,23 +514,109 @@ public class PendingAsksApi {
         return localVarCall;
     }
 
+    public class APIregisterPendingAskRequest {
+        @jakarta.annotation.Nonnull
+        private final RegisterPendingAskRequest registerPendingAskRequest;
+
+        private APIregisterPendingAskRequest(
+                @jakarta.annotation.Nonnull RegisterPendingAskRequest registerPendingAskRequest) {
+            this.registerPendingAskRequest = registerPendingAskRequest;
+        }
+
+        /**
+         * Build call for registerPendingAsk
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Registration result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return registerPendingAskCall(registerPendingAskRequest, _callback);
+        }
+
+        /**
+         * Execute registerPendingAsk request
+         * @return RegisterPendingAskResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Registration result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public RegisterPendingAskResponse execute() throws ApiException {
+            ApiResponse<RegisterPendingAskResponse> localVarResp =
+                    registerPendingAskWithHttpInfo(registerPendingAskRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute registerPendingAsk request with HTTP info returned
+         * @return ApiResponse&lt;RegisterPendingAskResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Registration result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<RegisterPendingAskResponse> executeWithHttpInfo() throws ApiException {
+            return registerPendingAskWithHttpInfo(registerPendingAskRequest);
+        }
+
+        /**
+         * Execute registerPendingAsk request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Registration result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RegisterPendingAskResponse> _callback)
+                throws ApiException {
+            return registerPendingAskAsync(registerPendingAskRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for resolvePendingAsk
-     * @param askId  (required)
-     * @param resolvePendingAskRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Register a pending agent question
+     * Register a new pending ask. Called when an agent calls ask_user.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param registerPendingAskRequest  (required)
+     * @return APIregisterPendingAskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Registration result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call resolvePendingAskCall(
+    public APIregisterPendingAskRequest registerPendingAsk(
+            @jakarta.annotation.Nonnull RegisterPendingAskRequest registerPendingAskRequest) {
+        return new APIregisterPendingAskRequest(registerPendingAskRequest);
+    }
+
+    private okhttp3.Call resolvePendingAskCall(
             @jakarta.annotation.Nonnull String askId,
             @jakarta.annotation.Nonnull ResolvePendingAskRequest resolvePendingAskRequest,
             final ApiCallback _callback)
@@ -618,48 +698,7 @@ public class PendingAsksApi {
         return resolvePendingAskCall(askId, resolvePendingAskRequest, _callback);
     }
 
-    /**
-     * Resolve a pending agent question
-     * Resolve a pending ask with the user&#39;s response.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param askId  (required)
-     * @param resolvePendingAskRequest  (required)
-     * @return ResolvePendingAskResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ResolvePendingAskResponse resolvePendingAsk(
-            @jakarta.annotation.Nonnull String askId,
-            @jakarta.annotation.Nonnull ResolvePendingAskRequest resolvePendingAskRequest)
-            throws ApiException {
-        ApiResponse<ResolvePendingAskResponse> localVarResp =
-                resolvePendingAskWithHttpInfo(askId, resolvePendingAskRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Resolve a pending agent question
-     * Resolve a pending ask with the user&#39;s response.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param askId  (required)
-     * @param resolvePendingAskRequest  (required)
-     * @return ApiResponse&lt;ResolvePendingAskResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ResolvePendingAskResponse> resolvePendingAskWithHttpInfo(
+    private ApiResponse<ResolvePendingAskResponse> resolvePendingAskWithHttpInfo(
             @jakarta.annotation.Nonnull String askId,
             @jakarta.annotation.Nonnull ResolvePendingAskRequest resolvePendingAskRequest)
             throws ApiException {
@@ -669,24 +708,7 @@ public class PendingAsksApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Resolve a pending agent question (asynchronously)
-     * Resolve a pending ask with the user&#39;s response.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param askId  (required)
-     * @param resolvePendingAskRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call resolvePendingAskAsync(
+    private okhttp3.Call resolvePendingAskAsync(
             @jakarta.annotation.Nonnull String askId,
             @jakarta.annotation.Nonnull ResolvePendingAskRequest resolvePendingAskRequest,
             final ApiCallback<ResolvePendingAskResponse> _callback)
@@ -697,5 +719,111 @@ public class PendingAsksApi {
         Type localVarReturnType = new TypeToken<ResolvePendingAskResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIresolvePendingAskRequest {
+        @jakarta.annotation.Nonnull private final String askId;
+        @jakarta.annotation.Nonnull private final ResolvePendingAskRequest resolvePendingAskRequest;
+
+        private APIresolvePendingAskRequest(
+                @jakarta.annotation.Nonnull String askId,
+                @jakarta.annotation.Nonnull ResolvePendingAskRequest resolvePendingAskRequest) {
+            this.askId = askId;
+            this.resolvePendingAskRequest = resolvePendingAskRequest;
+        }
+
+        /**
+         * Build call for resolvePendingAsk
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return resolvePendingAskCall(askId, resolvePendingAskRequest, _callback);
+        }
+
+        /**
+         * Execute resolvePendingAsk request
+         * @return ResolvePendingAskResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ResolvePendingAskResponse execute() throws ApiException {
+            ApiResponse<ResolvePendingAskResponse> localVarResp =
+                    resolvePendingAskWithHttpInfo(askId, resolvePendingAskRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute resolvePendingAsk request with HTTP info returned
+         * @return ApiResponse&lt;ResolvePendingAskResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ResolvePendingAskResponse> executeWithHttpInfo() throws ApiException {
+            return resolvePendingAskWithHttpInfo(askId, resolvePendingAskRequest);
+        }
+
+        /**
+         * Execute resolvePendingAsk request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ResolvePendingAskResponse> _callback)
+                throws ApiException {
+            return resolvePendingAskAsync(askId, resolvePendingAskRequest, _callback);
+        }
+    }
+
+    /**
+     * Resolve a pending agent question
+     * Resolve a pending ask with the user&#39;s response.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param askId  (required)
+     * @param resolvePendingAskRequest  (required)
+     * @return APIresolvePendingAskRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIresolvePendingAskRequest resolvePendingAsk(
+            @jakarta.annotation.Nonnull String askId,
+            @jakarta.annotation.Nonnull ResolvePendingAskRequest resolvePendingAskRequest) {
+        return new APIresolvePendingAskRequest(askId, resolvePendingAskRequest);
     }
 }

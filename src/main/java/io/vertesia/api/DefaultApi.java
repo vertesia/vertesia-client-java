@@ -70,22 +70,7 @@ public class DefaultApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createAccountApiKey
-     * @param createAccountApiKeyPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAccountApiKeyCall(
+    private okhttp3.Call createAccountApiKeyCall(
             @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -155,45 +140,7 @@ public class DefaultApi {
         return createAccountApiKeyCall(createAccountApiKeyPayload, _callback);
     }
 
-    /**
-     * Create an account API key
-     *
-     * @param createAccountApiKeyPayload  (required)
-     * @return AccountApiKeyWithValue
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AccountApiKeyWithValue createAccountApiKey(
-            @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload)
-            throws ApiException {
-        ApiResponse<AccountApiKeyWithValue> localVarResp =
-                createAccountApiKeyWithHttpInfo(createAccountApiKeyPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an account API key
-     *
-     * @param createAccountApiKeyPayload  (required)
-     * @return ApiResponse&lt;AccountApiKeyWithValue&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AccountApiKeyWithValue> createAccountApiKeyWithHttpInfo(
+    private ApiResponse<AccountApiKeyWithValue> createAccountApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -202,23 +149,7 @@ public class DefaultApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an account API key (asynchronously)
-     *
-     * @param createAccountApiKeyPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAccountApiKeyAsync(
+    private okhttp3.Call createAccountApiKeyAsync(
             @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload,
             final ApiCallback<AccountApiKeyWithValue> _callback)
             throws ApiException {
@@ -230,22 +161,109 @@ public class DefaultApi {
         return localVarCall;
     }
 
+    public class APIcreateAccountApiKeyRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateAccountApiKeyPayload createAccountApiKeyPayload;
+
+        private APIcreateAccountApiKeyRequest(
+                @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload) {
+            this.createAccountApiKeyPayload = createAccountApiKeyPayload;
+        }
+
+        /**
+         * Build call for createAccountApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createAccountApiKeyCall(createAccountApiKeyPayload, _callback);
+        }
+
+        /**
+         * Execute createAccountApiKey request
+         * @return AccountApiKeyWithValue
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AccountApiKeyWithValue execute() throws ApiException {
+            ApiResponse<AccountApiKeyWithValue> localVarResp =
+                    createAccountApiKeyWithHttpInfo(createAccountApiKeyPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createAccountApiKey request with HTTP info returned
+         * @return ApiResponse&lt;AccountApiKeyWithValue&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AccountApiKeyWithValue> executeWithHttpInfo() throws ApiException {
+            return createAccountApiKeyWithHttpInfo(createAccountApiKeyPayload);
+        }
+
+        /**
+         * Execute createAccountApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AccountApiKeyWithValue> _callback)
+                throws ApiException {
+            return createAccountApiKeyAsync(createAccountApiKeyPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createCustomRole
-     * @param body  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an account API key
+     *
+     * @param createAccountApiKeyPayload  (required)
+     * @return APIcreateAccountApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createCustomRoleCall(
+    public APIcreateAccountApiKeyRequest createAccountApiKey(
+            @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload) {
+        return new APIcreateAccountApiKeyRequest(createAccountApiKeyPayload);
+    }
+
+    private okhttp3.Call createCustomRoleCall(
             @jakarta.annotation.Nonnull CustomRoleDefinition body, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -313,66 +331,14 @@ public class DefaultApi {
         return createCustomRoleCall(body, _callback);
     }
 
-    /**
-     * Create an account-local custom role
-     *
-     * @param body  (required)
-     * @return CustomRoleDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CustomRoleDefinition createCustomRole(
-            @jakarta.annotation.Nonnull CustomRoleDefinition body) throws ApiException {
-        ApiResponse<CustomRoleDefinition> localVarResp = createCustomRoleWithHttpInfo(body);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an account-local custom role
-     *
-     * @param body  (required)
-     * @return ApiResponse&lt;CustomRoleDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CustomRoleDefinition> createCustomRoleWithHttpInfo(
+    private ApiResponse<CustomRoleDefinition> createCustomRoleWithHttpInfo(
             @jakarta.annotation.Nonnull CustomRoleDefinition body) throws ApiException {
         okhttp3.Call localVarCall = createCustomRoleValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<CustomRoleDefinition>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an account-local custom role (asynchronously)
-     *
-     * @param body  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createCustomRoleAsync(
+    private okhttp3.Call createCustomRoleAsync(
             @jakarta.annotation.Nonnull CustomRoleDefinition body,
             final ApiCallback<CustomRoleDefinition> _callback)
             throws ApiException {
@@ -383,22 +349,106 @@ public class DefaultApi {
         return localVarCall;
     }
 
+    public class APIcreateCustomRoleRequest {
+        @jakarta.annotation.Nonnull private final CustomRoleDefinition body;
+
+        private APIcreateCustomRoleRequest(@jakarta.annotation.Nonnull CustomRoleDefinition body) {
+            this.body = body;
+        }
+
+        /**
+         * Build call for createCustomRole
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createCustomRoleCall(body, _callback);
+        }
+
+        /**
+         * Execute createCustomRole request
+         * @return CustomRoleDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CustomRoleDefinition execute() throws ApiException {
+            ApiResponse<CustomRoleDefinition> localVarResp = createCustomRoleWithHttpInfo(body);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createCustomRole request with HTTP info returned
+         * @return ApiResponse&lt;CustomRoleDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CustomRoleDefinition> executeWithHttpInfo() throws ApiException {
+            return createCustomRoleWithHttpInfo(body);
+        }
+
+        /**
+         * Execute createCustomRole request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CustomRoleDefinition> _callback)
+                throws ApiException {
+            return createCustomRoleAsync(body, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteAccountApiKey
-     * @param keyId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an account-local custom role
+     *
+     * @param body  (required)
+     * @return APIcreateCustomRoleRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteAccountApiKeyCall(
+    public APIcreateCustomRoleRequest createCustomRole(
+            @jakarta.annotation.Nonnull CustomRoleDefinition body) {
+        return new APIcreateCustomRoleRequest(body);
+    }
+
+    private okhttp3.Call deleteAccountApiKeyCall(
             @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -470,66 +520,14 @@ public class DefaultApi {
         return deleteAccountApiKeyCall(keyId, _callback);
     }
 
-    /**
-     * Delete an account API key
-     *
-     * @param keyId  (required)
-     * @return DeleteOperationResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteOperationResult deleteAccountApiKey(@jakarta.annotation.Nonnull String keyId)
-            throws ApiException {
-        ApiResponse<DeleteOperationResult> localVarResp = deleteAccountApiKeyWithHttpInfo(keyId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an account API key
-     *
-     * @param keyId  (required)
-     * @return ApiResponse&lt;DeleteOperationResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteOperationResult> deleteAccountApiKeyWithHttpInfo(
+    private ApiResponse<DeleteOperationResult> deleteAccountApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull String keyId) throws ApiException {
         okhttp3.Call localVarCall = deleteAccountApiKeyValidateBeforeCall(keyId, null);
         Type localVarReturnType = new TypeToken<DeleteOperationResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an account API key (asynchronously)
-     *
-     * @param keyId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteAccountApiKeyAsync(
+    private okhttp3.Call deleteAccountApiKeyAsync(
             @jakarta.annotation.Nonnull String keyId,
             final ApiCallback<DeleteOperationResult> _callback)
             throws ApiException {
@@ -540,22 +538,107 @@ public class DefaultApi {
         return localVarCall;
     }
 
+    public class APIdeleteAccountApiKeyRequest {
+        @jakarta.annotation.Nonnull private final String keyId;
+
+        private APIdeleteAccountApiKeyRequest(@jakarta.annotation.Nonnull String keyId) {
+            this.keyId = keyId;
+        }
+
+        /**
+         * Build call for deleteAccountApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteAccountApiKeyCall(keyId, _callback);
+        }
+
+        /**
+         * Execute deleteAccountApiKey request
+         * @return DeleteOperationResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteOperationResult execute() throws ApiException {
+            ApiResponse<DeleteOperationResult> localVarResp =
+                    deleteAccountApiKeyWithHttpInfo(keyId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteAccountApiKey request with HTTP info returned
+         * @return ApiResponse&lt;DeleteOperationResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteOperationResult> executeWithHttpInfo() throws ApiException {
+            return deleteAccountApiKeyWithHttpInfo(keyId);
+        }
+
+        /**
+         * Execute deleteAccountApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteOperationResult> _callback)
+                throws ApiException {
+            return deleteAccountApiKeyAsync(keyId, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteCustomRole
-     * @param name  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete an account API key
+     *
+     * @param keyId  (required)
+     * @return APIdeleteAccountApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteCustomRoleCall(
+    public APIdeleteAccountApiKeyRequest deleteAccountApiKey(
+            @jakarta.annotation.Nonnull String keyId) {
+        return new APIdeleteAccountApiKeyRequest(keyId);
+    }
+
+    private okhttp3.Call deleteCustomRoleCall(
             @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -627,66 +710,14 @@ public class DefaultApi {
         return deleteCustomRoleCall(name, _callback);
     }
 
-    /**
-     * Delete a custom role that is neither assigned nor inherited
-     *
-     * @param name  (required)
-     * @return DeleteOperationResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteOperationResult deleteCustomRole(@jakarta.annotation.Nonnull String name)
-            throws ApiException {
-        ApiResponse<DeleteOperationResult> localVarResp = deleteCustomRoleWithHttpInfo(name);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a custom role that is neither assigned nor inherited
-     *
-     * @param name  (required)
-     * @return ApiResponse&lt;DeleteOperationResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteOperationResult> deleteCustomRoleWithHttpInfo(
+    private ApiResponse<DeleteOperationResult> deleteCustomRoleWithHttpInfo(
             @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = deleteCustomRoleValidateBeforeCall(name, null);
         Type localVarReturnType = new TypeToken<DeleteOperationResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a custom role that is neither assigned nor inherited (asynchronously)
-     *
-     * @param name  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteCustomRoleAsync(
+    private okhttp3.Call deleteCustomRoleAsync(
             @jakarta.annotation.Nonnull String name,
             final ApiCallback<DeleteOperationResult> _callback)
             throws ApiException {
@@ -697,22 +728,105 @@ public class DefaultApi {
         return localVarCall;
     }
 
+    public class APIdeleteCustomRoleRequest {
+        @jakarta.annotation.Nonnull private final String name;
+
+        private APIdeleteCustomRoleRequest(@jakarta.annotation.Nonnull String name) {
+            this.name = name;
+        }
+
+        /**
+         * Build call for deleteCustomRole
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteCustomRoleCall(name, _callback);
+        }
+
+        /**
+         * Execute deleteCustomRole request
+         * @return DeleteOperationResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteOperationResult execute() throws ApiException {
+            ApiResponse<DeleteOperationResult> localVarResp = deleteCustomRoleWithHttpInfo(name);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteCustomRole request with HTTP info returned
+         * @return ApiResponse&lt;DeleteOperationResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteOperationResult> executeWithHttpInfo() throws ApiException {
+            return deleteCustomRoleWithHttpInfo(name);
+        }
+
+        /**
+         * Execute deleteCustomRole request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteOperationResult> _callback)
+                throws ApiException {
+            return deleteCustomRoleAsync(name, _callback);
+        }
+    }
+
     /**
-     * Build call for getAccountApiKey
-     * @param keyId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete a custom role that is neither assigned nor inherited
+     *
+     * @param name  (required)
+     * @return APIdeleteCustomRoleRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAccountApiKeyCall(
+    public APIdeleteCustomRoleRequest deleteCustomRole(@jakarta.annotation.Nonnull String name) {
+        return new APIdeleteCustomRoleRequest(name);
+    }
+
+    private okhttp3.Call getAccountApiKeyCall(
             @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -784,66 +898,14 @@ public class DefaultApi {
         return getAccountApiKeyCall(keyId, _callback);
     }
 
-    /**
-     * Get account API key metadata
-     *
-     * @param keyId  (required)
-     * @return AccountApiKey
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AccountApiKey getAccountApiKey(@jakarta.annotation.Nonnull String keyId)
-            throws ApiException {
-        ApiResponse<AccountApiKey> localVarResp = getAccountApiKeyWithHttpInfo(keyId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get account API key metadata
-     *
-     * @param keyId  (required)
-     * @return ApiResponse&lt;AccountApiKey&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AccountApiKey> getAccountApiKeyWithHttpInfo(
+    private ApiResponse<AccountApiKey> getAccountApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull String keyId) throws ApiException {
         okhttp3.Call localVarCall = getAccountApiKeyValidateBeforeCall(keyId, null);
         Type localVarReturnType = new TypeToken<AccountApiKey>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get account API key metadata (asynchronously)
-     *
-     * @param keyId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAccountApiKeyAsync(
+    private okhttp3.Call getAccountApiKeyAsync(
             @jakarta.annotation.Nonnull String keyId, final ApiCallback<AccountApiKey> _callback)
             throws ApiException {
 
@@ -853,21 +915,105 @@ public class DefaultApi {
         return localVarCall;
     }
 
+    public class APIgetAccountApiKeyRequest {
+        @jakarta.annotation.Nonnull private final String keyId;
+
+        private APIgetAccountApiKeyRequest(@jakarta.annotation.Nonnull String keyId) {
+            this.keyId = keyId;
+        }
+
+        /**
+         * Build call for getAccountApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAccountApiKeyCall(keyId, _callback);
+        }
+
+        /**
+         * Execute getAccountApiKey request
+         * @return AccountApiKey
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AccountApiKey execute() throws ApiException {
+            ApiResponse<AccountApiKey> localVarResp = getAccountApiKeyWithHttpInfo(keyId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAccountApiKey request with HTTP info returned
+         * @return ApiResponse&lt;AccountApiKey&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AccountApiKey> executeWithHttpInfo() throws ApiException {
+            return getAccountApiKeyWithHttpInfo(keyId);
+        }
+
+        /**
+         * Execute getAccountApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AccountApiKey> _callback)
+                throws ApiException {
+            return getAccountApiKeyAsync(keyId, _callback);
+        }
+    }
+
     /**
-     * Build call for listAccountApiKeys
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get account API key metadata
+     *
+     * @param keyId  (required)
+     * @return APIgetAccountApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAccountApiKeysCall(final ApiCallback _callback) throws ApiException {
+    public APIgetAccountApiKeyRequest getAccountApiKey(@jakarta.annotation.Nonnull String keyId) {
+        return new APIgetAccountApiKeyRequest(keyId);
+    }
+
+    private okhttp3.Call listAccountApiKeysCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -926,61 +1072,13 @@ public class DefaultApi {
         return listAccountApiKeysCall(_callback);
     }
 
-    /**
-     * List account API keys
-     *
-     * @return List&lt;AccountApiKey&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AccountApiKey> listAccountApiKeys() throws ApiException {
-        ApiResponse<List<AccountApiKey>> localVarResp = listAccountApiKeysWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List account API keys
-     *
-     * @return ApiResponse&lt;List&lt;AccountApiKey&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AccountApiKey>> listAccountApiKeysWithHttpInfo() throws ApiException {
+    private ApiResponse<List<AccountApiKey>> listAccountApiKeysWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listAccountApiKeysValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<AccountApiKey>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List account API keys (asynchronously)
-     *
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAccountApiKeysAsync(final ApiCallback<List<AccountApiKey>> _callback)
+    private okhttp3.Call listAccountApiKeysAsync(final ApiCallback<List<AccountApiKey>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listAccountApiKeysValidateBeforeCall(_callback);
@@ -989,21 +1087,101 @@ public class DefaultApi {
         return localVarCall;
     }
 
+    public class APIlistAccountApiKeysRequest {
+
+        private APIlistAccountApiKeysRequest() {}
+
+        /**
+         * Build call for listAccountApiKeys
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAccountApiKeysCall(_callback);
+        }
+
+        /**
+         * Execute listAccountApiKeys request
+         * @return List&lt;AccountApiKey&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AccountApiKey> execute() throws ApiException {
+            ApiResponse<List<AccountApiKey>> localVarResp = listAccountApiKeysWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAccountApiKeys request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AccountApiKey&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AccountApiKey>> executeWithHttpInfo() throws ApiException {
+            return listAccountApiKeysWithHttpInfo();
+        }
+
+        /**
+         * Execute listAccountApiKeys request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AccountApiKey>> _callback)
+                throws ApiException {
+            return listAccountApiKeysAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listCustomRolePermissions
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List account API keys
+     *
+     * @return APIlistAccountApiKeysRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listCustomRolePermissionsCall(final ApiCallback _callback)
+    public APIlistAccountApiKeysRequest listAccountApiKeys() {
+        return new APIlistAccountApiKeysRequest();
+    }
+
+    private okhttp3.Call listCustomRolePermissionsCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1063,62 +1241,14 @@ public class DefaultApi {
         return listCustomRolePermissionsCall(_callback);
     }
 
-    /**
-     * List permissions available to custom roles
-     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @return List&lt;Permission&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<Permission> listCustomRolePermissions() throws ApiException {
-        ApiResponse<List<Permission>> localVarResp = listCustomRolePermissionsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List permissions available to custom roles
-     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @return ApiResponse&lt;List&lt;Permission&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<Permission>> listCustomRolePermissionsWithHttpInfo()
+    private ApiResponse<List<Permission>> listCustomRolePermissionsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listCustomRolePermissionsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<Permission>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List permissions available to custom roles (asynchronously)
-     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listCustomRolePermissionsAsync(
+    private okhttp3.Call listCustomRolePermissionsAsync(
             final ApiCallback<List<Permission>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCustomRolePermissionsValidateBeforeCall(_callback);
@@ -1127,11 +1257,87 @@ public class DefaultApi {
         return localVarCall;
     }
 
+    public class APIlistCustomRolePermissionsRequest {
+
+        private APIlistCustomRolePermissionsRequest() {}
+
+        /**
+         * Build call for listCustomRolePermissions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCustomRolePermissionsCall(_callback);
+        }
+
+        /**
+         * Execute listCustomRolePermissions request
+         * @return List&lt;Permission&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<Permission> execute() throws ApiException {
+            ApiResponse<List<Permission>> localVarResp = listCustomRolePermissionsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCustomRolePermissions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;Permission&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<Permission>> executeWithHttpInfo() throws ApiException {
+            return listCustomRolePermissionsWithHttpInfo();
+        }
+
+        /**
+         * Execute listCustomRolePermissions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<Permission>> _callback)
+                throws ApiException {
+            return listCustomRolePermissionsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listCustomRoles
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List permissions available to custom roles
+     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
+     * @return APIlistCustomRolePermissionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -1141,7 +1347,11 @@ public class DefaultApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listCustomRolesCall(final ApiCallback _callback) throws ApiException {
+    public APIlistCustomRolePermissionsRequest listCustomRolePermissions() {
+        return new APIlistCustomRolePermissionsRequest();
+    }
+
+    private okhttp3.Call listCustomRolesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1200,62 +1410,14 @@ public class DefaultApi {
         return listCustomRolesCall(_callback);
     }
 
-    /**
-     * List custom roles in the current account
-     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @return List&lt;CustomRoleDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<CustomRoleDefinition> listCustomRoles() throws ApiException {
-        ApiResponse<List<CustomRoleDefinition>> localVarResp = listCustomRolesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List custom roles in the current account
-     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @return ApiResponse&lt;List&lt;CustomRoleDefinition&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<CustomRoleDefinition>> listCustomRolesWithHttpInfo()
+    private ApiResponse<List<CustomRoleDefinition>> listCustomRolesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listCustomRolesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<CustomRoleDefinition>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List custom roles in the current account (asynchronously)
-     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listCustomRolesAsync(
+    private okhttp3.Call listCustomRolesAsync(
             final ApiCallback<List<CustomRoleDefinition>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCustomRolesValidateBeforeCall(_callback);
@@ -1264,23 +1426,101 @@ public class DefaultApi {
         return localVarCall;
     }
 
+    public class APIlistCustomRolesRequest {
+
+        private APIlistCustomRolesRequest() {}
+
+        /**
+         * Build call for listCustomRoles
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCustomRolesCall(_callback);
+        }
+
+        /**
+         * Execute listCustomRoles request
+         * @return List&lt;CustomRoleDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<CustomRoleDefinition> execute() throws ApiException {
+            ApiResponse<List<CustomRoleDefinition>> localVarResp = listCustomRolesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCustomRoles request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CustomRoleDefinition&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<CustomRoleDefinition>> executeWithHttpInfo() throws ApiException {
+            return listCustomRolesWithHttpInfo();
+        }
+
+        /**
+         * Execute listCustomRoles request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CustomRoleDefinition>> _callback)
+                throws ApiException {
+            return listCustomRolesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateAccountApiKey
-     * @param keyId  (required)
-     * @param updateAccountApiKeyPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List custom roles in the current account
+     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
+     * @return APIlistCustomRolesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAccountApiKeyCall(
+    public APIlistCustomRolesRequest listCustomRoles() {
+        return new APIlistCustomRolesRequest();
+    }
+
+    private okhttp3.Call updateAccountApiKeyCall(
             @jakarta.annotation.Nonnull String keyId,
             @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload,
             final ApiCallback _callback)
@@ -1362,48 +1602,7 @@ public class DefaultApi {
         return updateAccountApiKeyCall(keyId, updateAccountApiKeyPayload, _callback);
     }
 
-    /**
-     * Update an account API key
-     *
-     * @param keyId  (required)
-     * @param updateAccountApiKeyPayload  (required)
-     * @return AccountApiKey
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AccountApiKey updateAccountApiKey(
-            @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload)
-            throws ApiException {
-        ApiResponse<AccountApiKey> localVarResp =
-                updateAccountApiKeyWithHttpInfo(keyId, updateAccountApiKeyPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an account API key
-     *
-     * @param keyId  (required)
-     * @param updateAccountApiKeyPayload  (required)
-     * @return ApiResponse&lt;AccountApiKey&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AccountApiKey> updateAccountApiKeyWithHttpInfo(
+    private ApiResponse<AccountApiKey> updateAccountApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull String keyId,
             @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload)
             throws ApiException {
@@ -1413,24 +1612,7 @@ public class DefaultApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an account API key (asynchronously)
-     *
-     * @param keyId  (required)
-     * @param updateAccountApiKeyPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateAccountApiKeyAsync(
+    private okhttp3.Call updateAccountApiKeyAsync(
             @jakarta.annotation.Nonnull String keyId,
             @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload,
             final ApiCallback<AccountApiKey> _callback)
@@ -1443,23 +1625,115 @@ public class DefaultApi {
         return localVarCall;
     }
 
+    public class APIupdateAccountApiKeyRequest {
+        @jakarta.annotation.Nonnull private final String keyId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateAccountApiKeyPayload updateAccountApiKeyPayload;
+
+        private APIupdateAccountApiKeyRequest(
+                @jakarta.annotation.Nonnull String keyId,
+                @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload) {
+            this.keyId = keyId;
+            this.updateAccountApiKeyPayload = updateAccountApiKeyPayload;
+        }
+
+        /**
+         * Build call for updateAccountApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateAccountApiKeyCall(keyId, updateAccountApiKeyPayload, _callback);
+        }
+
+        /**
+         * Execute updateAccountApiKey request
+         * @return AccountApiKey
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AccountApiKey execute() throws ApiException {
+            ApiResponse<AccountApiKey> localVarResp =
+                    updateAccountApiKeyWithHttpInfo(keyId, updateAccountApiKeyPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateAccountApiKey request with HTTP info returned
+         * @return ApiResponse&lt;AccountApiKey&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AccountApiKey> executeWithHttpInfo() throws ApiException {
+            return updateAccountApiKeyWithHttpInfo(keyId, updateAccountApiKeyPayload);
+        }
+
+        /**
+         * Execute updateAccountApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AccountApiKey> _callback)
+                throws ApiException {
+            return updateAccountApiKeyAsync(keyId, updateAccountApiKeyPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateCustomRole
-     * @param name  (required)
-     * @param updateCustomRolePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Update an account API key
+     *
+     * @param keyId  (required)
+     * @param updateAccountApiKeyPayload  (required)
+     * @return APIupdateAccountApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateCustomRoleCall(
+    public APIupdateAccountApiKeyRequest updateAccountApiKey(
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload) {
+        return new APIupdateAccountApiKeyRequest(keyId, updateAccountApiKeyPayload);
+    }
+
+    private okhttp3.Call updateCustomRoleCall(
             @jakarta.annotation.Nonnull String name,
             @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload,
             final ApiCallback _callback)
@@ -1541,48 +1815,7 @@ public class DefaultApi {
         return updateCustomRoleCall(name, updateCustomRolePayload, _callback);
     }
 
-    /**
-     * Update a custom role; changes apply to newly minted tokens
-     *
-     * @param name  (required)
-     * @param updateCustomRolePayload  (required)
-     * @return CustomRoleDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CustomRoleDefinition updateCustomRole(
-            @jakarta.annotation.Nonnull String name,
-            @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload)
-            throws ApiException {
-        ApiResponse<CustomRoleDefinition> localVarResp =
-                updateCustomRoleWithHttpInfo(name, updateCustomRolePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a custom role; changes apply to newly minted tokens
-     *
-     * @param name  (required)
-     * @param updateCustomRolePayload  (required)
-     * @return ApiResponse&lt;CustomRoleDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CustomRoleDefinition> updateCustomRoleWithHttpInfo(
+    private ApiResponse<CustomRoleDefinition> updateCustomRoleWithHttpInfo(
             @jakarta.annotation.Nonnull String name,
             @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload)
             throws ApiException {
@@ -1592,24 +1825,7 @@ public class DefaultApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a custom role; changes apply to newly minted tokens (asynchronously)
-     *
-     * @param name  (required)
-     * @param updateCustomRolePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateCustomRoleAsync(
+    private okhttp3.Call updateCustomRoleAsync(
             @jakarta.annotation.Nonnull String name,
             @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload,
             final ApiCallback<CustomRoleDefinition> _callback)
@@ -1620,5 +1836,111 @@ public class DefaultApi {
         Type localVarReturnType = new TypeToken<CustomRoleDefinition>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateCustomRoleRequest {
+        @jakarta.annotation.Nonnull private final String name;
+        @jakarta.annotation.Nonnull private final UpdateCustomRolePayload updateCustomRolePayload;
+
+        private APIupdateCustomRoleRequest(
+                @jakarta.annotation.Nonnull String name,
+                @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload) {
+            this.name = name;
+            this.updateCustomRolePayload = updateCustomRolePayload;
+        }
+
+        /**
+         * Build call for updateCustomRole
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateCustomRoleCall(name, updateCustomRolePayload, _callback);
+        }
+
+        /**
+         * Execute updateCustomRole request
+         * @return CustomRoleDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CustomRoleDefinition execute() throws ApiException {
+            ApiResponse<CustomRoleDefinition> localVarResp =
+                    updateCustomRoleWithHttpInfo(name, updateCustomRolePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateCustomRole request with HTTP info returned
+         * @return ApiResponse&lt;CustomRoleDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CustomRoleDefinition> executeWithHttpInfo() throws ApiException {
+            return updateCustomRoleWithHttpInfo(name, updateCustomRolePayload);
+        }
+
+        /**
+         * Execute updateCustomRole request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CustomRoleDefinition> _callback)
+                throws ApiException {
+            return updateCustomRoleAsync(name, updateCustomRolePayload, _callback);
+        }
+    }
+
+    /**
+     * Update a custom role; changes apply to newly minted tokens
+     *
+     * @param name  (required)
+     * @param updateCustomRolePayload  (required)
+     * @return APIupdateCustomRoleRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateCustomRoleRequest updateCustomRole(
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload) {
+        return new APIupdateCustomRoleRequest(name, updateCustomRolePayload);
     }
 }

@@ -67,22 +67,7 @@ public class EventSubscriptionsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createEventSubscription
-     * @param createEventSubscriptionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created event subscription. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createEventSubscriptionCall(
+    private okhttp3.Call createEventSubscriptionCall(
             @jakarta.annotation.Nonnull
                     CreateEventSubscriptionPayload createEventSubscriptionPayload,
             final ApiCallback _callback)
@@ -154,46 +139,7 @@ public class EventSubscriptionsApi {
         return createEventSubscriptionCall(createEventSubscriptionPayload, _callback);
     }
 
-    /**
-     * Create an event subscription
-     * Creates a workflow, webhook, agent, or process event subscription for the current account or project.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createEventSubscriptionPayload  (required)
-     * @return EventSubscriptionMutationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created event subscription. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EventSubscriptionMutationResponse createEventSubscription(
-            @jakarta.annotation.Nonnull
-                    CreateEventSubscriptionPayload createEventSubscriptionPayload)
-            throws ApiException {
-        ApiResponse<EventSubscriptionMutationResponse> localVarResp =
-                createEventSubscriptionWithHttpInfo(createEventSubscriptionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an event subscription
-     * Creates a workflow, webhook, agent, or process event subscription for the current account or project.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createEventSubscriptionPayload  (required)
-     * @return ApiResponse&lt;EventSubscriptionMutationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created event subscription. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EventSubscriptionMutationResponse> createEventSubscriptionWithHttpInfo(
+    private ApiResponse<EventSubscriptionMutationResponse> createEventSubscriptionWithHttpInfo(
             @jakarta.annotation.Nonnull
                     CreateEventSubscriptionPayload createEventSubscriptionPayload)
             throws ApiException {
@@ -203,23 +149,7 @@ public class EventSubscriptionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an event subscription (asynchronously)
-     * Creates a workflow, webhook, agent, or process event subscription for the current account or project.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createEventSubscriptionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created event subscription. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createEventSubscriptionAsync(
+    private okhttp3.Call createEventSubscriptionAsync(
             @jakarta.annotation.Nonnull
                     CreateEventSubscriptionPayload createEventSubscriptionPayload,
             final ApiCallback<EventSubscriptionMutationResponse> _callback)
@@ -233,22 +163,113 @@ public class EventSubscriptionsApi {
         return localVarCall;
     }
 
+    public class APIcreateEventSubscriptionRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateEventSubscriptionPayload createEventSubscriptionPayload;
+
+        private APIcreateEventSubscriptionRequest(
+                @jakarta.annotation.Nonnull
+                        CreateEventSubscriptionPayload createEventSubscriptionPayload) {
+            this.createEventSubscriptionPayload = createEventSubscriptionPayload;
+        }
+
+        /**
+         * Build call for createEventSubscription
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createEventSubscriptionCall(createEventSubscriptionPayload, _callback);
+        }
+
+        /**
+         * Execute createEventSubscription request
+         * @return EventSubscriptionMutationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public EventSubscriptionMutationResponse execute() throws ApiException {
+            ApiResponse<EventSubscriptionMutationResponse> localVarResp =
+                    createEventSubscriptionWithHttpInfo(createEventSubscriptionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createEventSubscription request with HTTP info returned
+         * @return ApiResponse&lt;EventSubscriptionMutationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<EventSubscriptionMutationResponse> executeWithHttpInfo()
+                throws ApiException {
+            return createEventSubscriptionWithHttpInfo(createEventSubscriptionPayload);
+        }
+
+        /**
+         * Execute createEventSubscription request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<EventSubscriptionMutationResponse> _callback)
+                throws ApiException {
+            return createEventSubscriptionAsync(createEventSubscriptionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteEventSubscription
-     * @param subscriptionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an event subscription
+     * Creates a workflow, webhook, agent, or process event subscription for the current account or project.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param createEventSubscriptionPayload  (required)
+     * @return APIcreateEventSubscriptionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted event subscription status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created event subscription. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteEventSubscriptionCall(
+    public APIcreateEventSubscriptionRequest createEventSubscription(
+            @jakarta.annotation.Nonnull
+                    CreateEventSubscriptionPayload createEventSubscriptionPayload) {
+        return new APIcreateEventSubscriptionRequest(createEventSubscriptionPayload);
+    }
+
+    private okhttp3.Call deleteEventSubscriptionCall(
             @jakarta.annotation.Nonnull String subscriptionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -320,67 +341,14 @@ public class EventSubscriptionsApi {
         return deleteEventSubscriptionCall(subscriptionId, _callback);
     }
 
-    /**
-     * Delete an event subscription
-     * Deletes an event subscription. Queued deliveries are cancelled, since nothing can start them once the subscription is gone; deliveries already running are left to finish and report normally. Both remain visible for the operational retention window.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param subscriptionId  (required)
-     * @return DeleteCountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted event subscription status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteCountResult deleteEventSubscription(
-            @jakarta.annotation.Nonnull String subscriptionId) throws ApiException {
-        ApiResponse<DeleteCountResult> localVarResp =
-                deleteEventSubscriptionWithHttpInfo(subscriptionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an event subscription
-     * Deletes an event subscription. Queued deliveries are cancelled, since nothing can start them once the subscription is gone; deliveries already running are left to finish and report normally. Both remain visible for the operational retention window.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param subscriptionId  (required)
-     * @return ApiResponse&lt;DeleteCountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted event subscription status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteCountResult> deleteEventSubscriptionWithHttpInfo(
+    private ApiResponse<DeleteCountResult> deleteEventSubscriptionWithHttpInfo(
             @jakarta.annotation.Nonnull String subscriptionId) throws ApiException {
         okhttp3.Call localVarCall = deleteEventSubscriptionValidateBeforeCall(subscriptionId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an event subscription (asynchronously)
-     * Deletes an event subscription. Queued deliveries are cancelled, since nothing can start them once the subscription is gone; deliveries already running are left to finish and report normally. Both remain visible for the operational retention window.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param subscriptionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted event subscription status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteEventSubscriptionAsync(
+    private okhttp3.Call deleteEventSubscriptionAsync(
             @jakarta.annotation.Nonnull String subscriptionId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
@@ -392,22 +360,108 @@ public class EventSubscriptionsApi {
         return localVarCall;
     }
 
+    public class APIdeleteEventSubscriptionRequest {
+        @jakarta.annotation.Nonnull private final String subscriptionId;
+
+        private APIdeleteEventSubscriptionRequest(
+                @jakarta.annotation.Nonnull String subscriptionId) {
+            this.subscriptionId = subscriptionId;
+        }
+
+        /**
+         * Build call for deleteEventSubscription
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted event subscription status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteEventSubscriptionCall(subscriptionId, _callback);
+        }
+
+        /**
+         * Execute deleteEventSubscription request
+         * @return DeleteCountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted event subscription status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteCountResult execute() throws ApiException {
+            ApiResponse<DeleteCountResult> localVarResp =
+                    deleteEventSubscriptionWithHttpInfo(subscriptionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteEventSubscription request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted event subscription status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteCountResult> executeWithHttpInfo() throws ApiException {
+            return deleteEventSubscriptionWithHttpInfo(subscriptionId);
+        }
+
+        /**
+         * Execute deleteEventSubscription request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted event subscription status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCountResult> _callback)
+                throws ApiException {
+            return deleteEventSubscriptionAsync(subscriptionId, _callback);
+        }
+    }
+
     /**
-     * Build call for getEventSubscription
+     * Delete an event subscription
+     * Deletes an event subscription. Queued deliveries are cancelled, since nothing can start them once the subscription is gone; deliveries already running are left to finish and report normally. Both remain visible for the operational retention window.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param subscriptionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteEventSubscriptionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested event subscription. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Deleted event subscription status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getEventSubscriptionCall(
+    public APIdeleteEventSubscriptionRequest deleteEventSubscription(
+            @jakarta.annotation.Nonnull String subscriptionId) {
+        return new APIdeleteEventSubscriptionRequest(subscriptionId);
+    }
+
+    private okhttp3.Call getEventSubscriptionCall(
             @jakarta.annotation.Nonnull String subscriptionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -479,67 +533,14 @@ public class EventSubscriptionsApi {
         return getEventSubscriptionCall(subscriptionId, _callback);
     }
 
-    /**
-     * Retrieve an event subscription
-     * Retrieves one event subscription visible to the current project.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param subscriptionId  (required)
-     * @return EventSubscription
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested event subscription. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EventSubscription getEventSubscription(@jakarta.annotation.Nonnull String subscriptionId)
-            throws ApiException {
-        ApiResponse<EventSubscription> localVarResp =
-                getEventSubscriptionWithHttpInfo(subscriptionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an event subscription
-     * Retrieves one event subscription visible to the current project.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param subscriptionId  (required)
-     * @return ApiResponse&lt;EventSubscription&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested event subscription. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EventSubscription> getEventSubscriptionWithHttpInfo(
+    private ApiResponse<EventSubscription> getEventSubscriptionWithHttpInfo(
             @jakarta.annotation.Nonnull String subscriptionId) throws ApiException {
         okhttp3.Call localVarCall = getEventSubscriptionValidateBeforeCall(subscriptionId, null);
         Type localVarReturnType = new TypeToken<EventSubscription>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an event subscription (asynchronously)
-     * Retrieves one event subscription visible to the current project.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param subscriptionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested event subscription. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getEventSubscriptionAsync(
+    private okhttp3.Call getEventSubscriptionAsync(
             @jakarta.annotation.Nonnull String subscriptionId,
             final ApiCallback<EventSubscription> _callback)
             throws ApiException {
@@ -551,21 +552,107 @@ public class EventSubscriptionsApi {
         return localVarCall;
     }
 
+    public class APIgetEventSubscriptionRequest {
+        @jakarta.annotation.Nonnull private final String subscriptionId;
+
+        private APIgetEventSubscriptionRequest(@jakarta.annotation.Nonnull String subscriptionId) {
+            this.subscriptionId = subscriptionId;
+        }
+
+        /**
+         * Build call for getEventSubscription
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getEventSubscriptionCall(subscriptionId, _callback);
+        }
+
+        /**
+         * Execute getEventSubscription request
+         * @return EventSubscription
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public EventSubscription execute() throws ApiException {
+            ApiResponse<EventSubscription> localVarResp =
+                    getEventSubscriptionWithHttpInfo(subscriptionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getEventSubscription request with HTTP info returned
+         * @return ApiResponse&lt;EventSubscription&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<EventSubscription> executeWithHttpInfo() throws ApiException {
+            return getEventSubscriptionWithHttpInfo(subscriptionId);
+        }
+
+        /**
+         * Execute getEventSubscription request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<EventSubscription> _callback)
+                throws ApiException {
+            return getEventSubscriptionAsync(subscriptionId, _callback);
+        }
+    }
+
     /**
-     * Build call for listEventSubscriptions
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve an event subscription
+     * Retrieves one event subscription visible to the current project.  **Required permissions:** &#x60;workflow:read&#x60;
+     * @param subscriptionId  (required)
+     * @return APIgetEventSubscriptionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Event subscriptions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested event subscription. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listEventSubscriptionsCall(final ApiCallback _callback)
+    public APIgetEventSubscriptionRequest getEventSubscription(
+            @jakarta.annotation.Nonnull String subscriptionId) {
+        return new APIgetEventSubscriptionRequest(subscriptionId);
+    }
+
+    private okhttp3.Call listEventSubscriptionsCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -625,62 +712,14 @@ public class EventSubscriptionsApi {
         return listEventSubscriptionsCall(_callback);
     }
 
-    /**
-     * List event subscriptions
-     * Lists event subscriptions visible to the current project.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @return List&lt;EventSubscription&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Event subscriptions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<EventSubscription> listEventSubscriptions() throws ApiException {
-        ApiResponse<List<EventSubscription>> localVarResp = listEventSubscriptionsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List event subscriptions
-     * Lists event subscriptions visible to the current project.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @return ApiResponse&lt;List&lt;EventSubscription&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Event subscriptions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<EventSubscription>> listEventSubscriptionsWithHttpInfo()
+    private ApiResponse<List<EventSubscription>> listEventSubscriptionsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listEventSubscriptionsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<EventSubscription>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List event subscriptions (asynchronously)
-     * Lists event subscriptions visible to the current project.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Event subscriptions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listEventSubscriptionsAsync(
+    private okhttp3.Call listEventSubscriptionsAsync(
             final ApiCallback<List<EventSubscription>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listEventSubscriptionsValidateBeforeCall(_callback);
@@ -689,23 +728,102 @@ public class EventSubscriptionsApi {
         return localVarCall;
     }
 
+    public class APIlistEventSubscriptionsRequest {
+
+        private APIlistEventSubscriptionsRequest() {}
+
+        /**
+         * Build call for listEventSubscriptions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Event subscriptions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listEventSubscriptionsCall(_callback);
+        }
+
+        /**
+         * Execute listEventSubscriptions request
+         * @return List&lt;EventSubscription&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Event subscriptions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<EventSubscription> execute() throws ApiException {
+            ApiResponse<List<EventSubscription>> localVarResp =
+                    listEventSubscriptionsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listEventSubscriptions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;EventSubscription&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Event subscriptions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<EventSubscription>> executeWithHttpInfo() throws ApiException {
+            return listEventSubscriptionsWithHttpInfo();
+        }
+
+        /**
+         * Execute listEventSubscriptions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Event subscriptions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<EventSubscription>> _callback)
+                throws ApiException {
+            return listEventSubscriptionsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateEventSubscription
-     * @param subscriptionId  (required)
-     * @param updateEventSubscriptionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List event subscriptions
+     * Lists event subscriptions visible to the current project.  **Required permissions:** &#x60;workflow:read&#x60;
+     * @return APIlistEventSubscriptionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated event subscription. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Event subscriptions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateEventSubscriptionCall(
+    public APIlistEventSubscriptionsRequest listEventSubscriptions() {
+        return new APIlistEventSubscriptionsRequest();
+    }
+
+    private okhttp3.Call updateEventSubscriptionCall(
             @jakarta.annotation.Nonnull String subscriptionId,
             @jakarta.annotation.Nonnull
                     UpdateEventSubscriptionPayload updateEventSubscriptionPayload,
@@ -790,49 +908,7 @@ public class EventSubscriptionsApi {
                 subscriptionId, updateEventSubscriptionPayload, _callback);
     }
 
-    /**
-     * Update an event subscription
-     * Updates an event subscription. Scope, system ownership, and protection flags are immutable.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param subscriptionId  (required)
-     * @param updateEventSubscriptionPayload  (required)
-     * @return EventSubscriptionMutationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated event subscription. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EventSubscriptionMutationResponse updateEventSubscription(
-            @jakarta.annotation.Nonnull String subscriptionId,
-            @jakarta.annotation.Nonnull
-                    UpdateEventSubscriptionPayload updateEventSubscriptionPayload)
-            throws ApiException {
-        ApiResponse<EventSubscriptionMutationResponse> localVarResp =
-                updateEventSubscriptionWithHttpInfo(subscriptionId, updateEventSubscriptionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an event subscription
-     * Updates an event subscription. Scope, system ownership, and protection flags are immutable.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param subscriptionId  (required)
-     * @param updateEventSubscriptionPayload  (required)
-     * @return ApiResponse&lt;EventSubscriptionMutationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated event subscription. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EventSubscriptionMutationResponse> updateEventSubscriptionWithHttpInfo(
+    private ApiResponse<EventSubscriptionMutationResponse> updateEventSubscriptionWithHttpInfo(
             @jakarta.annotation.Nonnull String subscriptionId,
             @jakarta.annotation.Nonnull
                     UpdateEventSubscriptionPayload updateEventSubscriptionPayload)
@@ -844,24 +920,7 @@ public class EventSubscriptionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an event subscription (asynchronously)
-     * Updates an event subscription. Scope, system ownership, and protection flags are immutable.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param subscriptionId  (required)
-     * @param updateEventSubscriptionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated event subscription. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateEventSubscriptionAsync(
+    private okhttp3.Call updateEventSubscriptionAsync(
             @jakarta.annotation.Nonnull String subscriptionId,
             @jakarta.annotation.Nonnull
                     UpdateEventSubscriptionPayload updateEventSubscriptionPayload,
@@ -874,5 +933,122 @@ public class EventSubscriptionsApi {
         Type localVarReturnType = new TypeToken<EventSubscriptionMutationResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateEventSubscriptionRequest {
+        @jakarta.annotation.Nonnull private final String subscriptionId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateEventSubscriptionPayload updateEventSubscriptionPayload;
+
+        private APIupdateEventSubscriptionRequest(
+                @jakarta.annotation.Nonnull String subscriptionId,
+                @jakarta.annotation.Nonnull
+                        UpdateEventSubscriptionPayload updateEventSubscriptionPayload) {
+            this.subscriptionId = subscriptionId;
+            this.updateEventSubscriptionPayload = updateEventSubscriptionPayload;
+        }
+
+        /**
+         * Build call for updateEventSubscription
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateEventSubscriptionCall(
+                    subscriptionId, updateEventSubscriptionPayload, _callback);
+        }
+
+        /**
+         * Execute updateEventSubscription request
+         * @return EventSubscriptionMutationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public EventSubscriptionMutationResponse execute() throws ApiException {
+            ApiResponse<EventSubscriptionMutationResponse> localVarResp =
+                    updateEventSubscriptionWithHttpInfo(
+                            subscriptionId, updateEventSubscriptionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateEventSubscription request with HTTP info returned
+         * @return ApiResponse&lt;EventSubscriptionMutationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<EventSubscriptionMutationResponse> executeWithHttpInfo()
+                throws ApiException {
+            return updateEventSubscriptionWithHttpInfo(
+                    subscriptionId, updateEventSubscriptionPayload);
+        }
+
+        /**
+         * Execute updateEventSubscription request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated event subscription. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<EventSubscriptionMutationResponse> _callback)
+                throws ApiException {
+            return updateEventSubscriptionAsync(
+                    subscriptionId, updateEventSubscriptionPayload, _callback);
+        }
+    }
+
+    /**
+     * Update an event subscription
+     * Updates an event subscription. Scope, system ownership, and protection flags are immutable.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param subscriptionId  (required)
+     * @param updateEventSubscriptionPayload  (required)
+     * @return APIupdateEventSubscriptionRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated event subscription. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateEventSubscriptionRequest updateEventSubscription(
+            @jakarta.annotation.Nonnull String subscriptionId,
+            @jakarta.annotation.Nonnull
+                    UpdateEventSubscriptionPayload updateEventSubscriptionPayload) {
+        return new APIupdateEventSubscriptionRequest(
+                subscriptionId, updateEventSubscriptionPayload);
     }
 }

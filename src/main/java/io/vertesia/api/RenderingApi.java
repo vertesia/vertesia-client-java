@@ -65,23 +65,7 @@ public class RenderingApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createRenderingJob
-     * @param renderMarkdownPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createRenderingJobCall(
+    private okhttp3.Call createRenderingJobCall(
             @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -151,47 +135,7 @@ public class RenderingApi {
         return createRenderingJobCall(renderMarkdownPayload, _callback);
     }
 
-    /**
-     * Create a rendering job
-     * Starts an asynchronous markdown rendering workflow for PDF or DOCX output.  **Required permissions:** &#x60;content:read&#x60;
-     * @param renderMarkdownPayload  (required)
-     * @return RenderMarkdownStartResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RenderMarkdownStartResponse createRenderingJob(
-            @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload)
-            throws ApiException {
-        ApiResponse<RenderMarkdownStartResponse> localVarResp =
-                createRenderingJobWithHttpInfo(renderMarkdownPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a rendering job
-     * Starts an asynchronous markdown rendering workflow for PDF or DOCX output.  **Required permissions:** &#x60;content:read&#x60;
-     * @param renderMarkdownPayload  (required)
-     * @return ApiResponse&lt;RenderMarkdownStartResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RenderMarkdownStartResponse> createRenderingJobWithHttpInfo(
+    private ApiResponse<RenderMarkdownStartResponse> createRenderingJobWithHttpInfo(
             @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -200,24 +144,7 @@ public class RenderingApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a rendering job (asynchronously)
-     * Starts an asynchronous markdown rendering workflow for PDF or DOCX output.  **Required permissions:** &#x60;content:read&#x60;
-     * @param renderMarkdownPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createRenderingJobAsync(
+    private okhttp3.Call createRenderingJobAsync(
             @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload,
             final ApiCallback<RenderMarkdownStartResponse> _callback)
             throws ApiException {
@@ -229,23 +156,113 @@ public class RenderingApi {
         return localVarCall;
     }
 
+    public class APIcreateRenderingJobRequest {
+        @jakarta.annotation.Nonnull private final RenderMarkdownPayload renderMarkdownPayload;
+
+        private APIcreateRenderingJobRequest(
+                @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload) {
+            this.renderMarkdownPayload = renderMarkdownPayload;
+        }
+
+        /**
+         * Build call for createRenderingJob
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createRenderingJobCall(renderMarkdownPayload, _callback);
+        }
+
+        /**
+         * Execute createRenderingJob request
+         * @return RenderMarkdownStartResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public RenderMarkdownStartResponse execute() throws ApiException {
+            ApiResponse<RenderMarkdownStartResponse> localVarResp =
+                    createRenderingJobWithHttpInfo(renderMarkdownPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createRenderingJob request with HTTP info returned
+         * @return ApiResponse&lt;RenderMarkdownStartResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<RenderMarkdownStartResponse> executeWithHttpInfo() throws ApiException {
+            return createRenderingJobWithHttpInfo(renderMarkdownPayload);
+        }
+
+        /**
+         * Execute createRenderingJob request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RenderMarkdownStartResponse> _callback)
+                throws ApiException {
+            return createRenderingJobAsync(renderMarkdownPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getRenderingJobStatus
-     * @param workflowId  (required)
-     * @param workflowRunId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a rendering job
+     * Starts an asynchronous markdown rendering workflow for PDF or DOCX output.  **Required permissions:** &#x60;content:read&#x60;
+     * @param renderMarkdownPayload  (required)
+     * @return APIcreateRenderingJobRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendering job status and output metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getRenderingJobStatusCall(
+    public APIcreateRenderingJobRequest createRenderingJob(
+            @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload) {
+        return new APIcreateRenderingJobRequest(renderMarkdownPayload);
+    }
+
+    private okhttp3.Call getRenderingJobStatusCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String workflowRunId,
             final ApiCallback _callback)
@@ -333,48 +350,7 @@ public class RenderingApi {
         return getRenderingJobStatusCall(workflowId, workflowRunId, _callback);
     }
 
-    /**
-     * Get rendering job status
-     * Retrieves workflow status for a markdown rendering job and returns a download URL when complete.  **Required permissions:** &#x60;content:read&#x60;
-     * @param workflowId  (required)
-     * @param workflowRunId  (required)
-     * @return RenderMarkdownStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendering job status and output metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RenderMarkdownStatusResponse getRenderingJobStatus(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String workflowRunId)
-            throws ApiException {
-        ApiResponse<RenderMarkdownStatusResponse> localVarResp =
-                getRenderingJobStatusWithHttpInfo(workflowId, workflowRunId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get rendering job status
-     * Retrieves workflow status for a markdown rendering job and returns a download URL when complete.  **Required permissions:** &#x60;content:read&#x60;
-     * @param workflowId  (required)
-     * @param workflowRunId  (required)
-     * @return ApiResponse&lt;RenderMarkdownStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendering job status and output metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RenderMarkdownStatusResponse> getRenderingJobStatusWithHttpInfo(
+    private ApiResponse<RenderMarkdownStatusResponse> getRenderingJobStatusWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String workflowRunId)
             throws ApiException {
@@ -384,24 +360,7 @@ public class RenderingApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get rendering job status (asynchronously)
-     * Retrieves workflow status for a markdown rendering job and returns a download URL when complete.  **Required permissions:** &#x60;content:read&#x60;
-     * @param workflowId  (required)
-     * @param workflowRunId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendering job status and output metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getRenderingJobStatusAsync(
+    private okhttp3.Call getRenderingJobStatusAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String workflowRunId,
             final ApiCallback<RenderMarkdownStatusResponse> _callback)
@@ -412,5 +371,111 @@ public class RenderingApi {
         Type localVarReturnType = new TypeToken<RenderMarkdownStatusResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetRenderingJobStatusRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+        @jakarta.annotation.Nonnull private final String workflowRunId;
+
+        private APIgetRenderingJobStatusRequest(
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull String workflowRunId) {
+            this.workflowId = workflowId;
+            this.workflowRunId = workflowRunId;
+        }
+
+        /**
+         * Build call for getRenderingJobStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendering job status and output metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getRenderingJobStatusCall(workflowId, workflowRunId, _callback);
+        }
+
+        /**
+         * Execute getRenderingJobStatus request
+         * @return RenderMarkdownStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendering job status and output metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public RenderMarkdownStatusResponse execute() throws ApiException {
+            ApiResponse<RenderMarkdownStatusResponse> localVarResp =
+                    getRenderingJobStatusWithHttpInfo(workflowId, workflowRunId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getRenderingJobStatus request with HTTP info returned
+         * @return ApiResponse&lt;RenderMarkdownStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendering job status and output metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<RenderMarkdownStatusResponse> executeWithHttpInfo() throws ApiException {
+            return getRenderingJobStatusWithHttpInfo(workflowId, workflowRunId);
+        }
+
+        /**
+         * Execute getRenderingJobStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendering job status and output metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RenderMarkdownStatusResponse> _callback)
+                throws ApiException {
+            return getRenderingJobStatusAsync(workflowId, workflowRunId, _callback);
+        }
+    }
+
+    /**
+     * Get rendering job status
+     * Retrieves workflow status for a markdown rendering job and returns a download URL when complete.  **Required permissions:** &#x60;content:read&#x60;
+     * @param workflowId  (required)
+     * @param workflowRunId  (required)
+     * @return APIgetRenderingJobStatusRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Rendering job status and output metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIgetRenderingJobStatusRequest getRenderingJobStatus(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String workflowRunId) {
+        return new APIgetRenderingJobStatusRequest(workflowId, workflowRunId);
     }
 }

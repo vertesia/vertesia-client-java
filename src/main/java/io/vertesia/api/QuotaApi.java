@@ -65,21 +65,7 @@ public class QuotaApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for getQuotaStanding
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The caller&#39;s quota standing. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getQuotaStandingCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuotaStandingCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -138,61 +124,13 @@ public class QuotaApi {
         return getQuotaStandingCall(_callback);
     }
 
-    /**
-     * Get quota standing
-     * The calling tenant&#39;s quota standing: effective API rate limits and current usage, workflow-admission active slots, and the LLM limiter posture.  **Required permissions:** &#x60;account:member&#x60;
-     * @return QuotaStandingResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The caller&#39;s quota standing. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public QuotaStandingResponse getQuotaStanding() throws ApiException {
-        ApiResponse<QuotaStandingResponse> localVarResp = getQuotaStandingWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get quota standing
-     * The calling tenant&#39;s quota standing: effective API rate limits and current usage, workflow-admission active slots, and the LLM limiter posture.  **Required permissions:** &#x60;account:member&#x60;
-     * @return ApiResponse&lt;QuotaStandingResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The caller&#39;s quota standing. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<QuotaStandingResponse> getQuotaStandingWithHttpInfo() throws ApiException {
+    private ApiResponse<QuotaStandingResponse> getQuotaStandingWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getQuotaStandingValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<QuotaStandingResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get quota standing (asynchronously)
-     * The calling tenant&#39;s quota standing: effective API rate limits and current usage, workflow-admission active slots, and the LLM limiter posture.  **Required permissions:** &#x60;account:member&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The caller&#39;s quota standing. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getQuotaStandingAsync(final ApiCallback<QuotaStandingResponse> _callback)
+    private okhttp3.Call getQuotaStandingAsync(final ApiCallback<QuotaStandingResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getQuotaStandingValidateBeforeCall(_callback);
@@ -201,21 +139,101 @@ public class QuotaApi {
         return localVarCall;
     }
 
+    public class APIgetQuotaStandingRequest {
+
+        private APIgetQuotaStandingRequest() {}
+
+        /**
+         * Build call for getQuotaStanding
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The caller&#39;s quota standing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getQuotaStandingCall(_callback);
+        }
+
+        /**
+         * Execute getQuotaStanding request
+         * @return QuotaStandingResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The caller&#39;s quota standing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public QuotaStandingResponse execute() throws ApiException {
+            ApiResponse<QuotaStandingResponse> localVarResp = getQuotaStandingWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getQuotaStanding request with HTTP info returned
+         * @return ApiResponse&lt;QuotaStandingResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The caller&#39;s quota standing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<QuotaStandingResponse> executeWithHttpInfo() throws ApiException {
+            return getQuotaStandingWithHttpInfo();
+        }
+
+        /**
+         * Execute getQuotaStanding request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The caller&#39;s quota standing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<QuotaStandingResponse> _callback)
+                throws ApiException {
+            return getQuotaStandingAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getQuotaTier
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get quota standing
+     * The calling tenant&#39;s quota standing: effective API rate limits and current usage, workflow-admission active slots, and the LLM limiter posture.  **Required permissions:** &#x60;account:member&#x60;
+     * @return APIgetQuotaStandingRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The caller&#39;s quota standing. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getQuotaTierCall(final ApiCallback _callback) throws ApiException {
+    public APIgetQuotaStandingRequest getQuotaStanding() {
+        return new APIgetQuotaStandingRequest();
+    }
+
+    private okhttp3.Call getQuotaTierCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -274,61 +292,13 @@ public class QuotaApi {
         return getQuotaTierCall(_callback);
     }
 
-    /**
-     * Get quota tier
-     * The calling account&#39;s effective quota tier: explicit account &#x60;quota_tier&#x60;, else its account_type-derived tier, else the deployment base tier when the account tier cannot be resolved. A lightweight lookup other services use to resolve a tenant tier without a direct account-store dependency.  **Required permissions:** &#x60;account:member&#x60;
-     * @return QuotaTierResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public QuotaTierResponse getQuotaTier() throws ApiException {
-        ApiResponse<QuotaTierResponse> localVarResp = getQuotaTierWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get quota tier
-     * The calling account&#39;s effective quota tier: explicit account &#x60;quota_tier&#x60;, else its account_type-derived tier, else the deployment base tier when the account tier cannot be resolved. A lightweight lookup other services use to resolve a tenant tier without a direct account-store dependency.  **Required permissions:** &#x60;account:member&#x60;
-     * @return ApiResponse&lt;QuotaTierResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<QuotaTierResponse> getQuotaTierWithHttpInfo() throws ApiException {
+    private ApiResponse<QuotaTierResponse> getQuotaTierWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getQuotaTierValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<QuotaTierResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get quota tier (asynchronously)
-     * The calling account&#39;s effective quota tier: explicit account &#x60;quota_tier&#x60;, else its account_type-derived tier, else the deployment base tier when the account tier cannot be resolved. A lightweight lookup other services use to resolve a tenant tier without a direct account-store dependency.  **Required permissions:** &#x60;account:member&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getQuotaTierAsync(final ApiCallback<QuotaTierResponse> _callback)
+    private okhttp3.Call getQuotaTierAsync(final ApiCallback<QuotaTierResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getQuotaTierValidateBeforeCall(_callback);
@@ -337,22 +307,101 @@ public class QuotaApi {
         return localVarCall;
     }
 
+    public class APIgetQuotaTierRequest {
+
+        private APIgetQuotaTierRequest() {}
+
+        /**
+         * Build call for getQuotaTier
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getQuotaTierCall(_callback);
+        }
+
+        /**
+         * Execute getQuotaTier request
+         * @return QuotaTierResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public QuotaTierResponse execute() throws ApiException {
+            ApiResponse<QuotaTierResponse> localVarResp = getQuotaTierWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getQuotaTier request with HTTP info returned
+         * @return ApiResponse&lt;QuotaTierResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<QuotaTierResponse> executeWithHttpInfo() throws ApiException {
+            return getQuotaTierWithHttpInfo();
+        }
+
+        /**
+         * Execute getQuotaTier request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<QuotaTierResponse> _callback)
+                throws ApiException {
+            return getQuotaTierAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getWorkflowUsage
-     * @param workflowClass  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get quota tier
+     * The calling account&#39;s effective quota tier: explicit account &#x60;quota_tier&#x60;, else its account_type-derived tier, else the deployment base tier when the account tier cannot be resolved. A lightweight lookup other services use to resolve a tenant tier without a direct account-store dependency.  **Required permissions:** &#x60;account:member&#x60;
+     * @return APIgetQuotaTierRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getWorkflowUsageCall(
+    public APIgetQuotaTierRequest getQuotaTier() {
+        return new APIgetQuotaTierRequest();
+    }
+
+    private okhttp3.Call getWorkflowUsageCall(
             @jakarta.annotation.Nullable String workflowClass, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -419,67 +468,14 @@ public class QuotaApi {
         return getWorkflowUsageCall(workflowClass, _callback);
     }
 
-    /**
-     * Get workflow usage standing
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param workflowClass  (optional)
-     * @return WorkflowUsageStanding
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public WorkflowUsageStanding getWorkflowUsage(@jakarta.annotation.Nullable String workflowClass)
-            throws ApiException {
-        ApiResponse<WorkflowUsageStanding> localVarResp =
-                getWorkflowUsageWithHttpInfo(workflowClass);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get workflow usage standing
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param workflowClass  (optional)
-     * @return ApiResponse&lt;WorkflowUsageStanding&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<WorkflowUsageStanding> getWorkflowUsageWithHttpInfo(
+    private ApiResponse<WorkflowUsageStanding> getWorkflowUsageWithHttpInfo(
             @jakarta.annotation.Nullable String workflowClass) throws ApiException {
         okhttp3.Call localVarCall = getWorkflowUsageValidateBeforeCall(workflowClass, null);
         Type localVarReturnType = new TypeToken<WorkflowUsageStanding>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get workflow usage standing (asynchronously)
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param workflowClass  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getWorkflowUsageAsync(
+    private okhttp3.Call getWorkflowUsageAsync(
             @jakarta.annotation.Nullable String workflowClass,
             final ApiCallback<WorkflowUsageStanding> _callback)
             throws ApiException {
@@ -490,45 +486,110 @@ public class QuotaApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getWorkflowUsage with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getWorkflowUsageCall(final ApiCallback _callback) throws ApiException {
-        return getWorkflowUsageCall(null, _callback);
+    public class APIgetWorkflowUsageRequest {
+        @jakarta.annotation.Nullable private String workflowClass;
+
+        private APIgetWorkflowUsageRequest() {}
+
+        /**
+         * Set workflowClass
+         * @param workflowClass  (optional)
+         * @return APIgetWorkflowUsageRequest
+         */
+        public APIgetWorkflowUsageRequest workflowClass(
+                @jakarta.annotation.Nullable String workflowClass) {
+            this.workflowClass = workflowClass;
+            return this;
+        }
+
+        /**
+         * Build call for getWorkflowUsage
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getWorkflowUsageCall(workflowClass, _callback);
+        }
+
+        /**
+         * Execute getWorkflowUsage request
+         * @return WorkflowUsageStanding
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public WorkflowUsageStanding execute() throws ApiException {
+            ApiResponse<WorkflowUsageStanding> localVarResp =
+                    getWorkflowUsageWithHttpInfo(workflowClass);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getWorkflowUsage request with HTTP info returned
+         * @return ApiResponse&lt;WorkflowUsageStanding&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<WorkflowUsageStanding> executeWithHttpInfo() throws ApiException {
+            return getWorkflowUsageWithHttpInfo(workflowClass);
+        }
+
+        /**
+         * Execute getWorkflowUsage request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<WorkflowUsageStanding> _callback)
+                throws ApiException {
+            return getWorkflowUsageAsync(workflowClass, _callback);
+        }
     }
 
     /**
      * Get workflow usage standing
-     * Calls {@code getWorkflowUsage} with every optional parameter left unset.
-     * @return WorkflowUsageStanding
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @return APIgetWorkflowUsageRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
      */
-    public WorkflowUsageStanding getWorkflowUsage() throws ApiException {
-        return getWorkflowUsage(null);
-    }
-
-    /**
-     * Get workflow usage standing
-     * Calls {@code getWorkflowUsageWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WorkflowUsageStanding> getWorkflowUsageWithHttpInfo() throws ApiException {
-        return getWorkflowUsageWithHttpInfo(null);
-    }
-
-    /**
-     * Get workflow usage standing (asynchronously)
-     * Calls {@code getWorkflowUsageAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getWorkflowUsageAsync(final ApiCallback<WorkflowUsageStanding> _callback)
-            throws ApiException {
-        return getWorkflowUsageAsync(null, _callback);
+    public APIgetWorkflowUsageRequest getWorkflowUsage() {
+        return new APIgetWorkflowUsageRequest();
     }
 }

@@ -67,22 +67,7 @@ public class InferenceProfilesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createInferenceProfile
-     * @param createInferenceProfilePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created profile. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createInferenceProfileCall(
+    private okhttp3.Call createInferenceProfileCall(
             @jakarta.annotation.Nonnull CreateInferenceProfilePayload createInferenceProfilePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -152,45 +137,7 @@ public class InferenceProfilesApi {
         return createInferenceProfileCall(createInferenceProfilePayload, _callback);
     }
 
-    /**
-     * Create an inference profile
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param createInferenceProfilePayload  (required)
-     * @return InferenceProfileRecord
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created profile. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InferenceProfileRecord createInferenceProfile(
-            @jakarta.annotation.Nonnull CreateInferenceProfilePayload createInferenceProfilePayload)
-            throws ApiException {
-        ApiResponse<InferenceProfileRecord> localVarResp =
-                createInferenceProfileWithHttpInfo(createInferenceProfilePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an inference profile
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param createInferenceProfilePayload  (required)
-     * @return ApiResponse&lt;InferenceProfileRecord&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created profile. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InferenceProfileRecord> createInferenceProfileWithHttpInfo(
+    private ApiResponse<InferenceProfileRecord> createInferenceProfileWithHttpInfo(
             @jakarta.annotation.Nonnull CreateInferenceProfilePayload createInferenceProfilePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -199,23 +146,7 @@ public class InferenceProfilesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an inference profile (asynchronously)
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param createInferenceProfilePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created profile. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createInferenceProfileAsync(
+    private okhttp3.Call createInferenceProfileAsync(
             @jakarta.annotation.Nonnull CreateInferenceProfilePayload createInferenceProfilePayload,
             final ApiCallback<InferenceProfileRecord> _callback)
             throws ApiException {
@@ -227,22 +158,111 @@ public class InferenceProfilesApi {
         return localVarCall;
     }
 
+    public class APIcreateInferenceProfileRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateInferenceProfilePayload createInferenceProfilePayload;
+
+        private APIcreateInferenceProfileRequest(
+                @jakarta.annotation.Nonnull
+                        CreateInferenceProfilePayload createInferenceProfilePayload) {
+            this.createInferenceProfilePayload = createInferenceProfilePayload;
+        }
+
+        /**
+         * Build call for createInferenceProfile
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created profile. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createInferenceProfileCall(createInferenceProfilePayload, _callback);
+        }
+
+        /**
+         * Execute createInferenceProfile request
+         * @return InferenceProfileRecord
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created profile. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InferenceProfileRecord execute() throws ApiException {
+            ApiResponse<InferenceProfileRecord> localVarResp =
+                    createInferenceProfileWithHttpInfo(createInferenceProfilePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createInferenceProfile request with HTTP info returned
+         * @return ApiResponse&lt;InferenceProfileRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created profile. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InferenceProfileRecord> executeWithHttpInfo() throws ApiException {
+            return createInferenceProfileWithHttpInfo(createInferenceProfilePayload);
+        }
+
+        /**
+         * Execute createInferenceProfile request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created profile. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InferenceProfileRecord> _callback)
+                throws ApiException {
+            return createInferenceProfileAsync(createInferenceProfilePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteInferenceProfile
-     * @param profileId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an inference profile
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param createInferenceProfilePayload  (required)
+     * @return APIcreateInferenceProfileRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The deleted profile ID. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created profile. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteInferenceProfileCall(
+    public APIcreateInferenceProfileRequest createInferenceProfile(
+            @jakarta.annotation.Nonnull
+                    CreateInferenceProfilePayload createInferenceProfilePayload) {
+        return new APIcreateInferenceProfileRequest(createInferenceProfilePayload);
+    }
+
+    private okhttp3.Call deleteInferenceProfileCall(
             @jakarta.annotation.Nonnull String profileId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -314,66 +334,14 @@ public class InferenceProfilesApi {
         return deleteInferenceProfileCall(profileId, _callback);
     }
 
-    /**
-     * Delete an inference profile
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param profileId  (required)
-     * @return DeleteByIdResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The deleted profile ID. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteByIdResult deleteInferenceProfile(@jakarta.annotation.Nonnull String profileId)
-            throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp = deleteInferenceProfileWithHttpInfo(profileId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an inference profile
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param profileId  (required)
-     * @return ApiResponse&lt;DeleteByIdResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The deleted profile ID. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteByIdResult> deleteInferenceProfileWithHttpInfo(
+    private ApiResponse<DeleteByIdResult> deleteInferenceProfileWithHttpInfo(
             @jakarta.annotation.Nonnull String profileId) throws ApiException {
         okhttp3.Call localVarCall = deleteInferenceProfileValidateBeforeCall(profileId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an inference profile (asynchronously)
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param profileId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The deleted profile ID. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteInferenceProfileAsync(
+    private okhttp3.Call deleteInferenceProfileAsync(
             @jakarta.annotation.Nonnull String profileId,
             final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
@@ -384,22 +352,107 @@ public class InferenceProfilesApi {
         return localVarCall;
     }
 
+    public class APIdeleteInferenceProfileRequest {
+        @jakarta.annotation.Nonnull private final String profileId;
+
+        private APIdeleteInferenceProfileRequest(@jakarta.annotation.Nonnull String profileId) {
+            this.profileId = profileId;
+        }
+
+        /**
+         * Build call for deleteInferenceProfile
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The deleted profile ID. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteInferenceProfileCall(profileId, _callback);
+        }
+
+        /**
+         * Execute deleteInferenceProfile request
+         * @return DeleteByIdResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The deleted profile ID. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteByIdResult execute() throws ApiException {
+            ApiResponse<DeleteByIdResult> localVarResp =
+                    deleteInferenceProfileWithHttpInfo(profileId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteInferenceProfile request with HTTP info returned
+         * @return ApiResponse&lt;DeleteByIdResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The deleted profile ID. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteByIdResult> executeWithHttpInfo() throws ApiException {
+            return deleteInferenceProfileWithHttpInfo(profileId);
+        }
+
+        /**
+         * Execute deleteInferenceProfile request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The deleted profile ID. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteByIdResult> _callback)
+                throws ApiException {
+            return deleteInferenceProfileAsync(profileId, _callback);
+        }
+    }
+
     /**
-     * Build call for getInferenceProfile
+     * Delete an inference profile
+     * **Required permissions:** &#x60;project:settings_write&#x60;
      * @param profileId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteInferenceProfileRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested profile. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The deleted profile ID. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getInferenceProfileCall(
+    public APIdeleteInferenceProfileRequest deleteInferenceProfile(
+            @jakarta.annotation.Nonnull String profileId) {
+        return new APIdeleteInferenceProfileRequest(profileId);
+    }
+
+    private okhttp3.Call getInferenceProfileCall(
             @jakarta.annotation.Nonnull String profileId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -471,67 +524,14 @@ public class InferenceProfilesApi {
         return getInferenceProfileCall(profileId, _callback);
     }
 
-    /**
-     * Retrieve an inference profile
-     *
-     * @param profileId  (required)
-     * @return InferenceProfileRecord
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested profile. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InferenceProfileRecord getInferenceProfile(@jakarta.annotation.Nonnull String profileId)
-            throws ApiException {
-        ApiResponse<InferenceProfileRecord> localVarResp =
-                getInferenceProfileWithHttpInfo(profileId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an inference profile
-     *
-     * @param profileId  (required)
-     * @return ApiResponse&lt;InferenceProfileRecord&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested profile. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InferenceProfileRecord> getInferenceProfileWithHttpInfo(
+    private ApiResponse<InferenceProfileRecord> getInferenceProfileWithHttpInfo(
             @jakarta.annotation.Nonnull String profileId) throws ApiException {
         okhttp3.Call localVarCall = getInferenceProfileValidateBeforeCall(profileId, null);
         Type localVarReturnType = new TypeToken<InferenceProfileRecord>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an inference profile (asynchronously)
-     *
-     * @param profileId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested profile. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getInferenceProfileAsync(
+    private okhttp3.Call getInferenceProfileAsync(
             @jakarta.annotation.Nonnull String profileId,
             final ApiCallback<InferenceProfileRecord> _callback)
             throws ApiException {
@@ -542,26 +542,107 @@ public class InferenceProfilesApi {
         return localVarCall;
     }
 
+    public class APIgetInferenceProfileRequest {
+        @jakarta.annotation.Nonnull private final String profileId;
+
+        private APIgetInferenceProfileRequest(@jakarta.annotation.Nonnull String profileId) {
+            this.profileId = profileId;
+        }
+
+        /**
+         * Build call for getInferenceProfile
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested profile. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getInferenceProfileCall(profileId, _callback);
+        }
+
+        /**
+         * Execute getInferenceProfile request
+         * @return InferenceProfileRecord
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested profile. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InferenceProfileRecord execute() throws ApiException {
+            ApiResponse<InferenceProfileRecord> localVarResp =
+                    getInferenceProfileWithHttpInfo(profileId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getInferenceProfile request with HTTP info returned
+         * @return ApiResponse&lt;InferenceProfileRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested profile. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InferenceProfileRecord> executeWithHttpInfo() throws ApiException {
+            return getInferenceProfileWithHttpInfo(profileId);
+        }
+
+        /**
+         * Execute getInferenceProfile request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested profile. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InferenceProfileRecord> _callback)
+                throws ApiException {
+            return getInferenceProfileAsync(profileId, _callback);
+        }
+    }
+
     /**
-     * Build call for getInferenceProfileUsage
+     * Retrieve an inference profile
+     *
      * @param profileId  (required)
-     * @param search  (optional)
-     * @param kind  (optional)
-     * @param offset  (optional)
-     * @param limit  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetInferenceProfileRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Paginated profile usage in the current project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested profile. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getInferenceProfileUsageCall(
+    public APIgetInferenceProfileRequest getInferenceProfile(
+            @jakarta.annotation.Nonnull String profileId) {
+        return new APIgetInferenceProfileRequest(profileId);
+    }
+
+    private okhttp3.Call getInferenceProfileUsageCall(
             @jakarta.annotation.Nonnull String profileId,
             @jakarta.annotation.Nullable String search,
             @jakarta.annotation.Nullable String kind,
@@ -659,57 +740,7 @@ public class InferenceProfilesApi {
         return getInferenceProfileUsageCall(profileId, search, kind, offset, limit, _callback);
     }
 
-    /**
-     * List direct interaction assignments and project default slots for a profile
-     * **Required permissions:** &#x60;interaction:read&#x60;
-     * @param profileId  (required)
-     * @param search  (optional)
-     * @param kind  (optional)
-     * @param offset  (optional)
-     * @param limit  (optional)
-     * @return InferenceProfileUsage
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Paginated profile usage in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InferenceProfileUsage getInferenceProfileUsage(
-            @jakarta.annotation.Nonnull String profileId,
-            @jakarta.annotation.Nullable String search,
-            @jakarta.annotation.Nullable String kind,
-            @jakarta.annotation.Nullable Integer offset,
-            @jakarta.annotation.Nullable Integer limit)
-            throws ApiException {
-        ApiResponse<InferenceProfileUsage> localVarResp =
-                getInferenceProfileUsageWithHttpInfo(profileId, search, kind, offset, limit);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List direct interaction assignments and project default slots for a profile
-     * **Required permissions:** &#x60;interaction:read&#x60;
-     * @param profileId  (required)
-     * @param search  (optional)
-     * @param kind  (optional)
-     * @param offset  (optional)
-     * @param limit  (optional)
-     * @return ApiResponse&lt;InferenceProfileUsage&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Paginated profile usage in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InferenceProfileUsage> getInferenceProfileUsageWithHttpInfo(
+    private ApiResponse<InferenceProfileUsage> getInferenceProfileUsageWithHttpInfo(
             @jakarta.annotation.Nonnull String profileId,
             @jakarta.annotation.Nullable String search,
             @jakarta.annotation.Nullable String kind,
@@ -723,27 +754,7 @@ public class InferenceProfilesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List direct interaction assignments and project default slots for a profile (asynchronously)
-     * **Required permissions:** &#x60;interaction:read&#x60;
-     * @param profileId  (required)
-     * @param search  (optional)
-     * @param kind  (optional)
-     * @param offset  (optional)
-     * @param limit  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Paginated profile usage in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getInferenceProfileUsageAsync(
+    private okhttp3.Call getInferenceProfileUsageAsync(
             @jakarta.annotation.Nonnull String profileId,
             @jakarta.annotation.Nullable String search,
             @jakarta.annotation.Nullable String kind,
@@ -760,73 +771,155 @@ public class InferenceProfilesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getInferenceProfileUsage with every optional parameter left unset.
-     * @param profileId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getInferenceProfileUsageCall(
-            @jakarta.annotation.Nonnull String profileId, final ApiCallback _callback)
-            throws ApiException {
-        return getInferenceProfileUsageCall(profileId, null, null, null, null, _callback);
+    public class APIgetInferenceProfileUsageRequest {
+        @jakarta.annotation.Nonnull private final String profileId;
+        @jakarta.annotation.Nullable private String search;
+        @jakarta.annotation.Nullable private String kind;
+        @jakarta.annotation.Nullable private Integer offset;
+        @jakarta.annotation.Nullable private Integer limit;
+
+        private APIgetInferenceProfileUsageRequest(@jakarta.annotation.Nonnull String profileId) {
+            this.profileId = profileId;
+        }
+
+        /**
+         * Set search
+         * @param search  (optional)
+         * @return APIgetInferenceProfileUsageRequest
+         */
+        public APIgetInferenceProfileUsageRequest search(
+                @jakarta.annotation.Nullable String search) {
+            this.search = search;
+            return this;
+        }
+
+        /**
+         * Set kind
+         * @param kind  (optional)
+         * @return APIgetInferenceProfileUsageRequest
+         */
+        public APIgetInferenceProfileUsageRequest kind(@jakarta.annotation.Nullable String kind) {
+            this.kind = kind;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIgetInferenceProfileUsageRequest
+         */
+        public APIgetInferenceProfileUsageRequest offset(
+                @jakarta.annotation.Nullable Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIgetInferenceProfileUsageRequest
+         */
+        public APIgetInferenceProfileUsageRequest limit(
+                @jakarta.annotation.Nullable Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for getInferenceProfileUsage
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Paginated profile usage in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getInferenceProfileUsageCall(profileId, search, kind, offset, limit, _callback);
+        }
+
+        /**
+         * Execute getInferenceProfileUsage request
+         * @return InferenceProfileUsage
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Paginated profile usage in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InferenceProfileUsage execute() throws ApiException {
+            ApiResponse<InferenceProfileUsage> localVarResp =
+                    getInferenceProfileUsageWithHttpInfo(profileId, search, kind, offset, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getInferenceProfileUsage request with HTTP info returned
+         * @return ApiResponse&lt;InferenceProfileUsage&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Paginated profile usage in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InferenceProfileUsage> executeWithHttpInfo() throws ApiException {
+            return getInferenceProfileUsageWithHttpInfo(profileId, search, kind, offset, limit);
+        }
+
+        /**
+         * Execute getInferenceProfileUsage request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Paginated profile usage in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InferenceProfileUsage> _callback)
+                throws ApiException {
+            return getInferenceProfileUsageAsync(profileId, search, kind, offset, limit, _callback);
+        }
     }
 
     /**
      * List direct interaction assignments and project default slots for a profile
-     * Calls {@code getInferenceProfileUsage} with every optional parameter left unset.
+     * **Required permissions:** &#x60;interaction:read&#x60;
      * @param profileId  (required)
-     * @return InferenceProfileUsage
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InferenceProfileUsage getInferenceProfileUsage(
-            @jakarta.annotation.Nonnull String profileId) throws ApiException {
-        return getInferenceProfileUsage(profileId, null, null, null, null);
-    }
-
-    /**
-     * List direct interaction assignments and project default slots for a profile
-     * Calls {@code getInferenceProfileUsageWithHttpInfo} with every optional parameter left unset.
-     * @param profileId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InferenceProfileUsage> getInferenceProfileUsageWithHttpInfo(
-            @jakarta.annotation.Nonnull String profileId) throws ApiException {
-        return getInferenceProfileUsageWithHttpInfo(profileId, null, null, null, null);
-    }
-
-    /**
-     * List direct interaction assignments and project default slots for a profile (asynchronously)
-     * Calls {@code getInferenceProfileUsageAsync} with every optional parameter left unset.
-     * @param profileId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getInferenceProfileUsageAsync(
-            @jakarta.annotation.Nonnull String profileId,
-            final ApiCallback<InferenceProfileUsage> _callback)
-            throws ApiException {
-        return getInferenceProfileUsageAsync(profileId, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for listInferenceProfiles
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetInferenceProfileUsageRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Profiles in the current project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Paginated profile usage in the current project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listInferenceProfilesCall(final ApiCallback _callback) throws ApiException {
+    public APIgetInferenceProfileUsageRequest getInferenceProfileUsage(
+            @jakarta.annotation.Nonnull String profileId) {
+        return new APIgetInferenceProfileUsageRequest(profileId);
+    }
+
+    private okhttp3.Call listInferenceProfilesCall(final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -885,63 +978,14 @@ public class InferenceProfilesApi {
         return listInferenceProfilesCall(_callback);
     }
 
-    /**
-     * List inference profiles
-     *
-     * @return List&lt;InferenceProfileRecord&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Profiles in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InferenceProfileRecord> listInferenceProfiles() throws ApiException {
-        ApiResponse<List<InferenceProfileRecord>> localVarResp =
-                listInferenceProfilesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List inference profiles
-     *
-     * @return ApiResponse&lt;List&lt;InferenceProfileRecord&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Profiles in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InferenceProfileRecord>> listInferenceProfilesWithHttpInfo()
+    private ApiResponse<List<InferenceProfileRecord>> listInferenceProfilesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listInferenceProfilesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<InferenceProfileRecord>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List inference profiles (asynchronously)
-     *
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Profiles in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listInferenceProfilesAsync(
+    private okhttp3.Call listInferenceProfilesAsync(
             final ApiCallback<List<InferenceProfileRecord>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listInferenceProfilesValidateBeforeCall(_callback);
@@ -950,23 +994,102 @@ public class InferenceProfilesApi {
         return localVarCall;
     }
 
+    public class APIlistInferenceProfilesRequest {
+
+        private APIlistInferenceProfilesRequest() {}
+
+        /**
+         * Build call for listInferenceProfiles
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Profiles in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listInferenceProfilesCall(_callback);
+        }
+
+        /**
+         * Execute listInferenceProfiles request
+         * @return List&lt;InferenceProfileRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Profiles in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InferenceProfileRecord> execute() throws ApiException {
+            ApiResponse<List<InferenceProfileRecord>> localVarResp =
+                    listInferenceProfilesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listInferenceProfiles request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InferenceProfileRecord&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Profiles in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InferenceProfileRecord>> executeWithHttpInfo() throws ApiException {
+            return listInferenceProfilesWithHttpInfo();
+        }
+
+        /**
+         * Execute listInferenceProfiles request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Profiles in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InferenceProfileRecord>> _callback)
+                throws ApiException {
+            return listInferenceProfilesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateInferenceProfile
-     * @param profileId  (required)
-     * @param updateInferenceProfilePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List inference profiles
+     *
+     * @return APIlistInferenceProfilesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated profile, retaining its ID. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Profiles in the current project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateInferenceProfileCall(
+    public APIlistInferenceProfilesRequest listInferenceProfiles() {
+        return new APIlistInferenceProfilesRequest();
+    }
+
+    private okhttp3.Call updateInferenceProfileCall(
             @jakarta.annotation.Nonnull String profileId,
             @jakarta.annotation.Nonnull UpdateInferenceProfilePayload updateInferenceProfilePayload,
             final ApiCallback _callback)
@@ -1048,48 +1171,7 @@ public class InferenceProfilesApi {
         return updateInferenceProfileCall(profileId, updateInferenceProfilePayload, _callback);
     }
 
-    /**
-     * Update an inference profile
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param profileId  (required)
-     * @param updateInferenceProfilePayload  (required)
-     * @return InferenceProfileRecord
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated profile, retaining its ID. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InferenceProfileRecord updateInferenceProfile(
-            @jakarta.annotation.Nonnull String profileId,
-            @jakarta.annotation.Nonnull UpdateInferenceProfilePayload updateInferenceProfilePayload)
-            throws ApiException {
-        ApiResponse<InferenceProfileRecord> localVarResp =
-                updateInferenceProfileWithHttpInfo(profileId, updateInferenceProfilePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an inference profile
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param profileId  (required)
-     * @param updateInferenceProfilePayload  (required)
-     * @return ApiResponse&lt;InferenceProfileRecord&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated profile, retaining its ID. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InferenceProfileRecord> updateInferenceProfileWithHttpInfo(
+    private ApiResponse<InferenceProfileRecord> updateInferenceProfileWithHttpInfo(
             @jakarta.annotation.Nonnull String profileId,
             @jakarta.annotation.Nonnull UpdateInferenceProfilePayload updateInferenceProfilePayload)
             throws ApiException {
@@ -1100,24 +1182,7 @@ public class InferenceProfilesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an inference profile (asynchronously)
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param profileId  (required)
-     * @param updateInferenceProfilePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated profile, retaining its ID. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateInferenceProfileAsync(
+    private okhttp3.Call updateInferenceProfileAsync(
             @jakarta.annotation.Nonnull String profileId,
             @jakarta.annotation.Nonnull UpdateInferenceProfilePayload updateInferenceProfilePayload,
             final ApiCallback<InferenceProfileRecord> _callback)
@@ -1129,5 +1194,115 @@ public class InferenceProfilesApi {
         Type localVarReturnType = new TypeToken<InferenceProfileRecord>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateInferenceProfileRequest {
+        @jakarta.annotation.Nonnull private final String profileId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateInferenceProfilePayload updateInferenceProfilePayload;
+
+        private APIupdateInferenceProfileRequest(
+                @jakarta.annotation.Nonnull String profileId,
+                @jakarta.annotation.Nonnull
+                        UpdateInferenceProfilePayload updateInferenceProfilePayload) {
+            this.profileId = profileId;
+            this.updateInferenceProfilePayload = updateInferenceProfilePayload;
+        }
+
+        /**
+         * Build call for updateInferenceProfile
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated profile, retaining its ID. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateInferenceProfileCall(profileId, updateInferenceProfilePayload, _callback);
+        }
+
+        /**
+         * Execute updateInferenceProfile request
+         * @return InferenceProfileRecord
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated profile, retaining its ID. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InferenceProfileRecord execute() throws ApiException {
+            ApiResponse<InferenceProfileRecord> localVarResp =
+                    updateInferenceProfileWithHttpInfo(profileId, updateInferenceProfilePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateInferenceProfile request with HTTP info returned
+         * @return ApiResponse&lt;InferenceProfileRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated profile, retaining its ID. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InferenceProfileRecord> executeWithHttpInfo() throws ApiException {
+            return updateInferenceProfileWithHttpInfo(profileId, updateInferenceProfilePayload);
+        }
+
+        /**
+         * Execute updateInferenceProfile request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated profile, retaining its ID. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InferenceProfileRecord> _callback)
+                throws ApiException {
+            return updateInferenceProfileAsync(profileId, updateInferenceProfilePayload, _callback);
+        }
+    }
+
+    /**
+     * Update an inference profile
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param profileId  (required)
+     * @param updateInferenceProfilePayload  (required)
+     * @return APIupdateInferenceProfileRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated profile, retaining its ID. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateInferenceProfileRequest updateInferenceProfile(
+            @jakarta.annotation.Nonnull String profileId,
+            @jakarta.annotation.Nonnull
+                    UpdateInferenceProfilePayload updateInferenceProfilePayload) {
+        return new APIupdateInferenceProfileRequest(profileId, updateInferenceProfilePayload);
     }
 }

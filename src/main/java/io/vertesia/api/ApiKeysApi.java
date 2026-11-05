@@ -68,22 +68,7 @@ public class ApiKeysApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createApiKey
-     * @param createApiKeyPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created API key and raw secret value. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createApiKeyCall(
+    private okhttp3.Call createApiKeyCall(
             @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -153,44 +138,7 @@ public class ApiKeysApi {
         return createApiKeyCall(createApiKeyPayload, _callback);
     }
 
-    /**
-     * Create an API key
-     * Creates a new API key and returns the raw key value once at creation time.  **Required permissions:** &#x60;api_key:create&#x60;
-     * @param createApiKeyPayload  (required)
-     * @return ApiKeyWithValue
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created API key and raw secret value. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiKeyWithValue createApiKey(
-            @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload)
-            throws ApiException {
-        ApiResponse<ApiKeyWithValue> localVarResp = createApiKeyWithHttpInfo(createApiKeyPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an API key
-     * Creates a new API key and returns the raw key value once at creation time.  **Required permissions:** &#x60;api_key:create&#x60;
-     * @param createApiKeyPayload  (required)
-     * @return ApiResponse&lt;ApiKeyWithValue&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created API key and raw secret value. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ApiKeyWithValue> createApiKeyWithHttpInfo(
+    private ApiResponse<ApiKeyWithValue> createApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload)
             throws ApiException {
         okhttp3.Call localVarCall = createApiKeyValidateBeforeCall(createApiKeyPayload, null);
@@ -198,23 +146,7 @@ public class ApiKeysApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an API key (asynchronously)
-     * Creates a new API key and returns the raw key value once at creation time.  **Required permissions:** &#x60;api_key:create&#x60;
-     * @param createApiKeyPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created API key and raw secret value. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createApiKeyAsync(
+    private okhttp3.Call createApiKeyAsync(
             @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload,
             final ApiCallback<ApiKeyWithValue> _callback)
             throws ApiException {
@@ -225,22 +157,108 @@ public class ApiKeysApi {
         return localVarCall;
     }
 
+    public class APIcreateApiKeyRequest {
+        @jakarta.annotation.Nonnull private final CreateApiKeyPayload createApiKeyPayload;
+
+        private APIcreateApiKeyRequest(
+                @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload) {
+            this.createApiKeyPayload = createApiKeyPayload;
+        }
+
+        /**
+         * Build call for createApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created API key and raw secret value. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createApiKeyCall(createApiKeyPayload, _callback);
+        }
+
+        /**
+         * Execute createApiKey request
+         * @return ApiKeyWithValue
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created API key and raw secret value. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiKeyWithValue execute() throws ApiException {
+            ApiResponse<ApiKeyWithValue> localVarResp =
+                    createApiKeyWithHttpInfo(createApiKeyPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createApiKey request with HTTP info returned
+         * @return ApiResponse&lt;ApiKeyWithValue&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created API key and raw secret value. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ApiKeyWithValue> executeWithHttpInfo() throws ApiException {
+            return createApiKeyWithHttpInfo(createApiKeyPayload);
+        }
+
+        /**
+         * Execute createApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created API key and raw secret value. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ApiKeyWithValue> _callback)
+                throws ApiException {
+            return createApiKeyAsync(createApiKeyPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteApiKey
-     * @param keyId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an API key
+     * Creates a new API key and returns the raw key value once at creation time.  **Required permissions:** &#x60;api_key:create&#x60;
+     * @param createApiKeyPayload  (required)
+     * @return APIcreateApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> API key deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created API key and raw secret value. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteApiKeyCall(
+    public APIcreateApiKeyRequest createApiKey(
+            @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload) {
+        return new APIcreateApiKeyRequest(createApiKeyPayload);
+    }
+
+    private okhttp3.Call deleteApiKeyCall(
             @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -312,66 +330,14 @@ public class ApiKeysApi {
         return deleteApiKeyCall(keyId, _callback);
     }
 
-    /**
-     * Delete an API key
-     * Deletes an API key by ID.  **Required permissions:** &#x60;api_key:delete&#x60;
-     * @param keyId  (required)
-     * @return DeleteOperationResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> API key deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteOperationResult deleteApiKey(@jakarta.annotation.Nonnull String keyId)
-            throws ApiException {
-        ApiResponse<DeleteOperationResult> localVarResp = deleteApiKeyWithHttpInfo(keyId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an API key
-     * Deletes an API key by ID.  **Required permissions:** &#x60;api_key:delete&#x60;
-     * @param keyId  (required)
-     * @return ApiResponse&lt;DeleteOperationResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> API key deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteOperationResult> deleteApiKeyWithHttpInfo(
+    private ApiResponse<DeleteOperationResult> deleteApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull String keyId) throws ApiException {
         okhttp3.Call localVarCall = deleteApiKeyValidateBeforeCall(keyId, null);
         Type localVarReturnType = new TypeToken<DeleteOperationResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an API key (asynchronously)
-     * Deletes an API key by ID.  **Required permissions:** &#x60;api_key:delete&#x60;
-     * @param keyId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> API key deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteApiKeyAsync(
+    private okhttp3.Call deleteApiKeyAsync(
             @jakarta.annotation.Nonnull String keyId,
             final ApiCallback<DeleteOperationResult> _callback)
             throws ApiException {
@@ -382,22 +348,105 @@ public class ApiKeysApi {
         return localVarCall;
     }
 
+    public class APIdeleteApiKeyRequest {
+        @jakarta.annotation.Nonnull private final String keyId;
+
+        private APIdeleteApiKeyRequest(@jakarta.annotation.Nonnull String keyId) {
+            this.keyId = keyId;
+        }
+
+        /**
+         * Build call for deleteApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> API key deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteApiKeyCall(keyId, _callback);
+        }
+
+        /**
+         * Execute deleteApiKey request
+         * @return DeleteOperationResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> API key deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteOperationResult execute() throws ApiException {
+            ApiResponse<DeleteOperationResult> localVarResp = deleteApiKeyWithHttpInfo(keyId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteApiKey request with HTTP info returned
+         * @return ApiResponse&lt;DeleteOperationResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> API key deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteOperationResult> executeWithHttpInfo() throws ApiException {
+            return deleteApiKeyWithHttpInfo(keyId);
+        }
+
+        /**
+         * Execute deleteApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> API key deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteOperationResult> _callback)
+                throws ApiException {
+            return deleteApiKeyAsync(keyId, _callback);
+        }
+    }
+
     /**
-     * Build call for getApiKey
+     * Delete an API key
+     * Deletes an API key by ID.  **Required permissions:** &#x60;api_key:delete&#x60;
      * @param keyId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested API key. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> API key deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getApiKeyCall(
+    public APIdeleteApiKeyRequest deleteApiKey(@jakarta.annotation.Nonnull String keyId) {
+        return new APIdeleteApiKeyRequest(keyId);
+    }
+
+    private okhttp3.Call getApiKeyCall(
             @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -469,65 +518,14 @@ public class ApiKeysApi {
         return getApiKeyCall(keyId, _callback);
     }
 
-    /**
-     * Retrieve an API key
-     * Retrieves API key metadata. The raw key value is returned only once, on creation.  **Required permissions:** &#x60;api_key:read&#x60;
-     * @param keyId  (required)
-     * @return ApiKey
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested API key. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiKey getApiKey(@jakarta.annotation.Nonnull String keyId) throws ApiException {
-        ApiResponse<ApiKey> localVarResp = getApiKeyWithHttpInfo(keyId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an API key
-     * Retrieves API key metadata. The raw key value is returned only once, on creation.  **Required permissions:** &#x60;api_key:read&#x60;
-     * @param keyId  (required)
-     * @return ApiResponse&lt;ApiKey&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested API key. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ApiKey> getApiKeyWithHttpInfo(@jakarta.annotation.Nonnull String keyId)
+    private ApiResponse<ApiKey> getApiKeyWithHttpInfo(@jakarta.annotation.Nonnull String keyId)
             throws ApiException {
         okhttp3.Call localVarCall = getApiKeyValidateBeforeCall(keyId, null);
         Type localVarReturnType = new TypeToken<ApiKey>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an API key (asynchronously)
-     * Retrieves API key metadata. The raw key value is returned only once, on creation.  **Required permissions:** &#x60;api_key:read&#x60;
-     * @param keyId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested API key. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getApiKeyAsync(
+    private okhttp3.Call getApiKeyAsync(
             @jakarta.annotation.Nonnull String keyId, final ApiCallback<ApiKey> _callback)
             throws ApiException {
 
@@ -537,22 +535,104 @@ public class ApiKeysApi {
         return localVarCall;
     }
 
+    public class APIgetApiKeyRequest {
+        @jakarta.annotation.Nonnull private final String keyId;
+
+        private APIgetApiKeyRequest(@jakarta.annotation.Nonnull String keyId) {
+            this.keyId = keyId;
+        }
+
+        /**
+         * Build call for getApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested API key. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getApiKeyCall(keyId, _callback);
+        }
+
+        /**
+         * Execute getApiKey request
+         * @return ApiKey
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested API key. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiKey execute() throws ApiException {
+            ApiResponse<ApiKey> localVarResp = getApiKeyWithHttpInfo(keyId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getApiKey request with HTTP info returned
+         * @return ApiResponse&lt;ApiKey&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested API key. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ApiKey> executeWithHttpInfo() throws ApiException {
+            return getApiKeyWithHttpInfo(keyId);
+        }
+
+        /**
+         * Execute getApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested API key. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ApiKey> _callback) throws ApiException {
+            return getApiKeyAsync(keyId, _callback);
+        }
+    }
+
     /**
-     * Build call for getApiKeyToken
+     * Retrieve an API key
+     * Retrieves API key metadata. The raw key value is returned only once, on creation.  **Required permissions:** &#x60;api_key:read&#x60;
      * @param keyId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated API key token response. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested API key. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getApiKeyTokenCall(
+    public APIgetApiKeyRequest getApiKey(@jakarta.annotation.Nonnull String keyId) {
+        return new APIgetApiKeyRequest(keyId);
+    }
+
+    private okhttp3.Call getApiKeyTokenCall(
             @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -624,66 +704,14 @@ public class ApiKeysApi {
         return getApiKeyTokenCall(keyId, _callback);
     }
 
-    /**
-     * Get an API key token
-     * Returns a generated auth token derived from a retrievable API key value.  **Required permissions:** &#x60;api_key:secret_read&#x60;
-     * @param keyId  (required)
-     * @return AuthTokenResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated API key token response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AuthTokenResponse getApiKeyToken(@jakarta.annotation.Nonnull String keyId)
-            throws ApiException {
-        ApiResponse<AuthTokenResponse> localVarResp = getApiKeyTokenWithHttpInfo(keyId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get an API key token
-     * Returns a generated auth token derived from a retrievable API key value.  **Required permissions:** &#x60;api_key:secret_read&#x60;
-     * @param keyId  (required)
-     * @return ApiResponse&lt;AuthTokenResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated API key token response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AuthTokenResponse> getApiKeyTokenWithHttpInfo(
+    private ApiResponse<AuthTokenResponse> getApiKeyTokenWithHttpInfo(
             @jakarta.annotation.Nonnull String keyId) throws ApiException {
         okhttp3.Call localVarCall = getApiKeyTokenValidateBeforeCall(keyId, null);
         Type localVarReturnType = new TypeToken<AuthTokenResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get an API key token (asynchronously)
-     * Returns a generated auth token derived from a retrievable API key value.  **Required permissions:** &#x60;api_key:secret_read&#x60;
-     * @param keyId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated API key token response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getApiKeyTokenAsync(
+    private okhttp3.Call getApiKeyTokenAsync(
             @jakarta.annotation.Nonnull String keyId,
             final ApiCallback<AuthTokenResponse> _callback)
             throws ApiException {
@@ -694,22 +722,105 @@ public class ApiKeysApi {
         return localVarCall;
     }
 
+    public class APIgetApiKeyTokenRequest {
+        @jakarta.annotation.Nonnull private final String keyId;
+
+        private APIgetApiKeyTokenRequest(@jakarta.annotation.Nonnull String keyId) {
+            this.keyId = keyId;
+        }
+
+        /**
+         * Build call for getApiKeyToken
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated API key token response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getApiKeyTokenCall(keyId, _callback);
+        }
+
+        /**
+         * Execute getApiKeyToken request
+         * @return AuthTokenResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated API key token response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AuthTokenResponse execute() throws ApiException {
+            ApiResponse<AuthTokenResponse> localVarResp = getApiKeyTokenWithHttpInfo(keyId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getApiKeyToken request with HTTP info returned
+         * @return ApiResponse&lt;AuthTokenResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated API key token response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AuthTokenResponse> executeWithHttpInfo() throws ApiException {
+            return getApiKeyTokenWithHttpInfo(keyId);
+        }
+
+        /**
+         * Execute getApiKeyToken request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated API key token response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AuthTokenResponse> _callback)
+                throws ApiException {
+            return getApiKeyTokenAsync(keyId, _callback);
+        }
+    }
+
     /**
-     * Build call for listApiKeys
-     * @param level  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get an API key token
+     * Returns a generated auth token derived from a retrievable API key value.  **Required permissions:** &#x60;api_key:secret_read&#x60;
+     * @param keyId  (required)
+     * @return APIgetApiKeyTokenRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> API keys. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Generated API key token response. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listApiKeysCall(
+    public APIgetApiKeyTokenRequest getApiKeyToken(@jakarta.annotation.Nonnull String keyId) {
+        return new APIgetApiKeyTokenRequest(keyId);
+    }
+
+    private okhttp3.Call listApiKeysCall(
             @jakarta.annotation.Nullable String level, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -775,65 +886,14 @@ public class ApiKeysApi {
         return listApiKeysCall(level, _callback);
     }
 
-    /**
-     * List API keys
-     * Lists API keys for the current project or, for account administrators, across accessible projects in the account.  **Required permissions:** &#x60;api_key:read&#x60;
-     * @param level  (optional)
-     * @return List&lt;ApiKey&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> API keys. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ApiKey> listApiKeys(@jakarta.annotation.Nullable String level) throws ApiException {
-        ApiResponse<List<ApiKey>> localVarResp = listApiKeysWithHttpInfo(level);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List API keys
-     * Lists API keys for the current project or, for account administrators, across accessible projects in the account.  **Required permissions:** &#x60;api_key:read&#x60;
-     * @param level  (optional)
-     * @return ApiResponse&lt;List&lt;ApiKey&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> API keys. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ApiKey>> listApiKeysWithHttpInfo(
+    private ApiResponse<List<ApiKey>> listApiKeysWithHttpInfo(
             @jakarta.annotation.Nullable String level) throws ApiException {
         okhttp3.Call localVarCall = listApiKeysValidateBeforeCall(level, null);
         Type localVarReturnType = new TypeToken<List<ApiKey>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List API keys (asynchronously)
-     * Lists API keys for the current project or, for account administrators, across accessible projects in the account.  **Required permissions:** &#x60;api_key:read&#x60;
-     * @param level  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> API keys. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listApiKeysAsync(
+    private okhttp3.Call listApiKeysAsync(
             @jakarta.annotation.Nullable String level, final ApiCallback<List<ApiKey>> _callback)
             throws ApiException {
 
@@ -843,65 +903,112 @@ public class ApiKeysApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listApiKeys with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listApiKeysCall(final ApiCallback _callback) throws ApiException {
-        return listApiKeysCall(null, _callback);
+    public class APIlistApiKeysRequest {
+        @jakarta.annotation.Nullable private String level;
+
+        private APIlistApiKeysRequest() {}
+
+        /**
+         * Set level
+         * @param level  (optional)
+         * @return APIlistApiKeysRequest
+         */
+        public APIlistApiKeysRequest level(@jakarta.annotation.Nullable String level) {
+            this.level = level;
+            return this;
+        }
+
+        /**
+         * Build call for listApiKeys
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> API keys. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listApiKeysCall(level, _callback);
+        }
+
+        /**
+         * Execute listApiKeys request
+         * @return List&lt;ApiKey&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> API keys. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ApiKey> execute() throws ApiException {
+            ApiResponse<List<ApiKey>> localVarResp = listApiKeysWithHttpInfo(level);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listApiKeys request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ApiKey&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> API keys. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ApiKey>> executeWithHttpInfo() throws ApiException {
+            return listApiKeysWithHttpInfo(level);
+        }
+
+        /**
+         * Execute listApiKeys request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> API keys. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ApiKey>> _callback)
+                throws ApiException {
+            return listApiKeysAsync(level, _callback);
+        }
     }
 
     /**
      * List API keys
-     * Calls {@code listApiKeys} with every optional parameter left unset.
-     * @return List&lt;ApiKey&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ApiKey> listApiKeys() throws ApiException {
-        return listApiKeys(null);
-    }
-
-    /**
-     * List API keys
-     * Calls {@code listApiKeysWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ApiKey>> listApiKeysWithHttpInfo() throws ApiException {
-        return listApiKeysWithHttpInfo(null);
-    }
-
-    /**
-     * List API keys (asynchronously)
-     * Calls {@code listApiKeysAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listApiKeysAsync(final ApiCallback<List<ApiKey>> _callback)
-            throws ApiException {
-        return listApiKeysAsync(null, _callback);
-    }
-
-    /**
-     * Build call for updateApiKey
-     * @param keyId  (required)
-     * @param updateApiKeyPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists API keys for the current project or, for account administrators, across accessible projects in the account.  **Required permissions:** &#x60;api_key:read&#x60;
+     * @return APIlistApiKeysRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated API key. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> API keys. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateApiKeyCall(
+    public APIlistApiKeysRequest listApiKeys() {
+        return new APIlistApiKeysRequest();
+    }
+
+    private okhttp3.Call updateApiKeyCall(
             @jakarta.annotation.Nonnull String keyId,
             @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload,
             final ApiCallback _callback)
@@ -983,47 +1090,7 @@ public class ApiKeysApi {
         return updateApiKeyCall(keyId, updateApiKeyPayload, _callback);
     }
 
-    /**
-     * Update an API key
-     * Updates API key metadata, security attributes, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
-     * @param keyId  (required)
-     * @param updateApiKeyPayload  (required)
-     * @return ApiKey
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated API key. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiKey updateApiKey(
-            @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload)
-            throws ApiException {
-        ApiResponse<ApiKey> localVarResp = updateApiKeyWithHttpInfo(keyId, updateApiKeyPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an API key
-     * Updates API key metadata, security attributes, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
-     * @param keyId  (required)
-     * @param updateApiKeyPayload  (required)
-     * @return ApiResponse&lt;ApiKey&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated API key. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ApiKey> updateApiKeyWithHttpInfo(
+    private ApiResponse<ApiKey> updateApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull String keyId,
             @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload)
             throws ApiException {
@@ -1033,24 +1100,7 @@ public class ApiKeysApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an API key (asynchronously)
-     * Updates API key metadata, security attributes, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
-     * @param keyId  (required)
-     * @param updateApiKeyPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated API key. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateApiKeyAsync(
+    private okhttp3.Call updateApiKeyAsync(
             @jakarta.annotation.Nonnull String keyId,
             @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload,
             final ApiCallback<ApiKey> _callback)
@@ -1061,5 +1111,109 @@ public class ApiKeysApi {
         Type localVarReturnType = new TypeToken<ApiKey>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateApiKeyRequest {
+        @jakarta.annotation.Nonnull private final String keyId;
+        @jakarta.annotation.Nonnull private final UpdateApiKeyPayload updateApiKeyPayload;
+
+        private APIupdateApiKeyRequest(
+                @jakarta.annotation.Nonnull String keyId,
+                @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload) {
+            this.keyId = keyId;
+            this.updateApiKeyPayload = updateApiKeyPayload;
+        }
+
+        /**
+         * Build call for updateApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated API key. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateApiKeyCall(keyId, updateApiKeyPayload, _callback);
+        }
+
+        /**
+         * Execute updateApiKey request
+         * @return ApiKey
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated API key. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiKey execute() throws ApiException {
+            ApiResponse<ApiKey> localVarResp = updateApiKeyWithHttpInfo(keyId, updateApiKeyPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateApiKey request with HTTP info returned
+         * @return ApiResponse&lt;ApiKey&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated API key. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ApiKey> executeWithHttpInfo() throws ApiException {
+            return updateApiKeyWithHttpInfo(keyId, updateApiKeyPayload);
+        }
+
+        /**
+         * Execute updateApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated API key. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ApiKey> _callback) throws ApiException {
+            return updateApiKeyAsync(keyId, updateApiKeyPayload, _callback);
+        }
+    }
+
+    /**
+     * Update an API key
+     * Updates API key metadata, security attributes, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
+     * @param keyId  (required)
+     * @param updateApiKeyPayload  (required)
+     * @return APIupdateApiKeyRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated API key. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateApiKeyRequest updateApiKey(
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload) {
+        return new APIupdateApiKeyRequest(keyId, updateApiKeyPayload);
     }
 }

@@ -115,23 +115,7 @@ public class AppsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for assignAppVersionAlias
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param alias  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call assignAppVersionAliasCall(
+    private okhttp3.Call assignAppVersionAliasCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String alias,
             final ApiCallback _callback)
@@ -214,46 +198,7 @@ public class AppsApi {
         return assignAppVersionAliasCall(id, alias, _callback);
     }
 
-    /**
-     * Assign a deployment alias to an app version
-     * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param alias  (required)
-     * @return AppVersionRecord
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppVersionRecord assignAppVersionAlias(
-            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias)
-            throws ApiException {
-        ApiResponse<AppVersionRecord> localVarResp = assignAppVersionAliasWithHttpInfo(id, alias);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Assign a deployment alias to an app version
-     * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param alias  (required)
-     * @return ApiResponse&lt;AppVersionRecord&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppVersionRecord> assignAppVersionAliasWithHttpInfo(
+    private ApiResponse<AppVersionRecord> assignAppVersionAliasWithHttpInfo(
             @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias)
             throws ApiException {
         okhttp3.Call localVarCall = assignAppVersionAliasValidateBeforeCall(id, alias, null);
@@ -261,24 +206,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Assign a deployment alias to an app version (asynchronously)
-     * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param alias  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call assignAppVersionAliasAsync(
+    private okhttp3.Call assignAppVersionAliasAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String alias,
             final ApiCallback<AppVersionRecord> _callback)
@@ -290,22 +218,111 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIassignAppVersionAliasRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final String alias;
+
+        private APIassignAppVersionAliasRequest(
+                @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias) {
+            this.id = id;
+            this.alias = alias;
+        }
+
+        /**
+         * Build call for assignAppVersionAlias
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return assignAppVersionAliasCall(id, alias, _callback);
+        }
+
+        /**
+         * Execute assignAppVersionAlias request
+         * @return AppVersionRecord
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppVersionRecord execute() throws ApiException {
+            ApiResponse<AppVersionRecord> localVarResp =
+                    assignAppVersionAliasWithHttpInfo(id, alias);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute assignAppVersionAlias request with HTTP info returned
+         * @return ApiResponse&lt;AppVersionRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppVersionRecord> executeWithHttpInfo() throws ApiException {
+            return assignAppVersionAliasWithHttpInfo(id, alias);
+        }
+
+        /**
+         * Execute assignAppVersionAlias request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppVersionRecord> _callback)
+                throws ApiException {
+            return assignAppVersionAliasAsync(id, alias, _callback);
+        }
+    }
+
     /**
-     * Build call for commitAppRepoDocuments
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Assign a deployment alias to an app version
+     * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
+     * @param alias  (required)
+     * @return APIassignAppVersionAliasRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created Git commit. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call commitAppRepoDocumentsCall(
+    public APIassignAppVersionAliasRequest assignAppVersionAlias(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias) {
+        return new APIassignAppVersionAliasRequest(id, alias);
+    }
+
+    private okhttp3.Call commitAppRepoDocumentsCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -375,66 +392,14 @@ public class AppsApi {
         return commitAppRepoDocumentsCall(id, _callback);
     }
 
-    /**
-     * Commit documents to the app git repository
-     * Forwards a multipart document upload to the app git service. The files are restricted to approved repository paths, currently docs/, and are committed together on the selected branch.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @return AppRepoDocumentCommit
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created Git commit. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppRepoDocumentCommit commitAppRepoDocuments(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<AppRepoDocumentCommit> localVarResp = commitAppRepoDocumentsWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Commit documents to the app git repository
-     * Forwards a multipart document upload to the app git service. The files are restricted to approved repository paths, currently docs/, and are committed together on the selected branch.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @return ApiResponse&lt;AppRepoDocumentCommit&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created Git commit. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppRepoDocumentCommit> commitAppRepoDocumentsWithHttpInfo(
+    private ApiResponse<AppRepoDocumentCommit> commitAppRepoDocumentsWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = commitAppRepoDocumentsValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<AppRepoDocumentCommit>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Commit documents to the app git repository (asynchronously)
-     * Forwards a multipart document upload to the app git service. The files are restricted to approved repository paths, currently docs/, and are committed together on the selected branch.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created Git commit. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call commitAppRepoDocumentsAsync(
+    private okhttp3.Call commitAppRepoDocumentsAsync(
             @jakarta.annotation.Nonnull String id,
             final ApiCallback<AppRepoDocumentCommit> _callback)
             throws ApiException {
@@ -445,22 +410,107 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIcommitAppRepoDocumentsRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIcommitAppRepoDocumentsRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for commitAppRepoDocuments
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created Git commit. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return commitAppRepoDocumentsCall(id, _callback);
+        }
+
+        /**
+         * Execute commitAppRepoDocuments request
+         * @return AppRepoDocumentCommit
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created Git commit. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppRepoDocumentCommit execute() throws ApiException {
+            ApiResponse<AppRepoDocumentCommit> localVarResp =
+                    commitAppRepoDocumentsWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute commitAppRepoDocuments request with HTTP info returned
+         * @return ApiResponse&lt;AppRepoDocumentCommit&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created Git commit. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppRepoDocumentCommit> executeWithHttpInfo() throws ApiException {
+            return commitAppRepoDocumentsWithHttpInfo(id);
+        }
+
+        /**
+         * Execute commitAppRepoDocuments request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created Git commit. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppRepoDocumentCommit> _callback)
+                throws ApiException {
+            return commitAppRepoDocumentsAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for createApp
-     * @param appManifestData  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Commit documents to the app git repository
+     * Forwards a multipart document upload to the app git service. The files are restricted to approved repository paths, currently docs/, and are committed together on the selected branch.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @return APIcommitAppRepoDocumentsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created app. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Created Git commit. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createAppCall(
+    public APIcommitAppRepoDocumentsRequest commitAppRepoDocuments(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIcommitAppRepoDocumentsRequest(id);
+    }
+
+    private okhttp3.Call createAppCall(
             @jakarta.annotation.Nonnull AppManifestData appManifestData,
             final ApiCallback _callback)
             throws ApiException {
@@ -530,66 +580,14 @@ public class AppsApi {
         return createAppCall(appManifestData, _callback);
     }
 
-    /**
-     * Create an app
-     * Creates a new app manifest.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param appManifestData  (required)
-     * @return AppManifest
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created app. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppManifest createApp(@jakarta.annotation.Nonnull AppManifestData appManifestData)
-            throws ApiException {
-        ApiResponse<AppManifest> localVarResp = createAppWithHttpInfo(appManifestData);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an app
-     * Creates a new app manifest.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param appManifestData  (required)
-     * @return ApiResponse&lt;AppManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created app. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppManifest> createAppWithHttpInfo(
+    private ApiResponse<AppManifest> createAppWithHttpInfo(
             @jakarta.annotation.Nonnull AppManifestData appManifestData) throws ApiException {
         okhttp3.Call localVarCall = createAppValidateBeforeCall(appManifestData, null);
         Type localVarReturnType = new TypeToken<AppManifest>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an app (asynchronously)
-     * Creates a new app manifest.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param appManifestData  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created app. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAppAsync(
+    private okhttp3.Call createAppAsync(
             @jakarta.annotation.Nonnull AppManifestData appManifestData,
             final ApiCallback<AppManifest> _callback)
             throws ApiException {
@@ -600,23 +598,106 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIcreateAppRequest {
+        @jakarta.annotation.Nonnull private final AppManifestData appManifestData;
+
+        private APIcreateAppRequest(@jakarta.annotation.Nonnull AppManifestData appManifestData) {
+            this.appManifestData = appManifestData;
+        }
+
+        /**
+         * Build call for createApp
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createAppCall(appManifestData, _callback);
+        }
+
+        /**
+         * Execute createApp request
+         * @return AppManifest
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppManifest execute() throws ApiException {
+            ApiResponse<AppManifest> localVarResp = createAppWithHttpInfo(appManifestData);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createApp request with HTTP info returned
+         * @return ApiResponse&lt;AppManifest&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppManifest> executeWithHttpInfo() throws ApiException {
+            return createAppWithHttpInfo(appManifestData);
+        }
+
+        /**
+         * Execute createApp request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppManifest> _callback)
+                throws ApiException {
+            return createAppAsync(appManifestData, _callback);
+        }
+    }
+
     /**
-     * Build call for createAppRepoBranch
-     * @param id  (required)
-     * @param createAppRepoBranchRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an app
+     * Creates a new app manifest.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param appManifestData  (required)
+     * @return APIcreateAppRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created branch. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created app. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createAppRepoBranchCall(
+    public APIcreateAppRequest createApp(
+            @jakarta.annotation.Nonnull AppManifestData appManifestData) {
+        return new APIcreateAppRequest(appManifestData);
+    }
+
+    private okhttp3.Call createAppRepoBranchCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest,
             final ApiCallback _callback)
@@ -696,48 +777,7 @@ public class AppsApi {
         return createAppRepoBranchCall(id, createAppRepoBranchRequest, _callback);
     }
 
-    /**
-     * Create a branch in the app git repository
-     * Creates a branch from an existing branch, tag, or commit without cloning the repository.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param createAppRepoBranchRequest  (required)
-     * @return AppRepoBranch
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created branch. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppRepoBranch createAppRepoBranch(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest)
-            throws ApiException {
-        ApiResponse<AppRepoBranch> localVarResp =
-                createAppRepoBranchWithHttpInfo(id, createAppRepoBranchRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a branch in the app git repository
-     * Creates a branch from an existing branch, tag, or commit without cloning the repository.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param createAppRepoBranchRequest  (required)
-     * @return ApiResponse&lt;AppRepoBranch&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created branch. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppRepoBranch> createAppRepoBranchWithHttpInfo(
+    private ApiResponse<AppRepoBranch> createAppRepoBranchWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest)
             throws ApiException {
@@ -747,24 +787,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a branch in the app git repository (asynchronously)
-     * Creates a branch from an existing branch, tag, or commit without cloning the repository.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param createAppRepoBranchRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created branch. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAppRepoBranchAsync(
+    private okhttp3.Call createAppRepoBranchAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest,
             final ApiCallback<AppRepoBranch> _callback)
@@ -777,23 +800,115 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIcreateAppRepoBranchRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        @jakarta.annotation.Nonnull
+        private final CreateAppRepoBranchRequest createAppRepoBranchRequest;
+
+        private APIcreateAppRepoBranchRequest(
+                @jakarta.annotation.Nonnull String id,
+                @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest) {
+            this.id = id;
+            this.createAppRepoBranchRequest = createAppRepoBranchRequest;
+        }
+
+        /**
+         * Build call for createAppRepoBranch
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created branch. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createAppRepoBranchCall(id, createAppRepoBranchRequest, _callback);
+        }
+
+        /**
+         * Execute createAppRepoBranch request
+         * @return AppRepoBranch
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created branch. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppRepoBranch execute() throws ApiException {
+            ApiResponse<AppRepoBranch> localVarResp =
+                    createAppRepoBranchWithHttpInfo(id, createAppRepoBranchRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createAppRepoBranch request with HTTP info returned
+         * @return ApiResponse&lt;AppRepoBranch&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created branch. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppRepoBranch> executeWithHttpInfo() throws ApiException {
+            return createAppRepoBranchWithHttpInfo(id, createAppRepoBranchRequest);
+        }
+
+        /**
+         * Execute createAppRepoBranch request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created branch. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppRepoBranch> _callback)
+                throws ApiException {
+            return createAppRepoBranchAsync(id, createAppRepoBranchRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for createAppVersionLaunch
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param createAppVersionLaunchRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a branch in the app git repository
+     * Creates a branch from an existing branch, tag, or commit without cloning the repository.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param createAppRepoBranchRequest  (required)
+     * @return APIcreateAppRepoBranchRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Created branch. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createAppVersionLaunchCall(
+    public APIcreateAppRepoBranchRequest createAppRepoBranch(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest) {
+        return new APIcreateAppRepoBranchRequest(id, createAppRepoBranchRequest);
+    }
+
+    private okhttp3.Call createAppVersionLaunchCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull CreateAppVersionLaunchRequest createAppVersionLaunchRequest,
             final ApiCallback _callback)
@@ -873,48 +988,7 @@ public class AppsApi {
         return createAppVersionLaunchCall(id, createAppVersionLaunchRequest, _callback);
     }
 
-    /**
-     * Create an advanced app version launch
-     * Creates a short-lived launch selector for an immutable app version. Temporary settings override the selected project installation only for requests carrying that selector.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param createAppVersionLaunchRequest  (required)
-     * @return CreateAppVersionLaunchResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CreateAppVersionLaunchResponse createAppVersionLaunch(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull CreateAppVersionLaunchRequest createAppVersionLaunchRequest)
-            throws ApiException {
-        ApiResponse<CreateAppVersionLaunchResponse> localVarResp =
-                createAppVersionLaunchWithHttpInfo(id, createAppVersionLaunchRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an advanced app version launch
-     * Creates a short-lived launch selector for an immutable app version. Temporary settings override the selected project installation only for requests carrying that selector.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param createAppVersionLaunchRequest  (required)
-     * @return ApiResponse&lt;CreateAppVersionLaunchResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CreateAppVersionLaunchResponse> createAppVersionLaunchWithHttpInfo(
+    private ApiResponse<CreateAppVersionLaunchResponse> createAppVersionLaunchWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull CreateAppVersionLaunchRequest createAppVersionLaunchRequest)
             throws ApiException {
@@ -924,24 +998,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an advanced app version launch (asynchronously)
-     * Creates a short-lived launch selector for an immutable app version. Temporary settings override the selected project installation only for requests carrying that selector.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param createAppVersionLaunchRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAppVersionLaunchAsync(
+    private okhttp3.Call createAppVersionLaunchAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull CreateAppVersionLaunchRequest createAppVersionLaunchRequest,
             final ApiCallback<CreateAppVersionLaunchResponse> _callback)
@@ -955,23 +1012,118 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIcreateAppVersionLaunchRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        @jakarta.annotation.Nonnull
+        private final CreateAppVersionLaunchRequest createAppVersionLaunchRequest;
+
+        private APIcreateAppVersionLaunchRequest(
+                @jakarta.annotation.Nonnull String id,
+                @jakarta.annotation.Nonnull
+                        CreateAppVersionLaunchRequest createAppVersionLaunchRequest) {
+            this.id = id;
+            this.createAppVersionLaunchRequest = createAppVersionLaunchRequest;
+        }
+
+        /**
+         * Build call for createAppVersionLaunch
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createAppVersionLaunchCall(id, createAppVersionLaunchRequest, _callback);
+        }
+
+        /**
+         * Execute createAppVersionLaunch request
+         * @return CreateAppVersionLaunchResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CreateAppVersionLaunchResponse execute() throws ApiException {
+            ApiResponse<CreateAppVersionLaunchResponse> localVarResp =
+                    createAppVersionLaunchWithHttpInfo(id, createAppVersionLaunchRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createAppVersionLaunch request with HTTP info returned
+         * @return ApiResponse&lt;CreateAppVersionLaunchResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CreateAppVersionLaunchResponse> executeWithHttpInfo()
+                throws ApiException {
+            return createAppVersionLaunchWithHttpInfo(id, createAppVersionLaunchRequest);
+        }
+
+        /**
+         * Execute createAppVersionLaunch request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<CreateAppVersionLaunchResponse> _callback) throws ApiException {
+            return createAppVersionLaunchAsync(id, createAppVersionLaunchRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteApp
-     * @param id  (required)
-     * @param confirm Set to true to delete the app. When omitted or false this is a dry run: nothing is removed, and the response describes what the cascade would remove. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an advanced app version launch
+     * Creates a short-lived launch selector for an immutable app version. Temporary settings override the selected project installation only for requests carrying that selector.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
+     * @param createAppVersionLaunchRequest  (required)
+     * @return APIcreateAppVersionLaunchRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App deletion result, or the dry-run preview. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteAppCall(
+    public APIcreateAppVersionLaunchRequest createAppVersionLaunch(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull
+                    CreateAppVersionLaunchRequest createAppVersionLaunchRequest) {
+        return new APIcreateAppVersionLaunchRequest(id, createAppVersionLaunchRequest);
+    }
+
+    private okhttp3.Call deleteAppCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable Boolean confirm,
             final ApiCallback _callback)
@@ -1049,46 +1201,7 @@ public class AppsApi {
         return deleteAppCall(id, confirm, _callback);
     }
 
-    /**
-     * Delete an app
-     * Cascade-deletes an app manifest and everything provisioned from it. Without &#x60;?confirm&#x3D;true&#x60; nothing is removed and the same shape comes back as a dry-run preview.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param confirm Set to true to delete the app. When omitted or false this is a dry run: nothing is removed, and the response describes what the cascade would remove. (optional)
-     * @return AppDeleteSummary
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App deletion result, or the dry-run preview. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppDeleteSummary deleteApp(
-            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable Boolean confirm)
-            throws ApiException {
-        ApiResponse<AppDeleteSummary> localVarResp = deleteAppWithHttpInfo(id, confirm);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an app
-     * Cascade-deletes an app manifest and everything provisioned from it. Without &#x60;?confirm&#x3D;true&#x60; nothing is removed and the same shape comes back as a dry-run preview.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param confirm Set to true to delete the app. When omitted or false this is a dry run: nothing is removed, and the response describes what the cascade would remove. (optional)
-     * @return ApiResponse&lt;AppDeleteSummary&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App deletion result, or the dry-run preview. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppDeleteSummary> deleteAppWithHttpInfo(
+    private ApiResponse<AppDeleteSummary> deleteAppWithHttpInfo(
             @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable Boolean confirm)
             throws ApiException {
         okhttp3.Call localVarCall = deleteAppValidateBeforeCall(id, confirm, null);
@@ -1096,24 +1209,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an app (asynchronously)
-     * Cascade-deletes an app manifest and everything provisioned from it. Without &#x60;?confirm&#x3D;true&#x60; nothing is removed and the same shape comes back as a dry-run preview.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param confirm Set to true to delete the app. When omitted or false this is a dry run: nothing is removed, and the response describes what the cascade would remove. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App deletion result, or the dry-run preview. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteAppAsync(
+    private okhttp3.Call deleteAppAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable Boolean confirm,
             final ApiCallback<AppDeleteSummary> _callback)
@@ -1125,72 +1221,116 @@ public class AppsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for deleteApp with every optional parameter left unset.
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call deleteAppCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
-            throws ApiException {
-        return deleteAppCall(id, null, _callback);
+    public class APIdeleteAppRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nullable private Boolean confirm;
+
+        private APIdeleteAppRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Set confirm
+         * @param confirm Set to true to delete the app. When omitted or false this is a dry run: nothing is removed, and the response describes what the cascade would remove. (optional)
+         * @return APIdeleteAppRequest
+         */
+        public APIdeleteAppRequest confirm(@jakarta.annotation.Nullable Boolean confirm) {
+            this.confirm = confirm;
+            return this;
+        }
+
+        /**
+         * Build call for deleteApp
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App deletion result, or the dry-run preview. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteAppCall(id, confirm, _callback);
+        }
+
+        /**
+         * Execute deleteApp request
+         * @return AppDeleteSummary
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App deletion result, or the dry-run preview. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppDeleteSummary execute() throws ApiException {
+            ApiResponse<AppDeleteSummary> localVarResp = deleteAppWithHttpInfo(id, confirm);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteApp request with HTTP info returned
+         * @return ApiResponse&lt;AppDeleteSummary&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App deletion result, or the dry-run preview. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppDeleteSummary> executeWithHttpInfo() throws ApiException {
+            return deleteAppWithHttpInfo(id, confirm);
+        }
+
+        /**
+         * Execute deleteApp request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App deletion result, or the dry-run preview. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppDeleteSummary> _callback)
+                throws ApiException {
+            return deleteAppAsync(id, confirm, _callback);
+        }
     }
 
     /**
      * Delete an app
-     * Calls {@code deleteApp} with every optional parameter left unset.
+     * Cascade-deletes an app manifest and everything provisioned from it. Without &#x60;?confirm&#x3D;true&#x60; nothing is removed and the same shape comes back as a dry-run preview.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
-     * @return AppDeleteSummary
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AppDeleteSummary deleteApp(@jakarta.annotation.Nonnull String id) throws ApiException {
-        return deleteApp(id, null);
-    }
-
-    /**
-     * Delete an app
-     * Calls {@code deleteAppWithHttpInfo} with every optional parameter left unset.
-     * @param id  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AppDeleteSummary> deleteAppWithHttpInfo(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        return deleteAppWithHttpInfo(id, null);
-    }
-
-    /**
-     * Delete an app (asynchronously)
-     * Calls {@code deleteAppAsync} with every optional parameter left unset.
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call deleteAppAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<AppDeleteSummary> _callback)
-            throws ApiException {
-        return deleteAppAsync(id, null, _callback);
-    }
-
-    /**
-     * Build call for deleteAppVersion
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteAppRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> App deletion result, or the dry-run preview. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteAppVersionCall(
+    public APIdeleteAppRequest deleteApp(@jakarta.annotation.Nonnull String id) {
+        return new APIdeleteAppRequest(id);
+    }
+
+    private okhttp3.Call deleteAppVersionCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1260,66 +1400,14 @@ public class AppsApi {
         return deleteAppVersionCall(id, _callback);
     }
 
-    /**
-     * Delete an app version
-     * Deletes an unpromoted, unaliased app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @return DeleteAppVersionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteAppVersionResponse deleteAppVersion(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<DeleteAppVersionResponse> localVarResp = deleteAppVersionWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an app version
-     * Deletes an unpromoted, unaliased app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DeleteAppVersionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteAppVersionResponse> deleteAppVersionWithHttpInfo(
+    private ApiResponse<DeleteAppVersionResponse> deleteAppVersionWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteAppVersionValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<DeleteAppVersionResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an app version (asynchronously)
-     * Deletes an unpromoted, unaliased app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteAppVersionAsync(
+    private okhttp3.Call deleteAppVersionAsync(
             @jakarta.annotation.Nonnull String id,
             final ApiCallback<DeleteAppVersionResponse> _callback)
             throws ApiException {
@@ -1330,23 +1418,105 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIdeleteAppVersionRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIdeleteAppVersionRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for deleteAppVersion
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteAppVersionCall(id, _callback);
+        }
+
+        /**
+         * Execute deleteAppVersion request
+         * @return DeleteAppVersionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteAppVersionResponse execute() throws ApiException {
+            ApiResponse<DeleteAppVersionResponse> localVarResp = deleteAppVersionWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteAppVersion request with HTTP info returned
+         * @return ApiResponse&lt;DeleteAppVersionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteAppVersionResponse> executeWithHttpInfo() throws ApiException {
+            return deleteAppVersionWithHttpInfo(id);
+        }
+
+        /**
+         * Execute deleteAppVersion request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteAppVersionResponse> _callback)
+                throws ApiException {
+            return deleteAppVersionAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteInstallationMcpApiKey
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete an app version
+     * Deletes an unpromoted, unaliased app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
+     * @return APIdeleteAppVersionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The app version deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteInstallationMcpApiKeyCall(
+    public APIdeleteAppVersionRequest deleteAppVersion(@jakarta.annotation.Nonnull String id) {
+        return new APIdeleteAppVersionRequest(id);
+    }
+
+    private okhttp3.Call deleteInstallationMcpApiKeyCall(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
@@ -1431,48 +1601,7 @@ public class AppsApi {
         return deleteInstallationMcpApiKeyCall(installId, collectionId, _callback);
     }
 
-    /**
-     * Delete an installation MCP API key
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @return McpApiKeyStatus
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public McpApiKeyStatus deleteInstallationMcpApiKey(
-            @jakarta.annotation.Nonnull String installId,
-            @jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<McpApiKeyStatus> localVarResp =
-                deleteInstallationMcpApiKeyWithHttpInfo(installId, collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an installation MCP API key
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;McpApiKeyStatus&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<McpApiKeyStatus> deleteInstallationMcpApiKeyWithHttpInfo(
+    private ApiResponse<McpApiKeyStatus> deleteInstallationMcpApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
@@ -1482,24 +1611,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an installation MCP API key (asynchronously)
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteInstallationMcpApiKeyAsync(
+    private okhttp3.Call deleteInstallationMcpApiKeyAsync(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<McpApiKeyStatus> _callback)
@@ -1512,23 +1624,113 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIdeleteInstallationMcpApiKeyRequest {
+        @jakarta.annotation.Nonnull private final String installId;
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIdeleteInstallationMcpApiKeyRequest(
+                @jakarta.annotation.Nonnull String installId,
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.installId = installId;
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for deleteInstallationMcpApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteInstallationMcpApiKeyCall(installId, collectionId, _callback);
+        }
+
+        /**
+         * Execute deleteInstallationMcpApiKey request
+         * @return McpApiKeyStatus
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public McpApiKeyStatus execute() throws ApiException {
+            ApiResponse<McpApiKeyStatus> localVarResp =
+                    deleteInstallationMcpApiKeyWithHttpInfo(installId, collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteInstallationMcpApiKey request with HTTP info returned
+         * @return ApiResponse&lt;McpApiKeyStatus&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<McpApiKeyStatus> executeWithHttpInfo() throws ApiException {
+            return deleteInstallationMcpApiKeyWithHttpInfo(installId, collectionId);
+        }
+
+        /**
+         * Execute deleteInstallationMcpApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<McpApiKeyStatus> _callback)
+                throws ApiException {
+            return deleteInstallationMcpApiKeyAsync(installId, collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteMcpCollectionApiKey
-     * @param id  (required)
+     * Delete an installation MCP API key
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteInstallationMcpApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The now-empty key status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteMcpCollectionApiKeyCall(
+    public APIdeleteInstallationMcpApiKeyRequest deleteInstallationMcpApiKey(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIdeleteInstallationMcpApiKeyRequest(installId, collectionId);
+    }
+
+    private okhttp3.Call deleteMcpCollectionApiKeyCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
@@ -1611,47 +1813,7 @@ public class AppsApi {
         return deleteMcpCollectionApiKeyCall(id, collectionId, _callback);
     }
 
-    /**
-     * Delete the API key of an MCP tool collection
-     * Removes the stored key. The collection stops authenticating until a new key is set, so its tools will fail to load.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param collectionId  (required)
-     * @return McpApiKeyStatus
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The now-empty key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public McpApiKeyStatus deleteMcpCollectionApiKey(
-            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<McpApiKeyStatus> localVarResp =
-                deleteMcpCollectionApiKeyWithHttpInfo(id, collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete the API key of an MCP tool collection
-     * Removes the stored key. The collection stops authenticating until a new key is set, so its tools will fail to load.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;McpApiKeyStatus&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The now-empty key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<McpApiKeyStatus> deleteMcpCollectionApiKeyWithHttpInfo(
+    private ApiResponse<McpApiKeyStatus> deleteMcpCollectionApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1660,24 +1822,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete the API key of an MCP tool collection (asynchronously)
-     * Removes the stored key. The collection stops authenticating until a new key is set, so its tools will fail to load.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The now-empty key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteMcpCollectionApiKeyAsync(
+    private okhttp3.Call deleteMcpCollectionApiKeyAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<McpApiKeyStatus> _callback)
@@ -1690,22 +1835,113 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIdeleteMcpCollectionApiKeyRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIdeleteMcpCollectionApiKeyRequest(
+                @jakarta.annotation.Nonnull String id,
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.id = id;
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for deleteMcpCollectionApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The now-empty key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteMcpCollectionApiKeyCall(id, collectionId, _callback);
+        }
+
+        /**
+         * Execute deleteMcpCollectionApiKey request
+         * @return McpApiKeyStatus
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The now-empty key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public McpApiKeyStatus execute() throws ApiException {
+            ApiResponse<McpApiKeyStatus> localVarResp =
+                    deleteMcpCollectionApiKeyWithHttpInfo(id, collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteMcpCollectionApiKey request with HTTP info returned
+         * @return ApiResponse&lt;McpApiKeyStatus&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The now-empty key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<McpApiKeyStatus> executeWithHttpInfo() throws ApiException {
+            return deleteMcpCollectionApiKeyWithHttpInfo(id, collectionId);
+        }
+
+        /**
+         * Execute deleteMcpCollectionApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The now-empty key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<McpApiKeyStatus> _callback)
+                throws ApiException {
+            return deleteMcpCollectionApiKeyAsync(id, collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for exchangeAppGithubAuthorization
-     * @param exchangeAppGithubAuthorizationRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete the API key of an MCP tool collection
+     * Removes the stored key. The collection stops authenticating until a new key is set, so its tools will fail to load.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param collectionId  (required)
+     * @return APIdeleteMcpCollectionApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The now-empty key status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call exchangeAppGithubAuthorizationCall(
+    public APIdeleteMcpCollectionApiKeyRequest deleteMcpCollectionApiKey(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIdeleteMcpCollectionApiKeyRequest(id, collectionId);
+    }
+
+    private okhttp3.Call exchangeAppGithubAuthorizationCall(
             @jakarta.annotation.Nonnull
                     ExchangeAppGithubAuthorizationRequest exchangeAppGithubAuthorizationRequest,
             final ApiCallback _callback)
@@ -1777,46 +2013,7 @@ public class AppsApi {
         return exchangeAppGithubAuthorizationCall(exchangeAppGithubAuthorizationRequest, _callback);
     }
 
-    /**
-     * Verify GitHub App installations visible to the current user
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param exchangeAppGithubAuthorizationRequest  (required)
-     * @return ExchangeAppGithubAuthorizationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ExchangeAppGithubAuthorizationResponse exchangeAppGithubAuthorization(
-            @jakarta.annotation.Nonnull
-                    ExchangeAppGithubAuthorizationRequest exchangeAppGithubAuthorizationRequest)
-            throws ApiException {
-        ApiResponse<ExchangeAppGithubAuthorizationResponse> localVarResp =
-                exchangeAppGithubAuthorizationWithHttpInfo(exchangeAppGithubAuthorizationRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Verify GitHub App installations visible to the current user
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param exchangeAppGithubAuthorizationRequest  (required)
-     * @return ApiResponse&lt;ExchangeAppGithubAuthorizationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ExchangeAppGithubAuthorizationResponse>
+    private ApiResponse<ExchangeAppGithubAuthorizationResponse>
             exchangeAppGithubAuthorizationWithHttpInfo(
                     @jakarta.annotation.Nonnull
                             ExchangeAppGithubAuthorizationRequest
@@ -1830,23 +2027,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Verify GitHub App installations visible to the current user (asynchronously)
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param exchangeAppGithubAuthorizationRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call exchangeAppGithubAuthorizationAsync(
+    private okhttp3.Call exchangeAppGithubAuthorizationAsync(
             @jakarta.annotation.Nonnull
                     ExchangeAppGithubAuthorizationRequest exchangeAppGithubAuthorizationRequest,
             final ApiCallback<ExchangeAppGithubAuthorizationResponse> _callback)
@@ -1861,24 +2042,118 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIexchangeAppGithubAuthorizationRequest {
+        @jakarta.annotation.Nonnull
+        private final ExchangeAppGithubAuthorizationRequest exchangeAppGithubAuthorizationRequest;
+
+        private APIexchangeAppGithubAuthorizationRequest(
+                @jakarta.annotation.Nonnull
+                        ExchangeAppGithubAuthorizationRequest
+                                exchangeAppGithubAuthorizationRequest) {
+            this.exchangeAppGithubAuthorizationRequest = exchangeAppGithubAuthorizationRequest;
+        }
+
+        /**
+         * Build call for exchangeAppGithubAuthorization
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return exchangeAppGithubAuthorizationCall(
+                    exchangeAppGithubAuthorizationRequest, _callback);
+        }
+
+        /**
+         * Execute exchangeAppGithubAuthorization request
+         * @return ExchangeAppGithubAuthorizationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ExchangeAppGithubAuthorizationResponse execute() throws ApiException {
+            ApiResponse<ExchangeAppGithubAuthorizationResponse> localVarResp =
+                    exchangeAppGithubAuthorizationWithHttpInfo(
+                            exchangeAppGithubAuthorizationRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute exchangeAppGithubAuthorization request with HTTP info returned
+         * @return ApiResponse&lt;ExchangeAppGithubAuthorizationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ExchangeAppGithubAuthorizationResponse> executeWithHttpInfo()
+                throws ApiException {
+            return exchangeAppGithubAuthorizationWithHttpInfo(
+                    exchangeAppGithubAuthorizationRequest);
+        }
+
+        /**
+         * Execute exchangeAppGithubAuthorization request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<ExchangeAppGithubAuthorizationResponse> _callback)
+                throws ApiException {
+            return exchangeAppGithubAuthorizationAsync(
+                    exchangeAppGithubAuthorizationRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for getAppBuildProgress
-     * @param id  (required)
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Verify GitHub App installations visible to the current user
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param exchangeAppGithubAuthorizationRequest  (required)
+     * @return APIexchangeAppGithubAuthorizationRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current app build progress. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppBuildProgressCall(
+    public APIexchangeAppGithubAuthorizationRequest exchangeAppGithubAuthorization(
+            @jakarta.annotation.Nonnull
+                    ExchangeAppGithubAuthorizationRequest exchangeAppGithubAuthorizationRequest) {
+        return new APIexchangeAppGithubAuthorizationRequest(exchangeAppGithubAuthorizationRequest);
+    }
+
+    private okhttp3.Call getAppBuildProgressCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
@@ -1972,51 +2247,7 @@ public class AppsApi {
         return getAppBuildProgressCall(id, workflowId, runId, _callback);
     }
 
-    /**
-     * Get app build progress
-     * Queries the running app build Temporal workflow for current progress.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @return AppBuildProgress
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current app build progress. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppBuildProgress getAppBuildProgress(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        ApiResponse<AppBuildProgress> localVarResp =
-                getAppBuildProgressWithHttpInfo(id, workflowId, runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get app build progress
-     * Queries the running app build Temporal workflow for current progress.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @return ApiResponse&lt;AppBuildProgress&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current app build progress. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppBuildProgress> getAppBuildProgressWithHttpInfo(
+    private ApiResponse<AppBuildProgress> getAppBuildProgressWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId)
@@ -2027,25 +2258,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get app build progress (asynchronously)
-     * Queries the running app build Temporal workflow for current progress.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current app build progress. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppBuildProgressAsync(
+    private okhttp3.Call getAppBuildProgressAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
@@ -2059,23 +2272,118 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppBuildProgressRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final String workflowId;
+        @jakarta.annotation.Nonnull private final String runId;
+
+        private APIgetAppBuildProgressRequest(
+                @jakarta.annotation.Nonnull String id,
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull String runId) {
+            this.id = id;
+            this.workflowId = workflowId;
+            this.runId = runId;
+        }
+
+        /**
+         * Build call for getAppBuildProgress
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current app build progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppBuildProgressCall(id, workflowId, runId, _callback);
+        }
+
+        /**
+         * Execute getAppBuildProgress request
+         * @return AppBuildProgress
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current app build progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppBuildProgress execute() throws ApiException {
+            ApiResponse<AppBuildProgress> localVarResp =
+                    getAppBuildProgressWithHttpInfo(id, workflowId, runId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppBuildProgress request with HTTP info returned
+         * @return ApiResponse&lt;AppBuildProgress&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current app build progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppBuildProgress> executeWithHttpInfo() throws ApiException {
+            return getAppBuildProgressWithHttpInfo(id, workflowId, runId);
+        }
+
+        /**
+         * Execute getAppBuildProgress request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current app build progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppBuildProgress> _callback)
+                throws ApiException {
+            return getAppBuildProgressAsync(id, workflowId, runId, _callback);
+        }
+    }
+
     /**
-     * Build call for getAppDevelopmentTask
+     * Get app build progress
+     * Queries the running app build Temporal workflow for current progress.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
-     * @param taskId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return APIgetAppBuildProgressRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Development task details. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The current app build progress. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppDevelopmentTaskCall(
+    public APIgetAppBuildProgressRequest getAppBuildProgress(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIgetAppBuildProgressRequest(id, workflowId, runId);
+    }
+
+    private okhttp3.Call getAppDevelopmentTaskCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String taskId,
             final ApiCallback _callback)
@@ -2158,47 +2466,7 @@ public class AppsApi {
         return getAppDevelopmentTaskCall(id, taskId, _callback);
     }
 
-    /**
-     * Get an app development task
-     * Returns the agent/_* Git branch and the latest matching App Builder parent run, when started.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param taskId  (required)
-     * @return AppDevelopmentTaskDetails
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Development task details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppDevelopmentTaskDetails getAppDevelopmentTask(
-            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String taskId)
-            throws ApiException {
-        ApiResponse<AppDevelopmentTaskDetails> localVarResp =
-                getAppDevelopmentTaskWithHttpInfo(id, taskId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get an app development task
-     * Returns the agent/_* Git branch and the latest matching App Builder parent run, when started.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param taskId  (required)
-     * @return ApiResponse&lt;AppDevelopmentTaskDetails&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Development task details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppDevelopmentTaskDetails> getAppDevelopmentTaskWithHttpInfo(
+    private ApiResponse<AppDevelopmentTaskDetails> getAppDevelopmentTaskWithHttpInfo(
             @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String taskId)
             throws ApiException {
         okhttp3.Call localVarCall = getAppDevelopmentTaskValidateBeforeCall(id, taskId, null);
@@ -2206,24 +2474,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get an app development task (asynchronously)
-     * Returns the agent/_* Git branch and the latest matching App Builder parent run, when started.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param taskId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Development task details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppDevelopmentTaskAsync(
+    private okhttp3.Call getAppDevelopmentTaskAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String taskId,
             final ApiCallback<AppDevelopmentTaskDetails> _callback)
@@ -2235,21 +2486,111 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppDevelopmentTaskRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final String taskId;
+
+        private APIgetAppDevelopmentTaskRequest(
+                @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String taskId) {
+            this.id = id;
+            this.taskId = taskId;
+        }
+
+        /**
+         * Build call for getAppDevelopmentTask
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Development task details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppDevelopmentTaskCall(id, taskId, _callback);
+        }
+
+        /**
+         * Execute getAppDevelopmentTask request
+         * @return AppDevelopmentTaskDetails
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Development task details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppDevelopmentTaskDetails execute() throws ApiException {
+            ApiResponse<AppDevelopmentTaskDetails> localVarResp =
+                    getAppDevelopmentTaskWithHttpInfo(id, taskId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppDevelopmentTask request with HTTP info returned
+         * @return ApiResponse&lt;AppDevelopmentTaskDetails&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Development task details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppDevelopmentTaskDetails> executeWithHttpInfo() throws ApiException {
+            return getAppDevelopmentTaskWithHttpInfo(id, taskId);
+        }
+
+        /**
+         * Execute getAppDevelopmentTask request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Development task details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppDevelopmentTaskDetails> _callback)
+                throws ApiException {
+            return getAppDevelopmentTaskAsync(id, taskId, _callback);
+        }
+    }
+
     /**
-     * Build call for getAppGithubConfiguration
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get an app development task
+     * Returns the agent/_* Git branch and the latest matching App Builder parent run, when started.  **Required permissions:** &#x60;account:member&#x60;
+     * @param id  (required)
+     * @param taskId  (required)
+     * @return APIgetAppDevelopmentTaskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Development task details. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppGithubConfigurationCall(final ApiCallback _callback)
+    public APIgetAppDevelopmentTaskRequest getAppDevelopmentTask(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String taskId) {
+        return new APIgetAppDevelopmentTaskRequest(id, taskId);
+    }
+
+    private okhttp3.Call getAppGithubConfigurationCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2309,62 +2650,14 @@ public class AppsApi {
         return getAppGithubConfigurationCall(_callback);
     }
 
-    /**
-     * Get App Builder GitHub provider configuration
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @return AppGithubConfiguration
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppGithubConfiguration getAppGithubConfiguration() throws ApiException {
-        ApiResponse<AppGithubConfiguration> localVarResp = getAppGithubConfigurationWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get App Builder GitHub provider configuration
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @return ApiResponse&lt;AppGithubConfiguration&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppGithubConfiguration> getAppGithubConfigurationWithHttpInfo()
+    private ApiResponse<AppGithubConfiguration> getAppGithubConfigurationWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = getAppGithubConfigurationValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<AppGithubConfiguration>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get App Builder GitHub provider configuration (asynchronously)
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppGithubConfigurationAsync(
+    private okhttp3.Call getAppGithubConfigurationAsync(
             final ApiCallback<AppGithubConfiguration> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAppGithubConfigurationValidateBeforeCall(_callback);
@@ -2373,25 +2666,102 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppGithubConfigurationRequest {
+
+        private APIgetAppGithubConfigurationRequest() {}
+
+        /**
+         * Build call for getAppGithubConfiguration
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppGithubConfigurationCall(_callback);
+        }
+
+        /**
+         * Execute getAppGithubConfiguration request
+         * @return AppGithubConfiguration
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppGithubConfiguration execute() throws ApiException {
+            ApiResponse<AppGithubConfiguration> localVarResp =
+                    getAppGithubConfigurationWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppGithubConfiguration request with HTTP info returned
+         * @return ApiResponse&lt;AppGithubConfiguration&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppGithubConfiguration> executeWithHttpInfo() throws ApiException {
+            return getAppGithubConfigurationWithHttpInfo();
+        }
+
+        /**
+         * Execute getAppGithubConfiguration request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppGithubConfiguration> _callback)
+                throws ApiException {
+            return getAppGithubConfigurationAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getAppGithubRepositorySetup
-     * @param connectionId  (required)
-     * @param installationId  (required)
-     * @param repository  (required)
-     * @param branch  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get App Builder GitHub provider configuration
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @return APIgetAppGithubConfigurationRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppGithubRepositorySetupCall(
+    public APIgetAppGithubConfigurationRequest getAppGithubConfiguration() {
+        return new APIgetAppGithubConfigurationRequest();
+    }
+
+    private okhttp3.Call getAppGithubRepositorySetupCall(
             @jakarta.annotation.Nonnull String connectionId,
             @jakarta.annotation.Nonnull String installationId,
             @jakarta.annotation.Nonnull String repository,
@@ -2504,55 +2874,7 @@ public class AppsApi {
                 connectionId, installationId, repository, branch, _callback);
     }
 
-    /**
-     * Inspect branches in a verified GitHub repository
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param connectionId  (required)
-     * @param installationId  (required)
-     * @param repository  (required)
-     * @param branch  (required)
-     * @return AppGithubRepositorySetup
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppGithubRepositorySetup getAppGithubRepositorySetup(
-            @jakarta.annotation.Nonnull String connectionId,
-            @jakarta.annotation.Nonnull String installationId,
-            @jakarta.annotation.Nonnull String repository,
-            @jakarta.annotation.Nonnull String branch)
-            throws ApiException {
-        ApiResponse<AppGithubRepositorySetup> localVarResp =
-                getAppGithubRepositorySetupWithHttpInfo(
-                        connectionId, installationId, repository, branch);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Inspect branches in a verified GitHub repository
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param connectionId  (required)
-     * @param installationId  (required)
-     * @param repository  (required)
-     * @param branch  (required)
-     * @return ApiResponse&lt;AppGithubRepositorySetup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppGithubRepositorySetup> getAppGithubRepositorySetupWithHttpInfo(
+    private ApiResponse<AppGithubRepositorySetup> getAppGithubRepositorySetupWithHttpInfo(
             @jakarta.annotation.Nonnull String connectionId,
             @jakarta.annotation.Nonnull String installationId,
             @jakarta.annotation.Nonnull String repository,
@@ -2565,26 +2887,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Inspect branches in a verified GitHub repository (asynchronously)
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param connectionId  (required)
-     * @param installationId  (required)
-     * @param repository  (required)
-     * @param branch  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppGithubRepositorySetupAsync(
+    private okhttp3.Call getAppGithubRepositorySetupAsync(
             @jakarta.annotation.Nonnull String connectionId,
             @jakarta.annotation.Nonnull String installationId,
             @jakarta.annotation.Nonnull String repository,
@@ -2600,22 +2903,128 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppGithubRepositorySetupRequest {
+        @jakarta.annotation.Nonnull private final String connectionId;
+        @jakarta.annotation.Nonnull private final String installationId;
+        @jakarta.annotation.Nonnull private final String repository;
+        @jakarta.annotation.Nonnull private final String branch;
+
+        private APIgetAppGithubRepositorySetupRequest(
+                @jakarta.annotation.Nonnull String connectionId,
+                @jakarta.annotation.Nonnull String installationId,
+                @jakarta.annotation.Nonnull String repository,
+                @jakarta.annotation.Nonnull String branch) {
+            this.connectionId = connectionId;
+            this.installationId = installationId;
+            this.repository = repository;
+            this.branch = branch;
+        }
+
+        /**
+         * Build call for getAppGithubRepositorySetup
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppGithubRepositorySetupCall(
+                    connectionId, installationId, repository, branch, _callback);
+        }
+
+        /**
+         * Execute getAppGithubRepositorySetup request
+         * @return AppGithubRepositorySetup
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppGithubRepositorySetup execute() throws ApiException {
+            ApiResponse<AppGithubRepositorySetup> localVarResp =
+                    getAppGithubRepositorySetupWithHttpInfo(
+                            connectionId, installationId, repository, branch);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppGithubRepositorySetup request with HTTP info returned
+         * @return ApiResponse&lt;AppGithubRepositorySetup&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppGithubRepositorySetup> executeWithHttpInfo() throws ApiException {
+            return getAppGithubRepositorySetupWithHttpInfo(
+                    connectionId, installationId, repository, branch);
+        }
+
+        /**
+         * Execute getAppGithubRepositorySetup request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppGithubRepositorySetup> _callback)
+                throws ApiException {
+            return getAppGithubRepositorySetupAsync(
+                    connectionId, installationId, repository, branch, _callback);
+        }
+    }
+
     /**
-     * Build call for getAppInstallation
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Inspect branches in a verified GitHub repository
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param connectionId  (required)
+     * @param installationId  (required)
+     * @param repository  (required)
+     * @param branch  (required)
+     * @return APIgetAppGithubRepositorySetupRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppInstallationCall(
+    public APIgetAppGithubRepositorySetupRequest getAppGithubRepositorySetup(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId,
+            @jakarta.annotation.Nonnull String repository,
+            @jakarta.annotation.Nonnull String branch) {
+        return new APIgetAppGithubRepositorySetupRequest(
+                connectionId, installationId, repository, branch);
+    }
+
+    private okhttp3.Call getAppInstallationCall(
             @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2687,67 +3096,14 @@ public class AppsApi {
         return getAppInstallationCall(installId, _callback);
     }
 
-    /**
-     * Retrieve an authorized app installation by ID
-     *
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @return AppInstallationWithManifest
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppInstallationWithManifest getAppInstallation(
-            @jakarta.annotation.Nonnull String installId) throws ApiException {
-        ApiResponse<AppInstallationWithManifest> localVarResp =
-                getAppInstallationWithHttpInfo(installId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an authorized app installation by ID
-     *
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;AppInstallationWithManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppInstallationWithManifest> getAppInstallationWithHttpInfo(
+    private ApiResponse<AppInstallationWithManifest> getAppInstallationWithHttpInfo(
             @jakarta.annotation.Nonnull String installId) throws ApiException {
         okhttp3.Call localVarCall = getAppInstallationValidateBeforeCall(installId, null);
         Type localVarReturnType = new TypeToken<AppInstallationWithManifest>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an authorized app installation by ID (asynchronously)
-     *
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppInstallationAsync(
+    private okhttp3.Call getAppInstallationAsync(
             @jakarta.annotation.Nonnull String installId,
             final ApiCallback<AppInstallationWithManifest> _callback)
             throws ApiException {
@@ -2758,22 +3114,107 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppInstallationRequest {
+        @jakarta.annotation.Nonnull private final String installId;
+
+        private APIgetAppInstallationRequest(@jakarta.annotation.Nonnull String installId) {
+            this.installId = installId;
+        }
+
+        /**
+         * Build call for getAppInstallation
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppInstallationCall(installId, _callback);
+        }
+
+        /**
+         * Execute getAppInstallation request
+         * @return AppInstallationWithManifest
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppInstallationWithManifest execute() throws ApiException {
+            ApiResponse<AppInstallationWithManifest> localVarResp =
+                    getAppInstallationWithHttpInfo(installId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppInstallation request with HTTP info returned
+         * @return ApiResponse&lt;AppInstallationWithManifest&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppInstallationWithManifest> executeWithHttpInfo() throws ApiException {
+            return getAppInstallationWithHttpInfo(installId);
+        }
+
+        /**
+         * Execute getAppInstallation request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppInstallationWithManifest> _callback)
+                throws ApiException {
+            return getAppInstallationAsync(installId, _callback);
+        }
+    }
+
     /**
-     * Build call for getAppInstallationByName
-     * @param name  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve an authorized app installation by ID
+     *
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
+     * @return APIgetAppInstallationRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app installation. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppInstallationByNameCall(
+    public APIgetAppInstallationRequest getAppInstallation(
+            @jakarta.annotation.Nonnull String installId) {
+        return new APIgetAppInstallationRequest(installId);
+    }
+
+    private okhttp3.Call getAppInstallationByNameCall(
             @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2845,67 +3286,14 @@ public class AppsApi {
         return getAppInstallationByNameCall(name, _callback);
     }
 
-    /**
-     * Retrieve an app installation by app name
-     * Retrieves the current project installation for a given app name.
-     * @param name  (required)
-     * @return AppInstallationWithManifest
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppInstallationWithManifest getAppInstallationByName(
-            @jakarta.annotation.Nonnull String name) throws ApiException {
-        ApiResponse<AppInstallationWithManifest> localVarResp =
-                getAppInstallationByNameWithHttpInfo(name);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an app installation by app name
-     * Retrieves the current project installation for a given app name.
-     * @param name  (required)
-     * @return ApiResponse&lt;AppInstallationWithManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppInstallationWithManifest> getAppInstallationByNameWithHttpInfo(
+    private ApiResponse<AppInstallationWithManifest> getAppInstallationByNameWithHttpInfo(
             @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = getAppInstallationByNameValidateBeforeCall(name, null);
         Type localVarReturnType = new TypeToken<AppInstallationWithManifest>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an app installation by app name (asynchronously)
-     * Retrieves the current project installation for a given app name.
-     * @param name  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppInstallationByNameAsync(
+    private okhttp3.Call getAppInstallationByNameAsync(
             @jakarta.annotation.Nonnull String name,
             final ApiCallback<AppInstallationWithManifest> _callback)
             throws ApiException {
@@ -2916,23 +3304,107 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppInstallationByNameRequest {
+        @jakarta.annotation.Nonnull private final String name;
+
+        private APIgetAppInstallationByNameRequest(@jakarta.annotation.Nonnull String name) {
+            this.name = name;
+        }
+
+        /**
+         * Build call for getAppInstallationByName
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppInstallationByNameCall(name, _callback);
+        }
+
+        /**
+         * Execute getAppInstallationByName request
+         * @return AppInstallationWithManifest
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppInstallationWithManifest execute() throws ApiException {
+            ApiResponse<AppInstallationWithManifest> localVarResp =
+                    getAppInstallationByNameWithHttpInfo(name);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppInstallationByName request with HTTP info returned
+         * @return ApiResponse&lt;AppInstallationWithManifest&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppInstallationWithManifest> executeWithHttpInfo() throws ApiException {
+            return getAppInstallationByNameWithHttpInfo(name);
+        }
+
+        /**
+         * Execute getAppInstallationByName request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppInstallationWithManifest> _callback)
+                throws ApiException {
+            return getAppInstallationByNameAsync(name, _callback);
+        }
+    }
+
     /**
-     * Build call for getAppInstallationPackage
-     * @param installId  (required)
-     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve an app installation by app name
+     * Retrieves the current project installation for a given app name.
+     * @param name  (required)
+     * @return APIgetAppInstallationByNameRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installation package. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested app installation. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppInstallationPackageCall(
+    public APIgetAppInstallationByNameRequest getAppInstallationByName(
+            @jakarta.annotation.Nonnull String name) {
+        return new APIgetAppInstallationByNameRequest(name);
+    }
+
+    private okhttp3.Call getAppInstallationPackageCall(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nullable List<String> scope,
             final ApiCallback _callback)
@@ -3013,48 +3485,7 @@ public class AppsApi {
         return getAppInstallationPackageCall(installId, scope, _callback);
     }
 
-    /**
-     * Get an app installation package
-     * Returns package capabilities exposed by an installed app, including UI, tools, types, processes, dashboards, templates, widgets, settings, and activities.  **Required permissions:** &#x60;account:member&#x60;
-     * @param installId  (required)
-     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
-     * @return AppPackage
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installation package. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppPackage getAppInstallationPackage(
-            @jakarta.annotation.Nonnull String installId,
-            @jakarta.annotation.Nullable List<String> scope)
-            throws ApiException {
-        ApiResponse<AppPackage> localVarResp =
-                getAppInstallationPackageWithHttpInfo(installId, scope);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get an app installation package
-     * Returns package capabilities exposed by an installed app, including UI, tools, types, processes, dashboards, templates, widgets, settings, and activities.  **Required permissions:** &#x60;account:member&#x60;
-     * @param installId  (required)
-     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
-     * @return ApiResponse&lt;AppPackage&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installation package. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppPackage> getAppInstallationPackageWithHttpInfo(
+    private ApiResponse<AppPackage> getAppInstallationPackageWithHttpInfo(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nullable List<String> scope)
             throws ApiException {
@@ -3064,24 +3495,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get an app installation package (asynchronously)
-     * Returns package capabilities exposed by an installed app, including UI, tools, types, processes, dashboards, templates, widgets, settings, and activities.  **Required permissions:** &#x60;account:member&#x60;
-     * @param installId  (required)
-     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installation package. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppInstallationPackageAsync(
+    private okhttp3.Call getAppInstallationPackageAsync(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nullable List<String> scope,
             final ApiCallback<AppPackage> _callback)
@@ -3094,72 +3508,119 @@ public class AppsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getAppInstallationPackage with every optional parameter left unset.
-     * @param installId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getAppInstallationPackageCall(
-            @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
-            throws ApiException {
-        return getAppInstallationPackageCall(installId, null, _callback);
+    public class APIgetAppInstallationPackageRequest {
+        @jakarta.annotation.Nonnull private final String installId;
+        @jakarta.annotation.Nullable private List<String> scope;
+
+        private APIgetAppInstallationPackageRequest(@jakarta.annotation.Nonnull String installId) {
+            this.installId = installId;
+        }
+
+        /**
+         * Set scope
+         * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
+         * @return APIgetAppInstallationPackageRequest
+         */
+        public APIgetAppInstallationPackageRequest scope(
+                @jakarta.annotation.Nullable List<String> scope) {
+            this.scope = scope;
+            return this;
+        }
+
+        /**
+         * Build call for getAppInstallationPackage
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installation package. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppInstallationPackageCall(installId, scope, _callback);
+        }
+
+        /**
+         * Execute getAppInstallationPackage request
+         * @return AppPackage
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installation package. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppPackage execute() throws ApiException {
+            ApiResponse<AppPackage> localVarResp =
+                    getAppInstallationPackageWithHttpInfo(installId, scope);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppInstallationPackage request with HTTP info returned
+         * @return ApiResponse&lt;AppPackage&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installation package. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppPackage> executeWithHttpInfo() throws ApiException {
+            return getAppInstallationPackageWithHttpInfo(installId, scope);
+        }
+
+        /**
+         * Execute getAppInstallationPackage request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installation package. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppPackage> _callback)
+                throws ApiException {
+            return getAppInstallationPackageAsync(installId, scope, _callback);
+        }
     }
 
     /**
      * Get an app installation package
-     * Calls {@code getAppInstallationPackage} with every optional parameter left unset.
+     * Returns package capabilities exposed by an installed app, including UI, tools, types, processes, dashboards, templates, widgets, settings, and activities.  **Required permissions:** &#x60;account:member&#x60;
      * @param installId  (required)
-     * @return AppPackage
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AppPackage getAppInstallationPackage(@jakarta.annotation.Nonnull String installId)
-            throws ApiException {
-        return getAppInstallationPackage(installId, null);
-    }
-
-    /**
-     * Get an app installation package
-     * Calls {@code getAppInstallationPackageWithHttpInfo} with every optional parameter left unset.
-     * @param installId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AppPackage> getAppInstallationPackageWithHttpInfo(
-            @jakarta.annotation.Nonnull String installId) throws ApiException {
-        return getAppInstallationPackageWithHttpInfo(installId, null);
-    }
-
-    /**
-     * Get an app installation package (asynchronously)
-     * Calls {@code getAppInstallationPackageAsync} with every optional parameter left unset.
-     * @param installId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAppInstallationPackageAsync(
-            @jakarta.annotation.Nonnull String installId, final ApiCallback<AppPackage> _callback)
-            throws ApiException {
-        return getAppInstallationPackageAsync(installId, null, _callback);
-    }
-
-    /**
-     * Build call for getAppInstanceAvailability
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAppInstallationPackageRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> App installation package. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppInstanceAvailabilityCall(final ApiCallback _callback)
+    public APIgetAppInstallationPackageRequest getAppInstallationPackage(
+            @jakarta.annotation.Nonnull String installId) {
+        return new APIgetAppInstallationPackageRequest(installId);
+    }
+
+    private okhttp3.Call getAppInstanceAvailabilityCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3219,63 +3680,14 @@ public class AppsApi {
         return getAppInstanceAvailabilityCall(_callback);
     }
 
-    /**
-     * Check whether additional MCP app instances are enabled for this project
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @return AppInstanceAvailability
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppInstanceAvailability getAppInstanceAvailability() throws ApiException {
-        ApiResponse<AppInstanceAvailability> localVarResp =
-                getAppInstanceAvailabilityWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Check whether additional MCP app instances are enabled for this project
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @return ApiResponse&lt;AppInstanceAvailability&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppInstanceAvailability> getAppInstanceAvailabilityWithHttpInfo()
+    private ApiResponse<AppInstanceAvailability> getAppInstanceAvailabilityWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = getAppInstanceAvailabilityValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<AppInstanceAvailability>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Check whether additional MCP app instances are enabled for this project (asynchronously)
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppInstanceAvailabilityAsync(
+    private okhttp3.Call getAppInstanceAvailabilityAsync(
             final ApiCallback<AppInstanceAvailability> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAppInstanceAvailabilityValidateBeforeCall(_callback);
@@ -3284,22 +3696,102 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppInstanceAvailabilityRequest {
+
+        private APIgetAppInstanceAvailabilityRequest() {}
+
+        /**
+         * Build call for getAppInstanceAvailability
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppInstanceAvailabilityCall(_callback);
+        }
+
+        /**
+         * Execute getAppInstanceAvailability request
+         * @return AppInstanceAvailability
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppInstanceAvailability execute() throws ApiException {
+            ApiResponse<AppInstanceAvailability> localVarResp =
+                    getAppInstanceAvailabilityWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppInstanceAvailability request with HTTP info returned
+         * @return ApiResponse&lt;AppInstanceAvailability&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppInstanceAvailability> executeWithHttpInfo() throws ApiException {
+            return getAppInstanceAvailabilityWithHttpInfo();
+        }
+
+        /**
+         * Execute getAppInstanceAvailability request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppInstanceAvailability> _callback)
+                throws ApiException {
+            return getAppInstanceAvailabilityAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getAppOAuthClient
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Check whether additional MCP app instances are enabled for this project
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @return APIgetAppInstanceAvailabilityRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppOAuthClientCall(
+    public APIgetAppInstanceAvailabilityRequest getAppInstanceAvailability() {
+        return new APIgetAppInstanceAvailabilityRequest();
+    }
+
+    private okhttp3.Call getAppOAuthClientCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3369,66 +3861,14 @@ public class AppsApi {
         return getAppOAuthClientCall(id, _callback);
     }
 
-    /**
-     * Get the publisher-managed OAuth client for an app
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @return OAuthClient
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthClient getAppOAuthClient(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<OAuthClient> localVarResp = getAppOAuthClientWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get the publisher-managed OAuth client for an app
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @return ApiResponse&lt;OAuthClient&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthClient> getAppOAuthClientWithHttpInfo(
+    private ApiResponse<OAuthClient> getAppOAuthClientWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getAppOAuthClientValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<OAuthClient>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get the publisher-managed OAuth client for an app (asynchronously)
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppOAuthClientAsync(
+    private okhttp3.Call getAppOAuthClientAsync(
             @jakarta.annotation.Nonnull String id, final ApiCallback<OAuthClient> _callback)
             throws ApiException {
 
@@ -3438,24 +3878,105 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppOAuthClientRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIgetAppOAuthClientRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for getAppOAuthClient
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppOAuthClientCall(id, _callback);
+        }
+
+        /**
+         * Execute getAppOAuthClient request
+         * @return OAuthClient
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthClient execute() throws ApiException {
+            ApiResponse<OAuthClient> localVarResp = getAppOAuthClientWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppOAuthClient request with HTTP info returned
+         * @return ApiResponse&lt;OAuthClient&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthClient> executeWithHttpInfo() throws ApiException {
+            return getAppOAuthClientWithHttpInfo(id);
+        }
+
+        /**
+         * Execute getAppOAuthClient request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthClient> _callback)
+                throws ApiException {
+            return getAppOAuthClientAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for getAppPackage
+     * Get the publisher-managed OAuth client for an app
+     * **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
-     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
-     * @param deploymentAlias Resolve the package from this named deployment. Used before installation to load the selected deployment configuration. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAppOAuthClientRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app package for the requested scope(s). </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppPackageCall(
+    public APIgetAppOAuthClientRequest getAppOAuthClient(@jakarta.annotation.Nonnull String id) {
+        return new APIgetAppOAuthClientRequest(id);
+    }
+
+    private okhttp3.Call getAppPackageCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable List<String> scope,
             @jakarta.annotation.Nullable String deploymentAlias,
@@ -3541,51 +4062,7 @@ public class AppsApi {
         return getAppPackageCall(id, scope, deploymentAlias, _callback);
     }
 
-    /**
-     * Get an app package by scope
-     * Returns the promoted package an app exposes, filtered by scope(s). App-owned (in-code) artifacts are package-resolved — there is no per-id route — so this is how a client reads the full definition (type schema, interaction prompt, process definition, dashboard spec) to visualize it.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
-     * @param deploymentAlias Resolve the package from this named deployment. Used before installation to load the selected deployment configuration. (optional)
-     * @return AppPackage
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app package for the requested scope(s). </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppPackage getAppPackage(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nullable List<String> scope,
-            @jakarta.annotation.Nullable String deploymentAlias)
-            throws ApiException {
-        ApiResponse<AppPackage> localVarResp =
-                getAppPackageWithHttpInfo(id, scope, deploymentAlias);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get an app package by scope
-     * Returns the promoted package an app exposes, filtered by scope(s). App-owned (in-code) artifacts are package-resolved — there is no per-id route — so this is how a client reads the full definition (type schema, interaction prompt, process definition, dashboard spec) to visualize it.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
-     * @param deploymentAlias Resolve the package from this named deployment. Used before installation to load the selected deployment configuration. (optional)
-     * @return ApiResponse&lt;AppPackage&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app package for the requested scope(s). </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppPackage> getAppPackageWithHttpInfo(
+    private ApiResponse<AppPackage> getAppPackageWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable List<String> scope,
             @jakarta.annotation.Nullable String deploymentAlias)
@@ -3596,25 +4073,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get an app package by scope (asynchronously)
-     * Returns the promoted package an app exposes, filtered by scope(s). App-owned (in-code) artifacts are package-resolved — there is no per-id route — so this is how a client reads the full definition (type schema, interaction prompt, process definition, dashboard spec) to visualize it.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
-     * @param deploymentAlias Resolve the package from this named deployment. Used before installation to load the selected deployment configuration. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app package for the requested scope(s). </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppPackageAsync(
+    private okhttp3.Call getAppPackageAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable List<String> scope,
             @jakarta.annotation.Nullable String deploymentAlias,
@@ -3628,76 +4087,129 @@ public class AppsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getAppPackage with every optional parameter left unset.
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getAppPackageCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
-            throws ApiException {
-        return getAppPackageCall(id, null, null, _callback);
+    public class APIgetAppPackageRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nullable private List<String> scope;
+        @jakarta.annotation.Nullable private String deploymentAlias;
+
+        private APIgetAppPackageRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Set scope
+         * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
+         * @return APIgetAppPackageRequest
+         */
+        public APIgetAppPackageRequest scope(@jakarta.annotation.Nullable List<String> scope) {
+            this.scope = scope;
+            return this;
+        }
+
+        /**
+         * Set deploymentAlias
+         * @param deploymentAlias Resolve the package from this named deployment. Used before installation to load the selected deployment configuration. (optional)
+         * @return APIgetAppPackageRequest
+         */
+        public APIgetAppPackageRequest deploymentAlias(
+                @jakarta.annotation.Nullable String deploymentAlias) {
+            this.deploymentAlias = deploymentAlias;
+            return this;
+        }
+
+        /**
+         * Build call for getAppPackage
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app package for the requested scope(s). </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppPackageCall(id, scope, deploymentAlias, _callback);
+        }
+
+        /**
+         * Execute getAppPackage request
+         * @return AppPackage
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app package for the requested scope(s). </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppPackage execute() throws ApiException {
+            ApiResponse<AppPackage> localVarResp =
+                    getAppPackageWithHttpInfo(id, scope, deploymentAlias);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppPackage request with HTTP info returned
+         * @return ApiResponse&lt;AppPackage&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app package for the requested scope(s). </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppPackage> executeWithHttpInfo() throws ApiException {
+            return getAppPackageWithHttpInfo(id, scope, deploymentAlias);
+        }
+
+        /**
+         * Execute getAppPackage request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app package for the requested scope(s). </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppPackage> _callback)
+                throws ApiException {
+            return getAppPackageAsync(id, scope, deploymentAlias, _callback);
+        }
     }
 
     /**
      * Get an app package by scope
-     * Calls {@code getAppPackage} with every optional parameter left unset.
+     * Returns the promoted package an app exposes, filtered by scope(s). App-owned (in-code) artifacts are package-resolved — there is no per-id route — so this is how a client reads the full definition (type schema, interaction prompt, process definition, dashboard spec) to visualize it.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
-     * @return AppPackage
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AppPackage getAppPackage(@jakarta.annotation.Nonnull String id) throws ApiException {
-        return getAppPackage(id, null, null);
-    }
-
-    /**
-     * Get an app package by scope
-     * Calls {@code getAppPackageWithHttpInfo} with every optional parameter left unset.
-     * @param id  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AppPackage> getAppPackageWithHttpInfo(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        return getAppPackageWithHttpInfo(id, null, null);
-    }
-
-    /**
-     * Get an app package by scope (asynchronously)
-     * Calls {@code getAppPackageAsync} with every optional parameter left unset.
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAppPackageAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<AppPackage> _callback)
-            throws ApiException {
-        return getAppPackageAsync(id, null, null, _callback);
-    }
-
-    /**
-     * Build call for getAppRepoCommits
-     * @param id  (required)
-     * @param path Only list commits that changed this file, relative to the repository root. (optional)
-     * @param ref Branch, tag or commit to start from. Defaults to the default branch. (optional)
-     * @param limit Maximum number of commits in the page. (optional)
-     * @param cursor The &#x60;next_cursor&#x60; of the previous page. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAppPackageRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Repository commit history. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The app package for the requested scope(s). </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppRepoCommitsCall(
+    public APIgetAppPackageRequest getAppPackage(@jakarta.annotation.Nonnull String id) {
+        return new APIgetAppPackageRequest(id);
+    }
+
+    private okhttp3.Call getAppRepoCommitsCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable String path,
             @jakarta.annotation.Nullable String ref,
@@ -3793,57 +4305,7 @@ public class AppsApi {
         return getAppRepoCommitsCall(id, path, ref, limit, cursor, _callback);
     }
 
-    /**
-     * List commits in the app git repository
-     * Returns repository commits newest first, optionally filtered to commits that changed a file. History starts at the default branch unless a ref is supplied and supports cursor pagination.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param path Only list commits that changed this file, relative to the repository root. (optional)
-     * @param ref Branch, tag or commit to start from. Defaults to the default branch. (optional)
-     * @param limit Maximum number of commits in the page. (optional)
-     * @param cursor The &#x60;next_cursor&#x60; of the previous page. (optional)
-     * @return AppRepoCommits
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Repository commit history. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppRepoCommits getAppRepoCommits(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nullable String path,
-            @jakarta.annotation.Nullable String ref,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable String cursor)
-            throws ApiException {
-        ApiResponse<AppRepoCommits> localVarResp =
-                getAppRepoCommitsWithHttpInfo(id, path, ref, limit, cursor);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List commits in the app git repository
-     * Returns repository commits newest first, optionally filtered to commits that changed a file. History starts at the default branch unless a ref is supplied and supports cursor pagination.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param path Only list commits that changed this file, relative to the repository root. (optional)
-     * @param ref Branch, tag or commit to start from. Defaults to the default branch. (optional)
-     * @param limit Maximum number of commits in the page. (optional)
-     * @param cursor The &#x60;next_cursor&#x60; of the previous page. (optional)
-     * @return ApiResponse&lt;AppRepoCommits&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Repository commit history. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppRepoCommits> getAppRepoCommitsWithHttpInfo(
+    private ApiResponse<AppRepoCommits> getAppRepoCommitsWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable String path,
             @jakarta.annotation.Nullable String ref,
@@ -3856,27 +4318,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List commits in the app git repository (asynchronously)
-     * Returns repository commits newest first, optionally filtered to commits that changed a file. History starts at the default branch unless a ref is supplied and supports cursor pagination.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param path Only list commits that changed this file, relative to the repository root. (optional)
-     * @param ref Branch, tag or commit to start from. Defaults to the default branch. (optional)
-     * @param limit Maximum number of commits in the page. (optional)
-     * @param cursor The &#x60;next_cursor&#x60; of the previous page. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Repository commit history. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppRepoCommitsAsync(
+    private okhttp3.Call getAppRepoCommitsAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable String path,
             @jakarta.annotation.Nullable String ref,
@@ -3892,75 +4334,150 @@ public class AppsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getAppRepoCommits with every optional parameter left unset.
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getAppRepoCommitsCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
-            throws ApiException {
-        return getAppRepoCommitsCall(id, null, null, null, null, _callback);
+    public class APIgetAppRepoCommitsRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nullable private String path;
+        @jakarta.annotation.Nullable private String ref;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private String cursor;
+
+        private APIgetAppRepoCommitsRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Set path
+         * @param path Only list commits that changed this file, relative to the repository root. (optional)
+         * @return APIgetAppRepoCommitsRequest
+         */
+        public APIgetAppRepoCommitsRequest path(@jakarta.annotation.Nullable String path) {
+            this.path = path;
+            return this;
+        }
+
+        /**
+         * Set ref
+         * @param ref Branch, tag or commit to start from. Defaults to the default branch. (optional)
+         * @return APIgetAppRepoCommitsRequest
+         */
+        public APIgetAppRepoCommitsRequest ref(@jakarta.annotation.Nullable String ref) {
+            this.ref = ref;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of commits in the page. (optional)
+         * @return APIgetAppRepoCommitsRequest
+         */
+        public APIgetAppRepoCommitsRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set cursor
+         * @param cursor The &#x60;next_cursor&#x60; of the previous page. (optional)
+         * @return APIgetAppRepoCommitsRequest
+         */
+        public APIgetAppRepoCommitsRequest cursor(@jakarta.annotation.Nullable String cursor) {
+            this.cursor = cursor;
+            return this;
+        }
+
+        /**
+         * Build call for getAppRepoCommits
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Repository commit history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppRepoCommitsCall(id, path, ref, limit, cursor, _callback);
+        }
+
+        /**
+         * Execute getAppRepoCommits request
+         * @return AppRepoCommits
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Repository commit history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppRepoCommits execute() throws ApiException {
+            ApiResponse<AppRepoCommits> localVarResp =
+                    getAppRepoCommitsWithHttpInfo(id, path, ref, limit, cursor);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppRepoCommits request with HTTP info returned
+         * @return ApiResponse&lt;AppRepoCommits&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Repository commit history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppRepoCommits> executeWithHttpInfo() throws ApiException {
+            return getAppRepoCommitsWithHttpInfo(id, path, ref, limit, cursor);
+        }
+
+        /**
+         * Execute getAppRepoCommits request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Repository commit history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppRepoCommits> _callback)
+                throws ApiException {
+            return getAppRepoCommitsAsync(id, path, ref, limit, cursor, _callback);
+        }
     }
 
     /**
      * List commits in the app git repository
-     * Calls {@code getAppRepoCommits} with every optional parameter left unset.
+     * Returns repository commits newest first, optionally filtered to commits that changed a file. History starts at the default branch unless a ref is supplied and supports cursor pagination.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
-     * @return AppRepoCommits
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AppRepoCommits getAppRepoCommits(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        return getAppRepoCommits(id, null, null, null, null);
-    }
-
-    /**
-     * List commits in the app git repository
-     * Calls {@code getAppRepoCommitsWithHttpInfo} with every optional parameter left unset.
-     * @param id  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AppRepoCommits> getAppRepoCommitsWithHttpInfo(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        return getAppRepoCommitsWithHttpInfo(id, null, null, null, null);
-    }
-
-    /**
-     * List commits in the app git repository (asynchronously)
-     * Calls {@code getAppRepoCommitsAsync} with every optional parameter left unset.
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAppRepoCommitsAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<AppRepoCommits> _callback)
-            throws ApiException {
-        return getAppRepoCommitsAsync(id, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for getAppRepoFile
-     * @param id  (required)
-     * @param path Path of the file, relative to the repository root. (required)
-     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAppRepoCommitsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Raw file content. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Repository commit history. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppRepoFileCall(
+    public APIgetAppRepoCommitsRequest getAppRepoCommits(@jakarta.annotation.Nonnull String id) {
+        return new APIgetAppRepoCommitsRequest(id);
+    }
+
+    private okhttp3.Call getAppRepoFileCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable String ref,
@@ -4050,50 +4567,7 @@ public class AppsApi {
         return getAppRepoFileCall(id, path, ref, _callback);
     }
 
-    /**
-     * Read a file from the app git repository
-     * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Served as an attachment to prevent active content rendering on the API origin.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param path Path of the file, relative to the repository root. (required)
-     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
-     * @return File
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Raw file content. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public File getAppRepoFile(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull String path,
-            @jakarta.annotation.Nullable String ref)
-            throws ApiException {
-        ApiResponse<File> localVarResp = getAppRepoFileWithHttpInfo(id, path, ref);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Read a file from the app git repository
-     * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Served as an attachment to prevent active content rendering on the API origin.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param path Path of the file, relative to the repository root. (required)
-     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
-     * @return ApiResponse&lt;File&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Raw file content. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<File> getAppRepoFileWithHttpInfo(
+    private ApiResponse<File> getAppRepoFileWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable String ref)
@@ -4103,25 +4577,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Read a file from the app git repository (asynchronously)
-     * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Served as an attachment to prevent active content rendering on the API origin.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param path Path of the file, relative to the repository root. (required)
-     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Raw file content. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppRepoFileAsync(
+    private okhttp3.Call getAppRepoFileAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable String ref,
@@ -4134,83 +4590,120 @@ public class AppsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getAppRepoFile with every optional parameter left unset.
-     * @param id  (required)
-     * @param path Path of the file, relative to the repository root. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getAppRepoFileCall(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull String path,
-            final ApiCallback _callback)
-            throws ApiException {
-        return getAppRepoFileCall(id, path, null, _callback);
+    public class APIgetAppRepoFileRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final String path;
+        @jakarta.annotation.Nullable private String ref;
+
+        private APIgetAppRepoFileRequest(
+                @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String path) {
+            this.id = id;
+            this.path = path;
+        }
+
+        /**
+         * Set ref
+         * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
+         * @return APIgetAppRepoFileRequest
+         */
+        public APIgetAppRepoFileRequest ref(@jakarta.annotation.Nullable String ref) {
+            this.ref = ref;
+            return this;
+        }
+
+        /**
+         * Build call for getAppRepoFile
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Raw file content. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppRepoFileCall(id, path, ref, _callback);
+        }
+
+        /**
+         * Execute getAppRepoFile request
+         * @return File
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Raw file content. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public File execute() throws ApiException {
+            ApiResponse<File> localVarResp = getAppRepoFileWithHttpInfo(id, path, ref);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppRepoFile request with HTTP info returned
+         * @return ApiResponse&lt;File&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Raw file content. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<File> executeWithHttpInfo() throws ApiException {
+            return getAppRepoFileWithHttpInfo(id, path, ref);
+        }
+
+        /**
+         * Execute getAppRepoFile request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Raw file content. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<File> _callback) throws ApiException {
+            return getAppRepoFileAsync(id, path, ref, _callback);
+        }
     }
 
     /**
      * Read a file from the app git repository
-     * Calls {@code getAppRepoFile} with every optional parameter left unset.
+     * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Served as an attachment to prevent active content rendering on the API origin.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
      * @param path Path of the file, relative to the repository root. (required)
-     * @return File
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public File getAppRepoFile(
-            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String path)
-            throws ApiException {
-        return getAppRepoFile(id, path, null);
-    }
-
-    /**
-     * Read a file from the app git repository
-     * Calls {@code getAppRepoFileWithHttpInfo} with every optional parameter left unset.
-     * @param id  (required)
-     * @param path Path of the file, relative to the repository root. (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<File> getAppRepoFileWithHttpInfo(
-            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String path)
-            throws ApiException {
-        return getAppRepoFileWithHttpInfo(id, path, null);
-    }
-
-    /**
-     * Read a file from the app git repository (asynchronously)
-     * Calls {@code getAppRepoFileAsync} with every optional parameter left unset.
-     * @param id  (required)
-     * @param path Path of the file, relative to the repository root. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAppRepoFileAsync(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull String path,
-            final ApiCallback<File> _callback)
-            throws ApiException {
-        return getAppRepoFileAsync(id, path, null, _callback);
-    }
-
-    /**
-     * Build call for getAppRepoRefs
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAppRepoFileRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Branches and tags. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Raw file content. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppRepoRefsCall(
+    public APIgetAppRepoFileRequest getAppRepoFile(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String path) {
+        return new APIgetAppRepoFileRequest(id, path);
+    }
+
+    private okhttp3.Call getAppRepoRefsCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4280,65 +4773,14 @@ public class AppsApi {
         return getAppRepoRefsCall(id, _callback);
     }
 
-    /**
-     * List branches and tags in the app git repository
-     * Lists the branches and tags of the app&#39;s git repository, each resolved to its latest commit. Read-only — reads live from the git server without a clone. Used by the Source view to let a user pick a ref to build from.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @return AppRepoRefs
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Branches and tags. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppRepoRefs getAppRepoRefs(@jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<AppRepoRefs> localVarResp = getAppRepoRefsWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List branches and tags in the app git repository
-     * Lists the branches and tags of the app&#39;s git repository, each resolved to its latest commit. Read-only — reads live from the git server without a clone. Used by the Source view to let a user pick a ref to build from.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @return ApiResponse&lt;AppRepoRefs&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Branches and tags. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppRepoRefs> getAppRepoRefsWithHttpInfo(
+    private ApiResponse<AppRepoRefs> getAppRepoRefsWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getAppRepoRefsValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<AppRepoRefs>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List branches and tags in the app git repository (asynchronously)
-     * Lists the branches and tags of the app&#39;s git repository, each resolved to its latest commit. Read-only — reads live from the git server without a clone. Used by the Source view to let a user pick a ref to build from.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Branches and tags. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppRepoRefsAsync(
+    private okhttp3.Call getAppRepoRefsAsync(
             @jakarta.annotation.Nonnull String id, final ApiCallback<AppRepoRefs> _callback)
             throws ApiException {
 
@@ -4348,24 +4790,105 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppRepoRefsRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIgetAppRepoRefsRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for getAppRepoRefs
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Branches and tags. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppRepoRefsCall(id, _callback);
+        }
+
+        /**
+         * Execute getAppRepoRefs request
+         * @return AppRepoRefs
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Branches and tags. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppRepoRefs execute() throws ApiException {
+            ApiResponse<AppRepoRefs> localVarResp = getAppRepoRefsWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppRepoRefs request with HTTP info returned
+         * @return ApiResponse&lt;AppRepoRefs&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Branches and tags. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppRepoRefs> executeWithHttpInfo() throws ApiException {
+            return getAppRepoRefsWithHttpInfo(id);
+        }
+
+        /**
+         * Execute getAppRepoRefs request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Branches and tags. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppRepoRefs> _callback)
+                throws ApiException {
+            return getAppRepoRefsAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for getAppRepoTree
+     * List branches and tags in the app git repository
+     * Lists the branches and tags of the app&#39;s git repository, each resolved to its latest commit. Read-only — reads live from the git server without a clone. Used by the Source view to let a user pick a ref to build from.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
-     * @param prefix Directory to list, relative to the repository root. Defaults to the root. (optional)
-     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAppRepoRefsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Directory listing. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Branches and tags. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppRepoTreeCall(
+    public APIgetAppRepoRefsRequest getAppRepoRefs(@jakarta.annotation.Nonnull String id) {
+        return new APIgetAppRepoRefsRequest(id);
+    }
+
+    private okhttp3.Call getAppRepoTreeCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable String prefix,
             @jakarta.annotation.Nullable String ref,
@@ -4449,50 +4972,7 @@ public class AppsApi {
         return getAppRepoTreeCall(id, prefix, ref, _callback);
     }
 
-    /**
-     * List files in the app git repository
-     * Lists files and directories under a prefix in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Used by the Build &gt; Design view to surface generated docs/.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param prefix Directory to list, relative to the repository root. Defaults to the root. (optional)
-     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
-     * @return AppRepoTree
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Directory listing. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppRepoTree getAppRepoTree(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nullable String prefix,
-            @jakarta.annotation.Nullable String ref)
-            throws ApiException {
-        ApiResponse<AppRepoTree> localVarResp = getAppRepoTreeWithHttpInfo(id, prefix, ref);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List files in the app git repository
-     * Lists files and directories under a prefix in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Used by the Build &gt; Design view to surface generated docs/.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param prefix Directory to list, relative to the repository root. Defaults to the root. (optional)
-     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
-     * @return ApiResponse&lt;AppRepoTree&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Directory listing. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppRepoTree> getAppRepoTreeWithHttpInfo(
+    private ApiResponse<AppRepoTree> getAppRepoTreeWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable String prefix,
             @jakarta.annotation.Nullable String ref)
@@ -4502,25 +4982,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List files in the app git repository (asynchronously)
-     * Lists files and directories under a prefix in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Used by the Build &gt; Design view to surface generated docs/.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param prefix Directory to list, relative to the repository root. Defaults to the root. (optional)
-     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Directory listing. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppRepoTreeAsync(
+    private okhttp3.Call getAppRepoTreeAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable String prefix,
             @jakarta.annotation.Nullable String ref,
@@ -4533,73 +4995,127 @@ public class AppsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getAppRepoTree with every optional parameter left unset.
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getAppRepoTreeCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
-            throws ApiException {
-        return getAppRepoTreeCall(id, null, null, _callback);
+    public class APIgetAppRepoTreeRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nullable private String prefix;
+        @jakarta.annotation.Nullable private String ref;
+
+        private APIgetAppRepoTreeRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Set prefix
+         * @param prefix Directory to list, relative to the repository root. Defaults to the root. (optional)
+         * @return APIgetAppRepoTreeRequest
+         */
+        public APIgetAppRepoTreeRequest prefix(@jakarta.annotation.Nullable String prefix) {
+            this.prefix = prefix;
+            return this;
+        }
+
+        /**
+         * Set ref
+         * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
+         * @return APIgetAppRepoTreeRequest
+         */
+        public APIgetAppRepoTreeRequest ref(@jakarta.annotation.Nullable String ref) {
+            this.ref = ref;
+            return this;
+        }
+
+        /**
+         * Build call for getAppRepoTree
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Directory listing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppRepoTreeCall(id, prefix, ref, _callback);
+        }
+
+        /**
+         * Execute getAppRepoTree request
+         * @return AppRepoTree
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Directory listing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppRepoTree execute() throws ApiException {
+            ApiResponse<AppRepoTree> localVarResp = getAppRepoTreeWithHttpInfo(id, prefix, ref);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppRepoTree request with HTTP info returned
+         * @return ApiResponse&lt;AppRepoTree&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Directory listing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppRepoTree> executeWithHttpInfo() throws ApiException {
+            return getAppRepoTreeWithHttpInfo(id, prefix, ref);
+        }
+
+        /**
+         * Execute getAppRepoTree request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Directory listing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppRepoTree> _callback)
+                throws ApiException {
+            return getAppRepoTreeAsync(id, prefix, ref, _callback);
+        }
     }
 
     /**
      * List files in the app git repository
-     * Calls {@code getAppRepoTree} with every optional parameter left unset.
+     * Lists files and directories under a prefix in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Used by the Build &gt; Design view to surface generated docs/.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
-     * @return AppRepoTree
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AppRepoTree getAppRepoTree(@jakarta.annotation.Nonnull String id) throws ApiException {
-        return getAppRepoTree(id, null, null);
-    }
-
-    /**
-     * List files in the app git repository
-     * Calls {@code getAppRepoTreeWithHttpInfo} with every optional parameter left unset.
-     * @param id  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AppRepoTree> getAppRepoTreeWithHttpInfo(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        return getAppRepoTreeWithHttpInfo(id, null, null);
-    }
-
-    /**
-     * List files in the app git repository (asynchronously)
-     * Calls {@code getAppRepoTreeAsync} with every optional parameter left unset.
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAppRepoTreeAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<AppRepoTree> _callback)
-            throws ApiException {
-        return getAppRepoTreeAsync(id, null, null, _callback);
-    }
-
-    /**
-     * Build call for getAppScaffoldProgress
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAppRepoTreeRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current app scaffold progress. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Directory listing. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppScaffoldProgressCall(
+    public APIgetAppRepoTreeRequest getAppRepoTree(@jakarta.annotation.Nonnull String id) {
+        return new APIgetAppRepoTreeRequest(id);
+    }
+
+    private okhttp3.Call getAppScaffoldProgressCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             final ApiCallback _callback)
@@ -4684,47 +5200,7 @@ public class AppsApi {
         return getAppScaffoldProgressCall(workflowId, runId, _callback);
     }
 
-    /**
-     * Get app scaffold progress
-     * Queries the running app scaffold Temporal workflow for current progress.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @return AppScaffoldProgress
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current app scaffold progress. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppScaffoldProgress getAppScaffoldProgress(
-            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        ApiResponse<AppScaffoldProgress> localVarResp =
-                getAppScaffoldProgressWithHttpInfo(workflowId, runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get app scaffold progress
-     * Queries the running app scaffold Temporal workflow for current progress.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @return ApiResponse&lt;AppScaffoldProgress&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current app scaffold progress. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppScaffoldProgress> getAppScaffoldProgressWithHttpInfo(
+    private ApiResponse<AppScaffoldProgress> getAppScaffoldProgressWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -4733,24 +5209,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get app scaffold progress (asynchronously)
-     * Queries the running app scaffold Temporal workflow for current progress.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current app scaffold progress. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppScaffoldProgressAsync(
+    private okhttp3.Call getAppScaffoldProgressAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             final ApiCallback<AppScaffoldProgress> _callback)
@@ -4763,22 +5222,113 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppScaffoldProgressRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+        @jakarta.annotation.Nonnull private final String runId;
+
+        private APIgetAppScaffoldProgressRequest(
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull String runId) {
+            this.workflowId = workflowId;
+            this.runId = runId;
+        }
+
+        /**
+         * Build call for getAppScaffoldProgress
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current app scaffold progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppScaffoldProgressCall(workflowId, runId, _callback);
+        }
+
+        /**
+         * Execute getAppScaffoldProgress request
+         * @return AppScaffoldProgress
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current app scaffold progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppScaffoldProgress execute() throws ApiException {
+            ApiResponse<AppScaffoldProgress> localVarResp =
+                    getAppScaffoldProgressWithHttpInfo(workflowId, runId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppScaffoldProgress request with HTTP info returned
+         * @return ApiResponse&lt;AppScaffoldProgress&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current app scaffold progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppScaffoldProgress> executeWithHttpInfo() throws ApiException {
+            return getAppScaffoldProgressWithHttpInfo(workflowId, runId);
+        }
+
+        /**
+         * Execute getAppScaffoldProgress request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current app scaffold progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppScaffoldProgress> _callback)
+                throws ApiException {
+            return getAppScaffoldProgressAsync(workflowId, runId, _callback);
+        }
+    }
+
     /**
-     * Build call for getAppVersion
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get app scaffold progress
+     * Queries the running app scaffold Temporal workflow for current progress.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return APIgetAppScaffoldProgressRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The current app scaffold progress. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAppVersionCall(
+    public APIgetAppScaffoldProgressRequest getAppScaffoldProgress(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIgetAppScaffoldProgressRequest(workflowId, runId);
+    }
+
+    private okhttp3.Call getAppVersionCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4848,66 +5398,14 @@ public class AppsApi {
         return getAppVersionCall(id, _callback);
     }
 
-    /**
-     * Get an app version
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @return AppVersionRecord
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppVersionRecord getAppVersion(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<AppVersionRecord> localVarResp = getAppVersionWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get an app version
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;AppVersionRecord&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppVersionRecord> getAppVersionWithHttpInfo(
+    private ApiResponse<AppVersionRecord> getAppVersionWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getAppVersionValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<AppVersionRecord>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get an app version (asynchronously)
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAppVersionAsync(
+    private okhttp3.Call getAppVersionAsync(
             @jakarta.annotation.Nonnull String id, final ApiCallback<AppVersionRecord> _callback)
             throws ApiException {
 
@@ -4917,23 +5415,105 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetAppVersionRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIgetAppVersionRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for getAppVersion
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAppVersionCall(id, _callback);
+        }
+
+        /**
+         * Execute getAppVersion request
+         * @return AppVersionRecord
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppVersionRecord execute() throws ApiException {
+            ApiResponse<AppVersionRecord> localVarResp = getAppVersionWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAppVersion request with HTTP info returned
+         * @return ApiResponse&lt;AppVersionRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppVersionRecord> executeWithHttpInfo() throws ApiException {
+            return getAppVersionWithHttpInfo(id);
+        }
+
+        /**
+         * Execute getAppVersion request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppVersionRecord> _callback)
+                throws ApiException {
+            return getAppVersionAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for getInstallationMcpApiKeyStatus
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get an app version
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
+     * @return APIgetAppVersionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The app version. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getInstallationMcpApiKeyStatusCall(
+    public APIgetAppVersionRequest getAppVersion(@jakarta.annotation.Nonnull String id) {
+        return new APIgetAppVersionRequest(id);
+    }
+
+    private okhttp3.Call getInstallationMcpApiKeyStatusCall(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
@@ -5018,48 +5598,7 @@ public class AppsApi {
         return getInstallationMcpApiKeyStatusCall(installId, collectionId, _callback);
     }
 
-    /**
-     * Read an installation MCP API key status
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @return McpApiKeyStatus
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public McpApiKeyStatus getInstallationMcpApiKeyStatus(
-            @jakarta.annotation.Nonnull String installId,
-            @jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<McpApiKeyStatus> localVarResp =
-                getInstallationMcpApiKeyStatusWithHttpInfo(installId, collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Read an installation MCP API key status
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;McpApiKeyStatus&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<McpApiKeyStatus> getInstallationMcpApiKeyStatusWithHttpInfo(
+    private ApiResponse<McpApiKeyStatus> getInstallationMcpApiKeyStatusWithHttpInfo(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
@@ -5069,24 +5608,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Read an installation MCP API key status (asynchronously)
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getInstallationMcpApiKeyStatusAsync(
+    private okhttp3.Call getInstallationMcpApiKeyStatusAsync(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<McpApiKeyStatus> _callback)
@@ -5100,23 +5622,113 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetInstallationMcpApiKeyStatusRequest {
+        @jakarta.annotation.Nonnull private final String installId;
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIgetInstallationMcpApiKeyStatusRequest(
+                @jakarta.annotation.Nonnull String installId,
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.installId = installId;
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for getInstallationMcpApiKeyStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getInstallationMcpApiKeyStatusCall(installId, collectionId, _callback);
+        }
+
+        /**
+         * Execute getInstallationMcpApiKeyStatus request
+         * @return McpApiKeyStatus
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public McpApiKeyStatus execute() throws ApiException {
+            ApiResponse<McpApiKeyStatus> localVarResp =
+                    getInstallationMcpApiKeyStatusWithHttpInfo(installId, collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getInstallationMcpApiKeyStatus request with HTTP info returned
+         * @return ApiResponse&lt;McpApiKeyStatus&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<McpApiKeyStatus> executeWithHttpInfo() throws ApiException {
+            return getInstallationMcpApiKeyStatusWithHttpInfo(installId, collectionId);
+        }
+
+        /**
+         * Execute getInstallationMcpApiKeyStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<McpApiKeyStatus> _callback)
+                throws ApiException {
+            return getInstallationMcpApiKeyStatusAsync(installId, collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for getMcpCollectionApiKeyStatus
-     * @param id  (required)
+     * Read an installation MCP API key status
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetInstallationMcpApiKeyStatusRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether a key is configured, with a masked hint. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getMcpCollectionApiKeyStatusCall(
+    public APIgetInstallationMcpApiKeyStatusRequest getInstallationMcpApiKeyStatus(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIgetInstallationMcpApiKeyStatusRequest(installId, collectionId);
+    }
+
+    private okhttp3.Call getMcpCollectionApiKeyStatusCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
@@ -5199,47 +5811,7 @@ public class AppsApi {
         return getMcpCollectionApiKeyStatusCall(id, collectionId, _callback);
     }
 
-    /**
-     * Check whether an MCP tool collection has an API key
-     * Returns whether a key is stored for the collection and a masked hint for display. The key itself is write-only and is never returned.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param collectionId  (required)
-     * @return McpApiKeyStatus
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether a key is configured, with a masked hint. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public McpApiKeyStatus getMcpCollectionApiKeyStatus(
-            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<McpApiKeyStatus> localVarResp =
-                getMcpCollectionApiKeyStatusWithHttpInfo(id, collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Check whether an MCP tool collection has an API key
-     * Returns whether a key is stored for the collection and a masked hint for display. The key itself is write-only and is never returned.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;McpApiKeyStatus&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether a key is configured, with a masked hint. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<McpApiKeyStatus> getMcpCollectionApiKeyStatusWithHttpInfo(
+    private ApiResponse<McpApiKeyStatus> getMcpCollectionApiKeyStatusWithHttpInfo(
             @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -5248,24 +5820,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Check whether an MCP tool collection has an API key (asynchronously)
-     * Returns whether a key is stored for the collection and a masked hint for display. The key itself is write-only and is never returned.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether a key is configured, with a masked hint. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getMcpCollectionApiKeyStatusAsync(
+    private okhttp3.Call getMcpCollectionApiKeyStatusAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<McpApiKeyStatus> _callback)
@@ -5278,22 +5833,113 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetMcpCollectionApiKeyStatusRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIgetMcpCollectionApiKeyStatusRequest(
+                @jakarta.annotation.Nonnull String id,
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.id = id;
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for getMcpCollectionApiKeyStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether a key is configured, with a masked hint. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getMcpCollectionApiKeyStatusCall(id, collectionId, _callback);
+        }
+
+        /**
+         * Execute getMcpCollectionApiKeyStatus request
+         * @return McpApiKeyStatus
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether a key is configured, with a masked hint. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public McpApiKeyStatus execute() throws ApiException {
+            ApiResponse<McpApiKeyStatus> localVarResp =
+                    getMcpCollectionApiKeyStatusWithHttpInfo(id, collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getMcpCollectionApiKeyStatus request with HTTP info returned
+         * @return ApiResponse&lt;McpApiKeyStatus&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether a key is configured, with a masked hint. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<McpApiKeyStatus> executeWithHttpInfo() throws ApiException {
+            return getMcpCollectionApiKeyStatusWithHttpInfo(id, collectionId);
+        }
+
+        /**
+         * Execute getMcpCollectionApiKeyStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether a key is configured, with a masked hint. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<McpApiKeyStatus> _callback)
+                throws ApiException {
+            return getMcpCollectionApiKeyStatusAsync(id, collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProjectsForInstalledApp
-     * @param appName  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Check whether an MCP tool collection has an API key
+     * Returns whether a key is stored for the collection and a masked hint for display. The key itself is write-only and is never returned.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param collectionId  (required)
+     * @return APIgetMcpCollectionApiKeyStatusRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app project access. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Whether a key is configured, with a masked hint. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProjectsForInstalledAppCall(
+    public APIgetMcpCollectionApiKeyStatusRequest getMcpCollectionApiKeyStatus(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIgetMcpCollectionApiKeyStatusRequest(id, collectionId);
+    }
+
+    private okhttp3.Call getProjectsForInstalledAppCall(
             @jakarta.annotation.Nonnull String appName, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5365,67 +6011,14 @@ public class AppsApi {
         return getProjectsForInstalledAppCall(appName, _callback);
     }
 
-    /**
-     * Get projects for an installed app
-     * Retrieves project access information for an installed app.
-     * @param appName  (required)
-     * @return AppInstallationWithManifest
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app project access. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppInstallationWithManifest getProjectsForInstalledApp(
-            @jakarta.annotation.Nonnull String appName) throws ApiException {
-        ApiResponse<AppInstallationWithManifest> localVarResp =
-                getProjectsForInstalledAppWithHttpInfo(appName);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get projects for an installed app
-     * Retrieves project access information for an installed app.
-     * @param appName  (required)
-     * @return ApiResponse&lt;AppInstallationWithManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app project access. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppInstallationWithManifest> getProjectsForInstalledAppWithHttpInfo(
+    private ApiResponse<AppInstallationWithManifest> getProjectsForInstalledAppWithHttpInfo(
             @jakarta.annotation.Nonnull String appName) throws ApiException {
         okhttp3.Call localVarCall = getProjectsForInstalledAppValidateBeforeCall(appName, null);
         Type localVarReturnType = new TypeToken<AppInstallationWithManifest>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get projects for an installed app (asynchronously)
-     * Retrieves project access information for an installed app.
-     * @param appName  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app project access. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProjectsForInstalledAppAsync(
+    private okhttp3.Call getProjectsForInstalledAppAsync(
             @jakarta.annotation.Nonnull String appName,
             final ApiCallback<AppInstallationWithManifest> _callback)
             throws ApiException {
@@ -5437,22 +6030,107 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIgetProjectsForInstalledAppRequest {
+        @jakarta.annotation.Nonnull private final String appName;
+
+        private APIgetProjectsForInstalledAppRequest(@jakarta.annotation.Nonnull String appName) {
+            this.appName = appName;
+        }
+
+        /**
+         * Build call for getProjectsForInstalledApp
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app project access. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProjectsForInstalledAppCall(appName, _callback);
+        }
+
+        /**
+         * Execute getProjectsForInstalledApp request
+         * @return AppInstallationWithManifest
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app project access. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppInstallationWithManifest execute() throws ApiException {
+            ApiResponse<AppInstallationWithManifest> localVarResp =
+                    getProjectsForInstalledAppWithHttpInfo(appName);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProjectsForInstalledApp request with HTTP info returned
+         * @return ApiResponse&lt;AppInstallationWithManifest&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app project access. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppInstallationWithManifest> executeWithHttpInfo() throws ApiException {
+            return getProjectsForInstalledAppWithHttpInfo(appName);
+        }
+
+        /**
+         * Execute getProjectsForInstalledApp request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app project access. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppInstallationWithManifest> _callback)
+                throws ApiException {
+            return getProjectsForInstalledAppAsync(appName, _callback);
+        }
+    }
+
     /**
-     * Build call for inspectApp
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get projects for an installed app
+     * Retrieves project access information for an installed app.
+     * @param appName  (required)
+     * @return APIgetProjectsForInstalledAppRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App registration inspection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Installed app project access. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call inspectAppCall(
+    public APIgetProjectsForInstalledAppRequest getProjectsForInstalledApp(
+            @jakarta.annotation.Nonnull String appName) {
+        return new APIgetProjectsForInstalledAppRequest(appName);
+    }
+
+    private okhttp3.Call inspectAppCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5522,66 +6200,14 @@ public class AppsApi {
         return inspectAppCall(id, _callback);
     }
 
-    /**
-     * Inspect an app registration
-     * Resolves an app, probes its promoted package, and reports per-capability exposed local ids, endpoint reachability, install state, and registration diagnostics — the ground truth for verifying what a promoted app actually registers vs what its manifest declares.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @return AppInspectionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App registration inspection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppInspectionResult inspectApp(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<AppInspectionResult> localVarResp = inspectAppWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Inspect an app registration
-     * Resolves an app, probes its promoted package, and reports per-capability exposed local ids, endpoint reachability, install state, and registration diagnostics — the ground truth for verifying what a promoted app actually registers vs what its manifest declares.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @return ApiResponse&lt;AppInspectionResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App registration inspection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppInspectionResult> inspectAppWithHttpInfo(
+    private ApiResponse<AppInspectionResult> inspectAppWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = inspectAppValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<AppInspectionResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Inspect an app registration (asynchronously)
-     * Resolves an app, probes its promoted package, and reports per-capability exposed local ids, endpoint reachability, install state, and registration diagnostics — the ground truth for verifying what a promoted app actually registers vs what its manifest declares.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App registration inspection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call inspectAppAsync(
+    private okhttp3.Call inspectAppAsync(
             @jakarta.annotation.Nonnull String id, final ApiCallback<AppInspectionResult> _callback)
             throws ApiException {
 
@@ -5591,22 +6217,105 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIinspectAppRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIinspectAppRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for inspectApp
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App registration inspection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return inspectAppCall(id, _callback);
+        }
+
+        /**
+         * Execute inspectApp request
+         * @return AppInspectionResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App registration inspection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppInspectionResult execute() throws ApiException {
+            ApiResponse<AppInspectionResult> localVarResp = inspectAppWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute inspectApp request with HTTP info returned
+         * @return ApiResponse&lt;AppInspectionResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App registration inspection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppInspectionResult> executeWithHttpInfo() throws ApiException {
+            return inspectAppWithHttpInfo(id);
+        }
+
+        /**
+         * Execute inspectApp request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App registration inspection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppInspectionResult> _callback)
+                throws ApiException {
+            return inspectAppAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for installApp
-     * @param appInstallationPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Inspect an app registration
+     * Resolves an app, probes its promoted package, and reports per-capability exposed local ids, endpoint reachability, install state, and registration diagnostics — the ground truth for verifying what a promoted app actually registers vs what its manifest declares.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @return APIinspectAppRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created app installation. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> App registration inspection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call installAppCall(
+    public APIinspectAppRequest inspectApp(@jakarta.annotation.Nonnull String id) {
+        return new APIinspectAppRequest(id);
+    }
+
+    private okhttp3.Call installAppCall(
             @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -5676,44 +6385,7 @@ public class AppsApi {
         return installAppCall(appInstallationPayload, _callback);
     }
 
-    /**
-     * Install an app
-     * Installs an app into the current project and provisions any required OAuth providers.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param appInstallationPayload  (required)
-     * @return AppInstallation
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppInstallation installApp(
-            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload)
-            throws ApiException {
-        ApiResponse<AppInstallation> localVarResp = installAppWithHttpInfo(appInstallationPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Install an app
-     * Installs an app into the current project and provisions any required OAuth providers.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param appInstallationPayload  (required)
-     * @return ApiResponse&lt;AppInstallation&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppInstallation> installAppWithHttpInfo(
+    private ApiResponse<AppInstallation> installAppWithHttpInfo(
             @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload)
             throws ApiException {
         okhttp3.Call localVarCall = installAppValidateBeforeCall(appInstallationPayload, null);
@@ -5721,23 +6393,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Install an app (asynchronously)
-     * Installs an app into the current project and provisions any required OAuth providers.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param appInstallationPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call installAppAsync(
+    private okhttp3.Call installAppAsync(
             @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload,
             final ApiCallback<AppInstallation> _callback)
             throws ApiException {
@@ -5748,21 +6404,108 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIinstallAppRequest {
+        @jakarta.annotation.Nonnull private final AppInstallationPayload appInstallationPayload;
+
+        private APIinstallAppRequest(
+                @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload) {
+            this.appInstallationPayload = appInstallationPayload;
+        }
+
+        /**
+         * Build call for installApp
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return installAppCall(appInstallationPayload, _callback);
+        }
+
+        /**
+         * Execute installApp request
+         * @return AppInstallation
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppInstallation execute() throws ApiException {
+            ApiResponse<AppInstallation> localVarResp =
+                    installAppWithHttpInfo(appInstallationPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute installApp request with HTTP info returned
+         * @return ApiResponse&lt;AppInstallation&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppInstallation> executeWithHttpInfo() throws ApiException {
+            return installAppWithHttpInfo(appInstallationPayload);
+        }
+
+        /**
+         * Execute installApp request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppInstallation> _callback)
+                throws ApiException {
+            return installAppAsync(appInstallationPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for listAllAppInstallations
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Install an app
+     * Installs an app into the current project and provisions any required OAuth providers.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param appInstallationPayload  (required)
+     * @return APIinstallAppRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> All app installations. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created app installation. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAllAppInstallationsCall(final ApiCallback _callback)
+    public APIinstallAppRequest installApp(
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload) {
+        return new APIinstallAppRequest(appInstallationPayload);
+    }
+
+    private okhttp3.Call listAllAppInstallationsCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5822,63 +6565,14 @@ public class AppsApi {
         return listAllAppInstallationsCall(_callback);
     }
 
-    /**
-     * List all app installations
-     * Lists all app installations in the current project, including orphaned installations.  **Required permissions:** &#x60;project:admin&#x60;
-     * @return List&lt;AppInstallationListEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> All app installations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AppInstallationListEntry> listAllAppInstallations() throws ApiException {
-        ApiResponse<List<AppInstallationListEntry>> localVarResp =
-                listAllAppInstallationsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List all app installations
-     * Lists all app installations in the current project, including orphaned installations.  **Required permissions:** &#x60;project:admin&#x60;
-     * @return ApiResponse&lt;List&lt;AppInstallationListEntry&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> All app installations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AppInstallationListEntry>> listAllAppInstallationsWithHttpInfo()
+    private ApiResponse<List<AppInstallationListEntry>> listAllAppInstallationsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listAllAppInstallationsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<AppInstallationListEntry>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List all app installations (asynchronously)
-     * Lists all app installations in the current project, including orphaned installations.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> All app installations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAllAppInstallationsAsync(
+    private okhttp3.Call listAllAppInstallationsAsync(
             final ApiCallback<List<AppInstallationListEntry>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listAllAppInstallationsValidateBeforeCall(_callback);
@@ -5887,22 +6581,103 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIlistAllAppInstallationsRequest {
+
+        private APIlistAllAppInstallationsRequest() {}
+
+        /**
+         * Build call for listAllAppInstallations
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> All app installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAllAppInstallationsCall(_callback);
+        }
+
+        /**
+         * Execute listAllAppInstallations request
+         * @return List&lt;AppInstallationListEntry&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> All app installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AppInstallationListEntry> execute() throws ApiException {
+            ApiResponse<List<AppInstallationListEntry>> localVarResp =
+                    listAllAppInstallationsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAllAppInstallations request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AppInstallationListEntry&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> All app installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AppInstallationListEntry>> executeWithHttpInfo()
+                throws ApiException {
+            return listAllAppInstallationsWithHttpInfo();
+        }
+
+        /**
+         * Execute listAllAppInstallations request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> All app installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<AppInstallationListEntry>> _callback) throws ApiException {
+            return listAllAppInstallationsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listAppDevelopmentTasks
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List all app installations
+     * Lists all app installations in the current project, including orphaned installations.  **Required permissions:** &#x60;project:admin&#x60;
+     * @return APIlistAllAppInstallationsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Development task summaries. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> All app installations. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppDevelopmentTasksCall(
+    public APIlistAllAppInstallationsRequest listAllAppInstallations() {
+        return new APIlistAllAppInstallationsRequest();
+    }
+
+    private okhttp3.Call listAppDevelopmentTasksCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5972,66 +6747,14 @@ public class AppsApi {
         return listAppDevelopmentTasksCall(id, _callback);
     }
 
-    /**
-     * List app development tasks
-     * Lists mutable development tasks represented by agent/_* Git branches. Agent runs are intentionally not queried for this summary.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @return AppDevelopmentTaskList
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Development task summaries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppDevelopmentTaskList listAppDevelopmentTasks(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<AppDevelopmentTaskList> localVarResp = listAppDevelopmentTasksWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List app development tasks
-     * Lists mutable development tasks represented by agent/_* Git branches. Agent runs are intentionally not queried for this summary.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @return ApiResponse&lt;AppDevelopmentTaskList&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Development task summaries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppDevelopmentTaskList> listAppDevelopmentTasksWithHttpInfo(
+    private ApiResponse<AppDevelopmentTaskList> listAppDevelopmentTasksWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = listAppDevelopmentTasksValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<AppDevelopmentTaskList>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List app development tasks (asynchronously)
-     * Lists mutable development tasks represented by agent/_* Git branches. Agent runs are intentionally not queried for this summary.  **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Development task summaries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAppDevelopmentTasksAsync(
+    private okhttp3.Call listAppDevelopmentTasksAsync(
             @jakarta.annotation.Nonnull String id,
             final ApiCallback<AppDevelopmentTaskList> _callback)
             throws ApiException {
@@ -6042,23 +6765,107 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIlistAppDevelopmentTasksRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIlistAppDevelopmentTasksRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for listAppDevelopmentTasks
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Development task summaries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAppDevelopmentTasksCall(id, _callback);
+        }
+
+        /**
+         * Execute listAppDevelopmentTasks request
+         * @return AppDevelopmentTaskList
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Development task summaries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppDevelopmentTaskList execute() throws ApiException {
+            ApiResponse<AppDevelopmentTaskList> localVarResp =
+                    listAppDevelopmentTasksWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAppDevelopmentTasks request with HTTP info returned
+         * @return ApiResponse&lt;AppDevelopmentTaskList&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Development task summaries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppDevelopmentTaskList> executeWithHttpInfo() throws ApiException {
+            return listAppDevelopmentTasksWithHttpInfo(id);
+        }
+
+        /**
+         * Execute listAppDevelopmentTasks request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Development task summaries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppDevelopmentTaskList> _callback)
+                throws ApiException {
+            return listAppDevelopmentTasksAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for listAppGithubRepositories
-     * @param connectionId  (required)
-     * @param installationId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List app development tasks
+     * Lists mutable development tasks represented by agent/_* Git branches. Agent runs are intentionally not queried for this summary.  **Required permissions:** &#x60;account:member&#x60;
+     * @param id  (required)
+     * @return APIlistAppDevelopmentTasksRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Development task summaries. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppGithubRepositoriesCall(
+    public APIlistAppDevelopmentTasksRequest listAppDevelopmentTasks(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIlistAppDevelopmentTasksRequest(id);
+    }
+
+    private okhttp3.Call listAppGithubRepositoriesCall(
             @jakarta.annotation.Nonnull String connectionId,
             @jakarta.annotation.Nonnull String installationId,
             final ApiCallback _callback)
@@ -6146,48 +6953,7 @@ public class AppsApi {
         return listAppGithubRepositoriesCall(connectionId, installationId, _callback);
     }
 
-    /**
-     * List repositories accessible to a verified GitHub App installation
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param connectionId  (required)
-     * @param installationId  (required)
-     * @return AppGithubRepositoryList
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppGithubRepositoryList listAppGithubRepositories(
-            @jakarta.annotation.Nonnull String connectionId,
-            @jakarta.annotation.Nonnull String installationId)
-            throws ApiException {
-        ApiResponse<AppGithubRepositoryList> localVarResp =
-                listAppGithubRepositoriesWithHttpInfo(connectionId, installationId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List repositories accessible to a verified GitHub App installation
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param connectionId  (required)
-     * @param installationId  (required)
-     * @return ApiResponse&lt;AppGithubRepositoryList&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppGithubRepositoryList> listAppGithubRepositoriesWithHttpInfo(
+    private ApiResponse<AppGithubRepositoryList> listAppGithubRepositoriesWithHttpInfo(
             @jakarta.annotation.Nonnull String connectionId,
             @jakarta.annotation.Nonnull String installationId)
             throws ApiException {
@@ -6197,24 +6963,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List repositories accessible to a verified GitHub App installation (asynchronously)
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param connectionId  (required)
-     * @param installationId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAppGithubRepositoriesAsync(
+    private okhttp3.Call listAppGithubRepositoriesAsync(
             @jakarta.annotation.Nonnull String connectionId,
             @jakarta.annotation.Nonnull String installationId,
             final ApiCallback<AppGithubRepositoryList> _callback)
@@ -6228,23 +6977,113 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIlistAppGithubRepositoriesRequest {
+        @jakarta.annotation.Nonnull private final String connectionId;
+        @jakarta.annotation.Nonnull private final String installationId;
+
+        private APIlistAppGithubRepositoriesRequest(
+                @jakarta.annotation.Nonnull String connectionId,
+                @jakarta.annotation.Nonnull String installationId) {
+            this.connectionId = connectionId;
+            this.installationId = installationId;
+        }
+
+        /**
+         * Build call for listAppGithubRepositories
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAppGithubRepositoriesCall(connectionId, installationId, _callback);
+        }
+
+        /**
+         * Execute listAppGithubRepositories request
+         * @return AppGithubRepositoryList
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppGithubRepositoryList execute() throws ApiException {
+            ApiResponse<AppGithubRepositoryList> localVarResp =
+                    listAppGithubRepositoriesWithHttpInfo(connectionId, installationId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAppGithubRepositories request with HTTP info returned
+         * @return ApiResponse&lt;AppGithubRepositoryList&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppGithubRepositoryList> executeWithHttpInfo() throws ApiException {
+            return listAppGithubRepositoriesWithHttpInfo(connectionId, installationId);
+        }
+
+        /**
+         * Execute listAppGithubRepositories request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppGithubRepositoryList> _callback)
+                throws ApiException {
+            return listAppGithubRepositoriesAsync(connectionId, installationId, _callback);
+        }
+    }
+
     /**
-     * Build call for listAppInstallationProjects
-     * @param name App manifest name. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
-     * @param id App manifest id. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required; it wins over &#x60;name&#x60;. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List repositories accessible to a verified GitHub App installation
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param connectionId  (required)
+     * @param installationId  (required)
+     * @return APIlistAppGithubRepositoriesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Projects for the app installation. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppInstallationProjectsCall(
+    public APIlistAppGithubRepositoriesRequest listAppGithubRepositories(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId) {
+        return new APIlistAppGithubRepositoriesRequest(connectionId, installationId);
+    }
+
+    private okhttp3.Call listAppInstallationProjectsCall(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable String id,
             final ApiCallback _callback)
@@ -6318,47 +7157,7 @@ public class AppsApi {
         return listAppInstallationProjectsCall(name, id, _callback);
     }
 
-    /**
-     * List projects for an app installation
-     * Lists projects where the given app is installed and accessible to the current principal.
-     * @param name App manifest name. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
-     * @param id App manifest id. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required; it wins over &#x60;name&#x60;. (optional)
-     * @return List&lt;ProjectRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Projects for the app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ProjectRef> listAppInstallationProjects(
-            @jakarta.annotation.Nullable String name, @jakarta.annotation.Nullable String id)
-            throws ApiException {
-        ApiResponse<List<ProjectRef>> localVarResp =
-                listAppInstallationProjectsWithHttpInfo(name, id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List projects for an app installation
-     * Lists projects where the given app is installed and accessible to the current principal.
-     * @param name App manifest name. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
-     * @param id App manifest id. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required; it wins over &#x60;name&#x60;. (optional)
-     * @return ApiResponse&lt;List&lt;ProjectRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Projects for the app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ProjectRef>> listAppInstallationProjectsWithHttpInfo(
+    private ApiResponse<List<ProjectRef>> listAppInstallationProjectsWithHttpInfo(
             @jakarta.annotation.Nullable String name, @jakarta.annotation.Nullable String id)
             throws ApiException {
         okhttp3.Call localVarCall = listAppInstallationProjectsValidateBeforeCall(name, id, null);
@@ -6366,24 +7165,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List projects for an app installation (asynchronously)
-     * Lists projects where the given app is installed and accessible to the current principal.
-     * @param name App manifest name. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
-     * @param id App manifest id. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required; it wins over &#x60;name&#x60;. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Projects for the app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAppInstallationProjectsAsync(
+    private okhttp3.Call listAppInstallationProjectsAsync(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable String id,
             final ApiCallback<List<ProjectRef>> _callback)
@@ -6396,65 +7178,125 @@ public class AppsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listAppInstallationProjects with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listAppInstallationProjectsCall(final ApiCallback _callback)
-            throws ApiException {
-        return listAppInstallationProjectsCall(null, null, _callback);
+    public class APIlistAppInstallationProjectsRequest {
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private String id;
+
+        private APIlistAppInstallationProjectsRequest() {}
+
+        /**
+         * Set name
+         * @param name App manifest name. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+         * @return APIlistAppInstallationProjectsRequest
+         */
+        public APIlistAppInstallationProjectsRequest name(
+                @jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set id
+         * @param id App manifest id. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required; it wins over &#x60;name&#x60;. (optional)
+         * @return APIlistAppInstallationProjectsRequest
+         */
+        public APIlistAppInstallationProjectsRequest id(@jakarta.annotation.Nullable String id) {
+            this.id = id;
+            return this;
+        }
+
+        /**
+         * Build call for listAppInstallationProjects
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Projects for the app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAppInstallationProjectsCall(name, id, _callback);
+        }
+
+        /**
+         * Execute listAppInstallationProjects request
+         * @return List&lt;ProjectRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Projects for the app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ProjectRef> execute() throws ApiException {
+            ApiResponse<List<ProjectRef>> localVarResp =
+                    listAppInstallationProjectsWithHttpInfo(name, id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAppInstallationProjects request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ProjectRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Projects for the app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ProjectRef>> executeWithHttpInfo() throws ApiException {
+            return listAppInstallationProjectsWithHttpInfo(name, id);
+        }
+
+        /**
+         * Execute listAppInstallationProjects request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Projects for the app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ProjectRef>> _callback)
+                throws ApiException {
+            return listAppInstallationProjectsAsync(name, id, _callback);
+        }
     }
 
     /**
      * List projects for an app installation
-     * Calls {@code listAppInstallationProjects} with every optional parameter left unset.
-     * @return List&lt;ProjectRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ProjectRef> listAppInstallationProjects() throws ApiException {
-        return listAppInstallationProjects(null, null);
-    }
-
-    /**
-     * List projects for an app installation
-     * Calls {@code listAppInstallationProjectsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ProjectRef>> listAppInstallationProjectsWithHttpInfo()
-            throws ApiException {
-        return listAppInstallationProjectsWithHttpInfo(null, null);
-    }
-
-    /**
-     * List projects for an app installation (asynchronously)
-     * Calls {@code listAppInstallationProjectsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listAppInstallationProjectsAsync(
-            final ApiCallback<List<ProjectRef>> _callback) throws ApiException {
-        return listAppInstallationProjectsAsync(null, null, _callback);
-    }
-
-    /**
-     * Build call for listAppInstallationRefs
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists projects where the given app is installed and accessible to the current principal.
+     * @return APIlistAppInstallationProjectsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installation references. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Projects for the app installation. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppInstallationRefsCall(final ApiCallback _callback)
+    public APIlistAppInstallationProjectsRequest listAppInstallationProjects() {
+        return new APIlistAppInstallationProjectsRequest();
+    }
+
+    private okhttp3.Call listAppInstallationRefsCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -6514,62 +7356,14 @@ public class AppsApi {
         return listAppInstallationRefsCall(_callback);
     }
 
-    /**
-     * List app installation references
-     * Lists app installation references visible to the current principal.
-     * @return List&lt;AppInstallation&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installation references. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AppInstallation> listAppInstallationRefs() throws ApiException {
-        ApiResponse<List<AppInstallation>> localVarResp = listAppInstallationRefsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List app installation references
-     * Lists app installation references visible to the current principal.
-     * @return ApiResponse&lt;List&lt;AppInstallation&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installation references. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AppInstallation>> listAppInstallationRefsWithHttpInfo()
+    private ApiResponse<List<AppInstallation>> listAppInstallationRefsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listAppInstallationRefsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<AppInstallation>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List app installation references (asynchronously)
-     * Lists app installation references visible to the current principal.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installation references. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAppInstallationRefsAsync(
+    private okhttp3.Call listAppInstallationRefsAsync(
             final ApiCallback<List<AppInstallation>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listAppInstallationRefsValidateBeforeCall(_callback);
@@ -6578,22 +7372,101 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIlistAppInstallationRefsRequest {
+
+        private APIlistAppInstallationRefsRequest() {}
+
+        /**
+         * Build call for listAppInstallationRefs
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installation references. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAppInstallationRefsCall(_callback);
+        }
+
+        /**
+         * Execute listAppInstallationRefs request
+         * @return List&lt;AppInstallation&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installation references. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AppInstallation> execute() throws ApiException {
+            ApiResponse<List<AppInstallation>> localVarResp = listAppInstallationRefsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAppInstallationRefs request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AppInstallation&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installation references. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AppInstallation>> executeWithHttpInfo() throws ApiException {
+            return listAppInstallationRefsWithHttpInfo();
+        }
+
+        /**
+         * Execute listAppInstallationRefs request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installation references. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AppInstallation>> _callback)
+                throws ApiException {
+            return listAppInstallationRefsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listAppInstallationTools
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List app installation references
+     * Lists app installation references visible to the current principal.
+     * @return APIlistAppInstallationRefsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Tools for the app installation. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> App installation references. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppInstallationToolsCall(
+    public APIlistAppInstallationRefsRequest listAppInstallationRefs() {
+        return new APIlistAppInstallationRefsRequest();
+    }
+
+    private okhttp3.Call listAppInstallationToolsCall(
             @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -6665,67 +7538,14 @@ public class AppsApi {
         return listAppInstallationToolsCall(installId, _callback);
     }
 
-    /**
-     * List tools for an app installation
-     * Lists tools exposed by an installed app.  **Required permissions:** &#x60;account:member&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @return List&lt;AppToolCollection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Tools for the app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AppToolCollection> listAppInstallationTools(
-            @jakarta.annotation.Nonnull String installId) throws ApiException {
-        ApiResponse<List<AppToolCollection>> localVarResp =
-                listAppInstallationToolsWithHttpInfo(installId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List tools for an app installation
-     * Lists tools exposed by an installed app.  **Required permissions:** &#x60;account:member&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;List&lt;AppToolCollection&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Tools for the app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AppToolCollection>> listAppInstallationToolsWithHttpInfo(
+    private ApiResponse<List<AppToolCollection>> listAppInstallationToolsWithHttpInfo(
             @jakarta.annotation.Nonnull String installId) throws ApiException {
         okhttp3.Call localVarCall = listAppInstallationToolsValidateBeforeCall(installId, null);
         Type localVarReturnType = new TypeToken<List<AppToolCollection>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List tools for an app installation (asynchronously)
-     * Lists tools exposed by an installed app.  **Required permissions:** &#x60;account:member&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Tools for the app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAppInstallationToolsAsync(
+    private okhttp3.Call listAppInstallationToolsAsync(
             @jakarta.annotation.Nonnull String installId,
             final ApiCallback<List<AppToolCollection>> _callback)
             throws ApiException {
@@ -6737,23 +7557,107 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIlistAppInstallationToolsRequest {
+        @jakarta.annotation.Nonnull private final String installId;
+
+        private APIlistAppInstallationToolsRequest(@jakarta.annotation.Nonnull String installId) {
+            this.installId = installId;
+        }
+
+        /**
+         * Build call for listAppInstallationTools
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Tools for the app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAppInstallationToolsCall(installId, _callback);
+        }
+
+        /**
+         * Execute listAppInstallationTools request
+         * @return List&lt;AppToolCollection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Tools for the app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AppToolCollection> execute() throws ApiException {
+            ApiResponse<List<AppToolCollection>> localVarResp =
+                    listAppInstallationToolsWithHttpInfo(installId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAppInstallationTools request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AppToolCollection&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Tools for the app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AppToolCollection>> executeWithHttpInfo() throws ApiException {
+            return listAppInstallationToolsWithHttpInfo(installId);
+        }
+
+        /**
+         * Execute listAppInstallationTools request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Tools for the app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AppToolCollection>> _callback)
+                throws ApiException {
+            return listAppInstallationToolsAsync(installId, _callback);
+        }
+    }
+
     /**
-     * Build call for listAppInstallations
-     * @param kind Which contributions the listing is for. Defaults to &#x60;all&#x60;. (optional)
-     * @param availableIn Restrict to installations whose manifest declares this surface. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List tools for an app installation
+     * Lists tools exposed by an installed app.  **Required permissions:** &#x60;account:member&#x60;
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
+     * @return APIlistAppInstallationToolsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installations. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Tools for the app installation. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppInstallationsCall(
+    public APIlistAppInstallationToolsRequest listAppInstallationTools(
+            @jakarta.annotation.Nonnull String installId) {
+        return new APIlistAppInstallationToolsRequest(installId);
+    }
+
+    private okhttp3.Call listAppInstallationsCall(
             @jakarta.annotation.Nullable String kind,
             @jakarta.annotation.Nullable String availableIn,
             final ApiCallback _callback)
@@ -6828,48 +7732,7 @@ public class AppsApi {
         return listAppInstallationsCall(kind, availableIn, _callback);
     }
 
-    /**
-     * List app installations
-     * Lists app installations in the current project that are visible to the current principal.
-     * @param kind Which contributions the listing is for. Defaults to &#x60;all&#x60;. (optional)
-     * @param availableIn Restrict to installations whose manifest declares this surface. (optional)
-     * @return List&lt;AppInstallationWithManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AppInstallationWithManifest> listAppInstallations(
-            @jakarta.annotation.Nullable String kind,
-            @jakarta.annotation.Nullable String availableIn)
-            throws ApiException {
-        ApiResponse<List<AppInstallationWithManifest>> localVarResp =
-                listAppInstallationsWithHttpInfo(kind, availableIn);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List app installations
-     * Lists app installations in the current project that are visible to the current principal.
-     * @param kind Which contributions the listing is for. Defaults to &#x60;all&#x60;. (optional)
-     * @param availableIn Restrict to installations whose manifest declares this surface. (optional)
-     * @return ApiResponse&lt;List&lt;AppInstallationWithManifest&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AppInstallationWithManifest>> listAppInstallationsWithHttpInfo(
+    private ApiResponse<List<AppInstallationWithManifest>> listAppInstallationsWithHttpInfo(
             @jakarta.annotation.Nullable String kind,
             @jakarta.annotation.Nullable String availableIn)
             throws ApiException {
@@ -6878,24 +7741,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List app installations (asynchronously)
-     * Lists app installations in the current project that are visible to the current principal.
-     * @param kind Which contributions the listing is for. Defaults to &#x60;all&#x60;. (optional)
-     * @param availableIn Restrict to installations whose manifest declares this surface. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App installations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAppInstallationsAsync(
+    private okhttp3.Call listAppInstallationsAsync(
             @jakarta.annotation.Nullable String kind,
             @jakarta.annotation.Nullable String availableIn,
             final ApiCallback<List<AppInstallationWithManifest>> _callback)
@@ -6908,65 +7754,127 @@ public class AppsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listAppInstallations with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listAppInstallationsCall(final ApiCallback _callback) throws ApiException {
-        return listAppInstallationsCall(null, null, _callback);
+    public class APIlistAppInstallationsRequest {
+        @jakarta.annotation.Nullable private String kind;
+        @jakarta.annotation.Nullable private String availableIn;
+
+        private APIlistAppInstallationsRequest() {}
+
+        /**
+         * Set kind
+         * @param kind Which contributions the listing is for. Defaults to &#x60;all&#x60;. (optional)
+         * @return APIlistAppInstallationsRequest
+         */
+        public APIlistAppInstallationsRequest kind(@jakarta.annotation.Nullable String kind) {
+            this.kind = kind;
+            return this;
+        }
+
+        /**
+         * Set availableIn
+         * @param availableIn Restrict to installations whose manifest declares this surface. (optional)
+         * @return APIlistAppInstallationsRequest
+         */
+        public APIlistAppInstallationsRequest availableIn(
+                @jakarta.annotation.Nullable String availableIn) {
+            this.availableIn = availableIn;
+            return this;
+        }
+
+        /**
+         * Build call for listAppInstallations
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAppInstallationsCall(kind, availableIn, _callback);
+        }
+
+        /**
+         * Execute listAppInstallations request
+         * @return List&lt;AppInstallationWithManifest&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AppInstallationWithManifest> execute() throws ApiException {
+            ApiResponse<List<AppInstallationWithManifest>> localVarResp =
+                    listAppInstallationsWithHttpInfo(kind, availableIn);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAppInstallations request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AppInstallationWithManifest&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AppInstallationWithManifest>> executeWithHttpInfo()
+                throws ApiException {
+            return listAppInstallationsWithHttpInfo(kind, availableIn);
+        }
+
+        /**
+         * Execute listAppInstallations request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App installations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<AppInstallationWithManifest>> _callback)
+                throws ApiException {
+            return listAppInstallationsAsync(kind, availableIn, _callback);
+        }
     }
 
     /**
      * List app installations
-     * Calls {@code listAppInstallations} with every optional parameter left unset.
-     * @return List&lt;AppInstallationWithManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<AppInstallationWithManifest> listAppInstallations() throws ApiException {
-        return listAppInstallations(null, null);
-    }
-
-    /**
-     * List app installations
-     * Calls {@code listAppInstallationsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<AppInstallationWithManifest>> listAppInstallationsWithHttpInfo()
-            throws ApiException {
-        return listAppInstallationsWithHttpInfo(null, null);
-    }
-
-    /**
-     * List app installations (asynchronously)
-     * Calls {@code listAppInstallationsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listAppInstallationsAsync(
-            final ApiCallback<List<AppInstallationWithManifest>> _callback) throws ApiException {
-        return listAppInstallationsAsync(null, null, _callback);
-    }
-
-    /**
-     * Build call for listAppVersionLaunchTargets
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists app installations in the current project that are visible to the current principal.
+     * @return APIlistAppInstallationsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> App installations. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppVersionLaunchTargetsCall(
+    public APIlistAppInstallationsRequest listAppInstallations() {
+        return new APIlistAppInstallationsRequest();
+    }
+
+    private okhttp3.Call listAppVersionLaunchTargetsCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -7036,67 +7944,14 @@ public class AppsApi {
         return listAppVersionLaunchTargetsCall(id, _callback);
     }
 
-    /**
-     * List projects available for an advanced app version launch
-     * Returns projects in the current account that the caller can access and where this application is already installed.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @return List&lt;AppVersionLaunchTarget&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AppVersionLaunchTarget> listAppVersionLaunchTargets(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<List<AppVersionLaunchTarget>> localVarResp =
-                listAppVersionLaunchTargetsWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List projects available for an advanced app version launch
-     * Returns projects in the current account that the caller can access and where this application is already installed.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;List&lt;AppVersionLaunchTarget&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AppVersionLaunchTarget>> listAppVersionLaunchTargetsWithHttpInfo(
+    private ApiResponse<List<AppVersionLaunchTarget>> listAppVersionLaunchTargetsWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = listAppVersionLaunchTargetsValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<List<AppVersionLaunchTarget>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List projects available for an advanced app version launch (asynchronously)
-     * Returns projects in the current account that the caller can access and where this application is already installed.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAppVersionLaunchTargetsAsync(
+    private okhttp3.Call listAppVersionLaunchTargetsAsync(
             @jakarta.annotation.Nonnull String id,
             final ApiCallback<List<AppVersionLaunchTarget>> _callback)
             throws ApiException {
@@ -7107,21 +7962,107 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIlistAppVersionLaunchTargetsRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIlistAppVersionLaunchTargetsRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for listAppVersionLaunchTargets
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAppVersionLaunchTargetsCall(id, _callback);
+        }
+
+        /**
+         * Execute listAppVersionLaunchTargets request
+         * @return List&lt;AppVersionLaunchTarget&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AppVersionLaunchTarget> execute() throws ApiException {
+            ApiResponse<List<AppVersionLaunchTarget>> localVarResp =
+                    listAppVersionLaunchTargetsWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAppVersionLaunchTargets request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AppVersionLaunchTarget&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AppVersionLaunchTarget>> executeWithHttpInfo() throws ApiException {
+            return listAppVersionLaunchTargetsWithHttpInfo(id);
+        }
+
+        /**
+         * Execute listAppVersionLaunchTargets request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AppVersionLaunchTarget>> _callback)
+                throws ApiException {
+            return listAppVersionLaunchTargetsAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for listAppVersions
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List projects available for an advanced app version launch
+     * Returns projects in the current account that the caller can access and where this application is already installed.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
+     * @return APIlistAppVersionLaunchTargetsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App versions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppVersionsCall(final ApiCallback _callback) throws ApiException {
+    public APIlistAppVersionLaunchTargetsRequest listAppVersionLaunchTargets(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIlistAppVersionLaunchTargetsRequest(id);
+    }
+
+    private okhttp3.Call listAppVersionsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -7180,61 +8121,13 @@ public class AppsApi {
         return listAppVersionsCall(_callback);
     }
 
-    /**
-     * List app versions
-     * Lists app versions and design artifacts for the current project.  **Required permissions:** &#x60;account:member&#x60;
-     * @return List&lt;AppVersionRecord&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AppVersionRecord> listAppVersions() throws ApiException {
-        ApiResponse<List<AppVersionRecord>> localVarResp = listAppVersionsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List app versions
-     * Lists app versions and design artifacts for the current project.  **Required permissions:** &#x60;account:member&#x60;
-     * @return ApiResponse&lt;List&lt;AppVersionRecord&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AppVersionRecord>> listAppVersionsWithHttpInfo() throws ApiException {
+    private ApiResponse<List<AppVersionRecord>> listAppVersionsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listAppVersionsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<AppVersionRecord>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List app versions (asynchronously)
-     * Lists app versions and design artifacts for the current project.  **Required permissions:** &#x60;account:member&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAppVersionsAsync(final ApiCallback<List<AppVersionRecord>> _callback)
+    private okhttp3.Call listAppVersionsAsync(final ApiCallback<List<AppVersionRecord>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listAppVersionsValidateBeforeCall(_callback);
@@ -7243,22 +8136,101 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIlistAppVersionsRequest {
+
+        private APIlistAppVersionsRequest() {}
+
+        /**
+         * Build call for listAppVersions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAppVersionsCall(_callback);
+        }
+
+        /**
+         * Execute listAppVersions request
+         * @return List&lt;AppVersionRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AppVersionRecord> execute() throws ApiException {
+            ApiResponse<List<AppVersionRecord>> localVarResp = listAppVersionsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAppVersions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AppVersionRecord&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AppVersionRecord>> executeWithHttpInfo() throws ApiException {
+            return listAppVersionsWithHttpInfo();
+        }
+
+        /**
+         * Execute listAppVersions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AppVersionRecord>> _callback)
+                throws ApiException {
+            return listAppVersionsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listApps
-     * @param scope Restrict the listing to apps that belong to the current project — those installed into it or that have built versions in it. Defaults to &#x60;account&#x60;, which lists every app visible to the account, including the public catalog. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List app versions
+     * Lists app versions and design artifacts for the current project.  **Required permissions:** &#x60;account:member&#x60;
+     * @return APIlistAppVersionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Apps. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> App versions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppsCall(
+    public APIlistAppVersionsRequest listAppVersions() {
+        return new APIlistAppVersionsRequest();
+    }
+
+    private okhttp3.Call listAppsCall(
             @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -7324,66 +8296,14 @@ public class AppsApi {
         return listAppsCall(scope, _callback);
     }
 
-    /**
-     * List apps
-     * Lists apps visible to the current account. Pass &#x60;scope&#x3D;project&#x60; to narrow the listing to apps that belong to the current project.
-     * @param scope Restrict the listing to apps that belong to the current project — those installed into it or that have built versions in it. Defaults to &#x60;account&#x60;, which lists every app visible to the account, including the public catalog. (optional)
-     * @return List&lt;AppManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Apps. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AppManifest> listApps(@jakarta.annotation.Nullable String scope)
-            throws ApiException {
-        ApiResponse<List<AppManifest>> localVarResp = listAppsWithHttpInfo(scope);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List apps
-     * Lists apps visible to the current account. Pass &#x60;scope&#x3D;project&#x60; to narrow the listing to apps that belong to the current project.
-     * @param scope Restrict the listing to apps that belong to the current project — those installed into it or that have built versions in it. Defaults to &#x60;account&#x60;, which lists every app visible to the account, including the public catalog. (optional)
-     * @return ApiResponse&lt;List&lt;AppManifest&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Apps. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AppManifest>> listAppsWithHttpInfo(
+    private ApiResponse<List<AppManifest>> listAppsWithHttpInfo(
             @jakarta.annotation.Nullable String scope) throws ApiException {
         okhttp3.Call localVarCall = listAppsValidateBeforeCall(scope, null);
         Type localVarReturnType = new TypeToken<List<AppManifest>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List apps (asynchronously)
-     * Lists apps visible to the current account. Pass &#x60;scope&#x3D;project&#x60; to narrow the listing to apps that belong to the current project.
-     * @param scope Restrict the listing to apps that belong to the current project — those installed into it or that have built versions in it. Defaults to &#x60;account&#x60;, which lists every app visible to the account, including the public catalog. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Apps. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAppsAsync(
+    private okhttp3.Call listAppsAsync(
             @jakarta.annotation.Nullable String scope,
             final ApiCallback<List<AppManifest>> _callback)
             throws ApiException {
@@ -7394,64 +8314,112 @@ public class AppsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listApps with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listAppsCall(final ApiCallback _callback) throws ApiException {
-        return listAppsCall(null, _callback);
+    public class APIlistAppsRequest {
+        @jakarta.annotation.Nullable private String scope;
+
+        private APIlistAppsRequest() {}
+
+        /**
+         * Set scope
+         * @param scope Restrict the listing to apps that belong to the current project — those installed into it or that have built versions in it. Defaults to &#x60;account&#x60;, which lists every app visible to the account, including the public catalog. (optional)
+         * @return APIlistAppsRequest
+         */
+        public APIlistAppsRequest scope(@jakarta.annotation.Nullable String scope) {
+            this.scope = scope;
+            return this;
+        }
+
+        /**
+         * Build call for listApps
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Apps. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAppsCall(scope, _callback);
+        }
+
+        /**
+         * Execute listApps request
+         * @return List&lt;AppManifest&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Apps. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AppManifest> execute() throws ApiException {
+            ApiResponse<List<AppManifest>> localVarResp = listAppsWithHttpInfo(scope);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listApps request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AppManifest&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Apps. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AppManifest>> executeWithHttpInfo() throws ApiException {
+            return listAppsWithHttpInfo(scope);
+        }
+
+        /**
+         * Execute listApps request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Apps. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AppManifest>> _callback)
+                throws ApiException {
+            return listAppsAsync(scope, _callback);
+        }
     }
 
     /**
      * List apps
-     * Calls {@code listApps} with every optional parameter left unset.
-     * @return List&lt;AppManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<AppManifest> listApps() throws ApiException {
-        return listApps(null);
-    }
-
-    /**
-     * List apps
-     * Calls {@code listAppsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<AppManifest>> listAppsWithHttpInfo() throws ApiException {
-        return listAppsWithHttpInfo(null);
-    }
-
-    /**
-     * List apps (asynchronously)
-     * Calls {@code listAppsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listAppsAsync(final ApiCallback<List<AppManifest>> _callback)
-            throws ApiException {
-        return listAppsAsync(null, _callback);
-    }
-
-    /**
-     * Build call for promoteAppVersion
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists apps visible to the current account. Pass &#x60;scope&#x3D;project&#x60; to narrow the listing to apps that belong to the current project.
+     * @return APIlistAppsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The promoted app version. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Apps. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call promoteAppVersionCall(
+    public APIlistAppsRequest listApps() {
+        return new APIlistAppsRequest();
+    }
+
+    private okhttp3.Call promoteAppVersionCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -7521,66 +8489,14 @@ public class AppsApi {
         return promoteAppVersionCall(id, _callback);
     }
 
-    /**
-     * Promote an app version
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @return PromoteAppVersionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The promoted app version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PromoteAppVersionResponse promoteAppVersion(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<PromoteAppVersionResponse> localVarResp = promoteAppVersionWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Promote an app version
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;PromoteAppVersionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The promoted app version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PromoteAppVersionResponse> promoteAppVersionWithHttpInfo(
+    private ApiResponse<PromoteAppVersionResponse> promoteAppVersionWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = promoteAppVersionValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<PromoteAppVersionResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Promote an app version (asynchronously)
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The promoted app version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call promoteAppVersionAsync(
+    private okhttp3.Call promoteAppVersionAsync(
             @jakarta.annotation.Nonnull String id,
             final ApiCallback<PromoteAppVersionResponse> _callback)
             throws ApiException {
@@ -7591,22 +8507,105 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIpromoteAppVersionRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIpromoteAppVersionRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for promoteAppVersion
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The promoted app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return promoteAppVersionCall(id, _callback);
+        }
+
+        /**
+         * Execute promoteAppVersion request
+         * @return PromoteAppVersionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The promoted app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public PromoteAppVersionResponse execute() throws ApiException {
+            ApiResponse<PromoteAppVersionResponse> localVarResp = promoteAppVersionWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute promoteAppVersion request with HTTP info returned
+         * @return ApiResponse&lt;PromoteAppVersionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The promoted app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<PromoteAppVersionResponse> executeWithHttpInfo() throws ApiException {
+            return promoteAppVersionWithHttpInfo(id);
+        }
+
+        /**
+         * Execute promoteAppVersion request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The promoted app version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PromoteAppVersionResponse> _callback)
+                throws ApiException {
+            return promoteAppVersionAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for rebuildAppVersion
+     * Promote an app version
+     * **Required permissions:** &#x60;app:manage&#x60;
      * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIpromoteAppVersionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app rebuild workflow. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The promoted app version. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call rebuildAppVersionCall(
+    public APIpromoteAppVersionRequest promoteAppVersion(@jakarta.annotation.Nonnull String id) {
+        return new APIpromoteAppVersionRequest(id);
+    }
+
+    private okhttp3.Call rebuildAppVersionCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -7676,66 +8675,14 @@ public class AppsApi {
         return rebuildAppVersionCall(id, _callback);
     }
 
-    /**
-     * Rebuild an app version
-     * Rebuilds a failed or expired, unpromoted app version in place from its recorded exact source commit and target.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @return StartAppBuildResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app rebuild workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public StartAppBuildResponse rebuildAppVersion(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<StartAppBuildResponse> localVarResp = rebuildAppVersionWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Rebuild an app version
-     * Rebuilds a failed or expired, unpromoted app version in place from its recorded exact source commit and target.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;StartAppBuildResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app rebuild workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<StartAppBuildResponse> rebuildAppVersionWithHttpInfo(
+    private ApiResponse<StartAppBuildResponse> rebuildAppVersionWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = rebuildAppVersionValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<StartAppBuildResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Rebuild an app version (asynchronously)
-     * Rebuilds a failed or expired, unpromoted app version in place from its recorded exact source commit and target.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app rebuild workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call rebuildAppVersionAsync(
+    private okhttp3.Call rebuildAppVersionAsync(
             @jakarta.annotation.Nonnull String id,
             final ApiCallback<StartAppBuildResponse> _callback)
             throws ApiException {
@@ -7746,24 +8693,105 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIrebuildAppVersionRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIrebuildAppVersionRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for rebuildAppVersion
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app rebuild workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return rebuildAppVersionCall(id, _callback);
+        }
+
+        /**
+         * Execute rebuildAppVersion request
+         * @return StartAppBuildResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app rebuild workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public StartAppBuildResponse execute() throws ApiException {
+            ApiResponse<StartAppBuildResponse> localVarResp = rebuildAppVersionWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute rebuildAppVersion request with HTTP info returned
+         * @return ApiResponse&lt;StartAppBuildResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app rebuild workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<StartAppBuildResponse> executeWithHttpInfo() throws ApiException {
+            return rebuildAppVersionWithHttpInfo(id);
+        }
+
+        /**
+         * Execute rebuildAppVersion request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app rebuild workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<StartAppBuildResponse> _callback)
+                throws ApiException {
+            return rebuildAppVersionAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for removeAppVersionAlias
+     * Rebuild an app version
+     * Rebuilds a failed or expired, unpromoted app version in place from its recorded exact source commit and target.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param alias  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIrebuildAppVersionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The started app rebuild workflow. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call removeAppVersionAliasCall(
+    public APIrebuildAppVersionRequest rebuildAppVersion(@jakarta.annotation.Nonnull String id) {
+        return new APIrebuildAppVersionRequest(id);
+    }
+
+    private okhttp3.Call removeAppVersionAliasCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String alias,
             final ApiCallback _callback)
@@ -7846,48 +8874,7 @@ public class AppsApi {
         return removeAppVersionAliasCall(id, alias, _callback);
     }
 
-    /**
-     * Remove a deployment alias from an app version
-     * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param alias  (required)
-     * @return AppVersionRecord
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppVersionRecord removeAppVersionAlias(
-            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias)
-            throws ApiException {
-        ApiResponse<AppVersionRecord> localVarResp = removeAppVersionAliasWithHttpInfo(id, alias);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Remove a deployment alias from an app version
-     * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param alias  (required)
-     * @return ApiResponse&lt;AppVersionRecord&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppVersionRecord> removeAppVersionAliasWithHttpInfo(
+    private ApiResponse<AppVersionRecord> removeAppVersionAliasWithHttpInfo(
             @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias)
             throws ApiException {
         okhttp3.Call localVarCall = removeAppVersionAliasValidateBeforeCall(id, alias, null);
@@ -7895,25 +8882,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Remove a deployment alias from an app version (asynchronously)
-     * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param alias  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call removeAppVersionAliasAsync(
+    private okhttp3.Call removeAppVersionAliasAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String alias,
             final ApiCallback<AppVersionRecord> _callback)
@@ -7925,24 +8894,116 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIremoveAppVersionAliasRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final String alias;
+
+        private APIremoveAppVersionAliasRequest(
+                @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias) {
+            this.id = id;
+            this.alias = alias;
+        }
+
+        /**
+         * Build call for removeAppVersionAlias
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return removeAppVersionAliasCall(id, alias, _callback);
+        }
+
+        /**
+         * Execute removeAppVersionAlias request
+         * @return AppVersionRecord
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppVersionRecord execute() throws ApiException {
+            ApiResponse<AppVersionRecord> localVarResp =
+                    removeAppVersionAliasWithHttpInfo(id, alias);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute removeAppVersionAlias request with HTTP info returned
+         * @return ApiResponse&lt;AppVersionRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppVersionRecord> executeWithHttpInfo() throws ApiException {
+            return removeAppVersionAliasWithHttpInfo(id, alias);
+        }
+
+        /**
+         * Execute removeAppVersionAlias request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppVersionRecord> _callback)
+                throws ApiException {
+            return removeAppVersionAliasAsync(id, alias, _callback);
+        }
+    }
+
     /**
-     * Build call for setInstallationMcpApiKey
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @param setMcpApiKeyRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Remove a deployment alias from an app version
+     * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
+     * @param alias  (required)
+     * @return APIremoveAppVersionAliasRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call setInstallationMcpApiKeyCall(
+    public APIremoveAppVersionAliasRequest removeAppVersionAlias(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias) {
+        return new APIremoveAppVersionAliasRequest(id, alias);
+    }
+
+    private okhttp3.Call setInstallationMcpApiKeyCall(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest,
@@ -8036,51 +9097,7 @@ public class AppsApi {
                 installId, collectionId, setMcpApiKeyRequest, _callback);
     }
 
-    /**
-     * Set an installation MCP API key
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @param setMcpApiKeyRequest  (required)
-     * @return McpApiKeyStatus
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public McpApiKeyStatus setInstallationMcpApiKey(
-            @jakarta.annotation.Nonnull String installId,
-            @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest)
-            throws ApiException {
-        ApiResponse<McpApiKeyStatus> localVarResp =
-                setInstallationMcpApiKeyWithHttpInfo(installId, collectionId, setMcpApiKeyRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Set an installation MCP API key
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @param setMcpApiKeyRequest  (required)
-     * @return ApiResponse&lt;McpApiKeyStatus&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<McpApiKeyStatus> setInstallationMcpApiKeyWithHttpInfo(
+    private ApiResponse<McpApiKeyStatus> setInstallationMcpApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest)
@@ -8092,25 +9109,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Set an installation MCP API key (asynchronously)
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param collectionId  (required)
-     * @param setMcpApiKeyRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call setInstallationMcpApiKeyAsync(
+    private okhttp3.Call setInstallationMcpApiKeyAsync(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest,
@@ -8125,24 +9124,122 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIsetInstallationMcpApiKeyRequest {
+        @jakarta.annotation.Nonnull private final String installId;
+        @jakarta.annotation.Nonnull private final String collectionId;
+        @jakarta.annotation.Nonnull private final SetMcpApiKeyRequest setMcpApiKeyRequest;
+
+        private APIsetInstallationMcpApiKeyRequest(
+                @jakarta.annotation.Nonnull String installId,
+                @jakarta.annotation.Nonnull String collectionId,
+                @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest) {
+            this.installId = installId;
+            this.collectionId = collectionId;
+            this.setMcpApiKeyRequest = setMcpApiKeyRequest;
+        }
+
+        /**
+         * Build call for setInstallationMcpApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return setInstallationMcpApiKeyCall(
+                    installId, collectionId, setMcpApiKeyRequest, _callback);
+        }
+
+        /**
+         * Execute setInstallationMcpApiKey request
+         * @return McpApiKeyStatus
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public McpApiKeyStatus execute() throws ApiException {
+            ApiResponse<McpApiKeyStatus> localVarResp =
+                    setInstallationMcpApiKeyWithHttpInfo(
+                            installId, collectionId, setMcpApiKeyRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute setInstallationMcpApiKey request with HTTP info returned
+         * @return ApiResponse&lt;McpApiKeyStatus&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<McpApiKeyStatus> executeWithHttpInfo() throws ApiException {
+            return setInstallationMcpApiKeyWithHttpInfo(
+                    installId, collectionId, setMcpApiKeyRequest);
+        }
+
+        /**
+         * Execute setInstallationMcpApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<McpApiKeyStatus> _callback)
+                throws ApiException {
+            return setInstallationMcpApiKeyAsync(
+                    installId, collectionId, setMcpApiKeyRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for setMcpCollectionApiKey
-     * @param id  (required)
+     * Set an installation MCP API key
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @param setMcpApiKeyRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIsetInstallationMcpApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether a key is now configured, with a masked hint. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call setMcpCollectionApiKeyCall(
+    public APIsetInstallationMcpApiKeyRequest setInstallationMcpApiKey(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest) {
+        return new APIsetInstallationMcpApiKeyRequest(installId, collectionId, setMcpApiKeyRequest);
+    }
+
+    private okhttp3.Call setMcpCollectionApiKeyCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest,
@@ -8233,51 +9330,7 @@ public class AppsApi {
         return setMcpCollectionApiKeyCall(id, collectionId, setMcpApiKeyRequest, _callback);
     }
 
-    /**
-     * Set the API key of an MCP tool collection
-     * Stores the static bearer token for a tool collection declared with auth: &#39;api_key&#39;. The key is encrypted in the project secret store and is never returned by any endpoint. Replaces any key already stored for the collection.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param collectionId  (required)
-     * @param setMcpApiKeyRequest  (required)
-     * @return McpApiKeyStatus
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether a key is now configured, with a masked hint. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public McpApiKeyStatus setMcpCollectionApiKey(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest)
-            throws ApiException {
-        ApiResponse<McpApiKeyStatus> localVarResp =
-                setMcpCollectionApiKeyWithHttpInfo(id, collectionId, setMcpApiKeyRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Set the API key of an MCP tool collection
-     * Stores the static bearer token for a tool collection declared with auth: &#39;api_key&#39;. The key is encrypted in the project secret store and is never returned by any endpoint. Replaces any key already stored for the collection.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param collectionId  (required)
-     * @param setMcpApiKeyRequest  (required)
-     * @return ApiResponse&lt;McpApiKeyStatus&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether a key is now configured, with a masked hint. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<McpApiKeyStatus> setMcpCollectionApiKeyWithHttpInfo(
+    private ApiResponse<McpApiKeyStatus> setMcpCollectionApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest)
@@ -8289,25 +9342,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Set the API key of an MCP tool collection (asynchronously)
-     * Stores the static bearer token for a tool collection declared with auth: &#39;api_key&#39;. The key is encrypted in the project secret store and is never returned by any endpoint. Replaces any key already stored for the collection.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param collectionId  (required)
-     * @param setMcpApiKeyRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether a key is now configured, with a masked hint. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call setMcpCollectionApiKeyAsync(
+    private okhttp3.Call setMcpCollectionApiKeyAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest,
@@ -8322,23 +9357,118 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIsetMcpCollectionApiKeyRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final String collectionId;
+        @jakarta.annotation.Nonnull private final SetMcpApiKeyRequest setMcpApiKeyRequest;
+
+        private APIsetMcpCollectionApiKeyRequest(
+                @jakarta.annotation.Nonnull String id,
+                @jakarta.annotation.Nonnull String collectionId,
+                @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest) {
+            this.id = id;
+            this.collectionId = collectionId;
+            this.setMcpApiKeyRequest = setMcpApiKeyRequest;
+        }
+
+        /**
+         * Build call for setMcpCollectionApiKey
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether a key is now configured, with a masked hint. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return setMcpCollectionApiKeyCall(id, collectionId, setMcpApiKeyRequest, _callback);
+        }
+
+        /**
+         * Execute setMcpCollectionApiKey request
+         * @return McpApiKeyStatus
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether a key is now configured, with a masked hint. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public McpApiKeyStatus execute() throws ApiException {
+            ApiResponse<McpApiKeyStatus> localVarResp =
+                    setMcpCollectionApiKeyWithHttpInfo(id, collectionId, setMcpApiKeyRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute setMcpCollectionApiKey request with HTTP info returned
+         * @return ApiResponse&lt;McpApiKeyStatus&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether a key is now configured, with a masked hint. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<McpApiKeyStatus> executeWithHttpInfo() throws ApiException {
+            return setMcpCollectionApiKeyWithHttpInfo(id, collectionId, setMcpApiKeyRequest);
+        }
+
+        /**
+         * Execute setMcpCollectionApiKey request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether a key is now configured, with a masked hint. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<McpApiKeyStatus> _callback)
+                throws ApiException {
+            return setMcpCollectionApiKeyAsync(id, collectionId, setMcpApiKeyRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for startAppBuild
+     * Set the API key of an MCP tool collection
+     * Stores the static bearer token for a tool collection declared with auth: &#39;api_key&#39;. The key is encrypted in the project secret store and is never returned by any endpoint. Replaces any key already stored for the collection.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
-     * @param startAppBuildRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param collectionId  (required)
+     * @param setMcpApiKeyRequest  (required)
+     * @return APIsetMcpCollectionApiKeyRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app build workflow. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Whether a key is now configured, with a masked hint. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call startAppBuildCall(
+    public APIsetMcpCollectionApiKeyRequest setMcpCollectionApiKey(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest) {
+        return new APIsetMcpCollectionApiKeyRequest(id, collectionId, setMcpApiKeyRequest);
+    }
+
+    private okhttp3.Call startAppBuildCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull StartAppBuildRequest startAppBuildRequest,
             final ApiCallback _callback)
@@ -8418,48 +9548,7 @@ public class AppsApi {
         return startAppBuildCall(id, startAppBuildRequest, _callback);
     }
 
-    /**
-     * Start an app build
-     * Starts a Temporal workflow that checks out the app git source, builds it, stores artifacts, and records an app version pinned to the exact source commit.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param startAppBuildRequest  (required)
-     * @return StartAppBuildResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app build workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public StartAppBuildResponse startAppBuild(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull StartAppBuildRequest startAppBuildRequest)
-            throws ApiException {
-        ApiResponse<StartAppBuildResponse> localVarResp =
-                startAppBuildWithHttpInfo(id, startAppBuildRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start an app build
-     * Starts a Temporal workflow that checks out the app git source, builds it, stores artifacts, and records an app version pinned to the exact source commit.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param startAppBuildRequest  (required)
-     * @return ApiResponse&lt;StartAppBuildResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app build workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<StartAppBuildResponse> startAppBuildWithHttpInfo(
+    private ApiResponse<StartAppBuildResponse> startAppBuildWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull StartAppBuildRequest startAppBuildRequest)
             throws ApiException {
@@ -8468,24 +9557,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start an app build (asynchronously)
-     * Starts a Temporal workflow that checks out the app git source, builds it, stores artifacts, and records an app version pinned to the exact source commit.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param startAppBuildRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app build workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call startAppBuildAsync(
+    private okhttp3.Call startAppBuildAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull StartAppBuildRequest startAppBuildRequest,
             final ApiCallback<StartAppBuildResponse> _callback)
@@ -8498,24 +9570,113 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIstartAppBuildRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final StartAppBuildRequest startAppBuildRequest;
+
+        private APIstartAppBuildRequest(
+                @jakarta.annotation.Nonnull String id,
+                @jakarta.annotation.Nonnull StartAppBuildRequest startAppBuildRequest) {
+            this.id = id;
+            this.startAppBuildRequest = startAppBuildRequest;
+        }
+
+        /**
+         * Build call for startAppBuild
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app build workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return startAppBuildCall(id, startAppBuildRequest, _callback);
+        }
+
+        /**
+         * Execute startAppBuild request
+         * @return StartAppBuildResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app build workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public StartAppBuildResponse execute() throws ApiException {
+            ApiResponse<StartAppBuildResponse> localVarResp =
+                    startAppBuildWithHttpInfo(id, startAppBuildRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute startAppBuild request with HTTP info returned
+         * @return ApiResponse&lt;StartAppBuildResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app build workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<StartAppBuildResponse> executeWithHttpInfo() throws ApiException {
+            return startAppBuildWithHttpInfo(id, startAppBuildRequest);
+        }
+
+        /**
+         * Execute startAppBuild request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app build workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<StartAppBuildResponse> _callback)
+                throws ApiException {
+            return startAppBuildAsync(id, startAppBuildRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for startAppDevelopmentTask
+     * Start an app build
+     * Starts a Temporal workflow that checks out the app git source, builds it, stores artifacts, and records an app version pinned to the exact source commit.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
-     * @param taskId  (required)
-     * @param startAppDevelopmentTaskRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param startAppBuildRequest  (required)
+     * @return APIstartAppBuildRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The started app build workflow. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call startAppDevelopmentTaskCall(
+    public APIstartAppBuildRequest startAppBuild(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull StartAppBuildRequest startAppBuildRequest) {
+        return new APIstartAppBuildRequest(id, startAppBuildRequest);
+    }
+
+    private okhttp3.Call startAppDevelopmentTaskCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String taskId,
             @jakarta.annotation.Nonnull
@@ -8608,52 +9769,7 @@ public class AppsApi {
         return startAppDevelopmentTaskCall(id, taskId, startAppDevelopmentTaskRequest, _callback);
     }
 
-    /**
-     * Start an app development task run
-     * Starts the policy-controlled App Builder parent on an existing agent/_* task branch. The server fixes the interaction, orchestration skill, implementation denylist, lifecycle data, and run tags.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param taskId  (required)
-     * @param startAppDevelopmentTaskRequest  (required)
-     * @return AgentRunResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AgentRunResponse startAppDevelopmentTask(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull String taskId,
-            @jakarta.annotation.Nonnull
-                    StartAppDevelopmentTaskRequest startAppDevelopmentTaskRequest)
-            throws ApiException {
-        ApiResponse<AgentRunResponse> localVarResp =
-                startAppDevelopmentTaskWithHttpInfo(id, taskId, startAppDevelopmentTaskRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start an app development task run
-     * Starts the policy-controlled App Builder parent on an existing agent/_* task branch. The server fixes the interaction, orchestration skill, implementation denylist, lifecycle data, and run tags.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param taskId  (required)
-     * @param startAppDevelopmentTaskRequest  (required)
-     * @return ApiResponse&lt;AgentRunResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AgentRunResponse> startAppDevelopmentTaskWithHttpInfo(
+    private ApiResponse<AgentRunResponse> startAppDevelopmentTaskWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String taskId,
             @jakarta.annotation.Nonnull
@@ -8666,25 +9782,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start an app development task run (asynchronously)
-     * Starts the policy-controlled App Builder parent on an existing agent/_* task branch. The server fixes the interaction, orchestration skill, implementation denylist, lifecycle data, and run tags.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param taskId  (required)
-     * @param startAppDevelopmentTaskRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call startAppDevelopmentTaskAsync(
+    private okhttp3.Call startAppDevelopmentTaskAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull String taskId,
             @jakarta.annotation.Nonnull
@@ -8700,21 +9798,124 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIstartAppDevelopmentTaskRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final String taskId;
+
+        @jakarta.annotation.Nonnull
+        private final StartAppDevelopmentTaskRequest startAppDevelopmentTaskRequest;
+
+        private APIstartAppDevelopmentTaskRequest(
+                @jakarta.annotation.Nonnull String id,
+                @jakarta.annotation.Nonnull String taskId,
+                @jakarta.annotation.Nonnull
+                        StartAppDevelopmentTaskRequest startAppDevelopmentTaskRequest) {
+            this.id = id;
+            this.taskId = taskId;
+            this.startAppDevelopmentTaskRequest = startAppDevelopmentTaskRequest;
+        }
+
+        /**
+         * Build call for startAppDevelopmentTask
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return startAppDevelopmentTaskCall(
+                    id, taskId, startAppDevelopmentTaskRequest, _callback);
+        }
+
+        /**
+         * Execute startAppDevelopmentTask request
+         * @return AgentRunResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AgentRunResponse execute() throws ApiException {
+            ApiResponse<AgentRunResponse> localVarResp =
+                    startAppDevelopmentTaskWithHttpInfo(id, taskId, startAppDevelopmentTaskRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute startAppDevelopmentTask request with HTTP info returned
+         * @return ApiResponse&lt;AgentRunResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AgentRunResponse> executeWithHttpInfo() throws ApiException {
+            return startAppDevelopmentTaskWithHttpInfo(id, taskId, startAppDevelopmentTaskRequest);
+        }
+
+        /**
+         * Execute startAppDevelopmentTask request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AgentRunResponse> _callback)
+                throws ApiException {
+            return startAppDevelopmentTaskAsync(
+                    id, taskId, startAppDevelopmentTaskRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for startAppGithubAuthorization
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Start an app development task run
+     * Starts the policy-controlled App Builder parent on an existing agent/_* task branch. The server fixes the interaction, orchestration skill, implementation denylist, lifecycle data, and run tags.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param taskId  (required)
+     * @param startAppDevelopmentTaskRequest  (required)
+     * @return APIstartAppDevelopmentTaskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call startAppGithubAuthorizationCall(final ApiCallback _callback)
+    public APIstartAppDevelopmentTaskRequest startAppDevelopmentTask(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull
+                    StartAppDevelopmentTaskRequest startAppDevelopmentTaskRequest) {
+        return new APIstartAppDevelopmentTaskRequest(id, taskId, startAppDevelopmentTaskRequest);
+    }
+
+    private okhttp3.Call startAppGithubAuthorizationCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -8774,63 +9975,14 @@ public class AppsApi {
         return startAppGithubAuthorizationCall(_callback);
     }
 
-    /**
-     * Start GitHub authorization for an App Builder source
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @return StartAppGithubAuthorizationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public StartAppGithubAuthorizationResponse startAppGithubAuthorization() throws ApiException {
-        ApiResponse<StartAppGithubAuthorizationResponse> localVarResp =
-                startAppGithubAuthorizationWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start GitHub authorization for an App Builder source
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @return ApiResponse&lt;StartAppGithubAuthorizationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<StartAppGithubAuthorizationResponse>
+    private ApiResponse<StartAppGithubAuthorizationResponse>
             startAppGithubAuthorizationWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = startAppGithubAuthorizationValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<StartAppGithubAuthorizationResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start GitHub authorization for an App Builder source (asynchronously)
-     * **Required permissions:** &#x60;app:manage&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call startAppGithubAuthorizationAsync(
+    private okhttp3.Call startAppGithubAuthorizationAsync(
             final ApiCallback<StartAppGithubAuthorizationResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = startAppGithubAuthorizationValidateBeforeCall(_callback);
@@ -8839,22 +9991,104 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIstartAppGithubAuthorizationRequest {
+
+        private APIstartAppGithubAuthorizationRequest() {}
+
+        /**
+         * Build call for startAppGithubAuthorization
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return startAppGithubAuthorizationCall(_callback);
+        }
+
+        /**
+         * Execute startAppGithubAuthorization request
+         * @return StartAppGithubAuthorizationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public StartAppGithubAuthorizationResponse execute() throws ApiException {
+            ApiResponse<StartAppGithubAuthorizationResponse> localVarResp =
+                    startAppGithubAuthorizationWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute startAppGithubAuthorization request with HTTP info returned
+         * @return ApiResponse&lt;StartAppGithubAuthorizationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<StartAppGithubAuthorizationResponse> executeWithHttpInfo()
+                throws ApiException {
+            return startAppGithubAuthorizationWithHttpInfo();
+        }
+
+        /**
+         * Execute startAppGithubAuthorization request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<StartAppGithubAuthorizationResponse> _callback)
+                throws ApiException {
+            return startAppGithubAuthorizationAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for startAppScaffold
-     * @param startAppScaffoldRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Start GitHub authorization for an App Builder source
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @return APIstartAppGithubAuthorizationRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call startAppScaffoldCall(
+    public APIstartAppGithubAuthorizationRequest startAppGithubAuthorization() {
+        return new APIstartAppGithubAuthorizationRequest();
+    }
+
+    private okhttp3.Call startAppScaffoldCall(
             @jakarta.annotation.Nonnull StartAppScaffoldRequest startAppScaffoldRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -8924,45 +10158,7 @@ public class AppsApi {
         return startAppScaffoldCall(startAppScaffoldRequest, _callback);
     }
 
-    /**
-     * Start an app scaffold
-     * Starts a Temporal workflow that creates a source-backed Vertesia app, prepares the selected source repository, and optionally starts an initial version build.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param startAppScaffoldRequest  (required)
-     * @return StartAppScaffoldResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public StartAppScaffoldResponse startAppScaffold(
-            @jakarta.annotation.Nonnull StartAppScaffoldRequest startAppScaffoldRequest)
-            throws ApiException {
-        ApiResponse<StartAppScaffoldResponse> localVarResp =
-                startAppScaffoldWithHttpInfo(startAppScaffoldRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start an app scaffold
-     * Starts a Temporal workflow that creates a source-backed Vertesia app, prepares the selected source repository, and optionally starts an initial version build.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param startAppScaffoldRequest  (required)
-     * @return ApiResponse&lt;StartAppScaffoldResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<StartAppScaffoldResponse> startAppScaffoldWithHttpInfo(
+    private ApiResponse<StartAppScaffoldResponse> startAppScaffoldWithHttpInfo(
             @jakarta.annotation.Nonnull StartAppScaffoldRequest startAppScaffoldRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -8971,23 +10167,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start an app scaffold (asynchronously)
-     * Starts a Temporal workflow that creates a source-backed Vertesia app, prepares the selected source repository, and optionally starts an initial version build.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param startAppScaffoldRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call startAppScaffoldAsync(
+    private okhttp3.Call startAppScaffoldAsync(
             @jakarta.annotation.Nonnull StartAppScaffoldRequest startAppScaffoldRequest,
             final ApiCallback<StartAppScaffoldResponse> _callback)
             throws ApiException {
@@ -8999,22 +10179,108 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIstartAppScaffoldRequest {
+        @jakarta.annotation.Nonnull private final StartAppScaffoldRequest startAppScaffoldRequest;
+
+        private APIstartAppScaffoldRequest(
+                @jakarta.annotation.Nonnull StartAppScaffoldRequest startAppScaffoldRequest) {
+            this.startAppScaffoldRequest = startAppScaffoldRequest;
+        }
+
+        /**
+         * Build call for startAppScaffold
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return startAppScaffoldCall(startAppScaffoldRequest, _callback);
+        }
+
+        /**
+         * Execute startAppScaffold request
+         * @return StartAppScaffoldResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public StartAppScaffoldResponse execute() throws ApiException {
+            ApiResponse<StartAppScaffoldResponse> localVarResp =
+                    startAppScaffoldWithHttpInfo(startAppScaffoldRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute startAppScaffold request with HTTP info returned
+         * @return ApiResponse&lt;StartAppScaffoldResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<StartAppScaffoldResponse> executeWithHttpInfo() throws ApiException {
+            return startAppScaffoldWithHttpInfo(startAppScaffoldRequest);
+        }
+
+        /**
+         * Execute startAppScaffold request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<StartAppScaffoldResponse> _callback)
+                throws ApiException {
+            return startAppScaffoldAsync(startAppScaffoldRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for uninstallApp
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Start an app scaffold
+     * Starts a Temporal workflow that creates a source-backed Vertesia app, prepares the selected source repository, and optionally starts an initial version build.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param startAppScaffoldRequest  (required)
+     * @return APIstartAppScaffoldRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App uninstall result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call uninstallAppCall(
+    public APIstartAppScaffoldRequest startAppScaffold(
+            @jakarta.annotation.Nonnull StartAppScaffoldRequest startAppScaffoldRequest) {
+        return new APIstartAppScaffoldRequest(startAppScaffoldRequest);
+    }
+
+    private okhttp3.Call uninstallAppCall(
             @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -9086,66 +10352,14 @@ public class AppsApi {
         return uninstallAppCall(installId, _callback);
     }
 
-    /**
-     * Uninstall an app
-     * Uninstalls an app from the current project and removes installation-scoped OAuth providers.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @return CountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App uninstall result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CountResult uninstallApp(@jakarta.annotation.Nonnull String installId)
-            throws ApiException {
-        ApiResponse<CountResult> localVarResp = uninstallAppWithHttpInfo(installId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Uninstall an app
-     * Uninstalls an app from the current project and removes installation-scoped OAuth providers.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;CountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App uninstall result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CountResult> uninstallAppWithHttpInfo(
+    private ApiResponse<CountResult> uninstallAppWithHttpInfo(
             @jakarta.annotation.Nonnull String installId) throws ApiException {
         okhttp3.Call localVarCall = uninstallAppValidateBeforeCall(installId, null);
         Type localVarReturnType = new TypeToken<CountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Uninstall an app (asynchronously)
-     * Uninstalls an app from the current project and removes installation-scoped OAuth providers.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App uninstall result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call uninstallAppAsync(
+    private okhttp3.Call uninstallAppAsync(
             @jakarta.annotation.Nonnull String installId, final ApiCallback<CountResult> _callback)
             throws ApiException {
 
@@ -9155,24 +10369,105 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIuninstallAppRequest {
+        @jakarta.annotation.Nonnull private final String installId;
+
+        private APIuninstallAppRequest(@jakarta.annotation.Nonnull String installId) {
+            this.installId = installId;
+        }
+
+        /**
+         * Build call for uninstallApp
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App uninstall result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return uninstallAppCall(installId, _callback);
+        }
+
+        /**
+         * Execute uninstallApp request
+         * @return CountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App uninstall result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CountResult execute() throws ApiException {
+            ApiResponse<CountResult> localVarResp = uninstallAppWithHttpInfo(installId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute uninstallApp request with HTTP info returned
+         * @return ApiResponse&lt;CountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App uninstall result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CountResult> executeWithHttpInfo() throws ApiException {
+            return uninstallAppWithHttpInfo(installId);
+        }
+
+        /**
+         * Execute uninstallApp request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App uninstall result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CountResult> _callback)
+                throws ApiException {
+            return uninstallAppAsync(installId, _callback);
+        }
+    }
+
     /**
-     * Build call for updateApp
-     * @param id  (required)
-     * @param updateAppPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Uninstall an app
+     * Uninstalls an app from the current project and removes installation-scoped OAuth providers.  **Required permissions:** &#x60;project:admin&#x60;
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
+     * @return APIuninstallAppRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> App uninstall result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAppCall(
+    public APIuninstallAppRequest uninstallApp(@jakarta.annotation.Nonnull String installId) {
+        return new APIuninstallAppRequest(installId);
+    }
+
+    private okhttp3.Call updateAppCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload,
             final ApiCallback _callback)
@@ -9252,49 +10547,7 @@ public class AppsApi {
         return updateAppCall(id, updateAppPayload, _callback);
     }
 
-    /**
-     * Update an app
-     * Updates an existing app manifest.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param updateAppPayload  (required)
-     * @return AppManifest
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppManifest updateApp(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload)
-            throws ApiException {
-        ApiResponse<AppManifest> localVarResp = updateAppWithHttpInfo(id, updateAppPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an app
-     * Updates an existing app manifest.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param updateAppPayload  (required)
-     * @return ApiResponse&lt;AppManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppManifest> updateAppWithHttpInfo(
+    private ApiResponse<AppManifest> updateAppWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload)
             throws ApiException {
@@ -9303,25 +10556,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an app (asynchronously)
-     * Updates an existing app manifest.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
-     * @param updateAppPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateAppAsync(
+    private okhttp3.Call updateAppAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload,
             final ApiCallback<AppManifest> _callback)
@@ -9333,23 +10568,117 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIupdateAppRequest {
+        @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nonnull private final UpdateAppPayload updateAppPayload;
+
+        private APIupdateAppRequest(
+                @jakarta.annotation.Nonnull String id,
+                @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload) {
+            this.id = id;
+            this.updateAppPayload = updateAppPayload;
+        }
+
+        /**
+         * Build call for updateApp
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateAppCall(id, updateAppPayload, _callback);
+        }
+
+        /**
+         * Execute updateApp request
+         * @return AppManifest
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppManifest execute() throws ApiException {
+            ApiResponse<AppManifest> localVarResp = updateAppWithHttpInfo(id, updateAppPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateApp request with HTTP info returned
+         * @return ApiResponse&lt;AppManifest&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppManifest> executeWithHttpInfo() throws ApiException {
+            return updateAppWithHttpInfo(id, updateAppPayload);
+        }
+
+        /**
+         * Execute updateApp request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppManifest> _callback)
+                throws ApiException {
+            return updateAppAsync(id, updateAppPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateAppInstallationOAuthApproval
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationOAuthApprovalPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Update an app
+     * Updates an existing app manifest.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param updateAppPayload  (required)
+     * @return APIupdateAppRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated installation. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAppInstallationOAuthApprovalCall(
+    public APIupdateAppRequest updateApp(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload) {
+        return new APIupdateAppRequest(id, updateAppPayload);
+    }
+
+    private okhttp3.Call updateAppInstallationOAuthApprovalCall(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull
                     UpdateAppInstallationOAuthApprovalPayload
@@ -9436,51 +10765,7 @@ public class AppsApi {
                 installId, updateAppInstallationOAuthApprovalPayload, _callback);
     }
 
-    /**
-     * Approve or revoke OAuth permissions for an app installation
-     * **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationOAuthApprovalPayload  (required)
-     * @return AppInstallationWithManifest
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppInstallationWithManifest updateAppInstallationOAuthApproval(
-            @jakarta.annotation.Nonnull String installId,
-            @jakarta.annotation.Nonnull
-                    UpdateAppInstallationOAuthApprovalPayload
-                            updateAppInstallationOAuthApprovalPayload)
-            throws ApiException {
-        ApiResponse<AppInstallationWithManifest> localVarResp =
-                updateAppInstallationOAuthApprovalWithHttpInfo(
-                        installId, updateAppInstallationOAuthApprovalPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Approve or revoke OAuth permissions for an app installation
-     * **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationOAuthApprovalPayload  (required)
-     * @return ApiResponse&lt;AppInstallationWithManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppInstallationWithManifest> updateAppInstallationOAuthApprovalWithHttpInfo(
+    private ApiResponse<AppInstallationWithManifest> updateAppInstallationOAuthApprovalWithHttpInfo(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull
                     UpdateAppInstallationOAuthApprovalPayload
@@ -9493,24 +10778,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Approve or revoke OAuth permissions for an app installation (asynchronously)
-     * **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationOAuthApprovalPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateAppInstallationOAuthApprovalAsync(
+    private okhttp3.Call updateAppInstallationOAuthApprovalAsync(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull
                     UpdateAppInstallationOAuthApprovalPayload
@@ -9526,23 +10794,126 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIupdateAppInstallationOAuthApprovalRequest {
+        @jakarta.annotation.Nonnull private final String installId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateAppInstallationOAuthApprovalPayload
+                updateAppInstallationOAuthApprovalPayload;
+
+        private APIupdateAppInstallationOAuthApprovalRequest(
+                @jakarta.annotation.Nonnull String installId,
+                @jakarta.annotation.Nonnull
+                        UpdateAppInstallationOAuthApprovalPayload
+                                updateAppInstallationOAuthApprovalPayload) {
+            this.installId = installId;
+            this.updateAppInstallationOAuthApprovalPayload =
+                    updateAppInstallationOAuthApprovalPayload;
+        }
+
+        /**
+         * Build call for updateAppInstallationOAuthApproval
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateAppInstallationOAuthApprovalCall(
+                    installId, updateAppInstallationOAuthApprovalPayload, _callback);
+        }
+
+        /**
+         * Execute updateAppInstallationOAuthApproval request
+         * @return AppInstallationWithManifest
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppInstallationWithManifest execute() throws ApiException {
+            ApiResponse<AppInstallationWithManifest> localVarResp =
+                    updateAppInstallationOAuthApprovalWithHttpInfo(
+                            installId, updateAppInstallationOAuthApprovalPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateAppInstallationOAuthApproval request with HTTP info returned
+         * @return ApiResponse&lt;AppInstallationWithManifest&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppInstallationWithManifest> executeWithHttpInfo() throws ApiException {
+            return updateAppInstallationOAuthApprovalWithHttpInfo(
+                    installId, updateAppInstallationOAuthApprovalPayload);
+        }
+
+        /**
+         * Execute updateAppInstallationOAuthApproval request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppInstallationWithManifest> _callback)
+                throws ApiException {
+            return updateAppInstallationOAuthApprovalAsync(
+                    installId, updateAppInstallationOAuthApprovalPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateAppInstallationSettings
-     * @param appId  (required)
-     * @param appInstallationPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Approve or revoke OAuth permissions for an app installation
+     * **Required permissions:** &#x60;project:admin&#x60;
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
+     * @param updateAppInstallationOAuthApprovalPayload  (required)
+     * @return APIupdateAppInstallationOAuthApprovalRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated installation. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAppInstallationSettingsCall(
+    public APIupdateAppInstallationOAuthApprovalRequest updateAppInstallationOAuthApproval(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull
+                    UpdateAppInstallationOAuthApprovalPayload
+                            updateAppInstallationOAuthApprovalPayload) {
+        return new APIupdateAppInstallationOAuthApprovalRequest(
+                installId, updateAppInstallationOAuthApprovalPayload);
+    }
+
+    private okhttp3.Call updateAppInstallationSettingsCall(
             @jakarta.annotation.Nonnull String appId,
             @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload,
             final ApiCallback _callback)
@@ -9624,48 +10995,7 @@ public class AppsApi {
         return updateAppInstallationSettingsCall(appId, appInstallationPayload, _callback);
     }
 
-    /**
-     * Update app installation settings
-     * Updates settings for an installed app.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param appId  (required)
-     * @param appInstallationPayload  (required)
-     * @return AppInstallation
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppInstallation updateAppInstallationSettings(
-            @jakarta.annotation.Nonnull String appId,
-            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload)
-            throws ApiException {
-        ApiResponse<AppInstallation> localVarResp =
-                updateAppInstallationSettingsWithHttpInfo(appId, appInstallationPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update app installation settings
-     * Updates settings for an installed app.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param appId  (required)
-     * @param appInstallationPayload  (required)
-     * @return ApiResponse&lt;AppInstallation&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppInstallation> updateAppInstallationSettingsWithHttpInfo(
+    private ApiResponse<AppInstallation> updateAppInstallationSettingsWithHttpInfo(
             @jakarta.annotation.Nonnull String appId,
             @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload)
             throws ApiException {
@@ -9676,24 +11006,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update app installation settings (asynchronously)
-     * Updates settings for an installed app.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param appId  (required)
-     * @param appInstallationPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateAppInstallationSettingsAsync(
+    private okhttp3.Call updateAppInstallationSettingsAsync(
             @jakarta.annotation.Nonnull String appId,
             @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload,
             final ApiCallback<AppInstallation> _callback)
@@ -9707,13 +11020,97 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIupdateAppInstallationSettingsRequest {
+        @jakarta.annotation.Nonnull private final String appId;
+        @jakarta.annotation.Nonnull private final AppInstallationPayload appInstallationPayload;
+
+        private APIupdateAppInstallationSettingsRequest(
+                @jakarta.annotation.Nonnull String appId,
+                @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload) {
+            this.appId = appId;
+            this.appInstallationPayload = appInstallationPayload;
+        }
+
+        /**
+         * Build call for updateAppInstallationSettings
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateAppInstallationSettingsCall(appId, appInstallationPayload, _callback);
+        }
+
+        /**
+         * Execute updateAppInstallationSettings request
+         * @return AppInstallation
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppInstallation execute() throws ApiException {
+            ApiResponse<AppInstallation> localVarResp =
+                    updateAppInstallationSettingsWithHttpInfo(appId, appInstallationPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateAppInstallationSettings request with HTTP info returned
+         * @return ApiResponse&lt;AppInstallation&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppInstallation> executeWithHttpInfo() throws ApiException {
+            return updateAppInstallationSettingsWithHttpInfo(appId, appInstallationPayload);
+        }
+
+        /**
+         * Execute updateAppInstallationSettings request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppInstallation> _callback)
+                throws ApiException {
+            return updateAppInstallationSettingsAsync(appId, appInstallationPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateAppInstallationToolAllowlist
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationToolAllowlistPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Update app installation settings
+     * Updates settings for an installed app.  **Required permissions:** &#x60;project:admin&#x60;
+     * @param appId  (required)
+     * @param appInstallationPayload  (required)
+     * @return APIupdateAppInstallationSettingsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -9723,7 +11120,13 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAppInstallationToolAllowlistCall(
+    public APIupdateAppInstallationSettingsRequest updateAppInstallationSettings(
+            @jakarta.annotation.Nonnull String appId,
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload) {
+        return new APIupdateAppInstallationSettingsRequest(appId, appInstallationPayload);
+    }
+
+    private okhttp3.Call updateAppInstallationToolAllowlistCall(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull
                     UpdateAppInstallationToolAllowlistPayload
@@ -9810,51 +11213,7 @@ public class AppsApi {
                 installId, updateAppInstallationToolAllowlistPayload, _callback);
     }
 
-    /**
-     * Update app installation tool allowlist
-     * Updates the installation-scoped tool allowlist for an app installation.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationToolAllowlistPayload  (required)
-     * @return AppInstallationWithManifest
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppInstallationWithManifest updateAppInstallationToolAllowlist(
-            @jakarta.annotation.Nonnull String installId,
-            @jakarta.annotation.Nonnull
-                    UpdateAppInstallationToolAllowlistPayload
-                            updateAppInstallationToolAllowlistPayload)
-            throws ApiException {
-        ApiResponse<AppInstallationWithManifest> localVarResp =
-                updateAppInstallationToolAllowlistWithHttpInfo(
-                        installId, updateAppInstallationToolAllowlistPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update app installation tool allowlist
-     * Updates the installation-scoped tool allowlist for an app installation.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationToolAllowlistPayload  (required)
-     * @return ApiResponse&lt;AppInstallationWithManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppInstallationWithManifest> updateAppInstallationToolAllowlistWithHttpInfo(
+    private ApiResponse<AppInstallationWithManifest> updateAppInstallationToolAllowlistWithHttpInfo(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull
                     UpdateAppInstallationToolAllowlistPayload
@@ -9867,24 +11226,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update app installation tool allowlist (asynchronously)
-     * Updates the installation-scoped tool allowlist for an app installation.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationToolAllowlistPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateAppInstallationToolAllowlistAsync(
+    private okhttp3.Call updateAppInstallationToolAllowlistAsync(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull
                     UpdateAppInstallationToolAllowlistPayload
@@ -9900,13 +11242,107 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIupdateAppInstallationToolAllowlistRequest {
+        @jakarta.annotation.Nonnull private final String installId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateAppInstallationToolAllowlistPayload
+                updateAppInstallationToolAllowlistPayload;
+
+        private APIupdateAppInstallationToolAllowlistRequest(
+                @jakarta.annotation.Nonnull String installId,
+                @jakarta.annotation.Nonnull
+                        UpdateAppInstallationToolAllowlistPayload
+                                updateAppInstallationToolAllowlistPayload) {
+            this.installId = installId;
+            this.updateAppInstallationToolAllowlistPayload =
+                    updateAppInstallationToolAllowlistPayload;
+        }
+
+        /**
+         * Build call for updateAppInstallationToolAllowlist
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateAppInstallationToolAllowlistCall(
+                    installId, updateAppInstallationToolAllowlistPayload, _callback);
+        }
+
+        /**
+         * Execute updateAppInstallationToolAllowlist request
+         * @return AppInstallationWithManifest
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppInstallationWithManifest execute() throws ApiException {
+            ApiResponse<AppInstallationWithManifest> localVarResp =
+                    updateAppInstallationToolAllowlistWithHttpInfo(
+                            installId, updateAppInstallationToolAllowlistPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateAppInstallationToolAllowlist request with HTTP info returned
+         * @return ApiResponse&lt;AppInstallationWithManifest&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppInstallationWithManifest> executeWithHttpInfo() throws ApiException {
+            return updateAppInstallationToolAllowlistWithHttpInfo(
+                    installId, updateAppInstallationToolAllowlistPayload);
+        }
+
+        /**
+         * Execute updateAppInstallationToolAllowlist request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppInstallationWithManifest> _callback)
+                throws ApiException {
+            return updateAppInstallationToolAllowlistAsync(
+                    installId, updateAppInstallationToolAllowlistPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateAppInstallationToolPermissions
+     * Update app installation tool allowlist
+     * Updates the installation-scoped tool allowlist for an app installation.  **Required permissions:** &#x60;project:admin&#x60;
      * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationToolPermissionsPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param updateAppInstallationToolAllowlistPayload  (required)
+     * @return APIupdateAppInstallationToolAllowlistRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -9916,7 +11352,16 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAppInstallationToolPermissionsCall(
+    public APIupdateAppInstallationToolAllowlistRequest updateAppInstallationToolAllowlist(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull
+                    UpdateAppInstallationToolAllowlistPayload
+                            updateAppInstallationToolAllowlistPayload) {
+        return new APIupdateAppInstallationToolAllowlistRequest(
+                installId, updateAppInstallationToolAllowlistPayload);
+    }
+
+    private okhttp3.Call updateAppInstallationToolPermissionsCall(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull
                     UpdateAppInstallationToolPermissionsPayload
@@ -10003,51 +11448,7 @@ public class AppsApi {
                 installId, updateAppInstallationToolPermissionsPayload, _callback);
     }
 
-    /**
-     * Update app installation tool permissions
-     * Updates the tool allowlist and the tools that always require human approval of an app installation in one atomic write. Omitted fields are left unchanged.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationToolPermissionsPayload  (required)
-     * @return AppInstallationWithManifest
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppInstallationWithManifest updateAppInstallationToolPermissions(
-            @jakarta.annotation.Nonnull String installId,
-            @jakarta.annotation.Nonnull
-                    UpdateAppInstallationToolPermissionsPayload
-                            updateAppInstallationToolPermissionsPayload)
-            throws ApiException {
-        ApiResponse<AppInstallationWithManifest> localVarResp =
-                updateAppInstallationToolPermissionsWithHttpInfo(
-                        installId, updateAppInstallationToolPermissionsPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update app installation tool permissions
-     * Updates the tool allowlist and the tools that always require human approval of an app installation in one atomic write. Omitted fields are left unchanged.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationToolPermissionsPayload  (required)
-     * @return ApiResponse&lt;AppInstallationWithManifest&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppInstallationWithManifest>
+    private ApiResponse<AppInstallationWithManifest>
             updateAppInstallationToolPermissionsWithHttpInfo(
                     @jakarta.annotation.Nonnull String installId,
                     @jakarta.annotation.Nonnull
@@ -10061,24 +11462,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update app installation tool permissions (asynchronously)
-     * Updates the tool allowlist and the tools that always require human approval of an app installation in one atomic write. Omitted fields are left unchanged.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
-     * @param updateAppInstallationToolPermissionsPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateAppInstallationToolPermissionsAsync(
+    private okhttp3.Call updateAppInstallationToolPermissionsAsync(
             @jakarta.annotation.Nonnull String installId,
             @jakarta.annotation.Nonnull
                     UpdateAppInstallationToolPermissionsPayload
@@ -10094,22 +11478,126 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIupdateAppInstallationToolPermissionsRequest {
+        @jakarta.annotation.Nonnull private final String installId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateAppInstallationToolPermissionsPayload
+                updateAppInstallationToolPermissionsPayload;
+
+        private APIupdateAppInstallationToolPermissionsRequest(
+                @jakarta.annotation.Nonnull String installId,
+                @jakarta.annotation.Nonnull
+                        UpdateAppInstallationToolPermissionsPayload
+                                updateAppInstallationToolPermissionsPayload) {
+            this.installId = installId;
+            this.updateAppInstallationToolPermissionsPayload =
+                    updateAppInstallationToolPermissionsPayload;
+        }
+
+        /**
+         * Build call for updateAppInstallationToolPermissions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateAppInstallationToolPermissionsCall(
+                    installId, updateAppInstallationToolPermissionsPayload, _callback);
+        }
+
+        /**
+         * Execute updateAppInstallationToolPermissions request
+         * @return AppInstallationWithManifest
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppInstallationWithManifest execute() throws ApiException {
+            ApiResponse<AppInstallationWithManifest> localVarResp =
+                    updateAppInstallationToolPermissionsWithHttpInfo(
+                            installId, updateAppInstallationToolPermissionsPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateAppInstallationToolPermissions request with HTTP info returned
+         * @return ApiResponse&lt;AppInstallationWithManifest&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppInstallationWithManifest> executeWithHttpInfo() throws ApiException {
+            return updateAppInstallationToolPermissionsWithHttpInfo(
+                    installId, updateAppInstallationToolPermissionsPayload);
+        }
+
+        /**
+         * Execute updateAppInstallationToolPermissions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppInstallationWithManifest> _callback)
+                throws ApiException {
+            return updateAppInstallationToolPermissionsAsync(
+                    installId, updateAppInstallationToolPermissionsPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for upsertAppVersion
-     * @param upsertAppVersionRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Update app installation tool permissions
+     * Updates the tool allowlist and the tools that always require human approval of an app installation in one atomic write. Omitted fields are left unchanged.  **Required permissions:** &#x60;project:admin&#x60;
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
+     * @param updateAppInstallationToolPermissionsPayload  (required)
+     * @return APIupdateAppInstallationToolPermissionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version record. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated app installation. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call upsertAppVersionCall(
+    public APIupdateAppInstallationToolPermissionsRequest updateAppInstallationToolPermissions(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull
+                    UpdateAppInstallationToolPermissionsPayload
+                            updateAppInstallationToolPermissionsPayload) {
+        return new APIupdateAppInstallationToolPermissionsRequest(
+                installId, updateAppInstallationToolPermissionsPayload);
+    }
+
+    private okhttp3.Call upsertAppVersionCall(
             @jakarta.annotation.Nonnull UpsertAppVersionRequest upsertAppVersionRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -10179,45 +11667,7 @@ public class AppsApi {
         return upsertAppVersionCall(upsertAppVersionRequest, _callback);
     }
 
-    /**
-     * Record an app version
-     * Creates or updates metadata for an app version or design artifact.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param upsertAppVersionRequest  (required)
-     * @return AppVersionRecord
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version record. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppVersionRecord upsertAppVersion(
-            @jakarta.annotation.Nonnull UpsertAppVersionRequest upsertAppVersionRequest)
-            throws ApiException {
-        ApiResponse<AppVersionRecord> localVarResp =
-                upsertAppVersionWithHttpInfo(upsertAppVersionRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Record an app version
-     * Creates or updates metadata for an app version or design artifact.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param upsertAppVersionRequest  (required)
-     * @return ApiResponse&lt;AppVersionRecord&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version record. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppVersionRecord> upsertAppVersionWithHttpInfo(
+    private ApiResponse<AppVersionRecord> upsertAppVersionWithHttpInfo(
             @jakarta.annotation.Nonnull UpsertAppVersionRequest upsertAppVersionRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -10226,23 +11676,7 @@ public class AppsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Record an app version (asynchronously)
-     * Creates or updates metadata for an app version or design artifact.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param upsertAppVersionRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The app version record. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call upsertAppVersionAsync(
+    private okhttp3.Call upsertAppVersionAsync(
             @jakarta.annotation.Nonnull UpsertAppVersionRequest upsertAppVersionRequest,
             final ApiCallback<AppVersionRecord> _callback)
             throws ApiException {
@@ -10254,22 +11688,108 @@ public class AppsApi {
         return localVarCall;
     }
 
+    public class APIupsertAppVersionRequest {
+        @jakarta.annotation.Nonnull private final UpsertAppVersionRequest upsertAppVersionRequest;
+
+        private APIupsertAppVersionRequest(
+                @jakarta.annotation.Nonnull UpsertAppVersionRequest upsertAppVersionRequest) {
+            this.upsertAppVersionRequest = upsertAppVersionRequest;
+        }
+
+        /**
+         * Build call for upsertAppVersion
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version record. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return upsertAppVersionCall(upsertAppVersionRequest, _callback);
+        }
+
+        /**
+         * Execute upsertAppVersion request
+         * @return AppVersionRecord
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version record. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppVersionRecord execute() throws ApiException {
+            ApiResponse<AppVersionRecord> localVarResp =
+                    upsertAppVersionWithHttpInfo(upsertAppVersionRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute upsertAppVersion request with HTTP info returned
+         * @return ApiResponse&lt;AppVersionRecord&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version record. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppVersionRecord> executeWithHttpInfo() throws ApiException {
+            return upsertAppVersionWithHttpInfo(upsertAppVersionRequest);
+        }
+
+        /**
+         * Execute upsertAppVersion request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The app version record. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppVersionRecord> _callback)
+                throws ApiException {
+            return upsertAppVersionAsync(upsertAppVersionRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for validateAppUrl
-     * @param validateUrlRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Record an app version
+     * Creates or updates metadata for an app version or design artifact.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param upsertAppVersionRequest  (required)
+     * @return APIupsertAppVersionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> URL validation result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The app version record. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call validateAppUrlCall(
+    public APIupsertAppVersionRequest upsertAppVersion(
+            @jakarta.annotation.Nonnull UpsertAppVersionRequest upsertAppVersionRequest) {
+        return new APIupsertAppVersionRequest(upsertAppVersionRequest);
+    }
+
+    private okhttp3.Call validateAppUrlCall(
             @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -10339,67 +11859,14 @@ public class AppsApi {
         return validateAppUrlCall(validateUrlRequest, _callback);
     }
 
-    /**
-     * Validate an app URL
-     * Validates an app endpoint URL against SSRF and environment rules.
-     * @param validateUrlRequest  (required)
-     * @return ValidateUrlResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> URL validation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ValidateUrlResponse validateAppUrl(
-            @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest) throws ApiException {
-        ApiResponse<ValidateUrlResponse> localVarResp =
-                validateAppUrlWithHttpInfo(validateUrlRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Validate an app URL
-     * Validates an app endpoint URL against SSRF and environment rules.
-     * @param validateUrlRequest  (required)
-     * @return ApiResponse&lt;ValidateUrlResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> URL validation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ValidateUrlResponse> validateAppUrlWithHttpInfo(
+    private ApiResponse<ValidateUrlResponse> validateAppUrlWithHttpInfo(
             @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest) throws ApiException {
         okhttp3.Call localVarCall = validateAppUrlValidateBeforeCall(validateUrlRequest, null);
         Type localVarReturnType = new TypeToken<ValidateUrlResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Validate an app URL (asynchronously)
-     * Validates an app endpoint URL against SSRF and environment rules.
-     * @param validateUrlRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> URL validation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call validateAppUrlAsync(
+    private okhttp3.Call validateAppUrlAsync(
             @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest,
             final ApiCallback<ValidateUrlResponse> _callback)
             throws ApiException {
@@ -10408,5 +11875,106 @@ public class AppsApi {
         Type localVarReturnType = new TypeToken<ValidateUrlResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIvalidateAppUrlRequest {
+        @jakarta.annotation.Nonnull private final ValidateUrlRequest validateUrlRequest;
+
+        private APIvalidateAppUrlRequest(
+                @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest) {
+            this.validateUrlRequest = validateUrlRequest;
+        }
+
+        /**
+         * Build call for validateAppUrl
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> URL validation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return validateAppUrlCall(validateUrlRequest, _callback);
+        }
+
+        /**
+         * Execute validateAppUrl request
+         * @return ValidateUrlResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> URL validation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ValidateUrlResponse execute() throws ApiException {
+            ApiResponse<ValidateUrlResponse> localVarResp =
+                    validateAppUrlWithHttpInfo(validateUrlRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute validateAppUrl request with HTTP info returned
+         * @return ApiResponse&lt;ValidateUrlResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> URL validation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ValidateUrlResponse> executeWithHttpInfo() throws ApiException {
+            return validateAppUrlWithHttpInfo(validateUrlRequest);
+        }
+
+        /**
+         * Execute validateAppUrl request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> URL validation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ValidateUrlResponse> _callback)
+                throws ApiException {
+            return validateAppUrlAsync(validateUrlRequest, _callback);
+        }
+    }
+
+    /**
+     * Validate an app URL
+     * Validates an app endpoint URL against SSRF and environment rules.
+     * @param validateUrlRequest  (required)
+     * @return APIvalidateAppUrlRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> URL validation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIvalidateAppUrlRequest validateAppUrl(
+            @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest) {
+        return new APIvalidateAppUrlRequest(validateUrlRequest);
     }
 }

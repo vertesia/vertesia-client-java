@@ -68,22 +68,7 @@ public class TasksApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for cancelTask
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The cancelled task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call cancelTaskCall(
+    private okhttp3.Call cancelTaskCall(
             @jakarta.annotation.Nonnull String taskId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -155,65 +140,14 @@ public class TasksApi {
         return cancelTaskCall(taskId, _callback);
     }
 
-    /**
-     * Cancel a task
-     * Cancels a pending or in-progress durable task.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @return Task
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The cancelled task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Task cancelTask(@jakarta.annotation.Nonnull String taskId) throws ApiException {
-        ApiResponse<Task> localVarResp = cancelTaskWithHttpInfo(taskId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Cancel a task
-     * Cancels a pending or in-progress durable task.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;Task&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The cancelled task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Task> cancelTaskWithHttpInfo(@jakarta.annotation.Nonnull String taskId)
+    private ApiResponse<Task> cancelTaskWithHttpInfo(@jakarta.annotation.Nonnull String taskId)
             throws ApiException {
         okhttp3.Call localVarCall = cancelTaskValidateBeforeCall(taskId, null);
         Type localVarReturnType = new TypeToken<Task>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Cancel a task (asynchronously)
-     * Cancels a pending or in-progress durable task.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The cancelled task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call cancelTaskAsync(
+    private okhttp3.Call cancelTaskAsync(
             @jakarta.annotation.Nonnull String taskId, final ApiCallback<Task> _callback)
             throws ApiException {
 
@@ -223,23 +157,104 @@ public class TasksApi {
         return localVarCall;
     }
 
+    public class APIcancelTaskRequest {
+        @jakarta.annotation.Nonnull private final String taskId;
+
+        private APIcancelTaskRequest(@jakarta.annotation.Nonnull String taskId) {
+            this.taskId = taskId;
+        }
+
+        /**
+         * Build call for cancelTask
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The cancelled task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return cancelTaskCall(taskId, _callback);
+        }
+
+        /**
+         * Execute cancelTask request
+         * @return Task
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The cancelled task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Task execute() throws ApiException {
+            ApiResponse<Task> localVarResp = cancelTaskWithHttpInfo(taskId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute cancelTask request with HTTP info returned
+         * @return ApiResponse&lt;Task&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The cancelled task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Task> executeWithHttpInfo() throws ApiException {
+            return cancelTaskWithHttpInfo(taskId);
+        }
+
+        /**
+         * Execute cancelTask request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The cancelled task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Task> _callback) throws ApiException {
+            return cancelTaskAsync(taskId, _callback);
+        }
+    }
+
     /**
-     * Build call for completeTask
+     * Cancel a task
+     * Cancels a pending or in-progress durable task.  **Required permissions:** &#x60;task:manage&#x60;
      * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param completeTaskPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIcancelTaskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The cancelled task. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call completeTaskCall(
+    public APIcancelTaskRequest cancelTask(@jakarta.annotation.Nonnull String taskId) {
+        return new APIcancelTaskRequest(taskId);
+    }
+
+    private okhttp3.Call completeTaskCall(
             @jakarta.annotation.Nonnull String taskId,
             @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload,
             final ApiCallback _callback)
@@ -321,47 +336,7 @@ public class TasksApi {
         return completeTaskCall(taskId, completeTaskPayload, _callback);
     }
 
-    /**
-     * Complete a task
-     * Completes a durable task and, for agent ask tasks, signals the backing workflow with the submitted result. Process &#x60;human_task&#x60; nodes should be resumed through &#x60;POST /agents/{agentRunId}/answer-task&#x60; instead of this endpoint.
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param completeTaskPayload  (required)
-     * @return Task
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Task completeTask(
-            @jakarta.annotation.Nonnull String taskId,
-            @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload)
-            throws ApiException {
-        ApiResponse<Task> localVarResp = completeTaskWithHttpInfo(taskId, completeTaskPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Complete a task
-     * Completes a durable task and, for agent ask tasks, signals the backing workflow with the submitted result. Process &#x60;human_task&#x60; nodes should be resumed through &#x60;POST /agents/{agentRunId}/answer-task&#x60; instead of this endpoint.
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param completeTaskPayload  (required)
-     * @return ApiResponse&lt;Task&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Task> completeTaskWithHttpInfo(
+    private ApiResponse<Task> completeTaskWithHttpInfo(
             @jakarta.annotation.Nonnull String taskId,
             @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload)
             throws ApiException {
@@ -371,24 +346,7 @@ public class TasksApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Complete a task (asynchronously)
-     * Completes a durable task and, for agent ask tasks, signals the backing workflow with the submitted result. Process &#x60;human_task&#x60; nodes should be resumed through &#x60;POST /agents/{agentRunId}/answer-task&#x60; instead of this endpoint.
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param completeTaskPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call completeTaskAsync(
+    private okhttp3.Call completeTaskAsync(
             @jakarta.annotation.Nonnull String taskId,
             @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload,
             final ApiCallback<Task> _callback)
@@ -401,22 +359,111 @@ public class TasksApi {
         return localVarCall;
     }
 
+    public class APIcompleteTaskRequest {
+        @jakarta.annotation.Nonnull private final String taskId;
+        @jakarta.annotation.Nonnull private final CompleteTaskPayload completeTaskPayload;
+
+        private APIcompleteTaskRequest(
+                @jakarta.annotation.Nonnull String taskId,
+                @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload) {
+            this.taskId = taskId;
+            this.completeTaskPayload = completeTaskPayload;
+        }
+
+        /**
+         * Build call for completeTask
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return completeTaskCall(taskId, completeTaskPayload, _callback);
+        }
+
+        /**
+         * Execute completeTask request
+         * @return Task
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Task execute() throws ApiException {
+            ApiResponse<Task> localVarResp = completeTaskWithHttpInfo(taskId, completeTaskPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute completeTask request with HTTP info returned
+         * @return ApiResponse&lt;Task&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Task> executeWithHttpInfo() throws ApiException {
+            return completeTaskWithHttpInfo(taskId, completeTaskPayload);
+        }
+
+        /**
+         * Execute completeTask request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Task> _callback) throws ApiException {
+            return completeTaskAsync(taskId, completeTaskPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createTask
-     * @param createTaskPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Complete a task
+     * Completes a durable task and, for agent ask tasks, signals the backing workflow with the submitted result. Process &#x60;human_task&#x60; nodes should be resumed through &#x60;POST /agents/{agentRunId}/answer-task&#x60; instead of this endpoint.
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
+     * @param completeTaskPayload  (required)
+     * @return APIcompleteTaskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createTaskCall(
+    public APIcompleteTaskRequest completeTask(
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload) {
+        return new APIcompleteTaskRequest(taskId, completeTaskPayload);
+    }
+
+    private okhttp3.Call createTaskCall(
             @jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -486,66 +533,14 @@ public class TasksApi {
         return createTaskCall(createTaskPayload, _callback);
     }
 
-    /**
-     * Create a task
-     * Creates a durable human task for a process or agent run. Callers must have &#x60;workflow:run&#x60; or &#x60;task:manage&#x60;.
-     * @param createTaskPayload  (required)
-     * @return Task
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Task createTask(@jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload)
-            throws ApiException {
-        ApiResponse<Task> localVarResp = createTaskWithHttpInfo(createTaskPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a task
-     * Creates a durable human task for a process or agent run. Callers must have &#x60;workflow:run&#x60; or &#x60;task:manage&#x60;.
-     * @param createTaskPayload  (required)
-     * @return ApiResponse&lt;Task&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Task> createTaskWithHttpInfo(
+    private ApiResponse<Task> createTaskWithHttpInfo(
             @jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload) throws ApiException {
         okhttp3.Call localVarCall = createTaskValidateBeforeCall(createTaskPayload, null);
         Type localVarReturnType = new TypeToken<Task>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a task (asynchronously)
-     * Creates a durable human task for a process or agent run. Callers must have &#x60;workflow:run&#x60; or &#x60;task:manage&#x60;.
-     * @param createTaskPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createTaskAsync(
+    private okhttp3.Call createTaskAsync(
             @jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload,
             final ApiCallback<Task> _callback)
             throws ApiException {
@@ -556,22 +551,106 @@ public class TasksApi {
         return localVarCall;
     }
 
+    public class APIcreateTaskRequest {
+        @jakarta.annotation.Nonnull private final CreateTaskPayload createTaskPayload;
+
+        private APIcreateTaskRequest(
+                @jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload) {
+            this.createTaskPayload = createTaskPayload;
+        }
+
+        /**
+         * Build call for createTask
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createTaskCall(createTaskPayload, _callback);
+        }
+
+        /**
+         * Execute createTask request
+         * @return Task
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Task execute() throws ApiException {
+            ApiResponse<Task> localVarResp = createTaskWithHttpInfo(createTaskPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createTask request with HTTP info returned
+         * @return ApiResponse&lt;Task&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Task> executeWithHttpInfo() throws ApiException {
+            return createTaskWithHttpInfo(createTaskPayload);
+        }
+
+        /**
+         * Execute createTask request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Task> _callback) throws ApiException {
+            return createTaskAsync(createTaskPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteTask
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a task
+     * Creates a durable human task for a process or agent run. Callers must have &#x60;workflow:run&#x60; or &#x60;task:manage&#x60;.
+     * @param createTaskPayload  (required)
+     * @return APIcreateTaskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteTaskCall(
+    public APIcreateTaskRequest createTask(
+            @jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload) {
+        return new APIcreateTaskRequest(createTaskPayload);
+    }
+
+    private okhttp3.Call deleteTaskCall(
             @jakarta.annotation.Nonnull String taskId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -643,66 +722,14 @@ public class TasksApi {
         return deleteTaskCall(taskId, _callback);
     }
 
-    /**
-     * Delete a task
-     * Deletes a durable task by id.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @return DeleteCountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteCountResult deleteTask(@jakarta.annotation.Nonnull String taskId)
-            throws ApiException {
-        ApiResponse<DeleteCountResult> localVarResp = deleteTaskWithHttpInfo(taskId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a task
-     * Deletes a durable task by id.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DeleteCountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteCountResult> deleteTaskWithHttpInfo(
+    private ApiResponse<DeleteCountResult> deleteTaskWithHttpInfo(
             @jakarta.annotation.Nonnull String taskId) throws ApiException {
         okhttp3.Call localVarCall = deleteTaskValidateBeforeCall(taskId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a task (asynchronously)
-     * Deletes a durable task by id.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteTaskAsync(
+    private okhttp3.Call deleteTaskAsync(
             @jakarta.annotation.Nonnull String taskId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
@@ -713,22 +740,105 @@ public class TasksApi {
         return localVarCall;
     }
 
+    public class APIdeleteTaskRequest {
+        @jakarta.annotation.Nonnull private final String taskId;
+
+        private APIdeleteTaskRequest(@jakarta.annotation.Nonnull String taskId) {
+            this.taskId = taskId;
+        }
+
+        /**
+         * Build call for deleteTask
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteTaskCall(taskId, _callback);
+        }
+
+        /**
+         * Execute deleteTask request
+         * @return DeleteCountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteCountResult execute() throws ApiException {
+            ApiResponse<DeleteCountResult> localVarResp = deleteTaskWithHttpInfo(taskId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteTask request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteCountResult> executeWithHttpInfo() throws ApiException {
+            return deleteTaskWithHttpInfo(taskId);
+        }
+
+        /**
+         * Execute deleteTask request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCountResult> _callback)
+                throws ApiException {
+            return deleteTaskAsync(taskId, _callback);
+        }
+    }
+
     /**
-     * Build call for getTask
+     * Delete a task
+     * Deletes a durable task by id.  **Required permissions:** &#x60;task:manage&#x60;
      * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteTaskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested task. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getTaskCall(
+    public APIdeleteTaskRequest deleteTask(@jakarta.annotation.Nonnull String taskId) {
+        return new APIdeleteTaskRequest(taskId);
+    }
+
+    private okhttp3.Call getTaskCall(
             @jakarta.annotation.Nonnull String taskId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -800,65 +910,14 @@ public class TasksApi {
         return getTaskCall(taskId, _callback);
     }
 
-    /**
-     * Retrieve a task
-     * Retrieves a single durable task by id.
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @return Task
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Task getTask(@jakarta.annotation.Nonnull String taskId) throws ApiException {
-        ApiResponse<Task> localVarResp = getTaskWithHttpInfo(taskId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a task
-     * Retrieves a single durable task by id.
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;Task&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Task> getTaskWithHttpInfo(@jakarta.annotation.Nonnull String taskId)
+    private ApiResponse<Task> getTaskWithHttpInfo(@jakarta.annotation.Nonnull String taskId)
             throws ApiException {
         okhttp3.Call localVarCall = getTaskValidateBeforeCall(taskId, null);
         Type localVarReturnType = new TypeToken<Task>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a task (asynchronously)
-     * Retrieves a single durable task by id.
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getTaskAsync(
+    private okhttp3.Call getTaskAsync(
             @jakarta.annotation.Nonnull String taskId, final ApiCallback<Task> _callback)
             throws ApiException {
 
@@ -868,27 +927,104 @@ public class TasksApi {
         return localVarCall;
     }
 
+    public class APIgetTaskRequest {
+        @jakarta.annotation.Nonnull private final String taskId;
+
+        private APIgetTaskRequest(@jakarta.annotation.Nonnull String taskId) {
+            this.taskId = taskId;
+        }
+
+        /**
+         * Build call for getTask
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getTaskCall(taskId, _callback);
+        }
+
+        /**
+         * Execute getTask request
+         * @return Task
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Task execute() throws ApiException {
+            ApiResponse<Task> localVarResp = getTaskWithHttpInfo(taskId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getTask request with HTTP info returned
+         * @return ApiResponse&lt;Task&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Task> executeWithHttpInfo() throws ApiException {
+            return getTaskWithHttpInfo(taskId);
+        }
+
+        /**
+         * Execute getTask request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Task> _callback) throws ApiException {
+            return getTaskAsync(taskId, _callback);
+        }
+    }
+
     /**
-     * Build call for listTasks
-     * @param status  (optional)
-     * @param assignee  (optional)
-     * @param runId  (optional)
-     * @param sourceType  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a task
+     * Retrieves a single durable task by id.
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
+     * @return APIgetTaskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching tasks. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested task. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listTasksCall(
+    public APIgetTaskRequest getTask(@jakarta.annotation.Nonnull String taskId) {
+        return new APIgetTaskRequest(taskId);
+    }
+
+    private okhttp3.Call listTasksCall(
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable String assignee,
             @jakarta.annotation.Nullable String runId,
@@ -988,60 +1124,7 @@ public class TasksApi {
         return listTasksCall(status, assignee, runId, sourceType, limit, offset, _callback);
     }
 
-    /**
-     * List tasks
-     * Lists durable tasks visible to the current principal, with optional filters for status, assignee, run id, and source type.
-     * @param status  (optional)
-     * @param assignee  (optional)
-     * @param runId  (optional)
-     * @param sourceType  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return List&lt;Task&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching tasks. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<Task> listTasks(
-            @jakarta.annotation.Nullable List<String> status,
-            @jakarta.annotation.Nullable String assignee,
-            @jakarta.annotation.Nullable String runId,
-            @jakarta.annotation.Nullable String sourceType,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
-        ApiResponse<List<Task>> localVarResp =
-                listTasksWithHttpInfo(status, assignee, runId, sourceType, limit, offset);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List tasks
-     * Lists durable tasks visible to the current principal, with optional filters for status, assignee, run id, and source type.
-     * @param status  (optional)
-     * @param assignee  (optional)
-     * @param runId  (optional)
-     * @param sourceType  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return ApiResponse&lt;List&lt;Task&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching tasks. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<Task>> listTasksWithHttpInfo(
+    private ApiResponse<List<Task>> listTasksWithHttpInfo(
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable String assignee,
             @jakarta.annotation.Nullable String runId,
@@ -1056,28 +1139,7 @@ public class TasksApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List tasks (asynchronously)
-     * Lists durable tasks visible to the current principal, with optional filters for status, assignee, run id, and source type.
-     * @param status  (optional)
-     * @param assignee  (optional)
-     * @param runId  (optional)
-     * @param sourceType  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching tasks. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listTasksAsync(
+    private okhttp3.Call listTasksAsync(
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable String assignee,
             @jakarta.annotation.Nullable String runId,
@@ -1095,65 +1157,168 @@ public class TasksApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listTasks with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listTasksCall(final ApiCallback _callback) throws ApiException {
-        return listTasksCall(null, null, null, null, null, null, _callback);
+    public class APIlistTasksRequest {
+        @jakarta.annotation.Nullable private List<String> status;
+        @jakarta.annotation.Nullable private String assignee;
+        @jakarta.annotation.Nullable private String runId;
+        @jakarta.annotation.Nullable private String sourceType;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+
+        private APIlistTasksRequest() {}
+
+        /**
+         * Set status
+         * @param status  (optional)
+         * @return APIlistTasksRequest
+         */
+        public APIlistTasksRequest status(@jakarta.annotation.Nullable List<String> status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set assignee
+         * @param assignee  (optional)
+         * @return APIlistTasksRequest
+         */
+        public APIlistTasksRequest assignee(@jakarta.annotation.Nullable String assignee) {
+            this.assignee = assignee;
+            return this;
+        }
+
+        /**
+         * Set runId
+         * @param runId  (optional)
+         * @return APIlistTasksRequest
+         */
+        public APIlistTasksRequest runId(@jakarta.annotation.Nullable String runId) {
+            this.runId = runId;
+            return this;
+        }
+
+        /**
+         * Set sourceType
+         * @param sourceType  (optional)
+         * @return APIlistTasksRequest
+         */
+        public APIlistTasksRequest sourceType(@jakarta.annotation.Nullable String sourceType) {
+            this.sourceType = sourceType;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistTasksRequest
+         */
+        public APIlistTasksRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistTasksRequest
+         */
+        public APIlistTasksRequest offset(@jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listTasks
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching tasks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listTasksCall(status, assignee, runId, sourceType, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listTasks request
+         * @return List&lt;Task&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching tasks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<Task> execute() throws ApiException {
+            ApiResponse<List<Task>> localVarResp =
+                    listTasksWithHttpInfo(status, assignee, runId, sourceType, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listTasks request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;Task&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching tasks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<Task>> executeWithHttpInfo() throws ApiException {
+            return listTasksWithHttpInfo(status, assignee, runId, sourceType, limit, offset);
+        }
+
+        /**
+         * Execute listTasks request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching tasks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<Task>> _callback)
+                throws ApiException {
+            return listTasksAsync(status, assignee, runId, sourceType, limit, offset, _callback);
+        }
     }
 
     /**
      * List tasks
-     * Calls {@code listTasks} with every optional parameter left unset.
-     * @return List&lt;Task&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<Task> listTasks() throws ApiException {
-        return listTasks(null, null, null, null, null, null);
-    }
-
-    /**
-     * List tasks
-     * Calls {@code listTasksWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<Task>> listTasksWithHttpInfo() throws ApiException {
-        return listTasksWithHttpInfo(null, null, null, null, null, null);
-    }
-
-    /**
-     * List tasks (asynchronously)
-     * Calls {@code listTasksAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listTasksAsync(final ApiCallback<List<Task>> _callback)
-            throws ApiException {
-        return listTasksAsync(null, null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for updateTask
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param updateTaskPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists durable tasks visible to the current principal, with optional filters for status, assignee, run id, and source type.
+     * @return APIlistTasksRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Matching tasks. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateTaskCall(
+    public APIlistTasksRequest listTasks() {
+        return new APIlistTasksRequest();
+    }
+
+    private okhttp3.Call updateTaskCall(
             @jakarta.annotation.Nonnull String taskId,
             @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload,
             final ApiCallback _callback)
@@ -1235,47 +1400,7 @@ public class TasksApi {
         return updateTaskCall(taskId, updateTaskPayload, _callback);
     }
 
-    /**
-     * Update a task
-     * Updates a durable task, including assignment, fields, due date, and status.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param updateTaskPayload  (required)
-     * @return Task
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Task updateTask(
-            @jakarta.annotation.Nonnull String taskId,
-            @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload)
-            throws ApiException {
-        ApiResponse<Task> localVarResp = updateTaskWithHttpInfo(taskId, updateTaskPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a task
-     * Updates a durable task, including assignment, fields, due date, and status.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param updateTaskPayload  (required)
-     * @return ApiResponse&lt;Task&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Task> updateTaskWithHttpInfo(
+    private ApiResponse<Task> updateTaskWithHttpInfo(
             @jakarta.annotation.Nonnull String taskId,
             @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload)
             throws ApiException {
@@ -1284,24 +1409,7 @@ public class TasksApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a task (asynchronously)
-     * Updates a durable task, including assignment, fields, due date, and status.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId The task ID, as 24 hexadecimal characters. (required)
-     * @param updateTaskPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateTaskAsync(
+    private okhttp3.Call updateTaskAsync(
             @jakarta.annotation.Nonnull String taskId,
             @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload,
             final ApiCallback<Task> _callback)
@@ -1312,5 +1420,109 @@ public class TasksApi {
         Type localVarReturnType = new TypeToken<Task>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateTaskRequest {
+        @jakarta.annotation.Nonnull private final String taskId;
+        @jakarta.annotation.Nonnull private final UpdateTaskPayload updateTaskPayload;
+
+        private APIupdateTaskRequest(
+                @jakarta.annotation.Nonnull String taskId,
+                @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload) {
+            this.taskId = taskId;
+            this.updateTaskPayload = updateTaskPayload;
+        }
+
+        /**
+         * Build call for updateTask
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateTaskCall(taskId, updateTaskPayload, _callback);
+        }
+
+        /**
+         * Execute updateTask request
+         * @return Task
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Task execute() throws ApiException {
+            ApiResponse<Task> localVarResp = updateTaskWithHttpInfo(taskId, updateTaskPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateTask request with HTTP info returned
+         * @return ApiResponse&lt;Task&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Task> executeWithHttpInfo() throws ApiException {
+            return updateTaskWithHttpInfo(taskId, updateTaskPayload);
+        }
+
+        /**
+         * Execute updateTask request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Task> _callback) throws ApiException {
+            return updateTaskAsync(taskId, updateTaskPayload, _callback);
+        }
+    }
+
+    /**
+     * Update a task
+     * Updates a durable task, including assignment, fields, due date, and status.  **Required permissions:** &#x60;task:manage&#x60;
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
+     * @param updateTaskPayload  (required)
+     * @return APIupdateTaskRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateTaskRequest updateTask(
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload) {
+        return new APIupdateTaskRequest(taskId, updateTaskPayload);
     }
 }

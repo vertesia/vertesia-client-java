@@ -64,22 +64,7 @@ public class BulkOperationsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for runBulkContentOperation
-     * @param bulkOperationPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk operation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call runBulkContentOperationCall(
+    private okhttp3.Call runBulkContentOperationCall(
             @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -149,45 +134,7 @@ public class BulkOperationsApi {
         return runBulkContentOperationCall(bulkOperationPayload, _callback);
     }
 
-    /**
-     * Run a bulk content operation
-     * Runs a bulk create, update, delete, or change-type operation across multiple content objects.  **Required permissions:** &#x60;content:read&#x60;
-     * @param bulkOperationPayload  (required)
-     * @return BulkOperationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk operation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public BulkOperationResponse runBulkContentOperation(
-            @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload)
-            throws ApiException {
-        ApiResponse<BulkOperationResponse> localVarResp =
-                runBulkContentOperationWithHttpInfo(bulkOperationPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Run a bulk content operation
-     * Runs a bulk create, update, delete, or change-type operation across multiple content objects.  **Required permissions:** &#x60;content:read&#x60;
-     * @param bulkOperationPayload  (required)
-     * @return ApiResponse&lt;BulkOperationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk operation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<BulkOperationResponse> runBulkContentOperationWithHttpInfo(
+    private ApiResponse<BulkOperationResponse> runBulkContentOperationWithHttpInfo(
             @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -196,23 +143,7 @@ public class BulkOperationsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Run a bulk content operation (asynchronously)
-     * Runs a bulk create, update, delete, or change-type operation across multiple content objects.  **Required permissions:** &#x60;content:read&#x60;
-     * @param bulkOperationPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk operation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call runBulkContentOperationAsync(
+    private okhttp3.Call runBulkContentOperationAsync(
             @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload,
             final ApiCallback<BulkOperationResponse> _callback)
             throws ApiException {
@@ -222,5 +153,106 @@ public class BulkOperationsApi {
         Type localVarReturnType = new TypeToken<BulkOperationResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIrunBulkContentOperationRequest {
+        @jakarta.annotation.Nonnull private final BulkOperationPayload bulkOperationPayload;
+
+        private APIrunBulkContentOperationRequest(
+                @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload) {
+            this.bulkOperationPayload = bulkOperationPayload;
+        }
+
+        /**
+         * Build call for runBulkContentOperation
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk operation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return runBulkContentOperationCall(bulkOperationPayload, _callback);
+        }
+
+        /**
+         * Execute runBulkContentOperation request
+         * @return BulkOperationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk operation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public BulkOperationResponse execute() throws ApiException {
+            ApiResponse<BulkOperationResponse> localVarResp =
+                    runBulkContentOperationWithHttpInfo(bulkOperationPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute runBulkContentOperation request with HTTP info returned
+         * @return ApiResponse&lt;BulkOperationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk operation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<BulkOperationResponse> executeWithHttpInfo() throws ApiException {
+            return runBulkContentOperationWithHttpInfo(bulkOperationPayload);
+        }
+
+        /**
+         * Execute runBulkContentOperation request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk operation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<BulkOperationResponse> _callback)
+                throws ApiException {
+            return runBulkContentOperationAsync(bulkOperationPayload, _callback);
+        }
+    }
+
+    /**
+     * Run a bulk content operation
+     * Runs a bulk create, update, delete, or change-type operation across multiple content objects.  **Required permissions:** &#x60;content:read&#x60;
+     * @param bulkOperationPayload  (required)
+     * @return APIrunBulkContentOperationRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Bulk operation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIrunBulkContentOperationRequest runBulkContentOperation(
+            @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload) {
+        return new APIrunBulkContentOperationRequest(bulkOperationPayload);
     }
 }

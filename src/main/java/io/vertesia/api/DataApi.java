@@ -104,23 +104,7 @@ public class DataApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for archiveDashboardsBulk
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param requestBody  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk archive result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call archiveDashboardsBulkCall(
+    private okhttp3.Call archiveDashboardsBulkCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback _callback)
@@ -202,48 +186,7 @@ public class DataApi {
         return archiveDashboardsBulkCall(storeId, requestBody, _callback);
     }
 
-    /**
-     * Archive dashboards in bulk
-     * Archives multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param requestBody  (required)
-     * @return DashboardBulkArchiveResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk archive result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardBulkArchiveResult archiveDashboardsBulk(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
-            throws ApiException {
-        ApiResponse<DashboardBulkArchiveResult> localVarResp =
-                archiveDashboardsBulkWithHttpInfo(storeId, requestBody);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Archive dashboards in bulk
-     * Archives multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param requestBody  (required)
-     * @return ApiResponse&lt;DashboardBulkArchiveResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk archive result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardBulkArchiveResult> archiveDashboardsBulkWithHttpInfo(
+    private ApiResponse<DashboardBulkArchiveResult> archiveDashboardsBulkWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
             throws ApiException {
@@ -253,24 +196,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Archive dashboards in bulk (asynchronously)
-     * Archives multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param requestBody  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk archive result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call archiveDashboardsBulkAsync(
+    private okhttp3.Call archiveDashboardsBulkAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback<DashboardBulkArchiveResult> _callback)
@@ -283,24 +209,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIarchiveDashboardsBulkRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final Map<String, List<String>> requestBody;
+
+        private APIarchiveDashboardsBulkRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull Map<String, List<String>> requestBody) {
+            this.storeId = storeId;
+            this.requestBody = requestBody;
+        }
+
+        /**
+         * Build call for archiveDashboardsBulk
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk archive result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return archiveDashboardsBulkCall(storeId, requestBody, _callback);
+        }
+
+        /**
+         * Execute archiveDashboardsBulk request
+         * @return DashboardBulkArchiveResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk archive result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DashboardBulkArchiveResult execute() throws ApiException {
+            ApiResponse<DashboardBulkArchiveResult> localVarResp =
+                    archiveDashboardsBulkWithHttpInfo(storeId, requestBody);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute archiveDashboardsBulk request with HTTP info returned
+         * @return ApiResponse&lt;DashboardBulkArchiveResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk archive result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DashboardBulkArchiveResult> executeWithHttpInfo() throws ApiException {
+            return archiveDashboardsBulkWithHttpInfo(storeId, requestBody);
+        }
+
+        /**
+         * Execute archiveDashboardsBulk request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk archive result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DashboardBulkArchiveResult> _callback)
+                throws ApiException {
+            return archiveDashboardsBulkAsync(storeId, requestBody, _callback);
+        }
+    }
+
     /**
-     * Build call for createDashboard
+     * Archive dashboards in bulk
+     * Archives multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param createDashboardPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param requestBody  (required)
+     * @return APIarchiveDashboardsBulkRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> A dashboard with this name already exists in the project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Bulk archive result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createDashboardCall(
+    public APIarchiveDashboardsBulkRequest archiveDashboardsBulk(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody) {
+        return new APIarchiveDashboardsBulkRequest(storeId, requestBody);
+    }
+
+    private okhttp3.Call createDashboardCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload,
             final ApiCallback _callback)
@@ -382,50 +397,7 @@ public class DataApi {
         return createDashboardCall(storeId, createDashboardPayload, _callback);
     }
 
-    /**
-     * Create a dashboard
-     * Creates a Vega-based dashboard linked to a data store.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param createDashboardPayload  (required)
-     * @return Dashboard
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> A dashboard with this name already exists in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Dashboard createDashboard(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload)
-            throws ApiException {
-        ApiResponse<Dashboard> localVarResp =
-                createDashboardWithHttpInfo(storeId, createDashboardPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a dashboard
-     * Creates a Vega-based dashboard linked to a data store.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param createDashboardPayload  (required)
-     * @return ApiResponse&lt;Dashboard&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> A dashboard with this name already exists in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Dashboard> createDashboardWithHttpInfo(
+    private ApiResponse<Dashboard> createDashboardWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload)
             throws ApiException {
@@ -435,25 +407,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a dashboard (asynchronously)
-     * Creates a Vega-based dashboard linked to a data store.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param createDashboardPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> A dashboard with this name already exists in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createDashboardAsync(
+    private okhttp3.Call createDashboardAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload,
             final ApiCallback<Dashboard> _callback)
@@ -466,24 +420,118 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIcreateDashboardRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final CreateDashboardPayload createDashboardPayload;
+
+        private APIcreateDashboardRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload) {
+            this.storeId = storeId;
+            this.createDashboardPayload = createDashboardPayload;
+        }
+
+        /**
+         * Build call for createDashboard
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> A dashboard with this name already exists in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createDashboardCall(storeId, createDashboardPayload, _callback);
+        }
+
+        /**
+         * Execute createDashboard request
+         * @return Dashboard
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> A dashboard with this name already exists in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Dashboard execute() throws ApiException {
+            ApiResponse<Dashboard> localVarResp =
+                    createDashboardWithHttpInfo(storeId, createDashboardPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createDashboard request with HTTP info returned
+         * @return ApiResponse&lt;Dashboard&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> A dashboard with this name already exists in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Dashboard> executeWithHttpInfo() throws ApiException {
+            return createDashboardWithHttpInfo(storeId, createDashboardPayload);
+        }
+
+        /**
+         * Execute createDashboard request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> A dashboard with this name already exists in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Dashboard> _callback)
+                throws ApiException {
+            return createDashboardAsync(storeId, createDashboardPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createDashboardSnapshot
+     * Create a dashboard
+     * Creates a Vega-based dashboard linked to a data store.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param createDashboardSnapshotPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param createDashboardPayload  (required)
+     * @return APIcreateDashboardRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> The created dashboard. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> A dashboard with this name already exists in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createDashboardSnapshotCall(
+    public APIcreateDashboardRequest createDashboard(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload) {
+        return new APIcreateDashboardRequest(storeId, createDashboardPayload);
+    }
+
+    private okhttp3.Call createDashboardSnapshotCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull
@@ -579,53 +627,7 @@ public class DataApi {
                 storeId, dashboardId, createDashboardSnapshotPayload, _callback);
     }
 
-    /**
-     * Create a dashboard snapshot
-     * Creates a named snapshot for the current dashboard version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param createDashboardSnapshotPayload  (required)
-     * @return DashboardVersionItem
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardVersionItem createDashboardSnapshot(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId,
-            @jakarta.annotation.Nonnull
-                    CreateDashboardSnapshotPayload createDashboardSnapshotPayload)
-            throws ApiException {
-        ApiResponse<DashboardVersionItem> localVarResp =
-                createDashboardSnapshotWithHttpInfo(
-                        storeId, dashboardId, createDashboardSnapshotPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a dashboard snapshot
-     * Creates a named snapshot for the current dashboard version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param createDashboardSnapshotPayload  (required)
-     * @return ApiResponse&lt;DashboardVersionItem&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardVersionItem> createDashboardSnapshotWithHttpInfo(
+    private ApiResponse<DashboardVersionItem> createDashboardSnapshotWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull
@@ -638,25 +640,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a dashboard snapshot (asynchronously)
-     * Creates a named snapshot for the current dashboard version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param createDashboardSnapshotPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createDashboardSnapshotAsync(
+    private okhttp3.Call createDashboardSnapshotAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull
@@ -672,22 +656,127 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIcreateDashboardSnapshotRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String dashboardId;
+
+        @jakarta.annotation.Nonnull
+        private final CreateDashboardSnapshotPayload createDashboardSnapshotPayload;
+
+        private APIcreateDashboardSnapshotRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String dashboardId,
+                @jakarta.annotation.Nonnull
+                        CreateDashboardSnapshotPayload createDashboardSnapshotPayload) {
+            this.storeId = storeId;
+            this.dashboardId = dashboardId;
+            this.createDashboardSnapshotPayload = createDashboardSnapshotPayload;
+        }
+
+        /**
+         * Build call for createDashboardSnapshot
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createDashboardSnapshotCall(
+                    storeId, dashboardId, createDashboardSnapshotPayload, _callback);
+        }
+
+        /**
+         * Execute createDashboardSnapshot request
+         * @return DashboardVersionItem
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DashboardVersionItem execute() throws ApiException {
+            ApiResponse<DashboardVersionItem> localVarResp =
+                    createDashboardSnapshotWithHttpInfo(
+                            storeId, dashboardId, createDashboardSnapshotPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createDashboardSnapshot request with HTTP info returned
+         * @return ApiResponse&lt;DashboardVersionItem&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DashboardVersionItem> executeWithHttpInfo() throws ApiException {
+            return createDashboardSnapshotWithHttpInfo(
+                    storeId, dashboardId, createDashboardSnapshotPayload);
+        }
+
+        /**
+         * Execute createDashboardSnapshot request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DashboardVersionItem> _callback)
+                throws ApiException {
+            return createDashboardSnapshotAsync(
+                    storeId, dashboardId, createDashboardSnapshotPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createDataStore
-     * @param createDataStorePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a dashboard snapshot
+     * Creates a named snapshot for the current dashboard version.  **Required permissions:** &#x60;content:write&#x60;
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param createDashboardSnapshotPayload  (required)
+     * @return APIcreateDashboardSnapshotRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created data store. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createDataStoreCall(
+    public APIcreateDashboardSnapshotRequest createDashboardSnapshot(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull
+                    CreateDashboardSnapshotPayload createDashboardSnapshotPayload) {
+        return new APIcreateDashboardSnapshotRequest(
+                storeId, dashboardId, createDashboardSnapshotPayload);
+    }
+
+    private okhttp3.Call createDataStoreCall(
             @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -757,44 +846,7 @@ public class DataApi {
         return createDataStoreCall(createDataStorePayload, _callback);
     }
 
-    /**
-     * Create a data store
-     * Creates a new versioned data store in the current project.  **Required permissions:** &#x60;content:write&#x60;
-     * @param createDataStorePayload  (required)
-     * @return DataStore
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStore createDataStore(
-            @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload)
-            throws ApiException {
-        ApiResponse<DataStore> localVarResp = createDataStoreWithHttpInfo(createDataStorePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a data store
-     * Creates a new versioned data store in the current project.  **Required permissions:** &#x60;content:write&#x60;
-     * @param createDataStorePayload  (required)
-     * @return ApiResponse&lt;DataStore&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStore> createDataStoreWithHttpInfo(
+    private ApiResponse<DataStore> createDataStoreWithHttpInfo(
             @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload)
             throws ApiException {
         okhttp3.Call localVarCall = createDataStoreValidateBeforeCall(createDataStorePayload, null);
@@ -802,23 +854,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a data store (asynchronously)
-     * Creates a new versioned data store in the current project.  **Required permissions:** &#x60;content:write&#x60;
-     * @param createDataStorePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createDataStoreAsync(
+    private okhttp3.Call createDataStoreAsync(
             @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload,
             final ApiCallback<DataStore> _callback)
             throws ApiException {
@@ -830,23 +866,108 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIcreateDataStoreRequest {
+        @jakarta.annotation.Nonnull private final CreateDataStorePayload createDataStorePayload;
+
+        private APIcreateDataStoreRequest(
+                @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload) {
+            this.createDataStorePayload = createDataStorePayload;
+        }
+
+        /**
+         * Build call for createDataStore
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createDataStoreCall(createDataStorePayload, _callback);
+        }
+
+        /**
+         * Execute createDataStore request
+         * @return DataStore
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStore execute() throws ApiException {
+            ApiResponse<DataStore> localVarResp =
+                    createDataStoreWithHttpInfo(createDataStorePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createDataStore request with HTTP info returned
+         * @return ApiResponse&lt;DataStore&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStore> executeWithHttpInfo() throws ApiException {
+            return createDataStoreWithHttpInfo(createDataStorePayload);
+        }
+
+        /**
+         * Execute createDataStore request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStore> _callback)
+                throws ApiException {
+            return createDataStoreAsync(createDataStorePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createDataStoreDownloadUrl
-     * @param storeId  (required)
-     * @param versionId The stored version or snapshot to download. Defaults to the current database. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a data store
+     * Creates a new versioned data store in the current project.  **Required permissions:** &#x60;content:write&#x60;
+     * @param createDataStorePayload  (required)
+     * @return APIcreateDataStoreRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL and version metadata. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> The created data store. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createDataStoreDownloadUrlCall(
+    public APIcreateDataStoreRequest createDataStore(
+            @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload) {
+        return new APIcreateDataStoreRequest(createDataStorePayload);
+    }
+
+    private okhttp3.Call createDataStoreDownloadUrlCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable String versionId,
             final ApiCallback _callback)
@@ -926,48 +1047,7 @@ public class DataApi {
         return createDataStoreDownloadUrlCall(storeId, versionId, _callback);
     }
 
-    /**
-     * Create a data store download URL
-     * Creates a signed URL to download the current or a specific stored database version.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param versionId The stored version or snapshot to download. Defaults to the current database. (optional)
-     * @return DataStoreDownloadInfo
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL and version metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStoreDownloadInfo createDataStoreDownloadUrl(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nullable String versionId)
-            throws ApiException {
-        ApiResponse<DataStoreDownloadInfo> localVarResp =
-                createDataStoreDownloadUrlWithHttpInfo(storeId, versionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a data store download URL
-     * Creates a signed URL to download the current or a specific stored database version.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param versionId The stored version or snapshot to download. Defaults to the current database. (optional)
-     * @return ApiResponse&lt;DataStoreDownloadInfo&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL and version metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStoreDownloadInfo> createDataStoreDownloadUrlWithHttpInfo(
+    private ApiResponse<DataStoreDownloadInfo> createDataStoreDownloadUrlWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable String versionId)
             throws ApiException {
@@ -977,24 +1057,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a data store download URL (asynchronously)
-     * Creates a signed URL to download the current or a specific stored database version.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param versionId The stored version or snapshot to download. Defaults to the current database. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL and version metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createDataStoreDownloadUrlAsync(
+    private okhttp3.Call createDataStoreDownloadUrlAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable String versionId,
             final ApiCallback<DataStoreDownloadInfo> _callback)
@@ -1007,75 +1070,119 @@ public class DataApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for createDataStoreDownloadUrl with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call createDataStoreDownloadUrlCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
-            throws ApiException {
-        return createDataStoreDownloadUrlCall(storeId, null, _callback);
+    public class APIcreateDataStoreDownloadUrlRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nullable private String versionId;
+
+        private APIcreateDataStoreDownloadUrlRequest(@jakarta.annotation.Nonnull String storeId) {
+            this.storeId = storeId;
+        }
+
+        /**
+         * Set versionId
+         * @param versionId The stored version or snapshot to download. Defaults to the current database. (optional)
+         * @return APIcreateDataStoreDownloadUrlRequest
+         */
+        public APIcreateDataStoreDownloadUrlRequest versionId(
+                @jakarta.annotation.Nullable String versionId) {
+            this.versionId = versionId;
+            return this;
+        }
+
+        /**
+         * Build call for createDataStoreDownloadUrl
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL and version metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createDataStoreDownloadUrlCall(storeId, versionId, _callback);
+        }
+
+        /**
+         * Execute createDataStoreDownloadUrl request
+         * @return DataStoreDownloadInfo
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL and version metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStoreDownloadInfo execute() throws ApiException {
+            ApiResponse<DataStoreDownloadInfo> localVarResp =
+                    createDataStoreDownloadUrlWithHttpInfo(storeId, versionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createDataStoreDownloadUrl request with HTTP info returned
+         * @return ApiResponse&lt;DataStoreDownloadInfo&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL and version metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStoreDownloadInfo> executeWithHttpInfo() throws ApiException {
+            return createDataStoreDownloadUrlWithHttpInfo(storeId, versionId);
+        }
+
+        /**
+         * Execute createDataStoreDownloadUrl request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL and version metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStoreDownloadInfo> _callback)
+                throws ApiException {
+            return createDataStoreDownloadUrlAsync(storeId, versionId, _callback);
+        }
     }
 
     /**
      * Create a data store download URL
-     * Calls {@code createDataStoreDownloadUrl} with every optional parameter left unset.
+     * Creates a signed URL to download the current or a specific stored database version.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @return DataStoreDownloadInfo
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DataStoreDownloadInfo createDataStoreDownloadUrl(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        return createDataStoreDownloadUrl(storeId, null);
-    }
-
-    /**
-     * Create a data store download URL
-     * Calls {@code createDataStoreDownloadUrlWithHttpInfo} with every optional parameter left unset.
-     * @param storeId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DataStoreDownloadInfo> createDataStoreDownloadUrlWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        return createDataStoreDownloadUrlWithHttpInfo(storeId, null);
-    }
-
-    /**
-     * Create a data store download URL (asynchronously)
-     * Calls {@code createDataStoreDownloadUrlAsync} with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call createDataStoreDownloadUrlAsync(
-            @jakarta.annotation.Nonnull String storeId,
-            final ApiCallback<DataStoreDownloadInfo> _callback)
-            throws ApiException {
-        return createDataStoreDownloadUrlAsync(storeId, null, _callback);
-    }
-
-    /**
-     * Build call for createDataStoreSnapshot
-     * @param storeId  (required)
-     * @param createSnapshotPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIcreateDataStoreDownloadUrlRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created snapshot version. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL and version metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createDataStoreSnapshotCall(
+    public APIcreateDataStoreDownloadUrlRequest createDataStoreDownloadUrl(
+            @jakarta.annotation.Nonnull String storeId) {
+        return new APIcreateDataStoreDownloadUrlRequest(storeId);
+    }
+
+    private okhttp3.Call createDataStoreSnapshotCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload,
             final ApiCallback _callback)
@@ -1157,48 +1264,7 @@ public class DataApi {
         return createDataStoreSnapshotCall(storeId, createSnapshotPayload, _callback);
     }
 
-    /**
-     * Create a data store snapshot
-     * Creates a named snapshot for the current data store state.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param createSnapshotPayload  (required)
-     * @return DataStoreVersion
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created snapshot version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStoreVersion createDataStoreSnapshot(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload)
-            throws ApiException {
-        ApiResponse<DataStoreVersion> localVarResp =
-                createDataStoreSnapshotWithHttpInfo(storeId, createSnapshotPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a data store snapshot
-     * Creates a named snapshot for the current data store state.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param createSnapshotPayload  (required)
-     * @return ApiResponse&lt;DataStoreVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created snapshot version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStoreVersion> createDataStoreSnapshotWithHttpInfo(
+    private ApiResponse<DataStoreVersion> createDataStoreSnapshotWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload)
             throws ApiException {
@@ -1208,24 +1274,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a data store snapshot (asynchronously)
-     * Creates a named snapshot for the current data store state.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param createSnapshotPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created snapshot version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createDataStoreSnapshotAsync(
+    private okhttp3.Call createDataStoreSnapshotAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload,
             final ApiCallback<DataStoreVersion> _callback)
@@ -1239,23 +1288,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIcreateDataStoreSnapshotRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final CreateSnapshotPayload createSnapshotPayload;
+
+        private APIcreateDataStoreSnapshotRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload) {
+            this.storeId = storeId;
+            this.createSnapshotPayload = createSnapshotPayload;
+        }
+
+        /**
+         * Build call for createDataStoreSnapshot
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created snapshot version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createDataStoreSnapshotCall(storeId, createSnapshotPayload, _callback);
+        }
+
+        /**
+         * Execute createDataStoreSnapshot request
+         * @return DataStoreVersion
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created snapshot version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStoreVersion execute() throws ApiException {
+            ApiResponse<DataStoreVersion> localVarResp =
+                    createDataStoreSnapshotWithHttpInfo(storeId, createSnapshotPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createDataStoreSnapshot request with HTTP info returned
+         * @return ApiResponse&lt;DataStoreVersion&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created snapshot version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStoreVersion> executeWithHttpInfo() throws ApiException {
+            return createDataStoreSnapshotWithHttpInfo(storeId, createSnapshotPayload);
+        }
+
+        /**
+         * Execute createDataStoreSnapshot request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created snapshot version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStoreVersion> _callback)
+                throws ApiException {
+            return createDataStoreSnapshotAsync(storeId, createSnapshotPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createDataStoreTables
+     * Create a data store snapshot
+     * Creates a named snapshot for the current data store state.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId  (required)
-     * @param createTablesPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param createSnapshotPayload  (required)
+     * @return APIcreateDataStoreSnapshotRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created tables. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created snapshot version. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createDataStoreTablesCall(
+    public APIcreateDataStoreSnapshotRequest createDataStoreSnapshot(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload) {
+        return new APIcreateDataStoreSnapshotRequest(storeId, createSnapshotPayload);
+    }
+
+    private okhttp3.Call createDataStoreTablesCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload,
             final ApiCallback _callback)
@@ -1337,48 +1476,7 @@ public class DataApi {
         return createDataStoreTablesCall(storeId, createTablesPayload, _callback);
     }
 
-    /**
-     * Create data store tables
-     * Creates one or more tables atomically in a single transaction.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param createTablesPayload  (required)
-     * @return List&lt;DataTable&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created tables. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DataTable> createDataStoreTables(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload)
-            throws ApiException {
-        ApiResponse<List<DataTable>> localVarResp =
-                createDataStoreTablesWithHttpInfo(storeId, createTablesPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create data store tables
-     * Creates one or more tables atomically in a single transaction.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param createTablesPayload  (required)
-     * @return ApiResponse&lt;List&lt;DataTable&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created tables. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DataTable>> createDataStoreTablesWithHttpInfo(
+    private ApiResponse<List<DataTable>> createDataStoreTablesWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload)
             throws ApiException {
@@ -1388,24 +1486,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create data store tables (asynchronously)
-     * Creates one or more tables atomically in a single transaction.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param createTablesPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created tables. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createDataStoreTablesAsync(
+    private okhttp3.Call createDataStoreTablesAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload,
             final ApiCallback<List<DataTable>> _callback)
@@ -1418,23 +1499,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIcreateDataStoreTablesRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final CreateTablesPayload createTablesPayload;
+
+        private APIcreateDataStoreTablesRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload) {
+            this.storeId = storeId;
+            this.createTablesPayload = createTablesPayload;
+        }
+
+        /**
+         * Build call for createDataStoreTables
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created tables. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createDataStoreTablesCall(storeId, createTablesPayload, _callback);
+        }
+
+        /**
+         * Execute createDataStoreTables request
+         * @return List&lt;DataTable&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created tables. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<DataTable> execute() throws ApiException {
+            ApiResponse<List<DataTable>> localVarResp =
+                    createDataStoreTablesWithHttpInfo(storeId, createTablesPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createDataStoreTables request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DataTable&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created tables. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<DataTable>> executeWithHttpInfo() throws ApiException {
+            return createDataStoreTablesWithHttpInfo(storeId, createTablesPayload);
+        }
+
+        /**
+         * Execute createDataStoreTables request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created tables. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DataTable>> _callback)
+                throws ApiException {
+            return createDataStoreTablesAsync(storeId, createTablesPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteDashboard
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create data store tables
+     * Creates one or more tables atomically in a single transaction.  **Required permissions:** &#x60;content:write&#x60;
+     * @param storeId  (required)
+     * @param createTablesPayload  (required)
+     * @return APIcreateDataStoreTablesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archived dashboard status. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created tables. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteDashboardCall(
+    public APIcreateDataStoreTablesRequest createDataStoreTables(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload) {
+        return new APIcreateDataStoreTablesRequest(storeId, createTablesPayload);
+    }
+
+    private okhttp3.Call deleteDashboardCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback _callback)
@@ -1519,48 +1690,7 @@ public class DataApi {
         return deleteDashboardCall(storeId, dashboardId, _callback);
     }
 
-    /**
-     * Delete a dashboard
-     * Archives a dashboard.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @return DashboardArchiveResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archived dashboard status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardArchiveResult deleteDashboard(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId)
-            throws ApiException {
-        ApiResponse<DashboardArchiveResult> localVarResp =
-                deleteDashboardWithHttpInfo(storeId, dashboardId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a dashboard
-     * Archives a dashboard.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DashboardArchiveResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archived dashboard status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardArchiveResult> deleteDashboardWithHttpInfo(
+    private ApiResponse<DashboardArchiveResult> deleteDashboardWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId)
             throws ApiException {
@@ -1569,24 +1699,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a dashboard (asynchronously)
-     * Archives a dashboard.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archived dashboard status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteDashboardAsync(
+    private okhttp3.Call deleteDashboardAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback<DashboardArchiveResult> _callback)
@@ -1599,23 +1712,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIdeleteDashboardRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String dashboardId;
+
+        private APIdeleteDashboardRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String dashboardId) {
+            this.storeId = storeId;
+            this.dashboardId = dashboardId;
+        }
+
+        /**
+         * Build call for deleteDashboard
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Archived dashboard status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteDashboardCall(storeId, dashboardId, _callback);
+        }
+
+        /**
+         * Execute deleteDashboard request
+         * @return DashboardArchiveResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Archived dashboard status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DashboardArchiveResult execute() throws ApiException {
+            ApiResponse<DashboardArchiveResult> localVarResp =
+                    deleteDashboardWithHttpInfo(storeId, dashboardId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteDashboard request with HTTP info returned
+         * @return ApiResponse&lt;DashboardArchiveResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Archived dashboard status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DashboardArchiveResult> executeWithHttpInfo() throws ApiException {
+            return deleteDashboardWithHttpInfo(storeId, dashboardId);
+        }
+
+        /**
+         * Execute deleteDashboard request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Archived dashboard status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DashboardArchiveResult> _callback)
+                throws ApiException {
+            return deleteDashboardAsync(storeId, dashboardId, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteDashboardsBulk
+     * Delete a dashboard
+     * Archives a dashboard.  **Required permissions:** &#x60;content:delete&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param requestBody  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @return APIdeleteDashboardRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk delete result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Archived dashboard status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteDashboardsBulkCall(
+    public APIdeleteDashboardRequest deleteDashboard(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId) {
+        return new APIdeleteDashboardRequest(storeId, dashboardId);
+    }
+
+    private okhttp3.Call deleteDashboardsBulkCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback _callback)
@@ -1697,48 +1900,7 @@ public class DataApi {
         return deleteDashboardsBulkCall(storeId, requestBody, _callback);
     }
 
-    /**
-     * Delete dashboards in bulk
-     * Permanently deletes multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param requestBody  (required)
-     * @return DashboardBulkDeleteResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk delete result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardBulkDeleteResult deleteDashboardsBulk(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
-            throws ApiException {
-        ApiResponse<DashboardBulkDeleteResult> localVarResp =
-                deleteDashboardsBulkWithHttpInfo(storeId, requestBody);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete dashboards in bulk
-     * Permanently deletes multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param requestBody  (required)
-     * @return ApiResponse&lt;DashboardBulkDeleteResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk delete result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardBulkDeleteResult> deleteDashboardsBulkWithHttpInfo(
+    private ApiResponse<DashboardBulkDeleteResult> deleteDashboardsBulkWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
             throws ApiException {
@@ -1748,24 +1910,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete dashboards in bulk (asynchronously)
-     * Permanently deletes multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param requestBody  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk delete result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteDashboardsBulkAsync(
+    private okhttp3.Call deleteDashboardsBulkAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback<DashboardBulkDeleteResult> _callback)
@@ -1778,22 +1923,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIdeleteDashboardsBulkRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final Map<String, List<String>> requestBody;
+
+        private APIdeleteDashboardsBulkRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull Map<String, List<String>> requestBody) {
+            this.storeId = storeId;
+            this.requestBody = requestBody;
+        }
+
+        /**
+         * Build call for deleteDashboardsBulk
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk delete result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteDashboardsBulkCall(storeId, requestBody, _callback);
+        }
+
+        /**
+         * Execute deleteDashboardsBulk request
+         * @return DashboardBulkDeleteResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk delete result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DashboardBulkDeleteResult execute() throws ApiException {
+            ApiResponse<DashboardBulkDeleteResult> localVarResp =
+                    deleteDashboardsBulkWithHttpInfo(storeId, requestBody);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteDashboardsBulk request with HTTP info returned
+         * @return ApiResponse&lt;DashboardBulkDeleteResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk delete result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DashboardBulkDeleteResult> executeWithHttpInfo() throws ApiException {
+            return deleteDashboardsBulkWithHttpInfo(storeId, requestBody);
+        }
+
+        /**
+         * Execute deleteDashboardsBulk request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk delete result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DashboardBulkDeleteResult> _callback)
+                throws ApiException {
+            return deleteDashboardsBulkAsync(storeId, requestBody, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteDataStore
-     * @param storeId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete dashboards in bulk
+     * Permanently deletes multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param requestBody  (required)
+     * @return APIdeleteDashboardsBulkRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archived data store status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Bulk delete result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteDataStoreCall(
+    public APIdeleteDashboardsBulkRequest deleteDashboardsBulk(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody) {
+        return new APIdeleteDashboardsBulkRequest(storeId, requestBody);
+    }
+
+    private okhttp3.Call deleteDataStoreCall(
             @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1865,66 +2101,14 @@ public class DataApi {
         return deleteDataStoreCall(storeId, _callback);
     }
 
-    /**
-     * Delete a data store
-     * Archives a data store with a soft delete.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
-     * @return DataStoreArchiveResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archived data store status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStoreArchiveResult deleteDataStore(@jakarta.annotation.Nonnull String storeId)
-            throws ApiException {
-        ApiResponse<DataStoreArchiveResult> localVarResp = deleteDataStoreWithHttpInfo(storeId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a data store
-     * Archives a data store with a soft delete.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
-     * @return ApiResponse&lt;DataStoreArchiveResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archived data store status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStoreArchiveResult> deleteDataStoreWithHttpInfo(
+    private ApiResponse<DataStoreArchiveResult> deleteDataStoreWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = deleteDataStoreValidateBeforeCall(storeId, null);
         Type localVarReturnType = new TypeToken<DataStoreArchiveResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a data store (asynchronously)
-     * Archives a data store with a soft delete.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Archived data store status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteDataStoreAsync(
+    private okhttp3.Call deleteDataStoreAsync(
             @jakarta.annotation.Nonnull String storeId,
             final ApiCallback<DataStoreArchiveResult> _callback)
             throws ApiException {
@@ -1935,23 +2119,105 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIdeleteDataStoreRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+
+        private APIdeleteDataStoreRequest(@jakarta.annotation.Nonnull String storeId) {
+            this.storeId = storeId;
+        }
+
+        /**
+         * Build call for deleteDataStore
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Archived data store status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteDataStoreCall(storeId, _callback);
+        }
+
+        /**
+         * Execute deleteDataStore request
+         * @return DataStoreArchiveResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Archived data store status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStoreArchiveResult execute() throws ApiException {
+            ApiResponse<DataStoreArchiveResult> localVarResp = deleteDataStoreWithHttpInfo(storeId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteDataStore request with HTTP info returned
+         * @return ApiResponse&lt;DataStoreArchiveResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Archived data store status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStoreArchiveResult> executeWithHttpInfo() throws ApiException {
+            return deleteDataStoreWithHttpInfo(storeId);
+        }
+
+        /**
+         * Execute deleteDataStore request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Archived data store status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStoreArchiveResult> _callback)
+                throws ApiException {
+            return deleteDataStoreAsync(storeId, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteDataStoreTable
+     * Delete a data store
+     * Archives a data store with a soft delete.  **Required permissions:** &#x60;content:delete&#x60;
      * @param storeId  (required)
-     * @param tableName  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteDataStoreRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dropped table name. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Archived data store status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteDataStoreTableCall(
+    public APIdeleteDataStoreRequest deleteDataStore(@jakarta.annotation.Nonnull String storeId) {
+        return new APIdeleteDataStoreRequest(storeId);
+    }
+
+    private okhttp3.Call deleteDataStoreTableCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String tableName,
             final ApiCallback _callback)
@@ -2036,48 +2302,7 @@ public class DataApi {
         return deleteDataStoreTableCall(storeId, tableName, _callback);
     }
 
-    /**
-     * Delete a data store table
-     * Drops a table from the data store.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @return DataStoreTableDropResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dropped table name. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStoreTableDropResult deleteDataStoreTable(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String tableName)
-            throws ApiException {
-        ApiResponse<DataStoreTableDropResult> localVarResp =
-                deleteDataStoreTableWithHttpInfo(storeId, tableName);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a data store table
-     * Drops a table from the data store.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @return ApiResponse&lt;DataStoreTableDropResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dropped table name. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStoreTableDropResult> deleteDataStoreTableWithHttpInfo(
+    private ApiResponse<DataStoreTableDropResult> deleteDataStoreTableWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String tableName)
             throws ApiException {
@@ -2087,24 +2312,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a data store table (asynchronously)
-     * Drops a table from the data store.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dropped table name. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteDataStoreTableAsync(
+    private okhttp3.Call deleteDataStoreTableAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String tableName,
             final ApiCallback<DataStoreTableDropResult> _callback)
@@ -2117,27 +2325,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIdeleteDataStoreTableRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String tableName;
+
+        private APIdeleteDataStoreTableRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String tableName) {
+            this.storeId = storeId;
+            this.tableName = tableName;
+        }
+
+        /**
+         * Build call for deleteDataStoreTable
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dropped table name. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteDataStoreTableCall(storeId, tableName, _callback);
+        }
+
+        /**
+         * Execute deleteDataStoreTable request
+         * @return DataStoreTableDropResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dropped table name. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStoreTableDropResult execute() throws ApiException {
+            ApiResponse<DataStoreTableDropResult> localVarResp =
+                    deleteDataStoreTableWithHttpInfo(storeId, tableName);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteDataStoreTable request with HTTP info returned
+         * @return ApiResponse&lt;DataStoreTableDropResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dropped table name. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStoreTableDropResult> executeWithHttpInfo() throws ApiException {
+            return deleteDataStoreTableWithHttpInfo(storeId, tableName);
+        }
+
+        /**
+         * Execute deleteDataStoreTable request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dropped table name. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStoreTableDropResult> _callback)
+                throws ApiException {
+            return deleteDataStoreTableAsync(storeId, tableName, _callback);
+        }
+    }
+
     /**
-     * Build call for exportDashboard
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param exportDashboardPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete a data store table
+     * Drops a table from the data store.  **Required permissions:** &#x60;content:delete&#x60;
+     * @param storeId  (required)
+     * @param tableName  (required)
+     * @return APIdeleteDataStoreTableRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Dropped table name. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call exportDashboardCall(
+    public APIdeleteDataStoreTableRequest deleteDataStoreTable(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName) {
+        return new APIdeleteDataStoreTableRequest(storeId, tableName);
+    }
+
+    private okhttp3.Call exportDashboardCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload,
@@ -2230,57 +2524,7 @@ public class DataApi {
         return exportDashboardCall(storeId, dashboardId, exportDashboardPayload, _callback);
     }
 
-    /**
-     * Export a dashboard as an image
-     * Starts rendering the saved dashboard to PNG with fresh query results, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60; or &#x60;failed&#x60;. Every export creates a new image, so earlier URLs keep showing what they were issued for. The dashboard&#39;s &#x60;last_rendered_at&#x60; is set once the image is uploaded.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param exportDashboardPayload  (required)
-     * @return DashboardExport
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardExport exportDashboard(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId,
-            @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload)
-            throws ApiException {
-        ApiResponse<DashboardExport> localVarResp =
-                exportDashboardWithHttpInfo(storeId, dashboardId, exportDashboardPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Export a dashboard as an image
-     * Starts rendering the saved dashboard to PNG with fresh query results, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60; or &#x60;failed&#x60;. Every export creates a new image, so earlier URLs keep showing what they were issued for. The dashboard&#39;s &#x60;last_rendered_at&#x60; is set once the image is uploaded.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param exportDashboardPayload  (required)
-     * @return ApiResponse&lt;DashboardExport&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardExport> exportDashboardWithHttpInfo(
+    private ApiResponse<DashboardExport> exportDashboardWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload)
@@ -2292,28 +2536,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Export a dashboard as an image (asynchronously)
-     * Starts rendering the saved dashboard to PNG with fresh query results, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60; or &#x60;failed&#x60;. Every export creates a new image, so earlier URLs keep showing what they were issued for. The dashboard&#39;s &#x60;last_rendered_at&#x60; is set once the image is uploaded.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param exportDashboardPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call exportDashboardAsync(
+    private okhttp3.Call exportDashboardAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload,
@@ -2328,24 +2551,133 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIexportDashboardRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String dashboardId;
+        @jakarta.annotation.Nonnull private final ExportDashboardPayload exportDashboardPayload;
+
+        private APIexportDashboardRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String dashboardId,
+                @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload) {
+            this.storeId = storeId;
+            this.dashboardId = dashboardId;
+            this.exportDashboardPayload = exportDashboardPayload;
+        }
+
+        /**
+         * Build call for exportDashboard
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return exportDashboardCall(storeId, dashboardId, exportDashboardPayload, _callback);
+        }
+
+        /**
+         * Execute exportDashboard request
+         * @return DashboardExport
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DashboardExport execute() throws ApiException {
+            ApiResponse<DashboardExport> localVarResp =
+                    exportDashboardWithHttpInfo(storeId, dashboardId, exportDashboardPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute exportDashboard request with HTTP info returned
+         * @return ApiResponse&lt;DashboardExport&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DashboardExport> executeWithHttpInfo() throws ApiException {
+            return exportDashboardWithHttpInfo(storeId, dashboardId, exportDashboardPayload);
+        }
+
+        /**
+         * Execute exportDashboard request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DashboardExport> _callback)
+                throws ApiException {
+            return exportDashboardAsync(storeId, dashboardId, exportDashboardPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for exportDashboardPreview
+     * Export a dashboard as an image
+     * Starts rendering the saved dashboard to PNG with fresh query results, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60; or &#x60;failed&#x60;. Every export creates a new image, so earlier URLs keep showing what they were issued for. The dashboard&#39;s &#x60;last_rendered_at&#x60; is set once the image is uploaded.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param exportDashboardPreviewPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param exportDashboardPayload  (required)
+     * @return APIexportDashboardRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call exportDashboardPreviewCall(
+    public APIexportDashboardRequest exportDashboard(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload) {
+        return new APIexportDashboardRequest(storeId, dashboardId, exportDashboardPayload);
+    }
+
+    private okhttp3.Call exportDashboardPreviewCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull ExportDashboardPreviewPayload exportDashboardPreviewPayload,
             final ApiCallback _callback)
@@ -2427,50 +2759,7 @@ public class DataApi {
         return exportDashboardPreviewCall(storeId, exportDashboardPreviewPayload, _callback);
     }
 
-    /**
-     * Export an unsaved dashboard as an image
-     * Starts rendering the rows of a SQL query with a Vega-Lite spec as a PNG, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60;, with a signed URL to the image, or &#x60;failed&#x60;, with the reason. Nothing is saved: use it to check a dashboard before creating it.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param exportDashboardPreviewPayload  (required)
-     * @return DashboardExport
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardExport exportDashboardPreview(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull ExportDashboardPreviewPayload exportDashboardPreviewPayload)
-            throws ApiException {
-        ApiResponse<DashboardExport> localVarResp =
-                exportDashboardPreviewWithHttpInfo(storeId, exportDashboardPreviewPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Export an unsaved dashboard as an image
-     * Starts rendering the rows of a SQL query with a Vega-Lite spec as a PNG, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60;, with a signed URL to the image, or &#x60;failed&#x60;, with the reason. Nothing is saved: use it to check a dashboard before creating it.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param exportDashboardPreviewPayload  (required)
-     * @return ApiResponse&lt;DashboardExport&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardExport> exportDashboardPreviewWithHttpInfo(
+    private ApiResponse<DashboardExport> exportDashboardPreviewWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull ExportDashboardPreviewPayload exportDashboardPreviewPayload)
             throws ApiException {
@@ -2481,25 +2770,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Export an unsaved dashboard as an image (asynchronously)
-     * Starts rendering the rows of a SQL query with a Vega-Lite spec as a PNG, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60;, with a signed URL to the image, or &#x60;failed&#x60;, with the reason. Nothing is saved: use it to check a dashboard before creating it.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param exportDashboardPreviewPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call exportDashboardPreviewAsync(
+    private okhttp3.Call exportDashboardPreviewAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull ExportDashboardPreviewPayload exportDashboardPreviewPayload,
             final ApiCallback<DashboardExport> _callback)
@@ -2513,23 +2784,122 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIexportDashboardPreviewRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+
+        @jakarta.annotation.Nonnull
+        private final ExportDashboardPreviewPayload exportDashboardPreviewPayload;
+
+        private APIexportDashboardPreviewRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull
+                        ExportDashboardPreviewPayload exportDashboardPreviewPayload) {
+            this.storeId = storeId;
+            this.exportDashboardPreviewPayload = exportDashboardPreviewPayload;
+        }
+
+        /**
+         * Build call for exportDashboardPreview
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return exportDashboardPreviewCall(storeId, exportDashboardPreviewPayload, _callback);
+        }
+
+        /**
+         * Execute exportDashboardPreview request
+         * @return DashboardExport
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DashboardExport execute() throws ApiException {
+            ApiResponse<DashboardExport> localVarResp =
+                    exportDashboardPreviewWithHttpInfo(storeId, exportDashboardPreviewPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute exportDashboardPreview request with HTTP info returned
+         * @return ApiResponse&lt;DashboardExport&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DashboardExport> executeWithHttpInfo() throws ApiException {
+            return exportDashboardPreviewWithHttpInfo(storeId, exportDashboardPreviewPayload);
+        }
+
+        /**
+         * Execute exportDashboardPreview request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DashboardExport> _callback)
+                throws ApiException {
+            return exportDashboardPreviewAsync(storeId, exportDashboardPreviewPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getDashboard
+     * Export an unsaved dashboard as an image
+     * Starts rendering the rows of a SQL query with a Vega-Lite spec as a PNG, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60;, with a signed URL to the image, or &#x60;failed&#x60;, with the reason. Nothing is saved: use it to check a dashboard before creating it.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param exportDashboardPreviewPayload  (required)
+     * @return APIexportDashboardPreviewRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested dashboard. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getDashboardCall(
+    public APIexportDashboardPreviewRequest exportDashboardPreview(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull
+                    ExportDashboardPreviewPayload exportDashboardPreviewPayload) {
+        return new APIexportDashboardPreviewRequest(storeId, exportDashboardPreviewPayload);
+    }
+
+    private okhttp3.Call getDashboardCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback _callback)
@@ -2614,47 +2984,7 @@ public class DataApi {
         return getDashboardCall(storeId, dashboardId, _callback);
     }
 
-    /**
-     * Retrieve a dashboard
-     * Retrieves a dashboard by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @return Dashboard
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Dashboard getDashboard(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId)
-            throws ApiException {
-        ApiResponse<Dashboard> localVarResp = getDashboardWithHttpInfo(storeId, dashboardId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a dashboard
-     * Retrieves a dashboard by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;Dashboard&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Dashboard> getDashboardWithHttpInfo(
+    private ApiResponse<Dashboard> getDashboardWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId)
             throws ApiException {
@@ -2663,24 +2993,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a dashboard (asynchronously)
-     * Retrieves a dashboard by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getDashboardAsync(
+    private okhttp3.Call getDashboardAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback<Dashboard> _callback)
@@ -2692,25 +3005,112 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIgetDashboardRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String dashboardId;
+
+        private APIgetDashboardRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String dashboardId) {
+            this.storeId = storeId;
+            this.dashboardId = dashboardId;
+        }
+
+        /**
+         * Build call for getDashboard
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getDashboardCall(storeId, dashboardId, _callback);
+        }
+
+        /**
+         * Execute getDashboard request
+         * @return Dashboard
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Dashboard execute() throws ApiException {
+            ApiResponse<Dashboard> localVarResp = getDashboardWithHttpInfo(storeId, dashboardId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getDashboard request with HTTP info returned
+         * @return ApiResponse&lt;Dashboard&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Dashboard> executeWithHttpInfo() throws ApiException {
+            return getDashboardWithHttpInfo(storeId, dashboardId);
+        }
+
+        /**
+         * Execute getDashboard request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Dashboard> _callback)
+                throws ApiException {
+            return getDashboardAsync(storeId, dashboardId, _callback);
+        }
+    }
+
     /**
-     * Build call for getDashboardExport
+     * Retrieve a dashboard
+     * Retrieves a dashboard by ID.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param exportId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @return APIgetDashboardRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested dashboard. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getDashboardExportCall(
+    public APIgetDashboardRequest getDashboard(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId) {
+        return new APIgetDashboardRequest(storeId, dashboardId);
+    }
+
+    private okhttp3.Call getDashboardExportCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String exportId,
             final ApiCallback _callback)
@@ -2795,51 +3195,7 @@ public class DataApi {
         return getDashboardExportCall(storeId, exportId, _callback);
     }
 
-    /**
-     * Get a dashboard export
-     * Returns the status of an export. A &#x60;completed&#x60; export carries a freshly signed URL to the image; a &#x60;failed&#x60; one carries the reason and whether starting it again may succeed.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param exportId  (required)
-     * @return DashboardExport
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardExport getDashboardExport(
-            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nonnull String exportId)
-            throws ApiException {
-        ApiResponse<DashboardExport> localVarResp =
-                getDashboardExportWithHttpInfo(storeId, exportId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get a dashboard export
-     * Returns the status of an export. A &#x60;completed&#x60; export carries a freshly signed URL to the image; a &#x60;failed&#x60; one carries the reason and whether starting it again may succeed.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param exportId  (required)
-     * @return ApiResponse&lt;DashboardExport&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardExport> getDashboardExportWithHttpInfo(
+    private ApiResponse<DashboardExport> getDashboardExportWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nonnull String exportId)
             throws ApiException {
         okhttp3.Call localVarCall = getDashboardExportValidateBeforeCall(storeId, exportId, null);
@@ -2847,26 +3203,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get a dashboard export (asynchronously)
-     * Returns the status of an export. A &#x60;completed&#x60; export carries a freshly signed URL to the image; a &#x60;failed&#x60; one carries the reason and whether starting it again may succeed.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param exportId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getDashboardExportAsync(
+    private okhttp3.Call getDashboardExportAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String exportId,
             final ApiCallback<DashboardExport> _callback)
@@ -2879,24 +3216,123 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIgetDashboardExportRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String exportId;
+
+        private APIgetDashboardExportRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String exportId) {
+            this.storeId = storeId;
+            this.exportId = exportId;
+        }
+
+        /**
+         * Build call for getDashboardExport
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getDashboardExportCall(storeId, exportId, _callback);
+        }
+
+        /**
+         * Execute getDashboardExport request
+         * @return DashboardExport
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DashboardExport execute() throws ApiException {
+            ApiResponse<DashboardExport> localVarResp =
+                    getDashboardExportWithHttpInfo(storeId, exportId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getDashboardExport request with HTTP info returned
+         * @return ApiResponse&lt;DashboardExport&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DashboardExport> executeWithHttpInfo() throws ApiException {
+            return getDashboardExportWithHttpInfo(storeId, exportId);
+        }
+
+        /**
+         * Execute getDashboardExport request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DashboardExport> _callback)
+                throws ApiException {
+            return getDashboardExportAsync(storeId, exportId, _callback);
+        }
+    }
+
     /**
-     * Build call for getDashboardVersion
+     * Get a dashboard export
+     * Returns the status of an export. A &#x60;completed&#x60; export carries a freshly signed URL to the image; a &#x60;failed&#x60; one carries the reason and whether starting it again may succeed.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param exportId  (required)
+     * @return APIgetDashboardExportRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard version details. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getDashboardVersionCall(
+    public APIgetDashboardExportRequest getDashboardExport(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String exportId) {
+        return new APIgetDashboardExportRequest(storeId, exportId);
+    }
+
+    private okhttp3.Call getDashboardVersionCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull String versionId,
@@ -2992,51 +3428,7 @@ public class DataApi {
         return getDashboardVersionCall(storeId, dashboardId, versionId, _callback);
     }
 
-    /**
-     * Retrieve a dashboard version
-     * Retrieves a specific dashboard version by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
-     * @return DashboardVersion
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard version details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardVersion getDashboardVersion(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId,
-            @jakarta.annotation.Nonnull String versionId)
-            throws ApiException {
-        ApiResponse<DashboardVersion> localVarResp =
-                getDashboardVersionWithHttpInfo(storeId, dashboardId, versionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a dashboard version
-     * Retrieves a specific dashboard version by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DashboardVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard version details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardVersion> getDashboardVersionWithHttpInfo(
+    private ApiResponse<DashboardVersion> getDashboardVersionWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull String versionId)
@@ -3047,25 +3439,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a dashboard version (asynchronously)
-     * Retrieves a specific dashboard version by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard version details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getDashboardVersionAsync(
+    private okhttp3.Call getDashboardVersionAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull String versionId,
@@ -3079,22 +3453,118 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIgetDashboardVersionRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String dashboardId;
+        @jakarta.annotation.Nonnull private final String versionId;
+
+        private APIgetDashboardVersionRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String dashboardId,
+                @jakarta.annotation.Nonnull String versionId) {
+            this.storeId = storeId;
+            this.dashboardId = dashboardId;
+            this.versionId = versionId;
+        }
+
+        /**
+         * Build call for getDashboardVersion
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard version details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getDashboardVersionCall(storeId, dashboardId, versionId, _callback);
+        }
+
+        /**
+         * Execute getDashboardVersion request
+         * @return DashboardVersion
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard version details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DashboardVersion execute() throws ApiException {
+            ApiResponse<DashboardVersion> localVarResp =
+                    getDashboardVersionWithHttpInfo(storeId, dashboardId, versionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getDashboardVersion request with HTTP info returned
+         * @return ApiResponse&lt;DashboardVersion&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard version details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DashboardVersion> executeWithHttpInfo() throws ApiException {
+            return getDashboardVersionWithHttpInfo(storeId, dashboardId, versionId);
+        }
+
+        /**
+         * Execute getDashboardVersion request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard version details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DashboardVersion> _callback)
+                throws ApiException {
+            return getDashboardVersionAsync(storeId, dashboardId, versionId, _callback);
+        }
+    }
+
     /**
-     * Build call for getDataStore
-     * @param storeId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a dashboard version
+     * Retrieves a specific dashboard version by ID.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
+     * @return APIgetDashboardVersionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested data store. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Dashboard version details. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getDataStoreCall(
+    public APIgetDashboardVersionRequest getDashboardVersion(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId) {
+        return new APIgetDashboardVersionRequest(storeId, dashboardId, versionId);
+    }
+
+    private okhttp3.Call getDataStoreCall(
             @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3166,65 +3636,14 @@ public class DataApi {
         return getDataStoreCall(storeId, _callback);
     }
 
-    /**
-     * Retrieve a data store
-     * Retrieves a data store by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @return DataStore
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStore getDataStore(@jakarta.annotation.Nonnull String storeId) throws ApiException {
-        ApiResponse<DataStore> localVarResp = getDataStoreWithHttpInfo(storeId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a data store
-     * Retrieves a data store by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @return ApiResponse&lt;DataStore&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStore> getDataStoreWithHttpInfo(
+    private ApiResponse<DataStore> getDataStoreWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = getDataStoreValidateBeforeCall(storeId, null);
         Type localVarReturnType = new TypeToken<DataStore>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a data store (asynchronously)
-     * Retrieves a data store by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getDataStoreAsync(
+    private okhttp3.Call getDataStoreAsync(
             @jakarta.annotation.Nonnull String storeId, final ApiCallback<DataStore> _callback)
             throws ApiException {
 
@@ -3234,23 +3653,105 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIgetDataStoreRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+
+        private APIgetDataStoreRequest(@jakarta.annotation.Nonnull String storeId) {
+            this.storeId = storeId;
+        }
+
+        /**
+         * Build call for getDataStore
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getDataStoreCall(storeId, _callback);
+        }
+
+        /**
+         * Execute getDataStore request
+         * @return DataStore
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStore execute() throws ApiException {
+            ApiResponse<DataStore> localVarResp = getDataStoreWithHttpInfo(storeId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getDataStore request with HTTP info returned
+         * @return ApiResponse&lt;DataStore&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStore> executeWithHttpInfo() throws ApiException {
+            return getDataStoreWithHttpInfo(storeId);
+        }
+
+        /**
+         * Execute getDataStore request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStore> _callback)
+                throws ApiException {
+            return getDataStoreAsync(storeId, _callback);
+        }
+    }
+
     /**
-     * Build call for getDataStoreImportStatus
+     * Retrieve a data store
+     * Retrieves a data store by ID.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param importId The import job ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetDataStoreRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Import job status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested data store. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getDataStoreImportStatusCall(
+    public APIgetDataStoreRequest getDataStore(@jakarta.annotation.Nonnull String storeId) {
+        return new APIgetDataStoreRequest(storeId);
+    }
+
+    private okhttp3.Call getDataStoreImportStatusCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String importId,
             final ApiCallback _callback)
@@ -3335,47 +3836,7 @@ public class DataApi {
         return getDataStoreImportStatusCall(storeId, importId, _callback);
     }
 
-    /**
-     * Get data store import status
-     * Retrieves a previously created import job by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param importId The import job ID, as 24 hexadecimal characters. (required)
-     * @return ImportJob
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Import job status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ImportJob getDataStoreImportStatus(
-            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nonnull String importId)
-            throws ApiException {
-        ApiResponse<ImportJob> localVarResp =
-                getDataStoreImportStatusWithHttpInfo(storeId, importId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get data store import status
-     * Retrieves a previously created import job by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param importId The import job ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;ImportJob&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Import job status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ImportJob> getDataStoreImportStatusWithHttpInfo(
+    private ApiResponse<ImportJob> getDataStoreImportStatusWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nonnull String importId)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -3384,24 +3845,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get data store import status (asynchronously)
-     * Retrieves a previously created import job by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param importId The import job ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Import job status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getDataStoreImportStatusAsync(
+    private okhttp3.Call getDataStoreImportStatusAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String importId,
             final ApiCallback<ImportJob> _callback)
@@ -3414,23 +3858,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIgetDataStoreImportStatusRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String importId;
+
+        private APIgetDataStoreImportStatusRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String importId) {
+            this.storeId = storeId;
+            this.importId = importId;
+        }
+
+        /**
+         * Build call for getDataStoreImportStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Import job status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getDataStoreImportStatusCall(storeId, importId, _callback);
+        }
+
+        /**
+         * Execute getDataStoreImportStatus request
+         * @return ImportJob
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Import job status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ImportJob execute() throws ApiException {
+            ApiResponse<ImportJob> localVarResp =
+                    getDataStoreImportStatusWithHttpInfo(storeId, importId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getDataStoreImportStatus request with HTTP info returned
+         * @return ApiResponse&lt;ImportJob&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Import job status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ImportJob> executeWithHttpInfo() throws ApiException {
+            return getDataStoreImportStatusWithHttpInfo(storeId, importId);
+        }
+
+        /**
+         * Execute getDataStoreImportStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Import job status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ImportJob> _callback)
+                throws ApiException {
+            return getDataStoreImportStatusAsync(storeId, importId, _callback);
+        }
+    }
+
     /**
-     * Build call for getDataStoreSchema
+     * Get data store import status
+     * Retrieves a previously created import job by ID.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param format &#x60;ai&#x60; returns a condensed schema for AI context. Defaults to &#x60;full&#x60;. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param importId The import job ID, as 24 hexadecimal characters. (required)
+     * @return APIgetDataStoreImportStatusRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current data store schema. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Import job status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getDataStoreSchemaCall(
+    public APIgetDataStoreImportStatusRequest getDataStoreImportStatus(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String importId) {
+        return new APIgetDataStoreImportStatusRequest(storeId, importId);
+    }
+
+    private okhttp3.Call getDataStoreSchemaCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable String format,
             final ApiCallback _callback)
@@ -3510,47 +4044,7 @@ public class DataApi {
         return getDataStoreSchemaCall(storeId, format, _callback);
     }
 
-    /**
-     * Get data store schema
-     * Returns the current schema for a data store, optionally in an AI-optimized format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param format &#x60;ai&#x60; returns a condensed schema for AI context. Defaults to &#x60;full&#x60;. (optional)
-     * @return DataStoreSchemaResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current data store schema. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStoreSchemaResponse getDataStoreSchema(
-            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nullable String format)
-            throws ApiException {
-        ApiResponse<DataStoreSchemaResponse> localVarResp =
-                getDataStoreSchemaWithHttpInfo(storeId, format);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get data store schema
-     * Returns the current schema for a data store, optionally in an AI-optimized format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param format &#x60;ai&#x60; returns a condensed schema for AI context. Defaults to &#x60;full&#x60;. (optional)
-     * @return ApiResponse&lt;DataStoreSchemaResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current data store schema. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStoreSchemaResponse> getDataStoreSchemaWithHttpInfo(
+    private ApiResponse<DataStoreSchemaResponse> getDataStoreSchemaWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nullable String format)
             throws ApiException {
         okhttp3.Call localVarCall = getDataStoreSchemaValidateBeforeCall(storeId, format, null);
@@ -3558,24 +4052,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get data store schema (asynchronously)
-     * Returns the current schema for a data store, optionally in an AI-optimized format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param format &#x60;ai&#x60; returns a condensed schema for AI context. Defaults to &#x60;full&#x60;. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current data store schema. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getDataStoreSchemaAsync(
+    private okhttp3.Call getDataStoreSchemaAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable String format,
             final ApiCallback<DataStoreSchemaResponse> _callback)
@@ -3588,76 +4065,118 @@ public class DataApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getDataStoreSchema with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getDataStoreSchemaCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
-            throws ApiException {
-        return getDataStoreSchemaCall(storeId, null, _callback);
+    public class APIgetDataStoreSchemaRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nullable private String format;
+
+        private APIgetDataStoreSchemaRequest(@jakarta.annotation.Nonnull String storeId) {
+            this.storeId = storeId;
+        }
+
+        /**
+         * Set format
+         * @param format &#x60;ai&#x60; returns a condensed schema for AI context. Defaults to &#x60;full&#x60;. (optional)
+         * @return APIgetDataStoreSchemaRequest
+         */
+        public APIgetDataStoreSchemaRequest format(@jakarta.annotation.Nullable String format) {
+            this.format = format;
+            return this;
+        }
+
+        /**
+         * Build call for getDataStoreSchema
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current data store schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getDataStoreSchemaCall(storeId, format, _callback);
+        }
+
+        /**
+         * Execute getDataStoreSchema request
+         * @return DataStoreSchemaResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current data store schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStoreSchemaResponse execute() throws ApiException {
+            ApiResponse<DataStoreSchemaResponse> localVarResp =
+                    getDataStoreSchemaWithHttpInfo(storeId, format);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getDataStoreSchema request with HTTP info returned
+         * @return ApiResponse&lt;DataStoreSchemaResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current data store schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStoreSchemaResponse> executeWithHttpInfo() throws ApiException {
+            return getDataStoreSchemaWithHttpInfo(storeId, format);
+        }
+
+        /**
+         * Execute getDataStoreSchema request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current data store schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStoreSchemaResponse> _callback)
+                throws ApiException {
+            return getDataStoreSchemaAsync(storeId, format, _callback);
+        }
     }
 
     /**
      * Get data store schema
-     * Calls {@code getDataStoreSchema} with every optional parameter left unset.
+     * Returns the current schema for a data store, optionally in an AI-optimized format.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @return DataStoreSchemaResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DataStoreSchemaResponse getDataStoreSchema(@jakarta.annotation.Nonnull String storeId)
-            throws ApiException {
-        return getDataStoreSchema(storeId, null);
-    }
-
-    /**
-     * Get data store schema
-     * Calls {@code getDataStoreSchemaWithHttpInfo} with every optional parameter left unset.
-     * @param storeId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DataStoreSchemaResponse> getDataStoreSchemaWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        return getDataStoreSchemaWithHttpInfo(storeId, null);
-    }
-
-    /**
-     * Get data store schema (asynchronously)
-     * Calls {@code getDataStoreSchemaAsync} with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getDataStoreSchemaAsync(
-            @jakarta.annotation.Nonnull String storeId,
-            final ApiCallback<DataStoreSchemaResponse> _callback)
-            throws ApiException {
-        return getDataStoreSchemaAsync(storeId, null, _callback);
-    }
-
-    /**
-     * Build call for getDataStoreTable
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @param sample  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetDataStoreSchemaRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store table details. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Current data store schema. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getDataStoreTableCall(
+    public APIgetDataStoreSchemaRequest getDataStoreSchema(
+            @jakarta.annotation.Nonnull String storeId) {
+        return new APIgetDataStoreSchemaRequest(storeId);
+    }
+
+    private okhttp3.Call getDataStoreTableCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String tableName,
             @jakarta.annotation.Nullable Boolean sample,
@@ -3748,51 +4267,7 @@ public class DataApi {
         return getDataStoreTableCall(storeId, tableName, sample, _callback);
     }
 
-    /**
-     * Get data store table
-     * Retrieves table metadata and optional sample data.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @param sample  (optional)
-     * @return DataStoreTableDetail
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store table details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStoreTableDetail getDataStoreTable(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String tableName,
-            @jakarta.annotation.Nullable Boolean sample)
-            throws ApiException {
-        ApiResponse<DataStoreTableDetail> localVarResp =
-                getDataStoreTableWithHttpInfo(storeId, tableName, sample);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get data store table
-     * Retrieves table metadata and optional sample data.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @param sample  (optional)
-     * @return ApiResponse&lt;DataStoreTableDetail&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store table details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStoreTableDetail> getDataStoreTableWithHttpInfo(
+    private ApiResponse<DataStoreTableDetail> getDataStoreTableWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String tableName,
             @jakarta.annotation.Nullable Boolean sample)
@@ -3803,25 +4278,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get data store table (asynchronously)
-     * Retrieves table metadata and optional sample data.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @param sample  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store table details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getDataStoreTableAsync(
+    private okhttp3.Call getDataStoreTableAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String tableName,
             @jakarta.annotation.Nullable Boolean sample,
@@ -3835,89 +4292,124 @@ public class DataApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getDataStoreTable with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getDataStoreTableCall(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String tableName,
-            final ApiCallback _callback)
-            throws ApiException {
-        return getDataStoreTableCall(storeId, tableName, null, _callback);
+    public class APIgetDataStoreTableRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String tableName;
+        @jakarta.annotation.Nullable private Boolean sample;
+
+        private APIgetDataStoreTableRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String tableName) {
+            this.storeId = storeId;
+            this.tableName = tableName;
+        }
+
+        /**
+         * Set sample
+         * @param sample  (optional)
+         * @return APIgetDataStoreTableRequest
+         */
+        public APIgetDataStoreTableRequest sample(@jakarta.annotation.Nullable Boolean sample) {
+            this.sample = sample;
+            return this;
+        }
+
+        /**
+         * Build call for getDataStoreTable
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store table details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getDataStoreTableCall(storeId, tableName, sample, _callback);
+        }
+
+        /**
+         * Execute getDataStoreTable request
+         * @return DataStoreTableDetail
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store table details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStoreTableDetail execute() throws ApiException {
+            ApiResponse<DataStoreTableDetail> localVarResp =
+                    getDataStoreTableWithHttpInfo(storeId, tableName, sample);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getDataStoreTable request with HTTP info returned
+         * @return ApiResponse&lt;DataStoreTableDetail&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store table details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStoreTableDetail> executeWithHttpInfo() throws ApiException {
+            return getDataStoreTableWithHttpInfo(storeId, tableName, sample);
+        }
+
+        /**
+         * Execute getDataStoreTable request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store table details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStoreTableDetail> _callback)
+                throws ApiException {
+            return getDataStoreTableAsync(storeId, tableName, sample, _callback);
+        }
     }
 
     /**
      * Get data store table
-     * Calls {@code getDataStoreTable} with every optional parameter left unset.
+     * Retrieves table metadata and optional sample data.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
      * @param tableName  (required)
-     * @return DataStoreTableDetail
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DataStoreTableDetail getDataStoreTable(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String tableName)
-            throws ApiException {
-        return getDataStoreTable(storeId, tableName, null);
-    }
-
-    /**
-     * Get data store table
-     * Calls {@code getDataStoreTableWithHttpInfo} with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DataStoreTableDetail> getDataStoreTableWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String tableName)
-            throws ApiException {
-        return getDataStoreTableWithHttpInfo(storeId, tableName, null);
-    }
-
-    /**
-     * Get data store table (asynchronously)
-     * Calls {@code getDataStoreTableAsync} with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getDataStoreTableAsync(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String tableName,
-            final ApiCallback<DataStoreTableDetail> _callback)
-            throws ApiException {
-        return getDataStoreTableAsync(storeId, tableName, null, _callback);
-    }
-
-    /**
-     * Build call for importDataStoreData
-     * @param storeId  (required)
-     * @param importDataPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetDataStoreTableRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
-     * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Data store table details. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call importDataStoreDataCall(
+    public APIgetDataStoreTableRequest getDataStoreTable(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName) {
+        return new APIgetDataStoreTableRequest(storeId, tableName);
+    }
+
+    private okhttp3.Call importDataStoreDataCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull ImportDataPayload importDataPayload,
             final ApiCallback _callback)
@@ -3999,54 +4491,7 @@ public class DataApi {
         return importDataStoreDataCall(storeId, importDataPayload, _callback);
     }
 
-    /**
-     * Import data into a data store
-     * Starts an atomic multi-table import. Background-enabled deployments return 202 after durable acceptance; poll the original import ID until completed or failed.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param importDataPayload  (required)
-     * @return ImportJob
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
-     * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ImportJob importDataStoreData(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull ImportDataPayload importDataPayload)
-            throws ApiException {
-        ApiResponse<ImportJob> localVarResp =
-                importDataStoreDataWithHttpInfo(storeId, importDataPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Import data into a data store
-     * Starts an atomic multi-table import. Background-enabled deployments return 202 after durable acceptance; poll the original import ID until completed or failed.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param importDataPayload  (required)
-     * @return ApiResponse&lt;ImportJob&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
-     * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ImportJob> importDataStoreDataWithHttpInfo(
+    private ApiResponse<ImportJob> importDataStoreDataWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull ImportDataPayload importDataPayload)
             throws ApiException {
@@ -4056,27 +4501,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Import data into a data store (asynchronously)
-     * Starts an atomic multi-table import. Background-enabled deployments return 202 after durable acceptance; poll the original import ID until completed or failed.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param importDataPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
-     * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call importDataStoreDataAsync(
+    private okhttp3.Call importDataStoreDataAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull ImportDataPayload importDataPayload,
             final ApiCallback<ImportJob> _callback)
@@ -4089,25 +4514,128 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIimportDataStoreDataRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final ImportDataPayload importDataPayload;
+
+        private APIimportDataStoreDataRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull ImportDataPayload importDataPayload) {
+            this.storeId = storeId;
+            this.importDataPayload = importDataPayload;
+        }
+
+        /**
+         * Build call for importDataStoreData
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
+         * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return importDataStoreDataCall(storeId, importDataPayload, _callback);
+        }
+
+        /**
+         * Execute importDataStoreData request
+         * @return ImportJob
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
+         * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ImportJob execute() throws ApiException {
+            ApiResponse<ImportJob> localVarResp =
+                    importDataStoreDataWithHttpInfo(storeId, importDataPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute importDataStoreData request with HTTP info returned
+         * @return ApiResponse&lt;ImportJob&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
+         * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ImportJob> executeWithHttpInfo() throws ApiException {
+            return importDataStoreDataWithHttpInfo(storeId, importDataPayload);
+        }
+
+        /**
+         * Execute importDataStoreData request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
+         * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ImportJob> _callback)
+                throws ApiException {
+            return importDataStoreDataAsync(storeId, importDataPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for listDashboardVersions
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
-     * @param snapshotsOnly Only list named snapshots. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Import data into a data store
+     * Starts an atomic multi-table import. Background-enabled deployments return 202 after durable acceptance; poll the original import ID until completed or failed.  **Required permissions:** &#x60;content:write&#x60;
+     * @param storeId  (required)
+     * @param importDataPayload  (required)
+     * @return APIimportDataStoreDataRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard versions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listDashboardVersionsCall(
+    public APIimportDataStoreDataRequest importDataStoreData(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ImportDataPayload importDataPayload) {
+        return new APIimportDataStoreDataRequest(storeId, importDataPayload);
+    }
+
+    private okhttp3.Call listDashboardVersionsCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -4205,54 +4733,7 @@ public class DataApi {
         return listDashboardVersionsCall(storeId, dashboardId, limit, snapshotsOnly, _callback);
     }
 
-    /**
-     * List dashboard versions
-     * Lists versions and snapshots for a dashboard.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
-     * @param snapshotsOnly Only list named snapshots. (optional)
-     * @return List&lt;DashboardVersionItem&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DashboardVersionItem> listDashboardVersions(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable Boolean snapshotsOnly)
-            throws ApiException {
-        ApiResponse<List<DashboardVersionItem>> localVarResp =
-                listDashboardVersionsWithHttpInfo(storeId, dashboardId, limit, snapshotsOnly);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List dashboard versions
-     * Lists versions and snapshots for a dashboard.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
-     * @param snapshotsOnly Only list named snapshots. (optional)
-     * @return ApiResponse&lt;List&lt;DashboardVersionItem&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DashboardVersionItem>> listDashboardVersionsWithHttpInfo(
+    private ApiResponse<List<DashboardVersionItem>> listDashboardVersionsWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -4265,26 +4746,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List dashboard versions (asynchronously)
-     * Lists versions and snapshots for a dashboard.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
-     * @param snapshotsOnly Only list named snapshots. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listDashboardVersionsAsync(
+    private okhttp3.Call listDashboardVersionsAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -4300,86 +4762,138 @@ public class DataApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listDashboardVersions with every optional parameter left unset.
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listDashboardVersionsCall(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId,
-            final ApiCallback _callback)
-            throws ApiException {
-        return listDashboardVersionsCall(storeId, dashboardId, null, null, _callback);
+    public class APIlistDashboardVersionsRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String dashboardId;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private Boolean snapshotsOnly;
+
+        private APIlistDashboardVersionsRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String dashboardId) {
+            this.storeId = storeId;
+            this.dashboardId = dashboardId;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of versions to return. Defaults to 50. (optional)
+         * @return APIlistDashboardVersionsRequest
+         */
+        public APIlistDashboardVersionsRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set snapshotsOnly
+         * @param snapshotsOnly Only list named snapshots. (optional)
+         * @return APIlistDashboardVersionsRequest
+         */
+        public APIlistDashboardVersionsRequest snapshotsOnly(
+                @jakarta.annotation.Nullable Boolean snapshotsOnly) {
+            this.snapshotsOnly = snapshotsOnly;
+            return this;
+        }
+
+        /**
+         * Build call for listDashboardVersions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listDashboardVersionsCall(storeId, dashboardId, limit, snapshotsOnly, _callback);
+        }
+
+        /**
+         * Execute listDashboardVersions request
+         * @return List&lt;DashboardVersionItem&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<DashboardVersionItem> execute() throws ApiException {
+            ApiResponse<List<DashboardVersionItem>> localVarResp =
+                    listDashboardVersionsWithHttpInfo(storeId, dashboardId, limit, snapshotsOnly);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listDashboardVersions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DashboardVersionItem&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<DashboardVersionItem>> executeWithHttpInfo() throws ApiException {
+            return listDashboardVersionsWithHttpInfo(storeId, dashboardId, limit, snapshotsOnly);
+        }
+
+        /**
+         * Execute listDashboardVersions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DashboardVersionItem>> _callback)
+                throws ApiException {
+            return listDashboardVersionsAsync(
+                    storeId, dashboardId, limit, snapshotsOnly, _callback);
+        }
     }
 
     /**
      * List dashboard versions
-     * Calls {@code listDashboardVersions} with every optional parameter left unset.
+     * Lists versions and snapshots for a dashboard.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @return List&lt;DashboardVersionItem&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<DashboardVersionItem> listDashboardVersions(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId)
-            throws ApiException {
-        return listDashboardVersions(storeId, dashboardId, null, null);
-    }
-
-    /**
-     * List dashboard versions
-     * Calls {@code listDashboardVersionsWithHttpInfo} with every optional parameter left unset.
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<DashboardVersionItem>> listDashboardVersionsWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId)
-            throws ApiException {
-        return listDashboardVersionsWithHttpInfo(storeId, dashboardId, null, null);
-    }
-
-    /**
-     * List dashboard versions (asynchronously)
-     * Calls {@code listDashboardVersionsAsync} with every optional parameter left unset.
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listDashboardVersionsAsync(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId,
-            final ApiCallback<List<DashboardVersionItem>> _callback)
-            throws ApiException {
-        return listDashboardVersionsAsync(storeId, dashboardId, null, null, _callback);
-    }
-
-    /**
-     * Build call for listDashboards
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param status Only list dashboards with this status. Defaults to &#x60;active&#x60;. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistDashboardVersionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboards for the data store. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Dashboard versions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listDashboardsCall(
+    public APIlistDashboardVersionsRequest listDashboardVersions(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId) {
+        return new APIlistDashboardVersionsRequest(storeId, dashboardId);
+    }
+
+    private okhttp3.Call listDashboardsCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable String status,
             final ApiCallback _callback)
@@ -4459,46 +4973,7 @@ public class DataApi {
         return listDashboardsCall(storeId, status, _callback);
     }
 
-    /**
-     * List dashboards
-     * Lists dashboards for a data store, optionally filtered by dashboard status.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param status Only list dashboards with this status. Defaults to &#x60;active&#x60;. (optional)
-     * @return List&lt;DashboardItem&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboards for the data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DashboardItem> listDashboards(
-            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nullable String status)
-            throws ApiException {
-        ApiResponse<List<DashboardItem>> localVarResp = listDashboardsWithHttpInfo(storeId, status);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List dashboards
-     * Lists dashboards for a data store, optionally filtered by dashboard status.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param status Only list dashboards with this status. Defaults to &#x60;active&#x60;. (optional)
-     * @return ApiResponse&lt;List&lt;DashboardItem&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboards for the data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DashboardItem>> listDashboardsWithHttpInfo(
+    private ApiResponse<List<DashboardItem>> listDashboardsWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nullable String status)
             throws ApiException {
         okhttp3.Call localVarCall = listDashboardsValidateBeforeCall(storeId, status, null);
@@ -4506,24 +4981,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List dashboards (asynchronously)
-     * Lists dashboards for a data store, optionally filtered by dashboard status.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param status Only list dashboards with this status. Defaults to &#x60;active&#x60;. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboards for the data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listDashboardsAsync(
+    private okhttp3.Call listDashboardsAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable String status,
             final ApiCallback<List<DashboardItem>> _callback)
@@ -4535,75 +4993,117 @@ public class DataApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listDashboards with every optional parameter left unset.
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listDashboardsCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
-            throws ApiException {
-        return listDashboardsCall(storeId, null, _callback);
+    public class APIlistDashboardsRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nullable private String status;
+
+        private APIlistDashboardsRequest(@jakarta.annotation.Nonnull String storeId) {
+            this.storeId = storeId;
+        }
+
+        /**
+         * Set status
+         * @param status Only list dashboards with this status. Defaults to &#x60;active&#x60;. (optional)
+         * @return APIlistDashboardsRequest
+         */
+        public APIlistDashboardsRequest status(@jakarta.annotation.Nullable String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Build call for listDashboards
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboards for the data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listDashboardsCall(storeId, status, _callback);
+        }
+
+        /**
+         * Execute listDashboards request
+         * @return List&lt;DashboardItem&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboards for the data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<DashboardItem> execute() throws ApiException {
+            ApiResponse<List<DashboardItem>> localVarResp =
+                    listDashboardsWithHttpInfo(storeId, status);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listDashboards request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DashboardItem&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboards for the data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<DashboardItem>> executeWithHttpInfo() throws ApiException {
+            return listDashboardsWithHttpInfo(storeId, status);
+        }
+
+        /**
+         * Execute listDashboards request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboards for the data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DashboardItem>> _callback)
+                throws ApiException {
+            return listDashboardsAsync(storeId, status, _callback);
+        }
     }
 
     /**
      * List dashboards
-     * Calls {@code listDashboards} with every optional parameter left unset.
+     * Lists dashboards for a data store, optionally filtered by dashboard status.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @return List&lt;DashboardItem&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<DashboardItem> listDashboards(@jakarta.annotation.Nonnull String storeId)
-            throws ApiException {
-        return listDashboards(storeId, null);
-    }
-
-    /**
-     * List dashboards
-     * Calls {@code listDashboardsWithHttpInfo} with every optional parameter left unset.
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<DashboardItem>> listDashboardsWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        return listDashboardsWithHttpInfo(storeId, null);
-    }
-
-    /**
-     * List dashboards (asynchronously)
-     * Calls {@code listDashboardsAsync} with every optional parameter left unset.
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listDashboardsAsync(
-            @jakarta.annotation.Nonnull String storeId,
-            final ApiCallback<List<DashboardItem>> _callback)
-            throws ApiException {
-        return listDashboardsAsync(storeId, null, _callback);
-    }
-
-    /**
-     * Build call for listDataStoreSchemaHistory
-     * @param storeId  (required)
-     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistDashboardsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Schema version history. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Dashboards for the data store. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listDataStoreSchemaHistoryCall(
+    public APIlistDashboardsRequest listDashboards(@jakarta.annotation.Nonnull String storeId) {
+        return new APIlistDashboardsRequest(storeId);
+    }
+
+    private okhttp3.Call listDataStoreSchemaHistoryCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable BigDecimal limit,
             final ApiCallback _callback)
@@ -4683,48 +5183,7 @@ public class DataApi {
         return listDataStoreSchemaHistoryCall(storeId, limit, _callback);
     }
 
-    /**
-     * List data store schema history
-     * Lists historical schema versions for a data store.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
-     * @return List&lt;DataStoreVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Schema version history. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DataStoreVersion> listDataStoreSchemaHistory(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nullable BigDecimal limit)
-            throws ApiException {
-        ApiResponse<List<DataStoreVersion>> localVarResp =
-                listDataStoreSchemaHistoryWithHttpInfo(storeId, limit);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List data store schema history
-     * Lists historical schema versions for a data store.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
-     * @return ApiResponse&lt;List&lt;DataStoreVersion&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Schema version history. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DataStoreVersion>> listDataStoreSchemaHistoryWithHttpInfo(
+    private ApiResponse<List<DataStoreVersion>> listDataStoreSchemaHistoryWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable BigDecimal limit)
             throws ApiException {
@@ -4734,24 +5193,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List data store schema history (asynchronously)
-     * Lists historical schema versions for a data store.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Schema version history. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listDataStoreSchemaHistoryAsync(
+    private okhttp3.Call listDataStoreSchemaHistoryAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable BigDecimal limit,
             final ApiCallback<List<DataStoreVersion>> _callback)
@@ -4764,74 +5206,119 @@ public class DataApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listDataStoreSchemaHistory with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listDataStoreSchemaHistoryCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
-            throws ApiException {
-        return listDataStoreSchemaHistoryCall(storeId, null, _callback);
+    public class APIlistDataStoreSchemaHistoryRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+
+        private APIlistDataStoreSchemaHistoryRequest(@jakarta.annotation.Nonnull String storeId) {
+            this.storeId = storeId;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of versions to return. Defaults to 50. (optional)
+         * @return APIlistDataStoreSchemaHistoryRequest
+         */
+        public APIlistDataStoreSchemaHistoryRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for listDataStoreSchemaHistory
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Schema version history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listDataStoreSchemaHistoryCall(storeId, limit, _callback);
+        }
+
+        /**
+         * Execute listDataStoreSchemaHistory request
+         * @return List&lt;DataStoreVersion&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Schema version history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<DataStoreVersion> execute() throws ApiException {
+            ApiResponse<List<DataStoreVersion>> localVarResp =
+                    listDataStoreSchemaHistoryWithHttpInfo(storeId, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listDataStoreSchemaHistory request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DataStoreVersion&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Schema version history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<DataStoreVersion>> executeWithHttpInfo() throws ApiException {
+            return listDataStoreSchemaHistoryWithHttpInfo(storeId, limit);
+        }
+
+        /**
+         * Execute listDataStoreSchemaHistory request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Schema version history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DataStoreVersion>> _callback)
+                throws ApiException {
+            return listDataStoreSchemaHistoryAsync(storeId, limit, _callback);
+        }
     }
 
     /**
      * List data store schema history
-     * Calls {@code listDataStoreSchemaHistory} with every optional parameter left unset.
+     * Lists historical schema versions for a data store.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @return List&lt;DataStoreVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<DataStoreVersion> listDataStoreSchemaHistory(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        return listDataStoreSchemaHistory(storeId, null);
-    }
-
-    /**
-     * List data store schema history
-     * Calls {@code listDataStoreSchemaHistoryWithHttpInfo} with every optional parameter left unset.
-     * @param storeId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<DataStoreVersion>> listDataStoreSchemaHistoryWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        return listDataStoreSchemaHistoryWithHttpInfo(storeId, null);
-    }
-
-    /**
-     * List data store schema history (asynchronously)
-     * Calls {@code listDataStoreSchemaHistoryAsync} with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listDataStoreSchemaHistoryAsync(
-            @jakarta.annotation.Nonnull String storeId,
-            final ApiCallback<List<DataStoreVersion>> _callback)
-            throws ApiException {
-        return listDataStoreSchemaHistoryAsync(storeId, null, _callback);
-    }
-
-    /**
-     * Build call for listDataStoreTables
-     * @param storeId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistDataStoreSchemaHistoryRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store tables. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Schema version history. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listDataStoreTablesCall(
+    public APIlistDataStoreSchemaHistoryRequest listDataStoreSchemaHistory(
+            @jakarta.annotation.Nonnull String storeId) {
+        return new APIlistDataStoreSchemaHistoryRequest(storeId);
+    }
+
+    private okhttp3.Call listDataStoreTablesCall(
             @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4903,66 +5390,14 @@ public class DataApi {
         return listDataStoreTablesCall(storeId, _callback);
     }
 
-    /**
-     * List data store tables
-     * Lists tables in a data store with summary metadata.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @return List&lt;DataTableSummary&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store tables. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DataTableSummary> listDataStoreTables(@jakarta.annotation.Nonnull String storeId)
-            throws ApiException {
-        ApiResponse<List<DataTableSummary>> localVarResp = listDataStoreTablesWithHttpInfo(storeId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List data store tables
-     * Lists tables in a data store with summary metadata.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @return ApiResponse&lt;List&lt;DataTableSummary&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store tables. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DataTableSummary>> listDataStoreTablesWithHttpInfo(
+    private ApiResponse<List<DataTableSummary>> listDataStoreTablesWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = listDataStoreTablesValidateBeforeCall(storeId, null);
         Type localVarReturnType = new TypeToken<List<DataTableSummary>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List data store tables (asynchronously)
-     * Lists tables in a data store with summary metadata.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store tables. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listDataStoreTablesAsync(
+    private okhttp3.Call listDataStoreTablesAsync(
             @jakarta.annotation.Nonnull String storeId,
             final ApiCallback<List<DataTableSummary>> _callback)
             throws ApiException {
@@ -4973,24 +5408,107 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIlistDataStoreTablesRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+
+        private APIlistDataStoreTablesRequest(@jakarta.annotation.Nonnull String storeId) {
+            this.storeId = storeId;
+        }
+
+        /**
+         * Build call for listDataStoreTables
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store tables. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listDataStoreTablesCall(storeId, _callback);
+        }
+
+        /**
+         * Execute listDataStoreTables request
+         * @return List&lt;DataTableSummary&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store tables. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<DataTableSummary> execute() throws ApiException {
+            ApiResponse<List<DataTableSummary>> localVarResp =
+                    listDataStoreTablesWithHttpInfo(storeId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listDataStoreTables request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DataTableSummary&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store tables. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<DataTableSummary>> executeWithHttpInfo() throws ApiException {
+            return listDataStoreTablesWithHttpInfo(storeId);
+        }
+
+        /**
+         * Execute listDataStoreTables request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store tables. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DataTableSummary>> _callback)
+                throws ApiException {
+            return listDataStoreTablesAsync(storeId, _callback);
+        }
+    }
+
     /**
-     * Build call for listDataStoreVersions
+     * List data store tables
+     * Lists tables in a data store with summary metadata.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param limit  (optional)
-     * @param snapshotsOnly  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistDataStoreTablesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store versions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Data store tables. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listDataStoreVersionsCall(
+    public APIlistDataStoreTablesRequest listDataStoreTables(
+            @jakarta.annotation.Nonnull String storeId) {
+        return new APIlistDataStoreTablesRequest(storeId);
+    }
+
+    private okhttp3.Call listDataStoreVersionsCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable Boolean snapshotsOnly,
@@ -5077,51 +5595,7 @@ public class DataApi {
         return listDataStoreVersionsCall(storeId, limit, snapshotsOnly, _callback);
     }
 
-    /**
-     * List data store versions
-     * Lists versions and snapshots for a data store.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param limit  (optional)
-     * @param snapshotsOnly  (optional)
-     * @return List&lt;DataStoreVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DataStoreVersion> listDataStoreVersions(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable Boolean snapshotsOnly)
-            throws ApiException {
-        ApiResponse<List<DataStoreVersion>> localVarResp =
-                listDataStoreVersionsWithHttpInfo(storeId, limit, snapshotsOnly);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List data store versions
-     * Lists versions and snapshots for a data store.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param limit  (optional)
-     * @param snapshotsOnly  (optional)
-     * @return ApiResponse&lt;List&lt;DataStoreVersion&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DataStoreVersion>> listDataStoreVersionsWithHttpInfo(
+    private ApiResponse<List<DataStoreVersion>> listDataStoreVersionsWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable Boolean snapshotsOnly)
@@ -5132,25 +5606,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List data store versions (asynchronously)
-     * Lists versions and snapshots for a data store.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param limit  (optional)
-     * @param snapshotsOnly  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data store versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listDataStoreVersionsAsync(
+    private okhttp3.Call listDataStoreVersionsAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable Boolean snapshotsOnly,
@@ -5164,73 +5620,131 @@ public class DataApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listDataStoreVersions with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listDataStoreVersionsCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
-            throws ApiException {
-        return listDataStoreVersionsCall(storeId, null, null, _callback);
+    public class APIlistDataStoreVersionsRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private Boolean snapshotsOnly;
+
+        private APIlistDataStoreVersionsRequest(@jakarta.annotation.Nonnull String storeId) {
+            this.storeId = storeId;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistDataStoreVersionsRequest
+         */
+        public APIlistDataStoreVersionsRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set snapshotsOnly
+         * @param snapshotsOnly  (optional)
+         * @return APIlistDataStoreVersionsRequest
+         */
+        public APIlistDataStoreVersionsRequest snapshotsOnly(
+                @jakarta.annotation.Nullable Boolean snapshotsOnly) {
+            this.snapshotsOnly = snapshotsOnly;
+            return this;
+        }
+
+        /**
+         * Build call for listDataStoreVersions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listDataStoreVersionsCall(storeId, limit, snapshotsOnly, _callback);
+        }
+
+        /**
+         * Execute listDataStoreVersions request
+         * @return List&lt;DataStoreVersion&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<DataStoreVersion> execute() throws ApiException {
+            ApiResponse<List<DataStoreVersion>> localVarResp =
+                    listDataStoreVersionsWithHttpInfo(storeId, limit, snapshotsOnly);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listDataStoreVersions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DataStoreVersion&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<DataStoreVersion>> executeWithHttpInfo() throws ApiException {
+            return listDataStoreVersionsWithHttpInfo(storeId, limit, snapshotsOnly);
+        }
+
+        /**
+         * Execute listDataStoreVersions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data store versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DataStoreVersion>> _callback)
+                throws ApiException {
+            return listDataStoreVersionsAsync(storeId, limit, snapshotsOnly, _callback);
+        }
     }
 
     /**
      * List data store versions
-     * Calls {@code listDataStoreVersions} with every optional parameter left unset.
+     * Lists versions and snapshots for a data store.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @return List&lt;DataStoreVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<DataStoreVersion> listDataStoreVersions(@jakarta.annotation.Nonnull String storeId)
-            throws ApiException {
-        return listDataStoreVersions(storeId, null, null);
-    }
-
-    /**
-     * List data store versions
-     * Calls {@code listDataStoreVersionsWithHttpInfo} with every optional parameter left unset.
-     * @param storeId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<DataStoreVersion>> listDataStoreVersionsWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        return listDataStoreVersionsWithHttpInfo(storeId, null, null);
-    }
-
-    /**
-     * List data store versions (asynchronously)
-     * Calls {@code listDataStoreVersionsAsync} with every optional parameter left unset.
-     * @param storeId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listDataStoreVersionsAsync(
-            @jakarta.annotation.Nonnull String storeId,
-            final ApiCallback<List<DataStoreVersion>> _callback)
-            throws ApiException {
-        return listDataStoreVersionsAsync(storeId, null, null, _callback);
-    }
-
-    /**
-     * Build call for listDataStores
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistDataStoreVersionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data stores. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Data store versions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listDataStoresCall(final ApiCallback _callback) throws ApiException {
+    public APIlistDataStoreVersionsRequest listDataStoreVersions(
+            @jakarta.annotation.Nonnull String storeId) {
+        return new APIlistDataStoreVersionsRequest(storeId);
+    }
+
+    private okhttp3.Call listDataStoresCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -5289,61 +5803,13 @@ public class DataApi {
         return listDataStoresCall(_callback);
     }
 
-    /**
-     * List data stores
-     * Lists active data stores in the current project.  **Required permissions:** &#x60;content:read&#x60;
-     * @return List&lt;DataStoreItem&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data stores. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DataStoreItem> listDataStores() throws ApiException {
-        ApiResponse<List<DataStoreItem>> localVarResp = listDataStoresWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List data stores
-     * Lists active data stores in the current project.  **Required permissions:** &#x60;content:read&#x60;
-     * @return ApiResponse&lt;List&lt;DataStoreItem&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data stores. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DataStoreItem>> listDataStoresWithHttpInfo() throws ApiException {
+    private ApiResponse<List<DataStoreItem>> listDataStoresWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listDataStoresValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<DataStoreItem>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List data stores (asynchronously)
-     * Lists active data stores in the current project.  **Required permissions:** &#x60;content:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Data stores. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listDataStoresAsync(final ApiCallback<List<DataStoreItem>> _callback)
+    private okhttp3.Call listDataStoresAsync(final ApiCallback<List<DataStoreItem>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listDataStoresValidateBeforeCall(_callback);
@@ -5352,23 +5818,101 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIlistDataStoresRequest {
+
+        private APIlistDataStoresRequest() {}
+
+        /**
+         * Build call for listDataStores
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data stores. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listDataStoresCall(_callback);
+        }
+
+        /**
+         * Execute listDataStores request
+         * @return List&lt;DataStoreItem&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data stores. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<DataStoreItem> execute() throws ApiException {
+            ApiResponse<List<DataStoreItem>> localVarResp = listDataStoresWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listDataStores request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DataStoreItem&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data stores. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<DataStoreItem>> executeWithHttpInfo() throws ApiException {
+            return listDataStoresWithHttpInfo();
+        }
+
+        /**
+         * Execute listDataStores request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Data stores. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DataStoreItem>> _callback)
+                throws ApiException {
+            return listDataStoresAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for mutateDataStoreRows
-     * @param storeId  (required)
-     * @param dataStoreMutateRowsPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List data stores
+     * Lists active data stores in the current project.  **Required permissions:** &#x60;content:read&#x60;
+     * @return APIlistDataStoresRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Data stores. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call mutateDataStoreRowsCall(
+    public APIlistDataStoresRequest listDataStores() {
+        return new APIlistDataStoresRequest();
+    }
+
+    private okhttp3.Call mutateDataStoreRowsCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload,
             final ApiCallback _callback)
@@ -5450,48 +5994,7 @@ public class DataApi {
         return mutateDataStoreRowsCall(storeId, dataStoreMutateRowsPayload, _callback);
     }
 
-    /**
-     * Mutate data store rows
-     * Executes a single UPDATE or DELETE statement against the latest data store state and creates a new version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dataStoreMutateRowsPayload  (required)
-     * @return DataStoreMutateRowsResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStoreMutateRowsResult mutateDataStoreRows(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload)
-            throws ApiException {
-        ApiResponse<DataStoreMutateRowsResult> localVarResp =
-                mutateDataStoreRowsWithHttpInfo(storeId, dataStoreMutateRowsPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Mutate data store rows
-     * Executes a single UPDATE or DELETE statement against the latest data store state and creates a new version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dataStoreMutateRowsPayload  (required)
-     * @return ApiResponse&lt;DataStoreMutateRowsResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStoreMutateRowsResult> mutateDataStoreRowsWithHttpInfo(
+    private ApiResponse<DataStoreMutateRowsResult> mutateDataStoreRowsWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload)
             throws ApiException {
@@ -5501,24 +6004,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Mutate data store rows (asynchronously)
-     * Executes a single UPDATE or DELETE statement against the latest data store state and creates a new version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dataStoreMutateRowsPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call mutateDataStoreRowsAsync(
+    private okhttp3.Call mutateDataStoreRowsAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload,
             final ApiCallback<DataStoreMutateRowsResult> _callback)
@@ -5532,25 +6018,115 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APImutateDataStoreRowsRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+
+        @jakarta.annotation.Nonnull
+        private final DataStoreMutateRowsPayload dataStoreMutateRowsPayload;
+
+        private APImutateDataStoreRowsRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload) {
+            this.storeId = storeId;
+            this.dataStoreMutateRowsPayload = dataStoreMutateRowsPayload;
+        }
+
+        /**
+         * Build call for mutateDataStoreRows
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return mutateDataStoreRowsCall(storeId, dataStoreMutateRowsPayload, _callback);
+        }
+
+        /**
+         * Execute mutateDataStoreRows request
+         * @return DataStoreMutateRowsResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStoreMutateRowsResult execute() throws ApiException {
+            ApiResponse<DataStoreMutateRowsResult> localVarResp =
+                    mutateDataStoreRowsWithHttpInfo(storeId, dataStoreMutateRowsPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute mutateDataStoreRows request with HTTP info returned
+         * @return ApiResponse&lt;DataStoreMutateRowsResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStoreMutateRowsResult> executeWithHttpInfo() throws ApiException {
+            return mutateDataStoreRowsWithHttpInfo(storeId, dataStoreMutateRowsPayload);
+        }
+
+        /**
+         * Execute mutateDataStoreRows request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStoreMutateRowsResult> _callback)
+                throws ApiException {
+            return mutateDataStoreRowsAsync(storeId, dataStoreMutateRowsPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for promoteDashboardVersion
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
-     * @param promoteDashboardVersionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Mutate data store rows
+     * Executes a single UPDATE or DELETE statement against the latest data store state and creates a new version.  **Required permissions:** &#x60;content:write&#x60;
+     * @param storeId  (required)
+     * @param dataStoreMutateRowsPayload  (required)
+     * @return APImutateDataStoreRowsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call promoteDashboardVersionCall(
+    public APImutateDataStoreRowsRequest mutateDataStoreRows(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload) {
+        return new APImutateDataStoreRowsRequest(storeId, dataStoreMutateRowsPayload);
+    }
+
+    private okhttp3.Call promoteDashboardVersionCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull String versionId,
@@ -5657,56 +6233,7 @@ public class DataApi {
                 storeId, dashboardId, versionId, promoteDashboardVersionPayload, _callback);
     }
 
-    /**
-     * Promote a dashboard version
-     * Promotes an existing dashboard version to become the current dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
-     * @param promoteDashboardVersionPayload  (required)
-     * @return Dashboard
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Dashboard promoteDashboardVersion(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId,
-            @jakarta.annotation.Nonnull String versionId,
-            @jakarta.annotation.Nonnull
-                    PromoteDashboardVersionPayload promoteDashboardVersionPayload)
-            throws ApiException {
-        ApiResponse<Dashboard> localVarResp =
-                promoteDashboardVersionWithHttpInfo(
-                        storeId, dashboardId, versionId, promoteDashboardVersionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Promote a dashboard version
-     * Promotes an existing dashboard version to become the current dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
-     * @param promoteDashboardVersionPayload  (required)
-     * @return ApiResponse&lt;Dashboard&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Dashboard> promoteDashboardVersionWithHttpInfo(
+    private ApiResponse<Dashboard> promoteDashboardVersionWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull String versionId,
@@ -5720,26 +6247,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Promote a dashboard version (asynchronously)
-     * Promotes an existing dashboard version to become the current dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
-     * @param promoteDashboardVersionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call promoteDashboardVersionAsync(
+    private okhttp3.Call promoteDashboardVersionAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull String versionId,
@@ -5756,23 +6264,132 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIpromoteDashboardVersionRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String dashboardId;
+        @jakarta.annotation.Nonnull private final String versionId;
+
+        @jakarta.annotation.Nonnull
+        private final PromoteDashboardVersionPayload promoteDashboardVersionPayload;
+
+        private APIpromoteDashboardVersionRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String dashboardId,
+                @jakarta.annotation.Nonnull String versionId,
+                @jakarta.annotation.Nonnull
+                        PromoteDashboardVersionPayload promoteDashboardVersionPayload) {
+            this.storeId = storeId;
+            this.dashboardId = dashboardId;
+            this.versionId = versionId;
+            this.promoteDashboardVersionPayload = promoteDashboardVersionPayload;
+        }
+
+        /**
+         * Build call for promoteDashboardVersion
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return promoteDashboardVersionCall(
+                    storeId, dashboardId, versionId, promoteDashboardVersionPayload, _callback);
+        }
+
+        /**
+         * Execute promoteDashboardVersion request
+         * @return Dashboard
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Dashboard execute() throws ApiException {
+            ApiResponse<Dashboard> localVarResp =
+                    promoteDashboardVersionWithHttpInfo(
+                            storeId, dashboardId, versionId, promoteDashboardVersionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute promoteDashboardVersion request with HTTP info returned
+         * @return ApiResponse&lt;Dashboard&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Dashboard> executeWithHttpInfo() throws ApiException {
+            return promoteDashboardVersionWithHttpInfo(
+                    storeId, dashboardId, versionId, promoteDashboardVersionPayload);
+        }
+
+        /**
+         * Execute promoteDashboardVersion request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Dashboard> _callback)
+                throws ApiException {
+            return promoteDashboardVersionAsync(
+                    storeId, dashboardId, versionId, promoteDashboardVersionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for queryDataStore
-     * @param storeId  (required)
-     * @param queryPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Promote a dashboard version
+     * Promotes an existing dashboard version to become the current dashboard.  **Required permissions:** &#x60;content:write&#x60;
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
+     * @param promoteDashboardVersionPayload  (required)
+     * @return APIpromoteDashboardVersionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call queryDataStoreCall(
+    public APIpromoteDashboardVersionRequest promoteDashboardVersion(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull
+                    PromoteDashboardVersionPayload promoteDashboardVersionPayload) {
+        return new APIpromoteDashboardVersionRequest(
+                storeId, dashboardId, versionId, promoteDashboardVersionPayload);
+    }
+
+    private okhttp3.Call queryDataStoreCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull QueryPayload queryPayload,
             final ApiCallback _callback)
@@ -5854,47 +6471,7 @@ public class DataApi {
         return queryDataStoreCall(storeId, queryPayload, _callback);
     }
 
-    /**
-     * Query a data store
-     * Executes a read-only SQL query against the latest data store state.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param queryPayload  (required)
-     * @return QueryResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public QueryResult queryDataStore(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull QueryPayload queryPayload)
-            throws ApiException {
-        ApiResponse<QueryResult> localVarResp = queryDataStoreWithHttpInfo(storeId, queryPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Query a data store
-     * Executes a read-only SQL query against the latest data store state.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param queryPayload  (required)
-     * @return ApiResponse&lt;QueryResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<QueryResult> queryDataStoreWithHttpInfo(
+    private ApiResponse<QueryResult> queryDataStoreWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull QueryPayload queryPayload)
             throws ApiException {
@@ -5903,24 +6480,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Query a data store (asynchronously)
-     * Executes a read-only SQL query against the latest data store state.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param queryPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call queryDataStoreAsync(
+    private okhttp3.Call queryDataStoreAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull QueryPayload queryPayload,
             final ApiCallback<QueryResult> _callback)
@@ -5933,23 +6493,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIqueryDataStoreRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final QueryPayload queryPayload;
+
+        private APIqueryDataStoreRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull QueryPayload queryPayload) {
+            this.storeId = storeId;
+            this.queryPayload = queryPayload;
+        }
+
+        /**
+         * Build call for queryDataStore
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return queryDataStoreCall(storeId, queryPayload, _callback);
+        }
+
+        /**
+         * Execute queryDataStore request
+         * @return QueryResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public QueryResult execute() throws ApiException {
+            ApiResponse<QueryResult> localVarResp =
+                    queryDataStoreWithHttpInfo(storeId, queryPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute queryDataStore request with HTTP info returned
+         * @return ApiResponse&lt;QueryResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<QueryResult> executeWithHttpInfo() throws ApiException {
+            return queryDataStoreWithHttpInfo(storeId, queryPayload);
+        }
+
+        /**
+         * Execute queryDataStore request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<QueryResult> _callback)
+                throws ApiException {
+            return queryDataStoreAsync(storeId, queryPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for queryDataStoreBatch
+     * Query a data store
+     * Executes a read-only SQL query against the latest data store state.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param batchQueryPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param queryPayload  (required)
+     * @return APIqueryDataStoreRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Batch query results. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call queryDataStoreBatchCall(
+    public APIqueryDataStoreRequest queryDataStore(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload) {
+        return new APIqueryDataStoreRequest(storeId, queryPayload);
+    }
+
+    private okhttp3.Call queryDataStoreBatchCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload,
             final ApiCallback _callback)
@@ -6031,48 +6681,7 @@ public class DataApi {
         return queryDataStoreBatchCall(storeId, batchQueryPayload, _callback);
     }
 
-    /**
-     * Query a data store in batch
-     * Executes multiple read-only SQL queries in one request.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param batchQueryPayload  (required)
-     * @return BatchQueryResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Batch query results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public BatchQueryResult queryDataStoreBatch(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload)
-            throws ApiException {
-        ApiResponse<BatchQueryResult> localVarResp =
-                queryDataStoreBatchWithHttpInfo(storeId, batchQueryPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Query a data store in batch
-     * Executes multiple read-only SQL queries in one request.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param batchQueryPayload  (required)
-     * @return ApiResponse&lt;BatchQueryResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Batch query results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<BatchQueryResult> queryDataStoreBatchWithHttpInfo(
+    private ApiResponse<BatchQueryResult> queryDataStoreBatchWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload)
             throws ApiException {
@@ -6082,24 +6691,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Query a data store in batch (asynchronously)
-     * Executes multiple read-only SQL queries in one request.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param batchQueryPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Batch query results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call queryDataStoreBatchAsync(
+    private okhttp3.Call queryDataStoreBatchAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload,
             final ApiCallback<BatchQueryResult> _callback)
@@ -6112,24 +6704,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIqueryDataStoreBatchRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final BatchQueryPayload batchQueryPayload;
+
+        private APIqueryDataStoreBatchRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload) {
+            this.storeId = storeId;
+            this.batchQueryPayload = batchQueryPayload;
+        }
+
+        /**
+         * Build call for queryDataStoreBatch
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Batch query results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return queryDataStoreBatchCall(storeId, batchQueryPayload, _callback);
+        }
+
+        /**
+         * Execute queryDataStoreBatch request
+         * @return BatchQueryResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Batch query results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public BatchQueryResult execute() throws ApiException {
+            ApiResponse<BatchQueryResult> localVarResp =
+                    queryDataStoreBatchWithHttpInfo(storeId, batchQueryPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute queryDataStoreBatch request with HTTP info returned
+         * @return ApiResponse&lt;BatchQueryResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Batch query results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<BatchQueryResult> executeWithHttpInfo() throws ApiException {
+            return queryDataStoreBatchWithHttpInfo(storeId, batchQueryPayload);
+        }
+
+        /**
+         * Execute queryDataStoreBatch request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Batch query results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<BatchQueryResult> _callback)
+                throws ApiException {
+            return queryDataStoreBatchAsync(storeId, batchQueryPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for queryDataStoreVersion
+     * Query a data store in batch
+     * Executes multiple read-only SQL queries in one request.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
-     * @param queryPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param batchQueryPayload  (required)
+     * @return APIqueryDataStoreBatchRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result for the selected version. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Batch query results. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call queryDataStoreVersionCall(
+    public APIqueryDataStoreBatchRequest queryDataStoreBatch(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload) {
+        return new APIqueryDataStoreBatchRequest(storeId, batchQueryPayload);
+    }
+
+    private okhttp3.Call queryDataStoreVersionCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String versionId,
             @jakarta.annotation.Nonnull QueryPayload queryPayload,
@@ -6222,51 +6903,7 @@ public class DataApi {
         return queryDataStoreVersionCall(storeId, versionId, queryPayload, _callback);
     }
 
-    /**
-     * Query a data store version
-     * Executes a read-only SQL query against a specific data store version.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
-     * @param queryPayload  (required)
-     * @return QueryResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result for the selected version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public QueryResult queryDataStoreVersion(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String versionId,
-            @jakarta.annotation.Nonnull QueryPayload queryPayload)
-            throws ApiException {
-        ApiResponse<QueryResult> localVarResp =
-                queryDataStoreVersionWithHttpInfo(storeId, versionId, queryPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Query a data store version
-     * Executes a read-only SQL query against a specific data store version.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
-     * @param queryPayload  (required)
-     * @return ApiResponse&lt;QueryResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result for the selected version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<QueryResult> queryDataStoreVersionWithHttpInfo(
+    private ApiResponse<QueryResult> queryDataStoreVersionWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String versionId,
             @jakarta.annotation.Nonnull QueryPayload queryPayload)
@@ -6277,25 +6914,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Query a data store version (asynchronously)
-     * Executes a read-only SQL query against a specific data store version.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
-     * @param queryPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result for the selected version. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call queryDataStoreVersionAsync(
+    private okhttp3.Call queryDataStoreVersionAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String versionId,
             @jakarta.annotation.Nonnull QueryPayload queryPayload,
@@ -6310,23 +6929,118 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIqueryDataStoreVersionRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String versionId;
+        @jakarta.annotation.Nonnull private final QueryPayload queryPayload;
+
+        private APIqueryDataStoreVersionRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String versionId,
+                @jakarta.annotation.Nonnull QueryPayload queryPayload) {
+            this.storeId = storeId;
+            this.versionId = versionId;
+            this.queryPayload = queryPayload;
+        }
+
+        /**
+         * Build call for queryDataStoreVersion
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result for the selected version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return queryDataStoreVersionCall(storeId, versionId, queryPayload, _callback);
+        }
+
+        /**
+         * Execute queryDataStoreVersion request
+         * @return QueryResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result for the selected version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public QueryResult execute() throws ApiException {
+            ApiResponse<QueryResult> localVarResp =
+                    queryDataStoreVersionWithHttpInfo(storeId, versionId, queryPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute queryDataStoreVersion request with HTTP info returned
+         * @return ApiResponse&lt;QueryResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result for the selected version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<QueryResult> executeWithHttpInfo() throws ApiException {
+            return queryDataStoreVersionWithHttpInfo(storeId, versionId, queryPayload);
+        }
+
+        /**
+         * Execute queryDataStoreVersion request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result for the selected version. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<QueryResult> _callback)
+                throws ApiException {
+            return queryDataStoreVersionAsync(storeId, versionId, queryPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for rollbackDataStoreVersion
+     * Query a data store version
+     * Executes a read-only SQL query against a specific data store version.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
      * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param queryPayload  (required)
+     * @return APIqueryDataStoreVersionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rolled back data store. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Query result for the selected version. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call rollbackDataStoreVersionCall(
+    public APIqueryDataStoreVersionRequest queryDataStoreVersion(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload) {
+        return new APIqueryDataStoreVersionRequest(storeId, versionId, queryPayload);
+    }
+
+    private okhttp3.Call rollbackDataStoreVersionCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String versionId,
             final ApiCallback _callback)
@@ -6411,48 +7125,7 @@ public class DataApi {
         return rollbackDataStoreVersionCall(storeId, versionId, _callback);
     }
 
-    /**
-     * Rollback a data store version
-     * Rolls a data store back to a previous version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
-     * @return DataStore
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rolled back data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStore rollbackDataStoreVersion(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String versionId)
-            throws ApiException {
-        ApiResponse<DataStore> localVarResp =
-                rollbackDataStoreVersionWithHttpInfo(storeId, versionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Rollback a data store version
-     * Rolls a data store back to a previous version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DataStore&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rolled back data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStore> rollbackDataStoreVersionWithHttpInfo(
+    private ApiResponse<DataStore> rollbackDataStoreVersionWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String versionId)
             throws ApiException {
@@ -6462,24 +7135,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Rollback a data store version (asynchronously)
-     * Rolls a data store back to a previous version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rolled back data store. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call rollbackDataStoreVersionAsync(
+    private okhttp3.Call rollbackDataStoreVersionAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String versionId,
             final ApiCallback<DataStore> _callback)
@@ -6492,24 +7148,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIrollbackDataStoreVersionRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String versionId;
+
+        private APIrollbackDataStoreVersionRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String versionId) {
+            this.storeId = storeId;
+            this.versionId = versionId;
+        }
+
+        /**
+         * Build call for rollbackDataStoreVersion
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rolled back data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return rollbackDataStoreVersionCall(storeId, versionId, _callback);
+        }
+
+        /**
+         * Execute rollbackDataStoreVersion request
+         * @return DataStore
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rolled back data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStore execute() throws ApiException {
+            ApiResponse<DataStore> localVarResp =
+                    rollbackDataStoreVersionWithHttpInfo(storeId, versionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute rollbackDataStoreVersion request with HTTP info returned
+         * @return ApiResponse&lt;DataStore&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rolled back data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStore> executeWithHttpInfo() throws ApiException {
+            return rollbackDataStoreVersionWithHttpInfo(storeId, versionId);
+        }
+
+        /**
+         * Execute rollbackDataStoreVersion request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rolled back data store. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStore> _callback)
+                throws ApiException {
+            return rollbackDataStoreVersionAsync(storeId, versionId, _callback);
+        }
+    }
+
     /**
-     * Build call for setDashboardVersioning
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param dashboardVersioningPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Rollback a data store version
+     * Rolls a data store back to a previous version.  **Required permissions:** &#x60;content:write&#x60;
+     * @param storeId  (required)
+     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
+     * @return APIrollbackDataStoreVersionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard versioning status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Rolled back data store. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call setDashboardVersioningCall(
+    public APIrollbackDataStoreVersionRequest rollbackDataStoreVersion(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId) {
+        return new APIrollbackDataStoreVersionRequest(storeId, versionId);
+    }
+
+    private okhttp3.Call setDashboardVersioningCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload,
@@ -6603,52 +7348,7 @@ public class DataApi {
                 storeId, dashboardId, dashboardVersioningPayload, _callback);
     }
 
-    /**
-     * Set dashboard versioning
-     * Enables or disables versioning for a dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param dashboardVersioningPayload  (required)
-     * @return DashboardVersioningStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard versioning status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardVersioningStatusResponse setDashboardVersioning(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId,
-            @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload)
-            throws ApiException {
-        ApiResponse<DashboardVersioningStatusResponse> localVarResp =
-                setDashboardVersioningWithHttpInfo(
-                        storeId, dashboardId, dashboardVersioningPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Set dashboard versioning
-     * Enables or disables versioning for a dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param dashboardVersioningPayload  (required)
-     * @return ApiResponse&lt;DashboardVersioningStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard versioning status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardVersioningStatusResponse> setDashboardVersioningWithHttpInfo(
+    private ApiResponse<DashboardVersioningStatusResponse> setDashboardVersioningWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload)
@@ -6660,25 +7360,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Set dashboard versioning (asynchronously)
-     * Enables or disables versioning for a dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param dashboardVersioningPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Dashboard versioning status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call setDashboardVersioningAsync(
+    private okhttp3.Call setDashboardVersioningAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload,
@@ -6693,25 +7375,127 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIsetDashboardVersioningRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String dashboardId;
+
+        @jakarta.annotation.Nonnull
+        private final DashboardVersioningPayload dashboardVersioningPayload;
+
+        private APIsetDashboardVersioningRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String dashboardId,
+                @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload) {
+            this.storeId = storeId;
+            this.dashboardId = dashboardId;
+            this.dashboardVersioningPayload = dashboardVersioningPayload;
+        }
+
+        /**
+         * Build call for setDashboardVersioning
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard versioning status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return setDashboardVersioningCall(
+                    storeId, dashboardId, dashboardVersioningPayload, _callback);
+        }
+
+        /**
+         * Execute setDashboardVersioning request
+         * @return DashboardVersioningStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard versioning status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DashboardVersioningStatusResponse execute() throws ApiException {
+            ApiResponse<DashboardVersioningStatusResponse> localVarResp =
+                    setDashboardVersioningWithHttpInfo(
+                            storeId, dashboardId, dashboardVersioningPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute setDashboardVersioning request with HTTP info returned
+         * @return ApiResponse&lt;DashboardVersioningStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard versioning status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DashboardVersioningStatusResponse> executeWithHttpInfo()
+                throws ApiException {
+            return setDashboardVersioningWithHttpInfo(
+                    storeId, dashboardId, dashboardVersioningPayload);
+        }
+
+        /**
+         * Execute setDashboardVersioning request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Dashboard versioning status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<DashboardVersioningStatusResponse> _callback)
+                throws ApiException {
+            return setDashboardVersioningAsync(
+                    storeId, dashboardId, dashboardVersioningPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateDashboard
+     * Set dashboard versioning
+     * Enables or disables versioning for a dashboard.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param updateDashboardPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param dashboardVersioningPayload  (required)
+     * @return APIsetDashboardVersioningRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Dashboard versioning status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateDashboardCall(
+    public APIsetDashboardVersioningRequest setDashboardVersioning(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload) {
+        return new APIsetDashboardVersioningRequest(
+                storeId, dashboardId, dashboardVersioningPayload);
+    }
+
+    private okhttp3.Call updateDashboardCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload,
@@ -6804,53 +7588,7 @@ public class DataApi {
         return updateDashboardCall(storeId, dashboardId, updateDashboardPayload, _callback);
     }
 
-    /**
-     * Update a dashboard
-     * Updates a dashboard definition, query, or metadata.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param updateDashboardPayload  (required)
-     * @return Dashboard
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Dashboard updateDashboard(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId,
-            @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload)
-            throws ApiException {
-        ApiResponse<Dashboard> localVarResp =
-                updateDashboardWithHttpInfo(storeId, dashboardId, updateDashboardPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a dashboard
-     * Updates a dashboard definition, query, or metadata.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param updateDashboardPayload  (required)
-     * @return ApiResponse&lt;Dashboard&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Dashboard> updateDashboardWithHttpInfo(
+    private ApiResponse<Dashboard> updateDashboardWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload)
@@ -6862,26 +7600,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a dashboard (asynchronously)
-     * Updates a dashboard definition, query, or metadata.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
-     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
-     * @param updateDashboardPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateDashboardAsync(
+    private okhttp3.Call updateDashboardAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
             @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload,
@@ -6896,23 +7615,123 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIupdateDashboardRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String dashboardId;
+        @jakarta.annotation.Nonnull private final UpdateDashboardPayload updateDashboardPayload;
+
+        private APIupdateDashboardRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String dashboardId,
+                @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload) {
+            this.storeId = storeId;
+            this.dashboardId = dashboardId;
+            this.updateDashboardPayload = updateDashboardPayload;
+        }
+
+        /**
+         * Build call for updateDashboard
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateDashboardCall(storeId, dashboardId, updateDashboardPayload, _callback);
+        }
+
+        /**
+         * Execute updateDashboard request
+         * @return Dashboard
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Dashboard execute() throws ApiException {
+            ApiResponse<Dashboard> localVarResp =
+                    updateDashboardWithHttpInfo(storeId, dashboardId, updateDashboardPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateDashboard request with HTTP info returned
+         * @return ApiResponse&lt;Dashboard&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Dashboard> executeWithHttpInfo() throws ApiException {
+            return updateDashboardWithHttpInfo(storeId, dashboardId, updateDashboardPayload);
+        }
+
+        /**
+         * Execute updateDashboard request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Dashboard> _callback)
+                throws ApiException {
+            return updateDashboardAsync(storeId, dashboardId, updateDashboardPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateDataStoreSchema
-     * @param storeId  (required)
-     * @param updateSchemaPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Update a dashboard
+     * Updates a dashboard definition, query, or metadata.  **Required permissions:** &#x60;content:write&#x60;
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param updateDashboardPayload  (required)
+     * @return APIupdateDashboardRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated data store schema. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateDataStoreSchemaCall(
+    public APIupdateDashboardRequest updateDashboard(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload) {
+        return new APIupdateDashboardRequest(storeId, dashboardId, updateDashboardPayload);
+    }
+
+    private okhttp3.Call updateDataStoreSchemaCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload,
             final ApiCallback _callback)
@@ -6994,48 +7813,7 @@ public class DataApi {
         return updateDataStoreSchemaCall(storeId, updateSchemaPayload, _callback);
     }
 
-    /**
-     * Update data store schema
-     * Applies bulk schema changes including table creation, relationship updates, table drops, and description changes.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param updateSchemaPayload  (required)
-     * @return DataStoreSchemaResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated data store schema. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataStoreSchemaResponse updateDataStoreSchema(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload)
-            throws ApiException {
-        ApiResponse<DataStoreSchemaResponse> localVarResp =
-                updateDataStoreSchemaWithHttpInfo(storeId, updateSchemaPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update data store schema
-     * Applies bulk schema changes including table creation, relationship updates, table drops, and description changes.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param updateSchemaPayload  (required)
-     * @return ApiResponse&lt;DataStoreSchemaResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated data store schema. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataStoreSchemaResponse> updateDataStoreSchemaWithHttpInfo(
+    private ApiResponse<DataStoreSchemaResponse> updateDataStoreSchemaWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload)
             throws ApiException {
@@ -7045,24 +7823,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update data store schema (asynchronously)
-     * Applies bulk schema changes including table creation, relationship updates, table drops, and description changes.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param updateSchemaPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated data store schema. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateDataStoreSchemaAsync(
+    private okhttp3.Call updateDataStoreSchemaAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload,
             final ApiCallback<DataStoreSchemaResponse> _callback)
@@ -7075,24 +7836,113 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIupdateDataStoreSchemaRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final UpdateSchemaPayload updateSchemaPayload;
+
+        private APIupdateDataStoreSchemaRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload) {
+            this.storeId = storeId;
+            this.updateSchemaPayload = updateSchemaPayload;
+        }
+
+        /**
+         * Build call for updateDataStoreSchema
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated data store schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateDataStoreSchemaCall(storeId, updateSchemaPayload, _callback);
+        }
+
+        /**
+         * Execute updateDataStoreSchema request
+         * @return DataStoreSchemaResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated data store schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataStoreSchemaResponse execute() throws ApiException {
+            ApiResponse<DataStoreSchemaResponse> localVarResp =
+                    updateDataStoreSchemaWithHttpInfo(storeId, updateSchemaPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateDataStoreSchema request with HTTP info returned
+         * @return ApiResponse&lt;DataStoreSchemaResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated data store schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataStoreSchemaResponse> executeWithHttpInfo() throws ApiException {
+            return updateDataStoreSchemaWithHttpInfo(storeId, updateSchemaPayload);
+        }
+
+        /**
+         * Execute updateDataStoreSchema request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated data store schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataStoreSchemaResponse> _callback)
+                throws ApiException {
+            return updateDataStoreSchemaAsync(storeId, updateSchemaPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateDataStoreTable
+     * Update data store schema
+     * Applies bulk schema changes including table creation, relationship updates, table drops, and description changes.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId  (required)
-     * @param tableName  (required)
-     * @param alterTablePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param updateSchemaPayload  (required)
+     * @return APIupdateDataStoreSchemaRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated table definition. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Updated data store schema. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateDataStoreTableCall(
+    public APIupdateDataStoreSchemaRequest updateDataStoreSchema(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload) {
+        return new APIupdateDataStoreSchemaRequest(storeId, updateSchemaPayload);
+    }
+
+    private okhttp3.Call updateDataStoreTableCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String tableName,
             @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload,
@@ -7185,51 +8035,7 @@ public class DataApi {
         return updateDataStoreTableCall(storeId, tableName, alterTablePayload, _callback);
     }
 
-    /**
-     * Update data store table
-     * Alters a table schema using a set of requested changes.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @param alterTablePayload  (required)
-     * @return DataTable
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated table definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DataTable updateDataStoreTable(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String tableName,
-            @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload)
-            throws ApiException {
-        ApiResponse<DataTable> localVarResp =
-                updateDataStoreTableWithHttpInfo(storeId, tableName, alterTablePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update data store table
-     * Alters a table schema using a set of requested changes.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @param alterTablePayload  (required)
-     * @return ApiResponse&lt;DataTable&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated table definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DataTable> updateDataStoreTableWithHttpInfo(
+    private ApiResponse<DataTable> updateDataStoreTableWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String tableName,
             @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload)
@@ -7240,25 +8046,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update data store table (asynchronously)
-     * Alters a table schema using a set of requested changes.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param tableName  (required)
-     * @param alterTablePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated table definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateDataStoreTableAsync(
+    private okhttp3.Call updateDataStoreTableAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String tableName,
             @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload,
@@ -7273,23 +8061,118 @@ public class DataApi {
         return localVarCall;
     }
 
+    public class APIupdateDataStoreTableRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final String tableName;
+        @jakarta.annotation.Nonnull private final AlterTablePayload alterTablePayload;
+
+        private APIupdateDataStoreTableRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull String tableName,
+                @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload) {
+            this.storeId = storeId;
+            this.tableName = tableName;
+            this.alterTablePayload = alterTablePayload;
+        }
+
+        /**
+         * Build call for updateDataStoreTable
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated table definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateDataStoreTableCall(storeId, tableName, alterTablePayload, _callback);
+        }
+
+        /**
+         * Execute updateDataStoreTable request
+         * @return DataTable
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated table definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DataTable execute() throws ApiException {
+            ApiResponse<DataTable> localVarResp =
+                    updateDataStoreTableWithHttpInfo(storeId, tableName, alterTablePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateDataStoreTable request with HTTP info returned
+         * @return ApiResponse&lt;DataTable&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated table definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DataTable> executeWithHttpInfo() throws ApiException {
+            return updateDataStoreTableWithHttpInfo(storeId, tableName, alterTablePayload);
+        }
+
+        /**
+         * Execute updateDataStoreTable request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated table definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DataTable> _callback)
+                throws ApiException {
+            return updateDataStoreTableAsync(storeId, tableName, alterTablePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for validateDataStoreQueries
+     * Update data store table
+     * Alters a table schema using a set of requested changes.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId  (required)
-     * @param queryValidationPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param tableName  (required)
+     * @param alterTablePayload  (required)
+     * @return APIupdateDataStoreTableRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Validation result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Updated table definition. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call validateDataStoreQueriesCall(
+    public APIupdateDataStoreTableRequest updateDataStoreTable(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload) {
+        return new APIupdateDataStoreTableRequest(storeId, tableName, alterTablePayload);
+    }
+
+    private okhttp3.Call validateDataStoreQueriesCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload,
             final ApiCallback _callback)
@@ -7371,48 +8254,7 @@ public class DataApi {
         return validateDataStoreQueriesCall(storeId, queryValidationPayload, _callback);
     }
 
-    /**
-     * Validate data store queries
-     * Validates one or more read-only SQL queries without executing them.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param queryValidationPayload  (required)
-     * @return QueryValidationResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Validation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public QueryValidationResult validateDataStoreQueries(
-            @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload)
-            throws ApiException {
-        ApiResponse<QueryValidationResult> localVarResp =
-                validateDataStoreQueriesWithHttpInfo(storeId, queryValidationPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Validate data store queries
-     * Validates one or more read-only SQL queries without executing them.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param queryValidationPayload  (required)
-     * @return ApiResponse&lt;QueryValidationResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Validation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<QueryValidationResult> validateDataStoreQueriesWithHttpInfo(
+    private ApiResponse<QueryValidationResult> validateDataStoreQueriesWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload)
             throws ApiException {
@@ -7422,24 +8264,7 @@ public class DataApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Validate data store queries (asynchronously)
-     * Validates one or more read-only SQL queries without executing them.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param queryValidationPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Validation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call validateDataStoreQueriesAsync(
+    private okhttp3.Call validateDataStoreQueriesAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload,
             final ApiCallback<QueryValidationResult> _callback)
@@ -7451,5 +8276,111 @@ public class DataApi {
         Type localVarReturnType = new TypeToken<QueryValidationResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIvalidateDataStoreQueriesRequest {
+        @jakarta.annotation.Nonnull private final String storeId;
+        @jakarta.annotation.Nonnull private final QueryValidationPayload queryValidationPayload;
+
+        private APIvalidateDataStoreQueriesRequest(
+                @jakarta.annotation.Nonnull String storeId,
+                @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload) {
+            this.storeId = storeId;
+            this.queryValidationPayload = queryValidationPayload;
+        }
+
+        /**
+         * Build call for validateDataStoreQueries
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Validation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return validateDataStoreQueriesCall(storeId, queryValidationPayload, _callback);
+        }
+
+        /**
+         * Execute validateDataStoreQueries request
+         * @return QueryValidationResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Validation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public QueryValidationResult execute() throws ApiException {
+            ApiResponse<QueryValidationResult> localVarResp =
+                    validateDataStoreQueriesWithHttpInfo(storeId, queryValidationPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute validateDataStoreQueries request with HTTP info returned
+         * @return ApiResponse&lt;QueryValidationResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Validation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<QueryValidationResult> executeWithHttpInfo() throws ApiException {
+            return validateDataStoreQueriesWithHttpInfo(storeId, queryValidationPayload);
+        }
+
+        /**
+         * Execute validateDataStoreQueries request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Validation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<QueryValidationResult> _callback)
+                throws ApiException {
+            return validateDataStoreQueriesAsync(storeId, queryValidationPayload, _callback);
+        }
+    }
+
+    /**
+     * Validate data store queries
+     * Validates one or more read-only SQL queries without executing them.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId  (required)
+     * @param queryValidationPayload  (required)
+     * @return APIvalidateDataStoreQueriesRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Validation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIvalidateDataStoreQueriesRequest validateDataStoreQueries(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload) {
+        return new APIvalidateDataStoreQueriesRequest(storeId, queryValidationPayload);
     }
 }

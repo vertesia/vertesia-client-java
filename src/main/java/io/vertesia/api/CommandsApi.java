@@ -73,23 +73,7 @@ public class CommandsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for disableIndexQueries
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query disablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call disableIndexQueriesCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call disableIndexQueriesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -149,68 +133,14 @@ public class CommandsApi {
         return disableIndexQueriesCall(_callback);
     }
 
-    /**
-     * Disable index-based queries
-     * Deprecated no-op endpoint kept for backward compatibility. Queries are disabled automatically when indexing is disabled.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return GenericCommandResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query disablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public GenericCommandResponse disableIndexQueries() throws ApiException {
-        ApiResponse<GenericCommandResponse> localVarResp = disableIndexQueriesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Disable index-based queries
-     * Deprecated no-op endpoint kept for backward compatibility. Queries are disabled automatically when indexing is disabled.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return ApiResponse&lt;GenericCommandResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query disablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<GenericCommandResponse> disableIndexQueriesWithHttpInfo()
+    private ApiResponse<GenericCommandResponse> disableIndexQueriesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = disableIndexQueriesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Disable index-based queries (asynchronously)
-     * Deprecated no-op endpoint kept for backward compatibility. Queries are disabled automatically when indexing is disabled.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query disablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call disableIndexQueriesAsync(
+    private okhttp3.Call disableIndexQueriesAsync(
             final ApiCallback<GenericCommandResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = disableIndexQueriesValidateBeforeCall(_callback);
@@ -219,22 +149,111 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIdisableIndexQueriesRequest {
+
+        private APIdisableIndexQueriesRequest() {}
+
+        /**
+         * Build call for disableIndexQueries
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return disableIndexQueriesCall(_callback);
+        }
+
+        /**
+         * Execute disableIndexQueries request
+         * @return GenericCommandResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public GenericCommandResponse execute() throws ApiException {
+            ApiResponse<GenericCommandResponse> localVarResp = disableIndexQueriesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute disableIndexQueries request with HTTP info returned
+         * @return ApiResponse&lt;GenericCommandResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<GenericCommandResponse> executeWithHttpInfo() throws ApiException {
+            return disableIndexQueriesWithHttpInfo();
+        }
+
+        /**
+         * Execute disableIndexQueries request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<GenericCommandResponse> _callback)
+                throws ApiException {
+            return disableIndexQueriesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for disableProjectEmbeddings
-     * @param type  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Disable index-based queries
+     * Deprecated no-op endpoint kept for backward compatibility. Queries are disabled automatically when indexing is disabled.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @return APIdisableIndexQueriesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Query disablement status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
-    public okhttp3.Call disableProjectEmbeddingsCall(
+    @Deprecated
+    public APIdisableIndexQueriesRequest disableIndexQueries() {
+        return new APIdisableIndexQueriesRequest();
+    }
+
+    private okhttp3.Call disableProjectEmbeddingsCall(
             @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -306,67 +325,14 @@ public class CommandsApi {
         return disableProjectEmbeddingsCall(type, _callback);
     }
 
-    /**
-     * Disable embeddings
-     * Disables embeddings for the selected embedding type in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
-     * @return GenericCommandResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GenericCommandResponse disableProjectEmbeddings(@jakarta.annotation.Nonnull String type)
-            throws ApiException {
-        ApiResponse<GenericCommandResponse> localVarResp =
-                disableProjectEmbeddingsWithHttpInfo(type);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Disable embeddings
-     * Disables embeddings for the selected embedding type in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
-     * @return ApiResponse&lt;GenericCommandResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GenericCommandResponse> disableProjectEmbeddingsWithHttpInfo(
+    private ApiResponse<GenericCommandResponse> disableProjectEmbeddingsWithHttpInfo(
             @jakarta.annotation.Nonnull String type) throws ApiException {
         okhttp3.Call localVarCall = disableProjectEmbeddingsValidateBeforeCall(type, null);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Disable embeddings (asynchronously)
-     * Disables embeddings for the selected embedding type in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call disableProjectEmbeddingsAsync(
+    private okhttp3.Call disableProjectEmbeddingsAsync(
             @jakarta.annotation.Nonnull String type,
             final ApiCallback<GenericCommandResponse> _callback)
             throws ApiException {
@@ -377,21 +343,107 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIdisableProjectEmbeddingsRequest {
+        @jakarta.annotation.Nonnull private final String type;
+
+        private APIdisableProjectEmbeddingsRequest(@jakarta.annotation.Nonnull String type) {
+            this.type = type;
+        }
+
+        /**
+         * Build call for disableProjectEmbeddings
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return disableProjectEmbeddingsCall(type, _callback);
+        }
+
+        /**
+         * Execute disableProjectEmbeddings request
+         * @return GenericCommandResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GenericCommandResponse execute() throws ApiException {
+            ApiResponse<GenericCommandResponse> localVarResp =
+                    disableProjectEmbeddingsWithHttpInfo(type);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute disableProjectEmbeddings request with HTTP info returned
+         * @return ApiResponse&lt;GenericCommandResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GenericCommandResponse> executeWithHttpInfo() throws ApiException {
+            return disableProjectEmbeddingsWithHttpInfo(type);
+        }
+
+        /**
+         * Execute disableProjectEmbeddings request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GenericCommandResponse> _callback)
+                throws ApiException {
+            return disableProjectEmbeddingsAsync(type, _callback);
+        }
+    }
+
     /**
-     * Build call for disableProjectIndexing
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Disable embeddings
+     * Disables embeddings for the selected embedding type in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param type  (required)
+     * @return APIdisableProjectEmbeddingsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing disablement status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call disableProjectIndexingCall(final ApiCallback _callback)
+    public APIdisableProjectEmbeddingsRequest disableProjectEmbeddings(
+            @jakarta.annotation.Nonnull String type) {
+        return new APIdisableProjectEmbeddingsRequest(type);
+    }
+
+    private okhttp3.Call disableProjectIndexingCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -451,62 +503,14 @@ public class CommandsApi {
         return disableProjectIndexingCall(_callback);
     }
 
-    /**
-     * Disable indexing
-     * Disables Elasticsearch-backed indexing for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return GenericCommandResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing disablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GenericCommandResponse disableProjectIndexing() throws ApiException {
-        ApiResponse<GenericCommandResponse> localVarResp = disableProjectIndexingWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Disable indexing
-     * Disables Elasticsearch-backed indexing for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return ApiResponse&lt;GenericCommandResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing disablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GenericCommandResponse> disableProjectIndexingWithHttpInfo()
+    private ApiResponse<GenericCommandResponse> disableProjectIndexingWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = disableProjectIndexingValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Disable indexing (asynchronously)
-     * Disables Elasticsearch-backed indexing for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing disablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call disableProjectIndexingAsync(
+    private okhttp3.Call disableProjectIndexingAsync(
             final ApiCallback<GenericCommandResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = disableProjectIndexingValidateBeforeCall(_callback);
@@ -515,23 +519,101 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIdisableProjectIndexingRequest {
+
+        private APIdisableProjectIndexingRequest() {}
+
+        /**
+         * Build call for disableProjectIndexing
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return disableProjectIndexingCall(_callback);
+        }
+
+        /**
+         * Execute disableProjectIndexing request
+         * @return GenericCommandResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GenericCommandResponse execute() throws ApiException {
+            ApiResponse<GenericCommandResponse> localVarResp = disableProjectIndexingWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute disableProjectIndexing request with HTTP info returned
+         * @return ApiResponse&lt;GenericCommandResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GenericCommandResponse> executeWithHttpInfo() throws ApiException {
+            return disableProjectIndexingWithHttpInfo();
+        }
+
+        /**
+         * Execute disableProjectIndexing request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GenericCommandResponse> _callback)
+                throws ApiException {
+            return disableProjectIndexingAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for enableIndexQueries
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Disable indexing
+     * Disables Elasticsearch-backed indexing for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @return APIdisableProjectIndexingRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query enablement status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Indexing disablement status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call enableIndexQueriesCall(final ApiCallback _callback) throws ApiException {
+    public APIdisableProjectIndexingRequest disableProjectIndexing() {
+        return new APIdisableProjectIndexingRequest();
+    }
+
+    private okhttp3.Call enableIndexQueriesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -591,69 +673,15 @@ public class CommandsApi {
         return enableIndexQueriesCall(_callback);
     }
 
-    /**
-     * Enable index-based queries
-     * Deprecated no-op endpoint kept for backward compatibility. Queries are enabled automatically when indexing is enabled.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return GenericCommandResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query enablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public GenericCommandResponse enableIndexQueries() throws ApiException {
-        ApiResponse<GenericCommandResponse> localVarResp = enableIndexQueriesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Enable index-based queries
-     * Deprecated no-op endpoint kept for backward compatibility. Queries are enabled automatically when indexing is enabled.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return ApiResponse&lt;GenericCommandResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query enablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<GenericCommandResponse> enableIndexQueriesWithHttpInfo()
+    private ApiResponse<GenericCommandResponse> enableIndexQueriesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = enableIndexQueriesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Enable index-based queries (asynchronously)
-     * Deprecated no-op endpoint kept for backward compatibility. Queries are enabled automatically when indexing is enabled.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query enablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call enableIndexQueriesAsync(final ApiCallback<GenericCommandResponse> _callback)
-            throws ApiException {
+    private okhttp3.Call enableIndexQueriesAsync(
+            final ApiCallback<GenericCommandResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = enableIndexQueriesValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
@@ -661,23 +689,111 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIenableIndexQueriesRequest {
+
+        private APIenableIndexQueriesRequest() {}
+
+        /**
+         * Build call for enableIndexQueries
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return enableIndexQueriesCall(_callback);
+        }
+
+        /**
+         * Execute enableIndexQueries request
+         * @return GenericCommandResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public GenericCommandResponse execute() throws ApiException {
+            ApiResponse<GenericCommandResponse> localVarResp = enableIndexQueriesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute enableIndexQueries request with HTTP info returned
+         * @return ApiResponse&lt;GenericCommandResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<GenericCommandResponse> executeWithHttpInfo() throws ApiException {
+            return enableIndexQueriesWithHttpInfo();
+        }
+
+        /**
+         * Execute enableIndexQueries request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<GenericCommandResponse> _callback)
+                throws ApiException {
+            return enableIndexQueriesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for enableProjectEmbeddings
-     * @param type  (required)
-     * @param projectConfigurationEmbeddingEnablePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Enable index-based queries
+     * Deprecated no-op endpoint kept for backward compatibility. Queries are enabled automatically when indexing is enabled.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @return APIenableIndexQueriesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Query enablement status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
-    public okhttp3.Call enableProjectEmbeddingsCall(
+    @Deprecated
+    public APIenableIndexQueriesRequest enableIndexQueries() {
+        return new APIenableIndexQueriesRequest();
+    }
+
+    private okhttp3.Call enableProjectEmbeddingsCall(
             @jakarta.annotation.Nonnull String type,
             @jakarta.annotation.Nonnull
                     ProjectConfigurationEmbeddingEnablePayload
@@ -764,51 +880,7 @@ public class CommandsApi {
                 type, projectConfigurationEmbeddingEnablePayload, _callback);
     }
 
-    /**
-     * Enable embeddings
-     * Validates and enables embeddings for the selected embedding type using the provided environment and model configuration.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
-     * @param projectConfigurationEmbeddingEnablePayload  (required)
-     * @return GenericCommandResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GenericCommandResponse enableProjectEmbeddings(
-            @jakarta.annotation.Nonnull String type,
-            @jakarta.annotation.Nonnull
-                    ProjectConfigurationEmbeddingEnablePayload
-                            projectConfigurationEmbeddingEnablePayload)
-            throws ApiException {
-        ApiResponse<GenericCommandResponse> localVarResp =
-                enableProjectEmbeddingsWithHttpInfo(
-                        type, projectConfigurationEmbeddingEnablePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Enable embeddings
-     * Validates and enables embeddings for the selected embedding type using the provided environment and model configuration.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
-     * @param projectConfigurationEmbeddingEnablePayload  (required)
-     * @return ApiResponse&lt;GenericCommandResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GenericCommandResponse> enableProjectEmbeddingsWithHttpInfo(
+    private ApiResponse<GenericCommandResponse> enableProjectEmbeddingsWithHttpInfo(
             @jakarta.annotation.Nonnull String type,
             @jakarta.annotation.Nonnull
                     ProjectConfigurationEmbeddingEnablePayload
@@ -821,24 +893,7 @@ public class CommandsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Enable embeddings (asynchronously)
-     * Validates and enables embeddings for the selected embedding type using the provided environment and model configuration.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
-     * @param projectConfigurationEmbeddingEnablePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call enableProjectEmbeddingsAsync(
+    private okhttp3.Call enableProjectEmbeddingsAsync(
             @jakarta.annotation.Nonnull String type,
             @jakarta.annotation.Nonnull
                     ProjectConfigurationEmbeddingEnablePayload
@@ -854,21 +909,127 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIenableProjectEmbeddingsRequest {
+        @jakarta.annotation.Nonnull private final String type;
+
+        @jakarta.annotation.Nonnull
+        private final ProjectConfigurationEmbeddingEnablePayload
+                projectConfigurationEmbeddingEnablePayload;
+
+        private APIenableProjectEmbeddingsRequest(
+                @jakarta.annotation.Nonnull String type,
+                @jakarta.annotation.Nonnull
+                        ProjectConfigurationEmbeddingEnablePayload
+                                projectConfigurationEmbeddingEnablePayload) {
+            this.type = type;
+            this.projectConfigurationEmbeddingEnablePayload =
+                    projectConfigurationEmbeddingEnablePayload;
+        }
+
+        /**
+         * Build call for enableProjectEmbeddings
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return enableProjectEmbeddingsCall(
+                    type, projectConfigurationEmbeddingEnablePayload, _callback);
+        }
+
+        /**
+         * Execute enableProjectEmbeddings request
+         * @return GenericCommandResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GenericCommandResponse execute() throws ApiException {
+            ApiResponse<GenericCommandResponse> localVarResp =
+                    enableProjectEmbeddingsWithHttpInfo(
+                            type, projectConfigurationEmbeddingEnablePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute enableProjectEmbeddings request with HTTP info returned
+         * @return ApiResponse&lt;GenericCommandResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GenericCommandResponse> executeWithHttpInfo() throws ApiException {
+            return enableProjectEmbeddingsWithHttpInfo(
+                    type, projectConfigurationEmbeddingEnablePayload);
+        }
+
+        /**
+         * Execute enableProjectEmbeddings request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GenericCommandResponse> _callback)
+                throws ApiException {
+            return enableProjectEmbeddingsAsync(
+                    type, projectConfigurationEmbeddingEnablePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for enableProjectIndexing
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Enable embeddings
+     * Validates and enables embeddings for the selected embedding type using the provided environment and model configuration.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param type  (required)
+     * @param projectConfigurationEmbeddingEnablePayload  (required)
+     * @return APIenableProjectEmbeddingsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing enablement status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call enableProjectIndexingCall(final ApiCallback _callback) throws ApiException {
+    public APIenableProjectEmbeddingsRequest enableProjectEmbeddings(
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull
+                    ProjectConfigurationEmbeddingEnablePayload
+                            projectConfigurationEmbeddingEnablePayload) {
+        return new APIenableProjectEmbeddingsRequest(
+                type, projectConfigurationEmbeddingEnablePayload);
+    }
+
+    private okhttp3.Call enableProjectIndexingCall(final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -927,62 +1088,14 @@ public class CommandsApi {
         return enableProjectIndexingCall(_callback);
     }
 
-    /**
-     * Enable indexing
-     * Enables Elasticsearch-backed indexing for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return GenericCommandResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing enablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GenericCommandResponse enableProjectIndexing() throws ApiException {
-        ApiResponse<GenericCommandResponse> localVarResp = enableProjectIndexingWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Enable indexing
-     * Enables Elasticsearch-backed indexing for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return ApiResponse&lt;GenericCommandResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing enablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GenericCommandResponse> enableProjectIndexingWithHttpInfo()
+    private ApiResponse<GenericCommandResponse> enableProjectIndexingWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = enableProjectIndexingValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Enable indexing (asynchronously)
-     * Enables Elasticsearch-backed indexing for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing enablement status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call enableProjectIndexingAsync(
+    private okhttp3.Call enableProjectIndexingAsync(
             final ApiCallback<GenericCommandResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = enableProjectIndexingValidateBeforeCall(_callback);
@@ -991,22 +1104,101 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIenableProjectIndexingRequest {
+
+        private APIenableProjectIndexingRequest() {}
+
+        /**
+         * Build call for enableProjectIndexing
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return enableProjectIndexingCall(_callback);
+        }
+
+        /**
+         * Execute enableProjectIndexing request
+         * @return GenericCommandResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GenericCommandResponse execute() throws ApiException {
+            ApiResponse<GenericCommandResponse> localVarResp = enableProjectIndexingWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute enableProjectIndexing request with HTTP info returned
+         * @return ApiResponse&lt;GenericCommandResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GenericCommandResponse> executeWithHttpInfo() throws ApiException {
+            return enableProjectIndexingWithHttpInfo();
+        }
+
+        /**
+         * Execute enableProjectIndexing request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GenericCommandResponse> _callback)
+                throws ApiException {
+            return enableProjectIndexingAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getEmbeddingCommandStatus
-     * @param type  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Enable indexing
+     * Enables Elasticsearch-backed indexing for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @return APIenableProjectIndexingRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding status, configured models, and vector index readiness. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Indexing enablement status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getEmbeddingCommandStatusCall(
+    public APIenableProjectIndexingRequest enableProjectIndexing() {
+        return new APIenableProjectIndexingRequest();
+    }
+
+    private okhttp3.Call getEmbeddingCommandStatusCall(
             @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1078,67 +1270,14 @@ public class CommandsApi {
         return getEmbeddingCommandStatusCall(type, _callback);
     }
 
-    /**
-     * Get embedding status
-     * Returns embedding configuration and indexing status for the selected embedding type in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
-     * @return EmbeddingsStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding status, configured models, and vector index readiness. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EmbeddingsStatusResponse getEmbeddingCommandStatus(
-            @jakarta.annotation.Nonnull String type) throws ApiException {
-        ApiResponse<EmbeddingsStatusResponse> localVarResp =
-                getEmbeddingCommandStatusWithHttpInfo(type);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get embedding status
-     * Returns embedding configuration and indexing status for the selected embedding type in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
-     * @return ApiResponse&lt;EmbeddingsStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding status, configured models, and vector index readiness. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EmbeddingsStatusResponse> getEmbeddingCommandStatusWithHttpInfo(
+    private ApiResponse<EmbeddingsStatusResponse> getEmbeddingCommandStatusWithHttpInfo(
             @jakarta.annotation.Nonnull String type) throws ApiException {
         okhttp3.Call localVarCall = getEmbeddingCommandStatusValidateBeforeCall(type, null);
         Type localVarReturnType = new TypeToken<EmbeddingsStatusResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get embedding status (asynchronously)
-     * Returns embedding configuration and indexing status for the selected embedding type in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding status, configured models, and vector index readiness. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getEmbeddingCommandStatusAsync(
+    private okhttp3.Call getEmbeddingCommandStatusAsync(
             @jakarta.annotation.Nonnull String type,
             final ApiCallback<EmbeddingsStatusResponse> _callback)
             throws ApiException {
@@ -1149,21 +1288,108 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIgetEmbeddingCommandStatusRequest {
+        @jakarta.annotation.Nonnull private final String type;
+
+        private APIgetEmbeddingCommandStatusRequest(@jakarta.annotation.Nonnull String type) {
+            this.type = type;
+        }
+
+        /**
+         * Build call for getEmbeddingCommandStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding status, configured models, and vector index readiness. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getEmbeddingCommandStatusCall(type, _callback);
+        }
+
+        /**
+         * Execute getEmbeddingCommandStatus request
+         * @return EmbeddingsStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding status, configured models, and vector index readiness. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public EmbeddingsStatusResponse execute() throws ApiException {
+            ApiResponse<EmbeddingsStatusResponse> localVarResp =
+                    getEmbeddingCommandStatusWithHttpInfo(type);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getEmbeddingCommandStatus request with HTTP info returned
+         * @return ApiResponse&lt;EmbeddingsStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding status, configured models, and vector index readiness. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<EmbeddingsStatusResponse> executeWithHttpInfo() throws ApiException {
+            return getEmbeddingCommandStatusWithHttpInfo(type);
+        }
+
+        /**
+         * Execute getEmbeddingCommandStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding status, configured models, and vector index readiness. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<EmbeddingsStatusResponse> _callback)
+                throws ApiException {
+            return getEmbeddingCommandStatusAsync(type, _callback);
+        }
+    }
+
     /**
-     * Build call for getIndexDriftAnalysis
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get embedding status
+     * Returns embedding configuration and indexing status for the selected embedding type in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param type  (required)
+     * @return APIgetEmbeddingCommandStatusRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Latest drift-analysis workflow state. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Embedding status, configured models, and vector index readiness. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getIndexDriftAnalysisCall(final ApiCallback _callback) throws ApiException {
+    public APIgetEmbeddingCommandStatusRequest getEmbeddingCommandStatus(
+            @jakarta.annotation.Nonnull String type) {
+        return new APIgetEmbeddingCommandStatusRequest(type);
+    }
+
+    private okhttp3.Call getIndexDriftAnalysisCall(final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1222,62 +1448,14 @@ public class CommandsApi {
         return getIndexDriftAnalysisCall(_callback);
     }
 
-    /**
-     * Get indexing drift analysis status
-     * Returns the latest drift-analysis workflow state, including progress or final results for the current project.  **Required permissions:** &#x60;content:admin&#x60;
-     * @return DriftAnalysisStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Latest drift-analysis workflow state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DriftAnalysisStatusResponse getIndexDriftAnalysis() throws ApiException {
-        ApiResponse<DriftAnalysisStatusResponse> localVarResp = getIndexDriftAnalysisWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get indexing drift analysis status
-     * Returns the latest drift-analysis workflow state, including progress or final results for the current project.  **Required permissions:** &#x60;content:admin&#x60;
-     * @return ApiResponse&lt;DriftAnalysisStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Latest drift-analysis workflow state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DriftAnalysisStatusResponse> getIndexDriftAnalysisWithHttpInfo()
+    private ApiResponse<DriftAnalysisStatusResponse> getIndexDriftAnalysisWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = getIndexDriftAnalysisValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<DriftAnalysisStatusResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get indexing drift analysis status (asynchronously)
-     * Returns the latest drift-analysis workflow state, including progress or final results for the current project.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Latest drift-analysis workflow state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getIndexDriftAnalysisAsync(
+    private okhttp3.Call getIndexDriftAnalysisAsync(
             final ApiCallback<DriftAnalysisStatusResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getIndexDriftAnalysisValidateBeforeCall(_callback);
@@ -1286,21 +1464,102 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIgetIndexDriftAnalysisRequest {
+
+        private APIgetIndexDriftAnalysisRequest() {}
+
+        /**
+         * Build call for getIndexDriftAnalysis
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Latest drift-analysis workflow state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getIndexDriftAnalysisCall(_callback);
+        }
+
+        /**
+         * Execute getIndexDriftAnalysis request
+         * @return DriftAnalysisStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Latest drift-analysis workflow state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DriftAnalysisStatusResponse execute() throws ApiException {
+            ApiResponse<DriftAnalysisStatusResponse> localVarResp =
+                    getIndexDriftAnalysisWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getIndexDriftAnalysis request with HTTP info returned
+         * @return ApiResponse&lt;DriftAnalysisStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Latest drift-analysis workflow state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DriftAnalysisStatusResponse> executeWithHttpInfo() throws ApiException {
+            return getIndexDriftAnalysisWithHttpInfo();
+        }
+
+        /**
+         * Execute getIndexDriftAnalysis request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Latest drift-analysis workflow state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DriftAnalysisStatusResponse> _callback)
+                throws ApiException {
+            return getIndexDriftAnalysisAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getIndexingStatus
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get indexing drift analysis status
+     * Returns the latest drift-analysis workflow state, including progress or final results for the current project.  **Required permissions:** &#x60;content:admin&#x60;
+     * @return APIgetIndexDriftAnalysisRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing status and index statistics. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Latest drift-analysis workflow state. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getIndexingStatusCall(final ApiCallback _callback) throws ApiException {
+    public APIgetIndexDriftAnalysisRequest getIndexDriftAnalysis() {
+        return new APIgetIndexDriftAnalysisRequest();
+    }
+
+    private okhttp3.Call getIndexingStatusCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1359,61 +1618,14 @@ public class CommandsApi {
         return getIndexingStatusCall(_callback);
     }
 
-    /**
-     * Get indexing status
-     * Returns the current Elasticsearch indexing state, index statistics, and any in-progress reindex status for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return IndexingStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing status and index statistics. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public IndexingStatusResponse getIndexingStatus() throws ApiException {
-        ApiResponse<IndexingStatusResponse> localVarResp = getIndexingStatusWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get indexing status
-     * Returns the current Elasticsearch indexing state, index statistics, and any in-progress reindex status for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return ApiResponse&lt;IndexingStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing status and index statistics. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<IndexingStatusResponse> getIndexingStatusWithHttpInfo() throws ApiException {
+    private ApiResponse<IndexingStatusResponse> getIndexingStatusWithHttpInfo()
+            throws ApiException {
         okhttp3.Call localVarCall = getIndexingStatusValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<IndexingStatusResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get indexing status (asynchronously)
-     * Returns the current Elasticsearch indexing state, index statistics, and any in-progress reindex status for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Indexing status and index statistics. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getIndexingStatusAsync(final ApiCallback<IndexingStatusResponse> _callback)
+    private okhttp3.Call getIndexingStatusAsync(final ApiCallback<IndexingStatusResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getIndexingStatusValidateBeforeCall(_callback);
@@ -1422,21 +1634,101 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIgetIndexingStatusRequest {
+
+        private APIgetIndexingStatusRequest() {}
+
+        /**
+         * Build call for getIndexingStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing status and index statistics. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getIndexingStatusCall(_callback);
+        }
+
+        /**
+         * Execute getIndexingStatus request
+         * @return IndexingStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing status and index statistics. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public IndexingStatusResponse execute() throws ApiException {
+            ApiResponse<IndexingStatusResponse> localVarResp = getIndexingStatusWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getIndexingStatus request with HTTP info returned
+         * @return ApiResponse&lt;IndexingStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing status and index statistics. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<IndexingStatusResponse> executeWithHttpInfo() throws ApiException {
+            return getIndexingStatusWithHttpInfo();
+        }
+
+        /**
+         * Execute getIndexingStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Indexing status and index statistics. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<IndexingStatusResponse> _callback)
+                throws ApiException {
+            return getIndexingStatusAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listZenoMigrations
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get indexing status
+     * Returns the current Elasticsearch indexing state, index statistics, and any in-progress reindex status for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @return APIgetIndexingStatusRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Available migration names. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Indexing status and index statistics. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listZenoMigrationsCall(final ApiCallback _callback) throws ApiException {
+    public APIgetIndexingStatusRequest getIndexingStatus() {
+        return new APIgetIndexingStatusRequest();
+    }
+
+    private okhttp3.Call listZenoMigrationsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1495,61 +1787,14 @@ public class CommandsApi {
         return listZenoMigrationsCall(_callback);
     }
 
-    /**
-     * List content migrations
-     * Lists the available synchronous content migrations that Vertesia staff can execute.
-     * @return MigrationListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Available migration names. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public MigrationListResponse listZenoMigrations() throws ApiException {
-        ApiResponse<MigrationListResponse> localVarResp = listZenoMigrationsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List content migrations
-     * Lists the available synchronous content migrations that Vertesia staff can execute.
-     * @return ApiResponse&lt;MigrationListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Available migration names. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<MigrationListResponse> listZenoMigrationsWithHttpInfo() throws ApiException {
+    private ApiResponse<MigrationListResponse> listZenoMigrationsWithHttpInfo()
+            throws ApiException {
         okhttp3.Call localVarCall = listZenoMigrationsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<MigrationListResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List content migrations (asynchronously)
-     * Lists the available synchronous content migrations that Vertesia staff can execute.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Available migration names. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listZenoMigrationsAsync(final ApiCallback<MigrationListResponse> _callback)
+    private okhttp3.Call listZenoMigrationsAsync(final ApiCallback<MigrationListResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listZenoMigrationsValidateBeforeCall(_callback);
@@ -1558,24 +1803,101 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIlistZenoMigrationsRequest {
+
+        private APIlistZenoMigrationsRequest() {}
+
+        /**
+         * Build call for listZenoMigrations
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Available migration names. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listZenoMigrationsCall(_callback);
+        }
+
+        /**
+         * Execute listZenoMigrations request
+         * @return MigrationListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Available migration names. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public MigrationListResponse execute() throws ApiException {
+            ApiResponse<MigrationListResponse> localVarResp = listZenoMigrationsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listZenoMigrations request with HTTP info returned
+         * @return ApiResponse&lt;MigrationListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Available migration names. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<MigrationListResponse> executeWithHttpInfo() throws ApiException {
+            return listZenoMigrationsWithHttpInfo();
+        }
+
+        /**
+         * Execute listZenoMigrations request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Available migration names. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<MigrationListResponse> _callback)
+                throws ApiException {
+            return listZenoMigrationsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for recalculateProjectEmbeddings
-     * @param type  (required)
-     * @param mode Force synchronous per-object recalculation. When omitted, batch inference is used when supported. (optional)
-     * @param force Recalculate all eligible objects, including current embeddings. Token limits still apply; existing renditions are reused. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List content migrations
+     * Lists the available synchronous content migrations that Vertesia staff can execute.
+     * @return APIlistZenoMigrationsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Available migration names. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call recalculateProjectEmbeddingsCall(
+    public APIlistZenoMigrationsRequest listZenoMigrations() {
+        return new APIlistZenoMigrationsRequest();
+    }
+
+    private okhttp3.Call recalculateProjectEmbeddingsCall(
             @jakarta.annotation.Nonnull String type,
             @jakarta.annotation.Nullable String mode,
             @jakarta.annotation.Nullable Boolean force,
@@ -1661,51 +1983,7 @@ public class CommandsApi {
         return recalculateProjectEmbeddingsCall(type, mode, force, _callback);
     }
 
-    /**
-     * Recalculate embeddings
-     * Queues recalculation for missing or outdated embeddings, or all eligible objects with force&#x3D;true. Uses batch inference when supported unless mode&#x3D;sync is specified. Token limits still apply and existing renditions are reused.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param type  (required)
-     * @param mode Force synchronous per-object recalculation. When omitted, batch inference is used when supported. (optional)
-     * @param force Recalculate all eligible objects, including current embeddings. Token limits still apply; existing renditions are reused. (optional)
-     * @return GenericCommandResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GenericCommandResponse recalculateProjectEmbeddings(
-            @jakarta.annotation.Nonnull String type,
-            @jakarta.annotation.Nullable String mode,
-            @jakarta.annotation.Nullable Boolean force)
-            throws ApiException {
-        ApiResponse<GenericCommandResponse> localVarResp =
-                recalculateProjectEmbeddingsWithHttpInfo(type, mode, force);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Recalculate embeddings
-     * Queues recalculation for missing or outdated embeddings, or all eligible objects with force&#x3D;true. Uses batch inference when supported unless mode&#x3D;sync is specified. Token limits still apply and existing renditions are reused.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param type  (required)
-     * @param mode Force synchronous per-object recalculation. When omitted, batch inference is used when supported. (optional)
-     * @param force Recalculate all eligible objects, including current embeddings. Token limits still apply; existing renditions are reused. (optional)
-     * @return ApiResponse&lt;GenericCommandResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GenericCommandResponse> recalculateProjectEmbeddingsWithHttpInfo(
+    private ApiResponse<GenericCommandResponse> recalculateProjectEmbeddingsWithHttpInfo(
             @jakarta.annotation.Nonnull String type,
             @jakarta.annotation.Nullable String mode,
             @jakarta.annotation.Nullable Boolean force)
@@ -1716,25 +1994,7 @@ public class CommandsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Recalculate embeddings (asynchronously)
-     * Queues recalculation for missing or outdated embeddings, or all eligible objects with force&#x3D;true. Uses batch inference when supported unless mode&#x3D;sync is specified. Token limits still apply and existing renditions are reused.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param type  (required)
-     * @param mode Force synchronous per-object recalculation. When omitted, batch inference is used when supported. (optional)
-     * @param force Recalculate all eligible objects, including current embeddings. Token limits still apply; existing renditions are reused. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call recalculateProjectEmbeddingsAsync(
+    private okhttp3.Call recalculateProjectEmbeddingsAsync(
             @jakarta.annotation.Nonnull String type,
             @jakarta.annotation.Nullable String mode,
             @jakarta.annotation.Nullable Boolean force,
@@ -1748,74 +2008,131 @@ public class CommandsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for recalculateProjectEmbeddings with every optional parameter left unset.
-     * @param type  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call recalculateProjectEmbeddingsCall(
-            @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
-            throws ApiException {
-        return recalculateProjectEmbeddingsCall(type, null, null, _callback);
+    public class APIrecalculateProjectEmbeddingsRequest {
+        @jakarta.annotation.Nonnull private final String type;
+        @jakarta.annotation.Nullable private String mode;
+        @jakarta.annotation.Nullable private Boolean force;
+
+        private APIrecalculateProjectEmbeddingsRequest(@jakarta.annotation.Nonnull String type) {
+            this.type = type;
+        }
+
+        /**
+         * Set mode
+         * @param mode Force synchronous per-object recalculation. When omitted, batch inference is used when supported. (optional)
+         * @return APIrecalculateProjectEmbeddingsRequest
+         */
+        public APIrecalculateProjectEmbeddingsRequest mode(
+                @jakarta.annotation.Nullable String mode) {
+            this.mode = mode;
+            return this;
+        }
+
+        /**
+         * Set force
+         * @param force Recalculate all eligible objects, including current embeddings. Token limits still apply; existing renditions are reused. (optional)
+         * @return APIrecalculateProjectEmbeddingsRequest
+         */
+        public APIrecalculateProjectEmbeddingsRequest force(
+                @jakarta.annotation.Nullable Boolean force) {
+            this.force = force;
+            return this;
+        }
+
+        /**
+         * Build call for recalculateProjectEmbeddings
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return recalculateProjectEmbeddingsCall(type, mode, force, _callback);
+        }
+
+        /**
+         * Execute recalculateProjectEmbeddings request
+         * @return GenericCommandResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GenericCommandResponse execute() throws ApiException {
+            ApiResponse<GenericCommandResponse> localVarResp =
+                    recalculateProjectEmbeddingsWithHttpInfo(type, mode, force);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute recalculateProjectEmbeddings request with HTTP info returned
+         * @return ApiResponse&lt;GenericCommandResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GenericCommandResponse> executeWithHttpInfo() throws ApiException {
+            return recalculateProjectEmbeddingsWithHttpInfo(type, mode, force);
+        }
+
+        /**
+         * Execute recalculateProjectEmbeddings request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GenericCommandResponse> _callback)
+                throws ApiException {
+            return recalculateProjectEmbeddingsAsync(type, mode, force, _callback);
+        }
     }
 
     /**
      * Recalculate embeddings
-     * Calls {@code recalculateProjectEmbeddings} with every optional parameter left unset.
+     * Queues recalculation for missing or outdated embeddings, or all eligible objects with force&#x3D;true. Uses batch inference when supported unless mode&#x3D;sync is specified. Token limits still apply and existing renditions are reused.  **Required permissions:** &#x60;project:admin&#x60;
      * @param type  (required)
-     * @return GenericCommandResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public GenericCommandResponse recalculateProjectEmbeddings(
-            @jakarta.annotation.Nonnull String type) throws ApiException {
-        return recalculateProjectEmbeddings(type, null, null);
-    }
-
-    /**
-     * Recalculate embeddings
-     * Calls {@code recalculateProjectEmbeddingsWithHttpInfo} with every optional parameter left unset.
-     * @param type  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<GenericCommandResponse> recalculateProjectEmbeddingsWithHttpInfo(
-            @jakarta.annotation.Nonnull String type) throws ApiException {
-        return recalculateProjectEmbeddingsWithHttpInfo(type, null, null);
-    }
-
-    /**
-     * Recalculate embeddings (asynchronously)
-     * Calls {@code recalculateProjectEmbeddingsAsync} with every optional parameter left unset.
-     * @param type  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call recalculateProjectEmbeddingsAsync(
-            @jakarta.annotation.Nonnull String type,
-            final ApiCallback<GenericCommandResponse> _callback)
-            throws ApiException {
-        return recalculateProjectEmbeddingsAsync(type, null, null, _callback);
-    }
-
-    /**
-     * Build call for reindexAgentRuns
-     * @param reindexAgentRunsPayload  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIrecalculateProjectEmbeddingsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call reindexAgentRunsCall(
+    public APIrecalculateProjectEmbeddingsRequest recalculateProjectEmbeddings(
+            @jakarta.annotation.Nonnull String type) {
+        return new APIrecalculateProjectEmbeddingsRequest(type);
+    }
+
+    private okhttp3.Call reindexAgentRunsCall(
             @jakarta.annotation.Nullable ReindexAgentRunsPayload reindexAgentRunsPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1879,45 +2196,7 @@ public class CommandsApi {
         return reindexAgentRunsCall(reindexAgentRunsPayload, _callback);
     }
 
-    /**
-     * Reindex agent runs
-     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default it rebuilds into a new index and swaps searches to it once filled, so searches keep working during the rebuild.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param reindexAgentRunsPayload  (optional)
-     * @return ReindexAgentRunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ReindexAgentRunsResponse reindexAgentRuns(
-            @jakarta.annotation.Nullable ReindexAgentRunsPayload reindexAgentRunsPayload)
-            throws ApiException {
-        ApiResponse<ReindexAgentRunsResponse> localVarResp =
-                reindexAgentRunsWithHttpInfo(reindexAgentRunsPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Reindex agent runs
-     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default it rebuilds into a new index and swaps searches to it once filled, so searches keep working during the rebuild.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param reindexAgentRunsPayload  (optional)
-     * @return ApiResponse&lt;ReindexAgentRunsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ReindexAgentRunsResponse> reindexAgentRunsWithHttpInfo(
+    private ApiResponse<ReindexAgentRunsResponse> reindexAgentRunsWithHttpInfo(
             @jakarta.annotation.Nullable ReindexAgentRunsPayload reindexAgentRunsPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1926,23 +2205,7 @@ public class CommandsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Reindex agent runs (asynchronously)
-     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default it rebuilds into a new index and swaps searches to it once filled, so searches keep working during the rebuild.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param reindexAgentRunsPayload  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call reindexAgentRunsAsync(
+    private okhttp3.Call reindexAgentRunsAsync(
             @jakarta.annotation.Nullable ReindexAgentRunsPayload reindexAgentRunsPayload,
             final ApiCallback<ReindexAgentRunsResponse> _callback)
             throws ApiException {
@@ -1954,66 +2217,114 @@ public class CommandsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for reindexAgentRuns with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call reindexAgentRunsCall(final ApiCallback _callback) throws ApiException {
-        return reindexAgentRunsCall(null, _callback);
+    public class APIreindexAgentRunsRequest {
+        @jakarta.annotation.Nullable private ReindexAgentRunsPayload reindexAgentRunsPayload;
+
+        private APIreindexAgentRunsRequest() {}
+
+        /**
+         * Set reindexAgentRunsPayload
+         * @param reindexAgentRunsPayload  (optional)
+         * @return APIreindexAgentRunsRequest
+         */
+        public APIreindexAgentRunsRequest reindexAgentRunsPayload(
+                @jakarta.annotation.Nullable ReindexAgentRunsPayload reindexAgentRunsPayload) {
+            this.reindexAgentRunsPayload = reindexAgentRunsPayload;
+            return this;
+        }
+
+        /**
+         * Build call for reindexAgentRuns
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return reindexAgentRunsCall(reindexAgentRunsPayload, _callback);
+        }
+
+        /**
+         * Execute reindexAgentRuns request
+         * @return ReindexAgentRunsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ReindexAgentRunsResponse execute() throws ApiException {
+            ApiResponse<ReindexAgentRunsResponse> localVarResp =
+                    reindexAgentRunsWithHttpInfo(reindexAgentRunsPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute reindexAgentRuns request with HTTP info returned
+         * @return ApiResponse&lt;ReindexAgentRunsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ReindexAgentRunsResponse> executeWithHttpInfo() throws ApiException {
+            return reindexAgentRunsWithHttpInfo(reindexAgentRunsPayload);
+        }
+
+        /**
+         * Execute reindexAgentRuns request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ReindexAgentRunsResponse> _callback)
+                throws ApiException {
+            return reindexAgentRunsAsync(reindexAgentRunsPayload, _callback);
+        }
     }
 
     /**
      * Reindex agent runs
-     * Calls {@code reindexAgentRuns} with every optional parameter left unset.
-     * @return ReindexAgentRunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ReindexAgentRunsResponse reindexAgentRuns() throws ApiException {
-        return reindexAgentRuns(null);
-    }
-
-    /**
-     * Reindex agent runs
-     * Calls {@code reindexAgentRunsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ReindexAgentRunsResponse> reindexAgentRunsWithHttpInfo()
-            throws ApiException {
-        return reindexAgentRunsWithHttpInfo(null);
-    }
-
-    /**
-     * Reindex agent runs (asynchronously)
-     * Calls {@code reindexAgentRunsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call reindexAgentRunsAsync(final ApiCallback<ReindexAgentRunsResponse> _callback)
-            throws ApiException {
-        return reindexAgentRunsAsync(null, _callback);
-    }
-
-    /**
-     * Build call for runZenoMigration
-     * @param name  (required)
-     * @param runMigrationPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default it rebuilds into a new index and swaps searches to it once filled, so searches keep working during the rebuild.  **Required permissions:** &#x60;content:admin&#x60;
+     * @return APIreindexAgentRunsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Migration execution status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call runZenoMigrationCall(
+    public APIreindexAgentRunsRequest reindexAgentRuns() {
+        return new APIreindexAgentRunsRequest();
+    }
+
+    private okhttp3.Call runZenoMigrationCall(
             @jakarta.annotation.Nonnull String name,
             @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload,
             final ApiCallback _callback)
@@ -2095,48 +2406,7 @@ public class CommandsApi {
         return runZenoMigrationCall(name, runMigrationPayload, _callback);
     }
 
-    /**
-     * Run a content migration
-     * Executes a named synchronous migration. Only Vertesia staff can run migrations. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
-     * @param name  (required)
-     * @param runMigrationPayload  (required)
-     * @return RunMigrationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Migration execution status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RunMigrationResponse runZenoMigration(
-            @jakarta.annotation.Nonnull String name,
-            @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload)
-            throws ApiException {
-        ApiResponse<RunMigrationResponse> localVarResp =
-                runZenoMigrationWithHttpInfo(name, runMigrationPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Run a content migration
-     * Executes a named synchronous migration. Only Vertesia staff can run migrations. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
-     * @param name  (required)
-     * @param runMigrationPayload  (required)
-     * @return ApiResponse&lt;RunMigrationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Migration execution status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RunMigrationResponse> runZenoMigrationWithHttpInfo(
+    private ApiResponse<RunMigrationResponse> runZenoMigrationWithHttpInfo(
             @jakarta.annotation.Nonnull String name,
             @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload)
             throws ApiException {
@@ -2146,24 +2416,7 @@ public class CommandsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Run a content migration (asynchronously)
-     * Executes a named synchronous migration. Only Vertesia staff can run migrations. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
-     * @param name  (required)
-     * @param runMigrationPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Migration execution status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call runZenoMigrationAsync(
+    private okhttp3.Call runZenoMigrationAsync(
             @jakarta.annotation.Nonnull String name,
             @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload,
             final ApiCallback<RunMigrationResponse> _callback)
@@ -2176,21 +2429,113 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIrunZenoMigrationRequest {
+        @jakarta.annotation.Nonnull private final String name;
+        @jakarta.annotation.Nonnull private final RunMigrationPayload runMigrationPayload;
+
+        private APIrunZenoMigrationRequest(
+                @jakarta.annotation.Nonnull String name,
+                @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload) {
+            this.name = name;
+            this.runMigrationPayload = runMigrationPayload;
+        }
+
+        /**
+         * Build call for runZenoMigration
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Migration execution status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return runZenoMigrationCall(name, runMigrationPayload, _callback);
+        }
+
+        /**
+         * Execute runZenoMigration request
+         * @return RunMigrationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Migration execution status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public RunMigrationResponse execute() throws ApiException {
+            ApiResponse<RunMigrationResponse> localVarResp =
+                    runZenoMigrationWithHttpInfo(name, runMigrationPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute runZenoMigration request with HTTP info returned
+         * @return ApiResponse&lt;RunMigrationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Migration execution status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<RunMigrationResponse> executeWithHttpInfo() throws ApiException {
+            return runZenoMigrationWithHttpInfo(name, runMigrationPayload);
+        }
+
+        /**
+         * Execute runZenoMigration request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Migration execution status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RunMigrationResponse> _callback)
+                throws ApiException {
+            return runZenoMigrationAsync(name, runMigrationPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for startIndexDriftAnalysis
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Run a content migration
+     * Executes a named synchronous migration. Only Vertesia staff can run migrations. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
+     * @param name  (required)
+     * @param runMigrationPayload  (required)
+     * @return APIrunZenoMigrationRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Drift-analysis workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Migration execution status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call startIndexDriftAnalysisCall(final ApiCallback _callback)
+    public APIrunZenoMigrationRequest runZenoMigration(
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload) {
+        return new APIrunZenoMigrationRequest(name, runMigrationPayload);
+    }
+
+    private okhttp3.Call startIndexDriftAnalysisCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2250,63 +2595,14 @@ public class CommandsApi {
         return startIndexDriftAnalysisCall(_callback);
     }
 
-    /**
-     * Start indexing drift analysis
-     * Starts a workflow that compares MongoDB content objects with Elasticsearch documents to detect missing or stale indexed content.  **Required permissions:** &#x60;content:admin&#x60;
-     * @return DriftAnalysisStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Drift-analysis workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DriftAnalysisStatusResponse startIndexDriftAnalysis() throws ApiException {
-        ApiResponse<DriftAnalysisStatusResponse> localVarResp =
-                startIndexDriftAnalysisWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start indexing drift analysis
-     * Starts a workflow that compares MongoDB content objects with Elasticsearch documents to detect missing or stale indexed content.  **Required permissions:** &#x60;content:admin&#x60;
-     * @return ApiResponse&lt;DriftAnalysisStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Drift-analysis workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DriftAnalysisStatusResponse> startIndexDriftAnalysisWithHttpInfo()
+    private ApiResponse<DriftAnalysisStatusResponse> startIndexDriftAnalysisWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = startIndexDriftAnalysisValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<DriftAnalysisStatusResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start indexing drift analysis (asynchronously)
-     * Starts a workflow that compares MongoDB content objects with Elasticsearch documents to detect missing or stale indexed content.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Drift-analysis workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call startIndexDriftAnalysisAsync(
+    private okhttp3.Call startIndexDriftAnalysisAsync(
             final ApiCallback<DriftAnalysisStatusResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = startIndexDriftAnalysisValidateBeforeCall(_callback);
@@ -2315,22 +2611,102 @@ public class CommandsApi {
         return localVarCall;
     }
 
+    public class APIstartIndexDriftAnalysisRequest {
+
+        private APIstartIndexDriftAnalysisRequest() {}
+
+        /**
+         * Build call for startIndexDriftAnalysis
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Drift-analysis workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return startIndexDriftAnalysisCall(_callback);
+        }
+
+        /**
+         * Execute startIndexDriftAnalysis request
+         * @return DriftAnalysisStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Drift-analysis workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DriftAnalysisStatusResponse execute() throws ApiException {
+            ApiResponse<DriftAnalysisStatusResponse> localVarResp =
+                    startIndexDriftAnalysisWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute startIndexDriftAnalysis request with HTTP info returned
+         * @return ApiResponse&lt;DriftAnalysisStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Drift-analysis workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DriftAnalysisStatusResponse> executeWithHttpInfo() throws ApiException {
+            return startIndexDriftAnalysisWithHttpInfo();
+        }
+
+        /**
+         * Execute startIndexDriftAnalysis request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Drift-analysis workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DriftAnalysisStatusResponse> _callback)
+                throws ApiException {
+            return startIndexDriftAnalysisAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for startProjectReindex
-     * @param startProjectReindexPayload  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Start indexing drift analysis
+     * Starts a workflow that compares MongoDB content objects with Elasticsearch documents to detect missing or stale indexed content.  **Required permissions:** &#x60;content:admin&#x60;
+     * @return APIstartIndexDriftAnalysisRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Reindex workflow start status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Drift-analysis workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call startProjectReindexCall(
+    public APIstartIndexDriftAnalysisRequest startIndexDriftAnalysis() {
+        return new APIstartIndexDriftAnalysisRequest();
+    }
+
+    private okhttp3.Call startProjectReindexCall(
             @jakarta.annotation.Nullable StartProjectReindexPayload startProjectReindexPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -2394,45 +2770,7 @@ public class CommandsApi {
         return startProjectReindexCall(startProjectReindexPayload, _callback);
     }
 
-    /**
-     * Start a full reindex
-     * Starts a full project reindex workflow that rebuilds the Elasticsearch index from content objects.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param startProjectReindexPayload  (optional)
-     * @return GenericCommandResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Reindex workflow start status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GenericCommandResponse startProjectReindex(
-            @jakarta.annotation.Nullable StartProjectReindexPayload startProjectReindexPayload)
-            throws ApiException {
-        ApiResponse<GenericCommandResponse> localVarResp =
-                startProjectReindexWithHttpInfo(startProjectReindexPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start a full reindex
-     * Starts a full project reindex workflow that rebuilds the Elasticsearch index from content objects.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param startProjectReindexPayload  (optional)
-     * @return ApiResponse&lt;GenericCommandResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Reindex workflow start status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GenericCommandResponse> startProjectReindexWithHttpInfo(
+    private ApiResponse<GenericCommandResponse> startProjectReindexWithHttpInfo(
             @jakarta.annotation.Nullable StartProjectReindexPayload startProjectReindexPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -2441,23 +2779,7 @@ public class CommandsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start a full reindex (asynchronously)
-     * Starts a full project reindex workflow that rebuilds the Elasticsearch index from content objects.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param startProjectReindexPayload  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Reindex workflow start status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call startProjectReindexAsync(
+    private okhttp3.Call startProjectReindexAsync(
             @jakarta.annotation.Nullable StartProjectReindexPayload startProjectReindexPayload,
             final ApiCallback<GenericCommandResponse> _callback)
             throws ApiException {
@@ -2469,46 +2791,110 @@ public class CommandsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for startProjectReindex with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call startProjectReindexCall(final ApiCallback _callback) throws ApiException {
-        return startProjectReindexCall(null, _callback);
+    public class APIstartProjectReindexRequest {
+        @jakarta.annotation.Nullable private StartProjectReindexPayload startProjectReindexPayload;
+
+        private APIstartProjectReindexRequest() {}
+
+        /**
+         * Set startProjectReindexPayload
+         * @param startProjectReindexPayload  (optional)
+         * @return APIstartProjectReindexRequest
+         */
+        public APIstartProjectReindexRequest startProjectReindexPayload(
+                @jakarta.annotation.Nullable StartProjectReindexPayload startProjectReindexPayload) {
+            this.startProjectReindexPayload = startProjectReindexPayload;
+            return this;
+        }
+
+        /**
+         * Build call for startProjectReindex
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Reindex workflow start status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return startProjectReindexCall(startProjectReindexPayload, _callback);
+        }
+
+        /**
+         * Execute startProjectReindex request
+         * @return GenericCommandResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Reindex workflow start status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GenericCommandResponse execute() throws ApiException {
+            ApiResponse<GenericCommandResponse> localVarResp =
+                    startProjectReindexWithHttpInfo(startProjectReindexPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute startProjectReindex request with HTTP info returned
+         * @return ApiResponse&lt;GenericCommandResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Reindex workflow start status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GenericCommandResponse> executeWithHttpInfo() throws ApiException {
+            return startProjectReindexWithHttpInfo(startProjectReindexPayload);
+        }
+
+        /**
+         * Execute startProjectReindex request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Reindex workflow start status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GenericCommandResponse> _callback)
+                throws ApiException {
+            return startProjectReindexAsync(startProjectReindexPayload, _callback);
+        }
     }
 
     /**
      * Start a full reindex
-     * Calls {@code startProjectReindex} with every optional parameter left unset.
-     * @return GenericCommandResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Starts a full project reindex workflow that rebuilds the Elasticsearch index from content objects.  **Required permissions:** &#x60;content:admin&#x60;
+     * @return APIstartProjectReindexRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Reindex workflow start status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
      */
-    public GenericCommandResponse startProjectReindex() throws ApiException {
-        return startProjectReindex(null);
-    }
-
-    /**
-     * Start a full reindex
-     * Calls {@code startProjectReindexWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<GenericCommandResponse> startProjectReindexWithHttpInfo()
-            throws ApiException {
-        return startProjectReindexWithHttpInfo(null);
-    }
-
-    /**
-     * Start a full reindex (asynchronously)
-     * Calls {@code startProjectReindexAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call startProjectReindexAsync(
-            final ApiCallback<GenericCommandResponse> _callback) throws ApiException {
-        return startProjectReindexAsync(null, _callback);
+    public APIstartProjectReindexRequest startProjectReindex() {
+        return new APIstartProjectReindexRequest();
     }
 }

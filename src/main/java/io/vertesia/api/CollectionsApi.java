@@ -80,23 +80,7 @@ public class CollectionsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for computeCollectionMembersFacets
-     * @param collectionId  (required)
-     * @param computeObjectFacetPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching collection members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call computeCollectionMembersFacetsCall(
+    private okhttp3.Call computeCollectionMembersFacetsCall(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
             final ApiCallback _callback)
@@ -179,48 +163,7 @@ public class CollectionsApi {
                 collectionId, computeObjectFacetPayload, _callback);
     }
 
-    /**
-     * Compute collection member facets
-     * Computes aggregation buckets and counts for objects within a collection.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param computeObjectFacetPayload  (required)
-     * @return ComputedFacetResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching collection members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ComputedFacetResponse computeCollectionMembersFacets(
-            @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
-            throws ApiException {
-        ApiResponse<ComputedFacetResponse> localVarResp =
-                computeCollectionMembersFacetsWithHttpInfo(collectionId, computeObjectFacetPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Compute collection member facets
-     * Computes aggregation buckets and counts for objects within a collection.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param computeObjectFacetPayload  (required)
-     * @return ApiResponse&lt;ComputedFacetResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching collection members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ComputedFacetResponse> computeCollectionMembersFacetsWithHttpInfo(
+    private ApiResponse<ComputedFacetResponse> computeCollectionMembersFacetsWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
             throws ApiException {
@@ -231,24 +174,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Compute collection member facets (asynchronously)
-     * Computes aggregation buckets and counts for objects within a collection.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param computeObjectFacetPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching collection members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call computeCollectionMembersFacetsAsync(
+    private okhttp3.Call computeCollectionMembersFacetsAsync(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
             final ApiCallback<ComputedFacetResponse> _callback)
@@ -262,22 +188,120 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIcomputeCollectionMembersFacetsRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        @jakarta.annotation.Nonnull
+        private final ComputeObjectFacetPayload computeObjectFacetPayload;
+
+        private APIcomputeCollectionMembersFacetsRequest(
+                @jakarta.annotation.Nonnull String collectionId,
+                @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload) {
+            this.collectionId = collectionId;
+            this.computeObjectFacetPayload = computeObjectFacetPayload;
+        }
+
+        /**
+         * Build call for computeCollectionMembersFacets
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return computeCollectionMembersFacetsCall(
+                    collectionId, computeObjectFacetPayload, _callback);
+        }
+
+        /**
+         * Execute computeCollectionMembersFacets request
+         * @return ComputedFacetResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ComputedFacetResponse execute() throws ApiException {
+            ApiResponse<ComputedFacetResponse> localVarResp =
+                    computeCollectionMembersFacetsWithHttpInfo(
+                            collectionId, computeObjectFacetPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute computeCollectionMembersFacets request with HTTP info returned
+         * @return ApiResponse&lt;ComputedFacetResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ComputedFacetResponse> executeWithHttpInfo() throws ApiException {
+            return computeCollectionMembersFacetsWithHttpInfo(
+                    collectionId, computeObjectFacetPayload);
+        }
+
+        /**
+         * Execute computeCollectionMembersFacets request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ComputedFacetResponse> _callback)
+                throws ApiException {
+            return computeCollectionMembersFacetsAsync(
+                    collectionId, computeObjectFacetPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for computeCollectionsFacets
-     * @param computeCollectionFacetPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Compute collection member facets
+     * Computes aggregation buckets and counts for objects within a collection.  **Required permissions:** &#x60;content:read&#x60;
+     * @param collectionId  (required)
+     * @param computeObjectFacetPayload  (required)
+     * @return APIcomputeCollectionMembersFacetsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching collections. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Facet buckets and total count for matching collection members. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call computeCollectionsFacetsCall(
+    public APIcomputeCollectionMembersFacetsRequest computeCollectionMembersFacets(
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload) {
+        return new APIcomputeCollectionMembersFacetsRequest(
+                collectionId, computeObjectFacetPayload);
+    }
+
+    private okhttp3.Call computeCollectionsFacetsCall(
             @jakarta.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -347,45 +371,7 @@ public class CollectionsApi {
         return computeCollectionsFacetsCall(computeCollectionFacetPayload, _callback);
     }
 
-    /**
-     * Compute collection facets
-     * Computes aggregation buckets and counts for collection filters such as type, status, dynamic mode, and name.  **Required permissions:** &#x60;content:read&#x60;
-     * @param computeCollectionFacetPayload  (required)
-     * @return ComputedFacetResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ComputedFacetResponse computeCollectionsFacets(
-            @jakarta.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload)
-            throws ApiException {
-        ApiResponse<ComputedFacetResponse> localVarResp =
-                computeCollectionsFacetsWithHttpInfo(computeCollectionFacetPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Compute collection facets
-     * Computes aggregation buckets and counts for collection filters such as type, status, dynamic mode, and name.  **Required permissions:** &#x60;content:read&#x60;
-     * @param computeCollectionFacetPayload  (required)
-     * @return ApiResponse&lt;ComputedFacetResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ComputedFacetResponse> computeCollectionsFacetsWithHttpInfo(
+    private ApiResponse<ComputedFacetResponse> computeCollectionsFacetsWithHttpInfo(
             @jakarta.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -394,23 +380,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Compute collection facets (asynchronously)
-     * Computes aggregation buckets and counts for collection filters such as type, status, dynamic mode, and name.  **Required permissions:** &#x60;content:read&#x60;
-     * @param computeCollectionFacetPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call computeCollectionsFacetsAsync(
+    private okhttp3.Call computeCollectionsFacetsAsync(
             @jakarta.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload,
             final ApiCallback<ComputedFacetResponse> _callback)
             throws ApiException {
@@ -423,22 +393,111 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIcomputeCollectionsFacetsRequest {
+        @jakarta.annotation.Nonnull
+        private final ComputeCollectionFacetPayload computeCollectionFacetPayload;
+
+        private APIcomputeCollectionsFacetsRequest(
+                @jakarta.annotation.Nonnull
+                        ComputeCollectionFacetPayload computeCollectionFacetPayload) {
+            this.computeCollectionFacetPayload = computeCollectionFacetPayload;
+        }
+
+        /**
+         * Build call for computeCollectionsFacets
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return computeCollectionsFacetsCall(computeCollectionFacetPayload, _callback);
+        }
+
+        /**
+         * Execute computeCollectionsFacets request
+         * @return ComputedFacetResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ComputedFacetResponse execute() throws ApiException {
+            ApiResponse<ComputedFacetResponse> localVarResp =
+                    computeCollectionsFacetsWithHttpInfo(computeCollectionFacetPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute computeCollectionsFacets request with HTTP info returned
+         * @return ApiResponse&lt;ComputedFacetResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ComputedFacetResponse> executeWithHttpInfo() throws ApiException {
+            return computeCollectionsFacetsWithHttpInfo(computeCollectionFacetPayload);
+        }
+
+        /**
+         * Execute computeCollectionsFacets request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ComputedFacetResponse> _callback)
+                throws ApiException {
+            return computeCollectionsFacetsAsync(computeCollectionFacetPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createCollection
-     * @param createCollectionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Compute collection facets
+     * Computes aggregation buckets and counts for collection filters such as type, status, dynamic mode, and name.  **Required permissions:** &#x60;content:read&#x60;
+     * @param computeCollectionFacetPayload  (required)
+     * @return APIcomputeCollectionsFacetsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Facet buckets and total count for matching collections. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createCollectionCall(
+    public APIcomputeCollectionsFacetsRequest computeCollectionsFacets(
+            @jakarta.annotation.Nonnull
+                    ComputeCollectionFacetPayload computeCollectionFacetPayload) {
+        return new APIcomputeCollectionsFacetsRequest(computeCollectionFacetPayload);
+    }
+
+    private okhttp3.Call createCollectionCall(
             @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -508,45 +567,7 @@ public class CollectionsApi {
         return createCollectionCall(createCollectionPayload, _callback);
     }
 
-    /**
-     * Create a collection
-     * Creates a collection with static or dynamic membership, optional type restrictions, and layout configuration.  **Required permissions:** &#x60;content:write&#x60;
-     * @param createCollectionPayload  (required)
-     * @return Collection
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Collection createCollection(
-            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
-            throws ApiException {
-        ApiResponse<Collection> localVarResp =
-                createCollectionWithHttpInfo(createCollectionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a collection
-     * Creates a collection with static or dynamic membership, optional type restrictions, and layout configuration.  **Required permissions:** &#x60;content:write&#x60;
-     * @param createCollectionPayload  (required)
-     * @return ApiResponse&lt;Collection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Collection> createCollectionWithHttpInfo(
+    private ApiResponse<Collection> createCollectionWithHttpInfo(
             @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -555,23 +576,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a collection (asynchronously)
-     * Creates a collection with static or dynamic membership, optional type restrictions, and layout configuration.  **Required permissions:** &#x60;content:write&#x60;
-     * @param createCollectionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createCollectionAsync(
+    private okhttp3.Call createCollectionAsync(
             @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
             final ApiCallback<Collection> _callback)
             throws ApiException {
@@ -583,22 +588,108 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIcreateCollectionRequest {
+        @jakarta.annotation.Nonnull private final CreateCollectionPayload createCollectionPayload;
+
+        private APIcreateCollectionRequest(
+                @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload) {
+            this.createCollectionPayload = createCollectionPayload;
+        }
+
+        /**
+         * Build call for createCollection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createCollectionCall(createCollectionPayload, _callback);
+        }
+
+        /**
+         * Execute createCollection request
+         * @return Collection
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Collection execute() throws ApiException {
+            ApiResponse<Collection> localVarResp =
+                    createCollectionWithHttpInfo(createCollectionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createCollection request with HTTP info returned
+         * @return ApiResponse&lt;Collection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Collection> executeWithHttpInfo() throws ApiException {
+            return createCollectionWithHttpInfo(createCollectionPayload);
+        }
+
+        /**
+         * Execute createCollection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Collection> _callback)
+                throws ApiException {
+            return createCollectionAsync(createCollectionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteCollection
-     * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a collection
+     * Creates a collection with static or dynamic membership, optional type restrictions, and layout configuration.  **Required permissions:** &#x60;content:write&#x60;
+     * @param createCollectionPayload  (required)
+     * @return APIcreateCollectionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted collection identifier and count. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteCollectionCall(
+    public APIcreateCollectionRequest createCollection(
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload) {
+        return new APIcreateCollectionRequest(createCollectionPayload);
+    }
+
+    private okhttp3.Call deleteCollectionCall(
             @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -670,66 +761,14 @@ public class CollectionsApi {
         return deleteCollectionCall(collectionId, _callback);
     }
 
-    /**
-     * Delete a collection
-     * Deletes a collection after verifying delete permission.
-     * @param collectionId  (required)
-     * @return DeleteCountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted collection identifier and count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteCountResult deleteCollection(@jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<DeleteCountResult> localVarResp = deleteCollectionWithHttpInfo(collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a collection
-     * Deletes a collection after verifying delete permission.
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;DeleteCountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted collection identifier and count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteCountResult> deleteCollectionWithHttpInfo(
+    private ApiResponse<DeleteCountResult> deleteCollectionWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a collection (asynchronously)
-     * Deletes a collection after verifying delete permission.
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted collection identifier and count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteCollectionAsync(
+    private okhttp3.Call deleteCollectionAsync(
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
@@ -740,22 +779,107 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIdeleteCollectionRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIdeleteCollectionRequest(@jakarta.annotation.Nonnull String collectionId) {
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for deleteCollection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted collection identifier and count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteCollectionCall(collectionId, _callback);
+        }
+
+        /**
+         * Execute deleteCollection request
+         * @return DeleteCountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted collection identifier and count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteCountResult execute() throws ApiException {
+            ApiResponse<DeleteCountResult> localVarResp =
+                    deleteCollectionWithHttpInfo(collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteCollection request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted collection identifier and count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteCountResult> executeWithHttpInfo() throws ApiException {
+            return deleteCollectionWithHttpInfo(collectionId);
+        }
+
+        /**
+         * Execute deleteCollection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted collection identifier and count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCountResult> _callback)
+                throws ApiException {
+            return deleteCollectionAsync(collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for getCollection
+     * Delete a collection
+     * Deletes a collection after verifying delete permission.
      * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteCollectionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Deleted collection identifier and count. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getCollectionCall(
+    public APIdeleteCollectionRequest deleteCollection(
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIdeleteCollectionRequest(collectionId);
+    }
+
+    private okhttp3.Call getCollectionCall(
             @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -827,66 +951,14 @@ public class CollectionsApi {
         return getCollectionCall(collectionId, _callback);
     }
 
-    /**
-     * Retrieve a collection
-     * Retrieves a collection by ID, resolving its content type reference when present.
-     * @param collectionId  (required)
-     * @return Collection
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Collection getCollection(@jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<Collection> localVarResp = getCollectionWithHttpInfo(collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a collection
-     * Retrieves a collection by ID, resolving its content type reference when present.
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;Collection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Collection> getCollectionWithHttpInfo(
+    private ApiResponse<Collection> getCollectionWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId) throws ApiException {
         okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, null);
         Type localVarReturnType = new TypeToken<Collection>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a collection (asynchronously)
-     * Retrieves a collection by ID, resolving its content type reference when present.
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getCollectionAsync(
+    private okhttp3.Call getCollectionAsync(
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<Collection> _callback)
             throws ApiException {
@@ -897,26 +969,105 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIgetCollectionRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIgetCollectionRequest(@jakarta.annotation.Nonnull String collectionId) {
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for getCollection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCollectionCall(collectionId, _callback);
+        }
+
+        /**
+         * Execute getCollection request
+         * @return Collection
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Collection execute() throws ApiException {
+            ApiResponse<Collection> localVarResp = getCollectionWithHttpInfo(collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCollection request with HTTP info returned
+         * @return ApiResponse&lt;Collection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Collection> executeWithHttpInfo() throws ApiException {
+            return getCollectionWithHttpInfo(collectionId);
+        }
+
+        /**
+         * Execute getCollection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Collection> _callback)
+                throws ApiException {
+            return getCollectionAsync(collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for listCollectionMembers
+     * Retrieve a collection
+     * Retrieves a collection by ID, resolving its content type reference when present.
      * @param collectionId  (required)
-     * @param status  (optional)
-     * @param type  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetCollectionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collection members. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listCollectionMembersCall(
+    public APIgetCollectionRequest getCollection(@jakarta.annotation.Nonnull String collectionId) {
+        return new APIgetCollectionRequest(collectionId);
+    }
+
+    private okhttp3.Call listCollectionMembersCall(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String type,
@@ -1014,57 +1165,7 @@ public class CollectionsApi {
         return listCollectionMembersCall(collectionId, status, type, limit, offset, _callback);
     }
 
-    /**
-     * List collection members
-     * Lists objects in a collection with optional status and type filtering.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param status  (optional)
-     * @param type  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return List&lt;ContentObjectItemApiResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collection members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ContentObjectItemApiResponse> listCollectionMembers(
-            @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nullable String status,
-            @jakarta.annotation.Nullable String type,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
-        ApiResponse<List<ContentObjectItemApiResponse>> localVarResp =
-                listCollectionMembersWithHttpInfo(collectionId, status, type, limit, offset);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List collection members
-     * Lists objects in a collection with optional status and type filtering.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param status  (optional)
-     * @param type  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return ApiResponse&lt;List&lt;ContentObjectItemApiResponse&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collection members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ContentObjectItemApiResponse>> listCollectionMembersWithHttpInfo(
+    private ApiResponse<List<ContentObjectItemApiResponse>> listCollectionMembersWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String type,
@@ -1078,27 +1179,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List collection members (asynchronously)
-     * Lists objects in a collection with optional status and type filtering.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param status  (optional)
-     * @param type  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collection members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listCollectionMembersAsync(
+    private okhttp3.Call listCollectionMembersAsync(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String type,
@@ -1115,74 +1196,155 @@ public class CollectionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listCollectionMembers with every optional parameter left unset.
-     * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listCollectionMembersCall(
-            @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
-            throws ApiException {
-        return listCollectionMembersCall(collectionId, null, null, null, null, _callback);
+    public class APIlistCollectionMembersRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+        @jakarta.annotation.Nullable private String status;
+        @jakarta.annotation.Nullable private String type;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+
+        private APIlistCollectionMembersRequest(@jakarta.annotation.Nonnull String collectionId) {
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Set status
+         * @param status  (optional)
+         * @return APIlistCollectionMembersRequest
+         */
+        public APIlistCollectionMembersRequest status(@jakarta.annotation.Nullable String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set type
+         * @param type  (optional)
+         * @return APIlistCollectionMembersRequest
+         */
+        public APIlistCollectionMembersRequest type(@jakarta.annotation.Nullable String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistCollectionMembersRequest
+         */
+        public APIlistCollectionMembersRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistCollectionMembersRequest
+         */
+        public APIlistCollectionMembersRequest offset(
+                @jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listCollectionMembers
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCollectionMembersCall(collectionId, status, type, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listCollectionMembers request
+         * @return List&lt;ContentObjectItemApiResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ContentObjectItemApiResponse> execute() throws ApiException {
+            ApiResponse<List<ContentObjectItemApiResponse>> localVarResp =
+                    listCollectionMembersWithHttpInfo(collectionId, status, type, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCollectionMembers request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ContentObjectItemApiResponse&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ContentObjectItemApiResponse>> executeWithHttpInfo()
+                throws ApiException {
+            return listCollectionMembersWithHttpInfo(collectionId, status, type, limit, offset);
+        }
+
+        /**
+         * Execute listCollectionMembers request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<ContentObjectItemApiResponse>> _callback)
+                throws ApiException {
+            return listCollectionMembersAsync(collectionId, status, type, limit, offset, _callback);
+        }
     }
 
     /**
      * List collection members
-     * Calls {@code listCollectionMembers} with every optional parameter left unset.
+     * Lists objects in a collection with optional status and type filtering.  **Required permissions:** &#x60;content:read&#x60;
      * @param collectionId  (required)
-     * @return List&lt;ContentObjectItemApiResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ContentObjectItemApiResponse> listCollectionMembers(
-            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
-        return listCollectionMembers(collectionId, null, null, null, null);
-    }
-
-    /**
-     * List collection members
-     * Calls {@code listCollectionMembersWithHttpInfo} with every optional parameter left unset.
-     * @param collectionId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ContentObjectItemApiResponse>> listCollectionMembersWithHttpInfo(
-            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
-        return listCollectionMembersWithHttpInfo(collectionId, null, null, null, null);
-    }
-
-    /**
-     * List collection members (asynchronously)
-     * Calls {@code listCollectionMembersAsync} with every optional parameter left unset.
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listCollectionMembersAsync(
-            @jakarta.annotation.Nonnull String collectionId,
-            final ApiCallback<List<ContentObjectItemApiResponse>> _callback)
-            throws ApiException {
-        return listCollectionMembersAsync(collectionId, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for propagateCollectionPermissions
-     * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistCollectionMembersRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Collection members. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call propagateCollectionPermissionsCall(
+    public APIlistCollectionMembersRequest listCollectionMembers(
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIlistCollectionMembersRequest(collectionId);
+    }
+
+    private okhttp3.Call propagateCollectionPermissionsCall(
             @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1254,44 +1416,7 @@ public class CollectionsApi {
         return propagateCollectionPermissionsCall(collectionId, _callback);
     }
 
-    /**
-     * Propagate collection permissions
-     * Schedules synchronization of collection ACLs to collection members.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
-     * @param collectionId  (required)
-     * @return CollectionPropagationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CollectionPropagationResponse propagateCollectionPermissions(
-            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
-        ApiResponse<CollectionPropagationResponse> localVarResp =
-                propagateCollectionPermissionsWithHttpInfo(collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Propagate collection permissions
-     * Schedules synchronization of collection ACLs to collection members.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;CollectionPropagationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CollectionPropagationResponse> propagateCollectionPermissionsWithHttpInfo(
+    private ApiResponse<CollectionPropagationResponse> propagateCollectionPermissionsWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId) throws ApiException {
         okhttp3.Call localVarCall =
                 propagateCollectionPermissionsValidateBeforeCall(collectionId, null);
@@ -1299,23 +1424,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Propagate collection permissions (asynchronously)
-     * Schedules synchronization of collection ACLs to collection members.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call propagateCollectionPermissionsAsync(
+    private okhttp3.Call propagateCollectionPermissionsAsync(
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<CollectionPropagationResponse> _callback)
             throws ApiException {
@@ -1327,12 +1436,94 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIpropagateCollectionPermissionsRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIpropagateCollectionPermissionsRequest(
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for propagateCollectionPermissions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return propagateCollectionPermissionsCall(collectionId, _callback);
+        }
+
+        /**
+         * Execute propagateCollectionPermissions request
+         * @return CollectionPropagationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CollectionPropagationResponse execute() throws ApiException {
+            ApiResponse<CollectionPropagationResponse> localVarResp =
+                    propagateCollectionPermissionsWithHttpInfo(collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute propagateCollectionPermissions request with HTTP info returned
+         * @return ApiResponse&lt;CollectionPropagationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CollectionPropagationResponse> executeWithHttpInfo()
+                throws ApiException {
+            return propagateCollectionPermissionsWithHttpInfo(collectionId);
+        }
+
+        /**
+         * Execute propagateCollectionPermissions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CollectionPropagationResponse> _callback)
+                throws ApiException {
+            return propagateCollectionPermissionsAsync(collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for propagateCollectionSharedProperties
+     * Propagate collection permissions
+     * Schedules synchronization of collection ACLs to collection members.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
      * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIpropagateCollectionPermissionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -1342,7 +1533,12 @@ public class CollectionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call propagateCollectionSharedPropertiesCall(
+    public APIpropagateCollectionPermissionsRequest propagateCollectionPermissions(
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIpropagateCollectionPermissionsRequest(collectionId);
+    }
+
+    private okhttp3.Call propagateCollectionSharedPropertiesCall(
             @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1414,44 +1610,7 @@ public class CollectionsApi {
         return propagateCollectionSharedPropertiesCall(collectionId, _callback);
     }
 
-    /**
-     * Propagate collection shared properties
-     * Schedules synchronization of configured shared properties to collection members.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
-     * @param collectionId  (required)
-     * @return CollectionPropagationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CollectionPropagationResponse propagateCollectionSharedProperties(
-            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
-        ApiResponse<CollectionPropagationResponse> localVarResp =
-                propagateCollectionSharedPropertiesWithHttpInfo(collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Propagate collection shared properties
-     * Schedules synchronization of configured shared properties to collection members.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;CollectionPropagationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CollectionPropagationResponse>
+    private ApiResponse<CollectionPropagationResponse>
             propagateCollectionSharedPropertiesWithHttpInfo(
                     @jakarta.annotation.Nonnull String collectionId) throws ApiException {
         okhttp3.Call localVarCall =
@@ -1460,23 +1619,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Propagate collection shared properties (asynchronously)
-     * Schedules synchronization of configured shared properties to collection members.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call propagateCollectionSharedPropertiesAsync(
+    private okhttp3.Call propagateCollectionSharedPropertiesAsync(
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<CollectionPropagationResponse> _callback)
             throws ApiException {
@@ -1488,23 +1631,109 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIpropagateCollectionSharedPropertiesRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIpropagateCollectionSharedPropertiesRequest(
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for propagateCollectionSharedProperties
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return propagateCollectionSharedPropertiesCall(collectionId, _callback);
+        }
+
+        /**
+         * Execute propagateCollectionSharedProperties request
+         * @return CollectionPropagationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CollectionPropagationResponse execute() throws ApiException {
+            ApiResponse<CollectionPropagationResponse> localVarResp =
+                    propagateCollectionSharedPropertiesWithHttpInfo(collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute propagateCollectionSharedProperties request with HTTP info returned
+         * @return ApiResponse&lt;CollectionPropagationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CollectionPropagationResponse> executeWithHttpInfo()
+                throws ApiException {
+            return propagateCollectionSharedPropertiesWithHttpInfo(collectionId);
+        }
+
+        /**
+         * Execute propagateCollectionSharedProperties request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CollectionPropagationResponse> _callback)
+                throws ApiException {
+            return propagateCollectionSharedPropertiesAsync(collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for searchCollectionChildren
+     * Propagate collection shared properties
+     * Schedules synchronization of configured shared properties to collection members.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
      * @param collectionId  (required)
-     * @param complexCollectionSearchQuery  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIpropagateCollectionSharedPropertiesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results for child collections. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Propagation status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call searchCollectionChildrenCall(
+    public APIpropagateCollectionSharedPropertiesRequest propagateCollectionSharedProperties(
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIpropagateCollectionSharedPropertiesRequest(collectionId);
+    }
+
+    private okhttp3.Call searchCollectionChildrenCall(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
             final ApiCallback _callback)
@@ -1586,48 +1815,7 @@ public class CollectionsApi {
         return searchCollectionChildrenCall(collectionId, complexCollectionSearchQuery, _callback);
     }
 
-    /**
-     * Search child collections
-     * Searches child collections for the selected collection.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param complexCollectionSearchQuery  (required)
-     * @return List&lt;Collection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results for child collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<Collection> searchCollectionChildren(
-            @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
-            throws ApiException {
-        ApiResponse<List<Collection>> localVarResp =
-                searchCollectionChildrenWithHttpInfo(collectionId, complexCollectionSearchQuery);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Search child collections
-     * Searches child collections for the selected collection.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param complexCollectionSearchQuery  (required)
-     * @return ApiResponse&lt;List&lt;Collection&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results for child collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<Collection>> searchCollectionChildrenWithHttpInfo(
+    private ApiResponse<List<Collection>> searchCollectionChildrenWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
             throws ApiException {
@@ -1638,24 +1826,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Search child collections (asynchronously)
-     * Searches child collections for the selected collection.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param complexCollectionSearchQuery  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results for child collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call searchCollectionChildrenAsync(
+    private okhttp3.Call searchCollectionChildrenAsync(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
             final ApiCallback<List<Collection>> _callback)
@@ -1669,23 +1840,119 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIsearchCollectionChildrenRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        @jakarta.annotation.Nonnull
+        private final ComplexCollectionSearchQuery complexCollectionSearchQuery;
+
+        private APIsearchCollectionChildrenRequest(
+                @jakarta.annotation.Nonnull String collectionId,
+                @jakarta.annotation.Nonnull
+                        ComplexCollectionSearchQuery complexCollectionSearchQuery) {
+            this.collectionId = collectionId;
+            this.complexCollectionSearchQuery = complexCollectionSearchQuery;
+        }
+
+        /**
+         * Build call for searchCollectionChildren
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results for child collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return searchCollectionChildrenCall(
+                    collectionId, complexCollectionSearchQuery, _callback);
+        }
+
+        /**
+         * Execute searchCollectionChildren request
+         * @return List&lt;Collection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results for child collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<Collection> execute() throws ApiException {
+            ApiResponse<List<Collection>> localVarResp =
+                    searchCollectionChildrenWithHttpInfo(
+                            collectionId, complexCollectionSearchQuery);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute searchCollectionChildren request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;Collection&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results for child collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<Collection>> executeWithHttpInfo() throws ApiException {
+            return searchCollectionChildrenWithHttpInfo(collectionId, complexCollectionSearchQuery);
+        }
+
+        /**
+         * Execute searchCollectionChildren request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results for child collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<Collection>> _callback)
+                throws ApiException {
+            return searchCollectionChildrenAsync(
+                    collectionId, complexCollectionSearchQuery, _callback);
+        }
+    }
+
     /**
-     * Build call for searchCollectionMembers
+     * Search child collections
+     * Searches child collections for the selected collection.  **Required permissions:** &#x60;content:read&#x60;
      * @param collectionId  (required)
-     * @param complexSearchPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param complexCollectionSearchQuery  (required)
+     * @return APIsearchCollectionChildrenRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results for collection members. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Search results for child collections. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call searchCollectionMembersCall(
+    public APIsearchCollectionChildrenRequest searchCollectionChildren(
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery) {
+        return new APIsearchCollectionChildrenRequest(collectionId, complexCollectionSearchQuery);
+    }
+
+    private okhttp3.Call searchCollectionMembersCall(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
             final ApiCallback _callback)
@@ -1767,48 +2034,7 @@ public class CollectionsApi {
         return searchCollectionMembersCall(collectionId, complexSearchPayload, _callback);
     }
 
-    /**
-     * Search collection members
-     * Runs a structured content object search constrained to the collection membership or dynamic query.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param complexSearchPayload  (required)
-     * @return ObjectSearchResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results for collection members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ObjectSearchResponse searchCollectionMembers(
-            @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
-            throws ApiException {
-        ApiResponse<ObjectSearchResponse> localVarResp =
-                searchCollectionMembersWithHttpInfo(collectionId, complexSearchPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Search collection members
-     * Runs a structured content object search constrained to the collection membership or dynamic query.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param complexSearchPayload  (required)
-     * @return ApiResponse&lt;ObjectSearchResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results for collection members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ObjectSearchResponse> searchCollectionMembersWithHttpInfo(
+    private ApiResponse<ObjectSearchResponse> searchCollectionMembersWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
             throws ApiException {
@@ -1818,24 +2044,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Search collection members (asynchronously)
-     * Runs a structured content object search constrained to the collection membership or dynamic query.  **Required permissions:** &#x60;content:read&#x60;
-     * @param collectionId  (required)
-     * @param complexSearchPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results for collection members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call searchCollectionMembersAsync(
+    private okhttp3.Call searchCollectionMembersAsync(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
             final ApiCallback<ObjectSearchResponse> _callback)
@@ -1849,22 +2058,113 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIsearchCollectionMembersRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+        @jakarta.annotation.Nonnull private final ComplexSearchPayload complexSearchPayload;
+
+        private APIsearchCollectionMembersRequest(
+                @jakarta.annotation.Nonnull String collectionId,
+                @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload) {
+            this.collectionId = collectionId;
+            this.complexSearchPayload = complexSearchPayload;
+        }
+
+        /**
+         * Build call for searchCollectionMembers
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results for collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return searchCollectionMembersCall(collectionId, complexSearchPayload, _callback);
+        }
+
+        /**
+         * Execute searchCollectionMembers request
+         * @return ObjectSearchResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results for collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ObjectSearchResponse execute() throws ApiException {
+            ApiResponse<ObjectSearchResponse> localVarResp =
+                    searchCollectionMembersWithHttpInfo(collectionId, complexSearchPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute searchCollectionMembers request with HTTP info returned
+         * @return ApiResponse&lt;ObjectSearchResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results for collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ObjectSearchResponse> executeWithHttpInfo() throws ApiException {
+            return searchCollectionMembersWithHttpInfo(collectionId, complexSearchPayload);
+        }
+
+        /**
+         * Execute searchCollectionMembers request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results for collection members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ObjectSearchResponse> _callback)
+                throws ApiException {
+            return searchCollectionMembersAsync(collectionId, complexSearchPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for searchCollections
-     * @param complexCollectionSearchQuery  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Search collection members
+     * Runs a structured content object search constrained to the collection membership or dynamic query.  **Required permissions:** &#x60;content:read&#x60;
+     * @param collectionId  (required)
+     * @param complexSearchPayload  (required)
+     * @return APIsearchCollectionMembersRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results with collection items and facets. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Search results for collection members. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call searchCollectionsCall(
+    public APIsearchCollectionMembersRequest searchCollectionMembers(
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload) {
+        return new APIsearchCollectionMembersRequest(collectionId, complexSearchPayload);
+    }
+
+    private okhttp3.Call searchCollectionsCall(
             @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
             final ApiCallback _callback)
             throws ApiException {
@@ -1934,45 +2234,7 @@ public class CollectionsApi {
         return searchCollectionsCall(complexCollectionSearchQuery, _callback);
     }
 
-    /**
-     * Search collections
-     * Runs structured search across collections with filtering, full-text, facets, and pagination.  **Required permissions:** &#x60;content:read&#x60;
-     * @param complexCollectionSearchQuery  (required)
-     * @return List&lt;Collection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results with collection items and facets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<Collection> searchCollections(
-            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
-            throws ApiException {
-        ApiResponse<List<Collection>> localVarResp =
-                searchCollectionsWithHttpInfo(complexCollectionSearchQuery);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Search collections
-     * Runs structured search across collections with filtering, full-text, facets, and pagination.  **Required permissions:** &#x60;content:read&#x60;
-     * @param complexCollectionSearchQuery  (required)
-     * @return ApiResponse&lt;List&lt;Collection&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results with collection items and facets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<Collection>> searchCollectionsWithHttpInfo(
+    private ApiResponse<List<Collection>> searchCollectionsWithHttpInfo(
             @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1981,23 +2243,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Search collections (asynchronously)
-     * Runs structured search across collections with filtering, full-text, facets, and pagination.  **Required permissions:** &#x60;content:read&#x60;
-     * @param complexCollectionSearchQuery  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results with collection items and facets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call searchCollectionsAsync(
+    private okhttp3.Call searchCollectionsAsync(
             @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
             final ApiCallback<List<Collection>> _callback)
             throws ApiException {
@@ -2009,23 +2255,110 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIsearchCollectionsRequest {
+        @jakarta.annotation.Nonnull
+        private final ComplexCollectionSearchQuery complexCollectionSearchQuery;
+
+        private APIsearchCollectionsRequest(
+                @jakarta.annotation.Nonnull
+                        ComplexCollectionSearchQuery complexCollectionSearchQuery) {
+            this.complexCollectionSearchQuery = complexCollectionSearchQuery;
+        }
+
+        /**
+         * Build call for searchCollections
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results with collection items and facets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return searchCollectionsCall(complexCollectionSearchQuery, _callback);
+        }
+
+        /**
+         * Execute searchCollections request
+         * @return List&lt;Collection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results with collection items and facets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<Collection> execute() throws ApiException {
+            ApiResponse<List<Collection>> localVarResp =
+                    searchCollectionsWithHttpInfo(complexCollectionSearchQuery);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute searchCollections request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;Collection&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results with collection items and facets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<Collection>> executeWithHttpInfo() throws ApiException {
+            return searchCollectionsWithHttpInfo(complexCollectionSearchQuery);
+        }
+
+        /**
+         * Execute searchCollections request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results with collection items and facets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<Collection>> _callback)
+                throws ApiException {
+            return searchCollectionsAsync(complexCollectionSearchQuery, _callback);
+        }
+    }
+
     /**
-     * Build call for updateCollection
-     * @param collectionId  (required)
-     * @param updateCollectionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Search collections
+     * Runs structured search across collections with filtering, full-text, facets, and pagination.  **Required permissions:** &#x60;content:read&#x60;
+     * @param complexCollectionSearchQuery  (required)
+     * @return APIsearchCollectionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Search results with collection items and facets. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateCollectionCall(
+    public APIsearchCollectionsRequest searchCollections(
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery) {
+        return new APIsearchCollectionsRequest(complexCollectionSearchQuery);
+    }
+
+    private okhttp3.Call updateCollectionCall(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload,
             final ApiCallback _callback)
@@ -2107,48 +2440,7 @@ public class CollectionsApi {
         return updateCollectionCall(collectionId, updateCollectionPayload, _callback);
     }
 
-    /**
-     * Update a collection
-     * Updates a collection, including shared properties and content type settings.
-     * @param collectionId  (required)
-     * @param updateCollectionPayload  (required)
-     * @return Collection
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Collection updateCollection(
-            @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload)
-            throws ApiException {
-        ApiResponse<Collection> localVarResp =
-                updateCollectionWithHttpInfo(collectionId, updateCollectionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a collection
-     * Updates a collection, including shared properties and content type settings.
-     * @param collectionId  (required)
-     * @param updateCollectionPayload  (required)
-     * @return ApiResponse&lt;Collection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Collection> updateCollectionWithHttpInfo(
+    private ApiResponse<Collection> updateCollectionWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload)
             throws ApiException {
@@ -2158,24 +2450,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a collection (asynchronously)
-     * Updates a collection, including shared properties and content type settings.
-     * @param collectionId  (required)
-     * @param updateCollectionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateCollectionAsync(
+    private okhttp3.Call updateCollectionAsync(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload,
             final ApiCallback<Collection> _callback)
@@ -2189,23 +2464,113 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIupdateCollectionRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+        @jakarta.annotation.Nonnull private final UpdateCollectionPayload updateCollectionPayload;
+
+        private APIupdateCollectionRequest(
+                @jakarta.annotation.Nonnull String collectionId,
+                @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload) {
+            this.collectionId = collectionId;
+            this.updateCollectionPayload = updateCollectionPayload;
+        }
+
+        /**
+         * Build call for updateCollection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateCollectionCall(collectionId, updateCollectionPayload, _callback);
+        }
+
+        /**
+         * Execute updateCollection request
+         * @return Collection
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Collection execute() throws ApiException {
+            ApiResponse<Collection> localVarResp =
+                    updateCollectionWithHttpInfo(collectionId, updateCollectionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateCollection request with HTTP info returned
+         * @return ApiResponse&lt;Collection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Collection> executeWithHttpInfo() throws ApiException {
+            return updateCollectionWithHttpInfo(collectionId, updateCollectionPayload);
+        }
+
+        /**
+         * Execute updateCollection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Collection> _callback)
+                throws ApiException {
+            return updateCollectionAsync(collectionId, updateCollectionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateCollectionChildren
+     * Update a collection
+     * Updates a collection, including shared properties and content type settings.
      * @param collectionId  (required)
-     * @param collectionChildrenUpdatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param updateCollectionPayload  (required)
+     * @return APIupdateCollectionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Number of updated child collections. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateCollectionChildrenCall(
+    public APIupdateCollectionRequest updateCollection(
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload) {
+        return new APIupdateCollectionRequest(collectionId, updateCollectionPayload);
+    }
+
+    private okhttp3.Call updateCollectionChildrenCall(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull
                     CollectionChildrenUpdatePayload collectionChildrenUpdatePayload,
@@ -2290,49 +2655,7 @@ public class CollectionsApi {
                 collectionId, collectionChildrenUpdatePayload, _callback);
     }
 
-    /**
-     * Update child collections
-     * Adds or removes child collections from a parent collection.
-     * @param collectionId  (required)
-     * @param collectionChildrenUpdatePayload  (required)
-     * @return CollectionChildrenUpdateResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Number of updated child collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CollectionChildrenUpdateResult updateCollectionChildren(
-            @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull
-                    CollectionChildrenUpdatePayload collectionChildrenUpdatePayload)
-            throws ApiException {
-        ApiResponse<CollectionChildrenUpdateResult> localVarResp =
-                updateCollectionChildrenWithHttpInfo(collectionId, collectionChildrenUpdatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update child collections
-     * Adds or removes child collections from a parent collection.
-     * @param collectionId  (required)
-     * @param collectionChildrenUpdatePayload  (required)
-     * @return ApiResponse&lt;CollectionChildrenUpdateResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Number of updated child collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CollectionChildrenUpdateResult> updateCollectionChildrenWithHttpInfo(
+    private ApiResponse<CollectionChildrenUpdateResult> updateCollectionChildrenWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull
                     CollectionChildrenUpdatePayload collectionChildrenUpdatePayload)
@@ -2344,24 +2667,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update child collections (asynchronously)
-     * Adds or removes child collections from a parent collection.
-     * @param collectionId  (required)
-     * @param collectionChildrenUpdatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Number of updated child collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateCollectionChildrenAsync(
+    private okhttp3.Call updateCollectionChildrenAsync(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull
                     CollectionChildrenUpdatePayload collectionChildrenUpdatePayload,
@@ -2376,23 +2682,123 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIupdateCollectionChildrenRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        @jakarta.annotation.Nonnull
+        private final CollectionChildrenUpdatePayload collectionChildrenUpdatePayload;
+
+        private APIupdateCollectionChildrenRequest(
+                @jakarta.annotation.Nonnull String collectionId,
+                @jakarta.annotation.Nonnull
+                        CollectionChildrenUpdatePayload collectionChildrenUpdatePayload) {
+            this.collectionId = collectionId;
+            this.collectionChildrenUpdatePayload = collectionChildrenUpdatePayload;
+        }
+
+        /**
+         * Build call for updateCollectionChildren
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Number of updated child collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateCollectionChildrenCall(
+                    collectionId, collectionChildrenUpdatePayload, _callback);
+        }
+
+        /**
+         * Execute updateCollectionChildren request
+         * @return CollectionChildrenUpdateResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Number of updated child collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CollectionChildrenUpdateResult execute() throws ApiException {
+            ApiResponse<CollectionChildrenUpdateResult> localVarResp =
+                    updateCollectionChildrenWithHttpInfo(
+                            collectionId, collectionChildrenUpdatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateCollectionChildren request with HTTP info returned
+         * @return ApiResponse&lt;CollectionChildrenUpdateResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Number of updated child collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CollectionChildrenUpdateResult> executeWithHttpInfo()
+                throws ApiException {
+            return updateCollectionChildrenWithHttpInfo(
+                    collectionId, collectionChildrenUpdatePayload);
+        }
+
+        /**
+         * Execute updateCollectionChildren request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Number of updated child collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<CollectionChildrenUpdateResult> _callback) throws ApiException {
+            return updateCollectionChildrenAsync(
+                    collectionId, collectionChildrenUpdatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateCollectionMembers
+     * Update child collections
+     * Adds or removes child collections from a parent collection.
      * @param collectionId  (required)
-     * @param collectionMembersUpdatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param collectionChildrenUpdatePayload  (required)
+     * @return APIupdateCollectionChildrenRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated collection identifier. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Number of updated child collections. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateCollectionMembersCall(
+    public APIupdateCollectionChildrenRequest updateCollectionChildren(
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
+                    CollectionChildrenUpdatePayload collectionChildrenUpdatePayload) {
+        return new APIupdateCollectionChildrenRequest(
+                collectionId, collectionChildrenUpdatePayload);
+    }
+
+    private okhttp3.Call updateCollectionMembersCall(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull
                     CollectionMembersUpdatePayload collectionMembersUpdatePayload,
@@ -2476,49 +2882,7 @@ public class CollectionsApi {
         return updateCollectionMembersCall(collectionId, collectionMembersUpdatePayload, _callback);
     }
 
-    /**
-     * Update collection members
-     * Adds or removes content objects from a static collection.
-     * @param collectionId  (required)
-     * @param collectionMembersUpdatePayload  (required)
-     * @return CollectionMembersUpdateResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated collection identifier. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CollectionMembersUpdateResult updateCollectionMembers(
-            @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull
-                    CollectionMembersUpdatePayload collectionMembersUpdatePayload)
-            throws ApiException {
-        ApiResponse<CollectionMembersUpdateResult> localVarResp =
-                updateCollectionMembersWithHttpInfo(collectionId, collectionMembersUpdatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update collection members
-     * Adds or removes content objects from a static collection.
-     * @param collectionId  (required)
-     * @param collectionMembersUpdatePayload  (required)
-     * @return ApiResponse&lt;CollectionMembersUpdateResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated collection identifier. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CollectionMembersUpdateResult> updateCollectionMembersWithHttpInfo(
+    private ApiResponse<CollectionMembersUpdateResult> updateCollectionMembersWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull
                     CollectionMembersUpdatePayload collectionMembersUpdatePayload)
@@ -2530,24 +2894,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update collection members (asynchronously)
-     * Adds or removes content objects from a static collection.
-     * @param collectionId  (required)
-     * @param collectionMembersUpdatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated collection identifier. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateCollectionMembersAsync(
+    private okhttp3.Call updateCollectionMembersAsync(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull
                     CollectionMembersUpdatePayload collectionMembersUpdatePayload,
@@ -2562,23 +2909,122 @@ public class CollectionsApi {
         return localVarCall;
     }
 
+    public class APIupdateCollectionMembersRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        @jakarta.annotation.Nonnull
+        private final CollectionMembersUpdatePayload collectionMembersUpdatePayload;
+
+        private APIupdateCollectionMembersRequest(
+                @jakarta.annotation.Nonnull String collectionId,
+                @jakarta.annotation.Nonnull
+                        CollectionMembersUpdatePayload collectionMembersUpdatePayload) {
+            this.collectionId = collectionId;
+            this.collectionMembersUpdatePayload = collectionMembersUpdatePayload;
+        }
+
+        /**
+         * Build call for updateCollectionMembers
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated collection identifier. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateCollectionMembersCall(
+                    collectionId, collectionMembersUpdatePayload, _callback);
+        }
+
+        /**
+         * Execute updateCollectionMembers request
+         * @return CollectionMembersUpdateResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated collection identifier. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CollectionMembersUpdateResult execute() throws ApiException {
+            ApiResponse<CollectionMembersUpdateResult> localVarResp =
+                    updateCollectionMembersWithHttpInfo(
+                            collectionId, collectionMembersUpdatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateCollectionMembers request with HTTP info returned
+         * @return ApiResponse&lt;CollectionMembersUpdateResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated collection identifier. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CollectionMembersUpdateResult> executeWithHttpInfo()
+                throws ApiException {
+            return updateCollectionMembersWithHttpInfo(
+                    collectionId, collectionMembersUpdatePayload);
+        }
+
+        /**
+         * Execute updateCollectionMembers request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated collection identifier. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CollectionMembersUpdateResult> _callback)
+                throws ApiException {
+            return updateCollectionMembersAsync(
+                    collectionId, collectionMembersUpdatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateCollectionPermissions
+     * Update collection members
+     * Adds or removes content objects from a static collection.
      * @param collectionId  (required)
-     * @param requestBody  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param collectionMembersUpdatePayload  (required)
+     * @return APIupdateCollectionMembersRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collection security settings. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Updated collection identifier. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateCollectionPermissionsCall(
+    public APIupdateCollectionMembersRequest updateCollectionMembers(
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
+                    CollectionMembersUpdatePayload collectionMembersUpdatePayload) {
+        return new APIupdateCollectionMembersRequest(collectionId, collectionMembersUpdatePayload);
+    }
+
+    private okhttp3.Call updateCollectionPermissionsCall(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback _callback)
@@ -2660,48 +3106,7 @@ public class CollectionsApi {
         return updateCollectionPermissionsCall(collectionId, requestBody, _callback);
     }
 
-    /**
-     * Update collection permissions
-     * Replaces collection ACL entries for read, write, and delete permissions.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
-     * @param collectionId  (required)
-     * @param requestBody  (required)
-     * @return CollectionSecuritySettingsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collection security settings. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CollectionSecuritySettingsResponse updateCollectionPermissions(
-            @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
-            throws ApiException {
-        ApiResponse<CollectionSecuritySettingsResponse> localVarResp =
-                updateCollectionPermissionsWithHttpInfo(collectionId, requestBody);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update collection permissions
-     * Replaces collection ACL entries for read, write, and delete permissions.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
-     * @param collectionId  (required)
-     * @param requestBody  (required)
-     * @return ApiResponse&lt;CollectionSecuritySettingsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collection security settings. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CollectionSecuritySettingsResponse> updateCollectionPermissionsWithHttpInfo(
+    private ApiResponse<CollectionSecuritySettingsResponse> updateCollectionPermissionsWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
             throws ApiException {
@@ -2711,24 +3116,7 @@ public class CollectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update collection permissions (asynchronously)
-     * Replaces collection ACL entries for read, write, and delete permissions.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
-     * @param collectionId  (required)
-     * @param requestBody  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collection security settings. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateCollectionPermissionsAsync(
+    private okhttp3.Call updateCollectionPermissionsAsync(
             @jakarta.annotation.Nonnull String collectionId,
             @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback<CollectionSecuritySettingsResponse> _callback)
@@ -2739,5 +3127,113 @@ public class CollectionsApi {
         Type localVarReturnType = new TypeToken<CollectionSecuritySettingsResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateCollectionPermissionsRequest {
+        @jakarta.annotation.Nonnull private final String collectionId;
+        @jakarta.annotation.Nonnull private final Map<String, List<String>> requestBody;
+
+        private APIupdateCollectionPermissionsRequest(
+                @jakarta.annotation.Nonnull String collectionId,
+                @jakarta.annotation.Nonnull Map<String, List<String>> requestBody) {
+            this.collectionId = collectionId;
+            this.requestBody = requestBody;
+        }
+
+        /**
+         * Build call for updateCollectionPermissions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collection security settings. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateCollectionPermissionsCall(collectionId, requestBody, _callback);
+        }
+
+        /**
+         * Execute updateCollectionPermissions request
+         * @return CollectionSecuritySettingsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collection security settings. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CollectionSecuritySettingsResponse execute() throws ApiException {
+            ApiResponse<CollectionSecuritySettingsResponse> localVarResp =
+                    updateCollectionPermissionsWithHttpInfo(collectionId, requestBody);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateCollectionPermissions request with HTTP info returned
+         * @return ApiResponse&lt;CollectionSecuritySettingsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collection security settings. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CollectionSecuritySettingsResponse> executeWithHttpInfo()
+                throws ApiException {
+            return updateCollectionPermissionsWithHttpInfo(collectionId, requestBody);
+        }
+
+        /**
+         * Execute updateCollectionPermissions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collection security settings. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<CollectionSecuritySettingsResponse> _callback)
+                throws ApiException {
+            return updateCollectionPermissionsAsync(collectionId, requestBody, _callback);
+        }
+    }
+
+    /**
+     * Update collection permissions
+     * Replaces collection ACL entries for read, write, and delete permissions.  **Required permissions:** Any of &#x60;content:admin&#x60;, &#x60;content:superadmin&#x60;
+     * @param collectionId  (required)
+     * @param requestBody  (required)
+     * @return APIupdateCollectionPermissionsRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Collection security settings. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateCollectionPermissionsRequest updateCollectionPermissions(
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody) {
+        return new APIupdateCollectionPermissionsRequest(collectionId, requestBody);
     }
 }

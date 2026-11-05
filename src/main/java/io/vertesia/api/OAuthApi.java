@@ -65,22 +65,7 @@ public class OAuthApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for getOAuthGrantableProjects
-     * @param requestId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Eligible projects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getOAuthGrantableProjectsCall(
+    private okhttp3.Call getOAuthGrantableProjectsCall(
             @jakarta.annotation.Nonnull String requestId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -152,67 +137,14 @@ public class OAuthApi {
         return getOAuthGrantableProjectsCall(requestId, _callback);
     }
 
-    /**
-     * List projects eligible for an app OAuth request
-     *
-     * @param requestId  (required)
-     * @return List&lt;ProjectRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Eligible projects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ProjectRef> getOAuthGrantableProjects(@jakarta.annotation.Nonnull String requestId)
-            throws ApiException {
-        ApiResponse<List<ProjectRef>> localVarResp =
-                getOAuthGrantableProjectsWithHttpInfo(requestId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List projects eligible for an app OAuth request
-     *
-     * @param requestId  (required)
-     * @return ApiResponse&lt;List&lt;ProjectRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Eligible projects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ProjectRef>> getOAuthGrantableProjectsWithHttpInfo(
+    private ApiResponse<List<ProjectRef>> getOAuthGrantableProjectsWithHttpInfo(
             @jakarta.annotation.Nonnull String requestId) throws ApiException {
         okhttp3.Call localVarCall = getOAuthGrantableProjectsValidateBeforeCall(requestId, null);
         Type localVarReturnType = new TypeToken<List<ProjectRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List projects eligible for an app OAuth request (asynchronously)
-     *
-     * @param requestId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Eligible projects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getOAuthGrantableProjectsAsync(
+    private okhttp3.Call getOAuthGrantableProjectsAsync(
             @jakarta.annotation.Nonnull String requestId,
             final ApiCallback<List<ProjectRef>> _callback)
             throws ApiException {
@@ -224,24 +156,107 @@ public class OAuthApi {
         return localVarCall;
     }
 
+    public class APIgetOAuthGrantableProjectsRequest {
+        @jakarta.annotation.Nonnull private final String requestId;
+
+        private APIgetOAuthGrantableProjectsRequest(@jakarta.annotation.Nonnull String requestId) {
+            this.requestId = requestId;
+        }
+
+        /**
+         * Build call for getOAuthGrantableProjects
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Eligible projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getOAuthGrantableProjectsCall(requestId, _callback);
+        }
+
+        /**
+         * Execute getOAuthGrantableProjects request
+         * @return List&lt;ProjectRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Eligible projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ProjectRef> execute() throws ApiException {
+            ApiResponse<List<ProjectRef>> localVarResp =
+                    getOAuthGrantableProjectsWithHttpInfo(requestId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getOAuthGrantableProjects request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ProjectRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Eligible projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ProjectRef>> executeWithHttpInfo() throws ApiException {
+            return getOAuthGrantableProjectsWithHttpInfo(requestId);
+        }
+
+        /**
+         * Execute getOAuthGrantableProjects request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Eligible projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ProjectRef>> _callback)
+                throws ApiException {
+            return getOAuthGrantableProjectsAsync(requestId, _callback);
+        }
+    }
+
     /**
-     * Build call for loginOAuthAuthorizationRequest
+     * List projects eligible for an app OAuth request
+     *
      * @param requestId  (required)
-     * @param oauthLoginPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetOAuthGrantableProjectsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Eligible projects. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call loginOAuthAuthorizationRequestCall(
+    public APIgetOAuthGrantableProjectsRequest getOAuthGrantableProjects(
+            @jakarta.annotation.Nonnull String requestId) {
+        return new APIgetOAuthGrantableProjectsRequest(requestId);
+    }
+
+    private okhttp3.Call loginOAuthAuthorizationRequestCall(
             @jakarta.annotation.Nonnull String requestId,
             @jakarta.annotation.Nonnull OAuthLoginPayload oauthLoginPayload,
             final ApiCallback _callback)
@@ -323,50 +338,7 @@ public class OAuthApi {
         return loginOAuthAuthorizationRequestCall(requestId, oauthLoginPayload, _callback);
     }
 
-    /**
-     * Complete a login through an authorized authentication broker
-     *
-     * @param requestId  (required)
-     * @param oauthLoginPayload  (required)
-     * @return OAuthLoginDecisionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthLoginDecisionResponse loginOAuthAuthorizationRequest(
-            @jakarta.annotation.Nonnull String requestId,
-            @jakarta.annotation.Nonnull OAuthLoginPayload oauthLoginPayload)
-            throws ApiException {
-        ApiResponse<OAuthLoginDecisionResponse> localVarResp =
-                loginOAuthAuthorizationRequestWithHttpInfo(requestId, oauthLoginPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Complete a login through an authorized authentication broker
-     *
-     * @param requestId  (required)
-     * @param oauthLoginPayload  (required)
-     * @return ApiResponse&lt;OAuthLoginDecisionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthLoginDecisionResponse> loginOAuthAuthorizationRequestWithHttpInfo(
+    private ApiResponse<OAuthLoginDecisionResponse> loginOAuthAuthorizationRequestWithHttpInfo(
             @jakarta.annotation.Nonnull String requestId,
             @jakarta.annotation.Nonnull OAuthLoginPayload oauthLoginPayload)
             throws ApiException {
@@ -377,25 +349,7 @@ public class OAuthApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Complete a login through an authorized authentication broker (asynchronously)
-     *
-     * @param requestId  (required)
-     * @param oauthLoginPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call loginOAuthAuthorizationRequestAsync(
+    private okhttp3.Call loginOAuthAuthorizationRequestAsync(
             @jakarta.annotation.Nonnull String requestId,
             @jakarta.annotation.Nonnull OAuthLoginPayload oauthLoginPayload,
             final ApiCallback<OAuthLoginDecisionResponse> _callback)
@@ -407,5 +361,116 @@ public class OAuthApi {
         Type localVarReturnType = new TypeToken<OAuthLoginDecisionResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIloginOAuthAuthorizationRequestRequest {
+        @jakarta.annotation.Nonnull private final String requestId;
+        @jakarta.annotation.Nonnull private final OAuthLoginPayload oauthLoginPayload;
+
+        private APIloginOAuthAuthorizationRequestRequest(
+                @jakarta.annotation.Nonnull String requestId,
+                @jakarta.annotation.Nonnull OAuthLoginPayload oauthLoginPayload) {
+            this.requestId = requestId;
+            this.oauthLoginPayload = oauthLoginPayload;
+        }
+
+        /**
+         * Build call for loginOAuthAuthorizationRequest
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return loginOAuthAuthorizationRequestCall(requestId, oauthLoginPayload, _callback);
+        }
+
+        /**
+         * Execute loginOAuthAuthorizationRequest request
+         * @return OAuthLoginDecisionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthLoginDecisionResponse execute() throws ApiException {
+            ApiResponse<OAuthLoginDecisionResponse> localVarResp =
+                    loginOAuthAuthorizationRequestWithHttpInfo(requestId, oauthLoginPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute loginOAuthAuthorizationRequest request with HTTP info returned
+         * @return ApiResponse&lt;OAuthLoginDecisionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthLoginDecisionResponse> executeWithHttpInfo() throws ApiException {
+            return loginOAuthAuthorizationRequestWithHttpInfo(requestId, oauthLoginPayload);
+        }
+
+        /**
+         * Execute loginOAuthAuthorizationRequest request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthLoginDecisionResponse> _callback)
+                throws ApiException {
+            return loginOAuthAuthorizationRequestAsync(requestId, oauthLoginPayload, _callback);
+        }
+    }
+
+    /**
+     * Complete a login through an authorized authentication broker
+     *
+     * @param requestId  (required)
+     * @param oauthLoginPayload  (required)
+     * @return APIloginOAuthAuthorizationRequestRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIloginOAuthAuthorizationRequestRequest loginOAuthAuthorizationRequest(
+            @jakarta.annotation.Nonnull String requestId,
+            @jakarta.annotation.Nonnull OAuthLoginPayload oauthLoginPayload) {
+        return new APIloginOAuthAuthorizationRequestRequest(requestId, oauthLoginPayload);
     }
 }

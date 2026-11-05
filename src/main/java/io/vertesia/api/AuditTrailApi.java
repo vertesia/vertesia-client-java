@@ -73,22 +73,7 @@ public class AuditTrailApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for aggregateAuditTrailEvents
-     * @param auditAggregationQuery  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Audit trail aggregation results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call aggregateAuditTrailEventsCall(
+    private okhttp3.Call aggregateAuditTrailEventsCall(
             @jakarta.annotation.Nonnull AuditAggregationQuery auditAggregationQuery,
             final ApiCallback _callback)
             throws ApiException {
@@ -158,45 +143,7 @@ public class AuditTrailApi {
         return aggregateAuditTrailEventsCall(auditAggregationQuery, _callback);
     }
 
-    /**
-     * Aggregate audit trail events
-     * Runs a bounded aggregation over audit events. Account and project scope are enforced from the authenticated request context.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditAggregationQuery  (required)
-     * @return AuditAggregationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Audit trail aggregation results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AuditAggregationResponse aggregateAuditTrailEvents(
-            @jakarta.annotation.Nonnull AuditAggregationQuery auditAggregationQuery)
-            throws ApiException {
-        ApiResponse<AuditAggregationResponse> localVarResp =
-                aggregateAuditTrailEventsWithHttpInfo(auditAggregationQuery);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Aggregate audit trail events
-     * Runs a bounded aggregation over audit events. Account and project scope are enforced from the authenticated request context.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditAggregationQuery  (required)
-     * @return ApiResponse&lt;AuditAggregationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Audit trail aggregation results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AuditAggregationResponse> aggregateAuditTrailEventsWithHttpInfo(
+    private ApiResponse<AuditAggregationResponse> aggregateAuditTrailEventsWithHttpInfo(
             @jakarta.annotation.Nonnull AuditAggregationQuery auditAggregationQuery)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -205,23 +152,7 @@ public class AuditTrailApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Aggregate audit trail events (asynchronously)
-     * Runs a bounded aggregation over audit events. Account and project scope are enforced from the authenticated request context.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditAggregationQuery  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Audit trail aggregation results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call aggregateAuditTrailEventsAsync(
+    private okhttp3.Call aggregateAuditTrailEventsAsync(
             @jakarta.annotation.Nonnull AuditAggregationQuery auditAggregationQuery,
             final ApiCallback<AuditAggregationResponse> _callback)
             throws ApiException {
@@ -233,22 +164,108 @@ public class AuditTrailApi {
         return localVarCall;
     }
 
+    public class APIaggregateAuditTrailEventsRequest {
+        @jakarta.annotation.Nonnull private final AuditAggregationQuery auditAggregationQuery;
+
+        private APIaggregateAuditTrailEventsRequest(
+                @jakarta.annotation.Nonnull AuditAggregationQuery auditAggregationQuery) {
+            this.auditAggregationQuery = auditAggregationQuery;
+        }
+
+        /**
+         * Build call for aggregateAuditTrailEvents
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Audit trail aggregation results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return aggregateAuditTrailEventsCall(auditAggregationQuery, _callback);
+        }
+
+        /**
+         * Execute aggregateAuditTrailEvents request
+         * @return AuditAggregationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Audit trail aggregation results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AuditAggregationResponse execute() throws ApiException {
+            ApiResponse<AuditAggregationResponse> localVarResp =
+                    aggregateAuditTrailEventsWithHttpInfo(auditAggregationQuery);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute aggregateAuditTrailEvents request with HTTP info returned
+         * @return ApiResponse&lt;AuditAggregationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Audit trail aggregation results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AuditAggregationResponse> executeWithHttpInfo() throws ApiException {
+            return aggregateAuditTrailEventsWithHttpInfo(auditAggregationQuery);
+        }
+
+        /**
+         * Execute aggregateAuditTrailEvents request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Audit trail aggregation results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AuditAggregationResponse> _callback)
+                throws ApiException {
+            return aggregateAuditTrailEventsAsync(auditAggregationQuery, _callback);
+        }
+    }
+
     /**
-     * Build call for aggregateAuditTrailEventsBatch
-     * @param auditAggregationBatchQuery  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Aggregate audit trail events
+     * Runs a bounded aggregation over audit events. Account and project scope are enforced from the authenticated request context.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
+     * @param auditAggregationQuery  (required)
+     * @return APIaggregateAuditTrailEventsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Audit trail aggregation results. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call aggregateAuditTrailEventsBatchCall(
+    public APIaggregateAuditTrailEventsRequest aggregateAuditTrailEvents(
+            @jakarta.annotation.Nonnull AuditAggregationQuery auditAggregationQuery) {
+        return new APIaggregateAuditTrailEventsRequest(auditAggregationQuery);
+    }
+
+    private okhttp3.Call aggregateAuditTrailEventsBatchCall(
             @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery,
             final ApiCallback _callback)
             throws ApiException {
@@ -318,45 +335,7 @@ public class AuditTrailApi {
         return aggregateAuditTrailEventsBatchCall(auditAggregationBatchQuery, _callback);
     }
 
-    /**
-     * Run several audit trail aggregations
-     * Runs up to 12 aggregations in one request. Each result equals the result of the same query sent to the single aggregation endpoint, and results come back in request order. Queries that share a scope, time range and filter are computed in one pass over the audit events. Account and project scope are enforced from the authenticated request context, per query.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditAggregationBatchQuery  (required)
-     * @return AuditAggregationBatchResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AuditAggregationBatchResponse aggregateAuditTrailEventsBatch(
-            @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery)
-            throws ApiException {
-        ApiResponse<AuditAggregationBatchResponse> localVarResp =
-                aggregateAuditTrailEventsBatchWithHttpInfo(auditAggregationBatchQuery);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Run several audit trail aggregations
-     * Runs up to 12 aggregations in one request. Each result equals the result of the same query sent to the single aggregation endpoint, and results come back in request order. Queries that share a scope, time range and filter are computed in one pass over the audit events. Account and project scope are enforced from the authenticated request context, per query.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditAggregationBatchQuery  (required)
-     * @return ApiResponse&lt;AuditAggregationBatchResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AuditAggregationBatchResponse> aggregateAuditTrailEventsBatchWithHttpInfo(
+    private ApiResponse<AuditAggregationBatchResponse> aggregateAuditTrailEventsBatchWithHttpInfo(
             @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -365,23 +344,7 @@ public class AuditTrailApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Run several audit trail aggregations (asynchronously)
-     * Runs up to 12 aggregations in one request. Each result equals the result of the same query sent to the single aggregation endpoint, and results come back in request order. Queries that share a scope, time range and filter are computed in one pass over the audit events. Account and project scope are enforced from the authenticated request context, per query.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditAggregationBatchQuery  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call aggregateAuditTrailEventsBatchAsync(
+    private okhttp3.Call aggregateAuditTrailEventsBatchAsync(
             @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery,
             final ApiCallback<AuditAggregationBatchResponse> _callback)
             throws ApiException {
@@ -394,22 +357,110 @@ public class AuditTrailApi {
         return localVarCall;
     }
 
+    public class APIaggregateAuditTrailEventsBatchRequest {
+        @jakarta.annotation.Nonnull
+        private final AuditAggregationBatchQuery auditAggregationBatchQuery;
+
+        private APIaggregateAuditTrailEventsBatchRequest(
+                @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery) {
+            this.auditAggregationBatchQuery = auditAggregationBatchQuery;
+        }
+
+        /**
+         * Build call for aggregateAuditTrailEventsBatch
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return aggregateAuditTrailEventsBatchCall(auditAggregationBatchQuery, _callback);
+        }
+
+        /**
+         * Execute aggregateAuditTrailEventsBatch request
+         * @return AuditAggregationBatchResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AuditAggregationBatchResponse execute() throws ApiException {
+            ApiResponse<AuditAggregationBatchResponse> localVarResp =
+                    aggregateAuditTrailEventsBatchWithHttpInfo(auditAggregationBatchQuery);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute aggregateAuditTrailEventsBatch request with HTTP info returned
+         * @return ApiResponse&lt;AuditAggregationBatchResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AuditAggregationBatchResponse> executeWithHttpInfo()
+                throws ApiException {
+            return aggregateAuditTrailEventsBatchWithHttpInfo(auditAggregationBatchQuery);
+        }
+
+        /**
+         * Execute aggregateAuditTrailEventsBatch request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AuditAggregationBatchResponse> _callback)
+                throws ApiException {
+            return aggregateAuditTrailEventsBatchAsync(auditAggregationBatchQuery, _callback);
+        }
+    }
+
     /**
-     * Build call for getAuditAdoption
-     * @param auditAdoptionQuery  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Run several audit trail aggregations
+     * Runs up to 12 aggregations in one request. Each result equals the result of the same query sent to the single aggregation endpoint, and results come back in request order. Queries that share a scope, time range and filter are computed in one pass over the audit events. Account and project scope are enforced from the authenticated request context, per query.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
+     * @param auditAggregationBatchQuery  (required)
+     * @return APIaggregateAuditTrailEventsBatchRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Observed user adoption over equal-duration periods. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAuditAdoptionCall(
+    public APIaggregateAuditTrailEventsBatchRequest aggregateAuditTrailEventsBatch(
+            @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery) {
+        return new APIaggregateAuditTrailEventsBatchRequest(auditAggregationBatchQuery);
+    }
+
+    private okhttp3.Call getAuditAdoptionCall(
             @jakarta.annotation.Nonnull AuditAdoptionQuery auditAdoptionQuery,
             final ApiCallback _callback)
             throws ApiException {
@@ -479,67 +530,14 @@ public class AuditTrailApi {
         return getAuditAdoptionCall(auditAdoptionQuery, _callback);
     }
 
-    /**
-     * Measure productive authenticated user adoption
-     * **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditAdoptionQuery  (required)
-     * @return AuditAdoptionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Observed user adoption over equal-duration periods. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AuditAdoptionResponse getAuditAdoption(
-            @jakarta.annotation.Nonnull AuditAdoptionQuery auditAdoptionQuery) throws ApiException {
-        ApiResponse<AuditAdoptionResponse> localVarResp =
-                getAuditAdoptionWithHttpInfo(auditAdoptionQuery);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Measure productive authenticated user adoption
-     * **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditAdoptionQuery  (required)
-     * @return ApiResponse&lt;AuditAdoptionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Observed user adoption over equal-duration periods. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AuditAdoptionResponse> getAuditAdoptionWithHttpInfo(
+    private ApiResponse<AuditAdoptionResponse> getAuditAdoptionWithHttpInfo(
             @jakarta.annotation.Nonnull AuditAdoptionQuery auditAdoptionQuery) throws ApiException {
         okhttp3.Call localVarCall = getAuditAdoptionValidateBeforeCall(auditAdoptionQuery, null);
         Type localVarReturnType = new TypeToken<AuditAdoptionResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Measure productive authenticated user adoption (asynchronously)
-     * **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditAdoptionQuery  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Observed user adoption over equal-duration periods. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAuditAdoptionAsync(
+    private okhttp3.Call getAuditAdoptionAsync(
             @jakarta.annotation.Nonnull AuditAdoptionQuery auditAdoptionQuery,
             final ApiCallback<AuditAdoptionResponse> _callback)
             throws ApiException {
@@ -551,22 +549,108 @@ public class AuditTrailApi {
         return localVarCall;
     }
 
+    public class APIgetAuditAdoptionRequest {
+        @jakarta.annotation.Nonnull private final AuditAdoptionQuery auditAdoptionQuery;
+
+        private APIgetAuditAdoptionRequest(
+                @jakarta.annotation.Nonnull AuditAdoptionQuery auditAdoptionQuery) {
+            this.auditAdoptionQuery = auditAdoptionQuery;
+        }
+
+        /**
+         * Build call for getAuditAdoption
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Observed user adoption over equal-duration periods. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAuditAdoptionCall(auditAdoptionQuery, _callback);
+        }
+
+        /**
+         * Execute getAuditAdoption request
+         * @return AuditAdoptionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Observed user adoption over equal-duration periods. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AuditAdoptionResponse execute() throws ApiException {
+            ApiResponse<AuditAdoptionResponse> localVarResp =
+                    getAuditAdoptionWithHttpInfo(auditAdoptionQuery);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAuditAdoption request with HTTP info returned
+         * @return ApiResponse&lt;AuditAdoptionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Observed user adoption over equal-duration periods. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AuditAdoptionResponse> executeWithHttpInfo() throws ApiException {
+            return getAuditAdoptionWithHttpInfo(auditAdoptionQuery);
+        }
+
+        /**
+         * Execute getAuditAdoption request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Observed user adoption over equal-duration periods. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AuditAdoptionResponse> _callback)
+                throws ApiException {
+            return getAuditAdoptionAsync(auditAdoptionQuery, _callback);
+        }
+    }
+
     /**
-     * Build call for getAuditUsage
-     * @param auditUsageQuery  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Measure productive authenticated user adoption
+     * **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
+     * @param auditAdoptionQuery  (required)
+     * @return APIgetAuditAdoptionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> UTC usage trends without user identities. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Observed user adoption over equal-duration periods. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAuditUsageCall(
+    public APIgetAuditAdoptionRequest getAuditAdoption(
+            @jakarta.annotation.Nonnull AuditAdoptionQuery auditAdoptionQuery) {
+        return new APIgetAuditAdoptionRequest(auditAdoptionQuery);
+    }
+
+    private okhttp3.Call getAuditUsageCall(
             @jakarta.annotation.Nonnull AuditUsageQuery auditUsageQuery,
             final ApiCallback _callback)
             throws ApiException {
@@ -636,66 +720,14 @@ public class AuditTrailApi {
         return getAuditUsageCall(auditUsageQuery, _callback);
     }
 
-    /**
-     * Get authenticated user, agent, direct-call and content usage trends
-     * **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditUsageQuery  (required)
-     * @return AuditUsageResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> UTC usage trends without user identities. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AuditUsageResponse getAuditUsage(
-            @jakarta.annotation.Nonnull AuditUsageQuery auditUsageQuery) throws ApiException {
-        ApiResponse<AuditUsageResponse> localVarResp = getAuditUsageWithHttpInfo(auditUsageQuery);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get authenticated user, agent, direct-call and content usage trends
-     * **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditUsageQuery  (required)
-     * @return ApiResponse&lt;AuditUsageResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> UTC usage trends without user identities. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AuditUsageResponse> getAuditUsageWithHttpInfo(
+    private ApiResponse<AuditUsageResponse> getAuditUsageWithHttpInfo(
             @jakarta.annotation.Nonnull AuditUsageQuery auditUsageQuery) throws ApiException {
         okhttp3.Call localVarCall = getAuditUsageValidateBeforeCall(auditUsageQuery, null);
         Type localVarReturnType = new TypeToken<AuditUsageResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get authenticated user, agent, direct-call and content usage trends (asynchronously)
-     * **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param auditUsageQuery  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> UTC usage trends without user identities. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAuditUsageAsync(
+    private okhttp3.Call getAuditUsageAsync(
             @jakarta.annotation.Nonnull AuditUsageQuery auditUsageQuery,
             final ApiCallback<AuditUsageResponse> _callback)
             throws ApiException {
@@ -706,33 +738,108 @@ public class AuditTrailApi {
         return localVarCall;
     }
 
+    public class APIgetAuditUsageRequest {
+        @jakarta.annotation.Nonnull private final AuditUsageQuery auditUsageQuery;
+
+        private APIgetAuditUsageRequest(
+                @jakarta.annotation.Nonnull AuditUsageQuery auditUsageQuery) {
+            this.auditUsageQuery = auditUsageQuery;
+        }
+
+        /**
+         * Build call for getAuditUsage
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> UTC usage trends without user identities. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAuditUsageCall(auditUsageQuery, _callback);
+        }
+
+        /**
+         * Execute getAuditUsage request
+         * @return AuditUsageResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> UTC usage trends without user identities. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AuditUsageResponse execute() throws ApiException {
+            ApiResponse<AuditUsageResponse> localVarResp =
+                    getAuditUsageWithHttpInfo(auditUsageQuery);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAuditUsage request with HTTP info returned
+         * @return ApiResponse&lt;AuditUsageResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> UTC usage trends without user identities. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AuditUsageResponse> executeWithHttpInfo() throws ApiException {
+            return getAuditUsageWithHttpInfo(auditUsageQuery);
+        }
+
+        /**
+         * Execute getAuditUsage request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> UTC usage trends without user identities. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AuditUsageResponse> _callback)
+                throws ApiException {
+            return getAuditUsageAsync(auditUsageQuery, _callback);
+        }
+    }
+
     /**
-     * Build call for listAuditTrailEvents
-     * @param actions Filter by action types (optional)
-     * @param resourceTypes Filter by resource types (optional)
-     * @param resourceId Filter by resource ID (optional)
-     * @param principalId Filter by exact actor principal ref (matches principal_id column). (optional)
-     * @param principalType Filter by top-level actor category (matches principal_type column). (optional)
-     * @param effectivePrincipalId Filter by delegated/direct effective principal ref (matches effective_principal_id column). (optional)
-     * @param hasEffectivePrincipal Filter by whether an event has an effective principal ref. (optional)
-     * @param projectId Filter by project ID. Honoured only for account-scoped principals; a project-scoped principal always reads its own project. (optional)
-     * @param from Start time (ISO string) (optional)
-     * @param to End time (ISO string) (optional)
-     * @param limit Pagination: number of items to return (default 50, max 200) (optional)
-     * @param offset Pagination: offset (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get authenticated user, agent, direct-call and content usage trends
+     * **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
+     * @param auditUsageQuery  (required)
+     * @return APIgetAuditUsageRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Audit trail query results. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> UTC usage trends without user identities. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAuditTrailEventsCall(
+    public APIgetAuditUsageRequest getAuditUsage(
+            @jakarta.annotation.Nonnull AuditUsageQuery auditUsageQuery) {
+        return new APIgetAuditUsageRequest(auditUsageQuery);
+    }
+
+    private okhttp3.Call listAuditTrailEventsCall(
             @jakarta.annotation.Nullable List<AuditAction> actions,
             @jakarta.annotation.Nullable List<String> resourceTypes,
             @jakarta.annotation.Nullable String resourceId,
@@ -887,90 +994,7 @@ public class AuditTrailApi {
                 _callback);
     }
 
-    /**
-     * List audit trail events
-     * Lists audit trail events with optional filtering by project, resource, principal, action, and time range. Without &#x60;from&#x60;, the list covers the 7 days before &#x60;to&#x60; (or now); a range cannot exceed 366 days.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param actions Filter by action types (optional)
-     * @param resourceTypes Filter by resource types (optional)
-     * @param resourceId Filter by resource ID (optional)
-     * @param principalId Filter by exact actor principal ref (matches principal_id column). (optional)
-     * @param principalType Filter by top-level actor category (matches principal_type column). (optional)
-     * @param effectivePrincipalId Filter by delegated/direct effective principal ref (matches effective_principal_id column). (optional)
-     * @param hasEffectivePrincipal Filter by whether an event has an effective principal ref. (optional)
-     * @param projectId Filter by project ID. Honoured only for account-scoped principals; a project-scoped principal always reads its own project. (optional)
-     * @param from Start time (ISO string) (optional)
-     * @param to End time (ISO string) (optional)
-     * @param limit Pagination: number of items to return (default 50, max 200) (optional)
-     * @param offset Pagination: offset (optional)
-     * @return AuditTrailResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Audit trail query results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AuditTrailResponse listAuditTrailEvents(
-            @jakarta.annotation.Nullable List<AuditAction> actions,
-            @jakarta.annotation.Nullable List<String> resourceTypes,
-            @jakarta.annotation.Nullable String resourceId,
-            @jakarta.annotation.Nullable String principalId,
-            @jakarta.annotation.Nullable String principalType,
-            @jakarta.annotation.Nullable String effectivePrincipalId,
-            @jakarta.annotation.Nullable Boolean hasEffectivePrincipal,
-            @jakarta.annotation.Nullable String projectId,
-            @jakarta.annotation.Nullable String from,
-            @jakarta.annotation.Nullable String to,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
-        ApiResponse<AuditTrailResponse> localVarResp =
-                listAuditTrailEventsWithHttpInfo(
-                        actions,
-                        resourceTypes,
-                        resourceId,
-                        principalId,
-                        principalType,
-                        effectivePrincipalId,
-                        hasEffectivePrincipal,
-                        projectId,
-                        from,
-                        to,
-                        limit,
-                        offset);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List audit trail events
-     * Lists audit trail events with optional filtering by project, resource, principal, action, and time range. Without &#x60;from&#x60;, the list covers the 7 days before &#x60;to&#x60; (or now); a range cannot exceed 366 days.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param actions Filter by action types (optional)
-     * @param resourceTypes Filter by resource types (optional)
-     * @param resourceId Filter by resource ID (optional)
-     * @param principalId Filter by exact actor principal ref (matches principal_id column). (optional)
-     * @param principalType Filter by top-level actor category (matches principal_type column). (optional)
-     * @param effectivePrincipalId Filter by delegated/direct effective principal ref (matches effective_principal_id column). (optional)
-     * @param hasEffectivePrincipal Filter by whether an event has an effective principal ref. (optional)
-     * @param projectId Filter by project ID. Honoured only for account-scoped principals; a project-scoped principal always reads its own project. (optional)
-     * @param from Start time (ISO string) (optional)
-     * @param to End time (ISO string) (optional)
-     * @param limit Pagination: number of items to return (default 50, max 200) (optional)
-     * @param offset Pagination: offset (optional)
-     * @return ApiResponse&lt;AuditTrailResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Audit trail query results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AuditTrailResponse> listAuditTrailEventsWithHttpInfo(
+    private ApiResponse<AuditTrailResponse> listAuditTrailEventsWithHttpInfo(
             @jakarta.annotation.Nullable List<AuditAction> actions,
             @jakarta.annotation.Nullable List<String> resourceTypes,
             @jakarta.annotation.Nullable String resourceId,
@@ -1003,34 +1027,7 @@ public class AuditTrailApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List audit trail events (asynchronously)
-     * Lists audit trail events with optional filtering by project, resource, principal, action, and time range. Without &#x60;from&#x60;, the list covers the 7 days before &#x60;to&#x60; (or now); a range cannot exceed 366 days.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
-     * @param actions Filter by action types (optional)
-     * @param resourceTypes Filter by resource types (optional)
-     * @param resourceId Filter by resource ID (optional)
-     * @param principalId Filter by exact actor principal ref (matches principal_id column). (optional)
-     * @param principalType Filter by top-level actor category (matches principal_type column). (optional)
-     * @param effectivePrincipalId Filter by delegated/direct effective principal ref (matches effective_principal_id column). (optional)
-     * @param hasEffectivePrincipal Filter by whether an event has an effective principal ref. (optional)
-     * @param projectId Filter by project ID. Honoured only for account-scoped principals; a project-scoped principal always reads its own project. (optional)
-     * @param from Start time (ISO string) (optional)
-     * @param to End time (ISO string) (optional)
-     * @param limit Pagination: number of items to return (default 50, max 200) (optional)
-     * @param offset Pagination: offset (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Audit trail query results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAuditTrailEventsAsync(
+    private okhttp3.Call listAuditTrailEventsAsync(
             @jakarta.annotation.Nullable List<AuditAction> actions,
             @jakarta.annotation.Nullable List<String> resourceTypes,
             @jakarta.annotation.Nullable String resourceId,
@@ -1066,49 +1063,289 @@ public class AuditTrailApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listAuditTrailEvents with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listAuditTrailEventsCall(final ApiCallback _callback) throws ApiException {
-        return listAuditTrailEventsCall(
-                null, null, null, null, null, null, null, null, null, null, null, null, _callback);
+    public class APIlistAuditTrailEventsRequest {
+        @jakarta.annotation.Nullable private List<AuditAction> actions;
+        @jakarta.annotation.Nullable private List<String> resourceTypes;
+        @jakarta.annotation.Nullable private String resourceId;
+        @jakarta.annotation.Nullable private String principalId;
+        @jakarta.annotation.Nullable private String principalType;
+        @jakarta.annotation.Nullable private String effectivePrincipalId;
+        @jakarta.annotation.Nullable private Boolean hasEffectivePrincipal;
+        @jakarta.annotation.Nullable private String projectId;
+        @jakarta.annotation.Nullable private String from;
+        @jakarta.annotation.Nullable private String to;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+
+        private APIlistAuditTrailEventsRequest() {}
+
+        /**
+         * Set actions
+         * @param actions Filter by action types (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest actions(
+                @jakarta.annotation.Nullable List<AuditAction> actions) {
+            this.actions = actions;
+            return this;
+        }
+
+        /**
+         * Set resourceTypes
+         * @param resourceTypes Filter by resource types (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest resourceTypes(
+                @jakarta.annotation.Nullable List<String> resourceTypes) {
+            this.resourceTypes = resourceTypes;
+            return this;
+        }
+
+        /**
+         * Set resourceId
+         * @param resourceId Filter by resource ID (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest resourceId(
+                @jakarta.annotation.Nullable String resourceId) {
+            this.resourceId = resourceId;
+            return this;
+        }
+
+        /**
+         * Set principalId
+         * @param principalId Filter by exact actor principal ref (matches principal_id column). (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest principalId(
+                @jakarta.annotation.Nullable String principalId) {
+            this.principalId = principalId;
+            return this;
+        }
+
+        /**
+         * Set principalType
+         * @param principalType Filter by top-level actor category (matches principal_type column). (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest principalType(
+                @jakarta.annotation.Nullable String principalType) {
+            this.principalType = principalType;
+            return this;
+        }
+
+        /**
+         * Set effectivePrincipalId
+         * @param effectivePrincipalId Filter by delegated/direct effective principal ref (matches effective_principal_id column). (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest effectivePrincipalId(
+                @jakarta.annotation.Nullable String effectivePrincipalId) {
+            this.effectivePrincipalId = effectivePrincipalId;
+            return this;
+        }
+
+        /**
+         * Set hasEffectivePrincipal
+         * @param hasEffectivePrincipal Filter by whether an event has an effective principal ref. (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest hasEffectivePrincipal(
+                @jakarta.annotation.Nullable Boolean hasEffectivePrincipal) {
+            this.hasEffectivePrincipal = hasEffectivePrincipal;
+            return this;
+        }
+
+        /**
+         * Set projectId
+         * @param projectId Filter by project ID. Honoured only for account-scoped principals; a project-scoped principal always reads its own project. (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest projectId(
+                @jakarta.annotation.Nullable String projectId) {
+            this.projectId = projectId;
+            return this;
+        }
+
+        /**
+         * Set from
+         * @param from Start time (ISO string) (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest from(@jakarta.annotation.Nullable String from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End time (ISO string) (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest to(@jakarta.annotation.Nullable String to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Pagination: number of items to return (default 50, max 200) (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset Pagination: offset (optional)
+         * @return APIlistAuditTrailEventsRequest
+         */
+        public APIlistAuditTrailEventsRequest offset(
+                @jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listAuditTrailEvents
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Audit trail query results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAuditTrailEventsCall(
+                    actions,
+                    resourceTypes,
+                    resourceId,
+                    principalId,
+                    principalType,
+                    effectivePrincipalId,
+                    hasEffectivePrincipal,
+                    projectId,
+                    from,
+                    to,
+                    limit,
+                    offset,
+                    _callback);
+        }
+
+        /**
+         * Execute listAuditTrailEvents request
+         * @return AuditTrailResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Audit trail query results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AuditTrailResponse execute() throws ApiException {
+            ApiResponse<AuditTrailResponse> localVarResp =
+                    listAuditTrailEventsWithHttpInfo(
+                            actions,
+                            resourceTypes,
+                            resourceId,
+                            principalId,
+                            principalType,
+                            effectivePrincipalId,
+                            hasEffectivePrincipal,
+                            projectId,
+                            from,
+                            to,
+                            limit,
+                            offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAuditTrailEvents request with HTTP info returned
+         * @return ApiResponse&lt;AuditTrailResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Audit trail query results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AuditTrailResponse> executeWithHttpInfo() throws ApiException {
+            return listAuditTrailEventsWithHttpInfo(
+                    actions,
+                    resourceTypes,
+                    resourceId,
+                    principalId,
+                    principalType,
+                    effectivePrincipalId,
+                    hasEffectivePrincipal,
+                    projectId,
+                    from,
+                    to,
+                    limit,
+                    offset);
+        }
+
+        /**
+         * Execute listAuditTrailEvents request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Audit trail query results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AuditTrailResponse> _callback)
+                throws ApiException {
+            return listAuditTrailEventsAsync(
+                    actions,
+                    resourceTypes,
+                    resourceId,
+                    principalId,
+                    principalType,
+                    effectivePrincipalId,
+                    hasEffectivePrincipal,
+                    projectId,
+                    from,
+                    to,
+                    limit,
+                    offset,
+                    _callback);
+        }
     }
 
     /**
      * List audit trail events
-     * Calls {@code listAuditTrailEvents} with every optional parameter left unset.
-     * @return AuditTrailResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Lists audit trail events with optional filtering by project, resource, principal, action, and time range. Without &#x60;from&#x60;, the list covers the 7 days before &#x60;to&#x60; (or now); a range cannot exceed 366 days.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
+     * @return APIlistAuditTrailEventsRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Audit trail query results. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
      */
-    public AuditTrailResponse listAuditTrailEvents() throws ApiException {
-        return listAuditTrailEvents(
-                null, null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List audit trail events
-     * Calls {@code listAuditTrailEventsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AuditTrailResponse> listAuditTrailEventsWithHttpInfo() throws ApiException {
-        return listAuditTrailEventsWithHttpInfo(
-                null, null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List audit trail events (asynchronously)
-     * Calls {@code listAuditTrailEventsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listAuditTrailEventsAsync(final ApiCallback<AuditTrailResponse> _callback)
-            throws ApiException {
-        return listAuditTrailEventsAsync(
-                null, null, null, null, null, null, null, null, null, null, null, null, _callback);
+    public APIlistAuditTrailEventsRequest listAuditTrailEvents() {
+        return new APIlistAuditTrailEventsRequest();
     }
 }

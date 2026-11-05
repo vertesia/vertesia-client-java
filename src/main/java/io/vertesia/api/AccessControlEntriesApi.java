@@ -66,22 +66,7 @@ public class AccessControlEntriesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createAccessControlEntry
-     * @param acECreatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created access control entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAccessControlEntryCall(
+    private okhttp3.Call createAccessControlEntryCall(
             @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -151,44 +136,7 @@ public class AccessControlEntriesApi {
         return createAccessControlEntryCall(acECreatePayload, _callback);
     }
 
-    /**
-     * Create an access control entry
-     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
-     * @param acECreatePayload  (required)
-     * @return AccessControlEntry
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created access control entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AccessControlEntry createAccessControlEntry(
-            @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload) throws ApiException {
-        ApiResponse<AccessControlEntry> localVarResp =
-                createAccessControlEntryWithHttpInfo(acECreatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an access control entry
-     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
-     * @param acECreatePayload  (required)
-     * @return ApiResponse&lt;AccessControlEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created access control entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AccessControlEntry> createAccessControlEntryWithHttpInfo(
+    private ApiResponse<AccessControlEntry> createAccessControlEntryWithHttpInfo(
             @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload) throws ApiException {
         okhttp3.Call localVarCall =
                 createAccessControlEntryValidateBeforeCall(acECreatePayload, null);
@@ -196,23 +144,7 @@ public class AccessControlEntriesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an access control entry (asynchronously)
-     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
-     * @param acECreatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created access control entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAccessControlEntryAsync(
+    private okhttp3.Call createAccessControlEntryAsync(
             @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload,
             final ApiCallback<AccessControlEntry> _callback)
             throws ApiException {
@@ -224,22 +156,108 @@ public class AccessControlEntriesApi {
         return localVarCall;
     }
 
+    public class APIcreateAccessControlEntryRequest {
+        @jakarta.annotation.Nonnull private final ACECreatePayload acECreatePayload;
+
+        private APIcreateAccessControlEntryRequest(
+                @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload) {
+            this.acECreatePayload = acECreatePayload;
+        }
+
+        /**
+         * Build call for createAccessControlEntry
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createAccessControlEntryCall(acECreatePayload, _callback);
+        }
+
+        /**
+         * Execute createAccessControlEntry request
+         * @return AccessControlEntry
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AccessControlEntry execute() throws ApiException {
+            ApiResponse<AccessControlEntry> localVarResp =
+                    createAccessControlEntryWithHttpInfo(acECreatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createAccessControlEntry request with HTTP info returned
+         * @return ApiResponse&lt;AccessControlEntry&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AccessControlEntry> executeWithHttpInfo() throws ApiException {
+            return createAccessControlEntryWithHttpInfo(acECreatePayload);
+        }
+
+        /**
+         * Execute createAccessControlEntry request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AccessControlEntry> _callback)
+                throws ApiException {
+            return createAccessControlEntryAsync(acECreatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteAccessControlEntry
-     * @param aceId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an access control entry
+     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
+     * @param acECreatePayload  (required)
+     * @return APIcreateAccessControlEntryRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access control entry deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created access control entry. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteAccessControlEntryCall(
+    public APIcreateAccessControlEntryRequest createAccessControlEntry(
+            @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload) {
+        return new APIcreateAccessControlEntryRequest(acECreatePayload);
+    }
+
+    private okhttp3.Call deleteAccessControlEntryCall(
             @jakarta.annotation.Nonnull String aceId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -311,66 +329,14 @@ public class AccessControlEntriesApi {
         return deleteAccessControlEntryCall(aceId, _callback);
     }
 
-    /**
-     * Delete an access control entry
-     * Deletes an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
-     * @param aceId  (required)
-     * @return DeleteByIdResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access control entry deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteByIdResult deleteAccessControlEntry(@jakarta.annotation.Nonnull String aceId)
-            throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp = deleteAccessControlEntryWithHttpInfo(aceId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an access control entry
-     * Deletes an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
-     * @param aceId  (required)
-     * @return ApiResponse&lt;DeleteByIdResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access control entry deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteByIdResult> deleteAccessControlEntryWithHttpInfo(
+    private ApiResponse<DeleteByIdResult> deleteAccessControlEntryWithHttpInfo(
             @jakarta.annotation.Nonnull String aceId) throws ApiException {
         okhttp3.Call localVarCall = deleteAccessControlEntryValidateBeforeCall(aceId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an access control entry (asynchronously)
-     * Deletes an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
-     * @param aceId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access control entry deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteAccessControlEntryAsync(
+    private okhttp3.Call deleteAccessControlEntryAsync(
             @jakarta.annotation.Nonnull String aceId, final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
@@ -380,22 +346,107 @@ public class AccessControlEntriesApi {
         return localVarCall;
     }
 
+    public class APIdeleteAccessControlEntryRequest {
+        @jakarta.annotation.Nonnull private final String aceId;
+
+        private APIdeleteAccessControlEntryRequest(@jakarta.annotation.Nonnull String aceId) {
+            this.aceId = aceId;
+        }
+
+        /**
+         * Build call for deleteAccessControlEntry
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access control entry deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteAccessControlEntryCall(aceId, _callback);
+        }
+
+        /**
+         * Execute deleteAccessControlEntry request
+         * @return DeleteByIdResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access control entry deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteByIdResult execute() throws ApiException {
+            ApiResponse<DeleteByIdResult> localVarResp =
+                    deleteAccessControlEntryWithHttpInfo(aceId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteAccessControlEntry request with HTTP info returned
+         * @return ApiResponse&lt;DeleteByIdResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access control entry deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteByIdResult> executeWithHttpInfo() throws ApiException {
+            return deleteAccessControlEntryWithHttpInfo(aceId);
+        }
+
+        /**
+         * Execute deleteAccessControlEntry request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access control entry deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteByIdResult> _callback)
+                throws ApiException {
+            return deleteAccessControlEntryAsync(aceId, _callback);
+        }
+    }
+
     /**
-     * Build call for getAccessControlEntry
+     * Delete an access control entry
+     * Deletes an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param aceId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteAccessControlEntryRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested access control entry. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Access control entry deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAccessControlEntryCall(
+    public APIdeleteAccessControlEntryRequest deleteAccessControlEntry(
+            @jakarta.annotation.Nonnull String aceId) {
+        return new APIdeleteAccessControlEntryRequest(aceId);
+    }
+
+    private okhttp3.Call getAccessControlEntryCall(
             @jakarta.annotation.Nonnull String aceId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -467,66 +518,14 @@ public class AccessControlEntriesApi {
         return getAccessControlEntryCall(aceId, _callback);
     }
 
-    /**
-     * Retrieve an access control entry
-     * Retrieves an access control entry by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
-     * @param aceId  (required)
-     * @return AccessControlEntry
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested access control entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AccessControlEntry getAccessControlEntry(@jakarta.annotation.Nonnull String aceId)
-            throws ApiException {
-        ApiResponse<AccessControlEntry> localVarResp = getAccessControlEntryWithHttpInfo(aceId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an access control entry
-     * Retrieves an access control entry by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
-     * @param aceId  (required)
-     * @return ApiResponse&lt;AccessControlEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested access control entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AccessControlEntry> getAccessControlEntryWithHttpInfo(
+    private ApiResponse<AccessControlEntry> getAccessControlEntryWithHttpInfo(
             @jakarta.annotation.Nonnull String aceId) throws ApiException {
         okhttp3.Call localVarCall = getAccessControlEntryValidateBeforeCall(aceId, null);
         Type localVarReturnType = new TypeToken<AccessControlEntry>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an access control entry (asynchronously)
-     * Retrieves an access control entry by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
-     * @param aceId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested access control entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAccessControlEntryAsync(
+    private okhttp3.Call getAccessControlEntryAsync(
             @jakarta.annotation.Nonnull String aceId,
             final ApiCallback<AccessControlEntry> _callback)
             throws ApiException {
@@ -537,21 +536,106 @@ public class AccessControlEntriesApi {
         return localVarCall;
     }
 
+    public class APIgetAccessControlEntryRequest {
+        @jakarta.annotation.Nonnull private final String aceId;
+
+        private APIgetAccessControlEntryRequest(@jakarta.annotation.Nonnull String aceId) {
+            this.aceId = aceId;
+        }
+
+        /**
+         * Build call for getAccessControlEntry
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAccessControlEntryCall(aceId, _callback);
+        }
+
+        /**
+         * Execute getAccessControlEntry request
+         * @return AccessControlEntry
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AccessControlEntry execute() throws ApiException {
+            ApiResponse<AccessControlEntry> localVarResp = getAccessControlEntryWithHttpInfo(aceId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAccessControlEntry request with HTTP info returned
+         * @return ApiResponse&lt;AccessControlEntry&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AccessControlEntry> executeWithHttpInfo() throws ApiException {
+            return getAccessControlEntryWithHttpInfo(aceId);
+        }
+
+        /**
+         * Execute getAccessControlEntry request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AccessControlEntry> _callback)
+                throws ApiException {
+            return getAccessControlEntryAsync(aceId, _callback);
+        }
+    }
+
     /**
-     * Build call for listAccessControlEntries
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve an access control entry
+     * Retrieves an access control entry by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
+     * @param aceId  (required)
+     * @return APIgetAccessControlEntryRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access control entries. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested access control entry. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAccessControlEntriesCall(final ApiCallback _callback)
+    public APIgetAccessControlEntryRequest getAccessControlEntry(
+            @jakarta.annotation.Nonnull String aceId) {
+        return new APIgetAccessControlEntryRequest(aceId);
+    }
+
+    private okhttp3.Call listAccessControlEntriesCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -611,62 +695,14 @@ public class AccessControlEntriesApi {
         return listAccessControlEntriesCall(_callback);
     }
 
-    /**
-     * List access control entries
-     * Lists access control entries visible in the current account and project context.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
-     * @return List&lt;AccessControlEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access control entries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AccessControlEntry> listAccessControlEntries() throws ApiException {
-        ApiResponse<List<AccessControlEntry>> localVarResp = listAccessControlEntriesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List access control entries
-     * Lists access control entries visible in the current account and project context.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
-     * @return ApiResponse&lt;List&lt;AccessControlEntry&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access control entries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AccessControlEntry>> listAccessControlEntriesWithHttpInfo()
+    private ApiResponse<List<AccessControlEntry>> listAccessControlEntriesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listAccessControlEntriesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<AccessControlEntry>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List access control entries (asynchronously)
-     * Lists access control entries visible in the current account and project context.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access control entries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAccessControlEntriesAsync(
+    private okhttp3.Call listAccessControlEntriesAsync(
             final ApiCallback<List<AccessControlEntry>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listAccessControlEntriesValidateBeforeCall(_callback);
@@ -675,21 +711,102 @@ public class AccessControlEntriesApi {
         return localVarCall;
     }
 
+    public class APIlistAccessControlEntriesRequest {
+
+        private APIlistAccessControlEntriesRequest() {}
+
+        /**
+         * Build call for listAccessControlEntries
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access control entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAccessControlEntriesCall(_callback);
+        }
+
+        /**
+         * Execute listAccessControlEntries request
+         * @return List&lt;AccessControlEntry&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access control entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AccessControlEntry> execute() throws ApiException {
+            ApiResponse<List<AccessControlEntry>> localVarResp =
+                    listAccessControlEntriesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAccessControlEntries request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AccessControlEntry&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access control entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AccessControlEntry>> executeWithHttpInfo() throws ApiException {
+            return listAccessControlEntriesWithHttpInfo();
+        }
+
+        /**
+         * Execute listAccessControlEntries request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access control entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AccessControlEntry>> _callback)
+                throws ApiException {
+            return listAccessControlEntriesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listProjectAccessControlEntries
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List access control entries
+     * Lists access control entries visible in the current account and project context.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
+     * @return APIlistAccessControlEntriesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project-scoped access control entries. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Access control entries. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectAccessControlEntriesCall(final ApiCallback _callback)
+    public APIlistAccessControlEntriesRequest listAccessControlEntries() {
+        return new APIlistAccessControlEntriesRequest();
+    }
+
+    private okhttp3.Call listProjectAccessControlEntriesCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -749,63 +866,14 @@ public class AccessControlEntriesApi {
         return listProjectAccessControlEntriesCall(_callback);
     }
 
-    /**
-     * List project-scoped access control entries
-     * Lists all ACEs scoped to the current project, including regular project ACEs and dynamic (content_set/principal_set) ACEs.  **Required permissions:** &#x60;account:read&#x60;
-     * @return List&lt;AccessControlEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project-scoped access control entries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AccessControlEntry> listProjectAccessControlEntries() throws ApiException {
-        ApiResponse<List<AccessControlEntry>> localVarResp =
-                listProjectAccessControlEntriesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List project-scoped access control entries
-     * Lists all ACEs scoped to the current project, including regular project ACEs and dynamic (content_set/principal_set) ACEs.  **Required permissions:** &#x60;account:read&#x60;
-     * @return ApiResponse&lt;List&lt;AccessControlEntry&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project-scoped access control entries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AccessControlEntry>> listProjectAccessControlEntriesWithHttpInfo()
+    private ApiResponse<List<AccessControlEntry>> listProjectAccessControlEntriesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listProjectAccessControlEntriesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<AccessControlEntry>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List project-scoped access control entries (asynchronously)
-     * Lists all ACEs scoped to the current project, including regular project ACEs and dynamic (content_set/principal_set) ACEs.  **Required permissions:** &#x60;account:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project-scoped access control entries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectAccessControlEntriesAsync(
+    private okhttp3.Call listProjectAccessControlEntriesAsync(
             final ApiCallback<List<AccessControlEntry>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listProjectAccessControlEntriesValidateBeforeCall(_callback);
@@ -814,23 +882,102 @@ public class AccessControlEntriesApi {
         return localVarCall;
     }
 
+    public class APIlistProjectAccessControlEntriesRequest {
+
+        private APIlistProjectAccessControlEntriesRequest() {}
+
+        /**
+         * Build call for listProjectAccessControlEntries
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project-scoped access control entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectAccessControlEntriesCall(_callback);
+        }
+
+        /**
+         * Execute listProjectAccessControlEntries request
+         * @return List&lt;AccessControlEntry&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project-scoped access control entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AccessControlEntry> execute() throws ApiException {
+            ApiResponse<List<AccessControlEntry>> localVarResp =
+                    listProjectAccessControlEntriesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjectAccessControlEntries request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AccessControlEntry&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project-scoped access control entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AccessControlEntry>> executeWithHttpInfo() throws ApiException {
+            return listProjectAccessControlEntriesWithHttpInfo();
+        }
+
+        /**
+         * Execute listProjectAccessControlEntries request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project-scoped access control entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AccessControlEntry>> _callback)
+                throws ApiException {
+            return listProjectAccessControlEntriesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateAccessControlEntry
-     * @param aceId  (required)
-     * @param acEUpdatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List project-scoped access control entries
+     * Lists all ACEs scoped to the current project, including regular project ACEs and dynamic (content_set/principal_set) ACEs.  **Required permissions:** &#x60;account:read&#x60;
+     * @return APIlistProjectAccessControlEntriesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated access control entry. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Project-scoped access control entries. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAccessControlEntryCall(
+    public APIlistProjectAccessControlEntriesRequest listProjectAccessControlEntries() {
+        return new APIlistProjectAccessControlEntriesRequest();
+    }
+
+    private okhttp3.Call updateAccessControlEntryCall(
             @jakarta.annotation.Nonnull String aceId,
             @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload,
             final ApiCallback _callback)
@@ -912,48 +1059,7 @@ public class AccessControlEntriesApi {
         return updateAccessControlEntryCall(aceId, acEUpdatePayload, _callback);
     }
 
-    /**
-     * Update an access control entry
-     * Updates an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
-     * @param aceId  (required)
-     * @param acEUpdatePayload  (required)
-     * @return AccessControlEntry
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated access control entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AccessControlEntry updateAccessControlEntry(
-            @jakarta.annotation.Nonnull String aceId,
-            @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload)
-            throws ApiException {
-        ApiResponse<AccessControlEntry> localVarResp =
-                updateAccessControlEntryWithHttpInfo(aceId, acEUpdatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an access control entry
-     * Updates an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
-     * @param aceId  (required)
-     * @param acEUpdatePayload  (required)
-     * @return ApiResponse&lt;AccessControlEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated access control entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AccessControlEntry> updateAccessControlEntryWithHttpInfo(
+    private ApiResponse<AccessControlEntry> updateAccessControlEntryWithHttpInfo(
             @jakarta.annotation.Nonnull String aceId,
             @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload)
             throws ApiException {
@@ -963,24 +1069,7 @@ public class AccessControlEntriesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an access control entry (asynchronously)
-     * Updates an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
-     * @param aceId  (required)
-     * @param acEUpdatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated access control entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateAccessControlEntryAsync(
+    private okhttp3.Call updateAccessControlEntryAsync(
             @jakarta.annotation.Nonnull String aceId,
             @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload,
             final ApiCallback<AccessControlEntry> _callback)
@@ -991,5 +1080,111 @@ public class AccessControlEntriesApi {
         Type localVarReturnType = new TypeToken<AccessControlEntry>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateAccessControlEntryRequest {
+        @jakarta.annotation.Nonnull private final String aceId;
+        @jakarta.annotation.Nonnull private final ACEUpdatePayload acEUpdatePayload;
+
+        private APIupdateAccessControlEntryRequest(
+                @jakarta.annotation.Nonnull String aceId,
+                @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload) {
+            this.aceId = aceId;
+            this.acEUpdatePayload = acEUpdatePayload;
+        }
+
+        /**
+         * Build call for updateAccessControlEntry
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateAccessControlEntryCall(aceId, acEUpdatePayload, _callback);
+        }
+
+        /**
+         * Execute updateAccessControlEntry request
+         * @return AccessControlEntry
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AccessControlEntry execute() throws ApiException {
+            ApiResponse<AccessControlEntry> localVarResp =
+                    updateAccessControlEntryWithHttpInfo(aceId, acEUpdatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateAccessControlEntry request with HTTP info returned
+         * @return ApiResponse&lt;AccessControlEntry&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AccessControlEntry> executeWithHttpInfo() throws ApiException {
+            return updateAccessControlEntryWithHttpInfo(aceId, acEUpdatePayload);
+        }
+
+        /**
+         * Execute updateAccessControlEntry request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated access control entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AccessControlEntry> _callback)
+                throws ApiException {
+            return updateAccessControlEntryAsync(aceId, acEUpdatePayload, _callback);
+        }
+    }
+
+    /**
+     * Update an access control entry
+     * Updates an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
+     * @param aceId  (required)
+     * @param acEUpdatePayload  (required)
+     * @return APIupdateAccessControlEntryRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated access control entry. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateAccessControlEntryRequest updateAccessControlEntry(
+            @jakarta.annotation.Nonnull String aceId,
+            @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload) {
+        return new APIupdateAccessControlEntryRequest(aceId, acEUpdatePayload);
     }
 }

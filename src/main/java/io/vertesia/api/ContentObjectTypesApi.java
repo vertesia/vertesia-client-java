@@ -69,23 +69,7 @@ public class ContentObjectTypesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createContentObjectType
-     * @param createContentObjectTypePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createContentObjectTypeCall(
+    private okhttp3.Call createContentObjectTypeCall(
             @jakarta.annotation.Nonnull
                     CreateContentObjectTypePayload createContentObjectTypePayload,
             final ApiCallback _callback)
@@ -157,48 +141,7 @@ public class ContentObjectTypesApi {
         return createContentObjectTypeCall(createContentObjectTypePayload, _callback);
     }
 
-    /**
-     * Create a content object type
-     * Creates a new content object type after validating its JSON Schema.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param createContentObjectTypePayload  (required)
-     * @return ContentObjectType
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentObjectType createContentObjectType(
-            @jakarta.annotation.Nonnull
-                    CreateContentObjectTypePayload createContentObjectTypePayload)
-            throws ApiException {
-        ApiResponse<ContentObjectType> localVarResp =
-                createContentObjectTypeWithHttpInfo(createContentObjectTypePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a content object type
-     * Creates a new content object type after validating its JSON Schema.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param createContentObjectTypePayload  (required)
-     * @return ApiResponse&lt;ContentObjectType&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentObjectType> createContentObjectTypeWithHttpInfo(
+    private ApiResponse<ContentObjectType> createContentObjectTypeWithHttpInfo(
             @jakarta.annotation.Nonnull
                     CreateContentObjectTypePayload createContentObjectTypePayload)
             throws ApiException {
@@ -208,24 +151,7 @@ public class ContentObjectTypesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a content object type (asynchronously)
-     * Creates a new content object type after validating its JSON Schema.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param createContentObjectTypePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createContentObjectTypeAsync(
+    private okhttp3.Call createContentObjectTypeAsync(
             @jakarta.annotation.Nonnull
                     CreateContentObjectTypePayload createContentObjectTypePayload,
             final ApiCallback<ContentObjectType> _callback)
@@ -239,22 +165,116 @@ public class ContentObjectTypesApi {
         return localVarCall;
     }
 
+    public class APIcreateContentObjectTypeRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateContentObjectTypePayload createContentObjectTypePayload;
+
+        private APIcreateContentObjectTypeRequest(
+                @jakarta.annotation.Nonnull
+                        CreateContentObjectTypePayload createContentObjectTypePayload) {
+            this.createContentObjectTypePayload = createContentObjectTypePayload;
+        }
+
+        /**
+         * Build call for createContentObjectType
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createContentObjectTypeCall(createContentObjectTypePayload, _callback);
+        }
+
+        /**
+         * Execute createContentObjectType request
+         * @return ContentObjectType
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentObjectType execute() throws ApiException {
+            ApiResponse<ContentObjectType> localVarResp =
+                    createContentObjectTypeWithHttpInfo(createContentObjectTypePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createContentObjectType request with HTTP info returned
+         * @return ApiResponse&lt;ContentObjectType&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentObjectType> executeWithHttpInfo() throws ApiException {
+            return createContentObjectTypeWithHttpInfo(createContentObjectTypePayload);
+        }
+
+        /**
+         * Execute createContentObjectType request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentObjectType> _callback)
+                throws ApiException {
+            return createContentObjectTypeAsync(createContentObjectTypePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteContentObjectType
-     * @param typeId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a content object type
+     * Creates a new content object type after validating its JSON Schema.  **Required permissions:** &#x60;content:admin&#x60;
+     * @param createContentObjectTypePayload  (required)
+     * @return APIcreateContentObjectTypeRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object type deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteContentObjectTypeCall(
+    public APIcreateContentObjectTypeRequest createContentObjectType(
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload) {
+        return new APIcreateContentObjectTypeRequest(createContentObjectTypePayload);
+    }
+
+    private okhttp3.Call deleteContentObjectTypeCall(
             @jakarta.annotation.Nonnull String typeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -326,66 +346,14 @@ public class ContentObjectTypesApi {
         return deleteContentObjectTypeCall(typeId, _callback);
     }
 
-    /**
-     * Delete a content object type
-     * Deletes a content object type.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param typeId  (required)
-     * @return DeleteCountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object type deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteCountResult deleteContentObjectType(@jakarta.annotation.Nonnull String typeId)
-            throws ApiException {
-        ApiResponse<DeleteCountResult> localVarResp = deleteContentObjectTypeWithHttpInfo(typeId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a content object type
-     * Deletes a content object type.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param typeId  (required)
-     * @return ApiResponse&lt;DeleteCountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object type deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteCountResult> deleteContentObjectTypeWithHttpInfo(
+    private ApiResponse<DeleteCountResult> deleteContentObjectTypeWithHttpInfo(
             @jakarta.annotation.Nonnull String typeId) throws ApiException {
         okhttp3.Call localVarCall = deleteContentObjectTypeValidateBeforeCall(typeId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a content object type (asynchronously)
-     * Deletes a content object type.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param typeId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object type deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteContentObjectTypeAsync(
+    private okhttp3.Call deleteContentObjectTypeAsync(
             @jakarta.annotation.Nonnull String typeId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
@@ -396,22 +364,107 @@ public class ContentObjectTypesApi {
         return localVarCall;
     }
 
+    public class APIdeleteContentObjectTypeRequest {
+        @jakarta.annotation.Nonnull private final String typeId;
+
+        private APIdeleteContentObjectTypeRequest(@jakarta.annotation.Nonnull String typeId) {
+            this.typeId = typeId;
+        }
+
+        /**
+         * Build call for deleteContentObjectType
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object type deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteContentObjectTypeCall(typeId, _callback);
+        }
+
+        /**
+         * Execute deleteContentObjectType request
+         * @return DeleteCountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object type deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteCountResult execute() throws ApiException {
+            ApiResponse<DeleteCountResult> localVarResp =
+                    deleteContentObjectTypeWithHttpInfo(typeId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteContentObjectType request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object type deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteCountResult> executeWithHttpInfo() throws ApiException {
+            return deleteContentObjectTypeWithHttpInfo(typeId);
+        }
+
+        /**
+         * Execute deleteContentObjectType request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object type deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCountResult> _callback)
+                throws ApiException {
+            return deleteContentObjectTypeAsync(typeId, _callback);
+        }
+    }
+
     /**
-     * Build call for getContentObjectType
+     * Delete a content object type
+     * Deletes a content object type.  **Required permissions:** &#x60;content:admin&#x60;
      * @param typeId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteContentObjectTypeRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Content object type deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getContentObjectTypeCall(
+    public APIdeleteContentObjectTypeRequest deleteContentObjectType(
+            @jakarta.annotation.Nonnull String typeId) {
+        return new APIdeleteContentObjectTypeRequest(typeId);
+    }
+
+    private okhttp3.Call getContentObjectTypeCall(
             @jakarta.annotation.Nonnull String typeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -483,66 +536,14 @@ public class ContentObjectTypesApi {
         return getContentObjectTypeCall(typeId, _callback);
     }
 
-    /**
-     * Retrieve a content object type
-     * Retrieves a content object type by ID, including schema and layout when stored on the type.  **Required permissions:** &#x60;content:read&#x60;
-     * @param typeId  (required)
-     * @return ContentObjectType
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentObjectType getContentObjectType(@jakarta.annotation.Nonnull String typeId)
-            throws ApiException {
-        ApiResponse<ContentObjectType> localVarResp = getContentObjectTypeWithHttpInfo(typeId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a content object type
-     * Retrieves a content object type by ID, including schema and layout when stored on the type.  **Required permissions:** &#x60;content:read&#x60;
-     * @param typeId  (required)
-     * @return ApiResponse&lt;ContentObjectType&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentObjectType> getContentObjectTypeWithHttpInfo(
+    private ApiResponse<ContentObjectType> getContentObjectTypeWithHttpInfo(
             @jakarta.annotation.Nonnull String typeId) throws ApiException {
         okhttp3.Call localVarCall = getContentObjectTypeValidateBeforeCall(typeId, null);
         Type localVarReturnType = new TypeToken<ContentObjectType>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a content object type (asynchronously)
-     * Retrieves a content object type by ID, including schema and layout when stored on the type.  **Required permissions:** &#x60;content:read&#x60;
-     * @param typeId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getContentObjectTypeAsync(
+    private okhttp3.Call getContentObjectTypeAsync(
             @jakarta.annotation.Nonnull String typeId,
             final ApiCallback<ContentObjectType> _callback)
             throws ApiException {
@@ -553,12 +554,91 @@ public class ContentObjectTypesApi {
         return localVarCall;
     }
 
+    public class APIgetContentObjectTypeRequest {
+        @jakarta.annotation.Nonnull private final String typeId;
+
+        private APIgetContentObjectTypeRequest(@jakarta.annotation.Nonnull String typeId) {
+            this.typeId = typeId;
+        }
+
+        /**
+         * Build call for getContentObjectType
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getContentObjectTypeCall(typeId, _callback);
+        }
+
+        /**
+         * Execute getContentObjectType request
+         * @return ContentObjectType
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentObjectType execute() throws ApiException {
+            ApiResponse<ContentObjectType> localVarResp = getContentObjectTypeWithHttpInfo(typeId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getContentObjectType request with HTTP info returned
+         * @return ApiResponse&lt;ContentObjectType&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentObjectType> executeWithHttpInfo() throws ApiException {
+            return getContentObjectTypeWithHttpInfo(typeId);
+        }
+
+        /**
+         * Execute getContentObjectType request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentObjectType> _callback)
+                throws ApiException {
+            return getContentObjectTypeAsync(typeId, _callback);
+        }
+    }
+
     /**
-     * Build call for getContentObjectTypeByName
-     * @param name  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a content object type
+     * Retrieves a content object type by ID, including schema and layout when stored on the type.  **Required permissions:** &#x60;content:read&#x60;
+     * @param typeId  (required)
+     * @return APIgetContentObjectTypeRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -568,7 +648,12 @@ public class ContentObjectTypesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getContentObjectTypeByNameCall(
+    public APIgetContentObjectTypeRequest getContentObjectType(
+            @jakarta.annotation.Nonnull String typeId) {
+        return new APIgetContentObjectTypeRequest(typeId);
+    }
+
+    private okhttp3.Call getContentObjectTypeByNameCall(
             @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -640,66 +725,14 @@ public class ContentObjectTypesApi {
         return getContentObjectTypeByNameCall(name, _callback);
     }
 
-    /**
-     * Retrieve a content object type by name
-     * Retrieves a content object type by its unique name.  **Required permissions:** &#x60;content:read&#x60;
-     * @param name  (required)
-     * @return ContentObjectType
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentObjectType getContentObjectTypeByName(@jakarta.annotation.Nonnull String name)
-            throws ApiException {
-        ApiResponse<ContentObjectType> localVarResp = getContentObjectTypeByNameWithHttpInfo(name);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a content object type by name
-     * Retrieves a content object type by its unique name.  **Required permissions:** &#x60;content:read&#x60;
-     * @param name  (required)
-     * @return ApiResponse&lt;ContentObjectType&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentObjectType> getContentObjectTypeByNameWithHttpInfo(
+    private ApiResponse<ContentObjectType> getContentObjectTypeByNameWithHttpInfo(
             @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = getContentObjectTypeByNameValidateBeforeCall(name, null);
         Type localVarReturnType = new TypeToken<ContentObjectType>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a content object type by name (asynchronously)
-     * Retrieves a content object type by its unique name.  **Required permissions:** &#x60;content:read&#x60;
-     * @param name  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getContentObjectTypeByNameAsync(
+    private okhttp3.Call getContentObjectTypeByNameAsync(
             @jakarta.annotation.Nonnull String name, final ApiCallback<ContentObjectType> _callback)
             throws ApiException {
 
@@ -709,26 +742,107 @@ public class ContentObjectTypesApi {
         return localVarCall;
     }
 
+    public class APIgetContentObjectTypeByNameRequest {
+        @jakarta.annotation.Nonnull private final String name;
+
+        private APIgetContentObjectTypeByNameRequest(@jakarta.annotation.Nonnull String name) {
+            this.name = name;
+        }
+
+        /**
+         * Build call for getContentObjectTypeByName
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getContentObjectTypeByNameCall(name, _callback);
+        }
+
+        /**
+         * Execute getContentObjectTypeByName request
+         * @return ContentObjectType
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentObjectType execute() throws ApiException {
+            ApiResponse<ContentObjectType> localVarResp =
+                    getContentObjectTypeByNameWithHttpInfo(name);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getContentObjectTypeByName request with HTTP info returned
+         * @return ApiResponse&lt;ContentObjectType&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentObjectType> executeWithHttpInfo() throws ApiException {
+            return getContentObjectTypeByNameWithHttpInfo(name);
+        }
+
+        /**
+         * Execute getContentObjectTypeByName request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentObjectType> _callback)
+                throws ApiException {
+            return getContentObjectTypeByNameAsync(name, _callback);
+        }
+    }
+
     /**
-     * Build call for listApplicationContentObjectTypes
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a content object type by name
+     * Retrieves a content object type by its unique name.  **Required permissions:** &#x60;content:read&#x60;
+     * @param name  (required)
+     * @return APIgetContentObjectTypeByNameRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Application content object types. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested content object type. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listApplicationContentObjectTypesCall(
+    public APIgetContentObjectTypeByNameRequest getContentObjectTypeByName(
+            @jakarta.annotation.Nonnull String name) {
+        return new APIgetContentObjectTypeByNameRequest(name);
+    }
+
+    private okhttp3.Call listApplicationContentObjectTypesCall(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
@@ -820,57 +934,7 @@ public class ContentObjectTypesApi {
         return listApplicationContentObjectTypesCall(tag, layout, schema, limit, offset, _callback);
     }
 
-    /**
-     * List application content object types
-     * Lists application-provided content object types.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Application content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ContentObjectTypeCatalogEntry> listApplicationContentObjectTypes(
-            @jakarta.annotation.Nullable String tag,
-            @jakarta.annotation.Nullable Boolean layout,
-            @jakarta.annotation.Nullable Boolean schema,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
-        ApiResponse<List<ContentObjectTypeCatalogEntry>> localVarResp =
-                listApplicationContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List application content object types
-     * Lists application-provided content object types.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return ApiResponse&lt;List&lt;ContentObjectTypeCatalogEntry&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Application content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
+    private ApiResponse<List<ContentObjectTypeCatalogEntry>>
             listApplicationContentObjectTypesWithHttpInfo(
                     @jakarta.annotation.Nullable String tag,
                     @jakarta.annotation.Nullable Boolean layout,
@@ -885,27 +949,7 @@ public class ContentObjectTypesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List application content object types (asynchronously)
-     * Lists application-provided content object types.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Application content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listApplicationContentObjectTypesAsync(
+    private okhttp3.Call listApplicationContentObjectTypesAsync(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
@@ -922,71 +966,168 @@ public class ContentObjectTypesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listApplicationContentObjectTypes with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listApplicationContentObjectTypesCall(final ApiCallback _callback)
-            throws ApiException {
-        return listApplicationContentObjectTypesCall(null, null, null, null, null, _callback);
+    public class APIlistApplicationContentObjectTypesRequest {
+        @jakarta.annotation.Nullable private String tag;
+        @jakarta.annotation.Nullable private Boolean layout;
+        @jakarta.annotation.Nullable private Boolean schema;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+
+        private APIlistApplicationContentObjectTypesRequest() {}
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistApplicationContentObjectTypesRequest
+         */
+        public APIlistApplicationContentObjectTypesRequest tag(
+                @jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Set layout
+         * @param layout  (optional)
+         * @return APIlistApplicationContentObjectTypesRequest
+         */
+        public APIlistApplicationContentObjectTypesRequest layout(
+                @jakarta.annotation.Nullable Boolean layout) {
+            this.layout = layout;
+            return this;
+        }
+
+        /**
+         * Set schema
+         * @param schema  (optional)
+         * @return APIlistApplicationContentObjectTypesRequest
+         */
+        public APIlistApplicationContentObjectTypesRequest schema(
+                @jakarta.annotation.Nullable Boolean schema) {
+            this.schema = schema;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistApplicationContentObjectTypesRequest
+         */
+        public APIlistApplicationContentObjectTypesRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistApplicationContentObjectTypesRequest
+         */
+        public APIlistApplicationContentObjectTypesRequest offset(
+                @jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listApplicationContentObjectTypes
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Application content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listApplicationContentObjectTypesCall(
+                    tag, layout, schema, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listApplicationContentObjectTypes request
+         * @return List&lt;ContentObjectTypeCatalogEntry&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Application content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ContentObjectTypeCatalogEntry> execute() throws ApiException {
+            ApiResponse<List<ContentObjectTypeCatalogEntry>> localVarResp =
+                    listApplicationContentObjectTypesWithHttpInfo(
+                            tag, layout, schema, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listApplicationContentObjectTypes request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ContentObjectTypeCatalogEntry&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Application content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ContentObjectTypeCatalogEntry>> executeWithHttpInfo()
+                throws ApiException {
+            return listApplicationContentObjectTypesWithHttpInfo(
+                    tag, layout, schema, limit, offset);
+        }
+
+        /**
+         * Execute listApplicationContentObjectTypes request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Application content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback)
+                throws ApiException {
+            return listApplicationContentObjectTypesAsync(
+                    tag, layout, schema, limit, offset, _callback);
+        }
     }
 
     /**
      * List application content object types
-     * Calls {@code listApplicationContentObjectTypes} with every optional parameter left unset.
-     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ContentObjectTypeCatalogEntry> listApplicationContentObjectTypes()
-            throws ApiException {
-        return listApplicationContentObjectTypes(null, null, null, null, null);
-    }
-
-    /**
-     * List application content object types
-     * Calls {@code listApplicationContentObjectTypesWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
-            listApplicationContentObjectTypesWithHttpInfo() throws ApiException {
-        return listApplicationContentObjectTypesWithHttpInfo(null, null, null, null, null);
-    }
-
-    /**
-     * List application content object types (asynchronously)
-     * Calls {@code listApplicationContentObjectTypesAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listApplicationContentObjectTypesAsync(
-            final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback) throws ApiException {
-        return listApplicationContentObjectTypesAsync(null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for listContentObjectTypeCatalog
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists application-provided content object types.  **Required permissions:** &#x60;content:read&#x60;
+     * @return APIlistApplicationContentObjectTypesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object type catalog entries. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Application content object types. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listContentObjectTypeCatalogCall(
+    public APIlistApplicationContentObjectTypesRequest listApplicationContentObjectTypes() {
+        return new APIlistApplicationContentObjectTypesRequest();
+    }
+
+    private okhttp3.Call listContentObjectTypeCatalogCall(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
@@ -1078,57 +1219,7 @@ public class ContentObjectTypesApi {
         return listContentObjectTypeCatalogCall(tag, layout, schema, limit, offset, _callback);
     }
 
-    /**
-     * List content object type catalog entries
-     * Lists available content object types across system, application, and stored catalogs.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object type catalog entries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ContentObjectTypeCatalogEntry> listContentObjectTypeCatalog(
-            @jakarta.annotation.Nullable String tag,
-            @jakarta.annotation.Nullable Boolean layout,
-            @jakarta.annotation.Nullable Boolean schema,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
-        ApiResponse<List<ContentObjectTypeCatalogEntry>> localVarResp =
-                listContentObjectTypeCatalogWithHttpInfo(tag, layout, schema, limit, offset);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List content object type catalog entries
-     * Lists available content object types across system, application, and stored catalogs.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return ApiResponse&lt;List&lt;ContentObjectTypeCatalogEntry&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object type catalog entries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
+    private ApiResponse<List<ContentObjectTypeCatalogEntry>>
             listContentObjectTypeCatalogWithHttpInfo(
                     @jakarta.annotation.Nullable String tag,
                     @jakarta.annotation.Nullable Boolean layout,
@@ -1143,27 +1234,7 @@ public class ContentObjectTypesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List content object type catalog entries (asynchronously)
-     * Lists available content object types across system, application, and stored catalogs.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object type catalog entries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listContentObjectTypeCatalogAsync(
+    private okhttp3.Call listContentObjectTypeCatalogAsync(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
@@ -1180,71 +1251,163 @@ public class ContentObjectTypesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listContentObjectTypeCatalog with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listContentObjectTypeCatalogCall(final ApiCallback _callback)
-            throws ApiException {
-        return listContentObjectTypeCatalogCall(null, null, null, null, null, _callback);
+    public class APIlistContentObjectTypeCatalogRequest {
+        @jakarta.annotation.Nullable private String tag;
+        @jakarta.annotation.Nullable private Boolean layout;
+        @jakarta.annotation.Nullable private Boolean schema;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+
+        private APIlistContentObjectTypeCatalogRequest() {}
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistContentObjectTypeCatalogRequest
+         */
+        public APIlistContentObjectTypeCatalogRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Set layout
+         * @param layout  (optional)
+         * @return APIlistContentObjectTypeCatalogRequest
+         */
+        public APIlistContentObjectTypeCatalogRequest layout(
+                @jakarta.annotation.Nullable Boolean layout) {
+            this.layout = layout;
+            return this;
+        }
+
+        /**
+         * Set schema
+         * @param schema  (optional)
+         * @return APIlistContentObjectTypeCatalogRequest
+         */
+        public APIlistContentObjectTypeCatalogRequest schema(
+                @jakarta.annotation.Nullable Boolean schema) {
+            this.schema = schema;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistContentObjectTypeCatalogRequest
+         */
+        public APIlistContentObjectTypeCatalogRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistContentObjectTypeCatalogRequest
+         */
+        public APIlistContentObjectTypeCatalogRequest offset(
+                @jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listContentObjectTypeCatalog
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object type catalog entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listContentObjectTypeCatalogCall(tag, layout, schema, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listContentObjectTypeCatalog request
+         * @return List&lt;ContentObjectTypeCatalogEntry&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object type catalog entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ContentObjectTypeCatalogEntry> execute() throws ApiException {
+            ApiResponse<List<ContentObjectTypeCatalogEntry>> localVarResp =
+                    listContentObjectTypeCatalogWithHttpInfo(tag, layout, schema, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listContentObjectTypeCatalog request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ContentObjectTypeCatalogEntry&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object type catalog entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ContentObjectTypeCatalogEntry>> executeWithHttpInfo()
+                throws ApiException {
+            return listContentObjectTypeCatalogWithHttpInfo(tag, layout, schema, limit, offset);
+        }
+
+        /**
+         * Execute listContentObjectTypeCatalog request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object type catalog entries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback)
+                throws ApiException {
+            return listContentObjectTypeCatalogAsync(tag, layout, schema, limit, offset, _callback);
+        }
     }
 
     /**
      * List content object type catalog entries
-     * Calls {@code listContentObjectTypeCatalog} with every optional parameter left unset.
-     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ContentObjectTypeCatalogEntry> listContentObjectTypeCatalog() throws ApiException {
-        return listContentObjectTypeCatalog(null, null, null, null, null);
-    }
-
-    /**
-     * List content object type catalog entries
-     * Calls {@code listContentObjectTypeCatalogWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
-            listContentObjectTypeCatalogWithHttpInfo() throws ApiException {
-        return listContentObjectTypeCatalogWithHttpInfo(null, null, null, null, null);
-    }
-
-    /**
-     * List content object type catalog entries (asynchronously)
-     * Calls {@code listContentObjectTypeCatalogAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listContentObjectTypeCatalogAsync(
-            final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback) throws ApiException {
-        return listContentObjectTypeCatalogAsync(null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for listContentObjectTypes
-     * @param name  (optional)
-     * @param chunkable  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists available content object types across system, application, and stored catalogs.  **Required permissions:** &#x60;content:read&#x60;
+     * @return APIlistContentObjectTypeCatalogRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object types. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Content object type catalog entries. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listContentObjectTypesCall(
+    public APIlistContentObjectTypeCatalogRequest listContentObjectTypeCatalog() {
+        return new APIlistContentObjectTypeCatalogRequest();
+    }
+
+    private okhttp3.Call listContentObjectTypesCall(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable Boolean chunkable,
             @jakarta.annotation.Nullable Boolean layout,
@@ -1343,60 +1506,7 @@ public class ContentObjectTypesApi {
                 name, chunkable, layout, schema, limit, offset, _callback);
     }
 
-    /**
-     * List content object types
-     * Lists content object types with optional filtering by name, chunkability, schema, and layout inclusion.  **Required permissions:** &#x60;content:read&#x60;
-     * @param name  (optional)
-     * @param chunkable  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return List&lt;ContentObjectType&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ContentObjectType> listContentObjectTypes(
-            @jakarta.annotation.Nullable String name,
-            @jakarta.annotation.Nullable Boolean chunkable,
-            @jakarta.annotation.Nullable Boolean layout,
-            @jakarta.annotation.Nullable Boolean schema,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
-        ApiResponse<List<ContentObjectType>> localVarResp =
-                listContentObjectTypesWithHttpInfo(name, chunkable, layout, schema, limit, offset);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List content object types
-     * Lists content object types with optional filtering by name, chunkability, schema, and layout inclusion.  **Required permissions:** &#x60;content:read&#x60;
-     * @param name  (optional)
-     * @param chunkable  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return ApiResponse&lt;List&lt;ContentObjectType&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ContentObjectType>> listContentObjectTypesWithHttpInfo(
+    private ApiResponse<List<ContentObjectType>> listContentObjectTypesWithHttpInfo(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable Boolean chunkable,
             @jakarta.annotation.Nullable Boolean layout,
@@ -1411,28 +1521,7 @@ public class ContentObjectTypesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List content object types (asynchronously)
-     * Lists content object types with optional filtering by name, chunkability, schema, and layout inclusion.  **Required permissions:** &#x60;content:read&#x60;
-     * @param name  (optional)
-     * @param chunkable  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listContentObjectTypesAsync(
+    private okhttp3.Call listContentObjectTypesAsync(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable Boolean chunkable,
             @jakarta.annotation.Nullable Boolean layout,
@@ -1450,70 +1539,177 @@ public class ContentObjectTypesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listContentObjectTypes with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listContentObjectTypesCall(final ApiCallback _callback)
-            throws ApiException {
-        return listContentObjectTypesCall(null, null, null, null, null, null, _callback);
+    public class APIlistContentObjectTypesRequest {
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private Boolean chunkable;
+        @jakarta.annotation.Nullable private Boolean layout;
+        @jakarta.annotation.Nullable private Boolean schema;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+
+        private APIlistContentObjectTypesRequest() {}
+
+        /**
+         * Set name
+         * @param name  (optional)
+         * @return APIlistContentObjectTypesRequest
+         */
+        public APIlistContentObjectTypesRequest name(@jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set chunkable
+         * @param chunkable  (optional)
+         * @return APIlistContentObjectTypesRequest
+         */
+        public APIlistContentObjectTypesRequest chunkable(
+                @jakarta.annotation.Nullable Boolean chunkable) {
+            this.chunkable = chunkable;
+            return this;
+        }
+
+        /**
+         * Set layout
+         * @param layout  (optional)
+         * @return APIlistContentObjectTypesRequest
+         */
+        public APIlistContentObjectTypesRequest layout(
+                @jakarta.annotation.Nullable Boolean layout) {
+            this.layout = layout;
+            return this;
+        }
+
+        /**
+         * Set schema
+         * @param schema  (optional)
+         * @return APIlistContentObjectTypesRequest
+         */
+        public APIlistContentObjectTypesRequest schema(
+                @jakarta.annotation.Nullable Boolean schema) {
+            this.schema = schema;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistContentObjectTypesRequest
+         */
+        public APIlistContentObjectTypesRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistContentObjectTypesRequest
+         */
+        public APIlistContentObjectTypesRequest offset(
+                @jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listContentObjectTypes
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listContentObjectTypesCall(
+                    name, chunkable, layout, schema, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listContentObjectTypes request
+         * @return List&lt;ContentObjectType&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ContentObjectType> execute() throws ApiException {
+            ApiResponse<List<ContentObjectType>> localVarResp =
+                    listContentObjectTypesWithHttpInfo(
+                            name, chunkable, layout, schema, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listContentObjectTypes request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ContentObjectType&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ContentObjectType>> executeWithHttpInfo() throws ApiException {
+            return listContentObjectTypesWithHttpInfo(
+                    name, chunkable, layout, schema, limit, offset);
+        }
+
+        /**
+         * Execute listContentObjectTypes request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ContentObjectType>> _callback)
+                throws ApiException {
+            return listContentObjectTypesAsync(
+                    name, chunkable, layout, schema, limit, offset, _callback);
+        }
     }
 
     /**
      * List content object types
-     * Calls {@code listContentObjectTypes} with every optional parameter left unset.
-     * @return List&lt;ContentObjectType&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ContentObjectType> listContentObjectTypes() throws ApiException {
-        return listContentObjectTypes(null, null, null, null, null, null);
-    }
-
-    /**
-     * List content object types
-     * Calls {@code listContentObjectTypesWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ContentObjectType>> listContentObjectTypesWithHttpInfo()
-            throws ApiException {
-        return listContentObjectTypesWithHttpInfo(null, null, null, null, null, null);
-    }
-
-    /**
-     * List content object types (asynchronously)
-     * Calls {@code listContentObjectTypesAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listContentObjectTypesAsync(
-            final ApiCallback<List<ContentObjectType>> _callback) throws ApiException {
-        return listContentObjectTypesAsync(null, null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for listStoredContentObjectTypes
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists content object types with optional filtering by name, chunkability, schema, and layout inclusion.  **Required permissions:** &#x60;content:read&#x60;
+     * @return APIlistContentObjectTypesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored content object types. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Content object types. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listStoredContentObjectTypesCall(
+    public APIlistContentObjectTypesRequest listContentObjectTypes() {
+        return new APIlistContentObjectTypesRequest();
+    }
+
+    private okhttp3.Call listStoredContentObjectTypesCall(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
@@ -1605,57 +1801,7 @@ public class ContentObjectTypesApi {
         return listStoredContentObjectTypesCall(tag, layout, schema, limit, offset, _callback);
     }
 
-    /**
-     * List stored content object types
-     * Lists stored content object types defined in the current project.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return List&lt;ContentObjectTypeItem&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ContentObjectTypeItem> listStoredContentObjectTypes(
-            @jakarta.annotation.Nullable String tag,
-            @jakarta.annotation.Nullable Boolean layout,
-            @jakarta.annotation.Nullable Boolean schema,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
-        ApiResponse<List<ContentObjectTypeItem>> localVarResp =
-                listStoredContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List stored content object types
-     * Lists stored content object types defined in the current project.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return ApiResponse&lt;List&lt;ContentObjectTypeItem&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ContentObjectTypeItem>> listStoredContentObjectTypesWithHttpInfo(
+    private ApiResponse<List<ContentObjectTypeItem>> listStoredContentObjectTypesWithHttpInfo(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
@@ -1669,27 +1815,7 @@ public class ContentObjectTypesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List stored content object types (asynchronously)
-     * Lists stored content object types defined in the current project.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listStoredContentObjectTypesAsync(
+    private okhttp3.Call listStoredContentObjectTypesAsync(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
@@ -1706,70 +1832,161 @@ public class ContentObjectTypesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listStoredContentObjectTypes with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listStoredContentObjectTypesCall(final ApiCallback _callback)
-            throws ApiException {
-        return listStoredContentObjectTypesCall(null, null, null, null, null, _callback);
+    public class APIlistStoredContentObjectTypesRequest {
+        @jakarta.annotation.Nullable private String tag;
+        @jakarta.annotation.Nullable private Boolean layout;
+        @jakarta.annotation.Nullable private Boolean schema;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+
+        private APIlistStoredContentObjectTypesRequest() {}
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistStoredContentObjectTypesRequest
+         */
+        public APIlistStoredContentObjectTypesRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Set layout
+         * @param layout  (optional)
+         * @return APIlistStoredContentObjectTypesRequest
+         */
+        public APIlistStoredContentObjectTypesRequest layout(
+                @jakarta.annotation.Nullable Boolean layout) {
+            this.layout = layout;
+            return this;
+        }
+
+        /**
+         * Set schema
+         * @param schema  (optional)
+         * @return APIlistStoredContentObjectTypesRequest
+         */
+        public APIlistStoredContentObjectTypesRequest schema(
+                @jakarta.annotation.Nullable Boolean schema) {
+            this.schema = schema;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistStoredContentObjectTypesRequest
+         */
+        public APIlistStoredContentObjectTypesRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistStoredContentObjectTypesRequest
+         */
+        public APIlistStoredContentObjectTypesRequest offset(
+                @jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listStoredContentObjectTypes
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listStoredContentObjectTypesCall(tag, layout, schema, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listStoredContentObjectTypes request
+         * @return List&lt;ContentObjectTypeItem&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ContentObjectTypeItem> execute() throws ApiException {
+            ApiResponse<List<ContentObjectTypeItem>> localVarResp =
+                    listStoredContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listStoredContentObjectTypes request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ContentObjectTypeItem&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ContentObjectTypeItem>> executeWithHttpInfo() throws ApiException {
+            return listStoredContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
+        }
+
+        /**
+         * Execute listStoredContentObjectTypes request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ContentObjectTypeItem>> _callback)
+                throws ApiException {
+            return listStoredContentObjectTypesAsync(tag, layout, schema, limit, offset, _callback);
+        }
     }
 
     /**
      * List stored content object types
-     * Calls {@code listStoredContentObjectTypes} with every optional parameter left unset.
-     * @return List&lt;ContentObjectTypeItem&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ContentObjectTypeItem> listStoredContentObjectTypes() throws ApiException {
-        return listStoredContentObjectTypes(null, null, null, null, null);
-    }
-
-    /**
-     * List stored content object types
-     * Calls {@code listStoredContentObjectTypesWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ContentObjectTypeItem>> listStoredContentObjectTypesWithHttpInfo()
-            throws ApiException {
-        return listStoredContentObjectTypesWithHttpInfo(null, null, null, null, null);
-    }
-
-    /**
-     * List stored content object types (asynchronously)
-     * Calls {@code listStoredContentObjectTypesAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listStoredContentObjectTypesAsync(
-            final ApiCallback<List<ContentObjectTypeItem>> _callback) throws ApiException {
-        return listStoredContentObjectTypesAsync(null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for listSystemContentObjectTypes
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists stored content object types defined in the current project.  **Required permissions:** &#x60;content:read&#x60;
+     * @return APIlistStoredContentObjectTypesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System content object types. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Stored content object types. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listSystemContentObjectTypesCall(
+    public APIlistStoredContentObjectTypesRequest listStoredContentObjectTypes() {
+        return new APIlistStoredContentObjectTypesRequest();
+    }
+
+    private okhttp3.Call listSystemContentObjectTypesCall(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
@@ -1861,57 +2078,7 @@ public class ContentObjectTypesApi {
         return listSystemContentObjectTypesCall(tag, layout, schema, limit, offset, _callback);
     }
 
-    /**
-     * List system content object types
-     * Lists built-in system content object types.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ContentObjectTypeCatalogEntry> listSystemContentObjectTypes(
-            @jakarta.annotation.Nullable String tag,
-            @jakarta.annotation.Nullable Boolean layout,
-            @jakarta.annotation.Nullable Boolean schema,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
-        ApiResponse<List<ContentObjectTypeCatalogEntry>> localVarResp =
-                listSystemContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List system content object types
-     * Lists built-in system content object types.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @return ApiResponse&lt;List&lt;ContentObjectTypeCatalogEntry&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
+    private ApiResponse<List<ContentObjectTypeCatalogEntry>>
             listSystemContentObjectTypesWithHttpInfo(
                     @jakarta.annotation.Nullable String tag,
                     @jakarta.annotation.Nullable Boolean layout,
@@ -1926,27 +2093,7 @@ public class ContentObjectTypesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List system content object types (asynchronously)
-     * Lists built-in system content object types.  **Required permissions:** &#x60;content:read&#x60;
-     * @param tag  (optional)
-     * @param layout  (optional)
-     * @param schema  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System content object types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listSystemContentObjectTypesAsync(
+    private okhttp3.Call listSystemContentObjectTypesAsync(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
@@ -1963,66 +2110,163 @@ public class ContentObjectTypesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listSystemContentObjectTypes with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listSystemContentObjectTypesCall(final ApiCallback _callback)
-            throws ApiException {
-        return listSystemContentObjectTypesCall(null, null, null, null, null, _callback);
+    public class APIlistSystemContentObjectTypesRequest {
+        @jakarta.annotation.Nullable private String tag;
+        @jakarta.annotation.Nullable private Boolean layout;
+        @jakarta.annotation.Nullable private Boolean schema;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+
+        private APIlistSystemContentObjectTypesRequest() {}
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistSystemContentObjectTypesRequest
+         */
+        public APIlistSystemContentObjectTypesRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Set layout
+         * @param layout  (optional)
+         * @return APIlistSystemContentObjectTypesRequest
+         */
+        public APIlistSystemContentObjectTypesRequest layout(
+                @jakarta.annotation.Nullable Boolean layout) {
+            this.layout = layout;
+            return this;
+        }
+
+        /**
+         * Set schema
+         * @param schema  (optional)
+         * @return APIlistSystemContentObjectTypesRequest
+         */
+        public APIlistSystemContentObjectTypesRequest schema(
+                @jakarta.annotation.Nullable Boolean schema) {
+            this.schema = schema;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistSystemContentObjectTypesRequest
+         */
+        public APIlistSystemContentObjectTypesRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistSystemContentObjectTypesRequest
+         */
+        public APIlistSystemContentObjectTypesRequest offset(
+                @jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listSystemContentObjectTypes
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSystemContentObjectTypesCall(tag, layout, schema, limit, offset, _callback);
+        }
+
+        /**
+         * Execute listSystemContentObjectTypes request
+         * @return List&lt;ContentObjectTypeCatalogEntry&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ContentObjectTypeCatalogEntry> execute() throws ApiException {
+            ApiResponse<List<ContentObjectTypeCatalogEntry>> localVarResp =
+                    listSystemContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSystemContentObjectTypes request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ContentObjectTypeCatalogEntry&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ContentObjectTypeCatalogEntry>> executeWithHttpInfo()
+                throws ApiException {
+            return listSystemContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
+        }
+
+        /**
+         * Execute listSystemContentObjectTypes request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System content object types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback)
+                throws ApiException {
+            return listSystemContentObjectTypesAsync(tag, layout, schema, limit, offset, _callback);
+        }
     }
 
     /**
      * List system content object types
-     * Calls {@code listSystemContentObjectTypes} with every optional parameter left unset.
-     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ContentObjectTypeCatalogEntry> listSystemContentObjectTypes() throws ApiException {
-        return listSystemContentObjectTypes(null, null, null, null, null);
-    }
-
-    /**
-     * List system content object types
-     * Calls {@code listSystemContentObjectTypesWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
-            listSystemContentObjectTypesWithHttpInfo() throws ApiException {
-        return listSystemContentObjectTypesWithHttpInfo(null, null, null, null, null);
-    }
-
-    /**
-     * List system content object types (asynchronously)
-     * Calls {@code listSystemContentObjectTypesAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listSystemContentObjectTypesAsync(
-            final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback) throws ApiException {
-        return listSystemContentObjectTypesAsync(null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for resolveContentObjectTypeCatalogEntry
-     * @param typeId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists built-in system content object types.  **Required permissions:** &#x60;content:read&#x60;
+     * @return APIlistSystemContentObjectTypesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved content object type catalog entry. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> System content object types. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call resolveContentObjectTypeCatalogEntryCall(
+    public APIlistSystemContentObjectTypesRequest listSystemContentObjectTypes() {
+        return new APIlistSystemContentObjectTypesRequest();
+    }
+
+    private okhttp3.Call resolveContentObjectTypeCatalogEntryCall(
             @jakarta.annotation.Nonnull String typeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2094,44 +2338,7 @@ public class ContentObjectTypesApi {
         return resolveContentObjectTypeCatalogEntryCall(typeId, _callback);
     }
 
-    /**
-     * Resolve a content object type catalog entry
-     * Resolves a content object type from the catalog with layout and schema details.  **Required permissions:** &#x60;content:read&#x60;
-     * @param typeId  (required)
-     * @return ContentObjectTypeCatalogEntry
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved content object type catalog entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentObjectTypeCatalogEntry resolveContentObjectTypeCatalogEntry(
-            @jakarta.annotation.Nonnull String typeId) throws ApiException {
-        ApiResponse<ContentObjectTypeCatalogEntry> localVarResp =
-                resolveContentObjectTypeCatalogEntryWithHttpInfo(typeId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Resolve a content object type catalog entry
-     * Resolves a content object type from the catalog with layout and schema details.  **Required permissions:** &#x60;content:read&#x60;
-     * @param typeId  (required)
-     * @return ApiResponse&lt;ContentObjectTypeCatalogEntry&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved content object type catalog entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentObjectTypeCatalogEntry>
+    private ApiResponse<ContentObjectTypeCatalogEntry>
             resolveContentObjectTypeCatalogEntryWithHttpInfo(
                     @jakarta.annotation.Nonnull String typeId) throws ApiException {
         okhttp3.Call localVarCall =
@@ -2140,23 +2347,7 @@ public class ContentObjectTypesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Resolve a content object type catalog entry (asynchronously)
-     * Resolves a content object type from the catalog with layout and schema details.  **Required permissions:** &#x60;content:read&#x60;
-     * @param typeId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved content object type catalog entry. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call resolveContentObjectTypeCatalogEntryAsync(
+    private okhttp3.Call resolveContentObjectTypeCatalogEntryAsync(
             @jakarta.annotation.Nonnull String typeId,
             final ApiCallback<ContentObjectTypeCatalogEntry> _callback)
             throws ApiException {
@@ -2168,24 +2359,109 @@ public class ContentObjectTypesApi {
         return localVarCall;
     }
 
+    public class APIresolveContentObjectTypeCatalogEntryRequest {
+        @jakarta.annotation.Nonnull private final String typeId;
+
+        private APIresolveContentObjectTypeCatalogEntryRequest(
+                @jakarta.annotation.Nonnull String typeId) {
+            this.typeId = typeId;
+        }
+
+        /**
+         * Build call for resolveContentObjectTypeCatalogEntry
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved content object type catalog entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return resolveContentObjectTypeCatalogEntryCall(typeId, _callback);
+        }
+
+        /**
+         * Execute resolveContentObjectTypeCatalogEntry request
+         * @return ContentObjectTypeCatalogEntry
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved content object type catalog entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentObjectTypeCatalogEntry execute() throws ApiException {
+            ApiResponse<ContentObjectTypeCatalogEntry> localVarResp =
+                    resolveContentObjectTypeCatalogEntryWithHttpInfo(typeId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute resolveContentObjectTypeCatalogEntry request with HTTP info returned
+         * @return ApiResponse&lt;ContentObjectTypeCatalogEntry&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved content object type catalog entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentObjectTypeCatalogEntry> executeWithHttpInfo()
+                throws ApiException {
+            return resolveContentObjectTypeCatalogEntryWithHttpInfo(typeId);
+        }
+
+        /**
+         * Execute resolveContentObjectTypeCatalogEntry request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved content object type catalog entry. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentObjectTypeCatalogEntry> _callback)
+                throws ApiException {
+            return resolveContentObjectTypeCatalogEntryAsync(typeId, _callback);
+        }
+    }
+
     /**
-     * Build call for updateContentObjectType
+     * Resolve a content object type catalog entry
+     * Resolves a content object type from the catalog with layout and schema details.  **Required permissions:** &#x60;content:read&#x60;
      * @param typeId  (required)
-     * @param updateContentObjectTypePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIresolveContentObjectTypeCatalogEntryRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Resolved content object type catalog entry. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateContentObjectTypeCall(
+    public APIresolveContentObjectTypeCatalogEntryRequest resolveContentObjectTypeCatalogEntry(
+            @jakarta.annotation.Nonnull String typeId) {
+        return new APIresolveContentObjectTypeCatalogEntryRequest(typeId);
+    }
+
+    private okhttp3.Call updateContentObjectTypeCall(
             @jakarta.annotation.Nonnull String typeId,
             @jakarta.annotation.Nonnull
                     UpdateContentObjectTypePayload updateContentObjectTypePayload,
@@ -2269,51 +2545,7 @@ public class ContentObjectTypesApi {
         return updateContentObjectTypeCall(typeId, updateContentObjectTypePayload, _callback);
     }
 
-    /**
-     * Update a content object type
-     * Updates a content object type and validates its JSON Schema before saving.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param typeId  (required)
-     * @param updateContentObjectTypePayload  (required)
-     * @return ContentObjectType
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentObjectType updateContentObjectType(
-            @jakarta.annotation.Nonnull String typeId,
-            @jakarta.annotation.Nonnull
-                    UpdateContentObjectTypePayload updateContentObjectTypePayload)
-            throws ApiException {
-        ApiResponse<ContentObjectType> localVarResp =
-                updateContentObjectTypeWithHttpInfo(typeId, updateContentObjectTypePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a content object type
-     * Updates a content object type and validates its JSON Schema before saving.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param typeId  (required)
-     * @param updateContentObjectTypePayload  (required)
-     * @return ApiResponse&lt;ContentObjectType&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentObjectType> updateContentObjectTypeWithHttpInfo(
+    private ApiResponse<ContentObjectType> updateContentObjectTypeWithHttpInfo(
             @jakarta.annotation.Nonnull String typeId,
             @jakarta.annotation.Nonnull
                     UpdateContentObjectTypePayload updateContentObjectTypePayload)
@@ -2325,25 +2557,7 @@ public class ContentObjectTypesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a content object type (asynchronously)
-     * Updates a content object type and validates its JSON Schema before saving.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param typeId  (required)
-     * @param updateContentObjectTypePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateContentObjectTypeAsync(
+    private okhttp3.Call updateContentObjectTypeAsync(
             @jakarta.annotation.Nonnull String typeId,
             @jakarta.annotation.Nonnull
                     UpdateContentObjectTypePayload updateContentObjectTypePayload,
@@ -2356,5 +2570,120 @@ public class ContentObjectTypesApi {
         Type localVarReturnType = new TypeToken<ContentObjectType>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateContentObjectTypeRequest {
+        @jakarta.annotation.Nonnull private final String typeId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateContentObjectTypePayload updateContentObjectTypePayload;
+
+        private APIupdateContentObjectTypeRequest(
+                @jakarta.annotation.Nonnull String typeId,
+                @jakarta.annotation.Nonnull
+                        UpdateContentObjectTypePayload updateContentObjectTypePayload) {
+            this.typeId = typeId;
+            this.updateContentObjectTypePayload = updateContentObjectTypePayload;
+        }
+
+        /**
+         * Build call for updateContentObjectType
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateContentObjectTypeCall(typeId, updateContentObjectTypePayload, _callback);
+        }
+
+        /**
+         * Execute updateContentObjectType request
+         * @return ContentObjectType
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentObjectType execute() throws ApiException {
+            ApiResponse<ContentObjectType> localVarResp =
+                    updateContentObjectTypeWithHttpInfo(typeId, updateContentObjectTypePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateContentObjectType request with HTTP info returned
+         * @return ApiResponse&lt;ContentObjectType&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentObjectType> executeWithHttpInfo() throws ApiException {
+            return updateContentObjectTypeWithHttpInfo(typeId, updateContentObjectTypePayload);
+        }
+
+        /**
+         * Execute updateContentObjectType request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentObjectType> _callback)
+                throws ApiException {
+            return updateContentObjectTypeAsync(typeId, updateContentObjectTypePayload, _callback);
+        }
+    }
+
+    /**
+     * Update a content object type
+     * Updates a content object type and validates its JSON Schema before saving.  **Required permissions:** &#x60;content:admin&#x60;
+     * @param typeId  (required)
+     * @param updateContentObjectTypePayload  (required)
+     * @return APIupdateContentObjectTypeRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateContentObjectTypeRequest updateContentObjectType(
+            @jakarta.annotation.Nonnull String typeId,
+            @jakarta.annotation.Nonnull
+                    UpdateContentObjectTypePayload updateContentObjectTypePayload) {
+        return new APIupdateContentObjectTypeRequest(typeId, updateContentObjectTypePayload);
     }
 }

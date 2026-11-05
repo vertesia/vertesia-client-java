@@ -66,24 +66,7 @@ public class TokenServiceApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for issueToken
-     * @param issueTokenRequest  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call issueTokenCall(
+    private okhttp3.Call issueTokenCall(
             @jakarta.annotation.Nullable IssueTokenRequest issueTokenRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -147,72 +130,14 @@ public class TokenServiceApi {
         return issueTokenCall(issueTokenRequest, _callback);
     }
 
-    /**
-     * Issue a token
-     * Issues a short-lived Vertesia token from workload credentials. For API key authentication, the request body is optional and the API key in the Authorization header is used as the token source.
-     * @param issueTokenRequest  (optional)
-     * @return IssueTokenResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public IssueTokenResponse issueToken(
-            @jakarta.annotation.Nullable IssueTokenRequest issueTokenRequest) throws ApiException {
-        ApiResponse<IssueTokenResponse> localVarResp = issueTokenWithHttpInfo(issueTokenRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Issue a token
-     * Issues a short-lived Vertesia token from workload credentials. For API key authentication, the request body is optional and the API key in the Authorization header is used as the token source.
-     * @param issueTokenRequest  (optional)
-     * @return ApiResponse&lt;IssueTokenResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<IssueTokenResponse> issueTokenWithHttpInfo(
+    private ApiResponse<IssueTokenResponse> issueTokenWithHttpInfo(
             @jakarta.annotation.Nullable IssueTokenRequest issueTokenRequest) throws ApiException {
         okhttp3.Call localVarCall = issueTokenValidateBeforeCall(issueTokenRequest, null);
         Type localVarReturnType = new TypeToken<IssueTokenResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Issue a token (asynchronously)
-     * Issues a short-lived Vertesia token from workload credentials. For API key authentication, the request body is optional and the API key in the Authorization header is used as the token source.
-     * @param issueTokenRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call issueTokenAsync(
+    private okhttp3.Call issueTokenAsync(
             @jakarta.annotation.Nullable IssueTokenRequest issueTokenRequest,
             final ApiCallback<IssueTokenResponse> _callback)
             throws ApiException {
@@ -223,64 +148,124 @@ public class TokenServiceApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for issueToken with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call issueTokenCall(final ApiCallback _callback) throws ApiException {
-        return issueTokenCall(null, _callback);
+    public class APIissueTokenRequest {
+        @jakarta.annotation.Nullable private IssueTokenRequest issueTokenRequest;
+
+        private APIissueTokenRequest() {}
+
+        /**
+         * Set issueTokenRequest
+         * @param issueTokenRequest  (optional)
+         * @return APIissueTokenRequest
+         */
+        public APIissueTokenRequest issueTokenRequest(
+                @jakarta.annotation.Nullable IssueTokenRequest issueTokenRequest) {
+            this.issueTokenRequest = issueTokenRequest;
+            return this;
+        }
+
+        /**
+         * Build call for issueToken
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
+         * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return issueTokenCall(issueTokenRequest, _callback);
+        }
+
+        /**
+         * Execute issueToken request
+         * @return IssueTokenResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
+         * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public IssueTokenResponse execute() throws ApiException {
+            ApiResponse<IssueTokenResponse> localVarResp =
+                    issueTokenWithHttpInfo(issueTokenRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute issueToken request with HTTP info returned
+         * @return ApiResponse&lt;IssueTokenResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
+         * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<IssueTokenResponse> executeWithHttpInfo() throws ApiException {
+            return issueTokenWithHttpInfo(issueTokenRequest);
+        }
+
+        /**
+         * Execute issueToken request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
+         * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<IssueTokenResponse> _callback)
+                throws ApiException {
+            return issueTokenAsync(issueTokenRequest, _callback);
+        }
     }
 
     /**
      * Issue a token
-     * Calls {@code issueToken} with every optional parameter left unset.
-     * @return IssueTokenResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public IssueTokenResponse issueToken() throws ApiException {
-        return issueToken(null);
-    }
-
-    /**
-     * Issue a token
-     * Calls {@code issueTokenWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<IssueTokenResponse> issueTokenWithHttpInfo() throws ApiException {
-        return issueTokenWithHttpInfo(null);
-    }
-
-    /**
-     * Issue a token (asynchronously)
-     * Calls {@code issueTokenAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call issueTokenAsync(final ApiCallback<IssueTokenResponse> _callback)
-            throws ApiException {
-        return issueTokenAsync(null, _callback);
-    }
-
-    /**
-     * Build call for mintAppSessionToken
-     * @param appSessionTokenRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Issues a short-lived Vertesia token from workload credentials. For API key authentication, the request body is optional and the API key in the Authorization header is used as the token source.
+     * @return APIissueTokenRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> A short-lived app-scoped token without a refresh token. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call mintAppSessionTokenCall(
+    public APIissueTokenRequest issueToken() {
+        return new APIissueTokenRequest();
+    }
+
+    private okhttp3.Call mintAppSessionTokenCall(
             @jakarta.annotation.Nonnull AppSessionTokenRequest appSessionTokenRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -350,45 +335,7 @@ public class TokenServiceApi {
         return mintAppSessionTokenCall(appSessionTokenRequest, _callback);
     }
 
-    /**
-     * Mint a scoped iframe app session
-     *
-     * @param appSessionTokenRequest  (required)
-     * @return AppSessionTokenResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> A short-lived app-scoped token without a refresh token. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AppSessionTokenResponse mintAppSessionToken(
-            @jakarta.annotation.Nonnull AppSessionTokenRequest appSessionTokenRequest)
-            throws ApiException {
-        ApiResponse<AppSessionTokenResponse> localVarResp =
-                mintAppSessionTokenWithHttpInfo(appSessionTokenRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Mint a scoped iframe app session
-     *
-     * @param appSessionTokenRequest  (required)
-     * @return ApiResponse&lt;AppSessionTokenResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> A short-lived app-scoped token without a refresh token. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AppSessionTokenResponse> mintAppSessionTokenWithHttpInfo(
+    private ApiResponse<AppSessionTokenResponse> mintAppSessionTokenWithHttpInfo(
             @jakarta.annotation.Nonnull AppSessionTokenRequest appSessionTokenRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -397,23 +344,7 @@ public class TokenServiceApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Mint a scoped iframe app session (asynchronously)
-     *
-     * @param appSessionTokenRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> A short-lived app-scoped token without a refresh token. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call mintAppSessionTokenAsync(
+    private okhttp3.Call mintAppSessionTokenAsync(
             @jakarta.annotation.Nonnull AppSessionTokenRequest appSessionTokenRequest,
             final ApiCallback<AppSessionTokenResponse> _callback)
             throws ApiException {
@@ -423,5 +354,106 @@ public class TokenServiceApi {
         Type localVarReturnType = new TypeToken<AppSessionTokenResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APImintAppSessionTokenRequest {
+        @jakarta.annotation.Nonnull private final AppSessionTokenRequest appSessionTokenRequest;
+
+        private APImintAppSessionTokenRequest(
+                @jakarta.annotation.Nonnull AppSessionTokenRequest appSessionTokenRequest) {
+            this.appSessionTokenRequest = appSessionTokenRequest;
+        }
+
+        /**
+         * Build call for mintAppSessionToken
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> A short-lived app-scoped token without a refresh token. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return mintAppSessionTokenCall(appSessionTokenRequest, _callback);
+        }
+
+        /**
+         * Execute mintAppSessionToken request
+         * @return AppSessionTokenResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> A short-lived app-scoped token without a refresh token. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AppSessionTokenResponse execute() throws ApiException {
+            ApiResponse<AppSessionTokenResponse> localVarResp =
+                    mintAppSessionTokenWithHttpInfo(appSessionTokenRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute mintAppSessionToken request with HTTP info returned
+         * @return ApiResponse&lt;AppSessionTokenResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> A short-lived app-scoped token without a refresh token. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AppSessionTokenResponse> executeWithHttpInfo() throws ApiException {
+            return mintAppSessionTokenWithHttpInfo(appSessionTokenRequest);
+        }
+
+        /**
+         * Execute mintAppSessionToken request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> A short-lived app-scoped token without a refresh token. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AppSessionTokenResponse> _callback)
+                throws ApiException {
+            return mintAppSessionTokenAsync(appSessionTokenRequest, _callback);
+        }
+    }
+
+    /**
+     * Mint a scoped iframe app session
+     *
+     * @param appSessionTokenRequest  (required)
+     * @return APImintAppSessionTokenRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A short-lived app-scoped token without a refresh token. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APImintAppSessionTokenRequest mintAppSessionToken(
+            @jakarta.annotation.Nonnull AppSessionTokenRequest appSessionTokenRequest) {
+        return new APImintAppSessionTokenRequest(appSessionTokenRequest);
     }
 }

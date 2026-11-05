@@ -73,22 +73,7 @@ public class PromptTemplatesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for computePromptFacets
-     * @param computePromptFacetPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching prompts. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call computePromptFacetsCall(
+    private okhttp3.Call computePromptFacetsCall(
             @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -158,45 +143,7 @@ public class PromptTemplatesApi {
         return computePromptFacetsCall(computePromptFacetPayload, _callback);
     }
 
-    /**
-     * Compute prompt facets
-     * Computes aggregation buckets and counts for prompt filters such as role and matching prompt name.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param computePromptFacetPayload  (required)
-     * @return ComputedFacetResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching prompts. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ComputedFacetResponse computePromptFacets(
-            @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload)
-            throws ApiException {
-        ApiResponse<ComputedFacetResponse> localVarResp =
-                computePromptFacetsWithHttpInfo(computePromptFacetPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Compute prompt facets
-     * Computes aggregation buckets and counts for prompt filters such as role and matching prompt name.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param computePromptFacetPayload  (required)
-     * @return ApiResponse&lt;ComputedFacetResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching prompts. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ComputedFacetResponse> computePromptFacetsWithHttpInfo(
+    private ApiResponse<ComputedFacetResponse> computePromptFacetsWithHttpInfo(
             @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -205,23 +152,7 @@ public class PromptTemplatesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Compute prompt facets (asynchronously)
-     * Computes aggregation buckets and counts for prompt filters such as role and matching prompt name.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param computePromptFacetPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching prompts. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call computePromptFacetsAsync(
+    private okhttp3.Call computePromptFacetsAsync(
             @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload,
             final ApiCallback<ComputedFacetResponse> _callback)
             throws ApiException {
@@ -233,22 +164,109 @@ public class PromptTemplatesApi {
         return localVarCall;
     }
 
+    public class APIcomputePromptFacetsRequest {
+        @jakarta.annotation.Nonnull
+        private final ComputePromptFacetPayload computePromptFacetPayload;
+
+        private APIcomputePromptFacetsRequest(
+                @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload) {
+            this.computePromptFacetPayload = computePromptFacetPayload;
+        }
+
+        /**
+         * Build call for computePromptFacets
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching prompts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return computePromptFacetsCall(computePromptFacetPayload, _callback);
+        }
+
+        /**
+         * Execute computePromptFacets request
+         * @return ComputedFacetResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching prompts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ComputedFacetResponse execute() throws ApiException {
+            ApiResponse<ComputedFacetResponse> localVarResp =
+                    computePromptFacetsWithHttpInfo(computePromptFacetPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute computePromptFacets request with HTTP info returned
+         * @return ApiResponse&lt;ComputedFacetResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching prompts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ComputedFacetResponse> executeWithHttpInfo() throws ApiException {
+            return computePromptFacetsWithHttpInfo(computePromptFacetPayload);
+        }
+
+        /**
+         * Execute computePromptFacets request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching prompts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ComputedFacetResponse> _callback)
+                throws ApiException {
+            return computePromptFacetsAsync(computePromptFacetPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createPrompt
-     * @param promptTemplateCreatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Compute prompt facets
+     * Computes aggregation buckets and counts for prompt filters such as role and matching prompt name.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param computePromptFacetPayload  (required)
+     * @return APIcomputePromptFacetsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created prompt template. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Facet buckets and total count for matching prompts. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createPromptCall(
+    public APIcomputePromptFacetsRequest computePromptFacets(
+            @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload) {
+        return new APIcomputePromptFacetsRequest(computePromptFacetPayload);
+    }
+
+    private okhttp3.Call createPromptCall(
             @jakarta.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -318,45 +336,7 @@ public class PromptTemplatesApi {
         return createPromptCall(promptTemplateCreatePayload, _callback);
     }
 
-    /**
-     * Create a prompt
-     * Creates a draft prompt template in the current project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param promptTemplateCreatePayload  (required)
-     * @return PromptTemplate
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PromptTemplate createPrompt(
-            @jakarta.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload)
-            throws ApiException {
-        ApiResponse<PromptTemplate> localVarResp =
-                createPromptWithHttpInfo(promptTemplateCreatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a prompt
-     * Creates a draft prompt template in the current project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param promptTemplateCreatePayload  (required)
-     * @return ApiResponse&lt;PromptTemplate&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PromptTemplate> createPromptWithHttpInfo(
+    private ApiResponse<PromptTemplate> createPromptWithHttpInfo(
             @jakarta.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -365,23 +345,7 @@ public class PromptTemplatesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a prompt (asynchronously)
-     * Creates a draft prompt template in the current project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param promptTemplateCreatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createPromptAsync(
+    private okhttp3.Call createPromptAsync(
             @jakarta.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload,
             final ApiCallback<PromptTemplate> _callback)
             throws ApiException {
@@ -393,23 +357,110 @@ public class PromptTemplatesApi {
         return localVarCall;
     }
 
+    public class APIcreatePromptRequest {
+        @jakarta.annotation.Nonnull
+        private final PromptTemplateCreatePayload promptTemplateCreatePayload;
+
+        private APIcreatePromptRequest(
+                @jakarta.annotation.Nonnull
+                        PromptTemplateCreatePayload promptTemplateCreatePayload) {
+            this.promptTemplateCreatePayload = promptTemplateCreatePayload;
+        }
+
+        /**
+         * Build call for createPrompt
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createPromptCall(promptTemplateCreatePayload, _callback);
+        }
+
+        /**
+         * Execute createPrompt request
+         * @return PromptTemplate
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public PromptTemplate execute() throws ApiException {
+            ApiResponse<PromptTemplate> localVarResp =
+                    createPromptWithHttpInfo(promptTemplateCreatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createPrompt request with HTTP info returned
+         * @return ApiResponse&lt;PromptTemplate&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<PromptTemplate> executeWithHttpInfo() throws ApiException {
+            return createPromptWithHttpInfo(promptTemplateCreatePayload);
+        }
+
+        /**
+         * Execute createPrompt request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PromptTemplate> _callback)
+                throws ApiException {
+            return createPromptAsync(promptTemplateCreatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deletePrompt
-     * @param ptId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a prompt
+     * Creates a draft prompt template in the current project.  **Required permissions:** &#x60;interaction:write&#x60;
+     * @param promptTemplateCreatePayload  (required)
+     * @return APIcreatePromptRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created prompt template. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deletePromptCall(
+    public APIcreatePromptRequest createPrompt(
+            @jakarta.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload) {
+        return new APIcreatePromptRequest(promptTemplateCreatePayload);
+    }
+
+    private okhttp3.Call deletePromptCall(
             @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -481,69 +532,14 @@ public class PromptTemplatesApi {
         return deletePromptCall(ptId, _callback);
     }
 
-    /**
-     * Delete a prompt
-     * Deletes a prompt template from the current project. A prompt that an interaction still references cannot be deleted; detach it from those interactions first.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param ptId  (required)
-     * @return DeleteByIdResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteByIdResult deletePrompt(@jakarta.annotation.Nonnull String ptId)
-            throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp = deletePromptWithHttpInfo(ptId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a prompt
-     * Deletes a prompt template from the current project. A prompt that an interaction still references cannot be deleted; detach it from those interactions first.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param ptId  (required)
-     * @return ApiResponse&lt;DeleteByIdResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteByIdResult> deletePromptWithHttpInfo(
+    private ApiResponse<DeleteByIdResult> deletePromptWithHttpInfo(
             @jakarta.annotation.Nonnull String ptId) throws ApiException {
         okhttp3.Call localVarCall = deletePromptValidateBeforeCall(ptId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a prompt (asynchronously)
-     * Deletes a prompt template from the current project. A prompt that an interaction still references cannot be deleted; detach it from those interactions first.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param ptId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deletePromptAsync(
+    private okhttp3.Call deletePromptAsync(
             @jakarta.annotation.Nonnull String ptId, final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
@@ -553,23 +549,110 @@ public class PromptTemplatesApi {
         return localVarCall;
     }
 
+    public class APIdeletePromptRequest {
+        @jakarta.annotation.Nonnull private final String ptId;
+
+        private APIdeletePromptRequest(@jakarta.annotation.Nonnull String ptId) {
+            this.ptId = ptId;
+        }
+
+        /**
+         * Build call for deletePrompt
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deletePromptCall(ptId, _callback);
+        }
+
+        /**
+         * Execute deletePrompt request
+         * @return DeleteByIdResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteByIdResult execute() throws ApiException {
+            ApiResponse<DeleteByIdResult> localVarResp = deletePromptWithHttpInfo(ptId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deletePrompt request with HTTP info returned
+         * @return ApiResponse&lt;DeleteByIdResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteByIdResult> executeWithHttpInfo() throws ApiException {
+            return deletePromptWithHttpInfo(ptId);
+        }
+
+        /**
+         * Execute deletePrompt request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteByIdResult> _callback)
+                throws ApiException {
+            return deletePromptAsync(ptId, _callback);
+        }
+    }
+
     /**
-     * Build call for forkPrompt
+     * Delete a prompt
+     * Deletes a prompt template from the current project. A prompt that an interaction still references cannot be deleted; detach it from those interactions first.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param ptId  (required)
-     * @param promptTemplateForkPayload  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeletePromptRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked prompt template. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call forkPromptCall(
+    public APIdeletePromptRequest deletePrompt(@jakarta.annotation.Nonnull String ptId) {
+        return new APIdeletePromptRequest(ptId);
+    }
+
+    private okhttp3.Call forkPromptCall(
             @jakarta.annotation.Nonnull String ptId,
             @jakarta.annotation.Nullable PromptTemplateForkPayload promptTemplateForkPayload,
             final ApiCallback _callback)
@@ -645,48 +728,7 @@ public class PromptTemplatesApi {
         return forkPromptCall(ptId, promptTemplateForkPayload, _callback);
     }
 
-    /**
-     * Fork a prompt
-     * Creates a draft copy of a prompt template, optionally in another accessible project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param ptId  (required)
-     * @param promptTemplateForkPayload  (optional)
-     * @return PromptTemplate
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PromptTemplate forkPrompt(
-            @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nullable PromptTemplateForkPayload promptTemplateForkPayload)
-            throws ApiException {
-        ApiResponse<PromptTemplate> localVarResp =
-                forkPromptWithHttpInfo(ptId, promptTemplateForkPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Fork a prompt
-     * Creates a draft copy of a prompt template, optionally in another accessible project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param ptId  (required)
-     * @param promptTemplateForkPayload  (optional)
-     * @return ApiResponse&lt;PromptTemplate&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PromptTemplate> forkPromptWithHttpInfo(
+    private ApiResponse<PromptTemplate> forkPromptWithHttpInfo(
             @jakarta.annotation.Nonnull String ptId,
             @jakarta.annotation.Nullable PromptTemplateForkPayload promptTemplateForkPayload)
             throws ApiException {
@@ -696,24 +738,7 @@ public class PromptTemplatesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fork a prompt (asynchronously)
-     * Creates a draft copy of a prompt template, optionally in another accessible project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param ptId  (required)
-     * @param promptTemplateForkPayload  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call forkPromptAsync(
+    private okhttp3.Call forkPromptAsync(
             @jakarta.annotation.Nonnull String ptId,
             @jakarta.annotation.Nullable PromptTemplateForkPayload promptTemplateForkPayload,
             final ApiCallback<PromptTemplate> _callback)
@@ -726,72 +751,118 @@ public class PromptTemplatesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for forkPrompt with every optional parameter left unset.
-     * @param ptId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call forkPromptCall(
-            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
-            throws ApiException {
-        return forkPromptCall(ptId, null, _callback);
+    public class APIforkPromptRequest {
+        @jakarta.annotation.Nonnull private final String ptId;
+        @jakarta.annotation.Nullable private PromptTemplateForkPayload promptTemplateForkPayload;
+
+        private APIforkPromptRequest(@jakarta.annotation.Nonnull String ptId) {
+            this.ptId = ptId;
+        }
+
+        /**
+         * Set promptTemplateForkPayload
+         * @param promptTemplateForkPayload  (optional)
+         * @return APIforkPromptRequest
+         */
+        public APIforkPromptRequest promptTemplateForkPayload(
+                @jakarta.annotation.Nullable PromptTemplateForkPayload promptTemplateForkPayload) {
+            this.promptTemplateForkPayload = promptTemplateForkPayload;
+            return this;
+        }
+
+        /**
+         * Build call for forkPrompt
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return forkPromptCall(ptId, promptTemplateForkPayload, _callback);
+        }
+
+        /**
+         * Execute forkPrompt request
+         * @return PromptTemplate
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public PromptTemplate execute() throws ApiException {
+            ApiResponse<PromptTemplate> localVarResp =
+                    forkPromptWithHttpInfo(ptId, promptTemplateForkPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute forkPrompt request with HTTP info returned
+         * @return ApiResponse&lt;PromptTemplate&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<PromptTemplate> executeWithHttpInfo() throws ApiException {
+            return forkPromptWithHttpInfo(ptId, promptTemplateForkPayload);
+        }
+
+        /**
+         * Execute forkPrompt request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PromptTemplate> _callback)
+                throws ApiException {
+            return forkPromptAsync(ptId, promptTemplateForkPayload, _callback);
+        }
     }
 
     /**
      * Fork a prompt
-     * Calls {@code forkPrompt} with every optional parameter left unset.
+     * Creates a draft copy of a prompt template, optionally in another accessible project.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param ptId  (required)
-     * @return PromptTemplate
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public PromptTemplate forkPrompt(@jakarta.annotation.Nonnull String ptId) throws ApiException {
-        return forkPrompt(ptId, null);
-    }
-
-    /**
-     * Fork a prompt
-     * Calls {@code forkPromptWithHttpInfo} with every optional parameter left unset.
-     * @param ptId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<PromptTemplate> forkPromptWithHttpInfo(
-            @jakarta.annotation.Nonnull String ptId) throws ApiException {
-        return forkPromptWithHttpInfo(ptId, null);
-    }
-
-    /**
-     * Fork a prompt (asynchronously)
-     * Calls {@code forkPromptAsync} with every optional parameter left unset.
-     * @param ptId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call forkPromptAsync(
-            @jakarta.annotation.Nonnull String ptId, final ApiCallback<PromptTemplate> _callback)
-            throws ApiException {
-        return forkPromptAsync(ptId, null, _callback);
-    }
-
-    /**
-     * Build call for getPrompt
-     * @param ptId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIforkPromptRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested prompt template. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The forked prompt template. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getPromptCall(
+    public APIforkPromptRequest forkPrompt(@jakarta.annotation.Nonnull String ptId) {
+        return new APIforkPromptRequest(ptId);
+    }
+
+    private okhttp3.Call getPromptCall(
             @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -863,65 +934,14 @@ public class PromptTemplatesApi {
         return getPromptCall(ptId, _callback);
     }
 
-    /**
-     * Retrieve a prompt
-     * Retrieves a prompt template by ID, including content, role, content type, status, and version metadata.
-     * @param ptId  (required)
-     * @return PromptTemplate
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PromptTemplate getPrompt(@jakarta.annotation.Nonnull String ptId) throws ApiException {
-        ApiResponse<PromptTemplate> localVarResp = getPromptWithHttpInfo(ptId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a prompt
-     * Retrieves a prompt template by ID, including content, role, content type, status, and version metadata.
-     * @param ptId  (required)
-     * @return ApiResponse&lt;PromptTemplate&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PromptTemplate> getPromptWithHttpInfo(
+    private ApiResponse<PromptTemplate> getPromptWithHttpInfo(
             @jakarta.annotation.Nonnull String ptId) throws ApiException {
         okhttp3.Call localVarCall = getPromptValidateBeforeCall(ptId, null);
         Type localVarReturnType = new TypeToken<PromptTemplate>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a prompt (asynchronously)
-     * Retrieves a prompt template by ID, including content, role, content type, status, and version metadata.
-     * @param ptId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getPromptAsync(
+    private okhttp3.Call getPromptAsync(
             @jakarta.annotation.Nonnull String ptId, final ApiCallback<PromptTemplate> _callback)
             throws ApiException {
 
@@ -931,22 +951,105 @@ public class PromptTemplatesApi {
         return localVarCall;
     }
 
+    public class APIgetPromptRequest {
+        @jakarta.annotation.Nonnull private final String ptId;
+
+        private APIgetPromptRequest(@jakarta.annotation.Nonnull String ptId) {
+            this.ptId = ptId;
+        }
+
+        /**
+         * Build call for getPrompt
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getPromptCall(ptId, _callback);
+        }
+
+        /**
+         * Execute getPrompt request
+         * @return PromptTemplate
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public PromptTemplate execute() throws ApiException {
+            ApiResponse<PromptTemplate> localVarResp = getPromptWithHttpInfo(ptId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getPrompt request with HTTP info returned
+         * @return ApiResponse&lt;PromptTemplate&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<PromptTemplate> executeWithHttpInfo() throws ApiException {
+            return getPromptWithHttpInfo(ptId);
+        }
+
+        /**
+         * Execute getPrompt request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PromptTemplate> _callback)
+                throws ApiException {
+            return getPromptAsync(ptId, _callback);
+        }
+    }
+
     /**
-     * Build call for listPromptForks
+     * Retrieve a prompt
+     * Retrieves a prompt template by ID, including content, role, content type, status, and version metadata.
      * @param ptId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetPromptRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft prompt forks. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested prompt template. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listPromptForksCall(
+    public APIgetPromptRequest getPrompt(@jakarta.annotation.Nonnull String ptId) {
+        return new APIgetPromptRequest(ptId);
+    }
+
+    private okhttp3.Call listPromptForksCall(
             @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1018,66 +1121,14 @@ public class PromptTemplatesApi {
         return listPromptForksCall(ptId, _callback);
     }
 
-    /**
-     * List prompt forks
-     * Lists draft prompt templates forked from the selected prompt template.
-     * @param ptId  (required)
-     * @return List&lt;PromptTemplateRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft prompt forks. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<PromptTemplateRef> listPromptForks(@jakarta.annotation.Nonnull String ptId)
-            throws ApiException {
-        ApiResponse<List<PromptTemplateRef>> localVarResp = listPromptForksWithHttpInfo(ptId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List prompt forks
-     * Lists draft prompt templates forked from the selected prompt template.
-     * @param ptId  (required)
-     * @return ApiResponse&lt;List&lt;PromptTemplateRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft prompt forks. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<PromptTemplateRef>> listPromptForksWithHttpInfo(
+    private ApiResponse<List<PromptTemplateRef>> listPromptForksWithHttpInfo(
             @jakarta.annotation.Nonnull String ptId) throws ApiException {
         okhttp3.Call localVarCall = listPromptForksValidateBeforeCall(ptId, null);
         Type localVarReturnType = new TypeToken<List<PromptTemplateRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List prompt forks (asynchronously)
-     * Lists draft prompt templates forked from the selected prompt template.
-     * @param ptId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft prompt forks. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listPromptForksAsync(
+    private okhttp3.Call listPromptForksAsync(
             @jakarta.annotation.Nonnull String ptId,
             final ApiCallback<List<PromptTemplateRef>> _callback)
             throws ApiException {
@@ -1088,22 +1139,105 @@ public class PromptTemplatesApi {
         return localVarCall;
     }
 
+    public class APIlistPromptForksRequest {
+        @jakarta.annotation.Nonnull private final String ptId;
+
+        private APIlistPromptForksRequest(@jakarta.annotation.Nonnull String ptId) {
+            this.ptId = ptId;
+        }
+
+        /**
+         * Build call for listPromptForks
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft prompt forks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listPromptForksCall(ptId, _callback);
+        }
+
+        /**
+         * Execute listPromptForks request
+         * @return List&lt;PromptTemplateRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft prompt forks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<PromptTemplateRef> execute() throws ApiException {
+            ApiResponse<List<PromptTemplateRef>> localVarResp = listPromptForksWithHttpInfo(ptId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listPromptForks request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;PromptTemplateRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft prompt forks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<PromptTemplateRef>> executeWithHttpInfo() throws ApiException {
+            return listPromptForksWithHttpInfo(ptId);
+        }
+
+        /**
+         * Execute listPromptForks request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft prompt forks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<PromptTemplateRef>> _callback)
+                throws ApiException {
+            return listPromptForksAsync(ptId, _callback);
+        }
+    }
+
     /**
-     * Build call for listPromptInteractions
+     * List prompt forks
+     * Lists draft prompt templates forked from the selected prompt template.
      * @param ptId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistPromptForksRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt ID and interactions that reference it. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Draft prompt forks. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listPromptInteractionsCall(
+    public APIlistPromptForksRequest listPromptForks(@jakarta.annotation.Nonnull String ptId) {
+        return new APIlistPromptForksRequest(ptId);
+    }
+
+    private okhttp3.Call listPromptInteractionsCall(
             @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1175,67 +1309,14 @@ public class PromptTemplatesApi {
         return listPromptInteractionsCall(ptId, _callback);
     }
 
-    /**
-     * List prompt interactions
-     * Lists interactions in the current project that reference the prompt template.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param ptId  (required)
-     * @return PromptTemplateInteractionsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt ID and interactions that reference it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PromptTemplateInteractionsResponse listPromptInteractions(
-            @jakarta.annotation.Nonnull String ptId) throws ApiException {
-        ApiResponse<PromptTemplateInteractionsResponse> localVarResp =
-                listPromptInteractionsWithHttpInfo(ptId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List prompt interactions
-     * Lists interactions in the current project that reference the prompt template.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param ptId  (required)
-     * @return ApiResponse&lt;PromptTemplateInteractionsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt ID and interactions that reference it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PromptTemplateInteractionsResponse> listPromptInteractionsWithHttpInfo(
+    private ApiResponse<PromptTemplateInteractionsResponse> listPromptInteractionsWithHttpInfo(
             @jakarta.annotation.Nonnull String ptId) throws ApiException {
         okhttp3.Call localVarCall = listPromptInteractionsValidateBeforeCall(ptId, null);
         Type localVarReturnType = new TypeToken<PromptTemplateInteractionsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List prompt interactions (asynchronously)
-     * Lists interactions in the current project that reference the prompt template.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param ptId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt ID and interactions that reference it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listPromptInteractionsAsync(
+    private okhttp3.Call listPromptInteractionsAsync(
             @jakarta.annotation.Nonnull String ptId,
             final ApiCallback<PromptTemplateInteractionsResponse> _callback)
             throws ApiException {
@@ -1246,22 +1327,109 @@ public class PromptTemplatesApi {
         return localVarCall;
     }
 
+    public class APIlistPromptInteractionsRequest {
+        @jakarta.annotation.Nonnull private final String ptId;
+
+        private APIlistPromptInteractionsRequest(@jakarta.annotation.Nonnull String ptId) {
+            this.ptId = ptId;
+        }
+
+        /**
+         * Build call for listPromptInteractions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt ID and interactions that reference it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listPromptInteractionsCall(ptId, _callback);
+        }
+
+        /**
+         * Execute listPromptInteractions request
+         * @return PromptTemplateInteractionsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt ID and interactions that reference it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public PromptTemplateInteractionsResponse execute() throws ApiException {
+            ApiResponse<PromptTemplateInteractionsResponse> localVarResp =
+                    listPromptInteractionsWithHttpInfo(ptId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listPromptInteractions request with HTTP info returned
+         * @return ApiResponse&lt;PromptTemplateInteractionsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt ID and interactions that reference it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<PromptTemplateInteractionsResponse> executeWithHttpInfo()
+                throws ApiException {
+            return listPromptInteractionsWithHttpInfo(ptId);
+        }
+
+        /**
+         * Execute listPromptInteractions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt ID and interactions that reference it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<PromptTemplateInteractionsResponse> _callback)
+                throws ApiException {
+            return listPromptInteractionsAsync(ptId, _callback);
+        }
+    }
+
     /**
-     * Build call for listPromptVersions
+     * List prompt interactions
+     * Lists interactions in the current project that reference the prompt template.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param ptId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistPromptInteractionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published versions for the prompt template. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Prompt ID and interactions that reference it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listPromptVersionsCall(
+    public APIlistPromptInteractionsRequest listPromptInteractions(
+            @jakarta.annotation.Nonnull String ptId) {
+        return new APIlistPromptInteractionsRequest(ptId);
+    }
+
+    private okhttp3.Call listPromptVersionsCall(
             @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1333,66 +1501,14 @@ public class PromptTemplatesApi {
         return listPromptVersionsCall(ptId, _callback);
     }
 
-    /**
-     * List prompt versions
-     * Lists published versions of a prompt template, sorted by most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param ptId  (required)
-     * @return List&lt;PromptTemplateRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published versions for the prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<PromptTemplateRef> listPromptVersions(@jakarta.annotation.Nonnull String ptId)
-            throws ApiException {
-        ApiResponse<List<PromptTemplateRef>> localVarResp = listPromptVersionsWithHttpInfo(ptId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List prompt versions
-     * Lists published versions of a prompt template, sorted by most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param ptId  (required)
-     * @return ApiResponse&lt;List&lt;PromptTemplateRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published versions for the prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<PromptTemplateRef>> listPromptVersionsWithHttpInfo(
+    private ApiResponse<List<PromptTemplateRef>> listPromptVersionsWithHttpInfo(
             @jakarta.annotation.Nonnull String ptId) throws ApiException {
         okhttp3.Call localVarCall = listPromptVersionsValidateBeforeCall(ptId, null);
         Type localVarReturnType = new TypeToken<List<PromptTemplateRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List prompt versions (asynchronously)
-     * Lists published versions of a prompt template, sorted by most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param ptId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published versions for the prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listPromptVersionsAsync(
+    private okhttp3.Call listPromptVersionsAsync(
             @jakarta.annotation.Nonnull String ptId,
             final ApiCallback<List<PromptTemplateRef>> _callback)
             throws ApiException {
@@ -1403,28 +1519,107 @@ public class PromptTemplatesApi {
         return localVarCall;
     }
 
+    public class APIlistPromptVersionsRequest {
+        @jakarta.annotation.Nonnull private final String ptId;
+
+        private APIlistPromptVersionsRequest(@jakarta.annotation.Nonnull String ptId) {
+            this.ptId = ptId;
+        }
+
+        /**
+         * Build call for listPromptVersions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published versions for the prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listPromptVersionsCall(ptId, _callback);
+        }
+
+        /**
+         * Execute listPromptVersions request
+         * @return List&lt;PromptTemplateRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published versions for the prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<PromptTemplateRef> execute() throws ApiException {
+            ApiResponse<List<PromptTemplateRef>> localVarResp =
+                    listPromptVersionsWithHttpInfo(ptId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listPromptVersions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;PromptTemplateRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published versions for the prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<PromptTemplateRef>> executeWithHttpInfo() throws ApiException {
+            return listPromptVersionsWithHttpInfo(ptId);
+        }
+
+        /**
+         * Execute listPromptVersions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published versions for the prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<PromptTemplateRef>> _callback)
+                throws ApiException {
+            return listPromptVersionsAsync(ptId, _callback);
+        }
+    }
+
     /**
-     * Build call for listPrompts
-     * @param name Case-insensitive substring match on the prompt name. (optional)
-     * @param status Accepted and ignored. &#x60;GET /prompts&#x60; and &#x60;POST /prompts/facets&#x60; list drafts only, and always have. (optional)
-     * @param limit Maximum number of prompts to return. Defaults to 100. (optional)
-     * @param offset Number of prompts to skip. (optional)
-     * @param role Exact match on the prompt role. (optional)
-     * @param tags Match prompts carrying any of these tags. (optional)
-     * @param matchInteractions Accepted and ignored. It used to attach the interactions referencing each prompt, in a shape no response component ever declared; nothing consumed it. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List prompt versions
+     * Lists published versions of a prompt template, sorted by most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param ptId  (required)
+     * @return APIlistPromptVersionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt templates in the current project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Published versions for the prompt template. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listPromptsCall(
+    public APIlistPromptVersionsRequest listPromptVersions(
+            @jakarta.annotation.Nonnull String ptId) {
+        return new APIlistPromptVersionsRequest(ptId);
+    }
+
+    private okhttp3.Call listPromptsCall(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -1532,63 +1727,7 @@ public class PromptTemplatesApi {
                 name, status, limit, offset, role, tags, matchInteractions, _callback);
     }
 
-    /**
-     * List prompts
-     * Lists draft prompt templates in the current project with optional filtering by name, role, tags, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name Case-insensitive substring match on the prompt name. (optional)
-     * @param status Accepted and ignored. &#x60;GET /prompts&#x60; and &#x60;POST /prompts/facets&#x60; list drafts only, and always have. (optional)
-     * @param limit Maximum number of prompts to return. Defaults to 100. (optional)
-     * @param offset Number of prompts to skip. (optional)
-     * @param role Exact match on the prompt role. (optional)
-     * @param tags Match prompts carrying any of these tags. (optional)
-     * @param matchInteractions Accepted and ignored. It used to attach the interactions referencing each prompt, in a shape no response component ever declared; nothing consumed it. (optional)
-     * @return List&lt;PromptTemplateRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt templates in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<PromptTemplateRef> listPrompts(
-            @jakarta.annotation.Nullable String name,
-            @jakarta.annotation.Nullable List<String> status,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String role,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable Boolean matchInteractions)
-            throws ApiException {
-        ApiResponse<List<PromptTemplateRef>> localVarResp =
-                listPromptsWithHttpInfo(name, status, limit, offset, role, tags, matchInteractions);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List prompts
-     * Lists draft prompt templates in the current project with optional filtering by name, role, tags, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name Case-insensitive substring match on the prompt name. (optional)
-     * @param status Accepted and ignored. &#x60;GET /prompts&#x60; and &#x60;POST /prompts/facets&#x60; list drafts only, and always have. (optional)
-     * @param limit Maximum number of prompts to return. Defaults to 100. (optional)
-     * @param offset Number of prompts to skip. (optional)
-     * @param role Exact match on the prompt role. (optional)
-     * @param tags Match prompts carrying any of these tags. (optional)
-     * @param matchInteractions Accepted and ignored. It used to attach the interactions referencing each prompt, in a shape no response component ever declared; nothing consumed it. (optional)
-     * @return ApiResponse&lt;List&lt;PromptTemplateRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt templates in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<PromptTemplateRef>> listPromptsWithHttpInfo(
+    private ApiResponse<List<PromptTemplateRef>> listPromptsWithHttpInfo(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -1604,29 +1743,7 @@ public class PromptTemplatesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List prompts (asynchronously)
-     * Lists draft prompt templates in the current project with optional filtering by name, role, tags, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name Case-insensitive substring match on the prompt name. (optional)
-     * @param status Accepted and ignored. &#x60;GET /prompts&#x60; and &#x60;POST /prompts/facets&#x60; list drafts only, and always have. (optional)
-     * @param limit Maximum number of prompts to return. Defaults to 100. (optional)
-     * @param offset Number of prompts to skip. (optional)
-     * @param role Exact match on the prompt role. (optional)
-     * @param tags Match prompts carrying any of these tags. (optional)
-     * @param matchInteractions Accepted and ignored. It used to attach the interactions referencing each prompt, in a shape no response component ever declared; nothing consumed it. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Prompt templates in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listPromptsAsync(
+    private okhttp3.Call listPromptsAsync(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -1645,65 +1762,184 @@ public class PromptTemplatesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listPrompts with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listPromptsCall(final ApiCallback _callback) throws ApiException {
-        return listPromptsCall(null, null, null, null, null, null, null, _callback);
+    public class APIlistPromptsRequest {
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private List<String> status;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+        @jakarta.annotation.Nullable private String role;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private Boolean matchInteractions;
+
+        private APIlistPromptsRequest() {}
+
+        /**
+         * Set name
+         * @param name Case-insensitive substring match on the prompt name. (optional)
+         * @return APIlistPromptsRequest
+         */
+        public APIlistPromptsRequest name(@jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set status
+         * @param status Accepted and ignored. &#x60;GET /prompts&#x60; and &#x60;POST /prompts/facets&#x60; list drafts only, and always have. (optional)
+         * @return APIlistPromptsRequest
+         */
+        public APIlistPromptsRequest status(@jakarta.annotation.Nullable List<String> status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of prompts to return. Defaults to 100. (optional)
+         * @return APIlistPromptsRequest
+         */
+        public APIlistPromptsRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset Number of prompts to skip. (optional)
+         * @return APIlistPromptsRequest
+         */
+        public APIlistPromptsRequest offset(@jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set role
+         * @param role Exact match on the prompt role. (optional)
+         * @return APIlistPromptsRequest
+         */
+        public APIlistPromptsRequest role(@jakarta.annotation.Nullable String role) {
+            this.role = role;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags Match prompts carrying any of these tags. (optional)
+         * @return APIlistPromptsRequest
+         */
+        public APIlistPromptsRequest tags(@jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set matchInteractions
+         * @param matchInteractions Accepted and ignored. It used to attach the interactions referencing each prompt, in a shape no response component ever declared; nothing consumed it. (optional)
+         * @return APIlistPromptsRequest
+         */
+        public APIlistPromptsRequest matchInteractions(
+                @jakarta.annotation.Nullable Boolean matchInteractions) {
+            this.matchInteractions = matchInteractions;
+            return this;
+        }
+
+        /**
+         * Build call for listPrompts
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt templates in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listPromptsCall(
+                    name, status, limit, offset, role, tags, matchInteractions, _callback);
+        }
+
+        /**
+         * Execute listPrompts request
+         * @return List&lt;PromptTemplateRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt templates in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<PromptTemplateRef> execute() throws ApiException {
+            ApiResponse<List<PromptTemplateRef>> localVarResp =
+                    listPromptsWithHttpInfo(
+                            name, status, limit, offset, role, tags, matchInteractions);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listPrompts request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;PromptTemplateRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt templates in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<PromptTemplateRef>> executeWithHttpInfo() throws ApiException {
+            return listPromptsWithHttpInfo(
+                    name, status, limit, offset, role, tags, matchInteractions);
+        }
+
+        /**
+         * Execute listPrompts request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Prompt templates in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<PromptTemplateRef>> _callback)
+                throws ApiException {
+            return listPromptsAsync(
+                    name, status, limit, offset, role, tags, matchInteractions, _callback);
+        }
     }
 
     /**
      * List prompts
-     * Calls {@code listPrompts} with every optional parameter left unset.
-     * @return List&lt;PromptTemplateRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<PromptTemplateRef> listPrompts() throws ApiException {
-        return listPrompts(null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List prompts
-     * Calls {@code listPromptsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<PromptTemplateRef>> listPromptsWithHttpInfo() throws ApiException {
-        return listPromptsWithHttpInfo(null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List prompts (asynchronously)
-     * Calls {@code listPromptsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listPromptsAsync(final ApiCallback<List<PromptTemplateRef>> _callback)
-            throws ApiException {
-        return listPromptsAsync(null, null, null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for renderPrompt
-     * @param ptId  (required)
-     * @param requestBody  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists draft prompt templates in the current project with optional filtering by name, role, tags, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistPromptsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendered prompt content. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Prompt templates in the current project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call renderPromptCall(
+    public APIlistPromptsRequest listPrompts() {
+        return new APIlistPromptsRequest();
+    }
+
+    private okhttp3.Call renderPromptCall(
             @jakarta.annotation.Nonnull String ptId,
             @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback _callback)
@@ -1785,48 +2021,7 @@ public class PromptTemplatesApi {
         return renderPromptCall(ptId, requestBody, _callback);
     }
 
-    /**
-     * Render a prompt
-     * Renders a prompt template with the supplied variables without modifying the prompt.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param ptId  (required)
-     * @param requestBody  (required)
-     * @return RenderPromptResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendered prompt content. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RenderPromptResponse renderPrompt(
-            @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull Map<String, Object> requestBody)
-            throws ApiException {
-        ApiResponse<RenderPromptResponse> localVarResp =
-                renderPromptWithHttpInfo(ptId, requestBody);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Render a prompt
-     * Renders a prompt template with the supplied variables without modifying the prompt.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param ptId  (required)
-     * @param requestBody  (required)
-     * @return ApiResponse&lt;RenderPromptResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendered prompt content. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RenderPromptResponse> renderPromptWithHttpInfo(
+    private ApiResponse<RenderPromptResponse> renderPromptWithHttpInfo(
             @jakarta.annotation.Nonnull String ptId,
             @jakarta.annotation.Nonnull Map<String, Object> requestBody)
             throws ApiException {
@@ -1835,24 +2030,7 @@ public class PromptTemplatesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Render a prompt (asynchronously)
-     * Renders a prompt template with the supplied variables without modifying the prompt.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param ptId  (required)
-     * @param requestBody  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendered prompt content. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call renderPromptAsync(
+    private okhttp3.Call renderPromptAsync(
             @jakarta.annotation.Nonnull String ptId,
             @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback<RenderPromptResponse> _callback)
@@ -1864,24 +2042,113 @@ public class PromptTemplatesApi {
         return localVarCall;
     }
 
+    public class APIrenderPromptRequest {
+        @jakarta.annotation.Nonnull private final String ptId;
+        @jakarta.annotation.Nonnull private final Map<String, Object> requestBody;
+
+        private APIrenderPromptRequest(
+                @jakarta.annotation.Nonnull String ptId,
+                @jakarta.annotation.Nonnull Map<String, Object> requestBody) {
+            this.ptId = ptId;
+            this.requestBody = requestBody;
+        }
+
+        /**
+         * Build call for renderPrompt
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendered prompt content. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return renderPromptCall(ptId, requestBody, _callback);
+        }
+
+        /**
+         * Execute renderPrompt request
+         * @return RenderPromptResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendered prompt content. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public RenderPromptResponse execute() throws ApiException {
+            ApiResponse<RenderPromptResponse> localVarResp =
+                    renderPromptWithHttpInfo(ptId, requestBody);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute renderPrompt request with HTTP info returned
+         * @return ApiResponse&lt;RenderPromptResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendered prompt content. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<RenderPromptResponse> executeWithHttpInfo() throws ApiException {
+            return renderPromptWithHttpInfo(ptId, requestBody);
+        }
+
+        /**
+         * Execute renderPrompt request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendered prompt content. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RenderPromptResponse> _callback)
+                throws ApiException {
+            return renderPromptAsync(ptId, requestBody, _callback);
+        }
+    }
+
     /**
-     * Build call for updatePrompt
+     * Render a prompt
+     * Renders a prompt template with the supplied variables without modifying the prompt.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param ptId  (required)
-     * @param promptTemplateUpdatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param requestBody  (required)
+     * @return APIrenderPromptRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The prompt was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Rendered prompt content. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updatePromptCall(
+    public APIrenderPromptRequest renderPrompt(
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody) {
+        return new APIrenderPromptRequest(ptId, requestBody);
+    }
+
+    private okhttp3.Call updatePromptCall(
             @jakarta.annotation.Nonnull String ptId,
             @jakarta.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload,
             final ApiCallback _callback)
@@ -1963,50 +2230,7 @@ public class PromptTemplatesApi {
         return updatePromptCall(ptId, promptTemplateUpdatePayload, _callback);
     }
 
-    /**
-     * Update a prompt
-     * Updates a draft prompt template&#39;s content, metadata, input schema, role, or content type.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param ptId  (required)
-     * @param promptTemplateUpdatePayload  (required)
-     * @return PromptTemplate
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The prompt was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PromptTemplate updatePrompt(
-            @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload)
-            throws ApiException {
-        ApiResponse<PromptTemplate> localVarResp =
-                updatePromptWithHttpInfo(ptId, promptTemplateUpdatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a prompt
-     * Updates a draft prompt template&#39;s content, metadata, input schema, role, or content type.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param ptId  (required)
-     * @param promptTemplateUpdatePayload  (required)
-     * @return ApiResponse&lt;PromptTemplate&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The prompt was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PromptTemplate> updatePromptWithHttpInfo(
+    private ApiResponse<PromptTemplate> updatePromptWithHttpInfo(
             @jakarta.annotation.Nonnull String ptId,
             @jakarta.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload)
             throws ApiException {
@@ -2016,25 +2240,7 @@ public class PromptTemplatesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a prompt (asynchronously)
-     * Updates a draft prompt template&#39;s content, metadata, input schema, role, or content type.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param ptId  (required)
-     * @param promptTemplateUpdatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated prompt template. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The prompt was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updatePromptAsync(
+    private okhttp3.Call updatePromptAsync(
             @jakarta.annotation.Nonnull String ptId,
             @jakarta.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload,
             final ApiCallback<PromptTemplate> _callback)
@@ -2045,5 +2251,119 @@ public class PromptTemplatesApi {
         Type localVarReturnType = new TypeToken<PromptTemplate>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdatePromptRequest {
+        @jakarta.annotation.Nonnull private final String ptId;
+
+        @jakarta.annotation.Nonnull
+        private final PromptTemplateUpdatePayload promptTemplateUpdatePayload;
+
+        private APIupdatePromptRequest(
+                @jakarta.annotation.Nonnull String ptId,
+                @jakarta.annotation.Nonnull
+                        PromptTemplateUpdatePayload promptTemplateUpdatePayload) {
+            this.ptId = ptId;
+            this.promptTemplateUpdatePayload = promptTemplateUpdatePayload;
+        }
+
+        /**
+         * Build call for updatePrompt
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The prompt was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updatePromptCall(ptId, promptTemplateUpdatePayload, _callback);
+        }
+
+        /**
+         * Execute updatePrompt request
+         * @return PromptTemplate
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The prompt was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public PromptTemplate execute() throws ApiException {
+            ApiResponse<PromptTemplate> localVarResp =
+                    updatePromptWithHttpInfo(ptId, promptTemplateUpdatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updatePrompt request with HTTP info returned
+         * @return ApiResponse&lt;PromptTemplate&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The prompt was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<PromptTemplate> executeWithHttpInfo() throws ApiException {
+            return updatePromptWithHttpInfo(ptId, promptTemplateUpdatePayload);
+        }
+
+        /**
+         * Execute updatePrompt request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated prompt template. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The prompt was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PromptTemplate> _callback)
+                throws ApiException {
+            return updatePromptAsync(ptId, promptTemplateUpdatePayload, _callback);
+        }
+    }
+
+    /**
+     * Update a prompt
+     * Updates a draft prompt template&#39;s content, metadata, input schema, role, or content type.  **Required permissions:** &#x60;interaction:write&#x60;
+     * @param ptId  (required)
+     * @param promptTemplateUpdatePayload  (required)
+     * @return APIupdatePromptRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated prompt template. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The prompt was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdatePromptRequest updatePrompt(
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload) {
+        return new APIupdatePromptRequest(ptId, promptTemplateUpdatePayload);
     }
 }

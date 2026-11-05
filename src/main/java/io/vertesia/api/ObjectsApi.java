@@ -99,23 +99,7 @@ public class ObjectsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for analyzeObjectDocument
-     * @param objectId  (required)
-     * @param documentPrepOptions  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call analyzeObjectDocumentCall(
+    private okhttp3.Call analyzeObjectDocumentCall(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions,
             final ApiCallback _callback)
@@ -197,48 +181,7 @@ public class ObjectsApi {
         return analyzeObjectDocumentCall(objectId, documentPrepOptions, _callback);
     }
 
-    /**
-     * Start document prep
-     * Starts markdown document prep for a content object and returns the workflow run metadata.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param documentPrepOptions  (required)
-     * @return DocAnalyzeRunStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DocAnalyzeRunStatusResponse analyzeObjectDocument(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions)
-            throws ApiException {
-        ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
-                analyzeObjectDocumentWithHttpInfo(objectId, documentPrepOptions);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start document prep
-     * Starts markdown document prep for a content object and returns the workflow run metadata.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param documentPrepOptions  (required)
-     * @return ApiResponse&lt;DocAnalyzeRunStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DocAnalyzeRunStatusResponse> analyzeObjectDocumentWithHttpInfo(
+    private ApiResponse<DocAnalyzeRunStatusResponse> analyzeObjectDocumentWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions)
             throws ApiException {
@@ -248,24 +191,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start document prep (asynchronously)
-     * Starts markdown document prep for a content object and returns the workflow run metadata.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param documentPrepOptions  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call analyzeObjectDocumentAsync(
+    private okhttp3.Call analyzeObjectDocumentAsync(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions,
             final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
@@ -278,22 +204,113 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIanalyzeObjectDocumentRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+        @jakarta.annotation.Nonnull private final DocumentPrepOptions documentPrepOptions;
+
+        private APIanalyzeObjectDocumentRequest(
+                @jakarta.annotation.Nonnull String objectId,
+                @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions) {
+            this.objectId = objectId;
+            this.documentPrepOptions = documentPrepOptions;
+        }
+
+        /**
+         * Build call for analyzeObjectDocument
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return analyzeObjectDocumentCall(objectId, documentPrepOptions, _callback);
+        }
+
+        /**
+         * Execute analyzeObjectDocument request
+         * @return DocAnalyzeRunStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DocAnalyzeRunStatusResponse execute() throws ApiException {
+            ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
+                    analyzeObjectDocumentWithHttpInfo(objectId, documentPrepOptions);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute analyzeObjectDocument request with HTTP info returned
+         * @return ApiResponse&lt;DocAnalyzeRunStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DocAnalyzeRunStatusResponse> executeWithHttpInfo() throws ApiException {
+            return analyzeObjectDocumentWithHttpInfo(objectId, documentPrepOptions);
+        }
+
+        /**
+         * Execute analyzeObjectDocument request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
+                throws ApiException {
+            return analyzeObjectDocumentAsync(objectId, documentPrepOptions, _callback);
+        }
+    }
+
     /**
-     * Build call for computeObjectsFacets
-     * @param computeObjectFacetPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Start document prep
+     * Starts markdown document prep for a content object and returns the workflow run metadata.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param documentPrepOptions  (required)
+     * @return APIanalyzeObjectDocumentRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching objects. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call computeObjectsFacetsCall(
+    public APIanalyzeObjectDocumentRequest analyzeObjectDocument(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions) {
+        return new APIanalyzeObjectDocumentRequest(objectId, documentPrepOptions);
+    }
+
+    private okhttp3.Call computeObjectsFacetsCall(
             @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -363,45 +380,7 @@ public class ObjectsApi {
         return computeObjectsFacetsCall(computeObjectFacetPayload, _callback);
     }
 
-    /**
-     * Compute content object facets
-     * Computes aggregation buckets and counts for object filters.  **Required permissions:** &#x60;content:read&#x60;
-     * @param computeObjectFacetPayload  (required)
-     * @return ComputedFacetResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching objects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ComputedFacetResponse computeObjectsFacets(
-            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
-            throws ApiException {
-        ApiResponse<ComputedFacetResponse> localVarResp =
-                computeObjectsFacetsWithHttpInfo(computeObjectFacetPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Compute content object facets
-     * Computes aggregation buckets and counts for object filters.  **Required permissions:** &#x60;content:read&#x60;
-     * @param computeObjectFacetPayload  (required)
-     * @return ApiResponse&lt;ComputedFacetResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching objects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ComputedFacetResponse> computeObjectsFacetsWithHttpInfo(
+    private ApiResponse<ComputedFacetResponse> computeObjectsFacetsWithHttpInfo(
             @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -410,23 +389,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Compute content object facets (asynchronously)
-     * Computes aggregation buckets and counts for object filters.  **Required permissions:** &#x60;content:read&#x60;
-     * @param computeObjectFacetPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching objects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call computeObjectsFacetsAsync(
+    private okhttp3.Call computeObjectsFacetsAsync(
             @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
             final ApiCallback<ComputedFacetResponse> _callback)
             throws ApiException {
@@ -438,22 +401,109 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIcomputeObjectsFacetsRequest {
+        @jakarta.annotation.Nonnull
+        private final ComputeObjectFacetPayload computeObjectFacetPayload;
+
+        private APIcomputeObjectsFacetsRequest(
+                @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload) {
+            this.computeObjectFacetPayload = computeObjectFacetPayload;
+        }
+
+        /**
+         * Build call for computeObjectsFacets
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching objects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return computeObjectsFacetsCall(computeObjectFacetPayload, _callback);
+        }
+
+        /**
+         * Execute computeObjectsFacets request
+         * @return ComputedFacetResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching objects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ComputedFacetResponse execute() throws ApiException {
+            ApiResponse<ComputedFacetResponse> localVarResp =
+                    computeObjectsFacetsWithHttpInfo(computeObjectFacetPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute computeObjectsFacets request with HTTP info returned
+         * @return ApiResponse&lt;ComputedFacetResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching objects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ComputedFacetResponse> executeWithHttpInfo() throws ApiException {
+            return computeObjectsFacetsWithHttpInfo(computeObjectFacetPayload);
+        }
+
+        /**
+         * Execute computeObjectsFacets request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching objects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ComputedFacetResponse> _callback)
+                throws ApiException {
+            return computeObjectsFacetsAsync(computeObjectFacetPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for countObjects
-     * @param findPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Compute content object facets
+     * Computes aggregation buckets and counts for object filters.  **Required permissions:** &#x60;content:read&#x60;
+     * @param computeObjectFacetPayload  (required)
+     * @return APIcomputeObjectsFacetsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching object count. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Facet buckets and total count for matching objects. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call countObjectsCall(
+    public APIcomputeObjectsFacetsRequest computeObjectsFacets(
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload) {
+        return new APIcomputeObjectsFacetsRequest(computeObjectFacetPayload);
+    }
+
+    private okhttp3.Call countObjectsCall(
             @jakarta.annotation.Nonnull FindPayload findPayload, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -521,66 +571,14 @@ public class ObjectsApi {
         return countObjectsCall(findPayload, _callback);
     }
 
-    /**
-     * Count content objects
-     * Counts content objects matching the supplied filter query.  **Required permissions:** &#x60;content:read&#x60;
-     * @param findPayload  (required)
-     * @return CountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching object count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CountResult countObjects(@jakarta.annotation.Nonnull FindPayload findPayload)
-            throws ApiException {
-        ApiResponse<CountResult> localVarResp = countObjectsWithHttpInfo(findPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Count content objects
-     * Counts content objects matching the supplied filter query.  **Required permissions:** &#x60;content:read&#x60;
-     * @param findPayload  (required)
-     * @return ApiResponse&lt;CountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching object count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CountResult> countObjectsWithHttpInfo(
+    private ApiResponse<CountResult> countObjectsWithHttpInfo(
             @jakarta.annotation.Nonnull FindPayload findPayload) throws ApiException {
         okhttp3.Call localVarCall = countObjectsValidateBeforeCall(findPayload, null);
         Type localVarReturnType = new TypeToken<CountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Count content objects (asynchronously)
-     * Counts content objects matching the supplied filter query.  **Required permissions:** &#x60;content:read&#x60;
-     * @param findPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching object count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call countObjectsAsync(
+    private okhttp3.Call countObjectsAsync(
             @jakarta.annotation.Nonnull FindPayload findPayload,
             final ApiCallback<CountResult> _callback)
             throws ApiException {
@@ -591,27 +589,106 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIcountObjectsRequest {
+        @jakarta.annotation.Nonnull private final FindPayload findPayload;
+
+        private APIcountObjectsRequest(@jakarta.annotation.Nonnull FindPayload findPayload) {
+            this.findPayload = findPayload;
+        }
+
+        /**
+         * Build call for countObjects
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching object count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return countObjectsCall(findPayload, _callback);
+        }
+
+        /**
+         * Execute countObjects request
+         * @return CountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching object count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CountResult execute() throws ApiException {
+            ApiResponse<CountResult> localVarResp = countObjectsWithHttpInfo(findPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute countObjects request with HTTP info returned
+         * @return ApiResponse&lt;CountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching object count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CountResult> executeWithHttpInfo() throws ApiException {
+            return countObjectsWithHttpInfo(findPayload);
+        }
+
+        /**
+         * Execute countObjects request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching object count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CountResult> _callback)
+                throws ApiException {
+            return countObjectsAsync(findPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createObject
-     * @param createContentObjectPayload  (required)
-     * @param collectionId  (optional)
-     * @param processingPriority  (optional)
-     * @param xCollectionId  (optional)
-     * @param xProcessingPriority  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Count content objects
+     * Counts content objects matching the supplied filter query.  **Required permissions:** &#x60;content:read&#x60;
+     * @param findPayload  (required)
+     * @return APIcountObjectsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created content object. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Matching object count. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createObjectCall(
+    public APIcountObjectsRequest countObjects(
+            @jakarta.annotation.Nonnull FindPayload findPayload) {
+        return new APIcountObjectsRequest(findPayload);
+    }
+
+    private okhttp3.Call createObjectCall(
             @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
             @jakarta.annotation.Nullable String collectionId,
             @jakarta.annotation.Nullable String processingPriority,
@@ -716,64 +793,7 @@ public class ObjectsApi {
                 _callback);
     }
 
-    /**
-     * Create a content object
-     * Creates a content object, optionally attaches it to a collection, indexes it, and starts matching workflows.  **Required permissions:** &#x60;content:write&#x60;
-     * @param createContentObjectPayload  (required)
-     * @param collectionId  (optional)
-     * @param processingPriority  (optional)
-     * @param xCollectionId  (optional)
-     * @param xProcessingPriority  (optional)
-     * @return ContentObjectApiResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created content object. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentObjectApiResponse createObject(
-            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
-            @jakarta.annotation.Nullable String collectionId,
-            @jakarta.annotation.Nullable String processingPriority,
-            @jakarta.annotation.Nullable String xCollectionId,
-            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority)
-            throws ApiException {
-        ApiResponse<ContentObjectApiResponse> localVarResp =
-                createObjectWithHttpInfo(
-                        createContentObjectPayload,
-                        collectionId,
-                        processingPriority,
-                        xCollectionId,
-                        xProcessingPriority);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a content object
-     * Creates a content object, optionally attaches it to a collection, indexes it, and starts matching workflows.  **Required permissions:** &#x60;content:write&#x60;
-     * @param createContentObjectPayload  (required)
-     * @param collectionId  (optional)
-     * @param processingPriority  (optional)
-     * @param xCollectionId  (optional)
-     * @param xProcessingPriority  (optional)
-     * @return ApiResponse&lt;ContentObjectApiResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created content object. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentObjectApiResponse> createObjectWithHttpInfo(
+    private ApiResponse<ContentObjectApiResponse> createObjectWithHttpInfo(
             @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
             @jakarta.annotation.Nullable String collectionId,
             @jakarta.annotation.Nullable String processingPriority,
@@ -792,28 +812,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a content object (asynchronously)
-     * Creates a content object, optionally attaches it to a collection, indexes it, and starts matching workflows.  **Required permissions:** &#x60;content:write&#x60;
-     * @param createContentObjectPayload  (required)
-     * @param collectionId  (optional)
-     * @param processingPriority  (optional)
-     * @param xCollectionId  (optional)
-     * @param xProcessingPriority  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created content object. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createObjectAsync(
+    private okhttp3.Call createObjectAsync(
             @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
             @jakarta.annotation.Nullable String collectionId,
             @jakarta.annotation.Nullable String processingPriority,
@@ -835,77 +834,185 @@ public class ObjectsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for createObject with every optional parameter left unset.
-     * @param createContentObjectPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call createObjectCall(
-            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
-            final ApiCallback _callback)
-            throws ApiException {
-        return createObjectCall(createContentObjectPayload, null, null, null, null, _callback);
+    public class APIcreateObjectRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateContentObjectPayload createContentObjectPayload;
+
+        @jakarta.annotation.Nullable private String collectionId;
+        @jakarta.annotation.Nullable private String processingPriority;
+        @jakarta.annotation.Nullable private String xCollectionId;
+        @jakarta.annotation.Nullable private ContentObjectProcessingPriority xProcessingPriority;
+
+        private APIcreateObjectRequest(
+                @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload) {
+            this.createContentObjectPayload = createContentObjectPayload;
+        }
+
+        /**
+         * Set collectionId
+         * @param collectionId  (optional)
+         * @return APIcreateObjectRequest
+         */
+        public APIcreateObjectRequest collectionId(
+                @jakarta.annotation.Nullable String collectionId) {
+            this.collectionId = collectionId;
+            return this;
+        }
+
+        /**
+         * Set processingPriority
+         * @param processingPriority  (optional)
+         * @return APIcreateObjectRequest
+         */
+        public APIcreateObjectRequest processingPriority(
+                @jakarta.annotation.Nullable String processingPriority) {
+            this.processingPriority = processingPriority;
+            return this;
+        }
+
+        /**
+         * Set xCollectionId
+         * @param xCollectionId  (optional)
+         * @return APIcreateObjectRequest
+         */
+        public APIcreateObjectRequest xCollectionId(
+                @jakarta.annotation.Nullable String xCollectionId) {
+            this.xCollectionId = xCollectionId;
+            return this;
+        }
+
+        /**
+         * Set xProcessingPriority
+         * @param xProcessingPriority  (optional)
+         * @return APIcreateObjectRequest
+         */
+        public APIcreateObjectRequest xProcessingPriority(
+                @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority) {
+            this.xProcessingPriority = xProcessingPriority;
+            return this;
+        }
+
+        /**
+         * Build call for createObject
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created content object. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createObjectCall(
+                    createContentObjectPayload,
+                    collectionId,
+                    processingPriority,
+                    xCollectionId,
+                    xProcessingPriority,
+                    _callback);
+        }
+
+        /**
+         * Execute createObject request
+         * @return ContentObjectApiResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created content object. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentObjectApiResponse execute() throws ApiException {
+            ApiResponse<ContentObjectApiResponse> localVarResp =
+                    createObjectWithHttpInfo(
+                            createContentObjectPayload,
+                            collectionId,
+                            processingPriority,
+                            xCollectionId,
+                            xProcessingPriority);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createObject request with HTTP info returned
+         * @return ApiResponse&lt;ContentObjectApiResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created content object. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentObjectApiResponse> executeWithHttpInfo() throws ApiException {
+            return createObjectWithHttpInfo(
+                    createContentObjectPayload,
+                    collectionId,
+                    processingPriority,
+                    xCollectionId,
+                    xProcessingPriority);
+        }
+
+        /**
+         * Execute createObject request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created content object. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentObjectApiResponse> _callback)
+                throws ApiException {
+            return createObjectAsync(
+                    createContentObjectPayload,
+                    collectionId,
+                    processingPriority,
+                    xCollectionId,
+                    xProcessingPriority,
+                    _callback);
+        }
     }
 
     /**
      * Create a content object
-     * Calls {@code createObject} with every optional parameter left unset.
+     * Creates a content object, optionally attaches it to a collection, indexes it, and starts matching workflows.  **Required permissions:** &#x60;content:write&#x60;
      * @param createContentObjectPayload  (required)
-     * @return ContentObjectApiResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ContentObjectApiResponse createObject(
-            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload)
-            throws ApiException {
-        return createObject(createContentObjectPayload, null, null, null, null);
-    }
-
-    /**
-     * Create a content object
-     * Calls {@code createObjectWithHttpInfo} with every optional parameter left unset.
-     * @param createContentObjectPayload  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ContentObjectApiResponse> createObjectWithHttpInfo(
-            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload)
-            throws ApiException {
-        return createObjectWithHttpInfo(createContentObjectPayload, null, null, null, null);
-    }
-
-    /**
-     * Create a content object (asynchronously)
-     * Calls {@code createObjectAsync} with every optional parameter left unset.
-     * @param createContentObjectPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call createObjectAsync(
-            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
-            final ApiCallback<ContentObjectApiResponse> _callback)
-            throws ApiException {
-        return createObjectAsync(createContentObjectPayload, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for createObjectDownloadUrl
-     * @param getFileUrlPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIcreateObjectRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created content object. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createObjectDownloadUrlCall(
+    public APIcreateObjectRequest createObject(
+            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload) {
+        return new APIcreateObjectRequest(createContentObjectPayload);
+    }
+
+    private okhttp3.Call createObjectDownloadUrlCall(
             @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -975,44 +1082,7 @@ public class ObjectsApi {
         return createObjectDownloadUrlCall(getFileUrlPayload, _callback);
     }
 
-    /**
-     * Create a content object download URL
-     * Creates a signed download URL for a stored file.  **Required permissions:** &#x60;content:read&#x60;
-     * @param getFileUrlPayload  (required)
-     * @return GetFileUrlResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GetFileUrlResponse createObjectDownloadUrl(
-            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
-        ApiResponse<GetFileUrlResponse> localVarResp =
-                createObjectDownloadUrlWithHttpInfo(getFileUrlPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a content object download URL
-     * Creates a signed download URL for a stored file.  **Required permissions:** &#x60;content:read&#x60;
-     * @param getFileUrlPayload  (required)
-     * @return ApiResponse&lt;GetFileUrlResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GetFileUrlResponse> createObjectDownloadUrlWithHttpInfo(
+    private ApiResponse<GetFileUrlResponse> createObjectDownloadUrlWithHttpInfo(
             @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
         okhttp3.Call localVarCall =
                 createObjectDownloadUrlValidateBeforeCall(getFileUrlPayload, null);
@@ -1020,23 +1090,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a content object download URL (asynchronously)
-     * Creates a signed download URL for a stored file.  **Required permissions:** &#x60;content:read&#x60;
-     * @param getFileUrlPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createObjectDownloadUrlAsync(
+    private okhttp3.Call createObjectDownloadUrlAsync(
             @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
             final ApiCallback<GetFileUrlResponse> _callback)
             throws ApiException {
@@ -1048,22 +1102,108 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIcreateObjectDownloadUrlRequest {
+        @jakarta.annotation.Nonnull private final GetFileUrlPayload getFileUrlPayload;
+
+        private APIcreateObjectDownloadUrlRequest(
+                @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) {
+            this.getFileUrlPayload = getFileUrlPayload;
+        }
+
+        /**
+         * Build call for createObjectDownloadUrl
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createObjectDownloadUrlCall(getFileUrlPayload, _callback);
+        }
+
+        /**
+         * Execute createObjectDownloadUrl request
+         * @return GetFileUrlResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GetFileUrlResponse execute() throws ApiException {
+            ApiResponse<GetFileUrlResponse> localVarResp =
+                    createObjectDownloadUrlWithHttpInfo(getFileUrlPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createObjectDownloadUrl request with HTTP info returned
+         * @return ApiResponse&lt;GetFileUrlResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GetFileUrlResponse> executeWithHttpInfo() throws ApiException {
+            return createObjectDownloadUrlWithHttpInfo(getFileUrlPayload);
+        }
+
+        /**
+         * Execute createObjectDownloadUrl request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetFileUrlResponse> _callback)
+                throws ApiException {
+            return createObjectDownloadUrlAsync(getFileUrlPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createObjectUploadUrl
-     * @param getUploadUrlPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a content object download URL
+     * Creates a signed download URL for a stored file.  **Required permissions:** &#x60;content:read&#x60;
+     * @param getFileUrlPayload  (required)
+     * @return APIcreateObjectDownloadUrlRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createObjectUploadUrlCall(
+    public APIcreateObjectDownloadUrlRequest createObjectDownloadUrl(
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) {
+        return new APIcreateObjectDownloadUrlRequest(getFileUrlPayload);
+    }
+
+    private okhttp3.Call createObjectUploadUrlCall(
             @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1133,45 +1273,7 @@ public class ObjectsApi {
         return createObjectUploadUrlCall(getUploadUrlPayload, _callback);
     }
 
-    /**
-     * Create a content object upload URL
-     * Deprecated convenience endpoint for creating a signed upload URL.  **Required permissions:** &#x60;content:write&#x60;
-     * @param getUploadUrlPayload  (required)
-     * @return GetFileUrlResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GetFileUrlResponse createObjectUploadUrl(
-            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload)
-            throws ApiException {
-        ApiResponse<GetFileUrlResponse> localVarResp =
-                createObjectUploadUrlWithHttpInfo(getUploadUrlPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a content object upload URL
-     * Deprecated convenience endpoint for creating a signed upload URL.  **Required permissions:** &#x60;content:write&#x60;
-     * @param getUploadUrlPayload  (required)
-     * @return ApiResponse&lt;GetFileUrlResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GetFileUrlResponse> createObjectUploadUrlWithHttpInfo(
+    private ApiResponse<GetFileUrlResponse> createObjectUploadUrlWithHttpInfo(
             @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1180,23 +1282,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a content object upload URL (asynchronously)
-     * Deprecated convenience endpoint for creating a signed upload URL.  **Required permissions:** &#x60;content:write&#x60;
-     * @param getUploadUrlPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createObjectUploadUrlAsync(
+    private okhttp3.Call createObjectUploadUrlAsync(
             @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
             final ApiCallback<GetFileUrlResponse> _callback)
             throws ApiException {
@@ -1208,22 +1294,108 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIcreateObjectUploadUrlRequest {
+        @jakarta.annotation.Nonnull private final GetUploadUrlPayload getUploadUrlPayload;
+
+        private APIcreateObjectUploadUrlRequest(
+                @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload) {
+            this.getUploadUrlPayload = getUploadUrlPayload;
+        }
+
+        /**
+         * Build call for createObjectUploadUrl
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createObjectUploadUrlCall(getUploadUrlPayload, _callback);
+        }
+
+        /**
+         * Execute createObjectUploadUrl request
+         * @return GetFileUrlResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GetFileUrlResponse execute() throws ApiException {
+            ApiResponse<GetFileUrlResponse> localVarResp =
+                    createObjectUploadUrlWithHttpInfo(getUploadUrlPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createObjectUploadUrl request with HTTP info returned
+         * @return ApiResponse&lt;GetFileUrlResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GetFileUrlResponse> executeWithHttpInfo() throws ApiException {
+            return createObjectUploadUrlWithHttpInfo(getUploadUrlPayload);
+        }
+
+        /**
+         * Execute createObjectUploadUrl request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetFileUrlResponse> _callback)
+                throws ApiException {
+            return createObjectUploadUrlAsync(getUploadUrlPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteContentObjectExport
-     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a content object upload URL
+     * Deprecated convenience endpoint for creating a signed upload URL.  **Required permissions:** &#x60;content:write&#x60;
+     * @param getUploadUrlPayload  (required)
+     * @return APIcreateObjectUploadUrlRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteContentObjectExportCall(
+    public APIcreateObjectUploadUrlRequest createObjectUploadUrl(
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload) {
+        return new APIcreateObjectUploadUrlRequest(getUploadUrlPayload);
+    }
+
+    private okhttp3.Call deleteContentObjectExportCall(
             @jakarta.annotation.Nonnull String exportId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1295,67 +1467,14 @@ public class ObjectsApi {
         return deleteContentObjectExportCall(exportId, _callback);
     }
 
-    /**
-     * Delete a content object export
-     * Deletes all files under a single content object export artifact folder in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
-     * @return DeleteContentObjectExportResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteContentObjectExportResponse deleteContentObjectExport(
-            @jakarta.annotation.Nonnull String exportId) throws ApiException {
-        ApiResponse<DeleteContentObjectExportResponse> localVarResp =
-                deleteContentObjectExportWithHttpInfo(exportId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a content object export
-     * Deletes all files under a single content object export artifact folder in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DeleteContentObjectExportResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteContentObjectExportResponse> deleteContentObjectExportWithHttpInfo(
+    private ApiResponse<DeleteContentObjectExportResponse> deleteContentObjectExportWithHttpInfo(
             @jakarta.annotation.Nonnull String exportId) throws ApiException {
         okhttp3.Call localVarCall = deleteContentObjectExportValidateBeforeCall(exportId, null);
         Type localVarReturnType = new TypeToken<DeleteContentObjectExportResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a content object export (asynchronously)
-     * Deletes all files under a single content object export artifact folder in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteContentObjectExportAsync(
+    private okhttp3.Call deleteContentObjectExportAsync(
             @jakarta.annotation.Nonnull String exportId,
             final ApiCallback<DeleteContentObjectExportResponse> _callback)
             throws ApiException {
@@ -1367,22 +1486,109 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIdeleteContentObjectExportRequest {
+        @jakarta.annotation.Nonnull private final String exportId;
+
+        private APIdeleteContentObjectExportRequest(@jakarta.annotation.Nonnull String exportId) {
+            this.exportId = exportId;
+        }
+
+        /**
+         * Build call for deleteContentObjectExport
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteContentObjectExportCall(exportId, _callback);
+        }
+
+        /**
+         * Execute deleteContentObjectExport request
+         * @return DeleteContentObjectExportResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteContentObjectExportResponse execute() throws ApiException {
+            ApiResponse<DeleteContentObjectExportResponse> localVarResp =
+                    deleteContentObjectExportWithHttpInfo(exportId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteContentObjectExport request with HTTP info returned
+         * @return ApiResponse&lt;DeleteContentObjectExportResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteContentObjectExportResponse> executeWithHttpInfo()
+                throws ApiException {
+            return deleteContentObjectExportWithHttpInfo(exportId);
+        }
+
+        /**
+         * Execute deleteContentObjectExport request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<DeleteContentObjectExportResponse> _callback)
+                throws ApiException {
+            return deleteContentObjectExportAsync(exportId, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteObject
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete a content object export
+     * Deletes all files under a single content object export artifact folder in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
+     * @return APIdeleteContentObjectExportRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted object identifier and count. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteObjectCall(
+    public APIdeleteContentObjectExportRequest deleteContentObjectExport(
+            @jakarta.annotation.Nonnull String exportId) {
+        return new APIdeleteContentObjectExportRequest(exportId);
+    }
+
+    private okhttp3.Call deleteObjectCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1454,66 +1660,14 @@ public class ObjectsApi {
         return deleteObjectCall(objectId, _callback);
     }
 
-    /**
-     * Delete a content object
-     * Deletes a content object. Deleting a head revision deletes the whole revision set visible to the caller.
-     * @param objectId  (required)
-     * @return DeleteContentObjectResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted object identifier and count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteContentObjectResult deleteObject(@jakarta.annotation.Nonnull String objectId)
-            throws ApiException {
-        ApiResponse<DeleteContentObjectResult> localVarResp = deleteObjectWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a content object
-     * Deletes a content object. Deleting a head revision deletes the whole revision set visible to the caller.
-     * @param objectId  (required)
-     * @return ApiResponse&lt;DeleteContentObjectResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted object identifier and count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteContentObjectResult> deleteObjectWithHttpInfo(
+    private ApiResponse<DeleteContentObjectResult> deleteObjectWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = deleteObjectValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<DeleteContentObjectResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a content object (asynchronously)
-     * Deletes a content object. Deleting a head revision deletes the whole revision set visible to the caller.
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted object identifier and count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteObjectAsync(
+    private okhttp3.Call deleteObjectAsync(
             @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<DeleteContentObjectResult> _callback)
             throws ApiException {
@@ -1524,22 +1678,106 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIdeleteObjectRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+
+        private APIdeleteObjectRequest(@jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Build call for deleteObject
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted object identifier and count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteObjectCall(objectId, _callback);
+        }
+
+        /**
+         * Execute deleteObject request
+         * @return DeleteContentObjectResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted object identifier and count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteContentObjectResult execute() throws ApiException {
+            ApiResponse<DeleteContentObjectResult> localVarResp =
+                    deleteObjectWithHttpInfo(objectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteObject request with HTTP info returned
+         * @return ApiResponse&lt;DeleteContentObjectResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted object identifier and count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteContentObjectResult> executeWithHttpInfo() throws ApiException {
+            return deleteObjectWithHttpInfo(objectId);
+        }
+
+        /**
+         * Execute deleteObject request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted object identifier and count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteContentObjectResult> _callback)
+                throws ApiException {
+            return deleteObjectAsync(objectId, _callback);
+        }
+    }
+
     /**
-     * Build call for exportObjectProperties
-     * @param exportPropertiesPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete a content object
+     * Deletes a content object. Deleting a head revision deletes the whole revision set visible to the caller.
+     * @param objectId  (required)
+     * @return APIdeleteObjectRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Export result metadata or streamed export payload. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Deleted object identifier and count. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call exportObjectPropertiesCall(
+    public APIdeleteObjectRequest deleteObject(@jakarta.annotation.Nonnull String objectId) {
+        return new APIdeleteObjectRequest(objectId);
+    }
+
+    private okhttp3.Call exportObjectPropertiesCall(
             @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1609,45 +1847,7 @@ public class ObjectsApi {
         return exportObjectPropertiesCall(exportPropertiesPayload, _callback);
     }
 
-    /**
-     * Export content object properties
-     * Exports object properties as CSV or JSON for specific object IDs or a matching object query.  **Required permissions:** &#x60;content:read&#x60;
-     * @param exportPropertiesPayload  (required)
-     * @return ExportPropertiesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Export result metadata or streamed export payload. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ExportPropertiesResponse exportObjectProperties(
-            @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload)
-            throws ApiException {
-        ApiResponse<ExportPropertiesResponse> localVarResp =
-                exportObjectPropertiesWithHttpInfo(exportPropertiesPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Export content object properties
-     * Exports object properties as CSV or JSON for specific object IDs or a matching object query.  **Required permissions:** &#x60;content:read&#x60;
-     * @param exportPropertiesPayload  (required)
-     * @return ApiResponse&lt;ExportPropertiesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Export result metadata or streamed export payload. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ExportPropertiesResponse> exportObjectPropertiesWithHttpInfo(
+    private ApiResponse<ExportPropertiesResponse> exportObjectPropertiesWithHttpInfo(
             @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1656,23 +1856,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Export content object properties (asynchronously)
-     * Exports object properties as CSV or JSON for specific object IDs or a matching object query.  **Required permissions:** &#x60;content:read&#x60;
-     * @param exportPropertiesPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Export result metadata or streamed export payload. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call exportObjectPropertiesAsync(
+    private okhttp3.Call exportObjectPropertiesAsync(
             @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload,
             final ApiCallback<ExportPropertiesResponse> _callback)
             throws ApiException {
@@ -1684,23 +1868,108 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIexportObjectPropertiesRequest {
+        @jakarta.annotation.Nonnull private final ExportPropertiesPayload exportPropertiesPayload;
+
+        private APIexportObjectPropertiesRequest(
+                @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload) {
+            this.exportPropertiesPayload = exportPropertiesPayload;
+        }
+
+        /**
+         * Build call for exportObjectProperties
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Export result metadata or streamed export payload. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return exportObjectPropertiesCall(exportPropertiesPayload, _callback);
+        }
+
+        /**
+         * Execute exportObjectProperties request
+         * @return ExportPropertiesResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Export result metadata or streamed export payload. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ExportPropertiesResponse execute() throws ApiException {
+            ApiResponse<ExportPropertiesResponse> localVarResp =
+                    exportObjectPropertiesWithHttpInfo(exportPropertiesPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute exportObjectProperties request with HTTP info returned
+         * @return ApiResponse&lt;ExportPropertiesResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Export result metadata or streamed export payload. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ExportPropertiesResponse> executeWithHttpInfo() throws ApiException {
+            return exportObjectPropertiesWithHttpInfo(exportPropertiesPayload);
+        }
+
+        /**
+         * Execute exportObjectProperties request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Export result metadata or streamed export payload. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ExportPropertiesResponse> _callback)
+                throws ApiException {
+            return exportObjectPropertiesAsync(exportPropertiesPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getContentObjectExportDownloadUrl
-     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
-     * @param role The export file: its data or its manifest. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Export content object properties
+     * Exports object properties as CSV or JSON for specific object IDs or a matching object query.  **Required permissions:** &#x60;content:read&#x60;
+     * @param exportPropertiesPayload  (required)
+     * @return APIexportObjectPropertiesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Export result metadata or streamed export payload. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getContentObjectExportDownloadUrlCall(
+    public APIexportObjectPropertiesRequest exportObjectProperties(
+            @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload) {
+        return new APIexportObjectPropertiesRequest(exportPropertiesPayload);
+    }
+
+    private okhttp3.Call getContentObjectExportDownloadUrlCall(
             @jakarta.annotation.Nonnull String exportId,
             @jakarta.annotation.Nonnull String role,
             final ApiCallback _callback)
@@ -1785,47 +2054,7 @@ public class ObjectsApi {
         return getContentObjectExportDownloadUrlCall(exportId, role, _callback);
     }
 
-    /**
-     * Create a content object export download URL
-     * Creates a signed download URL for a content object export data file or manifest sidecar.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
-     * @param role The export file: its data or its manifest. (required)
-     * @return GetFileUrlResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GetFileUrlResponse getContentObjectExportDownloadUrl(
-            @jakarta.annotation.Nonnull String exportId, @jakarta.annotation.Nonnull String role)
-            throws ApiException {
-        ApiResponse<GetFileUrlResponse> localVarResp =
-                getContentObjectExportDownloadUrlWithHttpInfo(exportId, role);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a content object export download URL
-     * Creates a signed download URL for a content object export data file or manifest sidecar.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
-     * @param role The export file: its data or its manifest. (required)
-     * @return ApiResponse&lt;GetFileUrlResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GetFileUrlResponse> getContentObjectExportDownloadUrlWithHttpInfo(
+    private ApiResponse<GetFileUrlResponse> getContentObjectExportDownloadUrlWithHttpInfo(
             @jakarta.annotation.Nonnull String exportId, @jakarta.annotation.Nonnull String role)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1834,24 +2063,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a content object export download URL (asynchronously)
-     * Creates a signed download URL for a content object export data file or manifest sidecar.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
-     * @param role The export file: its data or its manifest. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getContentObjectExportDownloadUrlAsync(
+    private okhttp3.Call getContentObjectExportDownloadUrlAsync(
             @jakarta.annotation.Nonnull String exportId,
             @jakarta.annotation.Nonnull String role,
             final ApiCallback<GetFileUrlResponse> _callback)
@@ -1864,23 +2076,112 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIgetContentObjectExportDownloadUrlRequest {
+        @jakarta.annotation.Nonnull private final String exportId;
+        @jakarta.annotation.Nonnull private final String role;
+
+        private APIgetContentObjectExportDownloadUrlRequest(
+                @jakarta.annotation.Nonnull String exportId,
+                @jakarta.annotation.Nonnull String role) {
+            this.exportId = exportId;
+            this.role = role;
+        }
+
+        /**
+         * Build call for getContentObjectExportDownloadUrl
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getContentObjectExportDownloadUrlCall(exportId, role, _callback);
+        }
+
+        /**
+         * Execute getContentObjectExportDownloadUrl request
+         * @return GetFileUrlResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GetFileUrlResponse execute() throws ApiException {
+            ApiResponse<GetFileUrlResponse> localVarResp =
+                    getContentObjectExportDownloadUrlWithHttpInfo(exportId, role);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getContentObjectExportDownloadUrl request with HTTP info returned
+         * @return ApiResponse&lt;GetFileUrlResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GetFileUrlResponse> executeWithHttpInfo() throws ApiException {
+            return getContentObjectExportDownloadUrlWithHttpInfo(exportId, role);
+        }
+
+        /**
+         * Execute getContentObjectExportDownloadUrl request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetFileUrlResponse> _callback)
+                throws ApiException {
+            return getContentObjectExportDownloadUrlAsync(exportId, role, _callback);
+        }
+    }
+
     /**
-     * Build call for getContentObjectsExportStatus
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a content object export download URL
+     * Creates a signed download URL for a content object export data file or manifest sidecar.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
+     * @param role The export file: its data or its manifest. (required)
+     * @return APIgetContentObjectExportDownloadUrlRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getContentObjectsExportStatusCall(
+    public APIgetContentObjectExportDownloadUrlRequest getContentObjectExportDownloadUrl(
+            @jakarta.annotation.Nonnull String exportId, @jakarta.annotation.Nonnull String role) {
+        return new APIgetContentObjectExportDownloadUrlRequest(exportId, role);
+    }
+
+    private okhttp3.Call getContentObjectsExportStatusCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             final ApiCallback _callback)
@@ -1965,73 +2266,18 @@ public class ObjectsApi {
         return getContentObjectsExportStatusCall(workflowId, runId, _callback);
     }
 
-    /**
-     * Get content object export status
-     * **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @return ContentObjectExportStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentObjectExportStatusResponse getContentObjectsExportStatus(
-            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        ApiResponse<ContentObjectExportStatusResponse> localVarResp =
-                getContentObjectsExportStatusWithHttpInfo(workflowId, runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get content object export status
-     * **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @return ApiResponse&lt;ContentObjectExportStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentObjectExportStatusResponse> getContentObjectsExportStatusWithHttpInfo(
-            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
+    private ApiResponse<ContentObjectExportStatusResponse>
+            getContentObjectsExportStatusWithHttpInfo(
+                    @jakarta.annotation.Nonnull String workflowId,
+                    @jakarta.annotation.Nonnull String runId)
+                    throws ApiException {
         okhttp3.Call localVarCall =
                 getContentObjectsExportStatusValidateBeforeCall(workflowId, runId, null);
         Type localVarReturnType = new TypeToken<ContentObjectExportStatusResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get content object export status (asynchronously)
-     * **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getContentObjectsExportStatusAsync(
+    private okhttp3.Call getContentObjectsExportStatusAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             final ApiCallback<ContentObjectExportStatusResponse> _callback)
@@ -2044,22 +2290,115 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIgetContentObjectsExportStatusRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+        @jakarta.annotation.Nonnull private final String runId;
+
+        private APIgetContentObjectsExportStatusRequest(
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull String runId) {
+            this.workflowId = workflowId;
+            this.runId = runId;
+        }
+
+        /**
+         * Build call for getContentObjectsExportStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getContentObjectsExportStatusCall(workflowId, runId, _callback);
+        }
+
+        /**
+         * Execute getContentObjectsExportStatus request
+         * @return ContentObjectExportStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentObjectExportStatusResponse execute() throws ApiException {
+            ApiResponse<ContentObjectExportStatusResponse> localVarResp =
+                    getContentObjectsExportStatusWithHttpInfo(workflowId, runId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getContentObjectsExportStatus request with HTTP info returned
+         * @return ApiResponse&lt;ContentObjectExportStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentObjectExportStatusResponse> executeWithHttpInfo()
+                throws ApiException {
+            return getContentObjectsExportStatusWithHttpInfo(workflowId, runId);
+        }
+
+        /**
+         * Execute getContentObjectsExportStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<ContentObjectExportStatusResponse> _callback)
+                throws ApiException {
+            return getContentObjectsExportStatusAsync(workflowId, runId, _callback);
+        }
+    }
+
     /**
-     * Build call for getObject
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get content object export status
+     * **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return APIgetContentObjectsExportStatusRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getObjectCall(
+    public APIgetContentObjectsExportStatusRequest getContentObjectsExportStatus(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIgetContentObjectsExportStatusRequest(workflowId, runId);
+    }
+
+    private okhttp3.Call getObjectCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2131,67 +2470,14 @@ public class ObjectsApi {
         return getObjectCall(objectId, _callback);
     }
 
-    /**
-     * Retrieve a content object
-     * Retrieves a content object by ID, including computed user permissions for the current principal.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ProjectedContentObjectApiResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProjectedContentObjectApiResponse getObject(@jakarta.annotation.Nonnull String objectId)
-            throws ApiException {
-        ApiResponse<ProjectedContentObjectApiResponse> localVarResp =
-                getObjectWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a content object
-     * Retrieves a content object by ID, including computed user permissions for the current principal.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;ProjectedContentObjectApiResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProjectedContentObjectApiResponse> getObjectWithHttpInfo(
+    private ApiResponse<ProjectedContentObjectApiResponse> getObjectWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getObjectValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<ProjectedContentObjectApiResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a content object (asynchronously)
-     * Retrieves a content object by ID, including computed user permissions for the current principal.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectAsync(
+    private okhttp3.Call getObjectAsync(
             @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<ProjectedContentObjectApiResponse> _callback)
             throws ApiException {
@@ -2202,22 +2488,108 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIgetObjectRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+
+        private APIgetObjectRequest(@jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Build call for getObject
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getObjectCall(objectId, _callback);
+        }
+
+        /**
+         * Execute getObject request
+         * @return ProjectedContentObjectApiResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProjectedContentObjectApiResponse execute() throws ApiException {
+            ApiResponse<ProjectedContentObjectApiResponse> localVarResp =
+                    getObjectWithHttpInfo(objectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getObject request with HTTP info returned
+         * @return ApiResponse&lt;ProjectedContentObjectApiResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProjectedContentObjectApiResponse> executeWithHttpInfo()
+                throws ApiException {
+            return getObjectWithHttpInfo(objectId);
+        }
+
+        /**
+         * Execute getObject request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<ProjectedContentObjectApiResponse> _callback)
+                throws ApiException {
+            return getObjectAsync(objectId, _callback);
+        }
+    }
+
     /**
-     * Build call for getObjectContentSource
+     * Retrieve a content object
+     * Retrieves a content object by ID, including computed user permissions for the current principal.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetObjectRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed source URL and content metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getObjectContentSourceCall(
+    public APIgetObjectRequest getObject(@jakarta.annotation.Nonnull String objectId) {
+        return new APIgetObjectRequest(objectId);
+    }
+
+    private okhttp3.Call getObjectContentSourceCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2289,66 +2661,14 @@ public class ObjectsApi {
         return getObjectContentSourceCall(objectId, _callback);
     }
 
-    /**
-     * Get content object source
-     * Returns a signed source URL and metadata for the object&#39;s original content.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ContentSource
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed source URL and content metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentSource getObjectContentSource(@jakarta.annotation.Nonnull String objectId)
-            throws ApiException {
-        ApiResponse<ContentSource> localVarResp = getObjectContentSourceWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get content object source
-     * Returns a signed source URL and metadata for the object&#39;s original content.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;ContentSource&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed source URL and content metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentSource> getObjectContentSourceWithHttpInfo(
+    private ApiResponse<ContentSource> getObjectContentSourceWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getObjectContentSourceValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<ContentSource>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get content object source (asynchronously)
-     * Returns a signed source URL and metadata for the object&#39;s original content.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed source URL and content metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectContentSourceAsync(
+    private okhttp3.Call getObjectContentSourceAsync(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback<ContentSource> _callback)
             throws ApiException {
 
@@ -2358,22 +2678,106 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIgetObjectContentSourceRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+
+        private APIgetObjectContentSourceRequest(@jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Build call for getObjectContentSource
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed source URL and content metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getObjectContentSourceCall(objectId, _callback);
+        }
+
+        /**
+         * Execute getObjectContentSource request
+         * @return ContentSource
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed source URL and content metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentSource execute() throws ApiException {
+            ApiResponse<ContentSource> localVarResp = getObjectContentSourceWithHttpInfo(objectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getObjectContentSource request with HTTP info returned
+         * @return ApiResponse&lt;ContentSource&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed source URL and content metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentSource> executeWithHttpInfo() throws ApiException {
+            return getObjectContentSourceWithHttpInfo(objectId);
+        }
+
+        /**
+         * Execute getObjectContentSource request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed source URL and content metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentSource> _callback)
+                throws ApiException {
+            return getObjectContentSourceAsync(objectId, _callback);
+        }
+    }
+
     /**
-     * Build call for getObjectDocumentAnalysisStatus
+     * Get content object source
+     * Returns a signed source URL and metadata for the object&#39;s original content.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetObjectContentSourceRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed source URL and content metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getObjectDocumentAnalysisStatusCall(
+    public APIgetObjectContentSourceRequest getObjectContentSource(
+            @jakarta.annotation.Nonnull String objectId) {
+        return new APIgetObjectContentSourceRequest(objectId);
+    }
+
+    private okhttp3.Call getObjectDocumentAnalysisStatusCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2445,44 +2849,7 @@ public class ObjectsApi {
         return getObjectDocumentAnalysisStatusCall(objectId, _callback);
     }
 
-    /**
-     * Get document prep status
-     * Retrieves status and progress for markdown prep or grounded extraction on this object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return DocAnalyzeRunStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DocAnalyzeRunStatusResponse getObjectDocumentAnalysisStatus(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
-                getObjectDocumentAnalysisStatusWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get document prep status
-     * Retrieves status and progress for markdown prep or grounded extraction on this object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;DocAnalyzeRunStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DocAnalyzeRunStatusResponse> getObjectDocumentAnalysisStatusWithHttpInfo(
+    private ApiResponse<DocAnalyzeRunStatusResponse> getObjectDocumentAnalysisStatusWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall =
                 getObjectDocumentAnalysisStatusValidateBeforeCall(objectId, null);
@@ -2490,23 +2857,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get document prep status (asynchronously)
-     * Retrieves status and progress for markdown prep or grounded extraction on this object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectDocumentAnalysisStatusAsync(
+    private okhttp3.Call getObjectDocumentAnalysisStatusAsync(
             @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
             throws ApiException {
@@ -2518,22 +2869,108 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIgetObjectDocumentAnalysisStatusRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+
+        private APIgetObjectDocumentAnalysisStatusRequest(
+                @jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Build call for getObjectDocumentAnalysisStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getObjectDocumentAnalysisStatusCall(objectId, _callback);
+        }
+
+        /**
+         * Execute getObjectDocumentAnalysisStatus request
+         * @return DocAnalyzeRunStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DocAnalyzeRunStatusResponse execute() throws ApiException {
+            ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
+                    getObjectDocumentAnalysisStatusWithHttpInfo(objectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getObjectDocumentAnalysisStatus request with HTTP info returned
+         * @return ApiResponse&lt;DocAnalyzeRunStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DocAnalyzeRunStatusResponse> executeWithHttpInfo() throws ApiException {
+            return getObjectDocumentAnalysisStatusWithHttpInfo(objectId);
+        }
+
+        /**
+         * Execute getObjectDocumentAnalysisStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
+                throws ApiException {
+            return getObjectDocumentAnalysisStatusAsync(objectId, _callback);
+        }
+    }
+
     /**
-     * Build call for getObjectDocumentGroundedExtractionResult
+     * Get document prep status
+     * Retrieves status and progress for markdown prep or grounded extraction on this object.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetObjectDocumentAnalysisStatusRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getObjectDocumentGroundedExtractionResultCall(
+    public APIgetObjectDocumentAnalysisStatusRequest getObjectDocumentAnalysisStatus(
+            @jakarta.annotation.Nonnull String objectId) {
+        return new APIgetObjectDocumentAnalysisStatusRequest(objectId);
+    }
+
+    private okhttp3.Call getObjectDocumentGroundedExtractionResultCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2605,44 +3042,7 @@ public class ObjectsApi {
         return getObjectDocumentGroundedExtractionResultCall(objectId, _callback);
     }
 
-    /**
-     * Get grounded extraction result
-     * Returns the extracted grounded data, trust verdict, verification breakdown, and artifact URL.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return GroundedExtractionResultResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GroundedExtractionResultResponse getObjectDocumentGroundedExtractionResult(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        ApiResponse<GroundedExtractionResultResponse> localVarResp =
-                getObjectDocumentGroundedExtractionResultWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get grounded extraction result
-     * Returns the extracted grounded data, trust verdict, verification breakdown, and artifact URL.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;GroundedExtractionResultResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GroundedExtractionResultResponse>
+    private ApiResponse<GroundedExtractionResultResponse>
             getObjectDocumentGroundedExtractionResultWithHttpInfo(
                     @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall =
@@ -2651,23 +3051,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get grounded extraction result (asynchronously)
-     * Returns the extracted grounded data, trust verdict, verification breakdown, and artifact URL.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectDocumentGroundedExtractionResultAsync(
+    private okhttp3.Call getObjectDocumentGroundedExtractionResultAsync(
             @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<GroundedExtractionResultResponse> _callback)
             throws ApiException {
@@ -2679,23 +3063,109 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIgetObjectDocumentGroundedExtractionResultRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+
+        private APIgetObjectDocumentGroundedExtractionResultRequest(
+                @jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Build call for getObjectDocumentGroundedExtractionResult
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getObjectDocumentGroundedExtractionResultCall(objectId, _callback);
+        }
+
+        /**
+         * Execute getObjectDocumentGroundedExtractionResult request
+         * @return GroundedExtractionResultResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GroundedExtractionResultResponse execute() throws ApiException {
+            ApiResponse<GroundedExtractionResultResponse> localVarResp =
+                    getObjectDocumentGroundedExtractionResultWithHttpInfo(objectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getObjectDocumentGroundedExtractionResult request with HTTP info returned
+         * @return ApiResponse&lt;GroundedExtractionResultResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GroundedExtractionResultResponse> executeWithHttpInfo()
+                throws ApiException {
+            return getObjectDocumentGroundedExtractionResultWithHttpInfo(objectId);
+        }
+
+        /**
+         * Execute getObjectDocumentGroundedExtractionResult request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<GroundedExtractionResultResponse> _callback) throws ApiException {
+            return getObjectDocumentGroundedExtractionResultAsync(objectId, _callback);
+        }
+    }
+
     /**
-     * Build call for getObjectEmbeddings
+     * Get grounded extraction result
+     * Returns the extracted grounded data, trust verdict, verification breakdown, and artifact URL.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @param type  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetObjectDocumentGroundedExtractionResultRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getObjectEmbeddingsCall(
+    public APIgetObjectDocumentGroundedExtractionResultRequest
+            getObjectDocumentGroundedExtractionResult(@jakarta.annotation.Nonnull String objectId) {
+        return new APIgetObjectDocumentGroundedExtractionResultRequest(objectId);
+    }
+
+    private okhttp3.Call getObjectEmbeddingsCall(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull String type,
             final ApiCallback _callback)
@@ -2780,46 +3250,7 @@ public class ObjectsApi {
         return getObjectEmbeddingsCall(objectId, type, _callback);
     }
 
-    /**
-     * Get content object embeddings
-     * Returns the stored embedding for a specific embedding type: GCS embeddings artifact first, with legacy inline database embeddings as fallback.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param type  (required)
-     * @return Embedding
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Embedding getObjectEmbeddings(
-            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String type)
-            throws ApiException {
-        ApiResponse<Embedding> localVarResp = getObjectEmbeddingsWithHttpInfo(objectId, type);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get content object embeddings
-     * Returns the stored embedding for a specific embedding type: GCS embeddings artifact first, with legacy inline database embeddings as fallback.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param type  (required)
-     * @return ApiResponse&lt;Embedding&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Embedding> getObjectEmbeddingsWithHttpInfo(
+    private ApiResponse<Embedding> getObjectEmbeddingsWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String type)
             throws ApiException {
         okhttp3.Call localVarCall = getObjectEmbeddingsValidateBeforeCall(objectId, type, null);
@@ -2827,24 +3258,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get content object embeddings (asynchronously)
-     * Returns the stored embedding for a specific embedding type: GCS embeddings artifact first, with legacy inline database embeddings as fallback.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param type  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectEmbeddingsAsync(
+    private okhttp3.Call getObjectEmbeddingsAsync(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull String type,
             final ApiCallback<Embedding> _callback)
@@ -2857,29 +3271,111 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIgetObjectEmbeddingsRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+        @jakarta.annotation.Nonnull private final String type;
+
+        private APIgetObjectEmbeddingsRequest(
+                @jakarta.annotation.Nonnull String objectId,
+                @jakarta.annotation.Nonnull String type) {
+            this.objectId = objectId;
+            this.type = type;
+        }
+
+        /**
+         * Build call for getObjectEmbeddings
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getObjectEmbeddingsCall(objectId, type, _callback);
+        }
+
+        /**
+         * Execute getObjectEmbeddings request
+         * @return Embedding
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Embedding execute() throws ApiException {
+            ApiResponse<Embedding> localVarResp = getObjectEmbeddingsWithHttpInfo(objectId, type);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getObjectEmbeddings request with HTTP info returned
+         * @return ApiResponse&lt;Embedding&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Embedding> executeWithHttpInfo() throws ApiException {
+            return getObjectEmbeddingsWithHttpInfo(objectId, type);
+        }
+
+        /**
+         * Execute getObjectEmbeddings request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Embedding> _callback)
+                throws ApiException {
+            return getObjectEmbeddingsAsync(objectId, type, _callback);
+        }
+    }
+
     /**
-     * Build call for getObjectRendition
+     * Get content object embeddings
+     * Returns the stored embedding for a specific embedding type: GCS embeddings artifact first, with legacy inline database embeddings as fallback.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @param format  (required)
-     * @param blockOnGeneration  (optional)
-     * @param generateIfMissing  (optional)
-     * @param maxHw  (optional)
-     * @param signUrl  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param type  (required)
+     * @return APIgetObjectEmbeddingsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
-     * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getObjectRenditionCall(
+    public APIgetObjectEmbeddingsRequest getObjectEmbeddings(
+            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String type) {
+        return new APIgetObjectEmbeddingsRequest(objectId, type);
+    }
+
+    private okhttp3.Call getObjectRenditionCall(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull String format,
             @jakarta.annotation.Nullable Boolean blockOnGeneration,
@@ -2991,65 +3487,7 @@ public class ObjectsApi {
                 objectId, format, blockOnGeneration, generateIfMissing, maxHw, signUrl, _callback);
     }
 
-    /**
-     * Get a content object rendition
-     * Retrieves or triggers generation of a rendition for an object in the requested format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param format  (required)
-     * @param blockOnGeneration  (optional)
-     * @param generateIfMissing  (optional)
-     * @param maxHw  (optional)
-     * @param signUrl  (optional)
-     * @return GetRenditionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
-     * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GetRenditionResponse getObjectRendition(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull String format,
-            @jakarta.annotation.Nullable Boolean blockOnGeneration,
-            @jakarta.annotation.Nullable Boolean generateIfMissing,
-            @jakarta.annotation.Nullable BigDecimal maxHw,
-            @jakarta.annotation.Nullable Boolean signUrl)
-            throws ApiException {
-        ApiResponse<GetRenditionResponse> localVarResp =
-                getObjectRenditionWithHttpInfo(
-                        objectId, format, blockOnGeneration, generateIfMissing, maxHw, signUrl);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get a content object rendition
-     * Retrieves or triggers generation of a rendition for an object in the requested format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param format  (required)
-     * @param blockOnGeneration  (optional)
-     * @param generateIfMissing  (optional)
-     * @param maxHw  (optional)
-     * @param signUrl  (optional)
-     * @return ApiResponse&lt;GetRenditionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
-     * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GetRenditionResponse> getObjectRenditionWithHttpInfo(
+    private ApiResponse<GetRenditionResponse> getObjectRenditionWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull String format,
             @jakarta.annotation.Nullable Boolean blockOnGeneration,
@@ -3070,30 +3508,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get a content object rendition (asynchronously)
-     * Retrieves or triggers generation of a rendition for an object in the requested format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param format  (required)
-     * @param blockOnGeneration  (optional)
-     * @param generateIfMissing  (optional)
-     * @param maxHw  (optional)
-     * @param signUrl  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
-     * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectRenditionAsync(
+    private okhttp3.Call getObjectRenditionAsync(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull String format,
             @jakarta.annotation.Nullable Boolean blockOnGeneration,
@@ -3117,83 +3532,185 @@ public class ObjectsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getObjectRendition with every optional parameter left unset.
-     * @param objectId  (required)
-     * @param format  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getObjectRenditionCall(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull String format,
-            final ApiCallback _callback)
-            throws ApiException {
-        return getObjectRenditionCall(objectId, format, null, null, null, null, _callback);
+    public class APIgetObjectRenditionRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+        @jakarta.annotation.Nonnull private final String format;
+        @jakarta.annotation.Nullable private Boolean blockOnGeneration;
+        @jakarta.annotation.Nullable private Boolean generateIfMissing;
+        @jakarta.annotation.Nullable private BigDecimal maxHw;
+        @jakarta.annotation.Nullable private Boolean signUrl;
+
+        private APIgetObjectRenditionRequest(
+                @jakarta.annotation.Nonnull String objectId,
+                @jakarta.annotation.Nonnull String format) {
+            this.objectId = objectId;
+            this.format = format;
+        }
+
+        /**
+         * Set blockOnGeneration
+         * @param blockOnGeneration  (optional)
+         * @return APIgetObjectRenditionRequest
+         */
+        public APIgetObjectRenditionRequest blockOnGeneration(
+                @jakarta.annotation.Nullable Boolean blockOnGeneration) {
+            this.blockOnGeneration = blockOnGeneration;
+            return this;
+        }
+
+        /**
+         * Set generateIfMissing
+         * @param generateIfMissing  (optional)
+         * @return APIgetObjectRenditionRequest
+         */
+        public APIgetObjectRenditionRequest generateIfMissing(
+                @jakarta.annotation.Nullable Boolean generateIfMissing) {
+            this.generateIfMissing = generateIfMissing;
+            return this;
+        }
+
+        /**
+         * Set maxHw
+         * @param maxHw  (optional)
+         * @return APIgetObjectRenditionRequest
+         */
+        public APIgetObjectRenditionRequest maxHw(@jakarta.annotation.Nullable BigDecimal maxHw) {
+            this.maxHw = maxHw;
+            return this;
+        }
+
+        /**
+         * Set signUrl
+         * @param signUrl  (optional)
+         * @return APIgetObjectRenditionRequest
+         */
+        public APIgetObjectRenditionRequest signUrl(@jakarta.annotation.Nullable Boolean signUrl) {
+            this.signUrl = signUrl;
+            return this;
+        }
+
+        /**
+         * Build call for getObjectRendition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
+         * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getObjectRenditionCall(
+                    objectId,
+                    format,
+                    blockOnGeneration,
+                    generateIfMissing,
+                    maxHw,
+                    signUrl,
+                    _callback);
+        }
+
+        /**
+         * Execute getObjectRendition request
+         * @return GetRenditionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
+         * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GetRenditionResponse execute() throws ApiException {
+            ApiResponse<GetRenditionResponse> localVarResp =
+                    getObjectRenditionWithHttpInfo(
+                            objectId, format, blockOnGeneration, generateIfMissing, maxHw, signUrl);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getObjectRendition request with HTTP info returned
+         * @return ApiResponse&lt;GetRenditionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
+         * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GetRenditionResponse> executeWithHttpInfo() throws ApiException {
+            return getObjectRenditionWithHttpInfo(
+                    objectId, format, blockOnGeneration, generateIfMissing, maxHw, signUrl);
+        }
+
+        /**
+         * Execute getObjectRendition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
+         * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetRenditionResponse> _callback)
+                throws ApiException {
+            return getObjectRenditionAsync(
+                    objectId,
+                    format,
+                    blockOnGeneration,
+                    generateIfMissing,
+                    maxHw,
+                    signUrl,
+                    _callback);
+        }
     }
 
     /**
      * Get a content object rendition
-     * Calls {@code getObjectRendition} with every optional parameter left unset.
+     * Retrieves or triggers generation of a rendition for an object in the requested format.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
      * @param format  (required)
-     * @return GetRenditionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public GetRenditionResponse getObjectRendition(
-            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String format)
-            throws ApiException {
-        return getObjectRendition(objectId, format, null, null, null, null);
-    }
-
-    /**
-     * Get a content object rendition
-     * Calls {@code getObjectRenditionWithHttpInfo} with every optional parameter left unset.
-     * @param objectId  (required)
-     * @param format  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<GetRenditionResponse> getObjectRenditionWithHttpInfo(
-            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String format)
-            throws ApiException {
-        return getObjectRenditionWithHttpInfo(objectId, format, null, null, null, null);
-    }
-
-    /**
-     * Get a content object rendition (asynchronously)
-     * Calls {@code getObjectRenditionAsync} with every optional parameter left unset.
-     * @param objectId  (required)
-     * @param format  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getObjectRenditionAsync(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull String format,
-            final ApiCallback<GetRenditionResponse> _callback)
-            throws ApiException {
-        return getObjectRenditionAsync(objectId, format, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for getObjectText
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetObjectRenditionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Text content for the object. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getObjectTextCall(
+    public APIgetObjectRenditionRequest getObjectRendition(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String format) {
+        return new APIgetObjectRenditionRequest(objectId, format);
+    }
+
+    private okhttp3.Call getObjectTextCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3265,66 +3782,14 @@ public class ObjectsApi {
         return getObjectTextCall(objectId, _callback);
     }
 
-    /**
-     * Get content object text
-     * Returns extracted or fetched text content for a content object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ContentObjectTextResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Text content for the object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentObjectTextResponse getObjectText(@jakarta.annotation.Nonnull String objectId)
-            throws ApiException {
-        ApiResponse<ContentObjectTextResponse> localVarResp = getObjectTextWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get content object text
-     * Returns extracted or fetched text content for a content object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;ContentObjectTextResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Text content for the object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentObjectTextResponse> getObjectTextWithHttpInfo(
+    private ApiResponse<ContentObjectTextResponse> getObjectTextWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getObjectTextValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<ContentObjectTextResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get content object text (asynchronously)
-     * Returns extracted or fetched text content for a content object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Text content for the object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectTextAsync(
+    private okhttp3.Call getObjectTextAsync(
             @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<ContentObjectTextResponse> _callback)
             throws ApiException {
@@ -3335,21 +3800,106 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIgetObjectTextRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+
+        private APIgetObjectTextRequest(@jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Build call for getObjectText
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Text content for the object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getObjectTextCall(objectId, _callback);
+        }
+
+        /**
+         * Execute getObjectText request
+         * @return ContentObjectTextResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Text content for the object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentObjectTextResponse execute() throws ApiException {
+            ApiResponse<ContentObjectTextResponse> localVarResp =
+                    getObjectTextWithHttpInfo(objectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getObjectText request with HTTP info returned
+         * @return ApiResponse&lt;ContentObjectTextResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Text content for the object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentObjectTextResponse> executeWithHttpInfo() throws ApiException {
+            return getObjectTextWithHttpInfo(objectId);
+        }
+
+        /**
+         * Execute getObjectText request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Text content for the object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentObjectTextResponse> _callback)
+                throws ApiException {
+            return getObjectTextAsync(objectId, _callback);
+        }
+    }
+
     /**
-     * Build call for listContentObjectExports
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get content object text
+     * Returns extracted or fetched text content for a content object.  **Required permissions:** &#x60;content:read&#x60;
+     * @param objectId  (required)
+     * @return APIgetObjectTextRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Text content for the object. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listContentObjectExportsCall(final ApiCallback _callback)
+    public APIgetObjectTextRequest getObjectText(@jakarta.annotation.Nonnull String objectId) {
+        return new APIgetObjectTextRequest(objectId);
+    }
+
+    private okhttp3.Call listContentObjectExportsCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3409,63 +3959,14 @@ public class ObjectsApi {
         return listContentObjectExportsCall(_callback);
     }
 
-    /**
-     * List content object exports
-     * Lists semi-transient content object export artifacts in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @return ListContentObjectExportsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ListContentObjectExportsResponse listContentObjectExports() throws ApiException {
-        ApiResponse<ListContentObjectExportsResponse> localVarResp =
-                listContentObjectExportsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List content object exports
-     * Lists semi-transient content object export artifacts in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @return ApiResponse&lt;ListContentObjectExportsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ListContentObjectExportsResponse> listContentObjectExportsWithHttpInfo()
+    private ApiResponse<ListContentObjectExportsResponse> listContentObjectExportsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listContentObjectExportsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<ListContentObjectExportsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List content object exports (asynchronously)
-     * Lists semi-transient content object export artifacts in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listContentObjectExportsAsync(
+    private okhttp3.Call listContentObjectExportsAsync(
             final ApiCallback<ListContentObjectExportsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listContentObjectExportsValidateBeforeCall(_callback);
@@ -3474,22 +3975,103 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIlistContentObjectExportsRequest {
+
+        private APIlistContentObjectExportsRequest() {}
+
+        /**
+         * Build call for listContentObjectExports
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listContentObjectExportsCall(_callback);
+        }
+
+        /**
+         * Execute listContentObjectExports request
+         * @return ListContentObjectExportsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ListContentObjectExportsResponse execute() throws ApiException {
+            ApiResponse<ListContentObjectExportsResponse> localVarResp =
+                    listContentObjectExportsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listContentObjectExports request with HTTP info returned
+         * @return ApiResponse&lt;ListContentObjectExportsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ListContentObjectExportsResponse> executeWithHttpInfo()
+                throws ApiException {
+            return listContentObjectExportsWithHttpInfo();
+        }
+
+        /**
+         * Execute listContentObjectExports request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<ListContentObjectExportsResponse> _callback) throws ApiException {
+            return listContentObjectExportsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listObjectCollections
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List content object exports
+     * Lists semi-transient content object export artifacts in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @return APIlistContentObjectExportsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collections containing the content object. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listObjectCollectionsCall(
+    public APIlistContentObjectExportsRequest listContentObjectExports() {
+        return new APIlistContentObjectExportsRequest();
+    }
+
+    private okhttp3.Call listObjectCollectionsCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3561,66 +4143,14 @@ public class ObjectsApi {
         return listObjectCollectionsCall(objectId, _callback);
     }
 
-    /**
-     * List content object collections
-     * Lists static and dynamic collections that currently contain the content object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return List&lt;Collection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collections containing the content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<Collection> listObjectCollections(@jakarta.annotation.Nonnull String objectId)
-            throws ApiException {
-        ApiResponse<List<Collection>> localVarResp = listObjectCollectionsWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List content object collections
-     * Lists static and dynamic collections that currently contain the content object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;List&lt;Collection&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collections containing the content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<Collection>> listObjectCollectionsWithHttpInfo(
+    private ApiResponse<List<Collection>> listObjectCollectionsWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = listObjectCollectionsValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<List<Collection>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List content object collections (asynchronously)
-     * Lists static and dynamic collections that currently contain the content object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Collections containing the content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listObjectCollectionsAsync(
+    private okhttp3.Call listObjectCollectionsAsync(
             @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<List<Collection>> _callback)
             throws ApiException {
@@ -3631,22 +4161,107 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIlistObjectCollectionsRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+
+        private APIlistObjectCollectionsRequest(@jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Build call for listObjectCollections
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collections containing the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listObjectCollectionsCall(objectId, _callback);
+        }
+
+        /**
+         * Execute listObjectCollections request
+         * @return List&lt;Collection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collections containing the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<Collection> execute() throws ApiException {
+            ApiResponse<List<Collection>> localVarResp =
+                    listObjectCollectionsWithHttpInfo(objectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listObjectCollections request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;Collection&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collections containing the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<Collection>> executeWithHttpInfo() throws ApiException {
+            return listObjectCollectionsWithHttpInfo(objectId);
+        }
+
+        /**
+         * Execute listObjectCollections request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Collections containing the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<Collection>> _callback)
+                throws ApiException {
+            return listObjectCollectionsAsync(objectId, _callback);
+        }
+    }
+
     /**
-     * Build call for listObjectRevisions
+     * List content object collections
+     * Lists static and dynamic collections that currently contain the content object.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistObjectCollectionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Revisions for the content object. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Collections containing the content object. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listObjectRevisionsCall(
+    public APIlistObjectCollectionsRequest listObjectCollections(
+            @jakarta.annotation.Nonnull String objectId) {
+        return new APIlistObjectCollectionsRequest(objectId);
+    }
+
+    private okhttp3.Call listObjectRevisionsCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3718,67 +4333,14 @@ public class ObjectsApi {
         return listObjectRevisionsCall(objectId, _callback);
     }
 
-    /**
-     * List content object revisions
-     * Lists revisions for the selected content object root revision chain.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return List&lt;ContentObjectItemApiResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Revisions for the content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ContentObjectItemApiResponse> listObjectRevisions(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        ApiResponse<List<ContentObjectItemApiResponse>> localVarResp =
-                listObjectRevisionsWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List content object revisions
-     * Lists revisions for the selected content object root revision chain.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;List&lt;ContentObjectItemApiResponse&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Revisions for the content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ContentObjectItemApiResponse>> listObjectRevisionsWithHttpInfo(
+    private ApiResponse<List<ContentObjectItemApiResponse>> listObjectRevisionsWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = listObjectRevisionsValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<List<ContentObjectItemApiResponse>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List content object revisions (asynchronously)
-     * Lists revisions for the selected content object root revision chain.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Revisions for the content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listObjectRevisionsAsync(
+    private okhttp3.Call listObjectRevisionsAsync(
             @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<List<ContentObjectItemApiResponse>> _callback)
             throws ApiException {
@@ -3789,22 +4351,109 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIlistObjectRevisionsRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+
+        private APIlistObjectRevisionsRequest(@jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Build call for listObjectRevisions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Revisions for the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listObjectRevisionsCall(objectId, _callback);
+        }
+
+        /**
+         * Execute listObjectRevisions request
+         * @return List&lt;ContentObjectItemApiResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Revisions for the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ContentObjectItemApiResponse> execute() throws ApiException {
+            ApiResponse<List<ContentObjectItemApiResponse>> localVarResp =
+                    listObjectRevisionsWithHttpInfo(objectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listObjectRevisions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ContentObjectItemApiResponse&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Revisions for the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ContentObjectItemApiResponse>> executeWithHttpInfo()
+                throws ApiException {
+            return listObjectRevisionsWithHttpInfo(objectId);
+        }
+
+        /**
+         * Execute listObjectRevisions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Revisions for the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<ContentObjectItemApiResponse>> _callback)
+                throws ApiException {
+            return listObjectRevisionsAsync(objectId, _callback);
+        }
+    }
+
     /**
-     * Build call for listObjectWorkflowRuns
+     * List content object revisions
+     * Lists revisions for the selected content object root revision chain.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistObjectRevisionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow runs for the content object. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Revisions for the content object. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listObjectWorkflowRunsCall(
+    public APIlistObjectRevisionsRequest listObjectRevisions(
+            @jakarta.annotation.Nonnull String objectId) {
+        return new APIlistObjectRevisionsRequest(objectId);
+    }
+
+    private okhttp3.Call listObjectWorkflowRunsCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3876,67 +4525,14 @@ public class ObjectsApi {
         return listObjectWorkflowRunsCall(objectId, _callback);
     }
 
-    /**
-     * List content object workflow runs
-     * Lists workflow runs associated with a content object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ListWorkflowRunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow runs for the content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ListWorkflowRunsResponse listObjectWorkflowRuns(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        ApiResponse<ListWorkflowRunsResponse> localVarResp =
-                listObjectWorkflowRunsWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List content object workflow runs
-     * Lists workflow runs associated with a content object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow runs for the content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ListWorkflowRunsResponse> listObjectWorkflowRunsWithHttpInfo(
+    private ApiResponse<ListWorkflowRunsResponse> listObjectWorkflowRunsWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = listObjectWorkflowRunsValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<ListWorkflowRunsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List content object workflow runs (asynchronously)
-     * Lists workflow runs associated with a content object.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow runs for the content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listObjectWorkflowRunsAsync(
+    private okhttp3.Call listObjectWorkflowRunsAsync(
             @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<ListWorkflowRunsResponse> _callback)
             throws ApiException {
@@ -3947,22 +4543,107 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIlistObjectWorkflowRunsRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+
+        private APIlistObjectWorkflowRunsRequest(@jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Build call for listObjectWorkflowRuns
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow runs for the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listObjectWorkflowRunsCall(objectId, _callback);
+        }
+
+        /**
+         * Execute listObjectWorkflowRuns request
+         * @return ListWorkflowRunsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow runs for the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ListWorkflowRunsResponse execute() throws ApiException {
+            ApiResponse<ListWorkflowRunsResponse> localVarResp =
+                    listObjectWorkflowRunsWithHttpInfo(objectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listObjectWorkflowRuns request with HTTP info returned
+         * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow runs for the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ListWorkflowRunsResponse> executeWithHttpInfo() throws ApiException {
+            return listObjectWorkflowRunsWithHttpInfo(objectId);
+        }
+
+        /**
+         * Execute listObjectWorkflowRuns request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow runs for the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ListWorkflowRunsResponse> _callback)
+                throws ApiException {
+            return listObjectWorkflowRunsAsync(objectId, _callback);
+        }
+    }
+
     /**
-     * Build call for searchObjects
-     * @param complexSearchPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List content object workflow runs
+     * Lists workflow runs associated with a content object.  **Required permissions:** &#x60;content:read&#x60;
+     * @param objectId  (required)
+     * @return APIlistObjectWorkflowRunsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results with object items and facets. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow runs for the content object. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call searchObjectsCall(
+    public APIlistObjectWorkflowRunsRequest listObjectWorkflowRuns(
+            @jakarta.annotation.Nonnull String objectId) {
+        return new APIlistObjectWorkflowRunsRequest(objectId);
+    }
+
+    private okhttp3.Call searchObjectsCall(
             @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -4032,45 +4713,7 @@ public class ObjectsApi {
         return searchObjectsCall(complexSearchPayload, _callback);
     }
 
-    /**
-     * Search content objects
-     * Runs structured search across content objects with full-text, vector, metadata, and facet support.  **Required permissions:** &#x60;content:read&#x60;
-     * @param complexSearchPayload  (required)
-     * @return ObjectSearchResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results with object items and facets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ObjectSearchResponse searchObjects(
-            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
-            throws ApiException {
-        ApiResponse<ObjectSearchResponse> localVarResp =
-                searchObjectsWithHttpInfo(complexSearchPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Search content objects
-     * Runs structured search across content objects with full-text, vector, metadata, and facet support.  **Required permissions:** &#x60;content:read&#x60;
-     * @param complexSearchPayload  (required)
-     * @return ApiResponse&lt;ObjectSearchResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results with object items and facets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ObjectSearchResponse> searchObjectsWithHttpInfo(
+    private ApiResponse<ObjectSearchResponse> searchObjectsWithHttpInfo(
             @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
             throws ApiException {
         okhttp3.Call localVarCall = searchObjectsValidateBeforeCall(complexSearchPayload, null);
@@ -4078,23 +4721,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Search content objects (asynchronously)
-     * Runs structured search across content objects with full-text, vector, metadata, and facet support.  **Required permissions:** &#x60;content:read&#x60;
-     * @param complexSearchPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search results with object items and facets. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call searchObjectsAsync(
+    private okhttp3.Call searchObjectsAsync(
             @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
             final ApiCallback<ObjectSearchResponse> _callback)
             throws ApiException {
@@ -4106,25 +4733,108 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIsearchObjectsRequest {
+        @jakarta.annotation.Nonnull private final ComplexSearchPayload complexSearchPayload;
+
+        private APIsearchObjectsRequest(
+                @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload) {
+            this.complexSearchPayload = complexSearchPayload;
+        }
+
+        /**
+         * Build call for searchObjects
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results with object items and facets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return searchObjectsCall(complexSearchPayload, _callback);
+        }
+
+        /**
+         * Execute searchObjects request
+         * @return ObjectSearchResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results with object items and facets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ObjectSearchResponse execute() throws ApiException {
+            ApiResponse<ObjectSearchResponse> localVarResp =
+                    searchObjectsWithHttpInfo(complexSearchPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute searchObjects request with HTTP info returned
+         * @return ApiResponse&lt;ObjectSearchResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results with object items and facets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ObjectSearchResponse> executeWithHttpInfo() throws ApiException {
+            return searchObjectsWithHttpInfo(complexSearchPayload);
+        }
+
+        /**
+         * Execute searchObjects request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search results with object items and facets. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ObjectSearchResponse> _callback)
+                throws ApiException {
+            return searchObjectsAsync(complexSearchPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for setObjectEmbeddings
-     * @param objectId  (required)
-     * @param type  (required)
-     * @param embedding  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Search content objects
+     * Runs structured search across content objects with full-text, vector, metadata, and facet support.  **Required permissions:** &#x60;content:read&#x60;
+     * @param complexSearchPayload  (required)
+     * @return APIsearchObjectsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Search results with object items and facets. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call setObjectEmbeddingsCall(
+    public APIsearchObjectsRequest searchObjects(
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload) {
+        return new APIsearchObjectsRequest(complexSearchPayload);
+    }
+
+    private okhttp3.Call setObjectEmbeddingsCall(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull String type,
             @jakarta.annotation.Nonnull Embedding embedding,
@@ -4217,53 +4927,7 @@ public class ObjectsApi {
         return setObjectEmbeddingsCall(objectId, type, embedding, _callback);
     }
 
-    /**
-     * Set content object embeddings
-     * Stores embeddings for a specific embedding type on a content object.
-     * @param objectId  (required)
-     * @param type  (required)
-     * @param embedding  (required)
-     * @return SetObjectEmbeddingsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SetObjectEmbeddingsResponse setObjectEmbeddings(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull String type,
-            @jakarta.annotation.Nonnull Embedding embedding)
-            throws ApiException {
-        ApiResponse<SetObjectEmbeddingsResponse> localVarResp =
-                setObjectEmbeddingsWithHttpInfo(objectId, type, embedding);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Set content object embeddings
-     * Stores embeddings for a specific embedding type on a content object.
-     * @param objectId  (required)
-     * @param type  (required)
-     * @param embedding  (required)
-     * @return ApiResponse&lt;SetObjectEmbeddingsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SetObjectEmbeddingsResponse> setObjectEmbeddingsWithHttpInfo(
+    private ApiResponse<SetObjectEmbeddingsResponse> setObjectEmbeddingsWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull String type,
             @jakarta.annotation.Nonnull Embedding embedding)
@@ -4274,26 +4938,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Set content object embeddings (asynchronously)
-     * Stores embeddings for a specific embedding type on a content object.
-     * @param objectId  (required)
-     * @param type  (required)
-     * @param embedding  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call setObjectEmbeddingsAsync(
+    private okhttp3.Call setObjectEmbeddingsAsync(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull String type,
             @jakarta.annotation.Nonnull Embedding embedding,
@@ -4307,23 +4952,123 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIsetObjectEmbeddingsRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+        @jakarta.annotation.Nonnull private final String type;
+        @jakarta.annotation.Nonnull private final Embedding embedding;
+
+        private APIsetObjectEmbeddingsRequest(
+                @jakarta.annotation.Nonnull String objectId,
+                @jakarta.annotation.Nonnull String type,
+                @jakarta.annotation.Nonnull Embedding embedding) {
+            this.objectId = objectId;
+            this.type = type;
+            this.embedding = embedding;
+        }
+
+        /**
+         * Build call for setObjectEmbeddings
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return setObjectEmbeddingsCall(objectId, type, embedding, _callback);
+        }
+
+        /**
+         * Execute setObjectEmbeddings request
+         * @return SetObjectEmbeddingsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SetObjectEmbeddingsResponse execute() throws ApiException {
+            ApiResponse<SetObjectEmbeddingsResponse> localVarResp =
+                    setObjectEmbeddingsWithHttpInfo(objectId, type, embedding);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute setObjectEmbeddings request with HTTP info returned
+         * @return ApiResponse&lt;SetObjectEmbeddingsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SetObjectEmbeddingsResponse> executeWithHttpInfo() throws ApiException {
+            return setObjectEmbeddingsWithHttpInfo(objectId, type, embedding);
+        }
+
+        /**
+         * Execute setObjectEmbeddings request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SetObjectEmbeddingsResponse> _callback)
+                throws ApiException {
+            return setObjectEmbeddingsAsync(objectId, type, embedding, _callback);
+        }
+    }
+
     /**
-     * Build call for setObjectText
+     * Set content object embeddings
+     * Stores embeddings for a specific embedding type on a content object.
      * @param objectId  (required)
-     * @param setObjectTextPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param type  (required)
+     * @param embedding  (required)
+     * @return APIsetObjectEmbeddingsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call setObjectTextCall(
+    public APIsetObjectEmbeddingsRequest setObjectEmbeddings(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull Embedding embedding) {
+        return new APIsetObjectEmbeddingsRequest(objectId, type, embedding);
+    }
+
+    private okhttp3.Call setObjectTextCall(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload,
             final ApiCallback _callback)
@@ -4405,48 +5150,7 @@ public class ObjectsApi {
         return setObjectTextCall(objectId, setObjectTextPayload, _callback);
     }
 
-    /**
-     * Set content object text
-     * Stores the extracted text of a content object as a GCS text artifact. Text larger than 10 MiB is truncated and ends with an explicit truncation marker. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param setObjectTextPayload  (required)
-     * @return ContentObjectTextResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentObjectTextResponse setObjectText(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload)
-            throws ApiException {
-        ApiResponse<ContentObjectTextResponse> localVarResp =
-                setObjectTextWithHttpInfo(objectId, setObjectTextPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Set content object text
-     * Stores the extracted text of a content object as a GCS text artifact. Text larger than 10 MiB is truncated and ends with an explicit truncation marker. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param setObjectTextPayload  (required)
-     * @return ApiResponse&lt;ContentObjectTextResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentObjectTextResponse> setObjectTextWithHttpInfo(
+    private ApiResponse<ContentObjectTextResponse> setObjectTextWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload)
             throws ApiException {
@@ -4456,24 +5160,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Set content object text (asynchronously)
-     * Stores the extracted text of a content object as a GCS text artifact. Text larger than 10 MiB is truncated and ends with an explicit truncation marker. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param setObjectTextPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call setObjectTextAsync(
+    private okhttp3.Call setObjectTextAsync(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload,
             final ApiCallback<ContentObjectTextResponse> _callback)
@@ -4486,22 +5173,113 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIsetObjectTextRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+        @jakarta.annotation.Nonnull private final SetObjectTextPayload setObjectTextPayload;
+
+        private APIsetObjectTextRequest(
+                @jakarta.annotation.Nonnull String objectId,
+                @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload) {
+            this.objectId = objectId;
+            this.setObjectTextPayload = setObjectTextPayload;
+        }
+
+        /**
+         * Build call for setObjectText
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return setObjectTextCall(objectId, setObjectTextPayload, _callback);
+        }
+
+        /**
+         * Execute setObjectText request
+         * @return ContentObjectTextResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentObjectTextResponse execute() throws ApiException {
+            ApiResponse<ContentObjectTextResponse> localVarResp =
+                    setObjectTextWithHttpInfo(objectId, setObjectTextPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute setObjectText request with HTTP info returned
+         * @return ApiResponse&lt;ContentObjectTextResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentObjectTextResponse> executeWithHttpInfo() throws ApiException {
+            return setObjectTextWithHttpInfo(objectId, setObjectTextPayload);
+        }
+
+        /**
+         * Execute setObjectText request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentObjectTextResponse> _callback)
+                throws ApiException {
+            return setObjectTextAsync(objectId, setObjectTextPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for startContentObjectsExport
-     * @param startContentObjectExportRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Set content object text
+     * Stores the extracted text of a content object as a GCS text artifact. Text larger than 10 MiB is truncated and ends with an explicit truncation marker. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param setObjectTextPayload  (required)
+     * @return APIsetObjectTextRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call startContentObjectsExportCall(
+    public APIsetObjectTextRequest setObjectText(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload) {
+        return new APIsetObjectTextRequest(objectId, setObjectTextPayload);
+    }
+
+    private okhttp3.Call startContentObjectsExportCall(
             @jakarta.annotation.Nonnull
                     StartContentObjectExportRequest startContentObjectExportRequest,
             final ApiCallback _callback)
@@ -4573,46 +5351,7 @@ public class ObjectsApi {
         return startContentObjectsExportCall(startContentObjectExportRequest, _callback);
     }
 
-    /**
-     * Start a content object export
-     * Starts a Temporal workflow that asks zeno-bulk to write a JSONL or JSONL.GZ export into the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param startContentObjectExportRequest  (required)
-     * @return StartContentObjectExportResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public StartContentObjectExportResponse startContentObjectsExport(
-            @jakarta.annotation.Nonnull
-                    StartContentObjectExportRequest startContentObjectExportRequest)
-            throws ApiException {
-        ApiResponse<StartContentObjectExportResponse> localVarResp =
-                startContentObjectsExportWithHttpInfo(startContentObjectExportRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start a content object export
-     * Starts a Temporal workflow that asks zeno-bulk to write a JSONL or JSONL.GZ export into the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param startContentObjectExportRequest  (required)
-     * @return ApiResponse&lt;StartContentObjectExportResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<StartContentObjectExportResponse> startContentObjectsExportWithHttpInfo(
+    private ApiResponse<StartContentObjectExportResponse> startContentObjectsExportWithHttpInfo(
             @jakarta.annotation.Nonnull
                     StartContentObjectExportRequest startContentObjectExportRequest)
             throws ApiException {
@@ -4622,23 +5361,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start a content object export (asynchronously)
-     * Starts a Temporal workflow that asks zeno-bulk to write a JSONL or JSONL.GZ export into the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param startContentObjectExportRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call startContentObjectsExportAsync(
+    private okhttp3.Call startContentObjectsExportAsync(
             @jakarta.annotation.Nonnull
                     StartContentObjectExportRequest startContentObjectExportRequest,
             final ApiCallback<StartContentObjectExportResponse> _callback)
@@ -4652,23 +5375,112 @@ public class ObjectsApi {
         return localVarCall;
     }
 
+    public class APIstartContentObjectsExportRequest {
+        @jakarta.annotation.Nonnull
+        private final StartContentObjectExportRequest startContentObjectExportRequest;
+
+        private APIstartContentObjectsExportRequest(
+                @jakarta.annotation.Nonnull
+                        StartContentObjectExportRequest startContentObjectExportRequest) {
+            this.startContentObjectExportRequest = startContentObjectExportRequest;
+        }
+
+        /**
+         * Build call for startContentObjectsExport
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return startContentObjectsExportCall(startContentObjectExportRequest, _callback);
+        }
+
+        /**
+         * Execute startContentObjectsExport request
+         * @return StartContentObjectExportResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public StartContentObjectExportResponse execute() throws ApiException {
+            ApiResponse<StartContentObjectExportResponse> localVarResp =
+                    startContentObjectsExportWithHttpInfo(startContentObjectExportRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute startContentObjectsExport request with HTTP info returned
+         * @return ApiResponse&lt;StartContentObjectExportResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<StartContentObjectExportResponse> executeWithHttpInfo()
+                throws ApiException {
+            return startContentObjectsExportWithHttpInfo(startContentObjectExportRequest);
+        }
+
+        /**
+         * Execute startContentObjectsExport request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<StartContentObjectExportResponse> _callback) throws ApiException {
+            return startContentObjectsExportAsync(startContentObjectExportRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for startObjectDocumentGroundedExtraction
-     * @param objectId  (required)
-     * @param groundedExtractionRequest  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Start a content object export
+     * Starts a Temporal workflow that asks zeno-bulk to write a JSONL or JSONL.GZ export into the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param startContentObjectExportRequest  (required)
+     * @return APIstartContentObjectsExportRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call startObjectDocumentGroundedExtractionCall(
+    public APIstartContentObjectsExportRequest startContentObjectsExport(
+            @jakarta.annotation.Nonnull
+                    StartContentObjectExportRequest startContentObjectExportRequest) {
+        return new APIstartContentObjectsExportRequest(startContentObjectExportRequest);
+    }
+
+    private okhttp3.Call startObjectDocumentGroundedExtractionCall(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest,
             final ApiCallback _callback)
@@ -4745,49 +5557,7 @@ public class ObjectsApi {
                 objectId, groundedExtractionRequest, _callback);
     }
 
-    /**
-     * Start grounded extraction
-     * Starts citation-grounded structured extraction for a content object. Poll /analyze/status for progress.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param groundedExtractionRequest  (optional)
-     * @return DocAnalyzeRunStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DocAnalyzeRunStatusResponse startObjectDocumentGroundedExtraction(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest)
-            throws ApiException {
-        ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
-                startObjectDocumentGroundedExtractionWithHttpInfo(
-                        objectId, groundedExtractionRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start grounded extraction
-     * Starts citation-grounded structured extraction for a content object. Poll /analyze/status for progress.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param groundedExtractionRequest  (optional)
-     * @return ApiResponse&lt;DocAnalyzeRunStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DocAnalyzeRunStatusResponse>
+    private ApiResponse<DocAnalyzeRunStatusResponse>
             startObjectDocumentGroundedExtractionWithHttpInfo(
                     @jakarta.annotation.Nonnull String objectId,
                     @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest)
@@ -4799,24 +5569,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start grounded extraction (asynchronously)
-     * Starts citation-grounded structured extraction for a content object. Poll /analyze/status for progress.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param groundedExtractionRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call startObjectDocumentGroundedExtractionAsync(
+    private okhttp3.Call startObjectDocumentGroundedExtractionAsync(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest,
             final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
@@ -4830,76 +5583,124 @@ public class ObjectsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for startObjectDocumentGroundedExtraction with every optional parameter left unset.
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call startObjectDocumentGroundedExtractionCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        return startObjectDocumentGroundedExtractionCall(objectId, null, _callback);
+    public class APIstartObjectDocumentGroundedExtractionRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+        @jakarta.annotation.Nullable private GroundedExtractionRequest groundedExtractionRequest;
+
+        private APIstartObjectDocumentGroundedExtractionRequest(
+                @jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Set groundedExtractionRequest
+         * @param groundedExtractionRequest  (optional)
+         * @return APIstartObjectDocumentGroundedExtractionRequest
+         */
+        public APIstartObjectDocumentGroundedExtractionRequest groundedExtractionRequest(
+                @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest) {
+            this.groundedExtractionRequest = groundedExtractionRequest;
+            return this;
+        }
+
+        /**
+         * Build call for startObjectDocumentGroundedExtraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return startObjectDocumentGroundedExtractionCall(
+                    objectId, groundedExtractionRequest, _callback);
+        }
+
+        /**
+         * Execute startObjectDocumentGroundedExtraction request
+         * @return DocAnalyzeRunStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DocAnalyzeRunStatusResponse execute() throws ApiException {
+            ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
+                    startObjectDocumentGroundedExtractionWithHttpInfo(
+                            objectId, groundedExtractionRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute startObjectDocumentGroundedExtraction request with HTTP info returned
+         * @return ApiResponse&lt;DocAnalyzeRunStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DocAnalyzeRunStatusResponse> executeWithHttpInfo() throws ApiException {
+            return startObjectDocumentGroundedExtractionWithHttpInfo(
+                    objectId, groundedExtractionRequest);
+        }
+
+        /**
+         * Execute startObjectDocumentGroundedExtraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
+                throws ApiException {
+            return startObjectDocumentGroundedExtractionAsync(
+                    objectId, groundedExtractionRequest, _callback);
+        }
     }
 
     /**
      * Start grounded extraction
-     * Calls {@code startObjectDocumentGroundedExtraction} with every optional parameter left unset.
+     * Starts citation-grounded structured extraction for a content object. Poll /analyze/status for progress.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @return DocAnalyzeRunStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DocAnalyzeRunStatusResponse startObjectDocumentGroundedExtraction(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        return startObjectDocumentGroundedExtraction(objectId, null);
-    }
-
-    /**
-     * Start grounded extraction
-     * Calls {@code startObjectDocumentGroundedExtractionWithHttpInfo} with every optional parameter left unset.
-     * @param objectId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DocAnalyzeRunStatusResponse>
-            startObjectDocumentGroundedExtractionWithHttpInfo(
-                    @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        return startObjectDocumentGroundedExtractionWithHttpInfo(objectId, null);
-    }
-
-    /**
-     * Start grounded extraction (asynchronously)
-     * Calls {@code startObjectDocumentGroundedExtractionAsync} with every optional parameter left unset.
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call startObjectDocumentGroundedExtractionAsync(
-            @jakarta.annotation.Nonnull String objectId,
-            final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
-            throws ApiException {
-        return startObjectDocumentGroundedExtractionAsync(objectId, null, _callback);
-    }
-
-    /**
-     * Build call for startObjectGroundedExtractionAssistant
-     * @param objectId  (required)
-     * @param groundedExtractionRequest  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIstartObjectDocumentGroundedExtractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call startObjectGroundedExtractionAssistantCall(
+    public APIstartObjectDocumentGroundedExtractionRequest startObjectDocumentGroundedExtraction(
+            @jakarta.annotation.Nonnull String objectId) {
+        return new APIstartObjectDocumentGroundedExtractionRequest(objectId);
+    }
+
+    private okhttp3.Call startObjectGroundedExtractionAssistantCall(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest,
             final ApiCallback _callback)
@@ -4976,49 +5777,7 @@ public class ObjectsApi {
                 objectId, groundedExtractionRequest, _callback);
     }
 
-    /**
-     * Start the interactive grounded extraction assistant
-     * Records an agent run, stages the document into the agent space, and launches an interactive assistant conversation that corrects the grounded extraction under operator direction. Returns the agent_run_id used to stream/render the conversation.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param groundedExtractionRequest  (optional)
-     * @return GroundedAssistantResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GroundedAssistantResponse startObjectGroundedExtractionAssistant(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest)
-            throws ApiException {
-        ApiResponse<GroundedAssistantResponse> localVarResp =
-                startObjectGroundedExtractionAssistantWithHttpInfo(
-                        objectId, groundedExtractionRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start the interactive grounded extraction assistant
-     * Records an agent run, stages the document into the agent space, and launches an interactive assistant conversation that corrects the grounded extraction under operator direction. Returns the agent_run_id used to stream/render the conversation.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param groundedExtractionRequest  (optional)
-     * @return ApiResponse&lt;GroundedAssistantResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GroundedAssistantResponse>
+    private ApiResponse<GroundedAssistantResponse>
             startObjectGroundedExtractionAssistantWithHttpInfo(
                     @jakarta.annotation.Nonnull String objectId,
                     @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest)
@@ -5030,24 +5789,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start the interactive grounded extraction assistant (asynchronously)
-     * Records an agent run, stages the document into the agent space, and launches an interactive assistant conversation that corrects the grounded extraction under operator direction. Returns the agent_run_id used to stream/render the conversation.  **Required permissions:** &#x60;content:write&#x60;
-     * @param objectId  (required)
-     * @param groundedExtractionRequest  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call startObjectGroundedExtractionAssistantAsync(
+    private okhttp3.Call startObjectGroundedExtractionAssistantAsync(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest,
             final ApiCallback<GroundedAssistantResponse> _callback)
@@ -5061,84 +5803,124 @@ public class ObjectsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for startObjectGroundedExtractionAssistant with every optional parameter left unset.
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call startObjectGroundedExtractionAssistantCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        return startObjectGroundedExtractionAssistantCall(objectId, null, _callback);
+    public class APIstartObjectGroundedExtractionAssistantRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+        @jakarta.annotation.Nullable private GroundedExtractionRequest groundedExtractionRequest;
+
+        private APIstartObjectGroundedExtractionAssistantRequest(
+                @jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Set groundedExtractionRequest
+         * @param groundedExtractionRequest  (optional)
+         * @return APIstartObjectGroundedExtractionAssistantRequest
+         */
+        public APIstartObjectGroundedExtractionAssistantRequest groundedExtractionRequest(
+                @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest) {
+            this.groundedExtractionRequest = groundedExtractionRequest;
+            return this;
+        }
+
+        /**
+         * Build call for startObjectGroundedExtractionAssistant
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return startObjectGroundedExtractionAssistantCall(
+                    objectId, groundedExtractionRequest, _callback);
+        }
+
+        /**
+         * Execute startObjectGroundedExtractionAssistant request
+         * @return GroundedAssistantResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GroundedAssistantResponse execute() throws ApiException {
+            ApiResponse<GroundedAssistantResponse> localVarResp =
+                    startObjectGroundedExtractionAssistantWithHttpInfo(
+                            objectId, groundedExtractionRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute startObjectGroundedExtractionAssistant request with HTTP info returned
+         * @return ApiResponse&lt;GroundedAssistantResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GroundedAssistantResponse> executeWithHttpInfo() throws ApiException {
+            return startObjectGroundedExtractionAssistantWithHttpInfo(
+                    objectId, groundedExtractionRequest);
+        }
+
+        /**
+         * Execute startObjectGroundedExtractionAssistant request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GroundedAssistantResponse> _callback)
+                throws ApiException {
+            return startObjectGroundedExtractionAssistantAsync(
+                    objectId, groundedExtractionRequest, _callback);
+        }
     }
 
     /**
      * Start the interactive grounded extraction assistant
-     * Calls {@code startObjectGroundedExtractionAssistant} with every optional parameter left unset.
+     * Records an agent run, stages the document into the agent space, and launches an interactive assistant conversation that corrects the grounded extraction under operator direction. Returns the agent_run_id used to stream/render the conversation.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @return GroundedAssistantResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public GroundedAssistantResponse startObjectGroundedExtractionAssistant(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        return startObjectGroundedExtractionAssistant(objectId, null);
-    }
-
-    /**
-     * Start the interactive grounded extraction assistant
-     * Calls {@code startObjectGroundedExtractionAssistantWithHttpInfo} with every optional parameter left unset.
-     * @param objectId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<GroundedAssistantResponse>
-            startObjectGroundedExtractionAssistantWithHttpInfo(
-                    @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        return startObjectGroundedExtractionAssistantWithHttpInfo(objectId, null);
-    }
-
-    /**
-     * Start the interactive grounded extraction assistant (asynchronously)
-     * Calls {@code startObjectGroundedExtractionAssistantAsync} with every optional parameter left unset.
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call startObjectGroundedExtractionAssistantAsync(
-            @jakarta.annotation.Nonnull String objectId,
-            final ApiCallback<GroundedAssistantResponse> _callback)
-            throws ApiException {
-        return startObjectGroundedExtractionAssistantAsync(objectId, null, _callback);
-    }
-
-    /**
-     * Build call for updateObject
-     * @param objectId  (required)
-     * @param updateContentObjectPayload  (required)
-     * @param createRevision  (optional)
-     * @param revisionLabel  (optional)
-     * @param processingPriority  (optional)
-     * @param ifMatch  (optional)
-     * @param xCreateRevision  (optional)
-     * @param xRevisionLabel  (optional)
-     * @param xProcessingPriority  (optional)
-     * @param xSuppressWorkflows Deprecated: Events are now always emitted. This suppresses the Temporal-backed delivery targets (workflow, agent, and process) — webhook deliveries still fire. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIstartObjectGroundedExtractionAssistantRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated content object. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateObjectCall(
+    public APIstartObjectGroundedExtractionAssistantRequest startObjectGroundedExtractionAssistant(
+            @jakarta.annotation.Nonnull String objectId) {
+        return new APIstartObjectGroundedExtractionAssistantRequest(objectId);
+    }
+
+    private okhttp3.Call updateObjectCall(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
             @jakarta.annotation.Nullable Boolean createRevision,
@@ -5288,82 +6070,7 @@ public class ObjectsApi {
                 _callback);
     }
 
-    /**
-     * Update a content object
-     * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.
-     * @param objectId  (required)
-     * @param updateContentObjectPayload  (required)
-     * @param createRevision  (optional)
-     * @param revisionLabel  (optional)
-     * @param processingPriority  (optional)
-     * @param ifMatch  (optional)
-     * @param xCreateRevision  (optional)
-     * @param xRevisionLabel  (optional)
-     * @param xProcessingPriority  (optional)
-     * @param xSuppressWorkflows Deprecated: Events are now always emitted. This suppresses the Temporal-backed delivery targets (workflow, agent, and process) — webhook deliveries still fire. (optional)
-     * @return ContentObjectApiResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentObjectApiResponse updateObject(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
-            @jakarta.annotation.Nullable Boolean createRevision,
-            @jakarta.annotation.Nullable String revisionLabel,
-            @jakarta.annotation.Nullable String processingPriority,
-            @jakarta.annotation.Nullable String ifMatch,
-            @jakarta.annotation.Nullable Boolean xCreateRevision,
-            @jakarta.annotation.Nullable String xRevisionLabel,
-            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
-            @jakarta.annotation.Nullable Boolean xSuppressWorkflows)
-            throws ApiException {
-        ApiResponse<ContentObjectApiResponse> localVarResp =
-                updateObjectWithHttpInfo(
-                        objectId,
-                        updateContentObjectPayload,
-                        createRevision,
-                        revisionLabel,
-                        processingPriority,
-                        ifMatch,
-                        xCreateRevision,
-                        xRevisionLabel,
-                        xProcessingPriority,
-                        xSuppressWorkflows);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a content object
-     * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.
-     * @param objectId  (required)
-     * @param updateContentObjectPayload  (required)
-     * @param createRevision  (optional)
-     * @param revisionLabel  (optional)
-     * @param processingPriority  (optional)
-     * @param ifMatch  (optional)
-     * @param xCreateRevision  (optional)
-     * @param xRevisionLabel  (optional)
-     * @param xProcessingPriority  (optional)
-     * @param xSuppressWorkflows Deprecated: Events are now always emitted. This suppresses the Temporal-backed delivery targets (workflow, agent, and process) — webhook deliveries still fire. (optional)
-     * @return ApiResponse&lt;ContentObjectApiResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentObjectApiResponse> updateObjectWithHttpInfo(
+    private ApiResponse<ContentObjectApiResponse> updateObjectWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
             @jakarta.annotation.Nullable Boolean createRevision,
@@ -5392,32 +6099,7 @@ public class ObjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a content object (asynchronously)
-     * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.
-     * @param objectId  (required)
-     * @param updateContentObjectPayload  (required)
-     * @param createRevision  (optional)
-     * @param revisionLabel  (optional)
-     * @param processingPriority  (optional)
-     * @param ifMatch  (optional)
-     * @param xCreateRevision  (optional)
-     * @param xRevisionLabel  (optional)
-     * @param xProcessingPriority  (optional)
-     * @param xSuppressWorkflows Deprecated: Events are now always emitted. This suppresses the Temporal-backed delivery targets (workflow, agent, and process) — webhook deliveries still fire. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated content object. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateObjectAsync(
+    private okhttp3.Call updateObjectAsync(
             @jakarta.annotation.Nonnull String objectId,
             @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
             @jakarta.annotation.Nullable Boolean createRevision,
@@ -5449,108 +6131,249 @@ public class ObjectsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for updateObject with every optional parameter left unset.
-     * @param objectId  (required)
-     * @param updateContentObjectPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call updateObjectCall(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
-            final ApiCallback _callback)
-            throws ApiException {
-        return updateObjectCall(
-                objectId,
-                updateContentObjectPayload,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                _callback);
+    public class APIupdateObjectRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateContentObjectPayload updateContentObjectPayload;
+
+        @jakarta.annotation.Nullable private Boolean createRevision;
+        @jakarta.annotation.Nullable private String revisionLabel;
+        @jakarta.annotation.Nullable private String processingPriority;
+        @jakarta.annotation.Nullable private String ifMatch;
+        @jakarta.annotation.Nullable private Boolean xCreateRevision;
+        @jakarta.annotation.Nullable private String xRevisionLabel;
+        @jakarta.annotation.Nullable private ContentObjectProcessingPriority xProcessingPriority;
+        @jakarta.annotation.Nullable private Boolean xSuppressWorkflows;
+
+        private APIupdateObjectRequest(
+                @jakarta.annotation.Nonnull String objectId,
+                @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload) {
+            this.objectId = objectId;
+            this.updateContentObjectPayload = updateContentObjectPayload;
+        }
+
+        /**
+         * Set createRevision
+         * @param createRevision  (optional)
+         * @return APIupdateObjectRequest
+         */
+        public APIupdateObjectRequest createRevision(
+                @jakarta.annotation.Nullable Boolean createRevision) {
+            this.createRevision = createRevision;
+            return this;
+        }
+
+        /**
+         * Set revisionLabel
+         * @param revisionLabel  (optional)
+         * @return APIupdateObjectRequest
+         */
+        public APIupdateObjectRequest revisionLabel(
+                @jakarta.annotation.Nullable String revisionLabel) {
+            this.revisionLabel = revisionLabel;
+            return this;
+        }
+
+        /**
+         * Set processingPriority
+         * @param processingPriority  (optional)
+         * @return APIupdateObjectRequest
+         */
+        public APIupdateObjectRequest processingPriority(
+                @jakarta.annotation.Nullable String processingPriority) {
+            this.processingPriority = processingPriority;
+            return this;
+        }
+
+        /**
+         * Set ifMatch
+         * @param ifMatch  (optional)
+         * @return APIupdateObjectRequest
+         */
+        public APIupdateObjectRequest ifMatch(@jakarta.annotation.Nullable String ifMatch) {
+            this.ifMatch = ifMatch;
+            return this;
+        }
+
+        /**
+         * Set xCreateRevision
+         * @param xCreateRevision  (optional)
+         * @return APIupdateObjectRequest
+         */
+        public APIupdateObjectRequest xCreateRevision(
+                @jakarta.annotation.Nullable Boolean xCreateRevision) {
+            this.xCreateRevision = xCreateRevision;
+            return this;
+        }
+
+        /**
+         * Set xRevisionLabel
+         * @param xRevisionLabel  (optional)
+         * @return APIupdateObjectRequest
+         */
+        public APIupdateObjectRequest xRevisionLabel(
+                @jakarta.annotation.Nullable String xRevisionLabel) {
+            this.xRevisionLabel = xRevisionLabel;
+            return this;
+        }
+
+        /**
+         * Set xProcessingPriority
+         * @param xProcessingPriority  (optional)
+         * @return APIupdateObjectRequest
+         */
+        public APIupdateObjectRequest xProcessingPriority(
+                @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority) {
+            this.xProcessingPriority = xProcessingPriority;
+            return this;
+        }
+
+        /**
+         * Set xSuppressWorkflows
+         * @param xSuppressWorkflows Deprecated: Events are now always emitted. This suppresses the Temporal-backed delivery targets (workflow, agent, and process) — webhook deliveries still fire. (optional)
+         * @return APIupdateObjectRequest
+         */
+        public APIupdateObjectRequest xSuppressWorkflows(
+                @jakarta.annotation.Nullable Boolean xSuppressWorkflows) {
+            this.xSuppressWorkflows = xSuppressWorkflows;
+            return this;
+        }
+
+        /**
+         * Build call for updateObject
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateObjectCall(
+                    objectId,
+                    updateContentObjectPayload,
+                    createRevision,
+                    revisionLabel,
+                    processingPriority,
+                    ifMatch,
+                    xCreateRevision,
+                    xRevisionLabel,
+                    xProcessingPriority,
+                    xSuppressWorkflows,
+                    _callback);
+        }
+
+        /**
+         * Execute updateObject request
+         * @return ContentObjectApiResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentObjectApiResponse execute() throws ApiException {
+            ApiResponse<ContentObjectApiResponse> localVarResp =
+                    updateObjectWithHttpInfo(
+                            objectId,
+                            updateContentObjectPayload,
+                            createRevision,
+                            revisionLabel,
+                            processingPriority,
+                            ifMatch,
+                            xCreateRevision,
+                            xRevisionLabel,
+                            xProcessingPriority,
+                            xSuppressWorkflows);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateObject request with HTTP info returned
+         * @return ApiResponse&lt;ContentObjectApiResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentObjectApiResponse> executeWithHttpInfo() throws ApiException {
+            return updateObjectWithHttpInfo(
+                    objectId,
+                    updateContentObjectPayload,
+                    createRevision,
+                    revisionLabel,
+                    processingPriority,
+                    ifMatch,
+                    xCreateRevision,
+                    xRevisionLabel,
+                    xProcessingPriority,
+                    xSuppressWorkflows);
+        }
+
+        /**
+         * Execute updateObject request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentObjectApiResponse> _callback)
+                throws ApiException {
+            return updateObjectAsync(
+                    objectId,
+                    updateContentObjectPayload,
+                    createRevision,
+                    revisionLabel,
+                    processingPriority,
+                    ifMatch,
+                    xCreateRevision,
+                    xRevisionLabel,
+                    xProcessingPriority,
+                    xSuppressWorkflows,
+                    _callback);
+        }
     }
 
     /**
      * Update a content object
-     * Calls {@code updateObject} with every optional parameter left unset.
+     * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.
      * @param objectId  (required)
      * @param updateContentObjectPayload  (required)
-     * @return ContentObjectApiResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @return APIupdateObjectRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated content object. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
      */
-    public ContentObjectApiResponse updateObject(
+    public APIupdateObjectRequest updateObject(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload)
-            throws ApiException {
-        return updateObject(
-                objectId,
-                updateContentObjectPayload,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
-    }
-
-    /**
-     * Update a content object
-     * Calls {@code updateObjectWithHttpInfo} with every optional parameter left unset.
-     * @param objectId  (required)
-     * @param updateContentObjectPayload  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ContentObjectApiResponse> updateObjectWithHttpInfo(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload)
-            throws ApiException {
-        return updateObjectWithHttpInfo(
-                objectId,
-                updateContentObjectPayload,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
-    }
-
-    /**
-     * Update a content object (asynchronously)
-     * Calls {@code updateObjectAsync} with every optional parameter left unset.
-     * @param objectId  (required)
-     * @param updateContentObjectPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call updateObjectAsync(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
-            final ApiCallback<ContentObjectApiResponse> _callback)
-            throws ApiException {
-        return updateObjectAsync(
-                objectId,
-                updateContentObjectPayload,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                _callback);
+            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload) {
+        return new APIupdateObjectRequest(objectId, updateContentObjectPayload);
     }
 }

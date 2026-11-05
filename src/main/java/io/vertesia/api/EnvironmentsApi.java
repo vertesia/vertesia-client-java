@@ -74,22 +74,7 @@ public class EnvironmentsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createEnvironment
-     * @param executionEnvironmentCreatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createEnvironmentCall(
+    private okhttp3.Call createEnvironmentCall(
             @jakarta.annotation.Nonnull
                     ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload,
             final ApiCallback _callback)
@@ -161,46 +146,7 @@ public class EnvironmentsApi {
         return createEnvironmentCall(executionEnvironmentCreatePayload, _callback);
     }
 
-    /**
-     * Create an environment
-     * Creates an execution environment for a model provider. API keys are stored in the encrypted secret store and only a display hint is returned.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param executionEnvironmentCreatePayload  (required)
-     * @return ExecutionEnvironment
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ExecutionEnvironment createEnvironment(
-            @jakarta.annotation.Nonnull
-                    ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload)
-            throws ApiException {
-        ApiResponse<ExecutionEnvironment> localVarResp =
-                createEnvironmentWithHttpInfo(executionEnvironmentCreatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an environment
-     * Creates an execution environment for a model provider. API keys are stored in the encrypted secret store and only a display hint is returned.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param executionEnvironmentCreatePayload  (required)
-     * @return ApiResponse&lt;ExecutionEnvironment&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ExecutionEnvironment> createEnvironmentWithHttpInfo(
+    private ApiResponse<ExecutionEnvironment> createEnvironmentWithHttpInfo(
             @jakarta.annotation.Nonnull
                     ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload)
             throws ApiException {
@@ -210,23 +156,7 @@ public class EnvironmentsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an environment (asynchronously)
-     * Creates an execution environment for a model provider. API keys are stored in the encrypted secret store and only a display hint is returned.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param executionEnvironmentCreatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createEnvironmentAsync(
+    private okhttp3.Call createEnvironmentAsync(
             @jakarta.annotation.Nonnull
                     ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload,
             final ApiCallback<ExecutionEnvironment> _callback)
@@ -239,22 +169,111 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
+    public class APIcreateEnvironmentRequest {
+        @jakarta.annotation.Nonnull
+        private final ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload;
+
+        private APIcreateEnvironmentRequest(
+                @jakarta.annotation.Nonnull
+                        ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload) {
+            this.executionEnvironmentCreatePayload = executionEnvironmentCreatePayload;
+        }
+
+        /**
+         * Build call for createEnvironment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createEnvironmentCall(executionEnvironmentCreatePayload, _callback);
+        }
+
+        /**
+         * Execute createEnvironment request
+         * @return ExecutionEnvironment
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ExecutionEnvironment execute() throws ApiException {
+            ApiResponse<ExecutionEnvironment> localVarResp =
+                    createEnvironmentWithHttpInfo(executionEnvironmentCreatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createEnvironment request with HTTP info returned
+         * @return ApiResponse&lt;ExecutionEnvironment&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ExecutionEnvironment> executeWithHttpInfo() throws ApiException {
+            return createEnvironmentWithHttpInfo(executionEnvironmentCreatePayload);
+        }
+
+        /**
+         * Execute createEnvironment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ExecutionEnvironment> _callback)
+                throws ApiException {
+            return createEnvironmentAsync(executionEnvironmentCreatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteEnvironment
-     * @param envId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an environment
+     * Creates an execution environment for a model provider. API keys are stored in the encrypted secret store and only a display hint is returned.  **Required permissions:** &#x60;environment:admin&#x60;
+     * @param executionEnvironmentCreatePayload  (required)
+     * @return APIcreateEnvironmentRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environment deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created environment. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteEnvironmentCall(
+    public APIcreateEnvironmentRequest createEnvironment(
+            @jakarta.annotation.Nonnull
+                    ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload) {
+        return new APIcreateEnvironmentRequest(executionEnvironmentCreatePayload);
+    }
+
+    private okhttp3.Call deleteEnvironmentCall(
             @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -326,66 +345,14 @@ public class EnvironmentsApi {
         return deleteEnvironmentCall(envId, _callback);
     }
 
-    /**
-     * Delete an environment
-     * Deletes an execution environment after verifying no published interactions still reference it.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @return DeleteByIdResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environment deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteByIdResult deleteEnvironment(@jakarta.annotation.Nonnull String envId)
-            throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp = deleteEnvironmentWithHttpInfo(envId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an environment
-     * Deletes an execution environment after verifying no published interactions still reference it.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @return ApiResponse&lt;DeleteByIdResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environment deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteByIdResult> deleteEnvironmentWithHttpInfo(
+    private ApiResponse<DeleteByIdResult> deleteEnvironmentWithHttpInfo(
             @jakarta.annotation.Nonnull String envId) throws ApiException {
         okhttp3.Call localVarCall = deleteEnvironmentValidateBeforeCall(envId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an environment (asynchronously)
-     * Deletes an execution environment after verifying no published interactions still reference it.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environment deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteEnvironmentAsync(
+    private okhttp3.Call deleteEnvironmentAsync(
             @jakarta.annotation.Nonnull String envId, final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
@@ -395,23 +362,105 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
+    public class APIdeleteEnvironmentRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+
+        private APIdeleteEnvironmentRequest(@jakarta.annotation.Nonnull String envId) {
+            this.envId = envId;
+        }
+
+        /**
+         * Build call for deleteEnvironment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environment deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteEnvironmentCall(envId, _callback);
+        }
+
+        /**
+         * Execute deleteEnvironment request
+         * @return DeleteByIdResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environment deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteByIdResult execute() throws ApiException {
+            ApiResponse<DeleteByIdResult> localVarResp = deleteEnvironmentWithHttpInfo(envId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteEnvironment request with HTTP info returned
+         * @return ApiResponse&lt;DeleteByIdResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environment deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteByIdResult> executeWithHttpInfo() throws ApiException {
+            return deleteEnvironmentWithHttpInfo(envId);
+        }
+
+        /**
+         * Execute deleteEnvironment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environment deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteByIdResult> _callback)
+                throws ApiException {
+            return deleteEnvironmentAsync(envId, _callback);
+        }
+    }
+
     /**
-     * Build call for disableEnvironmentModel
+     * Delete an environment
+     * Deletes an execution environment after verifying no published interactions still reference it.  **Required permissions:** &#x60;environment:admin&#x60;
      * @param envId  (required)
-     * @param modelId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteEnvironmentRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Environment deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call disableEnvironmentModelCall(
+    public APIdeleteEnvironmentRequest deleteEnvironment(@jakarta.annotation.Nonnull String envId) {
+        return new APIdeleteEnvironmentRequest(envId);
+    }
+
+    private okhttp3.Call disableEnvironmentModelCall(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull String modelId,
             final ApiCallback _callback)
@@ -496,47 +545,7 @@ public class EnvironmentsApi {
         return disableEnvironmentModelCall(envId, modelId, _callback);
     }
 
-    /**
-     * Disable an environment model
-     * Removes one enabled model from an environment without replacing the full enabled model list. Disabling a model that is not enabled succeeds without changing the environment.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param modelId  (required)
-     * @return ExecutionEnvironment
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ExecutionEnvironment disableEnvironmentModel(
-            @jakarta.annotation.Nonnull String envId, @jakarta.annotation.Nonnull String modelId)
-            throws ApiException {
-        ApiResponse<ExecutionEnvironment> localVarResp =
-                disableEnvironmentModelWithHttpInfo(envId, modelId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Disable an environment model
-     * Removes one enabled model from an environment without replacing the full enabled model list. Disabling a model that is not enabled succeeds without changing the environment.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param modelId  (required)
-     * @return ApiResponse&lt;ExecutionEnvironment&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ExecutionEnvironment> disableEnvironmentModelWithHttpInfo(
+    private ApiResponse<ExecutionEnvironment> disableEnvironmentModelWithHttpInfo(
             @jakarta.annotation.Nonnull String envId, @jakarta.annotation.Nonnull String modelId)
             throws ApiException {
         okhttp3.Call localVarCall = disableEnvironmentModelValidateBeforeCall(envId, modelId, null);
@@ -544,24 +553,7 @@ public class EnvironmentsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Disable an environment model (asynchronously)
-     * Removes one enabled model from an environment without replacing the full enabled model list. Disabling a model that is not enabled succeeds without changing the environment.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param modelId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call disableEnvironmentModelAsync(
+    private okhttp3.Call disableEnvironmentModelAsync(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull String modelId,
             final ApiCallback<ExecutionEnvironment> _callback)
@@ -574,23 +566,112 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
+    public class APIdisableEnvironmentModelRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+        @jakarta.annotation.Nonnull private final String modelId;
+
+        private APIdisableEnvironmentModelRequest(
+                @jakarta.annotation.Nonnull String envId,
+                @jakarta.annotation.Nonnull String modelId) {
+            this.envId = envId;
+            this.modelId = modelId;
+        }
+
+        /**
+         * Build call for disableEnvironmentModel
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return disableEnvironmentModelCall(envId, modelId, _callback);
+        }
+
+        /**
+         * Execute disableEnvironmentModel request
+         * @return ExecutionEnvironment
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ExecutionEnvironment execute() throws ApiException {
+            ApiResponse<ExecutionEnvironment> localVarResp =
+                    disableEnvironmentModelWithHttpInfo(envId, modelId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute disableEnvironmentModel request with HTTP info returned
+         * @return ApiResponse&lt;ExecutionEnvironment&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ExecutionEnvironment> executeWithHttpInfo() throws ApiException {
+            return disableEnvironmentModelWithHttpInfo(envId, modelId);
+        }
+
+        /**
+         * Execute disableEnvironmentModel request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ExecutionEnvironment> _callback)
+                throws ApiException {
+            return disableEnvironmentModelAsync(envId, modelId, _callback);
+        }
+    }
+
     /**
-     * Build call for enableEnvironmentModel
+     * Disable an environment model
+     * Removes one enabled model from an environment without replacing the full enabled model list. Disabling a model that is not enabled succeeds without changing the environment.  **Required permissions:** &#x60;environment:admin&#x60;
      * @param envId  (required)
-     * @param enableEnvironmentModelPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param modelId  (required)
+     * @return APIdisableEnvironmentModelRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call enableEnvironmentModelCall(
+    public APIdisableEnvironmentModelRequest disableEnvironmentModel(
+            @jakarta.annotation.Nonnull String envId, @jakarta.annotation.Nonnull String modelId) {
+        return new APIdisableEnvironmentModelRequest(envId, modelId);
+    }
+
+    private okhttp3.Call enableEnvironmentModelCall(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull EnableEnvironmentModelPayload enableEnvironmentModelPayload,
             final ApiCallback _callback)
@@ -672,48 +753,7 @@ public class EnvironmentsApi {
         return enableEnvironmentModelCall(envId, enableEnvironmentModelPayload, _callback);
     }
 
-    /**
-     * Enable an environment model
-     * Adds one model to an environment without replacing the full enabled model list. The model_id must resolve from the provider model listing for this environment.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param enableEnvironmentModelPayload  (required)
-     * @return ExecutionEnvironment
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ExecutionEnvironment enableEnvironmentModel(
-            @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull EnableEnvironmentModelPayload enableEnvironmentModelPayload)
-            throws ApiException {
-        ApiResponse<ExecutionEnvironment> localVarResp =
-                enableEnvironmentModelWithHttpInfo(envId, enableEnvironmentModelPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Enable an environment model
-     * Adds one model to an environment without replacing the full enabled model list. The model_id must resolve from the provider model listing for this environment.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param enableEnvironmentModelPayload  (required)
-     * @return ApiResponse&lt;ExecutionEnvironment&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ExecutionEnvironment> enableEnvironmentModelWithHttpInfo(
+    private ApiResponse<ExecutionEnvironment> enableEnvironmentModelWithHttpInfo(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull EnableEnvironmentModelPayload enableEnvironmentModelPayload)
             throws ApiException {
@@ -724,24 +764,7 @@ public class EnvironmentsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Enable an environment model (asynchronously)
-     * Adds one model to an environment without replacing the full enabled model list. The model_id must resolve from the provider model listing for this environment.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param enableEnvironmentModelPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call enableEnvironmentModelAsync(
+    private okhttp3.Call enableEnvironmentModelAsync(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull EnableEnvironmentModelPayload enableEnvironmentModelPayload,
             final ApiCallback<ExecutionEnvironment> _callback)
@@ -755,23 +778,117 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
+    public class APIenableEnvironmentModelRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+
+        @jakarta.annotation.Nonnull
+        private final EnableEnvironmentModelPayload enableEnvironmentModelPayload;
+
+        private APIenableEnvironmentModelRequest(
+                @jakarta.annotation.Nonnull String envId,
+                @jakarta.annotation.Nonnull
+                        EnableEnvironmentModelPayload enableEnvironmentModelPayload) {
+            this.envId = envId;
+            this.enableEnvironmentModelPayload = enableEnvironmentModelPayload;
+        }
+
+        /**
+         * Build call for enableEnvironmentModel
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return enableEnvironmentModelCall(envId, enableEnvironmentModelPayload, _callback);
+        }
+
+        /**
+         * Execute enableEnvironmentModel request
+         * @return ExecutionEnvironment
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ExecutionEnvironment execute() throws ApiException {
+            ApiResponse<ExecutionEnvironment> localVarResp =
+                    enableEnvironmentModelWithHttpInfo(envId, enableEnvironmentModelPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute enableEnvironmentModel request with HTTP info returned
+         * @return ApiResponse&lt;ExecutionEnvironment&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ExecutionEnvironment> executeWithHttpInfo() throws ApiException {
+            return enableEnvironmentModelWithHttpInfo(envId, enableEnvironmentModelPayload);
+        }
+
+        /**
+         * Execute enableEnvironmentModel request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ExecutionEnvironment> _callback)
+                throws ApiException {
+            return enableEnvironmentModelAsync(envId, enableEnvironmentModelPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for generateEmbeddings
+     * Enable an environment model
+     * Adds one model to an environment without replacing the full enabled model list. The model_id must resolve from the provider model listing for this environment.  **Required permissions:** &#x60;environment:admin&#x60;
      * @param envId  (required)
-     * @param embeddingsApiRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param enableEnvironmentModelPayload  (required)
+     * @return APIenableEnvironmentModelRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated embeddings and token usage metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call generateEmbeddingsCall(
+    public APIenableEnvironmentModelRequest enableEnvironmentModel(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
+                    EnableEnvironmentModelPayload enableEnvironmentModelPayload) {
+        return new APIenableEnvironmentModelRequest(envId, enableEnvironmentModelPayload);
+    }
+
+    private okhttp3.Call generateEmbeddingsCall(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest,
             final ApiCallback _callback)
@@ -853,48 +970,7 @@ public class EnvironmentsApi {
         return generateEmbeddingsCall(envId, embeddingsApiRequest, _callback);
     }
 
-    /**
-     * Generate embeddings
-     * Generates text or image embeddings with the selected environment. If no model is provided, project embedding defaults are used when configured.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param envId  (required)
-     * @param embeddingsApiRequest  (required)
-     * @return EmbeddingsResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated embeddings and token usage metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EmbeddingsResult generateEmbeddings(
-            @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest)
-            throws ApiException {
-        ApiResponse<EmbeddingsResult> localVarResp =
-                generateEmbeddingsWithHttpInfo(envId, embeddingsApiRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Generate embeddings
-     * Generates text or image embeddings with the selected environment. If no model is provided, project embedding defaults are used when configured.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param envId  (required)
-     * @param embeddingsApiRequest  (required)
-     * @return ApiResponse&lt;EmbeddingsResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated embeddings and token usage metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EmbeddingsResult> generateEmbeddingsWithHttpInfo(
+    private ApiResponse<EmbeddingsResult> generateEmbeddingsWithHttpInfo(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest)
             throws ApiException {
@@ -904,24 +980,7 @@ public class EnvironmentsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Generate embeddings (asynchronously)
-     * Generates text or image embeddings with the selected environment. If no model is provided, project embedding defaults are used when configured.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param envId  (required)
-     * @param embeddingsApiRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated embeddings and token usage metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call generateEmbeddingsAsync(
+    private okhttp3.Call generateEmbeddingsAsync(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest,
             final ApiCallback<EmbeddingsResult> _callback)
@@ -934,22 +993,113 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
+    public class APIgenerateEmbeddingsRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+        @jakarta.annotation.Nonnull private final EmbeddingsApiRequest embeddingsApiRequest;
+
+        private APIgenerateEmbeddingsRequest(
+                @jakarta.annotation.Nonnull String envId,
+                @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest) {
+            this.envId = envId;
+            this.embeddingsApiRequest = embeddingsApiRequest;
+        }
+
+        /**
+         * Build call for generateEmbeddings
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated embeddings and token usage metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return generateEmbeddingsCall(envId, embeddingsApiRequest, _callback);
+        }
+
+        /**
+         * Execute generateEmbeddings request
+         * @return EmbeddingsResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated embeddings and token usage metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public EmbeddingsResult execute() throws ApiException {
+            ApiResponse<EmbeddingsResult> localVarResp =
+                    generateEmbeddingsWithHttpInfo(envId, embeddingsApiRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute generateEmbeddings request with HTTP info returned
+         * @return ApiResponse&lt;EmbeddingsResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated embeddings and token usage metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<EmbeddingsResult> executeWithHttpInfo() throws ApiException {
+            return generateEmbeddingsWithHttpInfo(envId, embeddingsApiRequest);
+        }
+
+        /**
+         * Execute generateEmbeddings request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated embeddings and token usage metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<EmbeddingsResult> _callback)
+                throws ApiException {
+            return generateEmbeddingsAsync(envId, embeddingsApiRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for getEnvironment
+     * Generate embeddings
+     * Generates text or image embeddings with the selected environment. If no model is provided, project embedding defaults are used when configured.  **Required permissions:** &#x60;interaction:execute&#x60;
      * @param envId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param embeddingsApiRequest  (required)
+     * @return APIgenerateEmbeddingsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested environment. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Generated embeddings and token usage metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getEnvironmentCall(
+    public APIgenerateEmbeddingsRequest generateEmbeddings(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest) {
+        return new APIgenerateEmbeddingsRequest(envId, embeddingsApiRequest);
+    }
+
+    private okhttp3.Call getEnvironmentCall(
             @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1021,66 +1171,14 @@ public class EnvironmentsApi {
         return getEnvironmentCall(envId, _callback);
     }
 
-    /**
-     * Retrieve an environment
-     * Retrieves an execution environment by ID. API keys are masked and never returned in raw form.
-     * @param envId  (required)
-     * @return ExecutionEnvironment
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ExecutionEnvironment getEnvironment(@jakarta.annotation.Nonnull String envId)
-            throws ApiException {
-        ApiResponse<ExecutionEnvironment> localVarResp = getEnvironmentWithHttpInfo(envId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an environment
-     * Retrieves an execution environment by ID. API keys are masked and never returned in raw form.
-     * @param envId  (required)
-     * @return ApiResponse&lt;ExecutionEnvironment&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ExecutionEnvironment> getEnvironmentWithHttpInfo(
+    private ApiResponse<ExecutionEnvironment> getEnvironmentWithHttpInfo(
             @jakarta.annotation.Nonnull String envId) throws ApiException {
         okhttp3.Call localVarCall = getEnvironmentValidateBeforeCall(envId, null);
         Type localVarReturnType = new TypeToken<ExecutionEnvironment>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an environment (asynchronously)
-     * Retrieves an execution environment by ID. API keys are masked and never returned in raw form.
-     * @param envId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getEnvironmentAsync(
+    private okhttp3.Call getEnvironmentAsync(
             @jakarta.annotation.Nonnull String envId,
             final ApiCallback<ExecutionEnvironment> _callback)
             throws ApiException {
@@ -1091,23 +1189,105 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
+    public class APIgetEnvironmentRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+
+        private APIgetEnvironmentRequest(@jakarta.annotation.Nonnull String envId) {
+            this.envId = envId;
+        }
+
+        /**
+         * Build call for getEnvironment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getEnvironmentCall(envId, _callback);
+        }
+
+        /**
+         * Execute getEnvironment request
+         * @return ExecutionEnvironment
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ExecutionEnvironment execute() throws ApiException {
+            ApiResponse<ExecutionEnvironment> localVarResp = getEnvironmentWithHttpInfo(envId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getEnvironment request with HTTP info returned
+         * @return ApiResponse&lt;ExecutionEnvironment&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ExecutionEnvironment> executeWithHttpInfo() throws ApiException {
+            return getEnvironmentWithHttpInfo(envId);
+        }
+
+        /**
+         * Execute getEnvironment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ExecutionEnvironment> _callback)
+                throws ApiException {
+            return getEnvironmentAsync(envId, _callback);
+        }
+    }
+
     /**
-     * Build call for getEnvironmentAnalytics
+     * Retrieve an environment
+     * Retrieves an execution environment by ID. API keys are masked and never returned in raw form.
      * @param envId  (required)
-     * @param runAnalyticsQuery  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetEnvironmentRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environment-scoped analytics result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested environment. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getEnvironmentAnalyticsCall(
+    public APIgetEnvironmentRequest getEnvironment(@jakarta.annotation.Nonnull String envId) {
+        return new APIgetEnvironmentRequest(envId);
+    }
+
+    private okhttp3.Call getEnvironmentAnalyticsCall(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery,
             final ApiCallback _callback)
@@ -1189,48 +1369,7 @@ public class EnvironmentsApi {
         return getEnvironmentAnalyticsCall(envId, runAnalyticsQuery, _callback);
     }
 
-    /**
-     * Get environment analytics
-     * Computes run analytics scoped to the selected environment and current project.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param runAnalyticsQuery  (required)
-     * @return List&lt;RunAnalyticsResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environment-scoped analytics result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<RunAnalyticsResult> getEnvironmentAnalytics(
-            @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery)
-            throws ApiException {
-        ApiResponse<List<RunAnalyticsResult>> localVarResp =
-                getEnvironmentAnalyticsWithHttpInfo(envId, runAnalyticsQuery);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get environment analytics
-     * Computes run analytics scoped to the selected environment and current project.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param runAnalyticsQuery  (required)
-     * @return ApiResponse&lt;List&lt;RunAnalyticsResult&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environment-scoped analytics result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<RunAnalyticsResult>> getEnvironmentAnalyticsWithHttpInfo(
+    private ApiResponse<List<RunAnalyticsResult>> getEnvironmentAnalyticsWithHttpInfo(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery)
             throws ApiException {
@@ -1240,24 +1379,7 @@ public class EnvironmentsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get environment analytics (asynchronously)
-     * Computes run analytics scoped to the selected environment and current project.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param runAnalyticsQuery  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environment-scoped analytics result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getEnvironmentAnalyticsAsync(
+    private okhttp3.Call getEnvironmentAnalyticsAsync(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery,
             final ApiCallback<List<RunAnalyticsResult>> _callback)
@@ -1270,25 +1392,113 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
+    public class APIgetEnvironmentAnalyticsRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+        @jakarta.annotation.Nonnull private final RunAnalyticsQuery runAnalyticsQuery;
+
+        private APIgetEnvironmentAnalyticsRequest(
+                @jakarta.annotation.Nonnull String envId,
+                @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery) {
+            this.envId = envId;
+            this.runAnalyticsQuery = runAnalyticsQuery;
+        }
+
+        /**
+         * Build call for getEnvironmentAnalytics
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environment-scoped analytics result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getEnvironmentAnalyticsCall(envId, runAnalyticsQuery, _callback);
+        }
+
+        /**
+         * Execute getEnvironmentAnalytics request
+         * @return List&lt;RunAnalyticsResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environment-scoped analytics result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<RunAnalyticsResult> execute() throws ApiException {
+            ApiResponse<List<RunAnalyticsResult>> localVarResp =
+                    getEnvironmentAnalyticsWithHttpInfo(envId, runAnalyticsQuery);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getEnvironmentAnalytics request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;RunAnalyticsResult&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environment-scoped analytics result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<RunAnalyticsResult>> executeWithHttpInfo() throws ApiException {
+            return getEnvironmentAnalyticsWithHttpInfo(envId, runAnalyticsQuery);
+        }
+
+        /**
+         * Execute getEnvironmentAnalytics request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environment-scoped analytics result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<RunAnalyticsResult>> _callback)
+                throws ApiException {
+            return getEnvironmentAnalyticsAsync(envId, runAnalyticsQuery, _callback);
+        }
+    }
+
     /**
-     * Build call for getRunBudgetCapability
+     * Get environment analytics
+     * Computes run analytics scoped to the selected environment and current project.  **Required permissions:** &#x60;environment:admin&#x60;
      * @param envId  (required)
-     * @param model  (required)
-     * @param checkModel False checks only whether estimates are enabled, without consulting model prices. (optional)
-     * @param serviceTier  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param runAnalyticsQuery  (required)
+     * @return APIgetEnvironmentAnalyticsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Environment-scoped analytics result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getRunBudgetCapabilityCall(
+    public APIgetEnvironmentAnalyticsRequest getEnvironmentAnalytics(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery) {
+        return new APIgetEnvironmentAnalyticsRequest(envId, runAnalyticsQuery);
+    }
+
+    private okhttp3.Call getRunBudgetCapabilityCall(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull String model,
             @jakarta.annotation.Nullable Boolean checkModel,
@@ -1388,54 +1598,7 @@ public class EnvironmentsApi {
         return getRunBudgetCapabilityCall(envId, model, checkModel, serviceTier, _callback);
     }
 
-    /**
-     * Check run budget pricing availability for a selected model
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param envId  (required)
-     * @param model  (required)
-     * @param checkModel False checks only whether estimates are enabled, without consulting model prices. (optional)
-     * @param serviceTier  (optional)
-     * @return RunBudgetCapability
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RunBudgetCapability getRunBudgetCapability(
-            @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull String model,
-            @jakarta.annotation.Nullable Boolean checkModel,
-            @jakarta.annotation.Nullable String serviceTier)
-            throws ApiException {
-        ApiResponse<RunBudgetCapability> localVarResp =
-                getRunBudgetCapabilityWithHttpInfo(envId, model, checkModel, serviceTier);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Check run budget pricing availability for a selected model
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param envId  (required)
-     * @param model  (required)
-     * @param checkModel False checks only whether estimates are enabled, without consulting model prices. (optional)
-     * @param serviceTier  (optional)
-     * @return ApiResponse&lt;RunBudgetCapability&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RunBudgetCapability> getRunBudgetCapabilityWithHttpInfo(
+    private ApiResponse<RunBudgetCapability> getRunBudgetCapabilityWithHttpInfo(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull String model,
             @jakarta.annotation.Nullable Boolean checkModel,
@@ -1448,26 +1611,7 @@ public class EnvironmentsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Check run budget pricing availability for a selected model (asynchronously)
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param envId  (required)
-     * @param model  (required)
-     * @param checkModel False checks only whether estimates are enabled, without consulting model prices. (optional)
-     * @param serviceTier  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getRunBudgetCapabilityAsync(
+    private okhttp3.Call getRunBudgetCapabilityAsync(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull String model,
             @jakarta.annotation.Nullable Boolean checkModel,
@@ -1483,87 +1627,136 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getRunBudgetCapability with every optional parameter left unset.
-     * @param envId  (required)
-     * @param model  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getRunBudgetCapabilityCall(
-            @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull String model,
-            final ApiCallback _callback)
-            throws ApiException {
-        return getRunBudgetCapabilityCall(envId, model, null, null, _callback);
+    public class APIgetRunBudgetCapabilityRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+        @jakarta.annotation.Nonnull private final String model;
+        @jakarta.annotation.Nullable private Boolean checkModel;
+        @jakarta.annotation.Nullable private String serviceTier;
+
+        private APIgetRunBudgetCapabilityRequest(
+                @jakarta.annotation.Nonnull String envId,
+                @jakarta.annotation.Nonnull String model) {
+            this.envId = envId;
+            this.model = model;
+        }
+
+        /**
+         * Set checkModel
+         * @param checkModel False checks only whether estimates are enabled, without consulting model prices. (optional)
+         * @return APIgetRunBudgetCapabilityRequest
+         */
+        public APIgetRunBudgetCapabilityRequest checkModel(
+                @jakarta.annotation.Nullable Boolean checkModel) {
+            this.checkModel = checkModel;
+            return this;
+        }
+
+        /**
+         * Set serviceTier
+         * @param serviceTier  (optional)
+         * @return APIgetRunBudgetCapabilityRequest
+         */
+        public APIgetRunBudgetCapabilityRequest serviceTier(
+                @jakarta.annotation.Nullable String serviceTier) {
+            this.serviceTier = serviceTier;
+            return this;
+        }
+
+        /**
+         * Build call for getRunBudgetCapability
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getRunBudgetCapabilityCall(envId, model, checkModel, serviceTier, _callback);
+        }
+
+        /**
+         * Execute getRunBudgetCapability request
+         * @return RunBudgetCapability
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public RunBudgetCapability execute() throws ApiException {
+            ApiResponse<RunBudgetCapability> localVarResp =
+                    getRunBudgetCapabilityWithHttpInfo(envId, model, checkModel, serviceTier);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getRunBudgetCapability request with HTTP info returned
+         * @return ApiResponse&lt;RunBudgetCapability&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<RunBudgetCapability> executeWithHttpInfo() throws ApiException {
+            return getRunBudgetCapabilityWithHttpInfo(envId, model, checkModel, serviceTier);
+        }
+
+        /**
+         * Execute getRunBudgetCapability request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RunBudgetCapability> _callback)
+                throws ApiException {
+            return getRunBudgetCapabilityAsync(envId, model, checkModel, serviceTier, _callback);
+        }
     }
 
     /**
      * Check run budget pricing availability for a selected model
-     * Calls {@code getRunBudgetCapability} with every optional parameter left unset.
+     * **Required permissions:** &#x60;account:member&#x60;
      * @param envId  (required)
      * @param model  (required)
-     * @return RunBudgetCapability
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public RunBudgetCapability getRunBudgetCapability(
-            @jakarta.annotation.Nonnull String envId, @jakarta.annotation.Nonnull String model)
-            throws ApiException {
-        return getRunBudgetCapability(envId, model, null, null);
-    }
-
-    /**
-     * Check run budget pricing availability for a selected model
-     * Calls {@code getRunBudgetCapabilityWithHttpInfo} with every optional parameter left unset.
-     * @param envId  (required)
-     * @param model  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<RunBudgetCapability> getRunBudgetCapabilityWithHttpInfo(
-            @jakarta.annotation.Nonnull String envId, @jakarta.annotation.Nonnull String model)
-            throws ApiException {
-        return getRunBudgetCapabilityWithHttpInfo(envId, model, null, null);
-    }
-
-    /**
-     * Check run budget pricing availability for a selected model (asynchronously)
-     * Calls {@code getRunBudgetCapabilityAsync} with every optional parameter left unset.
-     * @param envId  (required)
-     * @param model  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getRunBudgetCapabilityAsync(
-            @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull String model,
-            final ApiCallback<RunBudgetCapability> _callback)
-            throws ApiException {
-        return getRunBudgetCapabilityAsync(envId, model, null, null, _callback);
-    }
-
-    /**
-     * Build call for listEnvironmentModels
-     * @param envId  (required)
-     * @param text  (optional)
-     * @param type  (optional)
-     * @param tags  (optional)
-     * @param owner  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetRunBudgetCapabilityRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Models available from the environment provider. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listEnvironmentModelsCall(
+    public APIgetRunBudgetCapabilityRequest getRunBudgetCapability(
+            @jakarta.annotation.Nonnull String envId, @jakarta.annotation.Nonnull String model) {
+        return new APIgetRunBudgetCapabilityRequest(envId, model);
+    }
+
+    private okhttp3.Call listEnvironmentModelsCall(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nullable String text,
             @jakarta.annotation.Nullable String type,
@@ -1662,57 +1855,7 @@ public class EnvironmentsApi {
         return listEnvironmentModelsCall(envId, text, type, tags, owner, _callback);
     }
 
-    /**
-     * List environment models
-     * Lists models available from the environment provider, optionally filtered by text, type, or tags.  **Required permissions:** &#x60;account:member&#x60;
-     * @param envId  (required)
-     * @param text  (optional)
-     * @param type  (optional)
-     * @param tags  (optional)
-     * @param owner  (optional)
-     * @return List&lt;AIModel&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Models available from the environment provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AIModel> listEnvironmentModels(
-            @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nullable String text,
-            @jakarta.annotation.Nullable String type,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable String owner)
-            throws ApiException {
-        ApiResponse<List<AIModel>> localVarResp =
-                listEnvironmentModelsWithHttpInfo(envId, text, type, tags, owner);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List environment models
-     * Lists models available from the environment provider, optionally filtered by text, type, or tags.  **Required permissions:** &#x60;account:member&#x60;
-     * @param envId  (required)
-     * @param text  (optional)
-     * @param type  (optional)
-     * @param tags  (optional)
-     * @param owner  (optional)
-     * @return ApiResponse&lt;List&lt;AIModel&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Models available from the environment provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AIModel>> listEnvironmentModelsWithHttpInfo(
+    private ApiResponse<List<AIModel>> listEnvironmentModelsWithHttpInfo(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nullable String text,
             @jakarta.annotation.Nullable String type,
@@ -1725,27 +1868,7 @@ public class EnvironmentsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List environment models (asynchronously)
-     * Lists models available from the environment provider, optionally filtered by text, type, or tags.  **Required permissions:** &#x60;account:member&#x60;
-     * @param envId  (required)
-     * @param text  (optional)
-     * @param type  (optional)
-     * @param tags  (optional)
-     * @param owner  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Models available from the environment provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listEnvironmentModelsAsync(
+    private okhttp3.Call listEnvironmentModelsAsync(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nullable String text,
             @jakarta.annotation.Nullable String type,
@@ -1761,73 +1884,152 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listEnvironmentModels with every optional parameter left unset.
-     * @param envId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listEnvironmentModelsCall(
-            @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
-            throws ApiException {
-        return listEnvironmentModelsCall(envId, null, null, null, null, _callback);
+    public class APIlistEnvironmentModelsRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+        @jakarta.annotation.Nullable private String text;
+        @jakarta.annotation.Nullable private String type;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private String owner;
+
+        private APIlistEnvironmentModelsRequest(@jakarta.annotation.Nonnull String envId) {
+            this.envId = envId;
+        }
+
+        /**
+         * Set text
+         * @param text  (optional)
+         * @return APIlistEnvironmentModelsRequest
+         */
+        public APIlistEnvironmentModelsRequest text(@jakarta.annotation.Nullable String text) {
+            this.text = text;
+            return this;
+        }
+
+        /**
+         * Set type
+         * @param type  (optional)
+         * @return APIlistEnvironmentModelsRequest
+         */
+        public APIlistEnvironmentModelsRequest type(@jakarta.annotation.Nullable String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags  (optional)
+         * @return APIlistEnvironmentModelsRequest
+         */
+        public APIlistEnvironmentModelsRequest tags(
+                @jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set owner
+         * @param owner  (optional)
+         * @return APIlistEnvironmentModelsRequest
+         */
+        public APIlistEnvironmentModelsRequest owner(@jakarta.annotation.Nullable String owner) {
+            this.owner = owner;
+            return this;
+        }
+
+        /**
+         * Build call for listEnvironmentModels
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Models available from the environment provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listEnvironmentModelsCall(envId, text, type, tags, owner, _callback);
+        }
+
+        /**
+         * Execute listEnvironmentModels request
+         * @return List&lt;AIModel&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Models available from the environment provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AIModel> execute() throws ApiException {
+            ApiResponse<List<AIModel>> localVarResp =
+                    listEnvironmentModelsWithHttpInfo(envId, text, type, tags, owner);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listEnvironmentModels request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AIModel&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Models available from the environment provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AIModel>> executeWithHttpInfo() throws ApiException {
+            return listEnvironmentModelsWithHttpInfo(envId, text, type, tags, owner);
+        }
+
+        /**
+         * Execute listEnvironmentModels request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Models available from the environment provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AIModel>> _callback)
+                throws ApiException {
+            return listEnvironmentModelsAsync(envId, text, type, tags, owner, _callback);
+        }
     }
 
     /**
      * List environment models
-     * Calls {@code listEnvironmentModels} with every optional parameter left unset.
+     * Lists models available from the environment provider, optionally filtered by text, type, or tags.  **Required permissions:** &#x60;account:member&#x60;
      * @param envId  (required)
-     * @return List&lt;AIModel&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<AIModel> listEnvironmentModels(@jakarta.annotation.Nonnull String envId)
-            throws ApiException {
-        return listEnvironmentModels(envId, null, null, null, null);
-    }
-
-    /**
-     * List environment models
-     * Calls {@code listEnvironmentModelsWithHttpInfo} with every optional parameter left unset.
-     * @param envId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<AIModel>> listEnvironmentModelsWithHttpInfo(
-            @jakarta.annotation.Nonnull String envId) throws ApiException {
-        return listEnvironmentModelsWithHttpInfo(envId, null, null, null, null);
-    }
-
-    /**
-     * List environment models (asynchronously)
-     * Calls {@code listEnvironmentModelsAsync} with every optional parameter left unset.
-     * @param envId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listEnvironmentModelsAsync(
-            @jakarta.annotation.Nonnull String envId, final ApiCallback<List<AIModel>> _callback)
-            throws ApiException {
-        return listEnvironmentModelsAsync(envId, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for listEnvironmentTrainableModels
-     * @param envId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistEnvironmentModelsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Trainable models available from the environment provider. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Models available from the environment provider. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listEnvironmentTrainableModelsCall(
+    public APIlistEnvironmentModelsRequest listEnvironmentModels(
+            @jakarta.annotation.Nonnull String envId) {
+        return new APIlistEnvironmentModelsRequest(envId);
+    }
+
+    private okhttp3.Call listEnvironmentTrainableModelsCall(
             @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1899,66 +2101,14 @@ public class EnvironmentsApi {
         return listEnvironmentTrainableModelsCall(envId, _callback);
     }
 
-    /**
-     * List trainable environment models
-     * Lists provider models that can be used for training or fine-tuning workflows.  **Required permissions:** &#x60;account:member&#x60;
-     * @param envId  (required)
-     * @return List&lt;AIModel&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Trainable models available from the environment provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AIModel> listEnvironmentTrainableModels(@jakarta.annotation.Nonnull String envId)
-            throws ApiException {
-        ApiResponse<List<AIModel>> localVarResp = listEnvironmentTrainableModelsWithHttpInfo(envId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List trainable environment models
-     * Lists provider models that can be used for training or fine-tuning workflows.  **Required permissions:** &#x60;account:member&#x60;
-     * @param envId  (required)
-     * @return ApiResponse&lt;List&lt;AIModel&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Trainable models available from the environment provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AIModel>> listEnvironmentTrainableModelsWithHttpInfo(
+    private ApiResponse<List<AIModel>> listEnvironmentTrainableModelsWithHttpInfo(
             @jakarta.annotation.Nonnull String envId) throws ApiException {
         okhttp3.Call localVarCall = listEnvironmentTrainableModelsValidateBeforeCall(envId, null);
         Type localVarReturnType = new TypeToken<List<AIModel>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List trainable environment models (asynchronously)
-     * Lists provider models that can be used for training or fine-tuning workflows.  **Required permissions:** &#x60;account:member&#x60;
-     * @param envId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Trainable models available from the environment provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listEnvironmentTrainableModelsAsync(
+    private okhttp3.Call listEnvironmentTrainableModelsAsync(
             @jakarta.annotation.Nonnull String envId, final ApiCallback<List<AIModel>> _callback)
             throws ApiException {
 
@@ -1969,22 +2119,107 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
+    public class APIlistEnvironmentTrainableModelsRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+
+        private APIlistEnvironmentTrainableModelsRequest(@jakarta.annotation.Nonnull String envId) {
+            this.envId = envId;
+        }
+
+        /**
+         * Build call for listEnvironmentTrainableModels
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Trainable models available from the environment provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listEnvironmentTrainableModelsCall(envId, _callback);
+        }
+
+        /**
+         * Execute listEnvironmentTrainableModels request
+         * @return List&lt;AIModel&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Trainable models available from the environment provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AIModel> execute() throws ApiException {
+            ApiResponse<List<AIModel>> localVarResp =
+                    listEnvironmentTrainableModelsWithHttpInfo(envId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listEnvironmentTrainableModels request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AIModel&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Trainable models available from the environment provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AIModel>> executeWithHttpInfo() throws ApiException {
+            return listEnvironmentTrainableModelsWithHttpInfo(envId);
+        }
+
+        /**
+         * Execute listEnvironmentTrainableModels request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Trainable models available from the environment provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AIModel>> _callback)
+                throws ApiException {
+            return listEnvironmentTrainableModelsAsync(envId, _callback);
+        }
+    }
+
     /**
-     * Build call for listEnvironments
-     * @param all  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List trainable environment models
+     * Lists provider models that can be used for training or fine-tuning workflows.  **Required permissions:** &#x60;account:member&#x60;
+     * @param envId  (required)
+     * @return APIlistEnvironmentTrainableModelsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environments available to the account or project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Trainable models available from the environment provider. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listEnvironmentsCall(
+    public APIlistEnvironmentTrainableModelsRequest listEnvironmentTrainableModels(
+            @jakarta.annotation.Nonnull String envId) {
+        return new APIlistEnvironmentTrainableModelsRequest(envId);
+    }
+
+    private okhttp3.Call listEnvironmentsCall(
             @jakarta.annotation.Nullable Boolean all, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2050,66 +2285,14 @@ public class EnvironmentsApi {
         return listEnvironmentsCall(all, _callback);
     }
 
-    /**
-     * List environments
-     * Lists environments available to the current account. By default results are limited to environments allowed for the current project; &#x60;all&#x3D;true&#x60; returns all account environments.  **Required permissions:** &#x60;account:member&#x60;
-     * @param all  (optional)
-     * @return List&lt;ExecutionEnvironment&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environments available to the account or project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ExecutionEnvironment> listEnvironments(@jakarta.annotation.Nullable Boolean all)
-            throws ApiException {
-        ApiResponse<List<ExecutionEnvironment>> localVarResp = listEnvironmentsWithHttpInfo(all);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List environments
-     * Lists environments available to the current account. By default results are limited to environments allowed for the current project; &#x60;all&#x3D;true&#x60; returns all account environments.  **Required permissions:** &#x60;account:member&#x60;
-     * @param all  (optional)
-     * @return ApiResponse&lt;List&lt;ExecutionEnvironment&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environments available to the account or project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ExecutionEnvironment>> listEnvironmentsWithHttpInfo(
+    private ApiResponse<List<ExecutionEnvironment>> listEnvironmentsWithHttpInfo(
             @jakarta.annotation.Nullable Boolean all) throws ApiException {
         okhttp3.Call localVarCall = listEnvironmentsValidateBeforeCall(all, null);
         Type localVarReturnType = new TypeToken<List<ExecutionEnvironment>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List environments (asynchronously)
-     * Lists environments available to the current account. By default results are limited to environments allowed for the current project; &#x60;all&#x3D;true&#x60; returns all account environments.  **Required permissions:** &#x60;account:member&#x60;
-     * @param all  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Environments available to the account or project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listEnvironmentsAsync(
+    private okhttp3.Call listEnvironmentsAsync(
             @jakarta.annotation.Nullable Boolean all,
             final ApiCallback<List<ExecutionEnvironment>> _callback)
             throws ApiException {
@@ -2120,66 +2303,113 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listEnvironments with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listEnvironmentsCall(final ApiCallback _callback) throws ApiException {
-        return listEnvironmentsCall(null, _callback);
+    public class APIlistEnvironmentsRequest {
+        @jakarta.annotation.Nullable private Boolean all;
+
+        private APIlistEnvironmentsRequest() {}
+
+        /**
+         * Set all
+         * @param all  (optional)
+         * @return APIlistEnvironmentsRequest
+         */
+        public APIlistEnvironmentsRequest all(@jakarta.annotation.Nullable Boolean all) {
+            this.all = all;
+            return this;
+        }
+
+        /**
+         * Build call for listEnvironments
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environments available to the account or project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listEnvironmentsCall(all, _callback);
+        }
+
+        /**
+         * Execute listEnvironments request
+         * @return List&lt;ExecutionEnvironment&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environments available to the account or project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ExecutionEnvironment> execute() throws ApiException {
+            ApiResponse<List<ExecutionEnvironment>> localVarResp =
+                    listEnvironmentsWithHttpInfo(all);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listEnvironments request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ExecutionEnvironment&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environments available to the account or project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ExecutionEnvironment>> executeWithHttpInfo() throws ApiException {
+            return listEnvironmentsWithHttpInfo(all);
+        }
+
+        /**
+         * Execute listEnvironments request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Environments available to the account or project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ExecutionEnvironment>> _callback)
+                throws ApiException {
+            return listEnvironmentsAsync(all, _callback);
+        }
     }
 
     /**
      * List environments
-     * Calls {@code listEnvironments} with every optional parameter left unset.
-     * @return List&lt;ExecutionEnvironment&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ExecutionEnvironment> listEnvironments() throws ApiException {
-        return listEnvironments(null);
-    }
-
-    /**
-     * List environments
-     * Calls {@code listEnvironmentsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ExecutionEnvironment>> listEnvironmentsWithHttpInfo()
-            throws ApiException {
-        return listEnvironmentsWithHttpInfo(null);
-    }
-
-    /**
-     * List environments (asynchronously)
-     * Calls {@code listEnvironmentsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listEnvironmentsAsync(
-            final ApiCallback<List<ExecutionEnvironment>> _callback) throws ApiException {
-        return listEnvironmentsAsync(null, _callback);
-    }
-
-    /**
-     * Build call for updateEnvironment
-     * @param envId  (required)
-     * @param executionEnvironmentUpdatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists environments available to the current account. By default results are limited to environments allowed for the current project; &#x60;all&#x3D;true&#x60; returns all account environments.  **Required permissions:** &#x60;account:member&#x60;
+     * @return APIlistEnvironmentsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated environment. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Environments available to the account or project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateEnvironmentCall(
+    public APIlistEnvironmentsRequest listEnvironments() {
+        return new APIlistEnvironmentsRequest();
+    }
+
+    private okhttp3.Call updateEnvironmentCall(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull
                     ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload,
@@ -2263,49 +2493,7 @@ public class EnvironmentsApi {
         return updateEnvironmentCall(envId, executionEnvironmentUpdatePayload, _callback);
     }
 
-    /**
-     * Update an environment
-     * Updates mutable environment fields such as provider configuration, endpoint URL, enabled models, and API key metadata. Raw API keys are stored in the encrypted secret store and are not returned.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param executionEnvironmentUpdatePayload  (required)
-     * @return ExecutionEnvironment
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ExecutionEnvironment updateEnvironment(
-            @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull
-                    ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload)
-            throws ApiException {
-        ApiResponse<ExecutionEnvironment> localVarResp =
-                updateEnvironmentWithHttpInfo(envId, executionEnvironmentUpdatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an environment
-     * Updates mutable environment fields such as provider configuration, endpoint URL, enabled models, and API key metadata. Raw API keys are stored in the encrypted secret store and are not returned.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param executionEnvironmentUpdatePayload  (required)
-     * @return ApiResponse&lt;ExecutionEnvironment&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ExecutionEnvironment> updateEnvironmentWithHttpInfo(
+    private ApiResponse<ExecutionEnvironment> updateEnvironmentWithHttpInfo(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull
                     ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload)
@@ -2316,24 +2504,7 @@ public class EnvironmentsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an environment (asynchronously)
-     * Updates mutable environment fields such as provider configuration, endpoint URL, enabled models, and API key metadata. Raw API keys are stored in the encrypted secret store and are not returned.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param executionEnvironmentUpdatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated environment. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateEnvironmentAsync(
+    private okhttp3.Call updateEnvironmentAsync(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull
                     ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload,
@@ -2348,23 +2519,117 @@ public class EnvironmentsApi {
         return localVarCall;
     }
 
+    public class APIupdateEnvironmentRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+
+        @jakarta.annotation.Nonnull
+        private final ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload;
+
+        private APIupdateEnvironmentRequest(
+                @jakarta.annotation.Nonnull String envId,
+                @jakarta.annotation.Nonnull
+                        ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload) {
+            this.envId = envId;
+            this.executionEnvironmentUpdatePayload = executionEnvironmentUpdatePayload;
+        }
+
+        /**
+         * Build call for updateEnvironment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateEnvironmentCall(envId, executionEnvironmentUpdatePayload, _callback);
+        }
+
+        /**
+         * Execute updateEnvironment request
+         * @return ExecutionEnvironment
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ExecutionEnvironment execute() throws ApiException {
+            ApiResponse<ExecutionEnvironment> localVarResp =
+                    updateEnvironmentWithHttpInfo(envId, executionEnvironmentUpdatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateEnvironment request with HTTP info returned
+         * @return ApiResponse&lt;ExecutionEnvironment&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ExecutionEnvironment> executeWithHttpInfo() throws ApiException {
+            return updateEnvironmentWithHttpInfo(envId, executionEnvironmentUpdatePayload);
+        }
+
+        /**
+         * Execute updateEnvironment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated environment. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ExecutionEnvironment> _callback)
+                throws ApiException {
+            return updateEnvironmentAsync(envId, executionEnvironmentUpdatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateEnvironmentConfig
+     * Update an environment
+     * Updates mutable environment fields such as provider configuration, endpoint URL, enabled models, and API key metadata. Raw API keys are stored in the encrypted secret store and are not returned.  **Required permissions:** &#x60;environment:admin&#x60;
      * @param envId  (required)
-     * @param executionEnvironmentConfigUpdatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param executionEnvironmentUpdatePayload  (required)
+     * @return APIupdateEnvironmentRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with updated configuration. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated environment. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateEnvironmentConfigCall(
+    public APIupdateEnvironmentRequest updateEnvironment(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
+                    ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload) {
+        return new APIupdateEnvironmentRequest(envId, executionEnvironmentUpdatePayload);
+    }
+
+    private okhttp3.Call updateEnvironmentConfigCall(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull
                     ExecutionEnvironmentConfigUpdatePayload executionEnvironmentConfigUpdatePayload,
@@ -2449,49 +2714,7 @@ public class EnvironmentsApi {
                 envId, executionEnvironmentConfigUpdatePayload, _callback);
     }
 
-    /**
-     * Update environment configuration
-     * Merges model enablement and provider-specific mediator or load-balancing configuration into an existing environment without clearing unspecified fields.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param executionEnvironmentConfigUpdatePayload  (required)
-     * @return ExecutionEnvironment
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with updated configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ExecutionEnvironment updateEnvironmentConfig(
-            @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull
-                    ExecutionEnvironmentConfigUpdatePayload executionEnvironmentConfigUpdatePayload)
-            throws ApiException {
-        ApiResponse<ExecutionEnvironment> localVarResp =
-                updateEnvironmentConfigWithHttpInfo(envId, executionEnvironmentConfigUpdatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update environment configuration
-     * Merges model enablement and provider-specific mediator or load-balancing configuration into an existing environment without clearing unspecified fields.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param executionEnvironmentConfigUpdatePayload  (required)
-     * @return ApiResponse&lt;ExecutionEnvironment&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with updated configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ExecutionEnvironment> updateEnvironmentConfigWithHttpInfo(
+    private ApiResponse<ExecutionEnvironment> updateEnvironmentConfigWithHttpInfo(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull
                     ExecutionEnvironmentConfigUpdatePayload executionEnvironmentConfigUpdatePayload)
@@ -2503,24 +2726,7 @@ public class EnvironmentsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update environment configuration (asynchronously)
-     * Merges model enablement and provider-specific mediator or load-balancing configuration into an existing environment without clearing unspecified fields.  **Required permissions:** &#x60;environment:admin&#x60;
-     * @param envId  (required)
-     * @param executionEnvironmentConfigUpdatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The environment with updated configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateEnvironmentConfigAsync(
+    private okhttp3.Call updateEnvironmentConfigAsync(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nonnull
                     ExecutionEnvironmentConfigUpdatePayload executionEnvironmentConfigUpdatePayload,
@@ -2533,5 +2739,123 @@ public class EnvironmentsApi {
         Type localVarReturnType = new TypeToken<ExecutionEnvironment>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateEnvironmentConfigRequest {
+        @jakarta.annotation.Nonnull private final String envId;
+
+        @jakarta.annotation.Nonnull
+        private final ExecutionEnvironmentConfigUpdatePayload
+                executionEnvironmentConfigUpdatePayload;
+
+        private APIupdateEnvironmentConfigRequest(
+                @jakarta.annotation.Nonnull String envId,
+                @jakarta.annotation.Nonnull
+                        ExecutionEnvironmentConfigUpdatePayload
+                                executionEnvironmentConfigUpdatePayload) {
+            this.envId = envId;
+            this.executionEnvironmentConfigUpdatePayload = executionEnvironmentConfigUpdatePayload;
+        }
+
+        /**
+         * Build call for updateEnvironmentConfig
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with updated configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateEnvironmentConfigCall(
+                    envId, executionEnvironmentConfigUpdatePayload, _callback);
+        }
+
+        /**
+         * Execute updateEnvironmentConfig request
+         * @return ExecutionEnvironment
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with updated configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ExecutionEnvironment execute() throws ApiException {
+            ApiResponse<ExecutionEnvironment> localVarResp =
+                    updateEnvironmentConfigWithHttpInfo(
+                            envId, executionEnvironmentConfigUpdatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateEnvironmentConfig request with HTTP info returned
+         * @return ApiResponse&lt;ExecutionEnvironment&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with updated configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ExecutionEnvironment> executeWithHttpInfo() throws ApiException {
+            return updateEnvironmentConfigWithHttpInfo(
+                    envId, executionEnvironmentConfigUpdatePayload);
+        }
+
+        /**
+         * Execute updateEnvironmentConfig request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The environment with updated configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ExecutionEnvironment> _callback)
+                throws ApiException {
+            return updateEnvironmentConfigAsync(
+                    envId, executionEnvironmentConfigUpdatePayload, _callback);
+        }
+    }
+
+    /**
+     * Update environment configuration
+     * Merges model enablement and provider-specific mediator or load-balancing configuration into an existing environment without clearing unspecified fields.  **Required permissions:** &#x60;environment:admin&#x60;
+     * @param envId  (required)
+     * @param executionEnvironmentConfigUpdatePayload  (required)
+     * @return APIupdateEnvironmentConfigRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The environment with updated configuration. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateEnvironmentConfigRequest updateEnvironmentConfig(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
+                    ExecutionEnvironmentConfigUpdatePayload
+                            executionEnvironmentConfigUpdatePayload) {
+        return new APIupdateEnvironmentConfigRequest(
+                envId, executionEnvironmentConfigUpdatePayload);
     }
 }

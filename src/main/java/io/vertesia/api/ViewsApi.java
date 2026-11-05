@@ -70,22 +70,7 @@ public class ViewsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createView
-     * @param createViewExperienceRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created View Experience. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createViewCall(
+    private okhttp3.Call createViewCall(
             @jakarta.annotation.Nonnull CreateViewExperienceRequest createViewExperienceRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -155,45 +140,7 @@ public class ViewsApi {
         return createViewCall(createViewExperienceRequest, _callback);
     }
 
-    /**
-     * Create a View Experience
-     * Creates a View Experience with a project-unique immutable public slug ID.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param createViewExperienceRequest  (required)
-     * @return ViewExperience
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created View Experience. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ViewExperience createView(
-            @jakarta.annotation.Nonnull CreateViewExperienceRequest createViewExperienceRequest)
-            throws ApiException {
-        ApiResponse<ViewExperience> localVarResp =
-                createViewWithHttpInfo(createViewExperienceRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a View Experience
-     * Creates a View Experience with a project-unique immutable public slug ID.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param createViewExperienceRequest  (required)
-     * @return ApiResponse&lt;ViewExperience&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created View Experience. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ViewExperience> createViewWithHttpInfo(
+    private ApiResponse<ViewExperience> createViewWithHttpInfo(
             @jakarta.annotation.Nonnull CreateViewExperienceRequest createViewExperienceRequest)
             throws ApiException {
         okhttp3.Call localVarCall = createViewValidateBeforeCall(createViewExperienceRequest, null);
@@ -201,23 +148,7 @@ public class ViewsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a View Experience (asynchronously)
-     * Creates a View Experience with a project-unique immutable public slug ID.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param createViewExperienceRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created View Experience. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createViewAsync(
+    private okhttp3.Call createViewAsync(
             @jakarta.annotation.Nonnull CreateViewExperienceRequest createViewExperienceRequest,
             final ApiCallback<ViewExperience> _callback)
             throws ApiException {
@@ -229,22 +160,110 @@ public class ViewsApi {
         return localVarCall;
     }
 
+    public class APIcreateViewRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateViewExperienceRequest createViewExperienceRequest;
+
+        private APIcreateViewRequest(
+                @jakarta.annotation.Nonnull
+                        CreateViewExperienceRequest createViewExperienceRequest) {
+            this.createViewExperienceRequest = createViewExperienceRequest;
+        }
+
+        /**
+         * Build call for createView
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createViewCall(createViewExperienceRequest, _callback);
+        }
+
+        /**
+         * Execute createView request
+         * @return ViewExperience
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ViewExperience execute() throws ApiException {
+            ApiResponse<ViewExperience> localVarResp =
+                    createViewWithHttpInfo(createViewExperienceRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createView request with HTTP info returned
+         * @return ApiResponse&lt;ViewExperience&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ViewExperience> executeWithHttpInfo() throws ApiException {
+            return createViewWithHttpInfo(createViewExperienceRequest);
+        }
+
+        /**
+         * Execute createView request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ViewExperience> _callback)
+                throws ApiException {
+            return createViewAsync(createViewExperienceRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteView
-     * @param viewId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a View Experience
+     * Creates a View Experience with a project-unique immutable public slug ID.  **Required permissions:** &#x60;interaction:write&#x60;
+     * @param createViewExperienceRequest  (required)
+     * @return APIcreateViewRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> View deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> The created View Experience. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteViewCall(
+    public APIcreateViewRequest createView(
+            @jakarta.annotation.Nonnull CreateViewExperienceRequest createViewExperienceRequest) {
+        return new APIcreateViewRequest(createViewExperienceRequest);
+    }
+
+    private okhttp3.Call deleteViewCall(
             @jakarta.annotation.Nonnull String viewId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -316,66 +335,14 @@ public class ViewsApi {
         return deleteViewCall(viewId, _callback);
     }
 
-    /**
-     * Delete a View Experience
-     * Deletes a project-scoped View Experience by its stable public slug ID.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param viewId  (required)
-     * @return DeleteByIdResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> View deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteByIdResult deleteView(@jakarta.annotation.Nonnull String viewId)
-            throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp = deleteViewWithHttpInfo(viewId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a View Experience
-     * Deletes a project-scoped View Experience by its stable public slug ID.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param viewId  (required)
-     * @return ApiResponse&lt;DeleteByIdResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> View deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteByIdResult> deleteViewWithHttpInfo(
+    private ApiResponse<DeleteByIdResult> deleteViewWithHttpInfo(
             @jakarta.annotation.Nonnull String viewId) throws ApiException {
         okhttp3.Call localVarCall = deleteViewValidateBeforeCall(viewId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a View Experience (asynchronously)
-     * Deletes a project-scoped View Experience by its stable public slug ID.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param viewId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> View deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteViewAsync(
+    private okhttp3.Call deleteViewAsync(
             @jakarta.annotation.Nonnull String viewId,
             final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
@@ -386,23 +353,105 @@ public class ViewsApi {
         return localVarCall;
     }
 
+    public class APIdeleteViewRequest {
+        @jakarta.annotation.Nonnull private final String viewId;
+
+        private APIdeleteViewRequest(@jakarta.annotation.Nonnull String viewId) {
+            this.viewId = viewId;
+        }
+
+        /**
+         * Build call for deleteView
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> View deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteViewCall(viewId, _callback);
+        }
+
+        /**
+         * Execute deleteView request
+         * @return DeleteByIdResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> View deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteByIdResult execute() throws ApiException {
+            ApiResponse<DeleteByIdResult> localVarResp = deleteViewWithHttpInfo(viewId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteView request with HTTP info returned
+         * @return ApiResponse&lt;DeleteByIdResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> View deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteByIdResult> executeWithHttpInfo() throws ApiException {
+            return deleteViewWithHttpInfo(viewId);
+        }
+
+        /**
+         * Execute deleteView request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> View deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteByIdResult> _callback)
+                throws ApiException {
+            return deleteViewAsync(viewId, _callback);
+        }
+    }
+
     /**
-     * Build call for executeView
+     * Delete a View Experience
+     * Deletes a project-scoped View Experience by its stable public slug ID.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param viewId  (required)
-     * @param executeViewRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteViewRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Normalized View results and navigation counts. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> View deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call executeViewCall(
+    public APIdeleteViewRequest deleteView(@jakarta.annotation.Nonnull String viewId) {
+        return new APIdeleteViewRequest(viewId);
+    }
+
+    private okhttp3.Call executeViewCall(
             @jakarta.annotation.Nonnull String viewId,
             @jakarta.annotation.Nonnull ExecuteViewRequest executeViewRequest,
             final ApiCallback _callback)
@@ -484,48 +533,7 @@ public class ViewsApi {
         return executeViewCall(viewId, executeViewRequest, _callback);
     }
 
-    /**
-     * Execute a View Experience
-     * Executes a stored, built-in system, or app-contributed View by ID. Configuration, scope, and security filters are resolved server-side. Agentic query planning, optional presentation planning, and optional result reranking additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
-     * @param viewId  (required)
-     * @param executeViewRequest  (required)
-     * @return ViewExecutionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Normalized View results and navigation counts. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ViewExecutionResult executeView(
-            @jakarta.annotation.Nonnull String viewId,
-            @jakarta.annotation.Nonnull ExecuteViewRequest executeViewRequest)
-            throws ApiException {
-        ApiResponse<ViewExecutionResult> localVarResp =
-                executeViewWithHttpInfo(viewId, executeViewRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Execute a View Experience
-     * Executes a stored, built-in system, or app-contributed View by ID. Configuration, scope, and security filters are resolved server-side. Agentic query planning, optional presentation planning, and optional result reranking additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
-     * @param viewId  (required)
-     * @param executeViewRequest  (required)
-     * @return ApiResponse&lt;ViewExecutionResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Normalized View results and navigation counts. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ViewExecutionResult> executeViewWithHttpInfo(
+    private ApiResponse<ViewExecutionResult> executeViewWithHttpInfo(
             @jakarta.annotation.Nonnull String viewId,
             @jakarta.annotation.Nonnull ExecuteViewRequest executeViewRequest)
             throws ApiException {
@@ -534,24 +542,7 @@ public class ViewsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Execute a View Experience (asynchronously)
-     * Executes a stored, built-in system, or app-contributed View by ID. Configuration, scope, and security filters are resolved server-side. Agentic query planning, optional presentation planning, and optional result reranking additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
-     * @param viewId  (required)
-     * @param executeViewRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Normalized View results and navigation counts. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call executeViewAsync(
+    private okhttp3.Call executeViewAsync(
             @jakarta.annotation.Nonnull String viewId,
             @jakarta.annotation.Nonnull ExecuteViewRequest executeViewRequest,
             final ApiCallback<ViewExecutionResult> _callback)
@@ -564,22 +555,113 @@ public class ViewsApi {
         return localVarCall;
     }
 
+    public class APIexecuteViewRequest {
+        @jakarta.annotation.Nonnull private final String viewId;
+        @jakarta.annotation.Nonnull private final ExecuteViewRequest executeViewRequest;
+
+        private APIexecuteViewRequest(
+                @jakarta.annotation.Nonnull String viewId,
+                @jakarta.annotation.Nonnull ExecuteViewRequest executeViewRequest) {
+            this.viewId = viewId;
+            this.executeViewRequest = executeViewRequest;
+        }
+
+        /**
+         * Build call for executeView
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Normalized View results and navigation counts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return executeViewCall(viewId, executeViewRequest, _callback);
+        }
+
+        /**
+         * Execute executeView request
+         * @return ViewExecutionResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Normalized View results and navigation counts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ViewExecutionResult execute() throws ApiException {
+            ApiResponse<ViewExecutionResult> localVarResp =
+                    executeViewWithHttpInfo(viewId, executeViewRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute executeView request with HTTP info returned
+         * @return ApiResponse&lt;ViewExecutionResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Normalized View results and navigation counts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ViewExecutionResult> executeWithHttpInfo() throws ApiException {
+            return executeViewWithHttpInfo(viewId, executeViewRequest);
+        }
+
+        /**
+         * Execute executeView request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Normalized View results and navigation counts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ViewExecutionResult> _callback)
+                throws ApiException {
+            return executeViewAsync(viewId, executeViewRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for getView
+     * Execute a View Experience
+     * Executes a stored, built-in system, or app-contributed View by ID. Configuration, scope, and security filters are resolved server-side. Agentic query planning, optional presentation planning, and optional result reranking additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
      * @param viewId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param executeViewRequest  (required)
+     * @return APIexecuteViewRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested View Experience. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Normalized View results and navigation counts. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getViewCall(
+    public APIexecuteViewRequest executeView(
+            @jakarta.annotation.Nonnull String viewId,
+            @jakarta.annotation.Nonnull ExecuteViewRequest executeViewRequest) {
+        return new APIexecuteViewRequest(viewId, executeViewRequest);
+    }
+
+    private okhttp3.Call getViewCall(
             @jakarta.annotation.Nonnull String viewId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -651,65 +733,14 @@ public class ViewsApi {
         return getViewCall(viewId, _callback);
     }
 
-    /**
-     * Retrieve a View Experience
-     * Retrieves a project-scoped View Experience by its stable public slug ID.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param viewId  (required)
-     * @return ViewExperience
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested View Experience. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ViewExperience getView(@jakarta.annotation.Nonnull String viewId) throws ApiException {
-        ApiResponse<ViewExperience> localVarResp = getViewWithHttpInfo(viewId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a View Experience
-     * Retrieves a project-scoped View Experience by its stable public slug ID.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param viewId  (required)
-     * @return ApiResponse&lt;ViewExperience&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested View Experience. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ViewExperience> getViewWithHttpInfo(
+    private ApiResponse<ViewExperience> getViewWithHttpInfo(
             @jakarta.annotation.Nonnull String viewId) throws ApiException {
         okhttp3.Call localVarCall = getViewValidateBeforeCall(viewId, null);
         Type localVarReturnType = new TypeToken<ViewExperience>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a View Experience (asynchronously)
-     * Retrieves a project-scoped View Experience by its stable public slug ID.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param viewId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested View Experience. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getViewAsync(
+    private okhttp3.Call getViewAsync(
             @jakarta.annotation.Nonnull String viewId, final ApiCallback<ViewExperience> _callback)
             throws ApiException {
 
@@ -719,23 +750,105 @@ public class ViewsApi {
         return localVarCall;
     }
 
+    public class APIgetViewRequest {
+        @jakarta.annotation.Nonnull private final String viewId;
+
+        private APIgetViewRequest(@jakarta.annotation.Nonnull String viewId) {
+            this.viewId = viewId;
+        }
+
+        /**
+         * Build call for getView
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getViewCall(viewId, _callback);
+        }
+
+        /**
+         * Execute getView request
+         * @return ViewExperience
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ViewExperience execute() throws ApiException {
+            ApiResponse<ViewExperience> localVarResp = getViewWithHttpInfo(viewId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getView request with HTTP info returned
+         * @return ApiResponse&lt;ViewExperience&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ViewExperience> executeWithHttpInfo() throws ApiException {
+            return getViewWithHttpInfo(viewId);
+        }
+
+        /**
+         * Execute getView request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ViewExperience> _callback)
+                throws ApiException {
+            return getViewAsync(viewId, _callback);
+        }
+    }
+
     /**
-     * Build call for listViews
-     * @param limit Page size. Clamped to 1..100; anything unparseable falls back to 50. (optional)
-     * @param offset Number of Views to skip. Negative values are clamped to 0. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a View Experience
+     * Retrieves a project-scoped View Experience by its stable public slug ID.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param viewId  (required)
+     * @return APIgetViewRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> View Experiences in the current project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested View Experience. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listViewsCall(
+    public APIgetViewRequest getView(@jakarta.annotation.Nonnull String viewId) {
+        return new APIgetViewRequest(viewId);
+    }
+
+    private okhttp3.Call listViewsCall(
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
@@ -809,47 +922,7 @@ public class ViewsApi {
         return listViewsCall(limit, offset, _callback);
     }
 
-    /**
-     * List View Experiences
-     * Lists View Experiences in the current project, most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param limit Page size. Clamped to 1..100; anything unparseable falls back to 50. (optional)
-     * @param offset Number of Views to skip. Negative values are clamped to 0. (optional)
-     * @return List&lt;ViewExperience&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> View Experiences in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ViewExperience> listViews(
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
-        ApiResponse<List<ViewExperience>> localVarResp = listViewsWithHttpInfo(limit, offset);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List View Experiences
-     * Lists View Experiences in the current project, most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param limit Page size. Clamped to 1..100; anything unparseable falls back to 50. (optional)
-     * @param offset Number of Views to skip. Negative values are clamped to 0. (optional)
-     * @return ApiResponse&lt;List&lt;ViewExperience&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> View Experiences in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ViewExperience>> listViewsWithHttpInfo(
+    private ApiResponse<List<ViewExperience>> listViewsWithHttpInfo(
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
@@ -858,24 +931,7 @@ public class ViewsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List View Experiences (asynchronously)
-     * Lists View Experiences in the current project, most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param limit Page size. Clamped to 1..100; anything unparseable falls back to 50. (optional)
-     * @param offset Number of Views to skip. Negative values are clamped to 0. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> View Experiences in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listViewsAsync(
+    private okhttp3.Call listViewsAsync(
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback<List<ViewExperience>> _callback)
@@ -887,64 +943,123 @@ public class ViewsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listViews with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listViewsCall(final ApiCallback _callback) throws ApiException {
-        return listViewsCall(null, null, _callback);
+    public class APIlistViewsRequest {
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+
+        private APIlistViewsRequest() {}
+
+        /**
+         * Set limit
+         * @param limit Page size. Clamped to 1..100; anything unparseable falls back to 50. (optional)
+         * @return APIlistViewsRequest
+         */
+        public APIlistViewsRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset Number of Views to skip. Negative values are clamped to 0. (optional)
+         * @return APIlistViewsRequest
+         */
+        public APIlistViewsRequest offset(@jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Build call for listViews
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> View Experiences in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listViewsCall(limit, offset, _callback);
+        }
+
+        /**
+         * Execute listViews request
+         * @return List&lt;ViewExperience&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> View Experiences in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ViewExperience> execute() throws ApiException {
+            ApiResponse<List<ViewExperience>> localVarResp = listViewsWithHttpInfo(limit, offset);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listViews request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ViewExperience&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> View Experiences in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ViewExperience>> executeWithHttpInfo() throws ApiException {
+            return listViewsWithHttpInfo(limit, offset);
+        }
+
+        /**
+         * Execute listViews request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> View Experiences in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ViewExperience>> _callback)
+                throws ApiException {
+            return listViewsAsync(limit, offset, _callback);
+        }
     }
 
     /**
      * List View Experiences
-     * Calls {@code listViews} with every optional parameter left unset.
-     * @return List&lt;ViewExperience&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ViewExperience> listViews() throws ApiException {
-        return listViews(null, null);
-    }
-
-    /**
-     * List View Experiences
-     * Calls {@code listViewsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ViewExperience>> listViewsWithHttpInfo() throws ApiException {
-        return listViewsWithHttpInfo(null, null);
-    }
-
-    /**
-     * List View Experiences (asynchronously)
-     * Calls {@code listViewsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listViewsAsync(final ApiCallback<List<ViewExperience>> _callback)
-            throws ApiException {
-        return listViewsAsync(null, null, _callback);
-    }
-
-    /**
-     * Build call for previewView
-     * @param previewViewExperienceRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists View Experiences in the current project, most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistViewsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Normalized View results and navigation counts for the previewed configuration. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> View Experiences in the current project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call previewViewCall(
+    public APIlistViewsRequest listViews() {
+        return new APIlistViewsRequest();
+    }
+
+    private okhttp3.Call previewViewCall(
             @jakarta.annotation.Nonnull PreviewViewExperienceRequest previewViewExperienceRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -1014,45 +1129,7 @@ public class ViewsApi {
         return previewViewCall(previewViewExperienceRequest, _callback);
     }
 
-    /**
-     * Preview an unsaved View Experience
-     * Validates an inline (unsaved) View configuration and executes it against content without persisting it, returning normalized results, navigation counts, and any agentic query, presentation, and reranking diagnostics. Agentic stages additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
-     * @param previewViewExperienceRequest  (required)
-     * @return ViewExecutionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Normalized View results and navigation counts for the previewed configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ViewExecutionResult previewView(
-            @jakarta.annotation.Nonnull PreviewViewExperienceRequest previewViewExperienceRequest)
-            throws ApiException {
-        ApiResponse<ViewExecutionResult> localVarResp =
-                previewViewWithHttpInfo(previewViewExperienceRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Preview an unsaved View Experience
-     * Validates an inline (unsaved) View configuration and executes it against content without persisting it, returning normalized results, navigation counts, and any agentic query, presentation, and reranking diagnostics. Agentic stages additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
-     * @param previewViewExperienceRequest  (required)
-     * @return ApiResponse&lt;ViewExecutionResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Normalized View results and navigation counts for the previewed configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ViewExecutionResult> previewViewWithHttpInfo(
+    private ApiResponse<ViewExecutionResult> previewViewWithHttpInfo(
             @jakarta.annotation.Nonnull PreviewViewExperienceRequest previewViewExperienceRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1061,23 +1138,7 @@ public class ViewsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Preview an unsaved View Experience (asynchronously)
-     * Validates an inline (unsaved) View configuration and executes it against content without persisting it, returning normalized results, navigation counts, and any agentic query, presentation, and reranking diagnostics. Agentic stages additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
-     * @param previewViewExperienceRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Normalized View results and navigation counts for the previewed configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call previewViewAsync(
+    private okhttp3.Call previewViewAsync(
             @jakarta.annotation.Nonnull PreviewViewExperienceRequest previewViewExperienceRequest,
             final ApiCallback<ViewExecutionResult> _callback)
             throws ApiException {
@@ -1089,23 +1150,110 @@ public class ViewsApi {
         return localVarCall;
     }
 
+    public class APIpreviewViewRequest {
+        @jakarta.annotation.Nonnull
+        private final PreviewViewExperienceRequest previewViewExperienceRequest;
+
+        private APIpreviewViewRequest(
+                @jakarta.annotation.Nonnull
+                        PreviewViewExperienceRequest previewViewExperienceRequest) {
+            this.previewViewExperienceRequest = previewViewExperienceRequest;
+        }
+
+        /**
+         * Build call for previewView
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Normalized View results and navigation counts for the previewed configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return previewViewCall(previewViewExperienceRequest, _callback);
+        }
+
+        /**
+         * Execute previewView request
+         * @return ViewExecutionResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Normalized View results and navigation counts for the previewed configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ViewExecutionResult execute() throws ApiException {
+            ApiResponse<ViewExecutionResult> localVarResp =
+                    previewViewWithHttpInfo(previewViewExperienceRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute previewView request with HTTP info returned
+         * @return ApiResponse&lt;ViewExecutionResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Normalized View results and navigation counts for the previewed configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ViewExecutionResult> executeWithHttpInfo() throws ApiException {
+            return previewViewWithHttpInfo(previewViewExperienceRequest);
+        }
+
+        /**
+         * Execute previewView request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Normalized View results and navigation counts for the previewed configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ViewExecutionResult> _callback)
+                throws ApiException {
+            return previewViewAsync(previewViewExperienceRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for updateView
-     * @param viewId  (required)
-     * @param updateViewExperienceRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Preview an unsaved View Experience
+     * Validates an inline (unsaved) View configuration and executes it against content without persisting it, returning normalized results, navigation counts, and any agentic query, presentation, and reranking diagnostics. Agentic stages additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
+     * @param previewViewExperienceRequest  (required)
+     * @return APIpreviewViewRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated View Experience. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Normalized View results and navigation counts for the previewed configuration. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateViewCall(
+    public APIpreviewViewRequest previewView(
+            @jakarta.annotation.Nonnull PreviewViewExperienceRequest previewViewExperienceRequest) {
+        return new APIpreviewViewRequest(previewViewExperienceRequest);
+    }
+
+    private okhttp3.Call updateViewCall(
             @jakarta.annotation.Nonnull String viewId,
             @jakarta.annotation.Nonnull UpdateViewExperienceRequest updateViewExperienceRequest,
             final ApiCallback _callback)
@@ -1187,48 +1335,7 @@ public class ViewsApi {
         return updateViewCall(viewId, updateViewExperienceRequest, _callback);
     }
 
-    /**
-     * Update a View Experience
-     * Replaces the mutable View configuration. The last observed revision is required and stale updates fail with 409.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param viewId  (required)
-     * @param updateViewExperienceRequest  (required)
-     * @return ViewExperience
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated View Experience. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ViewExperience updateView(
-            @jakarta.annotation.Nonnull String viewId,
-            @jakarta.annotation.Nonnull UpdateViewExperienceRequest updateViewExperienceRequest)
-            throws ApiException {
-        ApiResponse<ViewExperience> localVarResp =
-                updateViewWithHttpInfo(viewId, updateViewExperienceRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a View Experience
-     * Replaces the mutable View configuration. The last observed revision is required and stale updates fail with 409.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param viewId  (required)
-     * @param updateViewExperienceRequest  (required)
-     * @return ApiResponse&lt;ViewExperience&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated View Experience. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ViewExperience> updateViewWithHttpInfo(
+    private ApiResponse<ViewExperience> updateViewWithHttpInfo(
             @jakarta.annotation.Nonnull String viewId,
             @jakarta.annotation.Nonnull UpdateViewExperienceRequest updateViewExperienceRequest)
             throws ApiException {
@@ -1238,24 +1345,7 @@ public class ViewsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a View Experience (asynchronously)
-     * Replaces the mutable View configuration. The last observed revision is required and stale updates fail with 409.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param viewId  (required)
-     * @param updateViewExperienceRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated View Experience. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateViewAsync(
+    private okhttp3.Call updateViewAsync(
             @jakarta.annotation.Nonnull String viewId,
             @jakarta.annotation.Nonnull UpdateViewExperienceRequest updateViewExperienceRequest,
             final ApiCallback<ViewExperience> _callback)
@@ -1266,5 +1356,114 @@ public class ViewsApi {
         Type localVarReturnType = new TypeToken<ViewExperience>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateViewRequest {
+        @jakarta.annotation.Nonnull private final String viewId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateViewExperienceRequest updateViewExperienceRequest;
+
+        private APIupdateViewRequest(
+                @jakarta.annotation.Nonnull String viewId,
+                @jakarta.annotation.Nonnull
+                        UpdateViewExperienceRequest updateViewExperienceRequest) {
+            this.viewId = viewId;
+            this.updateViewExperienceRequest = updateViewExperienceRequest;
+        }
+
+        /**
+         * Build call for updateView
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateViewCall(viewId, updateViewExperienceRequest, _callback);
+        }
+
+        /**
+         * Execute updateView request
+         * @return ViewExperience
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ViewExperience execute() throws ApiException {
+            ApiResponse<ViewExperience> localVarResp =
+                    updateViewWithHttpInfo(viewId, updateViewExperienceRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateView request with HTTP info returned
+         * @return ApiResponse&lt;ViewExperience&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ViewExperience> executeWithHttpInfo() throws ApiException {
+            return updateViewWithHttpInfo(viewId, updateViewExperienceRequest);
+        }
+
+        /**
+         * Execute updateView request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated View Experience. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ViewExperience> _callback)
+                throws ApiException {
+            return updateViewAsync(viewId, updateViewExperienceRequest, _callback);
+        }
+    }
+
+    /**
+     * Update a View Experience
+     * Replaces the mutable View configuration. The last observed revision is required and stale updates fail with 409.  **Required permissions:** &#x60;interaction:write&#x60;
+     * @param viewId  (required)
+     * @param updateViewExperienceRequest  (required)
+     * @return APIupdateViewRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated View Experience. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateViewRequest updateView(
+            @jakarta.annotation.Nonnull String viewId,
+            @jakarta.annotation.Nonnull UpdateViewExperienceRequest updateViewExperienceRequest) {
+        return new APIupdateViewRequest(viewId, updateViewExperienceRequest);
     }
 }

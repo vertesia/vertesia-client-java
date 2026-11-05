@@ -64,21 +64,7 @@ public class RolesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for listRoles
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Built-in roles and permissions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listRolesCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listRolesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -137,61 +123,13 @@ public class RolesApi {
         return listRolesCall(_callback);
     }
 
-    /**
-     * List built-in roles
-     * Lists every built-in role across all partitions (system, content, …) and the permissions each role grants.
-     * @return List&lt;RoleDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Built-in roles and permissions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<RoleDefinition> listRoles() throws ApiException {
-        ApiResponse<List<RoleDefinition>> localVarResp = listRolesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List built-in roles
-     * Lists every built-in role across all partitions (system, content, …) and the permissions each role grants.
-     * @return ApiResponse&lt;List&lt;RoleDefinition&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Built-in roles and permissions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<RoleDefinition>> listRolesWithHttpInfo() throws ApiException {
+    private ApiResponse<List<RoleDefinition>> listRolesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listRolesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<RoleDefinition>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List built-in roles (asynchronously)
-     * Lists every built-in role across all partitions (system, content, …) and the permissions each role grants.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Built-in roles and permissions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listRolesAsync(final ApiCallback<List<RoleDefinition>> _callback)
+    private okhttp3.Call listRolesAsync(final ApiCallback<List<RoleDefinition>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listRolesValidateBeforeCall(_callback);
@@ -200,21 +138,101 @@ public class RolesApi {
         return localVarCall;
     }
 
+    public class APIlistRolesRequest {
+
+        private APIlistRolesRequest() {}
+
+        /**
+         * Build call for listRoles
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Built-in roles and permissions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listRolesCall(_callback);
+        }
+
+        /**
+         * Execute listRoles request
+         * @return List&lt;RoleDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Built-in roles and permissions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<RoleDefinition> execute() throws ApiException {
+            ApiResponse<List<RoleDefinition>> localVarResp = listRolesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listRoles request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;RoleDefinition&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Built-in roles and permissions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<RoleDefinition>> executeWithHttpInfo() throws ApiException {
+            return listRolesWithHttpInfo();
+        }
+
+        /**
+         * Execute listRoles request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Built-in roles and permissions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<RoleDefinition>> _callback)
+                throws ApiException {
+            return listRolesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listSystemRoles
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List built-in roles
+     * Lists every built-in role across all partitions (system, content, …) and the permissions each role grants.
+     * @return APIlistRolesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System roles and their permissions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Built-in roles and permissions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listSystemRolesCall(final ApiCallback _callback) throws ApiException {
+    public APIlistRolesRequest listRoles() {
+        return new APIlistRolesRequest();
+    }
+
+    private okhttp3.Call listSystemRolesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -273,52 +291,103 @@ public class RolesApi {
         return listSystemRolesCall(_callback);
     }
 
-    /**
-     * List system roles
-     * Lists system-domain roles only. Permissions are &#x60;Permission&#x60; enum values — suited for client-side permission gating (button visibility, route guards). ABAC roles are excluded and must be consumed via the JWT &#x60;abac&#x60; claim at the data layer.
-     * @return List&lt;SystemRoleDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System roles and their permissions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<SystemRoleDefinition> listSystemRoles() throws ApiException {
-        ApiResponse<List<SystemRoleDefinition>> localVarResp = listSystemRolesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List system roles
-     * Lists system-domain roles only. Permissions are &#x60;Permission&#x60; enum values — suited for client-side permission gating (button visibility, route guards). ABAC roles are excluded and must be consumed via the JWT &#x60;abac&#x60; claim at the data layer.
-     * @return ApiResponse&lt;List&lt;SystemRoleDefinition&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System roles and their permissions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<SystemRoleDefinition>> listSystemRolesWithHttpInfo()
+    private ApiResponse<List<SystemRoleDefinition>> listSystemRolesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listSystemRolesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<SystemRoleDefinition>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call listSystemRolesAsync(
+            final ApiCallback<List<SystemRoleDefinition>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSystemRolesValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<SystemRoleDefinition>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistSystemRolesRequest {
+
+        private APIlistSystemRolesRequest() {}
+
+        /**
+         * Build call for listSystemRoles
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System roles and their permissions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSystemRolesCall(_callback);
+        }
+
+        /**
+         * Execute listSystemRoles request
+         * @return List&lt;SystemRoleDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System roles and their permissions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<SystemRoleDefinition> execute() throws ApiException {
+            ApiResponse<List<SystemRoleDefinition>> localVarResp = listSystemRolesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSystemRoles request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;SystemRoleDefinition&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System roles and their permissions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<SystemRoleDefinition>> executeWithHttpInfo() throws ApiException {
+            return listSystemRolesWithHttpInfo();
+        }
+
+        /**
+         * Execute listSystemRoles request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System roles and their permissions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<SystemRoleDefinition>> _callback)
+                throws ApiException {
+            return listSystemRolesAsync(_callback);
+        }
+    }
+
     /**
-     * List system roles (asynchronously)
+     * List system roles
      * Lists system-domain roles only. Permissions are &#x60;Permission&#x60; enum values — suited for client-side permission gating (button visibility, route guards). ABAC roles are excluded and must be consumed via the JWT &#x60;abac&#x60; claim at the data layer.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIlistSystemRolesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -328,12 +397,7 @@ public class RolesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listSystemRolesAsync(
-            final ApiCallback<List<SystemRoleDefinition>> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = listSystemRolesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<SystemRoleDefinition>>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    public APIlistSystemRolesRequest listSystemRoles() {
+        return new APIlistSystemRolesRequest();
     }
 }
