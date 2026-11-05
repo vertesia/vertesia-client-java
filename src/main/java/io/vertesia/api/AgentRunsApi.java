@@ -3564,7 +3564,7 @@ public class AgentRunsApi {
 
     /**
      * List agent runs
-     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order. Process runs are listed with an empty &#x60;process_state.node_history&#x60;; &#x60;process_state.node_history_ref.count&#x60; gives the number of entries, and &#x60;GET /agents/{agentRunId}/history&#x60; returns them.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param id Filter by agent run ID (optional)
      * @param status Filter by status (single or multiple) (optional)
      * @param interaction Filter by interaction ID or code (optional)
@@ -3642,7 +3642,7 @@ public class AgentRunsApi {
 
     /**
      * List agent runs
-     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order. Process runs are listed with an empty &#x60;process_state.node_history&#x60;; &#x60;process_state.node_history_ref.count&#x60; gives the number of entries, and &#x60;GET /agents/{agentRunId}/history&#x60; returns them.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param id Filter by agent run ID (optional)
      * @param status Filter by status (single or multiple) (optional)
      * @param interaction Filter by interaction ID or code (optional)
@@ -3722,7 +3722,7 @@ public class AgentRunsApi {
 
     /**
      * List agent runs (asynchronously)
-     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order. Process runs are listed with an empty &#x60;process_state.node_history&#x60;; &#x60;process_state.node_history_ref.count&#x60; gives the number of entries, and &#x60;GET /agents/{agentRunId}/history&#x60; returns them.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param id Filter by agent run ID (optional)
      * @param status Filter by status (single or multiple) (optional)
      * @param interaction Filter by interaction ID or code (optional)
