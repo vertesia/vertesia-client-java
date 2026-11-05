@@ -18,6 +18,8 @@ small hand-written facade with a committed OpenAPI-generated client.
   response helpers, and server configuration classes.
 - `spec/vertesia-openapi.json` and `spec/vertesia-openapi.yaml` are the tracked
   OpenAPI contract used by generation.
+- `templates/` holds generator template overrides, read through `templateDir`
+  in `openapi-generator-config.yaml`; see `templates/README.md`.
 - `scripts/regenerate.sh` runs OpenAPI Generator, applies post-generation
   compatibility and security patches, formats code, and runs tests.
 - `src/test/java/io/vertesia/` contains JUnit tests.
@@ -39,6 +41,8 @@ Normal hand-written changes may touch:
 - `pom.xml` for package metadata, dependencies, plugin settings, or release
   version updates
 - `openapi-generator-config.yaml` when changing generator configuration
+- `templates/` when changing generated code shape; keep each override a copy of
+  the pinned generator's template plus a marked block (see `templates/README.md`)
 - `scripts/`, especially generation compatibility and security patches
 - `.github/` workflow and repository automation files
 
@@ -93,7 +97,10 @@ mvn -B test
 `scripts/post_generate.sh` is the shared post-generation entry point for local
 regeneration and external automation. Add generated-code compatibility,
 security, annotation, or formatting steps there instead of duplicating patch
-commands in workflows.
+commands in workflows. When the change is to the shape of generated methods,
+prefer a marked block in a `templates/` override, where the generator already
+knows each parameter's type and requiredness, over a patch that parses
+generated Java.
 
 Generated changes should be staged only by the dedicated generation automation,
 using the expected generated paths and package metadata:
