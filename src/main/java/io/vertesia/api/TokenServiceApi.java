@@ -224,6 +224,48 @@ public class TokenServiceApi {
     }
 
     /**
+     * Build call for issueToken with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call issueTokenCall(final ApiCallback _callback) throws ApiException {
+        return issueTokenCall(null, _callback);
+    }
+
+    /**
+     * Issue a token
+     * Calls {@code issueToken} with every optional parameter left unset.
+     * @return IssueTokenResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public IssueTokenResponse issueToken() throws ApiException {
+        return issueToken(null);
+    }
+
+    /**
+     * Issue a token
+     * Calls {@code issueTokenWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<IssueTokenResponse> issueTokenWithHttpInfo() throws ApiException {
+        return issueTokenWithHttpInfo(null);
+    }
+
+    /**
+     * Issue a token (asynchronously)
+     * Calls {@code issueTokenAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call issueTokenAsync(final ApiCallback<IssueTokenResponse> _callback)
+            throws ApiException {
+        return issueTokenAsync(null, _callback);
+    }
+
+    /**
      * Build call for mintAppSessionToken
      * @param appSessionTokenRequest  (required)
      * @param _callback Callback for upload/download progress

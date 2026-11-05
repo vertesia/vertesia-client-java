@@ -1065,4 +1065,50 @@ public class AuditTrailApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    /**
+     * Build call for listAuditTrailEvents with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listAuditTrailEventsCall(final ApiCallback _callback) throws ApiException {
+        return listAuditTrailEventsCall(
+                null, null, null, null, null, null, null, null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List audit trail events
+     * Calls {@code listAuditTrailEvents} with every optional parameter left unset.
+     * @return AuditTrailResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AuditTrailResponse listAuditTrailEvents() throws ApiException {
+        return listAuditTrailEvents(
+                null, null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List audit trail events
+     * Calls {@code listAuditTrailEventsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AuditTrailResponse> listAuditTrailEventsWithHttpInfo() throws ApiException {
+        return listAuditTrailEventsWithHttpInfo(
+                null, null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List audit trail events (asynchronously)
+     * Calls {@code listAuditTrailEventsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listAuditTrailEventsAsync(final ApiCallback<AuditTrailResponse> _callback)
+            throws ApiException {
+        return listAuditTrailEventsAsync(
+                null, null, null, null, null, null, null, null, null, null, null, null, _callback);
+    }
 }

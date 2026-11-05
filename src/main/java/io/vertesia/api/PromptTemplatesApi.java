@@ -727,6 +727,56 @@ public class PromptTemplatesApi {
     }
 
     /**
+     * Build call for forkPrompt with every optional parameter left unset.
+     * @param ptId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call forkPromptCall(
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
+            throws ApiException {
+        return forkPromptCall(ptId, null, _callback);
+    }
+
+    /**
+     * Fork a prompt
+     * Calls {@code forkPrompt} with every optional parameter left unset.
+     * @param ptId  (required)
+     * @return PromptTemplate
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public PromptTemplate forkPrompt(@jakarta.annotation.Nonnull String ptId) throws ApiException {
+        return forkPrompt(ptId, null);
+    }
+
+    /**
+     * Fork a prompt
+     * Calls {@code forkPromptWithHttpInfo} with every optional parameter left unset.
+     * @param ptId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<PromptTemplate> forkPromptWithHttpInfo(
+            @jakarta.annotation.Nonnull String ptId) throws ApiException {
+        return forkPromptWithHttpInfo(ptId, null);
+    }
+
+    /**
+     * Fork a prompt (asynchronously)
+     * Calls {@code forkPromptAsync} with every optional parameter left unset.
+     * @param ptId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call forkPromptAsync(
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback<PromptTemplate> _callback)
+            throws ApiException {
+        return forkPromptAsync(ptId, null, _callback);
+    }
+
+    /**
      * Build call for getPrompt
      * @param ptId  (required)
      * @param _callback Callback for upload/download progress
@@ -1593,6 +1643,48 @@ public class PromptTemplatesApi {
         Type localVarReturnType = new TypeToken<List<PromptTemplateRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listPrompts with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listPromptsCall(final ApiCallback _callback) throws ApiException {
+        return listPromptsCall(null, null, null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List prompts
+     * Calls {@code listPrompts} with every optional parameter left unset.
+     * @return List&lt;PromptTemplateRef&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<PromptTemplateRef> listPrompts() throws ApiException {
+        return listPrompts(null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List prompts
+     * Calls {@code listPromptsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<PromptTemplateRef>> listPromptsWithHttpInfo() throws ApiException {
+        return listPromptsWithHttpInfo(null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List prompts (asynchronously)
+     * Calls {@code listPromptsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listPromptsAsync(final ApiCallback<List<PromptTemplateRef>> _callback)
+            throws ApiException {
+        return listPromptsAsync(null, null, null, null, null, null, null, _callback);
     }
 
     /**

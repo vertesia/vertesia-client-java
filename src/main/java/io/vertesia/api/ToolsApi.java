@@ -243,6 +243,58 @@ public class ToolsApi {
     }
 
     /**
+     * Build call for inspectProjectTool with every optional parameter left unset.
+     * @param toolName  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call inspectProjectToolCall(
+            @jakarta.annotation.Nonnull String toolName, final ApiCallback _callback)
+            throws ApiException {
+        return inspectProjectToolCall(toolName, null, _callback);
+    }
+
+    /**
+     * Inspect one project tool
+     * Calls {@code inspectProjectTool} with every optional parameter left unset.
+     * @param toolName  (required)
+     * @return ToolInspection
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ToolInspection inspectProjectTool(@jakarta.annotation.Nonnull String toolName)
+            throws ApiException {
+        return inspectProjectTool(toolName, null);
+    }
+
+    /**
+     * Inspect one project tool
+     * Calls {@code inspectProjectToolWithHttpInfo} with every optional parameter left unset.
+     * @param toolName  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ToolInspection> inspectProjectToolWithHttpInfo(
+            @jakarta.annotation.Nonnull String toolName) throws ApiException {
+        return inspectProjectToolWithHttpInfo(toolName, null);
+    }
+
+    /**
+     * Inspect one project tool (asynchronously)
+     * Calls {@code inspectProjectToolAsync} with every optional parameter left unset.
+     * @param toolName  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call inspectProjectToolAsync(
+            @jakarta.annotation.Nonnull String toolName,
+            final ApiCallback<ToolInspection> _callback)
+            throws ApiException {
+        return inspectProjectToolAsync(toolName, null, _callback);
+    }
+
+    /**
      * Build call for listAgentTools
      * @param context  (optional)
      * @param sources Include only these sources. (optional)
@@ -426,6 +478,48 @@ public class ToolsApi {
         Type localVarReturnType = new TypeToken<List<AggregatedTool>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listAgentTools with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listAgentToolsCall(final ApiCallback _callback) throws ApiException {
+        return listAgentToolsCall(null, null, null, _callback);
+    }
+
+    /**
+     * List all tools available in the project
+     * Calls {@code listAgentTools} with every optional parameter left unset.
+     * @return List&lt;AggregatedTool&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<AggregatedTool> listAgentTools() throws ApiException {
+        return listAgentTools(null, null, null);
+    }
+
+    /**
+     * List all tools available in the project
+     * Calls {@code listAgentToolsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<AggregatedTool>> listAgentToolsWithHttpInfo() throws ApiException {
+        return listAgentToolsWithHttpInfo(null, null, null);
+    }
+
+    /**
+     * List all tools available in the project (asynchronously)
+     * Calls {@code listAgentToolsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listAgentToolsAsync(final ApiCallback<List<AggregatedTool>> _callback)
+            throws ApiException {
+        return listAgentToolsAsync(null, null, null, _callback);
     }
 
     /**

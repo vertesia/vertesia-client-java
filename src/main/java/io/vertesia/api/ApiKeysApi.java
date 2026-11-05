@@ -844,6 +844,48 @@ public class ApiKeysApi {
     }
 
     /**
+     * Build call for listApiKeys with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listApiKeysCall(final ApiCallback _callback) throws ApiException {
+        return listApiKeysCall(null, _callback);
+    }
+
+    /**
+     * List API keys
+     * Calls {@code listApiKeys} with every optional parameter left unset.
+     * @return List&lt;ApiKey&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ApiKey> listApiKeys() throws ApiException {
+        return listApiKeys(null);
+    }
+
+    /**
+     * List API keys
+     * Calls {@code listApiKeysWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ApiKey>> listApiKeysWithHttpInfo() throws ApiException {
+        return listApiKeysWithHttpInfo(null);
+    }
+
+    /**
+     * List API keys (asynchronously)
+     * Calls {@code listApiKeysAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listApiKeysAsync(final ApiCallback<List<ApiKey>> _callback)
+            throws ApiException {
+        return listApiKeysAsync(null, _callback);
+    }
+
+    /**
      * Build call for updateApiKey
      * @param keyId  (required)
      * @param updateApiKeyPayload  (required)

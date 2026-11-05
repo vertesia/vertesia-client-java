@@ -888,6 +888,48 @@ public class ViewsApi {
     }
 
     /**
+     * Build call for listViews with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listViewsCall(final ApiCallback _callback) throws ApiException {
+        return listViewsCall(null, null, _callback);
+    }
+
+    /**
+     * List View Experiences
+     * Calls {@code listViews} with every optional parameter left unset.
+     * @return List&lt;ViewExperience&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ViewExperience> listViews() throws ApiException {
+        return listViews(null, null);
+    }
+
+    /**
+     * List View Experiences
+     * Calls {@code listViewsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ViewExperience>> listViewsWithHttpInfo() throws ApiException {
+        return listViewsWithHttpInfo(null, null);
+    }
+
+    /**
+     * List View Experiences (asynchronously)
+     * Calls {@code listViewsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listViewsAsync(final ApiCallback<List<ViewExperience>> _callback)
+            throws ApiException {
+        return listViewsAsync(null, null, _callback);
+    }
+
+    /**
      * Build call for previewView
      * @param previewViewExperienceRequest  (required)
      * @param _callback Callback for upload/download progress

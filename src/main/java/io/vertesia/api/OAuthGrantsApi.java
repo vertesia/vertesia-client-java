@@ -667,6 +667,51 @@ public class OAuthGrantsApi {
     }
 
     /**
+     * Build call for listOAuthGrants with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listOAuthGrantsCall(final ApiCallback _callback) throws ApiException {
+        return listOAuthGrantsCall(
+                null, null, null, null, null, null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List OAuth grants
+     * Calls {@code listOAuthGrants} with every optional parameter left unset.
+     * @return OAuthGrantListResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OAuthGrantListResponse listOAuthGrants() throws ApiException {
+        return listOAuthGrants(null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List OAuth grants
+     * Calls {@code listOAuthGrantsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OAuthGrantListResponse> listOAuthGrantsWithHttpInfo() throws ApiException {
+        return listOAuthGrantsWithHttpInfo(
+                null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List OAuth grants (asynchronously)
+     * Calls {@code listOAuthGrantsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listOAuthGrantsAsync(final ApiCallback<OAuthGrantListResponse> _callback)
+            throws ApiException {
+        return listOAuthGrantsAsync(
+                null, null, null, null, null, null, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for revokeOAuthGrant
      * @param grantId  (required)
      * @param includeConsent  (optional)
@@ -842,5 +887,57 @@ public class OAuthGrantsApi {
         Type localVarReturnType = new TypeToken<OAuthGrantRevokeResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for revokeOAuthGrant with every optional parameter left unset.
+     * @param grantId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call revokeOAuthGrantCall(
+            @jakarta.annotation.Nonnull String grantId, final ApiCallback _callback)
+            throws ApiException {
+        return revokeOAuthGrantCall(grantId, null, _callback);
+    }
+
+    /**
+     * Revoke an OAuth grant
+     * Calls {@code revokeOAuthGrant} with every optional parameter left unset.
+     * @param grantId  (required)
+     * @return OAuthGrantRevokeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public OAuthGrantRevokeResponse revokeOAuthGrant(@jakarta.annotation.Nonnull String grantId)
+            throws ApiException {
+        return revokeOAuthGrant(grantId, null);
+    }
+
+    /**
+     * Revoke an OAuth grant
+     * Calls {@code revokeOAuthGrantWithHttpInfo} with every optional parameter left unset.
+     * @param grantId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<OAuthGrantRevokeResponse> revokeOAuthGrantWithHttpInfo(
+            @jakarta.annotation.Nonnull String grantId) throws ApiException {
+        return revokeOAuthGrantWithHttpInfo(grantId, null);
+    }
+
+    /**
+     * Revoke an OAuth grant (asynchronously)
+     * Calls {@code revokeOAuthGrantAsync} with every optional parameter left unset.
+     * @param grantId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call revokeOAuthGrantAsync(
+            @jakarta.annotation.Nonnull String grantId,
+            final ApiCallback<OAuthGrantRevokeResponse> _callback)
+            throws ApiException {
+        return revokeOAuthGrantAsync(grantId, null, _callback);
     }
 }

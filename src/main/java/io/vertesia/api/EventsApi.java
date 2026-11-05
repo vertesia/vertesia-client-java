@@ -906,4 +906,50 @@ public class EventsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    /**
+     * Build call for streamEventDeliveries with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call streamEventDeliveriesCall(final ApiCallback _callback) throws ApiException {
+        return streamEventDeliveriesCall(
+                null, null, null, null, null, null, null, null, null, null, null, _callback);
+    }
+
+    /**
+     * Stream event deliveries
+     * Calls {@code streamEventDeliveries} with every optional parameter left unset.
+     * @return String
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public String streamEventDeliveries() throws ApiException {
+        return streamEventDeliveries(
+                null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * Stream event deliveries
+     * Calls {@code streamEventDeliveriesWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<String> streamEventDeliveriesWithHttpInfo() throws ApiException {
+        return streamEventDeliveriesWithHttpInfo(
+                null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * Stream event deliveries (asynchronously)
+     * Calls {@code streamEventDeliveriesAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call streamEventDeliveriesAsync(final ApiCallback<String> _callback)
+            throws ApiException {
+        return streamEventDeliveriesAsync(
+                null, null, null, null, null, null, null, null, null, null, null, _callback);
+    }
 }

@@ -285,6 +285,48 @@ public class CostsApi {
     }
 
     /**
+     * Build call for exportCostData with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call exportCostDataCall(final ApiCallback _callback) throws ApiException {
+        return exportCostDataCall(null, null, null, null, null, _callback);
+    }
+
+    /**
+     * Export cost data
+     * Calls {@code exportCostData} with every optional parameter left unset.
+     * @return String
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public String exportCostData() throws ApiException {
+        return exportCostData(null, null, null, null, null);
+    }
+
+    /**
+     * Export cost data
+     * Calls {@code exportCostDataWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<String> exportCostDataWithHttpInfo() throws ApiException {
+        return exportCostDataWithHttpInfo(null, null, null, null, null);
+    }
+
+    /**
+     * Export cost data (asynchronously)
+     * Calls {@code exportCostDataAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call exportCostDataAsync(final ApiCallback<String> _callback)
+            throws ApiException {
+        return exportCostDataAsync(null, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for getCostAnalytics
      * @param costAnalyticsQuery  (required)
      * @param _callback Callback for upload/download progress
@@ -616,6 +658,49 @@ public class CostsApi {
         Type localVarReturnType = new TypeToken<ModelPriceComparisonResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for getModelPrices with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getModelPricesCall(final ApiCallback _callback) throws ApiException {
+        return getModelPricesCall(null, null, _callback);
+    }
+
+    /**
+     * List model prices
+     * Calls {@code getModelPrices} with every optional parameter left unset.
+     * @return ModelPriceComparisonResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ModelPriceComparisonResponse getModelPrices() throws ApiException {
+        return getModelPrices(null, null);
+    }
+
+    /**
+     * List model prices
+     * Calls {@code getModelPricesWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ModelPriceComparisonResponse> getModelPricesWithHttpInfo()
+            throws ApiException {
+        return getModelPricesWithHttpInfo(null, null);
+    }
+
+    /**
+     * List model prices (asynchronously)
+     * Calls {@code getModelPricesAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getModelPricesAsync(
+            final ApiCallback<ModelPriceComparisonResponse> _callback) throws ApiException {
+        return getModelPricesAsync(null, null, _callback);
     }
 
     /**

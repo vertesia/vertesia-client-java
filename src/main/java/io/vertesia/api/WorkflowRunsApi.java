@@ -874,6 +874,67 @@ public class WorkflowRunsApi {
     }
 
     /**
+     * Build call for getWorkflowRun with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getWorkflowRunCall(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback _callback)
+            throws ApiException {
+        return getWorkflowRunCall(workflowId, runId, null, null, null, _callback);
+    }
+
+    /**
+     * Retrieve a workflow run
+     * Calls {@code getWorkflowRun} with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return WorkflowRunWithDetails
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkflowRunWithDetails getWorkflowRun(
+            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        return getWorkflowRun(workflowId, runId, null, null, null);
+    }
+
+    /**
+     * Retrieve a workflow run
+     * Calls {@code getWorkflowRunWithHttpInfo} with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkflowRunWithDetails> getWorkflowRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        return getWorkflowRunWithHttpInfo(workflowId, runId, null, null, null);
+    }
+
+    /**
+     * Retrieve a workflow run (asynchronously)
+     * Calls {@code getWorkflowRunAsync} with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getWorkflowRunAsync(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback<WorkflowRunWithDetails> _callback)
+            throws ApiException {
+        return getWorkflowRunAsync(workflowId, runId, null, null, null, _callback);
+    }
+
+    /**
      * Build call for getWorkflowRunUpdates
      * @param workflowId  (required)
      * @param runId  (required)
@@ -1066,6 +1127,67 @@ public class WorkflowRunsApi {
         Type localVarReturnType = new TypeToken<WorkflowRunUpdatesResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for getWorkflowRunUpdates with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getWorkflowRunUpdatesCall(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback _callback)
+            throws ApiException {
+        return getWorkflowRunUpdatesCall(workflowId, runId, null, _callback);
+    }
+
+    /**
+     * Get workflow run updates
+     * Calls {@code getWorkflowRunUpdates} with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return WorkflowRunUpdatesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkflowRunUpdatesResponse getWorkflowRunUpdates(
+            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        return getWorkflowRunUpdates(workflowId, runId, null);
+    }
+
+    /**
+     * Get workflow run updates
+     * Calls {@code getWorkflowRunUpdatesWithHttpInfo} with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkflowRunUpdatesResponse> getWorkflowRunUpdatesWithHttpInfo(
+            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        return getWorkflowRunUpdatesWithHttpInfo(workflowId, runId, null);
+    }
+
+    /**
+     * Get workflow run updates (asynchronously)
+     * Calls {@code getWorkflowRunUpdatesAsync} with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getWorkflowRunUpdatesAsync(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback<WorkflowRunUpdatesResponse> _callback)
+            throws ApiException {
+        return getWorkflowRunUpdatesAsync(workflowId, runId, null, _callback);
     }
 
     /**
@@ -2205,5 +2327,66 @@ public class WorkflowRunsApi {
         Type localVarReturnType = new TypeToken<String>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for streamWorkflowRunUpdates with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call streamWorkflowRunUpdatesCall(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback _callback)
+            throws ApiException {
+        return streamWorkflowRunUpdatesCall(workflowId, runId, null, null, _callback);
+    }
+
+    /**
+     * Stream workflow run updates
+     * Calls {@code streamWorkflowRunUpdates} with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return String
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public String streamWorkflowRunUpdates(
+            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        return streamWorkflowRunUpdates(workflowId, runId, null, null);
+    }
+
+    /**
+     * Stream workflow run updates
+     * Calls {@code streamWorkflowRunUpdatesWithHttpInfo} with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<String> streamWorkflowRunUpdatesWithHttpInfo(
+            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        return streamWorkflowRunUpdatesWithHttpInfo(workflowId, runId, null, null);
+    }
+
+    /**
+     * Stream workflow run updates (asynchronously)
+     * Calls {@code streamWorkflowRunUpdatesAsync} with every optional parameter left unset.
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call streamWorkflowRunUpdatesAsync(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback<String> _callback)
+            throws ApiException {
+        return streamWorkflowRunUpdatesAsync(workflowId, runId, null, null, _callback);
     }
 }

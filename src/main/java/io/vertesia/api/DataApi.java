@@ -833,6 +833,7 @@ public class DataApi {
     /**
      * Build call for createDataStoreDownloadUrl
      * @param storeId  (required)
+     * @param versionId The stored version or snapshot to download. Defaults to the current database. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -846,7 +847,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDataStoreDownloadUrlCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String versionId,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -875,6 +878,10 @@ public class DataApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (versionId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("version_id", versionId));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -906,7 +913,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createDataStoreDownloadUrlValidateBeforeCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String versionId,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -914,13 +923,14 @@ public class DataApi {
                     "Missing the required parameter 'storeId' when calling createDataStoreDownloadUrl(Async)");
         }
 
-        return createDataStoreDownloadUrlCall(storeId, _callback);
+        return createDataStoreDownloadUrlCall(storeId, versionId, _callback);
     }
 
     /**
      * Create a data store download URL
      * Creates a signed URL to download the current or a specific stored database version.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
+     * @param versionId The stored version or snapshot to download. Defaults to the current database. (optional)
      * @return DataStoreDownloadInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -933,9 +943,11 @@ public class DataApi {
      * </table>
      */
     public DataStoreDownloadInfo createDataStoreDownloadUrl(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String versionId)
+            throws ApiException {
         ApiResponse<DataStoreDownloadInfo> localVarResp =
-                createDataStoreDownloadUrlWithHttpInfo(storeId);
+                createDataStoreDownloadUrlWithHttpInfo(storeId, versionId);
         return localVarResp.getData();
     }
 
@@ -943,6 +955,7 @@ public class DataApi {
      * Create a data store download URL
      * Creates a signed URL to download the current or a specific stored database version.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
+     * @param versionId The stored version or snapshot to download. Defaults to the current database. (optional)
      * @return ApiResponse&lt;DataStoreDownloadInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -955,8 +968,11 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStoreDownloadInfo> createDataStoreDownloadUrlWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        okhttp3.Call localVarCall = createDataStoreDownloadUrlValidateBeforeCall(storeId, null);
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String versionId)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                createDataStoreDownloadUrlValidateBeforeCall(storeId, versionId, null);
         Type localVarReturnType = new TypeToken<DataStoreDownloadInfo>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -965,6 +981,7 @@ public class DataApi {
      * Create a data store download URL (asynchronously)
      * Creates a signed URL to download the current or a specific stored database version.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
+     * @param versionId The stored version or snapshot to download. Defaults to the current database. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -979,14 +996,67 @@ public class DataApi {
      */
     public okhttp3.Call createDataStoreDownloadUrlAsync(
             @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String versionId,
             final ApiCallback<DataStoreDownloadInfo> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                createDataStoreDownloadUrlValidateBeforeCall(storeId, _callback);
+                createDataStoreDownloadUrlValidateBeforeCall(storeId, versionId, _callback);
         Type localVarReturnType = new TypeToken<DataStoreDownloadInfo>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for createDataStoreDownloadUrl with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createDataStoreDownloadUrlCall(
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            throws ApiException {
+        return createDataStoreDownloadUrlCall(storeId, null, _callback);
+    }
+
+    /**
+     * Create a data store download URL
+     * Calls {@code createDataStoreDownloadUrl} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @return DataStoreDownloadInfo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DataStoreDownloadInfo createDataStoreDownloadUrl(
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
+        return createDataStoreDownloadUrl(storeId, null);
+    }
+
+    /**
+     * Create a data store download URL
+     * Calls {@code createDataStoreDownloadUrlWithHttpInfo} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DataStoreDownloadInfo> createDataStoreDownloadUrlWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
+        return createDataStoreDownloadUrlWithHttpInfo(storeId, null);
+    }
+
+    /**
+     * Create a data store download URL (asynchronously)
+     * Calls {@code createDataStoreDownloadUrlAsync} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createDataStoreDownloadUrlAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            final ApiCallback<DataStoreDownloadInfo> _callback)
+            throws ApiException {
+        return createDataStoreDownloadUrlAsync(storeId, null, _callback);
     }
 
     /**
@@ -3347,6 +3417,7 @@ public class DataApi {
     /**
      * Build call for getDataStoreSchema
      * @param storeId  (required)
+     * @param format &#x60;ai&#x60; returns a condensed schema for AI context. Defaults to &#x60;full&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3360,7 +3431,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDataStoreSchemaCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String format,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3389,6 +3462,10 @@ public class DataApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (format != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("format", format));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -3420,7 +3497,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDataStoreSchemaValidateBeforeCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String format,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -3428,13 +3507,14 @@ public class DataApi {
                     "Missing the required parameter 'storeId' when calling getDataStoreSchema(Async)");
         }
 
-        return getDataStoreSchemaCall(storeId, _callback);
+        return getDataStoreSchemaCall(storeId, format, _callback);
     }
 
     /**
      * Get data store schema
      * Returns the current schema for a data store, optionally in an AI-optimized format.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
+     * @param format &#x60;ai&#x60; returns a condensed schema for AI context. Defaults to &#x60;full&#x60;. (optional)
      * @return DataStoreSchemaResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3446,9 +3526,11 @@ public class DataApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DataStoreSchemaResponse getDataStoreSchema(@jakarta.annotation.Nonnull String storeId)
+    public DataStoreSchemaResponse getDataStoreSchema(
+            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nullable String format)
             throws ApiException {
-        ApiResponse<DataStoreSchemaResponse> localVarResp = getDataStoreSchemaWithHttpInfo(storeId);
+        ApiResponse<DataStoreSchemaResponse> localVarResp =
+                getDataStoreSchemaWithHttpInfo(storeId, format);
         return localVarResp.getData();
     }
 
@@ -3456,6 +3538,7 @@ public class DataApi {
      * Get data store schema
      * Returns the current schema for a data store, optionally in an AI-optimized format.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
+     * @param format &#x60;ai&#x60; returns a condensed schema for AI context. Defaults to &#x60;full&#x60;. (optional)
      * @return ApiResponse&lt;DataStoreSchemaResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3468,8 +3551,9 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStoreSchemaResponse> getDataStoreSchemaWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        okhttp3.Call localVarCall = getDataStoreSchemaValidateBeforeCall(storeId, null);
+            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nullable String format)
+            throws ApiException {
+        okhttp3.Call localVarCall = getDataStoreSchemaValidateBeforeCall(storeId, format, null);
         Type localVarReturnType = new TypeToken<DataStoreSchemaResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3478,6 +3562,7 @@ public class DataApi {
      * Get data store schema (asynchronously)
      * Returns the current schema for a data store, optionally in an AI-optimized format.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
+     * @param format &#x60;ai&#x60; returns a condensed schema for AI context. Defaults to &#x60;full&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3492,13 +3577,67 @@ public class DataApi {
      */
     public okhttp3.Call getDataStoreSchemaAsync(
             @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String format,
             final ApiCallback<DataStoreSchemaResponse> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getDataStoreSchemaValidateBeforeCall(storeId, _callback);
+        okhttp3.Call localVarCall =
+                getDataStoreSchemaValidateBeforeCall(storeId, format, _callback);
         Type localVarReturnType = new TypeToken<DataStoreSchemaResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for getDataStoreSchema with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getDataStoreSchemaCall(
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            throws ApiException {
+        return getDataStoreSchemaCall(storeId, null, _callback);
+    }
+
+    /**
+     * Get data store schema
+     * Calls {@code getDataStoreSchema} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @return DataStoreSchemaResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DataStoreSchemaResponse getDataStoreSchema(@jakarta.annotation.Nonnull String storeId)
+            throws ApiException {
+        return getDataStoreSchema(storeId, null);
+    }
+
+    /**
+     * Get data store schema
+     * Calls {@code getDataStoreSchemaWithHttpInfo} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DataStoreSchemaResponse> getDataStoreSchemaWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
+        return getDataStoreSchemaWithHttpInfo(storeId, null);
+    }
+
+    /**
+     * Get data store schema (asynchronously)
+     * Calls {@code getDataStoreSchemaAsync} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getDataStoreSchemaAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            final ApiCallback<DataStoreSchemaResponse> _callback)
+            throws ApiException {
+        return getDataStoreSchemaAsync(storeId, null, _callback);
     }
 
     /**
@@ -3697,6 +3836,69 @@ public class DataApi {
     }
 
     /**
+     * Build call for getDataStoreTable with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param tableName  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getDataStoreTableCall(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            final ApiCallback _callback)
+            throws ApiException {
+        return getDataStoreTableCall(storeId, tableName, null, _callback);
+    }
+
+    /**
+     * Get data store table
+     * Calls {@code getDataStoreTable} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param tableName  (required)
+     * @return DataStoreTableDetail
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DataStoreTableDetail getDataStoreTable(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName)
+            throws ApiException {
+        return getDataStoreTable(storeId, tableName, null);
+    }
+
+    /**
+     * Get data store table
+     * Calls {@code getDataStoreTableWithHttpInfo} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param tableName  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DataStoreTableDetail> getDataStoreTableWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName)
+            throws ApiException {
+        return getDataStoreTableWithHttpInfo(storeId, tableName, null);
+    }
+
+    /**
+     * Get data store table (asynchronously)
+     * Calls {@code getDataStoreTableAsync} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param tableName  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getDataStoreTableAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            final ApiCallback<DataStoreTableDetail> _callback)
+            throws ApiException {
+        return getDataStoreTableAsync(storeId, tableName, null, _callback);
+    }
+
+    /**
      * Build call for importDataStoreData
      * @param storeId  (required)
      * @param importDataPayload  (required)
@@ -3891,6 +4093,8 @@ public class DataApi {
      * Build call for listDashboardVersions
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
+     * @param snapshotsOnly Only list named snapshots. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3906,6 +4110,8 @@ public class DataApi {
     public okhttp3.Call listDashboardVersionsCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable Boolean snapshotsOnly,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3939,6 +4145,15 @@ public class DataApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (snapshotsOnly != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("snapshots_only", snapshotsOnly));
+        }
+
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3971,6 +4186,8 @@ public class DataApi {
     private okhttp3.Call listDashboardVersionsValidateBeforeCall(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable Boolean snapshotsOnly,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -3985,7 +4202,7 @@ public class DataApi {
                     "Missing the required parameter 'dashboardId' when calling listDashboardVersions(Async)");
         }
 
-        return listDashboardVersionsCall(storeId, dashboardId, _callback);
+        return listDashboardVersionsCall(storeId, dashboardId, limit, snapshotsOnly, _callback);
     }
 
     /**
@@ -3993,6 +4210,8 @@ public class DataApi {
      * Lists versions and snapshots for a dashboard.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
+     * @param snapshotsOnly Only list named snapshots. (optional)
      * @return List&lt;DashboardVersionItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4006,10 +4225,12 @@ public class DataApi {
      */
     public List<DashboardVersionItem> listDashboardVersions(
             @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId)
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable Boolean snapshotsOnly)
             throws ApiException {
         ApiResponse<List<DashboardVersionItem>> localVarResp =
-                listDashboardVersionsWithHttpInfo(storeId, dashboardId);
+                listDashboardVersionsWithHttpInfo(storeId, dashboardId, limit, snapshotsOnly);
         return localVarResp.getData();
     }
 
@@ -4018,6 +4239,8 @@ public class DataApi {
      * Lists versions and snapshots for a dashboard.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
+     * @param snapshotsOnly Only list named snapshots. (optional)
      * @return ApiResponse&lt;List&lt;DashboardVersionItem&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4031,10 +4254,13 @@ public class DataApi {
      */
     public ApiResponse<List<DashboardVersionItem>> listDashboardVersionsWithHttpInfo(
             @jakarta.annotation.Nonnull String storeId,
-            @jakarta.annotation.Nonnull String dashboardId)
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable Boolean snapshotsOnly)
             throws ApiException {
         okhttp3.Call localVarCall =
-                listDashboardVersionsValidateBeforeCall(storeId, dashboardId, null);
+                listDashboardVersionsValidateBeforeCall(
+                        storeId, dashboardId, limit, snapshotsOnly, null);
         Type localVarReturnType = new TypeToken<List<DashboardVersionItem>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4044,6 +4270,8 @@ public class DataApi {
      * Lists versions and snapshots for a dashboard.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
+     * @param snapshotsOnly Only list named snapshots. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4059,19 +4287,86 @@ public class DataApi {
     public okhttp3.Call listDashboardVersionsAsync(
             @jakarta.annotation.Nonnull String storeId,
             @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable Boolean snapshotsOnly,
             final ApiCallback<List<DashboardVersionItem>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                listDashboardVersionsValidateBeforeCall(storeId, dashboardId, _callback);
+                listDashboardVersionsValidateBeforeCall(
+                        storeId, dashboardId, limit, snapshotsOnly, _callback);
         Type localVarReturnType = new TypeToken<List<DashboardVersionItem>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     /**
+     * Build call for listDashboardVersions with every optional parameter left unset.
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listDashboardVersionsCall(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            final ApiCallback _callback)
+            throws ApiException {
+        return listDashboardVersionsCall(storeId, dashboardId, null, null, _callback);
+    }
+
+    /**
+     * List dashboard versions
+     * Calls {@code listDashboardVersions} with every optional parameter left unset.
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @return List&lt;DashboardVersionItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<DashboardVersionItem> listDashboardVersions(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId)
+            throws ApiException {
+        return listDashboardVersions(storeId, dashboardId, null, null);
+    }
+
+    /**
+     * List dashboard versions
+     * Calls {@code listDashboardVersionsWithHttpInfo} with every optional parameter left unset.
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<DashboardVersionItem>> listDashboardVersionsWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId)
+            throws ApiException {
+        return listDashboardVersionsWithHttpInfo(storeId, dashboardId, null, null);
+    }
+
+    /**
+     * List dashboard versions (asynchronously)
+     * Calls {@code listDashboardVersionsAsync} with every optional parameter left unset.
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listDashboardVersionsAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            final ApiCallback<List<DashboardVersionItem>> _callback)
+            throws ApiException {
+        return listDashboardVersionsAsync(storeId, dashboardId, null, null, _callback);
+    }
+
+    /**
      * Build call for listDashboards
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param status Only list dashboards with this status. Defaults to &#x60;active&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4085,7 +4380,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDashboardsCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String status,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4114,6 +4411,10 @@ public class DataApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -4145,7 +4446,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDashboardsValidateBeforeCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String status,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -4153,13 +4456,14 @@ public class DataApi {
                     "Missing the required parameter 'storeId' when calling listDashboards(Async)");
         }
 
-        return listDashboardsCall(storeId, _callback);
+        return listDashboardsCall(storeId, status, _callback);
     }
 
     /**
      * List dashboards
      * Lists dashboards for a data store, optionally filtered by dashboard status.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param status Only list dashboards with this status. Defaults to &#x60;active&#x60;. (optional)
      * @return List&lt;DashboardItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4171,9 +4475,10 @@ public class DataApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<DashboardItem> listDashboards(@jakarta.annotation.Nonnull String storeId)
+    public List<DashboardItem> listDashboards(
+            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nullable String status)
             throws ApiException {
-        ApiResponse<List<DashboardItem>> localVarResp = listDashboardsWithHttpInfo(storeId);
+        ApiResponse<List<DashboardItem>> localVarResp = listDashboardsWithHttpInfo(storeId, status);
         return localVarResp.getData();
     }
 
@@ -4181,6 +4486,7 @@ public class DataApi {
      * List dashboards
      * Lists dashboards for a data store, optionally filtered by dashboard status.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param status Only list dashboards with this status. Defaults to &#x60;active&#x60;. (optional)
      * @return ApiResponse&lt;List&lt;DashboardItem&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4193,8 +4499,9 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<List<DashboardItem>> listDashboardsWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        okhttp3.Call localVarCall = listDashboardsValidateBeforeCall(storeId, null);
+            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nullable String status)
+            throws ApiException {
+        okhttp3.Call localVarCall = listDashboardsValidateBeforeCall(storeId, status, null);
         Type localVarReturnType = new TypeToken<List<DashboardItem>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4203,6 +4510,7 @@ public class DataApi {
      * List dashboards (asynchronously)
      * Lists dashboards for a data store, optionally filtered by dashboard status.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param status Only list dashboards with this status. Defaults to &#x60;active&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4217,18 +4525,72 @@ public class DataApi {
      */
     public okhttp3.Call listDashboardsAsync(
             @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable String status,
             final ApiCallback<List<DashboardItem>> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = listDashboardsValidateBeforeCall(storeId, _callback);
+        okhttp3.Call localVarCall = listDashboardsValidateBeforeCall(storeId, status, _callback);
         Type localVarReturnType = new TypeToken<List<DashboardItem>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     /**
+     * Build call for listDashboards with every optional parameter left unset.
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listDashboardsCall(
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            throws ApiException {
+        return listDashboardsCall(storeId, null, _callback);
+    }
+
+    /**
+     * List dashboards
+     * Calls {@code listDashboards} with every optional parameter left unset.
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @return List&lt;DashboardItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<DashboardItem> listDashboards(@jakarta.annotation.Nonnull String storeId)
+            throws ApiException {
+        return listDashboards(storeId, null);
+    }
+
+    /**
+     * List dashboards
+     * Calls {@code listDashboardsWithHttpInfo} with every optional parameter left unset.
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<DashboardItem>> listDashboardsWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
+        return listDashboardsWithHttpInfo(storeId, null);
+    }
+
+    /**
+     * List dashboards (asynchronously)
+     * Calls {@code listDashboardsAsync} with every optional parameter left unset.
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listDashboardsAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            final ApiCallback<List<DashboardItem>> _callback)
+            throws ApiException {
+        return listDashboardsAsync(storeId, null, _callback);
+    }
+
+    /**
      * Build call for listDataStoreSchemaHistory
      * @param storeId  (required)
+     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4242,7 +4604,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDataStoreSchemaHistoryCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4271,6 +4635,10 @@ public class DataApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -4302,7 +4670,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDataStoreSchemaHistoryValidateBeforeCall(
-            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -4310,13 +4680,14 @@ public class DataApi {
                     "Missing the required parameter 'storeId' when calling listDataStoreSchemaHistory(Async)");
         }
 
-        return listDataStoreSchemaHistoryCall(storeId, _callback);
+        return listDataStoreSchemaHistoryCall(storeId, limit, _callback);
     }
 
     /**
      * List data store schema history
      * Lists historical schema versions for a data store.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
+     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
      * @return List&lt;DataStoreVersion&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4329,9 +4700,11 @@ public class DataApi {
      * </table>
      */
     public List<DataStoreVersion> listDataStoreSchemaHistory(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable BigDecimal limit)
+            throws ApiException {
         ApiResponse<List<DataStoreVersion>> localVarResp =
-                listDataStoreSchemaHistoryWithHttpInfo(storeId);
+                listDataStoreSchemaHistoryWithHttpInfo(storeId, limit);
         return localVarResp.getData();
     }
 
@@ -4339,6 +4712,7 @@ public class DataApi {
      * List data store schema history
      * Lists historical schema versions for a data store.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
+     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
      * @return ApiResponse&lt;List&lt;DataStoreVersion&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4351,8 +4725,11 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<List<DataStoreVersion>> listDataStoreSchemaHistoryWithHttpInfo(
-            @jakarta.annotation.Nonnull String storeId) throws ApiException {
-        okhttp3.Call localVarCall = listDataStoreSchemaHistoryValidateBeforeCall(storeId, null);
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable BigDecimal limit)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listDataStoreSchemaHistoryValidateBeforeCall(storeId, limit, null);
         Type localVarReturnType = new TypeToken<List<DataStoreVersion>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4361,6 +4738,7 @@ public class DataApi {
      * List data store schema history (asynchronously)
      * Lists historical schema versions for a data store.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
+     * @param limit Maximum number of versions to return. Defaults to 50. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4375,14 +4753,67 @@ public class DataApi {
      */
     public okhttp3.Call listDataStoreSchemaHistoryAsync(
             @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable BigDecimal limit,
             final ApiCallback<List<DataStoreVersion>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                listDataStoreSchemaHistoryValidateBeforeCall(storeId, _callback);
+                listDataStoreSchemaHistoryValidateBeforeCall(storeId, limit, _callback);
         Type localVarReturnType = new TypeToken<List<DataStoreVersion>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listDataStoreSchemaHistory with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listDataStoreSchemaHistoryCall(
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            throws ApiException {
+        return listDataStoreSchemaHistoryCall(storeId, null, _callback);
+    }
+
+    /**
+     * List data store schema history
+     * Calls {@code listDataStoreSchemaHistory} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @return List&lt;DataStoreVersion&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<DataStoreVersion> listDataStoreSchemaHistory(
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
+        return listDataStoreSchemaHistory(storeId, null);
+    }
+
+    /**
+     * List data store schema history
+     * Calls {@code listDataStoreSchemaHistoryWithHttpInfo} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<DataStoreVersion>> listDataStoreSchemaHistoryWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
+        return listDataStoreSchemaHistoryWithHttpInfo(storeId, null);
+    }
+
+    /**
+     * List data store schema history (asynchronously)
+     * Calls {@code listDataStoreSchemaHistoryAsync} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listDataStoreSchemaHistoryAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            final ApiCallback<List<DataStoreVersion>> _callback)
+            throws ApiException {
+        return listDataStoreSchemaHistoryAsync(storeId, null, _callback);
     }
 
     /**
@@ -4731,6 +5162,58 @@ public class DataApi {
         Type localVarReturnType = new TypeToken<List<DataStoreVersion>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listDataStoreVersions with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listDataStoreVersionsCall(
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
+            throws ApiException {
+        return listDataStoreVersionsCall(storeId, null, null, _callback);
+    }
+
+    /**
+     * List data store versions
+     * Calls {@code listDataStoreVersions} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @return List&lt;DataStoreVersion&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<DataStoreVersion> listDataStoreVersions(@jakarta.annotation.Nonnull String storeId)
+            throws ApiException {
+        return listDataStoreVersions(storeId, null, null);
+    }
+
+    /**
+     * List data store versions
+     * Calls {@code listDataStoreVersionsWithHttpInfo} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<DataStoreVersion>> listDataStoreVersionsWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
+        return listDataStoreVersionsWithHttpInfo(storeId, null, null);
+    }
+
+    /**
+     * List data store versions (asynchronously)
+     * Calls {@code listDataStoreVersionsAsync} with every optional parameter left unset.
+     * @param storeId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listDataStoreVersionsAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            final ApiCallback<List<DataStoreVersion>> _callback)
+            throws ApiException {
+        return listDataStoreVersionsAsync(storeId, null, null, _callback);
     }
 
     /**

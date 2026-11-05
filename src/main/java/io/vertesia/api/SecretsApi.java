@@ -243,6 +243,61 @@ public class SecretsApi {
     }
 
     /**
+     * Build call for createSecret with every optional parameter left unset.
+     * @param createSecretRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createSecretCall(
+            @jakarta.annotation.Nonnull CreateSecretRequest createSecretRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        return createSecretCall(createSecretRequest, null, _callback);
+    }
+
+    /**
+     * Create secret
+     * Calls {@code createSecret} with every optional parameter left unset.
+     * @param createSecretRequest  (required)
+     * @return SecretRecord
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SecretRecord createSecret(
+            @jakarta.annotation.Nonnull CreateSecretRequest createSecretRequest)
+            throws ApiException {
+        return createSecret(createSecretRequest, null);
+    }
+
+    /**
+     * Create secret
+     * Calls {@code createSecretWithHttpInfo} with every optional parameter left unset.
+     * @param createSecretRequest  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SecretRecord> createSecretWithHttpInfo(
+            @jakarta.annotation.Nonnull CreateSecretRequest createSecretRequest)
+            throws ApiException {
+        return createSecretWithHttpInfo(createSecretRequest, null);
+    }
+
+    /**
+     * Create secret (asynchronously)
+     * Calls {@code createSecretAsync} with every optional parameter left unset.
+     * @param createSecretRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createSecretAsync(
+            @jakarta.annotation.Nonnull CreateSecretRequest createSecretRequest,
+            final ApiCallback<SecretRecord> _callback)
+            throws ApiException {
+        return createSecretAsync(createSecretRequest, null, _callback);
+    }
+
+    /**
      * Build call for deleteSecret
      * @param secretId  (required)
      * @param projectId Project scope for top-level secret APIs. Must match the authenticated project context. (optional)
@@ -429,6 +484,58 @@ public class SecretsApi {
         Type localVarReturnType = new TypeToken<DeleteSecretResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for deleteSecret with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call deleteSecretCall(
+            @jakarta.annotation.Nonnull String secretId, final ApiCallback _callback)
+            throws ApiException {
+        return deleteSecretCall(secretId, null, null, _callback);
+    }
+
+    /**
+     * Delete secret
+     * Calls {@code deleteSecret} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @return DeleteSecretResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteSecretResponse deleteSecret(@jakarta.annotation.Nonnull String secretId)
+            throws ApiException {
+        return deleteSecret(secretId, null, null);
+    }
+
+    /**
+     * Delete secret
+     * Calls {@code deleteSecretWithHttpInfo} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteSecretResponse> deleteSecretWithHttpInfo(
+            @jakarta.annotation.Nonnull String secretId) throws ApiException {
+        return deleteSecretWithHttpInfo(secretId, null, null);
+    }
+
+    /**
+     * Delete secret (asynchronously)
+     * Calls {@code deleteSecretAsync} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call deleteSecretAsync(
+            @jakarta.annotation.Nonnull String secretId,
+            final ApiCallback<DeleteSecretResponse> _callback)
+            throws ApiException {
+        return deleteSecretAsync(secretId, null, null, _callback);
     }
 
     /**
@@ -628,6 +735,69 @@ public class SecretsApi {
     }
 
     /**
+     * Build call for fillWebsiteCredential with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param websiteCredentialFillRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call fillWebsiteCredentialCall(
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        return fillWebsiteCredentialCall(secretId, websiteCredentialFillRequest, null, _callback);
+    }
+
+    /**
+     * Fill website credential into a browser-use sandbox
+     * Calls {@code fillWebsiteCredential} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param websiteCredentialFillRequest  (required)
+     * @return WebsiteCredentialFillResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WebsiteCredentialFillResponse fillWebsiteCredential(
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest)
+            throws ApiException {
+        return fillWebsiteCredential(secretId, websiteCredentialFillRequest, null);
+    }
+
+    /**
+     * Fill website credential into a browser-use sandbox
+     * Calls {@code fillWebsiteCredentialWithHttpInfo} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param websiteCredentialFillRequest  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WebsiteCredentialFillResponse> fillWebsiteCredentialWithHttpInfo(
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest)
+            throws ApiException {
+        return fillWebsiteCredentialWithHttpInfo(secretId, websiteCredentialFillRequest, null);
+    }
+
+    /**
+     * Fill website credential into a browser-use sandbox (asynchronously)
+     * Calls {@code fillWebsiteCredentialAsync} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param websiteCredentialFillRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call fillWebsiteCredentialAsync(
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
+            final ApiCallback<WebsiteCredentialFillResponse> _callback)
+            throws ApiException {
+        return fillWebsiteCredentialAsync(secretId, websiteCredentialFillRequest, null, _callback);
+    }
+
+    /**
      * Build call for getSecret
      * @param secretId  (required)
      * @param projectId Project scope for top-level secret APIs. Must match the authenticated project context. (optional)
@@ -813,6 +983,56 @@ public class SecretsApi {
         Type localVarReturnType = new TypeToken<SecretRecord>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for getSecret with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getSecretCall(
+            @jakarta.annotation.Nonnull String secretId, final ApiCallback _callback)
+            throws ApiException {
+        return getSecretCall(secretId, null, null, _callback);
+    }
+
+    /**
+     * Retrieve secret metadata
+     * Calls {@code getSecret} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @return SecretRecord
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SecretRecord getSecret(@jakarta.annotation.Nonnull String secretId) throws ApiException {
+        return getSecret(secretId, null, null);
+    }
+
+    /**
+     * Retrieve secret metadata
+     * Calls {@code getSecretWithHttpInfo} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SecretRecord> getSecretWithHttpInfo(
+            @jakarta.annotation.Nonnull String secretId) throws ApiException {
+        return getSecretWithHttpInfo(secretId, null, null);
+    }
+
+    /**
+     * Retrieve secret metadata (asynchronously)
+     * Calls {@code getSecretAsync} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getSecretAsync(
+            @jakarta.annotation.Nonnull String secretId, final ApiCallback<SecretRecord> _callback)
+            throws ApiException {
+        return getSecretAsync(secretId, null, null, _callback);
     }
 
     /**
@@ -1010,6 +1230,48 @@ public class SecretsApi {
         Type localVarReturnType = new TypeToken<ListSecretsResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listSecrets with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listSecretsCall(final ApiCallback _callback) throws ApiException {
+        return listSecretsCall(null, null, null, null, _callback);
+    }
+
+    /**
+     * List secrets
+     * Calls {@code listSecrets} with every optional parameter left unset.
+     * @return ListSecretsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListSecretsResponse listSecrets() throws ApiException {
+        return listSecrets(null, null, null, null);
+    }
+
+    /**
+     * List secrets
+     * Calls {@code listSecretsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListSecretsResponse> listSecretsWithHttpInfo() throws ApiException {
+        return listSecretsWithHttpInfo(null, null, null, null);
+    }
+
+    /**
+     * List secrets (asynchronously)
+     * Calls {@code listSecretsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listSecretsAsync(final ApiCallback<ListSecretsResponse> _callback)
+            throws ApiException {
+        return listSecretsAsync(null, null, null, null, _callback);
     }
 
     /**
@@ -1217,5 +1479,68 @@ public class SecretsApi {
         Type localVarReturnType = new TypeToken<SecretRecord>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for updateSecret with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param updateSecretRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateSecretCall(
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        return updateSecretCall(secretId, updateSecretRequest, null, null, _callback);
+    }
+
+    /**
+     * Update secret
+     * Calls {@code updateSecret} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param updateSecretRequest  (required)
+     * @return SecretRecord
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SecretRecord updateSecret(
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull UpdateSecretRequest updateSecretRequest)
+            throws ApiException {
+        return updateSecret(secretId, updateSecretRequest, null, null);
+    }
+
+    /**
+     * Update secret
+     * Calls {@code updateSecretWithHttpInfo} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param updateSecretRequest  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SecretRecord> updateSecretWithHttpInfo(
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull UpdateSecretRequest updateSecretRequest)
+            throws ApiException {
+        return updateSecretWithHttpInfo(secretId, updateSecretRequest, null, null);
+    }
+
+    /**
+     * Update secret (asynchronously)
+     * Calls {@code updateSecretAsync} with every optional parameter left unset.
+     * @param secretId  (required)
+     * @param updateSecretRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateSecretAsync(
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
+            final ApiCallback<SecretRecord> _callback)
+            throws ApiException {
+        return updateSecretAsync(secretId, updateSecretRequest, null, null, _callback);
     }
 }

@@ -72,6 +72,7 @@ import io.vertesia.model.ValidateUrlRequest;
 import io.vertesia.model.ValidateUrlResponse;
 import java.io.File;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -957,6 +958,7 @@ public class AppsApi {
     /**
      * Build call for deleteApp
      * @param id  (required)
+     * @param confirm Set to true to delete the app. When omitted or false this is a dry run: nothing is removed, and the response describes what the cascade would remove. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -970,7 +972,9 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call deleteAppCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable Boolean confirm,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -997,6 +1001,10 @@ public class AppsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (confirm != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("confirm", confirm));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1028,7 +1036,9 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteAppValidateBeforeCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable Boolean confirm,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1036,13 +1046,14 @@ public class AppsApi {
                     "Missing the required parameter 'id' when calling deleteApp(Async)");
         }
 
-        return deleteAppCall(id, _callback);
+        return deleteAppCall(id, confirm, _callback);
     }
 
     /**
      * Delete an app
      * Cascade-deletes an app manifest and everything provisioned from it. Without &#x60;?confirm&#x3D;true&#x60; nothing is removed and the same shape comes back as a dry-run preview.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
+     * @param confirm Set to true to delete the app. When omitted or false this is a dry run: nothing is removed, and the response describes what the cascade would remove. (optional)
      * @return AppDeleteSummary
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1054,8 +1065,10 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AppDeleteSummary deleteApp(@jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<AppDeleteSummary> localVarResp = deleteAppWithHttpInfo(id);
+    public AppDeleteSummary deleteApp(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable Boolean confirm)
+            throws ApiException {
+        ApiResponse<AppDeleteSummary> localVarResp = deleteAppWithHttpInfo(id, confirm);
         return localVarResp.getData();
     }
 
@@ -1063,6 +1076,7 @@ public class AppsApi {
      * Delete an app
      * Cascade-deletes an app manifest and everything provisioned from it. Without &#x60;?confirm&#x3D;true&#x60; nothing is removed and the same shape comes back as a dry-run preview.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
+     * @param confirm Set to true to delete the app. When omitted or false this is a dry run: nothing is removed, and the response describes what the cascade would remove. (optional)
      * @return ApiResponse&lt;AppDeleteSummary&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1075,8 +1089,9 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppDeleteSummary> deleteAppWithHttpInfo(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        okhttp3.Call localVarCall = deleteAppValidateBeforeCall(id, null);
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable Boolean confirm)
+            throws ApiException {
+        okhttp3.Call localVarCall = deleteAppValidateBeforeCall(id, confirm, null);
         Type localVarReturnType = new TypeToken<AppDeleteSummary>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1085,6 +1100,7 @@ public class AppsApi {
      * Delete an app (asynchronously)
      * Cascade-deletes an app manifest and everything provisioned from it. Without &#x60;?confirm&#x3D;true&#x60; nothing is removed and the same shape comes back as a dry-run preview.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
+     * @param confirm Set to true to delete the app. When omitted or false this is a dry run: nothing is removed, and the response describes what the cascade would remove. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1098,13 +1114,65 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call deleteAppAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<AppDeleteSummary> _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable Boolean confirm,
+            final ApiCallback<AppDeleteSummary> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = deleteAppValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = deleteAppValidateBeforeCall(id, confirm, _callback);
         Type localVarReturnType = new TypeToken<AppDeleteSummary>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for deleteApp with every optional parameter left unset.
+     * @param id  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call deleteAppCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        return deleteAppCall(id, null, _callback);
+    }
+
+    /**
+     * Delete an app
+     * Calls {@code deleteApp} with every optional parameter left unset.
+     * @param id  (required)
+     * @return AppDeleteSummary
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AppDeleteSummary deleteApp(@jakarta.annotation.Nonnull String id) throws ApiException {
+        return deleteApp(id, null);
+    }
+
+    /**
+     * Delete an app
+     * Calls {@code deleteAppWithHttpInfo} with every optional parameter left unset.
+     * @param id  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AppDeleteSummary> deleteAppWithHttpInfo(
+            @jakarta.annotation.Nonnull String id) throws ApiException {
+        return deleteAppWithHttpInfo(id, null);
+    }
+
+    /**
+     * Delete an app (asynchronously)
+     * Calls {@code deleteAppAsync} with every optional parameter left unset.
+     * @param id  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call deleteAppAsync(
+            @jakarta.annotation.Nonnull String id, final ApiCallback<AppDeleteSummary> _callback)
+            throws ApiException {
+        return deleteAppAsync(id, null, _callback);
     }
 
     /**
@@ -3027,6 +3095,57 @@ public class AppsApi {
     }
 
     /**
+     * Build call for getAppInstallationPackage with every optional parameter left unset.
+     * @param installId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getAppInstallationPackageCall(
+            @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
+            throws ApiException {
+        return getAppInstallationPackageCall(installId, null, _callback);
+    }
+
+    /**
+     * Get an app installation package
+     * Calls {@code getAppInstallationPackage} with every optional parameter left unset.
+     * @param installId  (required)
+     * @return AppPackage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AppPackage getAppInstallationPackage(@jakarta.annotation.Nonnull String installId)
+            throws ApiException {
+        return getAppInstallationPackage(installId, null);
+    }
+
+    /**
+     * Get an app installation package
+     * Calls {@code getAppInstallationPackageWithHttpInfo} with every optional parameter left unset.
+     * @param installId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AppPackage> getAppInstallationPackageWithHttpInfo(
+            @jakarta.annotation.Nonnull String installId) throws ApiException {
+        return getAppInstallationPackageWithHttpInfo(installId, null);
+    }
+
+    /**
+     * Get an app installation package (asynchronously)
+     * Calls {@code getAppInstallationPackageAsync} with every optional parameter left unset.
+     * @param installId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getAppInstallationPackageAsync(
+            @jakarta.annotation.Nonnull String installId, final ApiCallback<AppPackage> _callback)
+            throws ApiException {
+        return getAppInstallationPackageAsync(installId, null, _callback);
+    }
+
+    /**
      * Build call for getAppInstanceAvailability
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3510,8 +3629,62 @@ public class AppsApi {
     }
 
     /**
+     * Build call for getAppPackage with every optional parameter left unset.
+     * @param id  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getAppPackageCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        return getAppPackageCall(id, null, null, _callback);
+    }
+
+    /**
+     * Get an app package by scope
+     * Calls {@code getAppPackage} with every optional parameter left unset.
+     * @param id  (required)
+     * @return AppPackage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AppPackage getAppPackage(@jakarta.annotation.Nonnull String id) throws ApiException {
+        return getAppPackage(id, null, null);
+    }
+
+    /**
+     * Get an app package by scope
+     * Calls {@code getAppPackageWithHttpInfo} with every optional parameter left unset.
+     * @param id  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AppPackage> getAppPackageWithHttpInfo(@jakarta.annotation.Nonnull String id)
+            throws ApiException {
+        return getAppPackageWithHttpInfo(id, null, null);
+    }
+
+    /**
+     * Get an app package by scope (asynchronously)
+     * Calls {@code getAppPackageAsync} with every optional parameter left unset.
+     * @param id  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getAppPackageAsync(
+            @jakarta.annotation.Nonnull String id, final ApiCallback<AppPackage> _callback)
+            throws ApiException {
+        return getAppPackageAsync(id, null, null, _callback);
+    }
+
+    /**
      * Build call for getAppRepoCommits
      * @param id  (required)
+     * @param path Only list commits that changed this file, relative to the repository root. (optional)
+     * @param ref Branch, tag or commit to start from. Defaults to the default branch. (optional)
+     * @param limit Maximum number of commits in the page. (optional)
+     * @param cursor The &#x60;next_cursor&#x60; of the previous page. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3525,7 +3698,12 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppRepoCommitsCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable String path,
+            @jakarta.annotation.Nullable String ref,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable String cursor,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3552,6 +3730,22 @@ public class AppsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (path != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("path", path));
+        }
+
+        if (ref != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ref", ref));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -3583,7 +3777,12 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAppRepoCommitsValidateBeforeCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable String path,
+            @jakarta.annotation.Nullable String ref,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable String cursor,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -3591,13 +3790,17 @@ public class AppsApi {
                     "Missing the required parameter 'id' when calling getAppRepoCommits(Async)");
         }
 
-        return getAppRepoCommitsCall(id, _callback);
+        return getAppRepoCommitsCall(id, path, ref, limit, cursor, _callback);
     }
 
     /**
      * List commits in the app git repository
      * Returns repository commits newest first, optionally filtered to commits that changed a file. History starts at the default branch unless a ref is supplied and supports cursor pagination.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param path Only list commits that changed this file, relative to the repository root. (optional)
+     * @param ref Branch, tag or commit to start from. Defaults to the default branch. (optional)
+     * @param limit Maximum number of commits in the page. (optional)
+     * @param cursor The &#x60;next_cursor&#x60; of the previous page. (optional)
      * @return AppRepoCommits
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3609,9 +3812,15 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AppRepoCommits getAppRepoCommits(@jakarta.annotation.Nonnull String id)
+    public AppRepoCommits getAppRepoCommits(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable String path,
+            @jakarta.annotation.Nullable String ref,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable String cursor)
             throws ApiException {
-        ApiResponse<AppRepoCommits> localVarResp = getAppRepoCommitsWithHttpInfo(id);
+        ApiResponse<AppRepoCommits> localVarResp =
+                getAppRepoCommitsWithHttpInfo(id, path, ref, limit, cursor);
         return localVarResp.getData();
     }
 
@@ -3619,6 +3828,10 @@ public class AppsApi {
      * List commits in the app git repository
      * Returns repository commits newest first, optionally filtered to commits that changed a file. History starts at the default branch unless a ref is supplied and supports cursor pagination.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param path Only list commits that changed this file, relative to the repository root. (optional)
+     * @param ref Branch, tag or commit to start from. Defaults to the default branch. (optional)
+     * @param limit Maximum number of commits in the page. (optional)
+     * @param cursor The &#x60;next_cursor&#x60; of the previous page. (optional)
      * @return ApiResponse&lt;AppRepoCommits&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3631,8 +3844,14 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppRepoCommits> getAppRepoCommitsWithHttpInfo(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        okhttp3.Call localVarCall = getAppRepoCommitsValidateBeforeCall(id, null);
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable String path,
+            @jakarta.annotation.Nullable String ref,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable String cursor)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                getAppRepoCommitsValidateBeforeCall(id, path, ref, limit, cursor, null);
         Type localVarReturnType = new TypeToken<AppRepoCommits>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3641,6 +3860,10 @@ public class AppsApi {
      * List commits in the app git repository (asynchronously)
      * Returns repository commits newest first, optionally filtered to commits that changed a file. History starts at the default branch unless a ref is supplied and supports cursor pagination.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param path Only list commits that changed this file, relative to the repository root. (optional)
+     * @param ref Branch, tag or commit to start from. Defaults to the default branch. (optional)
+     * @param limit Maximum number of commits in the page. (optional)
+     * @param cursor The &#x60;next_cursor&#x60; of the previous page. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3654,13 +3877,70 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppRepoCommitsAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<AppRepoCommits> _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable String path,
+            @jakarta.annotation.Nullable String ref,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable String cursor,
+            final ApiCallback<AppRepoCommits> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getAppRepoCommitsValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall =
+                getAppRepoCommitsValidateBeforeCall(id, path, ref, limit, cursor, _callback);
         Type localVarReturnType = new TypeToken<AppRepoCommits>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for getAppRepoCommits with every optional parameter left unset.
+     * @param id  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getAppRepoCommitsCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        return getAppRepoCommitsCall(id, null, null, null, null, _callback);
+    }
+
+    /**
+     * List commits in the app git repository
+     * Calls {@code getAppRepoCommits} with every optional parameter left unset.
+     * @param id  (required)
+     * @return AppRepoCommits
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AppRepoCommits getAppRepoCommits(@jakarta.annotation.Nonnull String id)
+            throws ApiException {
+        return getAppRepoCommits(id, null, null, null, null);
+    }
+
+    /**
+     * List commits in the app git repository
+     * Calls {@code getAppRepoCommitsWithHttpInfo} with every optional parameter left unset.
+     * @param id  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AppRepoCommits> getAppRepoCommitsWithHttpInfo(
+            @jakarta.annotation.Nonnull String id) throws ApiException {
+        return getAppRepoCommitsWithHttpInfo(id, null, null, null, null);
+    }
+
+    /**
+     * List commits in the app git repository (asynchronously)
+     * Calls {@code getAppRepoCommitsAsync} with every optional parameter left unset.
+     * @param id  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getAppRepoCommitsAsync(
+            @jakarta.annotation.Nonnull String id, final ApiCallback<AppRepoCommits> _callback)
+            throws ApiException {
+        return getAppRepoCommitsAsync(id, null, null, null, null, _callback);
     }
 
     /**
@@ -3852,6 +4132,67 @@ public class AppsApi {
         Type localVarReturnType = new TypeToken<File>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for getAppRepoFile with every optional parameter left unset.
+     * @param id  (required)
+     * @param path Path of the file, relative to the repository root. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getAppRepoFileCall(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String path,
+            final ApiCallback _callback)
+            throws ApiException {
+        return getAppRepoFileCall(id, path, null, _callback);
+    }
+
+    /**
+     * Read a file from the app git repository
+     * Calls {@code getAppRepoFile} with every optional parameter left unset.
+     * @param id  (required)
+     * @param path Path of the file, relative to the repository root. (required)
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public File getAppRepoFile(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String path)
+            throws ApiException {
+        return getAppRepoFile(id, path, null);
+    }
+
+    /**
+     * Read a file from the app git repository
+     * Calls {@code getAppRepoFileWithHttpInfo} with every optional parameter left unset.
+     * @param id  (required)
+     * @param path Path of the file, relative to the repository root. (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<File> getAppRepoFileWithHttpInfo(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String path)
+            throws ApiException {
+        return getAppRepoFileWithHttpInfo(id, path, null);
+    }
+
+    /**
+     * Read a file from the app git repository (asynchronously)
+     * Calls {@code getAppRepoFileAsync} with every optional parameter left unset.
+     * @param id  (required)
+     * @param path Path of the file, relative to the repository root. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getAppRepoFileAsync(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String path,
+            final ApiCallback<File> _callback)
+            throws ApiException {
+        return getAppRepoFileAsync(id, path, null, _callback);
     }
 
     /**
@@ -4190,6 +4531,56 @@ public class AppsApi {
         Type localVarReturnType = new TypeToken<AppRepoTree>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for getAppRepoTree with every optional parameter left unset.
+     * @param id  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getAppRepoTreeCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        return getAppRepoTreeCall(id, null, null, _callback);
+    }
+
+    /**
+     * List files in the app git repository
+     * Calls {@code getAppRepoTree} with every optional parameter left unset.
+     * @param id  (required)
+     * @return AppRepoTree
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AppRepoTree getAppRepoTree(@jakarta.annotation.Nonnull String id) throws ApiException {
+        return getAppRepoTree(id, null, null);
+    }
+
+    /**
+     * List files in the app git repository
+     * Calls {@code getAppRepoTreeWithHttpInfo} with every optional parameter left unset.
+     * @param id  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AppRepoTree> getAppRepoTreeWithHttpInfo(
+            @jakarta.annotation.Nonnull String id) throws ApiException {
+        return getAppRepoTreeWithHttpInfo(id, null, null);
+    }
+
+    /**
+     * List files in the app git repository (asynchronously)
+     * Calls {@code getAppRepoTreeAsync} with every optional parameter left unset.
+     * @param id  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getAppRepoTreeAsync(
+            @jakarta.annotation.Nonnull String id, final ApiCallback<AppRepoTree> _callback)
+            throws ApiException {
+        return getAppRepoTreeAsync(id, null, null, _callback);
     }
 
     /**
@@ -6006,6 +6397,50 @@ public class AppsApi {
     }
 
     /**
+     * Build call for listAppInstallationProjects with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listAppInstallationProjectsCall(final ApiCallback _callback)
+            throws ApiException {
+        return listAppInstallationProjectsCall(null, null, _callback);
+    }
+
+    /**
+     * List projects for an app installation
+     * Calls {@code listAppInstallationProjects} with every optional parameter left unset.
+     * @return List&lt;ProjectRef&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ProjectRef> listAppInstallationProjects() throws ApiException {
+        return listAppInstallationProjects(null, null);
+    }
+
+    /**
+     * List projects for an app installation
+     * Calls {@code listAppInstallationProjectsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ProjectRef>> listAppInstallationProjectsWithHttpInfo()
+            throws ApiException {
+        return listAppInstallationProjectsWithHttpInfo(null, null);
+    }
+
+    /**
+     * List projects for an app installation (asynchronously)
+     * Calls {@code listAppInstallationProjectsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listAppInstallationProjectsAsync(
+            final ApiCallback<List<ProjectRef>> _callback) throws ApiException {
+        return listAppInstallationProjectsAsync(null, null, _callback);
+    }
+
+    /**
      * Build call for listAppInstallationRefs
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6474,6 +6909,49 @@ public class AppsApi {
     }
 
     /**
+     * Build call for listAppInstallations with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listAppInstallationsCall(final ApiCallback _callback) throws ApiException {
+        return listAppInstallationsCall(null, null, _callback);
+    }
+
+    /**
+     * List app installations
+     * Calls {@code listAppInstallations} with every optional parameter left unset.
+     * @return List&lt;AppInstallationWithManifest&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<AppInstallationWithManifest> listAppInstallations() throws ApiException {
+        return listAppInstallations(null, null);
+    }
+
+    /**
+     * List app installations
+     * Calls {@code listAppInstallationsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<AppInstallationWithManifest>> listAppInstallationsWithHttpInfo()
+            throws ApiException {
+        return listAppInstallationsWithHttpInfo(null, null);
+    }
+
+    /**
+     * List app installations (asynchronously)
+     * Calls {@code listAppInstallationsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listAppInstallationsAsync(
+            final ApiCallback<List<AppInstallationWithManifest>> _callback) throws ApiException {
+        return listAppInstallationsAsync(null, null, _callback);
+    }
+
+    /**
      * Build call for listAppVersionLaunchTargets
      * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
@@ -6914,6 +7392,48 @@ public class AppsApi {
         Type localVarReturnType = new TypeToken<List<AppManifest>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listApps with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listAppsCall(final ApiCallback _callback) throws ApiException {
+        return listAppsCall(null, _callback);
+    }
+
+    /**
+     * List apps
+     * Calls {@code listApps} with every optional parameter left unset.
+     * @return List&lt;AppManifest&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<AppManifest> listApps() throws ApiException {
+        return listApps(null);
+    }
+
+    /**
+     * List apps
+     * Calls {@code listAppsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<AppManifest>> listAppsWithHttpInfo() throws ApiException {
+        return listAppsWithHttpInfo(null);
+    }
+
+    /**
+     * List apps (asynchronously)
+     * Calls {@code listAppsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listAppsAsync(final ApiCallback<List<AppManifest>> _callback)
+            throws ApiException {
+        return listAppsAsync(null, _callback);
     }
 
     /**

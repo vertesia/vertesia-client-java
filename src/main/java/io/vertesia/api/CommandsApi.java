@@ -1749,6 +1749,58 @@ public class CommandsApi {
     }
 
     /**
+     * Build call for recalculateProjectEmbeddings with every optional parameter left unset.
+     * @param type  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call recalculateProjectEmbeddingsCall(
+            @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
+            throws ApiException {
+        return recalculateProjectEmbeddingsCall(type, null, null, _callback);
+    }
+
+    /**
+     * Recalculate embeddings
+     * Calls {@code recalculateProjectEmbeddings} with every optional parameter left unset.
+     * @param type  (required)
+     * @return GenericCommandResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GenericCommandResponse recalculateProjectEmbeddings(
+            @jakarta.annotation.Nonnull String type) throws ApiException {
+        return recalculateProjectEmbeddings(type, null, null);
+    }
+
+    /**
+     * Recalculate embeddings
+     * Calls {@code recalculateProjectEmbeddingsWithHttpInfo} with every optional parameter left unset.
+     * @param type  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GenericCommandResponse> recalculateProjectEmbeddingsWithHttpInfo(
+            @jakarta.annotation.Nonnull String type) throws ApiException {
+        return recalculateProjectEmbeddingsWithHttpInfo(type, null, null);
+    }
+
+    /**
+     * Recalculate embeddings (asynchronously)
+     * Calls {@code recalculateProjectEmbeddingsAsync} with every optional parameter left unset.
+     * @param type  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call recalculateProjectEmbeddingsAsync(
+            @jakarta.annotation.Nonnull String type,
+            final ApiCallback<GenericCommandResponse> _callback)
+            throws ApiException {
+        return recalculateProjectEmbeddingsAsync(type, null, null, _callback);
+    }
+
+    /**
      * Build call for reindexAgentRuns
      * @param reindexAgentRunsPayload  (optional)
      * @param _callback Callback for upload/download progress
@@ -1900,6 +1952,49 @@ public class CommandsApi {
         Type localVarReturnType = new TypeToken<ReindexAgentRunsResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for reindexAgentRuns with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call reindexAgentRunsCall(final ApiCallback _callback) throws ApiException {
+        return reindexAgentRunsCall(null, _callback);
+    }
+
+    /**
+     * Reindex agent runs
+     * Calls {@code reindexAgentRuns} with every optional parameter left unset.
+     * @return ReindexAgentRunsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ReindexAgentRunsResponse reindexAgentRuns() throws ApiException {
+        return reindexAgentRuns(null);
+    }
+
+    /**
+     * Reindex agent runs
+     * Calls {@code reindexAgentRunsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ReindexAgentRunsResponse> reindexAgentRunsWithHttpInfo()
+            throws ApiException {
+        return reindexAgentRunsWithHttpInfo(null);
+    }
+
+    /**
+     * Reindex agent runs (asynchronously)
+     * Calls {@code reindexAgentRunsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call reindexAgentRunsAsync(final ApiCallback<ReindexAgentRunsResponse> _callback)
+            throws ApiException {
+        return reindexAgentRunsAsync(null, _callback);
     }
 
     /**
@@ -2372,5 +2467,48 @@ public class CommandsApi {
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for startProjectReindex with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call startProjectReindexCall(final ApiCallback _callback) throws ApiException {
+        return startProjectReindexCall(null, _callback);
+    }
+
+    /**
+     * Start a full reindex
+     * Calls {@code startProjectReindex} with every optional parameter left unset.
+     * @return GenericCommandResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GenericCommandResponse startProjectReindex() throws ApiException {
+        return startProjectReindex(null);
+    }
+
+    /**
+     * Start a full reindex
+     * Calls {@code startProjectReindexWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GenericCommandResponse> startProjectReindexWithHttpInfo()
+            throws ApiException {
+        return startProjectReindexWithHttpInfo(null);
+    }
+
+    /**
+     * Start a full reindex (asynchronously)
+     * Calls {@code startProjectReindexAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call startProjectReindexAsync(
+            final ApiCallback<GenericCommandResponse> _callback) throws ApiException {
+        return startProjectReindexAsync(null, _callback);
     }
 }

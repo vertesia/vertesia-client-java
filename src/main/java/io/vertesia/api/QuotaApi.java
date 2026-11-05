@@ -489,4 +489,46 @@ public class QuotaApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    /**
+     * Build call for getWorkflowUsage with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getWorkflowUsageCall(final ApiCallback _callback) throws ApiException {
+        return getWorkflowUsageCall(null, _callback);
+    }
+
+    /**
+     * Get workflow usage standing
+     * Calls {@code getWorkflowUsage} with every optional parameter left unset.
+     * @return WorkflowUsageStanding
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkflowUsageStanding getWorkflowUsage() throws ApiException {
+        return getWorkflowUsage(null);
+    }
+
+    /**
+     * Get workflow usage standing
+     * Calls {@code getWorkflowUsageWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkflowUsageStanding> getWorkflowUsageWithHttpInfo() throws ApiException {
+        return getWorkflowUsageWithHttpInfo(null);
+    }
+
+    /**
+     * Get workflow usage standing (asynchronously)
+     * Calls {@code getWorkflowUsageAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getWorkflowUsageAsync(final ApiCallback<WorkflowUsageStanding> _callback)
+            throws ApiException {
+        return getWorkflowUsageAsync(null, _callback);
+    }
 }

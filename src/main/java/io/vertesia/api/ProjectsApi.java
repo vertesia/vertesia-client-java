@@ -1969,6 +1969,58 @@ public class ProjectsApi {
     }
 
     /**
+     * Build call for listProjectAppProcesses with every optional parameter left unset.
+     * @param projectId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listProjectAppProcessesCall(
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
+            throws ApiException {
+        return listProjectAppProcessesCall(projectId, null, _callback);
+    }
+
+    /**
+     * List project app processes
+     * Calls {@code listProjectAppProcesses} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @return List&lt;InCodeProcessDefinition&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<InCodeProcessDefinition> listProjectAppProcesses(
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
+        return listProjectAppProcesses(projectId, null);
+    }
+
+    /**
+     * List project app processes
+     * Calls {@code listProjectAppProcessesWithHttpInfo} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<InCodeProcessDefinition>> listProjectAppProcessesWithHttpInfo(
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
+        return listProjectAppProcessesWithHttpInfo(projectId, null);
+    }
+
+    /**
+     * List project app processes (asynchronously)
+     * Calls {@code listProjectAppProcessesAsync} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listProjectAppProcessesAsync(
+            @jakarta.annotation.Nonnull String projectId,
+            final ApiCallback<List<InCodeProcessDefinition>> _callback)
+            throws ApiException {
+        return listProjectAppProcessesAsync(projectId, null, _callback);
+    }
+
+    /**
      * Build call for listProjectAppTemplates
      * @param projectId  (required)
      * @param tag  (optional)
@@ -2142,6 +2194,58 @@ public class ProjectsApi {
                 new TypeToken<List<RenderingTemplateDefinitionRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listProjectAppTemplates with every optional parameter left unset.
+     * @param projectId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listProjectAppTemplatesCall(
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
+            throws ApiException {
+        return listProjectAppTemplatesCall(projectId, null, _callback);
+    }
+
+    /**
+     * List project app templates
+     * Calls {@code listProjectAppTemplates} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @return List&lt;RenderingTemplateDefinitionRef&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<RenderingTemplateDefinitionRef> listProjectAppTemplates(
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
+        return listProjectAppTemplates(projectId, null);
+    }
+
+    /**
+     * List project app templates
+     * Calls {@code listProjectAppTemplatesWithHttpInfo} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<RenderingTemplateDefinitionRef>> listProjectAppTemplatesWithHttpInfo(
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
+        return listProjectAppTemplatesWithHttpInfo(projectId, null);
+    }
+
+    /**
+     * List project app templates (asynchronously)
+     * Calls {@code listProjectAppTemplatesAsync} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listProjectAppTemplatesAsync(
+            @jakarta.annotation.Nonnull String projectId,
+            final ApiCallback<List<RenderingTemplateDefinitionRef>> _callback)
+            throws ApiException {
+        return listProjectAppTemplatesAsync(projectId, null, _callback);
     }
 
     /**
@@ -2319,6 +2423,58 @@ public class ProjectsApi {
     }
 
     /**
+     * Build call for listProjectAppTypes with every optional parameter left unset.
+     * @param projectId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listProjectAppTypesCall(
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
+            throws ApiException {
+        return listProjectAppTypesCall(projectId, null, _callback);
+    }
+
+    /**
+     * List project app content types
+     * Calls {@code listProjectAppTypes} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @return List&lt;InCodeTypeDefinition&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<InCodeTypeDefinition> listProjectAppTypes(
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
+        return listProjectAppTypes(projectId, null);
+    }
+
+    /**
+     * List project app content types
+     * Calls {@code listProjectAppTypesWithHttpInfo} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<InCodeTypeDefinition>> listProjectAppTypesWithHttpInfo(
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
+        return listProjectAppTypesWithHttpInfo(projectId, null);
+    }
+
+    /**
+     * List project app content types (asynchronously)
+     * Calls {@code listProjectAppTypesAsync} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listProjectAppTypesAsync(
+            @jakarta.annotation.Nonnull String projectId,
+            final ApiCallback<List<InCodeTypeDefinition>> _callback)
+            throws ApiException {
+        return listProjectAppTypesAsync(projectId, null, _callback);
+    }
+
+    /**
      * Build call for listProjectAppViews
      * @param projectId  (required)
      * @param tag  (optional)
@@ -2490,6 +2646,58 @@ public class ProjectsApi {
         Type localVarReturnType = new TypeToken<List<InCodeViewDefinition>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listProjectAppViews with every optional parameter left unset.
+     * @param projectId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listProjectAppViewsCall(
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
+            throws ApiException {
+        return listProjectAppViewsCall(projectId, null, _callback);
+    }
+
+    /**
+     * List project app Views
+     * Calls {@code listProjectAppViews} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @return List&lt;InCodeViewDefinition&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<InCodeViewDefinition> listProjectAppViews(
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
+        return listProjectAppViews(projectId, null);
+    }
+
+    /**
+     * List project app Views
+     * Calls {@code listProjectAppViewsWithHttpInfo} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<InCodeViewDefinition>> listProjectAppViewsWithHttpInfo(
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
+        return listProjectAppViewsWithHttpInfo(projectId, null);
+    }
+
+    /**
+     * List project app Views (asynchronously)
+     * Calls {@code listProjectAppViewsAsync} with every optional parameter left unset.
+     * @param projectId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listProjectAppViewsAsync(
+            @jakarta.annotation.Nonnull String projectId,
+            final ApiCallback<List<InCodeViewDefinition>> _callback)
+            throws ApiException {
+        return listProjectAppViewsAsync(projectId, null, _callback);
     }
 
     /**
@@ -3112,6 +3320,48 @@ public class ProjectsApi {
         Type localVarReturnType = new TypeToken<List<ProjectRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listProjects with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listProjectsCall(final ApiCallback _callback) throws ApiException {
+        return listProjectsCall(null, _callback);
+    }
+
+    /**
+     * List projects
+     * Calls {@code listProjects} with every optional parameter left unset.
+     * @return List&lt;ProjectRef&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ProjectRef> listProjects() throws ApiException {
+        return listProjects(null);
+    }
+
+    /**
+     * List projects
+     * Calls {@code listProjectsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ProjectRef>> listProjectsWithHttpInfo() throws ApiException {
+        return listProjectsWithHttpInfo(null);
+    }
+
+    /**
+     * List projects (asynchronously)
+     * Calls {@code listProjectsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listProjectsAsync(final ApiCallback<List<ProjectRef>> _callback)
+            throws ApiException {
+        return listProjectsAsync(null, _callback);
     }
 
     /**

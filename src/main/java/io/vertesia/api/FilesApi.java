@@ -403,6 +403,57 @@ public class FilesApi {
     }
 
     /**
+     * Build call for deleteProjectFile with every optional parameter left unset.
+     * @param path  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call deleteProjectFileCall(
+            @jakarta.annotation.Nonnull String path, final ApiCallback _callback)
+            throws ApiException {
+        return deleteProjectFileCall(path, null, _callback);
+    }
+
+    /**
+     * Delete a file or file prefix
+     * Calls {@code deleteProjectFile} with every optional parameter left unset.
+     * @param path  (required)
+     * @return DeleteFileResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteFileResult deleteProjectFile(@jakarta.annotation.Nonnull String path)
+            throws ApiException {
+        return deleteProjectFile(path, null);
+    }
+
+    /**
+     * Delete a file or file prefix
+     * Calls {@code deleteProjectFileWithHttpInfo} with every optional parameter left unset.
+     * @param path  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteFileResult> deleteProjectFileWithHttpInfo(
+            @jakarta.annotation.Nonnull String path) throws ApiException {
+        return deleteProjectFileWithHttpInfo(path, null);
+    }
+
+    /**
+     * Delete a file or file prefix (asynchronously)
+     * Calls {@code deleteProjectFileAsync} with every optional parameter left unset.
+     * @param path  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call deleteProjectFileAsync(
+            @jakarta.annotation.Nonnull String path, final ApiCallback<DeleteFileResult> _callback)
+            throws ApiException {
+        return deleteProjectFileAsync(path, null, _callback);
+    }
+
+    /**
      * Build call for ensureProjectFileBucket
      * @param _callback Callback for upload/download progress
      * @return Call to execute

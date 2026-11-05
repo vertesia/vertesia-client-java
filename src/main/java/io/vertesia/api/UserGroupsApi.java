@@ -926,6 +926,48 @@ public class UserGroupsApi {
     }
 
     /**
+     * Build call for listUserGroups with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listUserGroupsCall(final ApiCallback _callback) throws ApiException {
+        return listUserGroupsCall(null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List user groups
+     * Calls {@code listUserGroups} with every optional parameter left unset.
+     * @return List&lt;UserGroup&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<UserGroup> listUserGroups() throws ApiException {
+        return listUserGroups(null, null, null, null, null);
+    }
+
+    /**
+     * List user groups
+     * Calls {@code listUserGroupsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<UserGroup>> listUserGroupsWithHttpInfo() throws ApiException {
+        return listUserGroupsWithHttpInfo(null, null, null, null, null);
+    }
+
+    /**
+     * List user groups (asynchronously)
+     * Calls {@code listUserGroupsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listUserGroupsAsync(final ApiCallback<List<UserGroup>> _callback)
+            throws ApiException {
+        return listUserGroupsAsync(null, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for removeUserGroupMember
      * @param groupId  (required)
      * @param userId  (required)

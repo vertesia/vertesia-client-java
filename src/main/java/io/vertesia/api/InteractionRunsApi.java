@@ -556,6 +556,56 @@ public class InteractionRunsApi {
     }
 
     /**
+     * Build call for getRun with every optional parameter left unset.
+     * @param runId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getRunCall(
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
+            throws ApiException {
+        return getRunCall(runId, null, _callback);
+    }
+
+    /**
+     * Retrieve a run
+     * Calls {@code getRun} with every optional parameter left unset.
+     * @param runId  (required)
+     * @return ExecutionRunRef
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ExecutionRunRef getRun(@jakarta.annotation.Nonnull String runId) throws ApiException {
+        return getRun(runId, null);
+    }
+
+    /**
+     * Retrieve a run
+     * Calls {@code getRunWithHttpInfo} with every optional parameter left unset.
+     * @param runId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ExecutionRunRef> getRunWithHttpInfo(@jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        return getRunWithHttpInfo(runId, null);
+    }
+
+    /**
+     * Retrieve a run (asynchronously)
+     * Calls {@code getRunAsync} with every optional parameter left unset.
+     * @param runId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getRunAsync(
+            @jakarta.annotation.Nonnull String runId, final ApiCallback<ExecutionRunRef> _callback)
+            throws ApiException {
+        return getRunAsync(runId, null, _callback);
+    }
+
+    /**
      * Build call for listRuns
      * @param limit Maximum number of runs to return. (optional)
      * @param offset Number of runs to skip. (optional)
@@ -897,6 +947,51 @@ public class InteractionRunsApi {
         Type localVarReturnType = new TypeToken<List<ExecutionRunRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listRuns with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listRunsCall(final ApiCallback _callback) throws ApiException {
+        return listRunsCall(
+                null, null, null, null, null, null, null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List runs
+     * Calls {@code listRuns} with every optional parameter left unset.
+     * @return List&lt;ExecutionRunRef&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ExecutionRunRef> listRuns() throws ApiException {
+        return listRuns(null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List runs
+     * Calls {@code listRunsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ExecutionRunRef>> listRunsWithHttpInfo() throws ApiException {
+        return listRunsWithHttpInfo(
+                null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List runs (asynchronously)
+     * Calls {@code listRunsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listRunsAsync(final ApiCallback<List<ExecutionRunRef>> _callback)
+            throws ApiException {
+        return listRunsAsync(
+                null, null, null, null, null, null, null, null, null, null, null, _callback);
     }
 
     /**

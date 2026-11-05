@@ -923,6 +923,51 @@ public class ContentObjectTypesApi {
     }
 
     /**
+     * Build call for listApplicationContentObjectTypes with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listApplicationContentObjectTypesCall(final ApiCallback _callback)
+            throws ApiException {
+        return listApplicationContentObjectTypesCall(null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List application content object types
+     * Calls {@code listApplicationContentObjectTypes} with every optional parameter left unset.
+     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ContentObjectTypeCatalogEntry> listApplicationContentObjectTypes()
+            throws ApiException {
+        return listApplicationContentObjectTypes(null, null, null, null, null);
+    }
+
+    /**
+     * List application content object types
+     * Calls {@code listApplicationContentObjectTypesWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
+            listApplicationContentObjectTypesWithHttpInfo() throws ApiException {
+        return listApplicationContentObjectTypesWithHttpInfo(null, null, null, null, null);
+    }
+
+    /**
+     * List application content object types (asynchronously)
+     * Calls {@code listApplicationContentObjectTypesAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listApplicationContentObjectTypesAsync(
+            final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback) throws ApiException {
+        return listApplicationContentObjectTypesAsync(null, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for listContentObjectTypeCatalog
      * @param tag  (optional)
      * @param layout  (optional)
@@ -1133,6 +1178,50 @@ public class ContentObjectTypesApi {
         Type localVarReturnType = new TypeToken<List<ContentObjectTypeCatalogEntry>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listContentObjectTypeCatalog with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listContentObjectTypeCatalogCall(final ApiCallback _callback)
+            throws ApiException {
+        return listContentObjectTypeCatalogCall(null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List content object type catalog entries
+     * Calls {@code listContentObjectTypeCatalog} with every optional parameter left unset.
+     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ContentObjectTypeCatalogEntry> listContentObjectTypeCatalog() throws ApiException {
+        return listContentObjectTypeCatalog(null, null, null, null, null);
+    }
+
+    /**
+     * List content object type catalog entries
+     * Calls {@code listContentObjectTypeCatalogWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
+            listContentObjectTypeCatalogWithHttpInfo() throws ApiException {
+        return listContentObjectTypeCatalogWithHttpInfo(null, null, null, null, null);
+    }
+
+    /**
+     * List content object type catalog entries (asynchronously)
+     * Calls {@code listContentObjectTypeCatalogAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listContentObjectTypeCatalogAsync(
+            final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback) throws ApiException {
+        return listContentObjectTypeCatalogAsync(null, null, null, null, null, _callback);
     }
 
     /**
@@ -1362,6 +1451,50 @@ public class ContentObjectTypesApi {
     }
 
     /**
+     * Build call for listContentObjectTypes with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listContentObjectTypesCall(final ApiCallback _callback)
+            throws ApiException {
+        return listContentObjectTypesCall(null, null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List content object types
+     * Calls {@code listContentObjectTypes} with every optional parameter left unset.
+     * @return List&lt;ContentObjectType&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ContentObjectType> listContentObjectTypes() throws ApiException {
+        return listContentObjectTypes(null, null, null, null, null, null);
+    }
+
+    /**
+     * List content object types
+     * Calls {@code listContentObjectTypesWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ContentObjectType>> listContentObjectTypesWithHttpInfo()
+            throws ApiException {
+        return listContentObjectTypesWithHttpInfo(null, null, null, null, null, null);
+    }
+
+    /**
+     * List content object types (asynchronously)
+     * Calls {@code listContentObjectTypesAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listContentObjectTypesAsync(
+            final ApiCallback<List<ContentObjectType>> _callback) throws ApiException {
+        return listContentObjectTypesAsync(null, null, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for listStoredContentObjectTypes
      * @param tag  (optional)
      * @param layout  (optional)
@@ -1571,6 +1704,50 @@ public class ContentObjectTypesApi {
         Type localVarReturnType = new TypeToken<List<ContentObjectTypeItem>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listStoredContentObjectTypes with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listStoredContentObjectTypesCall(final ApiCallback _callback)
+            throws ApiException {
+        return listStoredContentObjectTypesCall(null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List stored content object types
+     * Calls {@code listStoredContentObjectTypes} with every optional parameter left unset.
+     * @return List&lt;ContentObjectTypeItem&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ContentObjectTypeItem> listStoredContentObjectTypes() throws ApiException {
+        return listStoredContentObjectTypes(null, null, null, null, null);
+    }
+
+    /**
+     * List stored content object types
+     * Calls {@code listStoredContentObjectTypesWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ContentObjectTypeItem>> listStoredContentObjectTypesWithHttpInfo()
+            throws ApiException {
+        return listStoredContentObjectTypesWithHttpInfo(null, null, null, null, null);
+    }
+
+    /**
+     * List stored content object types (asynchronously)
+     * Calls {@code listStoredContentObjectTypesAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listStoredContentObjectTypesAsync(
+            final ApiCallback<List<ContentObjectTypeItem>> _callback) throws ApiException {
+        return listStoredContentObjectTypesAsync(null, null, null, null, null, _callback);
     }
 
     /**
@@ -1784,6 +1961,50 @@ public class ContentObjectTypesApi {
         Type localVarReturnType = new TypeToken<List<ContentObjectTypeCatalogEntry>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listSystemContentObjectTypes with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listSystemContentObjectTypesCall(final ApiCallback _callback)
+            throws ApiException {
+        return listSystemContentObjectTypesCall(null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List system content object types
+     * Calls {@code listSystemContentObjectTypes} with every optional parameter left unset.
+     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ContentObjectTypeCatalogEntry> listSystemContentObjectTypes() throws ApiException {
+        return listSystemContentObjectTypes(null, null, null, null, null);
+    }
+
+    /**
+     * List system content object types
+     * Calls {@code listSystemContentObjectTypesWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
+            listSystemContentObjectTypesWithHttpInfo() throws ApiException {
+        return listSystemContentObjectTypesWithHttpInfo(null, null, null, null, null);
+    }
+
+    /**
+     * List system content object types (asynchronously)
+     * Calls {@code listSystemContentObjectTypesAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listSystemContentObjectTypesAsync(
+            final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback) throws ApiException {
+        return listSystemContentObjectTypesAsync(null, null, null, null, null, _callback);
     }
 
     /**

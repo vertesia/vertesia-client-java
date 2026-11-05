@@ -1096,6 +1096,48 @@ public class TasksApi {
     }
 
     /**
+     * Build call for listTasks with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listTasksCall(final ApiCallback _callback) throws ApiException {
+        return listTasksCall(null, null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List tasks
+     * Calls {@code listTasks} with every optional parameter left unset.
+     * @return List&lt;Task&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Task> listTasks() throws ApiException {
+        return listTasks(null, null, null, null, null, null);
+    }
+
+    /**
+     * List tasks
+     * Calls {@code listTasksWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Task>> listTasksWithHttpInfo() throws ApiException {
+        return listTasksWithHttpInfo(null, null, null, null, null, null);
+    }
+
+    /**
+     * List tasks (asynchronously)
+     * Calls {@code listTasksAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listTasksAsync(final ApiCallback<List<Task>> _callback)
+            throws ApiException {
+        return listTasksAsync(null, null, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for updateTask
      * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param updateTaskPayload  (required)

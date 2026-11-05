@@ -761,6 +761,58 @@ public class InferenceProfilesApi {
     }
 
     /**
+     * Build call for getInferenceProfileUsage with every optional parameter left unset.
+     * @param profileId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getInferenceProfileUsageCall(
+            @jakarta.annotation.Nonnull String profileId, final ApiCallback _callback)
+            throws ApiException {
+        return getInferenceProfileUsageCall(profileId, null, null, null, null, _callback);
+    }
+
+    /**
+     * List direct interaction assignments and project default slots for a profile
+     * Calls {@code getInferenceProfileUsage} with every optional parameter left unset.
+     * @param profileId  (required)
+     * @return InferenceProfileUsage
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InferenceProfileUsage getInferenceProfileUsage(
+            @jakarta.annotation.Nonnull String profileId) throws ApiException {
+        return getInferenceProfileUsage(profileId, null, null, null, null);
+    }
+
+    /**
+     * List direct interaction assignments and project default slots for a profile
+     * Calls {@code getInferenceProfileUsageWithHttpInfo} with every optional parameter left unset.
+     * @param profileId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InferenceProfileUsage> getInferenceProfileUsageWithHttpInfo(
+            @jakarta.annotation.Nonnull String profileId) throws ApiException {
+        return getInferenceProfileUsageWithHttpInfo(profileId, null, null, null, null);
+    }
+
+    /**
+     * List direct interaction assignments and project default slots for a profile (asynchronously)
+     * Calls {@code getInferenceProfileUsageAsync} with every optional parameter left unset.
+     * @param profileId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getInferenceProfileUsageAsync(
+            @jakarta.annotation.Nonnull String profileId,
+            final ApiCallback<InferenceProfileUsage> _callback)
+            throws ApiException {
+        return getInferenceProfileUsageAsync(profileId, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for listInferenceProfiles
      * @param _callback Callback for upload/download progress
      * @return Call to execute

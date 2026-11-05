@@ -1116,6 +1116,58 @@ public class CollectionsApi {
     }
 
     /**
+     * Build call for listCollectionMembers with every optional parameter left unset.
+     * @param collectionId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listCollectionMembersCall(
+            @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
+            throws ApiException {
+        return listCollectionMembersCall(collectionId, null, null, null, null, _callback);
+    }
+
+    /**
+     * List collection members
+     * Calls {@code listCollectionMembers} with every optional parameter left unset.
+     * @param collectionId  (required)
+     * @return List&lt;ContentObjectItemApiResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ContentObjectItemApiResponse> listCollectionMembers(
+            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
+        return listCollectionMembers(collectionId, null, null, null, null);
+    }
+
+    /**
+     * List collection members
+     * Calls {@code listCollectionMembersWithHttpInfo} with every optional parameter left unset.
+     * @param collectionId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ContentObjectItemApiResponse>> listCollectionMembersWithHttpInfo(
+            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
+        return listCollectionMembersWithHttpInfo(collectionId, null, null, null, null);
+    }
+
+    /**
+     * List collection members (asynchronously)
+     * Calls {@code listCollectionMembersAsync} with every optional parameter left unset.
+     * @param collectionId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listCollectionMembersAsync(
+            @jakarta.annotation.Nonnull String collectionId,
+            final ApiCallback<List<ContentObjectItemApiResponse>> _callback)
+            throws ApiException {
+        return listCollectionMembersAsync(collectionId, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for propagateCollectionPermissions
      * @param collectionId  (required)
      * @param _callback Callback for upload/download progress

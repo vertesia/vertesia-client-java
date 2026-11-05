@@ -428,6 +428,7 @@ public class InteractionsApi {
     /**
      * Build call for deleteInteraction
      * @param interactionId  (required)
+     * @param cascade Set to true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -441,7 +442,9 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call deleteInteractionCall(
-            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nullable Boolean cascade,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -470,6 +473,10 @@ public class InteractionsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (cascade != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cascade", cascade));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -501,7 +508,9 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteInteractionValidateBeforeCall(
-            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nullable Boolean cascade,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
         if (interactionId == null) {
@@ -509,13 +518,14 @@ public class InteractionsApi {
                     "Missing the required parameter 'interactionId' when calling deleteInteraction(Async)");
         }
 
-        return deleteInteractionCall(interactionId, _callback);
+        return deleteInteractionCall(interactionId, cascade, _callback);
     }
 
     /**
      * Delete an interaction
      * Deletes an interaction from the current project. Pass ?cascade&#x3D;true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks.  **Required permissions:** &#x60;interaction:delete&#x60;
      * @param interactionId  (required)
+     * @param cascade Set to true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks. (optional)
      * @return DeleteByIdResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -527,9 +537,12 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteByIdResult deleteInteraction(@jakarta.annotation.Nonnull String interactionId)
+    public DeleteByIdResult deleteInteraction(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nullable Boolean cascade)
             throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp = deleteInteractionWithHttpInfo(interactionId);
+        ApiResponse<DeleteByIdResult> localVarResp =
+                deleteInteractionWithHttpInfo(interactionId, cascade);
         return localVarResp.getData();
     }
 
@@ -537,6 +550,7 @@ public class InteractionsApi {
      * Delete an interaction
      * Deletes an interaction from the current project. Pass ?cascade&#x3D;true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks.  **Required permissions:** &#x60;interaction:delete&#x60;
      * @param interactionId  (required)
+     * @param cascade Set to true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks. (optional)
      * @return ApiResponse&lt;DeleteByIdResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -549,8 +563,11 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<DeleteByIdResult> deleteInteractionWithHttpInfo(
-            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
-        okhttp3.Call localVarCall = deleteInteractionValidateBeforeCall(interactionId, null);
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nullable Boolean cascade)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                deleteInteractionValidateBeforeCall(interactionId, cascade, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -559,6 +576,7 @@ public class InteractionsApi {
      * Delete an interaction (asynchronously)
      * Deletes an interaction from the current project. Pass ?cascade&#x3D;true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks.  **Required permissions:** &#x60;interaction:delete&#x60;
      * @param interactionId  (required)
+     * @param cascade Set to true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -573,13 +591,67 @@ public class InteractionsApi {
      */
     public okhttp3.Call deleteInteractionAsync(
             @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nullable Boolean cascade,
             final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = deleteInteractionValidateBeforeCall(interactionId, _callback);
+        okhttp3.Call localVarCall =
+                deleteInteractionValidateBeforeCall(interactionId, cascade, _callback);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for deleteInteraction with every optional parameter left unset.
+     * @param interactionId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call deleteInteractionCall(
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            throws ApiException {
+        return deleteInteractionCall(interactionId, null, _callback);
+    }
+
+    /**
+     * Delete an interaction
+     * Calls {@code deleteInteraction} with every optional parameter left unset.
+     * @param interactionId  (required)
+     * @return DeleteByIdResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DeleteByIdResult deleteInteraction(@jakarta.annotation.Nonnull String interactionId)
+            throws ApiException {
+        return deleteInteraction(interactionId, null);
+    }
+
+    /**
+     * Delete an interaction
+     * Calls {@code deleteInteractionWithHttpInfo} with every optional parameter left unset.
+     * @param interactionId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DeleteByIdResult> deleteInteractionWithHttpInfo(
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
+        return deleteInteractionWithHttpInfo(interactionId, null);
+    }
+
+    /**
+     * Delete an interaction (asynchronously)
+     * Calls {@code deleteInteractionAsync} with every optional parameter left unset.
+     * @param interactionId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call deleteInteractionAsync(
+            @jakarta.annotation.Nonnull String interactionId,
+            final ApiCallback<DeleteByIdResult> _callback)
+            throws ApiException {
+        return deleteInteractionAsync(interactionId, null, _callback);
     }
 
     /**
@@ -1323,6 +1395,73 @@ public class InteractionsApi {
     }
 
     /**
+     * Build call for executeInteractionByEndpoint with every optional parameter left unset.
+     * @param endpoint  (required)
+     * @param interactionExecutionPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call executeInteractionByEndpointCall(
+            @jakarta.annotation.Nonnull String endpoint,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        return executeInteractionByEndpointCall(
+                endpoint, interactionExecutionPayload, null, null, null, _callback);
+    }
+
+    /**
+     * Execute an interaction by endpoint
+     * Calls {@code executeInteractionByEndpoint} with every optional parameter left unset.
+     * @param endpoint  (required)
+     * @param interactionExecutionPayload  (required)
+     * @return InteractionExecutionResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InteractionExecutionResult executeInteractionByEndpoint(
+            @jakarta.annotation.Nonnull String endpoint,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload)
+            throws ApiException {
+        return executeInteractionByEndpoint(
+                endpoint, interactionExecutionPayload, null, null, null);
+    }
+
+    /**
+     * Execute an interaction by endpoint
+     * Calls {@code executeInteractionByEndpointWithHttpInfo} with every optional parameter left unset.
+     * @param endpoint  (required)
+     * @param interactionExecutionPayload  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InteractionExecutionResult> executeInteractionByEndpointWithHttpInfo(
+            @jakarta.annotation.Nonnull String endpoint,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload)
+            throws ApiException {
+        return executeInteractionByEndpointWithHttpInfo(
+                endpoint, interactionExecutionPayload, null, null, null);
+    }
+
+    /**
+     * Execute an interaction by endpoint (asynchronously)
+     * Calls {@code executeInteractionByEndpointAsync} with every optional parameter left unset.
+     * @param endpoint  (required)
+     * @param interactionExecutionPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call executeInteractionByEndpointAsync(
+            @jakarta.annotation.Nonnull String endpoint,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
+            final ApiCallback<InteractionExecutionResult> _callback)
+            throws ApiException {
+        return executeInteractionByEndpointAsync(
+                endpoint, interactionExecutionPayload, null, null, null, _callback);
+    }
+
+    /**
      * Build call for executeNamedInteraction
      * @param namedInteractionExecutionPayload  (required)
      * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
@@ -1503,6 +1642,65 @@ public class InteractionsApi {
         Type localVarReturnType = new TypeToken<InteractionExecutionResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for executeNamedInteraction with every optional parameter left unset.
+     * @param namedInteractionExecutionPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call executeNamedInteractionCall(
+            @jakarta.annotation.Nonnull
+                    NamedInteractionExecutionPayload namedInteractionExecutionPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        return executeNamedInteractionCall(namedInteractionExecutionPayload, null, _callback);
+    }
+
+    /**
+     * Execute an interaction by selector
+     * Calls {@code executeNamedInteraction} with every optional parameter left unset.
+     * @param namedInteractionExecutionPayload  (required)
+     * @return InteractionExecutionResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InteractionExecutionResult executeNamedInteraction(
+            @jakarta.annotation.Nonnull
+                    NamedInteractionExecutionPayload namedInteractionExecutionPayload)
+            throws ApiException {
+        return executeNamedInteraction(namedInteractionExecutionPayload, null);
+    }
+
+    /**
+     * Execute an interaction by selector
+     * Calls {@code executeNamedInteractionWithHttpInfo} with every optional parameter left unset.
+     * @param namedInteractionExecutionPayload  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InteractionExecutionResult> executeNamedInteractionWithHttpInfo(
+            @jakarta.annotation.Nonnull
+                    NamedInteractionExecutionPayload namedInteractionExecutionPayload)
+            throws ApiException {
+        return executeNamedInteractionWithHttpInfo(namedInteractionExecutionPayload, null);
+    }
+
+    /**
+     * Execute an interaction by selector (asynchronously)
+     * Calls {@code executeNamedInteractionAsync} with every optional parameter left unset.
+     * @param namedInteractionExecutionPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call executeNamedInteractionAsync(
+            @jakarta.annotation.Nonnull
+                    NamedInteractionExecutionPayload namedInteractionExecutionPayload,
+            final ApiCallback<InteractionExecutionResult> _callback)
+            throws ApiException {
+        return executeNamedInteractionAsync(namedInteractionExecutionPayload, null, _callback);
     }
 
     /**
@@ -2499,6 +2697,50 @@ public class InteractionsApi {
     }
 
     /**
+     * Build call for listAllAppInteractions with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listAllAppInteractionsCall(final ApiCallback _callback)
+            throws ApiException {
+        return listAllAppInteractionsCall(null, _callback);
+    }
+
+    /**
+     * List all app interactions
+     * Calls {@code listAllAppInteractions} with every optional parameter left unset.
+     * @return List&lt;CatalogInteractionRef&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<CatalogInteractionRef> listAllAppInteractions() throws ApiException {
+        return listAllAppInteractions(null);
+    }
+
+    /**
+     * List all app interactions
+     * Calls {@code listAllAppInteractionsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<CatalogInteractionRef>> listAllAppInteractionsWithHttpInfo()
+            throws ApiException {
+        return listAllAppInteractionsWithHttpInfo(null);
+    }
+
+    /**
+     * List all app interactions (asynchronously)
+     * Calls {@code listAllAppInteractionsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listAllAppInteractionsAsync(
+            final ApiCallback<List<CatalogInteractionRef>> _callback) throws ApiException {
+        return listAllAppInteractionsAsync(null, _callback);
+    }
+
+    /**
      * Build call for listAppInteractions
      * @param appName  (required)
      * @param tag  (optional)
@@ -2669,6 +2911,58 @@ public class InteractionsApi {
         Type localVarReturnType = new TypeToken<List<CatalogInteractionRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listAppInteractions with every optional parameter left unset.
+     * @param appName  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listAppInteractionsCall(
+            @jakarta.annotation.Nonnull String appName, final ApiCallback _callback)
+            throws ApiException {
+        return listAppInteractionsCall(appName, null, _callback);
+    }
+
+    /**
+     * List app interactions
+     * Calls {@code listAppInteractions} with every optional parameter left unset.
+     * @param appName  (required)
+     * @return List&lt;CatalogInteractionRef&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<CatalogInteractionRef> listAppInteractions(
+            @jakarta.annotation.Nonnull String appName) throws ApiException {
+        return listAppInteractions(appName, null);
+    }
+
+    /**
+     * List app interactions
+     * Calls {@code listAppInteractionsWithHttpInfo} with every optional parameter left unset.
+     * @param appName  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<CatalogInteractionRef>> listAppInteractionsWithHttpInfo(
+            @jakarta.annotation.Nonnull String appName) throws ApiException {
+        return listAppInteractionsWithHttpInfo(appName, null);
+    }
+
+    /**
+     * List app interactions (asynchronously)
+     * Calls {@code listAppInteractionsAsync} with every optional parameter left unset.
+     * @param appName  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listAppInteractionsAsync(
+            @jakarta.annotation.Nonnull String appName,
+            final ApiCallback<List<CatalogInteractionRef>> _callback)
+            throws ApiException {
+        return listAppInteractionsAsync(appName, null, _callback);
     }
 
     /**
@@ -3518,6 +3812,55 @@ public class InteractionsApi {
     }
 
     /**
+     * Build call for listInteractionTags with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listInteractionTagsCall(final ApiCallback _callback) throws ApiException {
+        return listInteractionTagsCall(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+                _callback);
+    }
+
+    /**
+     * List interaction tags
+     * Calls {@code listInteractionTags} with every optional parameter left unset.
+     * @return List&lt;InteractionTags&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<InteractionTags> listInteractionTags() throws ApiException {
+        return listInteractionTags(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List interaction tags
+     * Calls {@code listInteractionTagsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<InteractionTags>> listInteractionTagsWithHttpInfo()
+            throws ApiException {
+        return listInteractionTagsWithHttpInfo(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List interaction tags (asynchronously)
+     * Calls {@code listInteractionTagsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listInteractionTagsAsync(final ApiCallback<List<InteractionTags>> _callback)
+            throws ApiException {
+        return listInteractionTagsAsync(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+                _callback);
+    }
+
+    /**
      * Build call for listInteractionVersions
      * @param interactionId  (required)
      * @param _callback Callback for upload/download progress
@@ -4226,6 +4569,54 @@ public class InteractionsApi {
     }
 
     /**
+     * Build call for listInteractions with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listInteractionsCall(final ApiCallback _callback) throws ApiException {
+        return listInteractionsCall(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+                _callback);
+    }
+
+    /**
+     * List interactions
+     * Calls {@code listInteractions} with every optional parameter left unset.
+     * @return List&lt;InteractionRef&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<InteractionRef> listInteractions() throws ApiException {
+        return listInteractions(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List interactions
+     * Calls {@code listInteractionsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<InteractionRef>> listInteractionsWithHttpInfo() throws ApiException {
+        return listInteractionsWithHttpInfo(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * List interactions (asynchronously)
+     * Calls {@code listInteractionsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listInteractionsAsync(final ApiCallback<List<InteractionRef>> _callback)
+            throws ApiException {
+        return listInteractionsAsync(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+                _callback);
+    }
+
+    /**
      * Build call for listStoredCatalogInteractions
      * @param tag  (optional)
      * @param status  (optional)
@@ -4410,6 +4801,50 @@ public class InteractionsApi {
     }
 
     /**
+     * Build call for listStoredCatalogInteractions with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listStoredCatalogInteractionsCall(final ApiCallback _callback)
+            throws ApiException {
+        return listStoredCatalogInteractionsCall(null, null, null, _callback);
+    }
+
+    /**
+     * List stored catalog interactions
+     * Calls {@code listStoredCatalogInteractions} with every optional parameter left unset.
+     * @return List&lt;CatalogInteractionRef&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<CatalogInteractionRef> listStoredCatalogInteractions() throws ApiException {
+        return listStoredCatalogInteractions(null, null, null);
+    }
+
+    /**
+     * List stored catalog interactions
+     * Calls {@code listStoredCatalogInteractionsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<CatalogInteractionRef>> listStoredCatalogInteractionsWithHttpInfo()
+            throws ApiException {
+        return listStoredCatalogInteractionsWithHttpInfo(null, null, null);
+    }
+
+    /**
+     * List stored catalog interactions (asynchronously)
+     * Calls {@code listStoredCatalogInteractionsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listStoredCatalogInteractionsAsync(
+            final ApiCallback<List<CatalogInteractionRef>> _callback) throws ApiException {
+        return listStoredCatalogInteractionsAsync(null, null, null, _callback);
+    }
+
+    /**
      * Build call for listSystemInteractions
      * @param tag  (optional)
      * @param _callback Callback for upload/download progress
@@ -4559,6 +4994,50 @@ public class InteractionsApi {
         Type localVarReturnType = new TypeToken<List<CatalogInteractionRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listSystemInteractions with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listSystemInteractionsCall(final ApiCallback _callback)
+            throws ApiException {
+        return listSystemInteractionsCall(null, _callback);
+    }
+
+    /**
+     * List system interactions
+     * Calls {@code listSystemInteractions} with every optional parameter left unset.
+     * @return List&lt;CatalogInteractionRef&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<CatalogInteractionRef> listSystemInteractions() throws ApiException {
+        return listSystemInteractions(null);
+    }
+
+    /**
+     * List system interactions
+     * Calls {@code listSystemInteractionsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<CatalogInteractionRef>> listSystemInteractionsWithHttpInfo()
+            throws ApiException {
+        return listSystemInteractionsWithHttpInfo(null);
+    }
+
+    /**
+     * List system interactions (asynchronously)
+     * Calls {@code listSystemInteractionsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listSystemInteractionsAsync(
+            final ApiCallback<List<CatalogInteractionRef>> _callback) throws ApiException {
+        return listSystemInteractionsAsync(null, _callback);
     }
 
     /**
@@ -5341,6 +5820,58 @@ public class InteractionsApi {
         Type localVarReturnType = new TypeToken<ResolvedInteractionExecutionInfo>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for resolveInteraction with every optional parameter left unset.
+     * @param nameOrId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call resolveInteractionCall(
+            @jakarta.annotation.Nonnull String nameOrId, final ApiCallback _callback)
+            throws ApiException {
+        return resolveInteractionCall(nameOrId, null, null, null, null, null, null, _callback);
+    }
+
+    /**
+     * Resolve an interaction
+     * Calls {@code resolveInteraction} with every optional parameter left unset.
+     * @param nameOrId  (required)
+     * @return ResolvedInteractionExecutionInfo
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ResolvedInteractionExecutionInfo resolveInteraction(
+            @jakarta.annotation.Nonnull String nameOrId) throws ApiException {
+        return resolveInteraction(nameOrId, null, null, null, null, null, null);
+    }
+
+    /**
+     * Resolve an interaction
+     * Calls {@code resolveInteractionWithHttpInfo} with every optional parameter left unset.
+     * @param nameOrId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ResolvedInteractionExecutionInfo> resolveInteractionWithHttpInfo(
+            @jakarta.annotation.Nonnull String nameOrId) throws ApiException {
+        return resolveInteractionWithHttpInfo(nameOrId, null, null, null, null, null, null);
+    }
+
+    /**
+     * Resolve an interaction (asynchronously)
+     * Calls {@code resolveInteractionAsync} with every optional parameter left unset.
+     * @param nameOrId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call resolveInteractionAsync(
+            @jakarta.annotation.Nonnull String nameOrId,
+            final ApiCallback<ResolvedInteractionExecutionInfo> _callback)
+            throws ApiException {
+        return resolveInteractionAsync(nameOrId, null, null, null, null, null, null, _callback);
     }
 
     /**

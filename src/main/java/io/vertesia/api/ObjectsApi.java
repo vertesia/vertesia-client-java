@@ -836,6 +836,61 @@ public class ObjectsApi {
     }
 
     /**
+     * Build call for createObject with every optional parameter left unset.
+     * @param createContentObjectPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createObjectCall(
+            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        return createObjectCall(createContentObjectPayload, null, null, null, null, _callback);
+    }
+
+    /**
+     * Create a content object
+     * Calls {@code createObject} with every optional parameter left unset.
+     * @param createContentObjectPayload  (required)
+     * @return ContentObjectApiResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ContentObjectApiResponse createObject(
+            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload)
+            throws ApiException {
+        return createObject(createContentObjectPayload, null, null, null, null);
+    }
+
+    /**
+     * Create a content object
+     * Calls {@code createObjectWithHttpInfo} with every optional parameter left unset.
+     * @param createContentObjectPayload  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ContentObjectApiResponse> createObjectWithHttpInfo(
+            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload)
+            throws ApiException {
+        return createObjectWithHttpInfo(createContentObjectPayload, null, null, null, null);
+    }
+
+    /**
+     * Create a content object (asynchronously)
+     * Calls {@code createObjectAsync} with every optional parameter left unset.
+     * @param createContentObjectPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createObjectAsync(
+            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
+            final ApiCallback<ContentObjectApiResponse> _callback)
+            throws ApiException {
+        return createObjectAsync(createContentObjectPayload, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for createObjectDownloadUrl
      * @param getFileUrlPayload  (required)
      * @param _callback Callback for upload/download progress
@@ -3063,6 +3118,67 @@ public class ObjectsApi {
     }
 
     /**
+     * Build call for getObjectRendition with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param format  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getObjectRenditionCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String format,
+            final ApiCallback _callback)
+            throws ApiException {
+        return getObjectRenditionCall(objectId, format, null, null, null, null, _callback);
+    }
+
+    /**
+     * Get a content object rendition
+     * Calls {@code getObjectRendition} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param format  (required)
+     * @return GetRenditionResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GetRenditionResponse getObjectRendition(
+            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String format)
+            throws ApiException {
+        return getObjectRendition(objectId, format, null, null, null, null);
+    }
+
+    /**
+     * Get a content object rendition
+     * Calls {@code getObjectRenditionWithHttpInfo} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param format  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GetRenditionResponse> getObjectRenditionWithHttpInfo(
+            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String format)
+            throws ApiException {
+        return getObjectRenditionWithHttpInfo(objectId, format, null, null, null, null);
+    }
+
+    /**
+     * Get a content object rendition (asynchronously)
+     * Calls {@code getObjectRenditionAsync} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param format  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getObjectRenditionAsync(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String format,
+            final ApiCallback<GetRenditionResponse> _callback)
+            throws ApiException {
+        return getObjectRenditionAsync(objectId, format, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for getObjectText
      * @param objectId  (required)
      * @param _callback Callback for upload/download progress
@@ -4715,6 +4831,59 @@ public class ObjectsApi {
     }
 
     /**
+     * Build call for startObjectDocumentGroundedExtraction with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call startObjectDocumentGroundedExtractionCall(
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
+            throws ApiException {
+        return startObjectDocumentGroundedExtractionCall(objectId, null, _callback);
+    }
+
+    /**
+     * Start grounded extraction
+     * Calls {@code startObjectDocumentGroundedExtraction} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @return DocAnalyzeRunStatusResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DocAnalyzeRunStatusResponse startObjectDocumentGroundedExtraction(
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
+        return startObjectDocumentGroundedExtraction(objectId, null);
+    }
+
+    /**
+     * Start grounded extraction
+     * Calls {@code startObjectDocumentGroundedExtractionWithHttpInfo} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DocAnalyzeRunStatusResponse>
+            startObjectDocumentGroundedExtractionWithHttpInfo(
+                    @jakarta.annotation.Nonnull String objectId) throws ApiException {
+        return startObjectDocumentGroundedExtractionWithHttpInfo(objectId, null);
+    }
+
+    /**
+     * Start grounded extraction (asynchronously)
+     * Calls {@code startObjectDocumentGroundedExtractionAsync} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call startObjectDocumentGroundedExtractionAsync(
+            @jakarta.annotation.Nonnull String objectId,
+            final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
+            throws ApiException {
+        return startObjectDocumentGroundedExtractionAsync(objectId, null, _callback);
+    }
+
+    /**
      * Build call for startObjectGroundedExtractionAssistant
      * @param objectId  (required)
      * @param groundedExtractionRequest  (optional)
@@ -4890,6 +5059,59 @@ public class ObjectsApi {
         Type localVarReturnType = new TypeToken<GroundedAssistantResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for startObjectGroundedExtractionAssistant with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call startObjectGroundedExtractionAssistantCall(
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
+            throws ApiException {
+        return startObjectGroundedExtractionAssistantCall(objectId, null, _callback);
+    }
+
+    /**
+     * Start the interactive grounded extraction assistant
+     * Calls {@code startObjectGroundedExtractionAssistant} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @return GroundedAssistantResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GroundedAssistantResponse startObjectGroundedExtractionAssistant(
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
+        return startObjectGroundedExtractionAssistant(objectId, null);
+    }
+
+    /**
+     * Start the interactive grounded extraction assistant
+     * Calls {@code startObjectGroundedExtractionAssistantWithHttpInfo} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GroundedAssistantResponse>
+            startObjectGroundedExtractionAssistantWithHttpInfo(
+                    @jakarta.annotation.Nonnull String objectId) throws ApiException {
+        return startObjectGroundedExtractionAssistantWithHttpInfo(objectId, null);
+    }
+
+    /**
+     * Start the interactive grounded extraction assistant (asynchronously)
+     * Calls {@code startObjectGroundedExtractionAssistantAsync} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call startObjectGroundedExtractionAssistantAsync(
+            @jakarta.annotation.Nonnull String objectId,
+            final ApiCallback<GroundedAssistantResponse> _callback)
+            throws ApiException {
+        return startObjectGroundedExtractionAssistantAsync(objectId, null, _callback);
     }
 
     /**
@@ -5225,5 +5447,110 @@ public class ObjectsApi {
         Type localVarReturnType = new TypeToken<ContentObjectApiResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for updateObject with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param updateContentObjectPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call updateObjectCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        return updateObjectCall(
+                objectId,
+                updateContentObjectPayload,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                _callback);
+    }
+
+    /**
+     * Update a content object
+     * Calls {@code updateObject} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param updateContentObjectPayload  (required)
+     * @return ContentObjectApiResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ContentObjectApiResponse updateObject(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload)
+            throws ApiException {
+        return updateObject(
+                objectId,
+                updateContentObjectPayload,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
+    }
+
+    /**
+     * Update a content object
+     * Calls {@code updateObjectWithHttpInfo} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param updateContentObjectPayload  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ContentObjectApiResponse> updateObjectWithHttpInfo(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload)
+            throws ApiException {
+        return updateObjectWithHttpInfo(
+                objectId,
+                updateContentObjectPayload,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
+    }
+
+    /**
+     * Update a content object (asynchronously)
+     * Calls {@code updateObjectAsync} with every optional parameter left unset.
+     * @param objectId  (required)
+     * @param updateContentObjectPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call updateObjectAsync(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
+            final ApiCallback<ContentObjectApiResponse> _callback)
+            throws ApiException {
+        return updateObjectAsync(
+                objectId,
+                updateContentObjectPayload,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                _callback);
     }
 }

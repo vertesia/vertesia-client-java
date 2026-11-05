@@ -2119,6 +2119,50 @@ public class ProcessesApi {
     }
 
     /**
+     * Build call for listProcessDefinitions with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listProcessDefinitionsCall(final ApiCallback _callback)
+            throws ApiException {
+        return listProcessDefinitionsCall(null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List process definitions
+     * Calls {@code listProcessDefinitions} with every optional parameter left unset.
+     * @return List&lt;ProcessDefinition&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ProcessDefinition> listProcessDefinitions() throws ApiException {
+        return listProcessDefinitions(null, null, null, null, null);
+    }
+
+    /**
+     * List process definitions
+     * Calls {@code listProcessDefinitionsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ProcessDefinition>> listProcessDefinitionsWithHttpInfo()
+            throws ApiException {
+        return listProcessDefinitionsWithHttpInfo(null, null, null, null, null);
+    }
+
+    /**
+     * List process definitions (asynchronously)
+     * Calls {@code listProcessDefinitionsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listProcessDefinitionsAsync(
+            final ApiCallback<List<ProcessDefinition>> _callback) throws ApiException {
+        return listProcessDefinitionsAsync(null, null, null, null, null, _callback);
+    }
+
+    /**
      * Build call for listProcessTestRuns
      * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param limit  (optional)
@@ -2292,6 +2336,58 @@ public class ProcessesApi {
         Type localVarReturnType = new TypeToken<List<ProcessTestRun>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listProcessTestRuns with every optional parameter left unset.
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listProcessTestRunsCall(
+            @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
+            throws ApiException {
+        return listProcessTestRunsCall(processId, null, _callback);
+    }
+
+    /**
+     * List process test runs
+     * Calls {@code listProcessTestRuns} with every optional parameter left unset.
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @return List&lt;ProcessTestRun&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ProcessTestRun> listProcessTestRuns(@jakarta.annotation.Nonnull String processId)
+            throws ApiException {
+        return listProcessTestRuns(processId, null);
+    }
+
+    /**
+     * List process test runs
+     * Calls {@code listProcessTestRunsWithHttpInfo} with every optional parameter left unset.
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ProcessTestRun>> listProcessTestRunsWithHttpInfo(
+            @jakarta.annotation.Nonnull String processId) throws ApiException {
+        return listProcessTestRunsWithHttpInfo(processId, null);
+    }
+
+    /**
+     * List process test runs (asynchronously)
+     * Calls {@code listProcessTestRunsAsync} with every optional parameter left unset.
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listProcessTestRunsAsync(
+            @jakarta.annotation.Nonnull String processId,
+            final ApiCallback<List<ProcessTestRun>> _callback)
+            throws ApiException {
+        return listProcessTestRunsAsync(processId, null, _callback);
     }
 
     /**

@@ -991,6 +991,67 @@ public class AgentRunsApi {
     }
 
     /**
+     * Build call for createAgentRunArtifactUploadUrl with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param path  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call createAgentRunArtifactUploadUrlCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            final ApiCallback _callback)
+            throws ApiException {
+        return createAgentRunArtifactUploadUrlCall(agentRunId, path, null, _callback);
+    }
+
+    /**
+     * Create an artifact upload URL
+     * Calls {@code createAgentRunArtifactUploadUrl} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param path  (required)
+     * @return AgentArtifactUrlResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AgentArtifactUrlResponse createAgentRunArtifactUploadUrl(
+            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
+            throws ApiException {
+        return createAgentRunArtifactUploadUrl(agentRunId, path, null);
+    }
+
+    /**
+     * Create an artifact upload URL
+     * Calls {@code createAgentRunArtifactUploadUrlWithHttpInfo} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param path  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AgentArtifactUrlResponse> createAgentRunArtifactUploadUrlWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
+            throws ApiException {
+        return createAgentRunArtifactUploadUrlWithHttpInfo(agentRunId, path, null);
+    }
+
+    /**
+     * Create an artifact upload URL (asynchronously)
+     * Calls {@code createAgentRunArtifactUploadUrlAsync} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param path  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call createAgentRunArtifactUploadUrlAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            final ApiCallback<AgentArtifactUrlResponse> _callback)
+            throws ApiException {
+        return createAgentRunArtifactUploadUrlAsync(agentRunId, path, null, _callback);
+    }
+
+    /**
      * Build call for forkAgentRun
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
@@ -1532,6 +1593,67 @@ public class AgentRunsApi {
     }
 
     /**
+     * Build call for getAgentRunArtifact with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param path  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getAgentRunArtifactCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            final ApiCallback _callback)
+            throws ApiException {
+        return getAgentRunArtifactCall(agentRunId, path, null, null, null, _callback);
+    }
+
+    /**
+     * Get an agent run artifact
+     * Calls {@code getAgentRunArtifact} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param path  (required)
+     * @return AgentArtifactUrlResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AgentArtifactUrlResponse getAgentRunArtifact(
+            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
+            throws ApiException {
+        return getAgentRunArtifact(agentRunId, path, null, null, null);
+    }
+
+    /**
+     * Get an agent run artifact
+     * Calls {@code getAgentRunArtifactWithHttpInfo} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param path  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AgentArtifactUrlResponse> getAgentRunArtifactWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
+            throws ApiException {
+        return getAgentRunArtifactWithHttpInfo(agentRunId, path, null, null, null);
+    }
+
+    /**
+     * Get an agent run artifact (asynchronously)
+     * Calls {@code getAgentRunArtifactAsync} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param path  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getAgentRunArtifactAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            final ApiCallback<AgentArtifactUrlResponse> _callback)
+            throws ApiException {
+        return getAgentRunArtifactAsync(agentRunId, path, null, null, null, _callback);
+    }
+
+    /**
      * Build call for getAgentRunArtifactContent
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
@@ -1948,6 +2070,71 @@ public class AgentRunsApi {
     }
 
     /**
+     * Build call for getAgentRunChildDetails with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param childWorkflowId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getAgentRunChildDetailsCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String childWorkflowId,
+            final ApiCallback _callback)
+            throws ApiException {
+        return getAgentRunChildDetailsCall(
+                agentRunId, childWorkflowId, null, null, null, _callback);
+    }
+
+    /**
+     * Get child agent run details
+     * Calls {@code getAgentRunChildDetails} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param childWorkflowId  (required)
+     * @return WorkflowRunWithDetails
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkflowRunWithDetails getAgentRunChildDetails(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String childWorkflowId)
+            throws ApiException {
+        return getAgentRunChildDetails(agentRunId, childWorkflowId, null, null, null);
+    }
+
+    /**
+     * Get child agent run details
+     * Calls {@code getAgentRunChildDetailsWithHttpInfo} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param childWorkflowId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkflowRunWithDetails> getAgentRunChildDetailsWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String childWorkflowId)
+            throws ApiException {
+        return getAgentRunChildDetailsWithHttpInfo(agentRunId, childWorkflowId, null, null, null);
+    }
+
+    /**
+     * Get child agent run details (asynchronously)
+     * Calls {@code getAgentRunChildDetailsAsync} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param childWorkflowId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getAgentRunChildDetailsAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String childWorkflowId,
+            final ApiCallback<WorkflowRunWithDetails> _callback)
+            throws ApiException {
+        return getAgentRunChildDetailsAsync(
+                agentRunId, childWorkflowId, null, null, null, _callback);
+    }
+
+    /**
      * Build call for getAgentRunDetails
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
@@ -2152,6 +2339,58 @@ public class AgentRunsApi {
         Type localVarReturnType = new TypeToken<WorkflowRunWithDetails>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for getAgentRunDetails with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getAgentRunDetailsCall(
+            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
+            throws ApiException {
+        return getAgentRunDetailsCall(agentRunId, null, null, null, _callback);
+    }
+
+    /**
+     * Get agent run details
+     * Calls {@code getAgentRunDetails} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return WorkflowRunWithDetails
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public WorkflowRunWithDetails getAgentRunDetails(@jakarta.annotation.Nonnull String agentRunId)
+            throws ApiException {
+        return getAgentRunDetails(agentRunId, null, null, null);
+    }
+
+    /**
+     * Get agent run details
+     * Calls {@code getAgentRunDetailsWithHttpInfo} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<WorkflowRunWithDetails> getAgentRunDetailsWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
+        return getAgentRunDetailsWithHttpInfo(agentRunId, null, null, null);
+    }
+
+    /**
+     * Get agent run details (asynchronously)
+     * Calls {@code getAgentRunDetailsAsync} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getAgentRunDetailsAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            final ApiCallback<WorkflowRunWithDetails> _callback)
+            throws ApiException {
+        return getAgentRunDetailsAsync(agentRunId, null, null, null, _callback);
     }
 
     /**
@@ -2648,6 +2887,58 @@ public class AgentRunsApi {
     }
 
     /**
+     * Build call for listAgentRunArtifacts with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listAgentRunArtifactsCall(
+            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
+            throws ApiException {
+        return listAgentRunArtifactsCall(agentRunId, null, _callback);
+    }
+
+    /**
+     * List agent run artifacts
+     * Calls {@code listAgentRunArtifacts} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return List&lt;String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<String> listAgentRunArtifacts(@jakarta.annotation.Nonnull String agentRunId)
+            throws ApiException {
+        return listAgentRunArtifacts(agentRunId, null);
+    }
+
+    /**
+     * List agent run artifacts
+     * Calls {@code listAgentRunArtifactsWithHttpInfo} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<String>> listAgentRunArtifactsWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
+        return listAgentRunArtifactsWithHttpInfo(agentRunId, null);
+    }
+
+    /**
+     * List agent run artifacts (asynchronously)
+     * Calls {@code listAgentRunArtifactsAsync} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listAgentRunArtifactsAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            final ApiCallback<List<String>> _callback)
+            throws ApiException {
+        return listAgentRunArtifactsAsync(agentRunId, null, _callback);
+    }
+
+    /**
      * Build call for listAgentRunChildren
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
@@ -2979,6 +3270,58 @@ public class AgentRunsApi {
         Type localVarReturnType = new TypeToken<AgentRunUpdatesResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listAgentRunUpdates with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listAgentRunUpdatesCall(
+            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
+            throws ApiException {
+        return listAgentRunUpdatesCall(agentRunId, null, _callback);
+    }
+
+    /**
+     * List agent run updates
+     * Calls {@code listAgentRunUpdates} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return AgentRunUpdatesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AgentRunUpdatesResponse listAgentRunUpdates(
+            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
+        return listAgentRunUpdates(agentRunId, null);
+    }
+
+    /**
+     * List agent run updates
+     * Calls {@code listAgentRunUpdatesWithHttpInfo} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AgentRunUpdatesResponse> listAgentRunUpdatesWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
+        return listAgentRunUpdatesWithHttpInfo(agentRunId, null);
+    }
+
+    /**
+     * List agent run updates (asynchronously)
+     * Calls {@code listAgentRunUpdatesAsync} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listAgentRunUpdatesAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            final ApiCallback<AgentRunUpdatesResponse> _callback)
+            throws ApiException {
+        return listAgentRunUpdatesAsync(agentRunId, null, _callback);
     }
 
     /**
@@ -3459,6 +3802,56 @@ public class AgentRunsApi {
         Type localVarReturnType = new TypeToken<ListAgentRunsResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listAgentRuns with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listAgentRunsCall(final ApiCallback _callback) throws ApiException {
+        return listAgentRunsCall(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, _callback);
+    }
+
+    /**
+     * List agent runs
+     * Calls {@code listAgentRuns} with every optional parameter left unset.
+     * @return ListAgentRunsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ListAgentRunsResponse listAgentRuns() throws ApiException {
+        return listAgentRuns(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null);
+    }
+
+    /**
+     * List agent runs
+     * Calls {@code listAgentRunsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<ListAgentRunsResponse> listAgentRunsWithHttpInfo() throws ApiException {
+        return listAgentRunsWithHttpInfo(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null);
+    }
+
+    /**
+     * List agent runs (asynchronously)
+     * Calls {@code listAgentRunsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listAgentRunsAsync(final ApiCallback<ListAgentRunsResponse> _callback)
+            throws ApiException {
+        return listAgentRunsAsync(
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
+                null, null, null, null, null, _callback);
     }
 
     /**
@@ -4175,6 +4568,57 @@ public class AgentRunsApi {
     }
 
     /**
+     * Build call for restartAgentRun with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call restartAgentRunCall(
+            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
+            throws ApiException {
+        return restartAgentRunCall(agentRunId, null, _callback);
+    }
+
+    /**
+     * Restart an agent run
+     * Calls {@code restartAgentRun} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return AgentRun
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AgentRun restartAgentRun(@jakarta.annotation.Nonnull String agentRunId)
+            throws ApiException {
+        return restartAgentRun(agentRunId, null);
+    }
+
+    /**
+     * Restart an agent run
+     * Calls {@code restartAgentRunWithHttpInfo} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<AgentRun> restartAgentRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
+        return restartAgentRunWithHttpInfo(agentRunId, null);
+    }
+
+    /**
+     * Restart an agent run (asynchronously)
+     * Calls {@code restartAgentRunAsync} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call restartAgentRunAsync(
+            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback<AgentRun> _callback)
+            throws ApiException {
+        return restartAgentRunAsync(agentRunId, null, _callback);
+    }
+
+    /**
      * Build call for retryProcessNode
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param retryProcessNodePayload  (required)
@@ -4734,6 +5178,54 @@ public class AgentRunsApi {
     }
 
     /**
+     * Build call for searchAgentRuns with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call searchAgentRunsCall(final ApiCallback _callback) throws ApiException {
+        return searchAgentRunsCall(
+                null, null, null, null, null, null, null, null, null, null, null, null, null,
+                _callback);
+    }
+
+    /**
+     * Search agent runs
+     * Calls {@code searchAgentRuns} with every optional parameter left unset.
+     * @return SearchAgentRunsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SearchAgentRunsResponse searchAgentRuns() throws ApiException {
+        return searchAgentRuns(
+                null, null, null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * Search agent runs
+     * Calls {@code searchAgentRunsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SearchAgentRunsResponse> searchAgentRunsWithHttpInfo() throws ApiException {
+        return searchAgentRunsWithHttpInfo(
+                null, null, null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * Search agent runs (asynchronously)
+     * Calls {@code searchAgentRunsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call searchAgentRunsAsync(final ApiCallback<SearchAgentRunsResponse> _callback)
+            throws ApiException {
+        return searchAgentRunsAsync(
+                null, null, null, null, null, null, null, null, null, null, null, null, null,
+                _callback);
+    }
+
+    /**
      * Build call for signalAgentRun
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param signalName  (required)
@@ -4929,6 +5421,69 @@ public class AgentRunsApi {
     }
 
     /**
+     * Build call for signalAgentRun with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param signalName  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call signalAgentRunCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String signalName,
+            final ApiCallback _callback)
+            throws ApiException {
+        return signalAgentRunCall(agentRunId, signalName, null, _callback);
+    }
+
+    /**
+     * Signal an agent run
+     * Calls {@code signalAgentRun} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param signalName  (required)
+     * @return SignalAgentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SignalAgentResponse signalAgentRun(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String signalName)
+            throws ApiException {
+        return signalAgentRun(agentRunId, signalName, null);
+    }
+
+    /**
+     * Signal an agent run
+     * Calls {@code signalAgentRunWithHttpInfo} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param signalName  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SignalAgentResponse> signalAgentRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String signalName)
+            throws ApiException {
+        return signalAgentRunWithHttpInfo(agentRunId, signalName, null);
+    }
+
+    /**
+     * Signal an agent run (asynchronously)
+     * Calls {@code signalAgentRunAsync} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param signalName  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call signalAgentRunAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String signalName,
+            final ApiCallback<SignalAgentResponse> _callback)
+            throws ApiException {
+        return signalAgentRunAsync(agentRunId, signalName, null, _callback);
+    }
+
+    /**
      * Build call for streamAgentRun
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param since  (optional)
@@ -5120,6 +5675,57 @@ public class AgentRunsApi {
     }
 
     /**
+     * Build call for streamAgentRun with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call streamAgentRunCall(
+            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
+            throws ApiException {
+        return streamAgentRunCall(agentRunId, null, null, _callback);
+    }
+
+    /**
+     * Stream an agent run
+     * Calls {@code streamAgentRun} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return String
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public String streamAgentRun(@jakarta.annotation.Nonnull String agentRunId)
+            throws ApiException {
+        return streamAgentRun(agentRunId, null, null);
+    }
+
+    /**
+     * Stream an agent run
+     * Calls {@code streamAgentRunWithHttpInfo} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<String> streamAgentRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
+        return streamAgentRunWithHttpInfo(agentRunId, null, null);
+    }
+
+    /**
+     * Stream an agent run (asynchronously)
+     * Calls {@code streamAgentRunAsync} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call streamAgentRunAsync(
+            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback<String> _callback)
+            throws ApiException {
+        return streamAgentRunAsync(agentRunId, null, null, _callback);
+    }
+
+    /**
      * Build call for streamAgentRunDetails
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
@@ -5278,6 +5884,7 @@ public class AgentRunsApi {
     /**
      * Build call for terminateAgentRun
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param reason Why the run is being terminated. Takes precedence over a &#x60;reason&#x60; in the body. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5291,7 +5898,9 @@ public class AgentRunsApi {
      * </table>
      */
     public okhttp3.Call terminateAgentRunCall(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nullable String reason,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5320,6 +5929,10 @@ public class AgentRunsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (reason != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("reason", reason));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -5351,7 +5964,9 @@ public class AgentRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call terminateAgentRunValidateBeforeCall(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nullable String reason,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'agentRunId' is set
         if (agentRunId == null) {
@@ -5359,13 +5974,14 @@ public class AgentRunsApi {
                     "Missing the required parameter 'agentRunId' when calling terminateAgentRun(Async)");
         }
 
-        return terminateAgentRunCall(agentRunId, _callback);
+        return terminateAgentRunCall(agentRunId, reason, _callback);
     }
 
     /**
      * Terminate an agent run
      * Cancels the backing workflow, marks the agent run as cancelled, and schedules archival.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param reason Why the run is being terminated. Takes precedence over a &#x60;reason&#x60; in the body. (optional)
      * @return TerminateAgentRunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5378,9 +5994,11 @@ public class AgentRunsApi {
      * </table>
      */
     public TerminateAgentRunResponse terminateAgentRun(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nullable String reason)
+            throws ApiException {
         ApiResponse<TerminateAgentRunResponse> localVarResp =
-                terminateAgentRunWithHttpInfo(agentRunId);
+                terminateAgentRunWithHttpInfo(agentRunId, reason);
         return localVarResp.getData();
     }
 
@@ -5388,6 +6006,7 @@ public class AgentRunsApi {
      * Terminate an agent run
      * Cancels the backing workflow, marks the agent run as cancelled, and schedules archival.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param reason Why the run is being terminated. Takes precedence over a &#x60;reason&#x60; in the body. (optional)
      * @return ApiResponse&lt;TerminateAgentRunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5400,8 +6019,10 @@ public class AgentRunsApi {
      * </table>
      */
     public ApiResponse<TerminateAgentRunResponse> terminateAgentRunWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        okhttp3.Call localVarCall = terminateAgentRunValidateBeforeCall(agentRunId, null);
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nullable String reason)
+            throws ApiException {
+        okhttp3.Call localVarCall = terminateAgentRunValidateBeforeCall(agentRunId, reason, null);
         Type localVarReturnType = new TypeToken<TerminateAgentRunResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5410,6 +6031,7 @@ public class AgentRunsApi {
      * Terminate an agent run (asynchronously)
      * Cancels the backing workflow, marks the agent run as cancelled, and schedules archival.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param reason Why the run is being terminated. Takes precedence over a &#x60;reason&#x60; in the body. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5424,13 +6046,67 @@ public class AgentRunsApi {
      */
     public okhttp3.Call terminateAgentRunAsync(
             @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nullable String reason,
             final ApiCallback<TerminateAgentRunResponse> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = terminateAgentRunValidateBeforeCall(agentRunId, _callback);
+        okhttp3.Call localVarCall =
+                terminateAgentRunValidateBeforeCall(agentRunId, reason, _callback);
         Type localVarReturnType = new TypeToken<TerminateAgentRunResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for terminateAgentRun with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call terminateAgentRunCall(
+            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
+            throws ApiException {
+        return terminateAgentRunCall(agentRunId, null, _callback);
+    }
+
+    /**
+     * Terminate an agent run
+     * Calls {@code terminateAgentRun} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return TerminateAgentRunResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TerminateAgentRunResponse terminateAgentRun(
+            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
+        return terminateAgentRun(agentRunId, null);
+    }
+
+    /**
+     * Terminate an agent run
+     * Calls {@code terminateAgentRunWithHttpInfo} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TerminateAgentRunResponse> terminateAgentRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
+        return terminateAgentRunWithHttpInfo(agentRunId, null);
+    }
+
+    /**
+     * Terminate an agent run (asynchronously)
+     * Calls {@code terminateAgentRunAsync} with every optional parameter left unset.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call terminateAgentRunAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            final ApiCallback<TerminateAgentRunResponse> _callback)
+            throws ApiException {
+        return terminateAgentRunAsync(agentRunId, null, _callback);
     }
 
     /**

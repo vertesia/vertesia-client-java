@@ -1484,6 +1484,67 @@ public class EnvironmentsApi {
     }
 
     /**
+     * Build call for getRunBudgetCapability with every optional parameter left unset.
+     * @param envId  (required)
+     * @param model  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getRunBudgetCapabilityCall(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String model,
+            final ApiCallback _callback)
+            throws ApiException {
+        return getRunBudgetCapabilityCall(envId, model, null, null, _callback);
+    }
+
+    /**
+     * Check run budget pricing availability for a selected model
+     * Calls {@code getRunBudgetCapability} with every optional parameter left unset.
+     * @param envId  (required)
+     * @param model  (required)
+     * @return RunBudgetCapability
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public RunBudgetCapability getRunBudgetCapability(
+            @jakarta.annotation.Nonnull String envId, @jakarta.annotation.Nonnull String model)
+            throws ApiException {
+        return getRunBudgetCapability(envId, model, null, null);
+    }
+
+    /**
+     * Check run budget pricing availability for a selected model
+     * Calls {@code getRunBudgetCapabilityWithHttpInfo} with every optional parameter left unset.
+     * @param envId  (required)
+     * @param model  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<RunBudgetCapability> getRunBudgetCapabilityWithHttpInfo(
+            @jakarta.annotation.Nonnull String envId, @jakarta.annotation.Nonnull String model)
+            throws ApiException {
+        return getRunBudgetCapabilityWithHttpInfo(envId, model, null, null);
+    }
+
+    /**
+     * Check run budget pricing availability for a selected model (asynchronously)
+     * Calls {@code getRunBudgetCapabilityAsync} with every optional parameter left unset.
+     * @param envId  (required)
+     * @param model  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getRunBudgetCapabilityAsync(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String model,
+            final ApiCallback<RunBudgetCapability> _callback)
+            throws ApiException {
+        return getRunBudgetCapabilityAsync(envId, model, null, null, _callback);
+    }
+
+    /**
      * Build call for listEnvironmentModels
      * @param envId  (required)
      * @param text  (optional)
@@ -1698,6 +1759,57 @@ public class EnvironmentsApi {
         Type localVarReturnType = new TypeToken<List<AIModel>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listEnvironmentModels with every optional parameter left unset.
+     * @param envId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listEnvironmentModelsCall(
+            @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
+            throws ApiException {
+        return listEnvironmentModelsCall(envId, null, null, null, null, _callback);
+    }
+
+    /**
+     * List environment models
+     * Calls {@code listEnvironmentModels} with every optional parameter left unset.
+     * @param envId  (required)
+     * @return List&lt;AIModel&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<AIModel> listEnvironmentModels(@jakarta.annotation.Nonnull String envId)
+            throws ApiException {
+        return listEnvironmentModels(envId, null, null, null, null);
+    }
+
+    /**
+     * List environment models
+     * Calls {@code listEnvironmentModelsWithHttpInfo} with every optional parameter left unset.
+     * @param envId  (required)
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<AIModel>> listEnvironmentModelsWithHttpInfo(
+            @jakarta.annotation.Nonnull String envId) throws ApiException {
+        return listEnvironmentModelsWithHttpInfo(envId, null, null, null, null);
+    }
+
+    /**
+     * List environment models (asynchronously)
+     * Calls {@code listEnvironmentModelsAsync} with every optional parameter left unset.
+     * @param envId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listEnvironmentModelsAsync(
+            @jakarta.annotation.Nonnull String envId, final ApiCallback<List<AIModel>> _callback)
+            throws ApiException {
+        return listEnvironmentModelsAsync(envId, null, null, null, null, _callback);
     }
 
     /**
@@ -2006,6 +2118,49 @@ public class EnvironmentsApi {
         Type localVarReturnType = new TypeToken<List<ExecutionEnvironment>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    /**
+     * Build call for listEnvironments with every optional parameter left unset.
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listEnvironmentsCall(final ApiCallback _callback) throws ApiException {
+        return listEnvironmentsCall(null, _callback);
+    }
+
+    /**
+     * List environments
+     * Calls {@code listEnvironments} with every optional parameter left unset.
+     * @return List&lt;ExecutionEnvironment&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<ExecutionEnvironment> listEnvironments() throws ApiException {
+        return listEnvironments(null);
+    }
+
+    /**
+     * List environments
+     * Calls {@code listEnvironmentsWithHttpInfo} with every optional parameter left unset.
+     * @return the API response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<ExecutionEnvironment>> listEnvironmentsWithHttpInfo()
+            throws ApiException {
+        return listEnvironmentsWithHttpInfo(null);
+    }
+
+    /**
+     * List environments (asynchronously)
+     * Calls {@code listEnvironmentsAsync} with every optional parameter left unset.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listEnvironmentsAsync(
+            final ApiCallback<List<ExecutionEnvironment>> _callback) throws ApiException {
+        return listEnvironmentsAsync(null, _callback);
     }
 
     /**
