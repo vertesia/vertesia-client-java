@@ -125,6 +125,11 @@ public class DataStore {
     @jakarta.annotation.Nonnull
     private BigDecimal versionCount;
 
+    public static final String SERIALIZED_NAME_CURRENT_VERSION = "current_version";
+
+    @SerializedName(SERIALIZED_NAME_CURRENT_VERSION)
+    @jakarta.annotation.Nullable private String currentVersion;
+
     public static final String SERIALIZED_NAME_SCHEMA = "schema";
 
     @SerializedName(SERIALIZED_NAME_SCHEMA)
@@ -421,6 +426,23 @@ public class DataStore {
         this.versionCount = versionCount;
     }
 
+    public DataStore currentVersion(@jakarta.annotation.Nullable String currentVersion) {
+        this.currentVersion = currentVersion;
+        return this;
+    }
+
+    /**
+     * ID of the version this store serves. Automatic version records expire, so this version can be missing from the version list while its data stays readable. Absent on a store not written to since immutable versions were introduced.
+     * @return currentVersion
+     */
+    @jakarta.annotation.Nullable public String getCurrentVersion() {
+        return currentVersion;
+    }
+
+    public void setCurrentVersion(@jakarta.annotation.Nullable String currentVersion) {
+        this.currentVersion = currentVersion;
+    }
+
     public DataStore schema(@jakarta.annotation.Nonnull DataSchema schema) {
         this.schema = schema;
         return this;
@@ -499,6 +521,7 @@ public class DataStore {
                 && Objects.equals(this.storageBytes, dataStore.storageBytes)
                 && Objects.equals(this.lastImportAt, dataStore.lastImportAt)
                 && Objects.equals(this.versionCount, dataStore.versionCount)
+                && Objects.equals(this.currentVersion, dataStore.currentVersion)
                 && Objects.equals(this.schema, dataStore.schema)
                 && Objects.equals(this.gcsBucket, dataStore.gcsBucket)
                 && Objects.equals(this.gcsPath, dataStore.gcsPath);
@@ -522,6 +545,7 @@ public class DataStore {
                 storageBytes,
                 lastImportAt,
                 versionCount,
+                currentVersion,
                 schema,
                 gcsBucket,
                 gcsPath);
@@ -546,6 +570,7 @@ public class DataStore {
         sb.append("    storageBytes: ").append(toIndentedString(storageBytes)).append("\n");
         sb.append("    lastImportAt: ").append(toIndentedString(lastImportAt)).append("\n");
         sb.append("    versionCount: ").append(toIndentedString(versionCount)).append("\n");
+        sb.append("    currentVersion: ").append(toIndentedString(currentVersion)).append("\n");
         sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
         sb.append("    gcsBucket: ").append(toIndentedString(gcsBucket)).append("\n");
         sb.append("    gcsPath: ").append(toIndentedString(gcsPath)).append("\n");
@@ -584,6 +609,7 @@ public class DataStore {
                                 "storage_bytes",
                                 "last_import_at",
                                 "version_count",
+                                "current_version",
                                 "schema",
                                 "gcs_bucket",
                                 "gcs_path"));
@@ -717,6 +743,14 @@ public class DataStore {
                             java.util.Locale.ROOT,
                             "Expected the field `last_import_at` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("last_import_at").toString()));
+        }
+        if ((jsonObj.get("current_version") != null && !jsonObj.get("current_version").isJsonNull())
+                && !jsonObj.get("current_version").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `current_version` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("current_version").toString()));
         }
         // validate the required field `schema`
         DataSchema.validateJsonElement(jsonObj.get("schema"));
