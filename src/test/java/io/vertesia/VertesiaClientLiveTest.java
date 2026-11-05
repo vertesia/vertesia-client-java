@@ -115,39 +115,23 @@ class VertesiaClientLiveTest {
 
     @Test
     void readEndpoints() throws ApiException {
-        assertNotNull(client.accounts.getCurrentAccount());
+        assertNotNull(client.accounts.getCurrentAccount().execute());
         String projectId = env("VERTESIA_PROJECT_ID", "");
         if (projectId.isEmpty()) {
-            var projects = client.accounts.listAccountProjects();
+            var projects = client.accounts.listAccountProjects().execute();
             assertNotNull(projects.getData());
             assertFalse(projects.getData().isEmpty(), "expected at least one visible project");
             projectId = projects.getData().get(0).getId();
         }
-        assertNotNull(client.projects.getProject(projectId));
-        assertNotNull(
-                client.promptTemplates.listPrompts(
-                        null, null, BigDecimal.TEN, null, null, null, null));
-        assertNotNull(
-                client.interactions.listInteractions(
-                        null,
-                        null,
-                        BigDecimal.TEN,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null));
-        assertNotNull(client.data.listDataStores());
-        assertNotNull(client.workflowDefinitions.listWorkflowDefinitions());
+        assertNotNull(client.projects.getProject(projectId).execute());
+        assertNotNull(client.promptTemplates.listPrompts().limit(BigDecimal.TEN).execute());
+        assertNotNull(client.interactions.listInteractions().limit(BigDecimal.TEN).execute());
+        assertNotNull(client.data.listDataStores().execute());
+        assertNotNull(client.workflowDefinitions.listWorkflowDefinitions().execute());
         assertNotNull(
                 client.objects
                         .searchObjects(new ComplexSearchPayload().limit(BigDecimal.TEN))
+                        .execute()
                         .getResults());
     }
 
@@ -156,40 +140,48 @@ class VertesiaClientLiveTest {
         var prompt =
                 permittedCreation(
                         () ->
-                                client.promptTemplates.createPrompt(
-                                        new PromptTemplateCreatePayload()
-                                                .name(uniqueName("java-openapi-prompt"))
-                                                .role(PromptRole.USER)
-                                                .content(
-                                                        "Answer with a short greeting for {{name}}.")
-                                                .contentType(TemplateType.HANDLEBARS)));
+                                client.promptTemplates
+                                        .createPrompt(
+                                                new PromptTemplateCreatePayload()
+                                                        .name(uniqueName("java-openapi-prompt"))
+                                                        .role(PromptRole.USER)
+                                                        .content(
+                                                                "Answer with a short greeting for {{name}}.")
+                                                        .contentType(TemplateType.HANDLEBARS))
+                                        .execute());
         assertNotNull(prompt.getId());
-        onCleanup(() -> client.promptTemplates.deletePrompt(prompt.getId()));
+        onCleanup(() -> client.promptTemplates.deletePrompt(prompt.getId()).execute());
         var rendered =
-                client.promptTemplates.renderPrompt(prompt.getId(), Map.of("name", "Vertesia"));
+                client.promptTemplates
+                        .renderPrompt(prompt.getId(), Map.of("name", "Vertesia"))
+                        .execute();
         assertNotNull(rendered.getRendered());
         assertFalse(rendered.getRendered().isEmpty());
 
         var interaction =
-                client.interactions.createInteraction(
-                        new InteractionCreatePayload()
-                                .name(uniqueName("java-openapi-interaction"))
-                                .status(InteractionStatus.DRAFT)
-                                .visibility(InteractionVisibility.PRIVATE)
-                                .tags(List.of("integration-test", "openapi-java"))
-                                .prompts(
-                                        List.of(
-                                                new InteractionPromptSegmentInput()
-                                                        .type(PromptSegmentDefType.TEMPLATE)
-                                                        .template(
-                                                                new InteractionPromptSegmentInputTemplate(
-                                                                        prompt.getId())))));
+                client.interactions
+                        .createInteraction(
+                                new InteractionCreatePayload()
+                                        .name(uniqueName("java-openapi-interaction"))
+                                        .status(InteractionStatus.DRAFT)
+                                        .visibility(InteractionVisibility.PRIVATE)
+                                        .tags(List.of("integration-test", "openapi-java"))
+                                        .prompts(
+                                                List.of(
+                                                        new InteractionPromptSegmentInput()
+                                                                .type(PromptSegmentDefType.TEMPLATE)
+                                                                .template(
+                                                                        new InteractionPromptSegmentInputTemplate(
+                                                                                prompt.getId())))))
+                        .execute();
         assertNotNull(interaction.getId());
-        onCleanup(() -> client.interactions.deleteInteraction(interaction.getId()));
+        onCleanup(() -> client.interactions.deleteInteraction(interaction.getId()).execute());
         var result =
-                client.interactions.executeInteraction(
-                        interaction.getId(),
-                        new InteractionExecutionPayload().data(Map.of("name", "Vertesia")));
+                client.interactions
+                        .executeInteraction(
+                                interaction.getId(),
+                                new InteractionExecutionPayload().data(Map.of("name", "Vertesia")))
+                        .execute();
         assertNotNull(result);
         assertNotNull(result.getStatus());
     }
@@ -199,19 +191,21 @@ class VertesiaClientLiveTest {
         var created =
                 permittedCreation(
                         () ->
-                                client.data.createDataStore(
-                                        new CreateDataStorePayload()
-                                                .name(uniqueName("java-openapi-data-store"))
-                                                .description(
-                                                        "Created by Java OpenAPI integration tests")
-                                                .tags(
-                                                        List.of(
-                                                                "integration-test",
-                                                                "openapi-java"))));
+                                client.data
+                                        .createDataStore(
+                                                new CreateDataStorePayload()
+                                                        .name(uniqueName("java-openapi-data-store"))
+                                                        .description(
+                                                                "Created by Java OpenAPI integration tests")
+                                                        .tags(
+                                                                List.of(
+                                                                        "integration-test",
+                                                                        "openapi-java")))
+                                        .execute());
         assertNotNull(created.getId());
-        onCleanup(() -> client.data.deleteDataStore(created.getId()));
-        assertEquals(created.getId(), client.data.getDataStore(created.getId()).getId());
-        assertNotNull(client.data.getDataStoreSchema(created.getId()));
+        onCleanup(() -> client.data.deleteDataStore(created.getId()).execute());
+        assertEquals(created.getId(), client.data.getDataStore(created.getId()).execute().getId());
+        assertNotNull(client.data.getDataStoreSchema(created.getId()).execute());
     }
 
     @Test
@@ -219,15 +213,22 @@ class VertesiaClientLiveTest {
         String typeId = env("VERTESIA_CONTENT_OBJECT_TYPE_ID", "");
         if (typeId.isEmpty()) {
             var types =
-                    client.contentObjectTypes.listContentObjectTypes(
-                            "Default", null, true, true, BigDecimal.TEN, null);
+                    client.contentObjectTypes
+                            .listContentObjectTypes()
+                            .name("Default")
+                            .layout(true)
+                            .schema(true)
+                            .limit(BigDecimal.TEN)
+                            .execute();
             assertFalse(types.isEmpty(), "image intake requires a Default content object type");
             typeId = types.get(0).getId();
         }
         String fileName = uniqueName("java-openapi-image") + ".jpg";
         var upload =
-                client.files.getFileUploadUrl(
-                        new GetUploadUrlPayload().name(fileName).mimeType("image/jpeg"));
+                client.files
+                        .getFileUploadUrl(
+                                new GetUploadUrlPayload().name(fileName).mimeType("image/jpeg"))
+                        .execute();
         assertNotNull(upload.getId());
         assertNotNull(upload.getUrl());
         var bytes = new ByteArrayOutputStream();
@@ -244,34 +245,37 @@ class VertesiaClientLiveTest {
             assertTrue(response.isSuccessful(), "signed upload failed: HTTP " + response.code());
         }
         var created =
-                client.objects.createObject(
-                        new CreateContentObjectPayload()
-                                .type(typeId)
-                                .name(fileName)
-                                .content(
-                                        new ContentSource()
-                                                .source(upload.getId())
-                                                .type("image/jpeg")
-                                                .name(fileName))
-                                .security(
-                                        Map.of(
-                                                "content:read", List.of("project:*"),
-                                                "content:write", List.of("project:*"),
-                                                "content:delete", List.of("project:*")))
-                                .tags(List.of("integration-test", "openapi-java", "file-intake"))
-                                .properties(Map.of("test_type", "openapi-java-image-intake")),
-                        null,
-                        null,
-                        null,
-                        null);
+                client.objects
+                        .createObject(
+                                new CreateContentObjectPayload()
+                                        .type(typeId)
+                                        .name(fileName)
+                                        .content(
+                                                new ContentSource()
+                                                        .source(upload.getId())
+                                                        .type("image/jpeg")
+                                                        .name(fileName))
+                                        .security(
+                                                Map.of(
+                                                        "content:read", List.of("project:*"),
+                                                        "content:write", List.of("project:*"),
+                                                        "content:delete", List.of("project:*")))
+                                        .tags(
+                                                List.of(
+                                                        "integration-test",
+                                                        "openapi-java",
+                                                        "file-intake"))
+                                        .properties(
+                                                Map.of("test_type", "openapi-java-image-intake")))
+                        .execute();
         assertNotNull(created.getId());
-        onCleanup(() -> client.objects.deleteObject(created.getId()));
+        onCleanup(() -> client.objects.deleteObject(created.getId()).execute());
         long deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(180);
         while (System.nanoTime() < deadline) {
-            var latest = client.objects.getObject(created.getId());
+            var latest = client.objects.getObject(created.getId()).execute();
             if (latest.getStatus() == ContentObjectStatus.COMPLETED
                     || latest.getStatus() == ContentObjectStatus.READY) {
-                var source = client.objects.getObjectContentSource(created.getId());
+                var source = client.objects.getObjectContentSource(created.getId()).execute();
                 assertNotNull(source.getSource());
                 assertFalse(source.getSource().isEmpty());
                 return;
@@ -286,11 +290,13 @@ class VertesiaClientLiveTest {
     void requestShapes() throws ApiException {
         try {
             var response =
-                    client.bulkOperations.runBulkContentOperationWithHttpInfo(
-                            new BulkOperationPayload()
-                                    .name(BulkOperationPayload.NameEnum.UPDATE)
-                                    .ids(List.of())
-                                    .params(Map.of()));
+                    client.bulkOperations
+                            .runBulkContentOperation(
+                                    new BulkOperationPayload()
+                                            .name(BulkOperationPayload.NameEnum.UPDATE)
+                                            .ids(List.of())
+                                            .params(Map.of()))
+                            .executeWithHttpInfo();
             assertEquals(200, response.getStatusCode());
         } catch (ApiException e) {
             assertTrue(

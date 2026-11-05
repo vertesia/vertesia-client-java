@@ -37,8 +37,6 @@
 
     <properties>
         <java.version>17</java.version>
-        <!-- Temporary, with testExcludes below: lets a run selecting VertesiaClientLiveTest pass with no tests. -->
-        <surefire.failIfNoSpecifiedTests>false</surefire.failIfNoSpecifiedTests>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gson-fire-version>1.9.0</gson-fire-version>
@@ -146,13 +144,6 @@
                 <version>3.16.0</version>
                 <configuration>
                     <release>${java.version}</release>
-                    <!-- Temporary: these call the generated API, which changes shape on the next generated
-                         client update. They return, migrated to request builders, right after it. -->
-                    <testExcludes>
-                        <testExclude>io/vertesia/FederationTest.java</testExclude>
-                        <testExclude>io/vertesia/VertesiaClientLiveTest.java</testExclude>
-                        <testExclude>io/vertesia/VertesiaClientTest.java</testExclude>
-                    </testExcludes>
                 </configuration>
             </plugin>
             <plugin>

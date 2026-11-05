@@ -114,8 +114,8 @@ class FederationTest {
     @Test
     void facadeUsesSharedDelegatedBearer() throws Exception {
         var client = new VertesiaClient(options.setFederation(federation));
-        client.projects.listProjects(null);
-        client.store.projects.listProjects(null);
+        client.projects.listProjects().execute();
+        client.store.projects.listProjects().execute();
         assertEquals(List.of("Bearer delegated", "Bearer delegated"), headers);
         assertEquals(1, forms.size());
         assertTrue(forms.get(0).contains("project_id=project"));
@@ -357,11 +357,11 @@ class FederationTest {
     void rejectedTokenIsInvalidatedWithoutReplayAndFailuresBackOff() throws Exception {
         var client = new VertesiaClient(options.setFederation(federation));
         apiStatus = 401;
-        assertThrows(ApiException.class, () -> client.projects.listProjects(null));
+        assertThrows(ApiException.class, () -> client.projects.listProjects().execute());
         assertEquals(1, forms.size());
         assertEquals(1, headers.size());
         apiStatus = 200;
-        client.store.projects.listProjects(null);
+        client.store.projects.listProjects().execute();
         assertEquals(2, forms.size());
         assertEquals(2, headers.size());
         AtomicLong clock = new AtomicLong();

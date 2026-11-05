@@ -153,7 +153,7 @@ class VertesiaClientTest {
                                 .setTokenServerUrl(sts.url())
                                 .setToken("direct-token"));
 
-        client.projects.listProjects(null);
+        client.projects.listProjects().execute();
         assertEquals(0, sts.requestCount());
     }
 
@@ -199,8 +199,8 @@ class VertesiaClientTest {
                                 .setApiKey("sk-test")
                                 .setApiVersion("20260101"));
 
-        client.projects.listProjects(null);
-        client.store.projects.listProjects(null);
+        client.projects.listProjects().execute();
+        client.store.projects.listProjects().execute();
         assertEquals(1, sts.requestCount());
     }
 
@@ -237,8 +237,8 @@ class VertesiaClientTest {
                                 .setTokenServerUrl(sts.url())
                                 .setApiKey("sk-test"));
 
-        client.projects.listProjects(null);
-        client.projects.listProjects(null);
+        client.projects.listProjects().execute();
+        client.projects.listProjects().execute();
 
         assertEquals(2, sts.requestCount());
     }
