@@ -23,8 +23,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -69,6 +71,11 @@ public class RenderMarkdownStatusResponse {
 
     @SerializedName(SERIALIZED_NAME_ERROR)
     @jakarta.annotation.Nullable private String error;
+
+    public static final String SERIALIZED_NAME_WARNINGS = "warnings";
+
+    @SerializedName(SERIALIZED_NAME_WARNINGS)
+    @jakarta.annotation.Nullable private List<String> warnings = new ArrayList<>();
 
     public RenderMarkdownStatusResponse() {}
 
@@ -196,6 +203,32 @@ public class RenderMarkdownStatusResponse {
         this.error = error;
     }
 
+    public RenderMarkdownStatusResponse warnings(
+            @jakarta.annotation.Nullable List<String> warnings) {
+        this.warnings = warnings;
+        return this;
+    }
+
+    public RenderMarkdownStatusResponse addWarningsItem(String warningsItem) {
+        if (this.warnings == null) {
+            this.warnings = new ArrayList<>();
+        }
+        this.warnings.add(warningsItem);
+        return this;
+    }
+
+    /**
+     * Content left out of a completed output, such as an image that was not embedded
+     * @return warnings
+     */
+    @jakarta.annotation.Nullable public List<String> getWarnings() {
+        return warnings;
+    }
+
+    public void setWarnings(@jakarta.annotation.Nullable List<String> warnings) {
+        this.warnings = warnings;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -212,12 +245,14 @@ public class RenderMarkdownStatusResponse {
                 && Objects.equals(this.format, renderMarkdownStatusResponse.format)
                 && Objects.equals(this.downloadUrl, renderMarkdownStatusResponse.downloadUrl)
                 && Objects.equals(this.fileUri, renderMarkdownStatusResponse.fileUri)
-                && Objects.equals(this.error, renderMarkdownStatusResponse.error);
+                && Objects.equals(this.error, renderMarkdownStatusResponse.error)
+                && Objects.equals(this.warnings, renderMarkdownStatusResponse.warnings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(workflowId, workflowRunId, status, format, downloadUrl, fileUri, error);
+        return Objects.hash(
+                workflowId, workflowRunId, status, format, downloadUrl, fileUri, error, warnings);
     }
 
     @Override
@@ -231,6 +266,7 @@ public class RenderMarkdownStatusResponse {
         sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
         sb.append("    fileUri: ").append(toIndentedString(fileUri)).append("\n");
         sb.append("    error: ").append(toIndentedString(error)).append("\n");
+        sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -257,7 +293,8 @@ public class RenderMarkdownStatusResponse {
                                 "format",
                                 "download_url",
                                 "file_uri",
-                                "error"));
+                                "error",
+                                "warnings"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -339,6 +376,16 @@ public class RenderMarkdownStatusResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `error` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("error").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("warnings") != null
+                && !jsonObj.get("warnings").isJsonNull()
+                && !jsonObj.get("warnings").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `warnings` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("warnings").toString()));
         }
     }
 
