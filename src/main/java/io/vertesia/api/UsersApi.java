@@ -67,25 +67,7 @@ public class UsersApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createUser
-     * @param createUserPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
-     * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createUserCall(
+    private okhttp3.Call createUserCall(
             @jakarta.annotation.Nonnull CreateUserPayload createUserPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -155,75 +137,14 @@ public class UsersApi {
         return createUserCall(createUserPayload, _callback);
     }
 
-    /**
-     * Add a user to the current account
-     * Adds a user to the current account with the member role, without sending an invitation. When no user has the address, one is created; it can sign in through the account&#39;s identity providers. When one exists, it is added to the account and its profile is left unchanged. Project roles are granted separately, through access control entries. Requires an account administrator or a SCIM provisioning API key.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:user:manage&#x60;
-     * @param createUserPayload  (required)
-     * @return User
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
-     * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public User createUser(@jakarta.annotation.Nonnull CreateUserPayload createUserPayload)
-            throws ApiException {
-        ApiResponse<User> localVarResp = createUserWithHttpInfo(createUserPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Add a user to the current account
-     * Adds a user to the current account with the member role, without sending an invitation. When no user has the address, one is created; it can sign in through the account&#39;s identity providers. When one exists, it is added to the account and its profile is left unchanged. Project roles are granted separately, through access control entries. Requires an account administrator or a SCIM provisioning API key.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:user:manage&#x60;
-     * @param createUserPayload  (required)
-     * @return ApiResponse&lt;User&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
-     * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<User> createUserWithHttpInfo(
+    private ApiResponse<User> createUserWithHttpInfo(
             @jakarta.annotation.Nonnull CreateUserPayload createUserPayload) throws ApiException {
         okhttp3.Call localVarCall = createUserValidateBeforeCall(createUserPayload, null);
         Type localVarReturnType = new TypeToken<User>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Add a user to the current account (asynchronously)
-     * Adds a user to the current account with the member role, without sending an invitation. When no user has the address, one is created; it can sign in through the account&#39;s identity providers. When one exists, it is added to the account and its profile is left unchanged. Project roles are granted separately, through access control entries. Requires an account administrator or a SCIM provisioning API key.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:user:manage&#x60;
-     * @param createUserPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
-     * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createUserAsync(
+    private okhttp3.Call createUserAsync(
             @jakarta.annotation.Nonnull CreateUserPayload createUserPayload,
             final ApiCallback<User> _callback)
             throws ApiException {
@@ -234,22 +155,121 @@ public class UsersApi {
         return localVarCall;
     }
 
+    public class APIcreateUserRequest {
+        @jakarta.annotation.Nonnull private final CreateUserPayload createUserPayload;
+
+        private APIcreateUserRequest(
+                @jakarta.annotation.Nonnull CreateUserPayload createUserPayload) {
+            this.createUserPayload = createUserPayload;
+        }
+
+        /**
+         * Build call for createUser
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
+         * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
+         * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createUserCall(createUserPayload, _callback);
+        }
+
+        /**
+         * Execute createUser request
+         * @return User
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
+         * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
+         * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public User execute() throws ApiException {
+            ApiResponse<User> localVarResp = createUserWithHttpInfo(createUserPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createUser request with HTTP info returned
+         * @return ApiResponse&lt;User&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
+         * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
+         * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<User> executeWithHttpInfo() throws ApiException {
+            return createUserWithHttpInfo(createUserPayload);
+        }
+
+        /**
+         * Execute createUser request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
+         * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
+         * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<User> _callback) throws ApiException {
+            return createUserAsync(createUserPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteUser
-     * @param userId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Add a user to the current account
+     * Adds a user to the current account with the member role, without sending an invitation. When no user has the address, one is created; it can sign in through the account&#39;s identity providers. When one exists, it is added to the account and its profile is left unchanged. Project roles are granted separately, through access control entries. Requires an account administrator or a SCIM provisioning API key.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:user:manage&#x60;
+     * @param createUserPayload  (required)
+     * @return APIcreateUserRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteUserCall(
+    public APIcreateUserRequest createUser(
+            @jakarta.annotation.Nonnull CreateUserPayload createUserPayload) {
+        return new APIcreateUserRequest(createUserPayload);
+    }
+
+    private okhttp3.Call deleteUserCall(
             @jakarta.annotation.Nonnull String userId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -321,66 +341,14 @@ public class UsersApi {
         return deleteUserCall(userId, _callback);
     }
 
-    /**
-     * Delete a user
-     * Deletes a user from the current account. Account admins cannot delete their own user account through this endpoint.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param userId  (required)
-     * @return DeleteByIdResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteByIdResult deleteUser(@jakarta.annotation.Nonnull String userId)
-            throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp = deleteUserWithHttpInfo(userId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a user
-     * Deletes a user from the current account. Account admins cannot delete their own user account through this endpoint.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param userId  (required)
-     * @return ApiResponse&lt;DeleteByIdResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteByIdResult> deleteUserWithHttpInfo(
+    private ApiResponse<DeleteByIdResult> deleteUserWithHttpInfo(
             @jakarta.annotation.Nonnull String userId) throws ApiException {
         okhttp3.Call localVarCall = deleteUserValidateBeforeCall(userId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a user (asynchronously)
-     * Deletes a user from the current account. Account admins cannot delete their own user account through this endpoint.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param userId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteUserAsync(
+    private okhttp3.Call deleteUserAsync(
             @jakarta.annotation.Nonnull String userId,
             final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
@@ -391,21 +359,105 @@ public class UsersApi {
         return localVarCall;
     }
 
+    public class APIdeleteUserRequest {
+        @jakarta.annotation.Nonnull private final String userId;
+
+        private APIdeleteUserRequest(@jakarta.annotation.Nonnull String userId) {
+            this.userId = userId;
+        }
+
+        /**
+         * Build call for deleteUser
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteUserCall(userId, _callback);
+        }
+
+        /**
+         * Execute deleteUser request
+         * @return DeleteByIdResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteByIdResult execute() throws ApiException {
+            ApiResponse<DeleteByIdResult> localVarResp = deleteUserWithHttpInfo(userId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteUser request with HTTP info returned
+         * @return ApiResponse&lt;DeleteByIdResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteByIdResult> executeWithHttpInfo() throws ApiException {
+            return deleteUserWithHttpInfo(userId);
+        }
+
+        /**
+         * Execute deleteUser request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteByIdResult> _callback)
+                throws ApiException {
+            return deleteUserAsync(userId, _callback);
+        }
+    }
+
     /**
-     * Build call for getCurrentUserIdentity
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete a user
+     * Deletes a user from the current account. Account admins cannot delete their own user account through this endpoint.  **Required permissions:** &#x60;account:admin&#x60;
+     * @param userId  (required)
+     * @return APIdeleteUserRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getCurrentUserIdentityCall(final ApiCallback _callback)
+    public APIdeleteUserRequest deleteUser(@jakarta.annotation.Nonnull String userId) {
+        return new APIdeleteUserRequest(userId);
+    }
+
+    private okhttp3.Call getCurrentUserIdentityCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -465,61 +517,14 @@ public class UsersApi {
         return getCurrentUserIdentityCall(_callback);
     }
 
-    /**
-     * Retrieve the current user&#39;s identity
-     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from a user or OAuth access token, and rejects principals without an underlying user (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
-     * @return PrincipalIdentity
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PrincipalIdentity getCurrentUserIdentity() throws ApiException {
-        ApiResponse<PrincipalIdentity> localVarResp = getCurrentUserIdentityWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve the current user&#39;s identity
-     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from a user or OAuth access token, and rejects principals without an underlying user (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
-     * @return ApiResponse&lt;PrincipalIdentity&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PrincipalIdentity> getCurrentUserIdentityWithHttpInfo() throws ApiException {
+    private ApiResponse<PrincipalIdentity> getCurrentUserIdentityWithHttpInfo()
+            throws ApiException {
         okhttp3.Call localVarCall = getCurrentUserIdentityValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<PrincipalIdentity>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve the current user&#39;s identity (asynchronously)
-     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from a user or OAuth access token, and rejects principals without an underlying user (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getCurrentUserIdentityAsync(final ApiCallback<PrincipalIdentity> _callback)
+    private okhttp3.Call getCurrentUserIdentityAsync(final ApiCallback<PrincipalIdentity> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getCurrentUserIdentityValidateBeforeCall(_callback);
@@ -528,22 +533,101 @@ public class UsersApi {
         return localVarCall;
     }
 
+    public class APIgetCurrentUserIdentityRequest {
+
+        private APIgetCurrentUserIdentityRequest() {}
+
+        /**
+         * Build call for getCurrentUserIdentity
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCurrentUserIdentityCall(_callback);
+        }
+
+        /**
+         * Execute getCurrentUserIdentity request
+         * @return PrincipalIdentity
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public PrincipalIdentity execute() throws ApiException {
+            ApiResponse<PrincipalIdentity> localVarResp = getCurrentUserIdentityWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCurrentUserIdentity request with HTTP info returned
+         * @return ApiResponse&lt;PrincipalIdentity&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<PrincipalIdentity> executeWithHttpInfo() throws ApiException {
+            return getCurrentUserIdentityWithHttpInfo();
+        }
+
+        /**
+         * Execute getCurrentUserIdentity request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PrincipalIdentity> _callback)
+                throws ApiException {
+            return getCurrentUserIdentityAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getUser
-     * @param userId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve the current user&#39;s identity
+     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from a user or OAuth access token, and rejects principals without an underlying user (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
+     * @return APIgetCurrentUserIdentityRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getUserCall(
+    public APIgetCurrentUserIdentityRequest getCurrentUserIdentity() {
+        return new APIgetCurrentUserIdentityRequest();
+    }
+
+    private okhttp3.Call getUserCall(
             @jakarta.annotation.Nonnull String userId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -615,65 +699,14 @@ public class UsersApi {
         return getUserCall(userId, _callback);
     }
 
-    /**
-     * Retrieve a user
-     * Retrieves a user by ID when the user belongs to the current account or is the caller.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
-     * @param userId  (required)
-     * @return User
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public User getUser(@jakarta.annotation.Nonnull String userId) throws ApiException {
-        ApiResponse<User> localVarResp = getUserWithHttpInfo(userId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a user
-     * Retrieves a user by ID when the user belongs to the current account or is the caller.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
-     * @param userId  (required)
-     * @return ApiResponse&lt;User&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<User> getUserWithHttpInfo(@jakarta.annotation.Nonnull String userId)
+    private ApiResponse<User> getUserWithHttpInfo(@jakarta.annotation.Nonnull String userId)
             throws ApiException {
         okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, null);
         Type localVarReturnType = new TypeToken<User>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a user (asynchronously)
-     * Retrieves a user by ID when the user belongs to the current account or is the caller.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
-     * @param userId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getUserAsync(
+    private okhttp3.Call getUserAsync(
             @jakarta.annotation.Nonnull String userId, final ApiCallback<User> _callback)
             throws ApiException {
 
@@ -683,23 +716,104 @@ public class UsersApi {
         return localVarCall;
     }
 
+    public class APIgetUserRequest {
+        @jakarta.annotation.Nonnull private final String userId;
+
+        private APIgetUserRequest(@jakarta.annotation.Nonnull String userId) {
+            this.userId = userId;
+        }
+
+        /**
+         * Build call for getUser
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getUserCall(userId, _callback);
+        }
+
+        /**
+         * Execute getUser request
+         * @return User
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public User execute() throws ApiException {
+            ApiResponse<User> localVarResp = getUserWithHttpInfo(userId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getUser request with HTTP info returned
+         * @return ApiResponse&lt;User&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<User> executeWithHttpInfo() throws ApiException {
+            return getUserWithHttpInfo(userId);
+        }
+
+        /**
+         * Execute getUser request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<User> _callback) throws ApiException {
+            return getUserAsync(userId, _callback);
+        }
+    }
+
     /**
-     * Build call for updateUser
+     * Retrieve a user
+     * Retrieves a user by ID when the user belongs to the current account or is the caller.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
      * @param userId  (required)
-     * @param updateUserPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetUserRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateUserCall(
+    public APIgetUserRequest getUser(@jakarta.annotation.Nonnull String userId) {
+        return new APIgetUserRequest(userId);
+    }
+
+    private okhttp3.Call updateUserCall(
             @jakarta.annotation.Nonnull String userId,
             @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload,
             final ApiCallback _callback)
@@ -781,47 +895,7 @@ public class UsersApi {
         return updateUserCall(userId, updateUserPayload, _callback);
     }
 
-    /**
-     * Update a user
-     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments).  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:manage&#x60;
-     * @param userId  (required)
-     * @param updateUserPayload  (required)
-     * @return User
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public User updateUser(
-            @jakarta.annotation.Nonnull String userId,
-            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload)
-            throws ApiException {
-        ApiResponse<User> localVarResp = updateUserWithHttpInfo(userId, updateUserPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a user
-     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments).  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:manage&#x60;
-     * @param userId  (required)
-     * @param updateUserPayload  (required)
-     * @return ApiResponse&lt;User&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<User> updateUserWithHttpInfo(
+    private ApiResponse<User> updateUserWithHttpInfo(
             @jakarta.annotation.Nonnull String userId,
             @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload)
             throws ApiException {
@@ -830,24 +904,7 @@ public class UsersApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a user (asynchronously)
-     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments).  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:manage&#x60;
-     * @param userId  (required)
-     * @param updateUserPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateUserAsync(
+    private okhttp3.Call updateUserAsync(
             @jakarta.annotation.Nonnull String userId,
             @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload,
             final ApiCallback<User> _callback)
@@ -858,5 +915,109 @@ public class UsersApi {
         Type localVarReturnType = new TypeToken<User>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateUserRequest {
+        @jakarta.annotation.Nonnull private final String userId;
+        @jakarta.annotation.Nonnull private final UpdateUserPayload updateUserPayload;
+
+        private APIupdateUserRequest(
+                @jakarta.annotation.Nonnull String userId,
+                @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload) {
+            this.userId = userId;
+            this.updateUserPayload = updateUserPayload;
+        }
+
+        /**
+         * Build call for updateUser
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateUserCall(userId, updateUserPayload, _callback);
+        }
+
+        /**
+         * Execute updateUser request
+         * @return User
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public User execute() throws ApiException {
+            ApiResponse<User> localVarResp = updateUserWithHttpInfo(userId, updateUserPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateUser request with HTTP info returned
+         * @return ApiResponse&lt;User&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<User> executeWithHttpInfo() throws ApiException {
+            return updateUserWithHttpInfo(userId, updateUserPayload);
+        }
+
+        /**
+         * Execute updateUser request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<User> _callback) throws ApiException {
+            return updateUserAsync(userId, updateUserPayload, _callback);
+        }
+    }
+
+    /**
+     * Update a user
+     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments).  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:manage&#x60;
+     * @param userId  (required)
+     * @param updateUserPayload  (required)
+     * @return APIupdateUserRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateUserRequest updateUser(
+            @jakarta.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload) {
+        return new APIupdateUserRequest(userId, updateUserPayload);
     }
 }

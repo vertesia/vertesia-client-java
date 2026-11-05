@@ -82,22 +82,7 @@ public class ProjectsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createProject
-     * @param icreateProjectPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createProjectCall(
+    private okhttp3.Call createProjectCall(
             @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -167,44 +152,7 @@ public class ProjectsApi {
         return createProjectCall(icreateProjectPayload, _callback);
     }
 
-    /**
-     * Create a project
-     * Creates a new project in the current account and initializes default project resources.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param icreateProjectPayload  (required)
-     * @return Project
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Project createProject(
-            @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload)
-            throws ApiException {
-        ApiResponse<Project> localVarResp = createProjectWithHttpInfo(icreateProjectPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a project
-     * Creates a new project in the current account and initializes default project resources.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param icreateProjectPayload  (required)
-     * @return ApiResponse&lt;Project&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Project> createProjectWithHttpInfo(
+    private ApiResponse<Project> createProjectWithHttpInfo(
             @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload)
             throws ApiException {
         okhttp3.Call localVarCall = createProjectValidateBeforeCall(icreateProjectPayload, null);
@@ -212,23 +160,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a project (asynchronously)
-     * Creates a new project in the current account and initializes default project resources.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param icreateProjectPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createProjectAsync(
+    private okhttp3.Call createProjectAsync(
             @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload,
             final ApiCallback<Project> _callback)
             throws ApiException {
@@ -240,22 +172,106 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIcreateProjectRequest {
+        @jakarta.annotation.Nonnull private final ICreateProjectPayload icreateProjectPayload;
+
+        private APIcreateProjectRequest(
+                @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload) {
+            this.icreateProjectPayload = icreateProjectPayload;
+        }
+
+        /**
+         * Build call for createProject
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createProjectCall(icreateProjectPayload, _callback);
+        }
+
+        /**
+         * Execute createProject request
+         * @return Project
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Project execute() throws ApiException {
+            ApiResponse<Project> localVarResp = createProjectWithHttpInfo(icreateProjectPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createProject request with HTTP info returned
+         * @return ApiResponse&lt;Project&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Project> executeWithHttpInfo() throws ApiException {
+            return createProjectWithHttpInfo(icreateProjectPayload);
+        }
+
+        /**
+         * Execute createProject request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Project> _callback) throws ApiException {
+            return createProjectAsync(icreateProjectPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteProject
-     * @param projectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a project
+     * Creates a new project in the current account and initializes default project resources.  **Required permissions:** &#x60;account:admin&#x60;
+     * @param icreateProjectPayload  (required)
+     * @return APIcreateProjectRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteProjectCall(
+    public APIcreateProjectRequest createProject(
+            @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload) {
+        return new APIcreateProjectRequest(icreateProjectPayload);
+    }
+
+    private okhttp3.Call deleteProjectCall(
             @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -327,66 +343,14 @@ public class ProjectsApi {
         return deleteProjectCall(projectId, _callback);
     }
 
-    /**
-     * Delete a project
-     * Deletes a project.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param projectId  (required)
-     * @return DeleteByIdResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteByIdResult deleteProject(@jakarta.annotation.Nonnull String projectId)
-            throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp = deleteProjectWithHttpInfo(projectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a project
-     * Deletes a project.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param projectId  (required)
-     * @return ApiResponse&lt;DeleteByIdResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteByIdResult> deleteProjectWithHttpInfo(
+    private ApiResponse<DeleteByIdResult> deleteProjectWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = deleteProjectValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a project (asynchronously)
-     * Deletes a project.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param projectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteProjectAsync(
+    private okhttp3.Call deleteProjectAsync(
             @jakarta.annotation.Nonnull String projectId,
             final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
@@ -397,22 +361,105 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIdeleteProjectRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+
+        private APIdeleteProjectRequest(@jakarta.annotation.Nonnull String projectId) {
+            this.projectId = projectId;
+        }
+
+        /**
+         * Build call for deleteProject
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteProjectCall(projectId, _callback);
+        }
+
+        /**
+         * Execute deleteProject request
+         * @return DeleteByIdResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteByIdResult execute() throws ApiException {
+            ApiResponse<DeleteByIdResult> localVarResp = deleteProjectWithHttpInfo(projectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteProject request with HTTP info returned
+         * @return ApiResponse&lt;DeleteByIdResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteByIdResult> executeWithHttpInfo() throws ApiException {
+            return deleteProjectWithHttpInfo(projectId);
+        }
+
+        /**
+         * Execute deleteProject request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteByIdResult> _callback)
+                throws ApiException {
+            return deleteProjectAsync(projectId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProject
+     * Delete a project
+     * Deletes a project.  **Required permissions:** &#x60;account:admin&#x60;
      * @param projectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteProjectRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Project deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProjectCall(
+    public APIdeleteProjectRequest deleteProject(@jakarta.annotation.Nonnull String projectId) {
+        return new APIdeleteProjectRequest(projectId);
+    }
+
+    private okhttp3.Call getProjectCall(
             @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -484,65 +531,14 @@ public class ProjectsApi {
         return getProjectCall(projectId, _callback);
     }
 
-    /**
-     * Retrieve a project
-     * Retrieves a project by ID.
-     * @param projectId  (required)
-     * @return Project
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Project getProject(@jakarta.annotation.Nonnull String projectId) throws ApiException {
-        ApiResponse<Project> localVarResp = getProjectWithHttpInfo(projectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a project
-     * Retrieves a project by ID.
-     * @param projectId  (required)
-     * @return ApiResponse&lt;Project&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Project> getProjectWithHttpInfo(@jakarta.annotation.Nonnull String projectId)
-            throws ApiException {
+    private ApiResponse<Project> getProjectWithHttpInfo(
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = getProjectValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<Project>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a project (asynchronously)
-     * Retrieves a project by ID.
-     * @param projectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProjectAsync(
+    private okhttp3.Call getProjectAsync(
             @jakarta.annotation.Nonnull String projectId, final ApiCallback<Project> _callback)
             throws ApiException {
 
@@ -552,23 +548,104 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIgetProjectRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+
+        private APIgetProjectRequest(@jakarta.annotation.Nonnull String projectId) {
+            this.projectId = projectId;
+        }
+
+        /**
+         * Build call for getProject
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProjectCall(projectId, _callback);
+        }
+
+        /**
+         * Execute getProject request
+         * @return Project
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Project execute() throws ApiException {
+            ApiResponse<Project> localVarResp = getProjectWithHttpInfo(projectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProject request with HTTP info returned
+         * @return ApiResponse&lt;Project&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Project> executeWithHttpInfo() throws ApiException {
+            return getProjectWithHttpInfo(projectId);
+        }
+
+        /**
+         * Execute getProject request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Project> _callback) throws ApiException {
+            return getProjectAsync(projectId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProjectAppProcess
+     * Retrieve a project
+     * Retrieves a project by ID.
      * @param projectId  (required)
-     * @param processId The app process, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetProjectRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app process definition. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProjectAppProcessCall(
+    public APIgetProjectRequest getProject(@jakarta.annotation.Nonnull String projectId) {
+        return new APIgetProjectRequest(projectId);
+    }
+
+    private okhttp3.Call getProjectAppProcessCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String processId,
             final ApiCallback _callback)
@@ -653,48 +730,7 @@ public class ProjectsApi {
         return getProjectAppProcessCall(projectId, processId, _callback);
     }
 
-    /**
-     * Retrieve a project app process
-     * Retrieves a process definition contributed by an installed app.
-     * @param projectId  (required)
-     * @param processId The app process, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @return InCodeProcessDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app process definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InCodeProcessDefinition getProjectAppProcess(
-            @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull String processId)
-            throws ApiException {
-        ApiResponse<InCodeProcessDefinition> localVarResp =
-                getProjectAppProcessWithHttpInfo(projectId, processId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a project app process
-     * Retrieves a process definition contributed by an installed app.
-     * @param projectId  (required)
-     * @param processId The app process, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @return ApiResponse&lt;InCodeProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app process definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InCodeProcessDefinition> getProjectAppProcessWithHttpInfo(
+    private ApiResponse<InCodeProcessDefinition> getProjectAppProcessWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String processId)
             throws ApiException {
@@ -704,24 +740,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a project app process (asynchronously)
-     * Retrieves a process definition contributed by an installed app.
-     * @param projectId  (required)
-     * @param processId The app process, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app process definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProjectAppProcessAsync(
+    private okhttp3.Call getProjectAppProcessAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String processId,
             final ApiCallback<InCodeProcessDefinition> _callback)
@@ -734,23 +753,113 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIgetProjectAppProcessRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nonnull private final String processId;
+
+        private APIgetProjectAppProcessRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull String processId) {
+            this.projectId = projectId;
+            this.processId = processId;
+        }
+
+        /**
+         * Build call for getProjectAppProcess
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProjectAppProcessCall(projectId, processId, _callback);
+        }
+
+        /**
+         * Execute getProjectAppProcess request
+         * @return InCodeProcessDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InCodeProcessDefinition execute() throws ApiException {
+            ApiResponse<InCodeProcessDefinition> localVarResp =
+                    getProjectAppProcessWithHttpInfo(projectId, processId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProjectAppProcess request with HTTP info returned
+         * @return ApiResponse&lt;InCodeProcessDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InCodeProcessDefinition> executeWithHttpInfo() throws ApiException {
+            return getProjectAppProcessWithHttpInfo(projectId, processId);
+        }
+
+        /**
+         * Execute getProjectAppProcess request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InCodeProcessDefinition> _callback)
+                throws ApiException {
+            return getProjectAppProcessAsync(projectId, processId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProjectAppTemplate
+     * Retrieve a project app process
+     * Retrieves a process definition contributed by an installed app.
      * @param projectId  (required)
-     * @param templateId The app rendering template, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param processId The app process, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
+     * @return APIgetProjectAppProcessRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested rendering template. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested app process definition. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProjectAppTemplateCall(
+    public APIgetProjectAppProcessRequest getProjectAppProcess(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String processId) {
+        return new APIgetProjectAppProcessRequest(projectId, processId);
+    }
+
+    private okhttp3.Call getProjectAppTemplateCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String templateId,
             final ApiCallback _callback)
@@ -835,48 +944,7 @@ public class ProjectsApi {
         return getProjectAppTemplateCall(projectId, templateId, _callback);
     }
 
-    /**
-     * Retrieve a project app template
-     * Retrieves a rendering template contributed by an installed app.
-     * @param projectId  (required)
-     * @param templateId The app rendering template, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @return RenderingTemplateDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested rendering template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RenderingTemplateDefinition getProjectAppTemplate(
-            @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull String templateId)
-            throws ApiException {
-        ApiResponse<RenderingTemplateDefinition> localVarResp =
-                getProjectAppTemplateWithHttpInfo(projectId, templateId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a project app template
-     * Retrieves a rendering template contributed by an installed app.
-     * @param projectId  (required)
-     * @param templateId The app rendering template, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @return ApiResponse&lt;RenderingTemplateDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested rendering template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RenderingTemplateDefinition> getProjectAppTemplateWithHttpInfo(
+    private ApiResponse<RenderingTemplateDefinition> getProjectAppTemplateWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String templateId)
             throws ApiException {
@@ -886,24 +954,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a project app template (asynchronously)
-     * Retrieves a rendering template contributed by an installed app.
-     * @param projectId  (required)
-     * @param templateId The app rendering template, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested rendering template. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProjectAppTemplateAsync(
+    private okhttp3.Call getProjectAppTemplateAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String templateId,
             final ApiCallback<RenderingTemplateDefinition> _callback)
@@ -916,23 +967,113 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIgetProjectAppTemplateRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nonnull private final String templateId;
+
+        private APIgetProjectAppTemplateRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull String templateId) {
+            this.projectId = projectId;
+            this.templateId = templateId;
+        }
+
+        /**
+         * Build call for getProjectAppTemplate
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested rendering template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProjectAppTemplateCall(projectId, templateId, _callback);
+        }
+
+        /**
+         * Execute getProjectAppTemplate request
+         * @return RenderingTemplateDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested rendering template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public RenderingTemplateDefinition execute() throws ApiException {
+            ApiResponse<RenderingTemplateDefinition> localVarResp =
+                    getProjectAppTemplateWithHttpInfo(projectId, templateId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProjectAppTemplate request with HTTP info returned
+         * @return ApiResponse&lt;RenderingTemplateDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested rendering template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<RenderingTemplateDefinition> executeWithHttpInfo() throws ApiException {
+            return getProjectAppTemplateWithHttpInfo(projectId, templateId);
+        }
+
+        /**
+         * Execute getProjectAppTemplate request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested rendering template. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RenderingTemplateDefinition> _callback)
+                throws ApiException {
+            return getProjectAppTemplateAsync(projectId, templateId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProjectAppType
+     * Retrieve a project app template
+     * Retrieves a rendering template contributed by an installed app.
      * @param projectId  (required)
-     * @param typeId The app content type, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param templateId The app rendering template, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
+     * @return APIgetProjectAppTemplateRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app content type. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested rendering template. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProjectAppTypeCall(
+    public APIgetProjectAppTemplateRequest getProjectAppTemplate(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String templateId) {
+        return new APIgetProjectAppTemplateRequest(projectId, templateId);
+    }
+
+    private okhttp3.Call getProjectAppTypeCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String typeId,
             final ApiCallback _callback)
@@ -1017,47 +1158,7 @@ public class ProjectsApi {
         return getProjectAppTypeCall(projectId, typeId, _callback);
     }
 
-    /**
-     * Retrieve a project app content type
-     * Retrieves a content type contributed by an installed app.
-     * @param projectId  (required)
-     * @param typeId The app content type, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @return InCodeTypeDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app content type. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InCodeTypeDefinition getProjectAppType(
-            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nonnull String typeId)
-            throws ApiException {
-        ApiResponse<InCodeTypeDefinition> localVarResp =
-                getProjectAppTypeWithHttpInfo(projectId, typeId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a project app content type
-     * Retrieves a content type contributed by an installed app.
-     * @param projectId  (required)
-     * @param typeId The app content type, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @return ApiResponse&lt;InCodeTypeDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app content type. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InCodeTypeDefinition> getProjectAppTypeWithHttpInfo(
+    private ApiResponse<InCodeTypeDefinition> getProjectAppTypeWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nonnull String typeId)
             throws ApiException {
         okhttp3.Call localVarCall = getProjectAppTypeValidateBeforeCall(projectId, typeId, null);
@@ -1065,24 +1166,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a project app content type (asynchronously)
-     * Retrieves a content type contributed by an installed app.
-     * @param projectId  (required)
-     * @param typeId The app content type, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app content type. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProjectAppTypeAsync(
+    private okhttp3.Call getProjectAppTypeAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String typeId,
             final ApiCallback<InCodeTypeDefinition> _callback)
@@ -1095,23 +1179,113 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIgetProjectAppTypeRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nonnull private final String typeId;
+
+        private APIgetProjectAppTypeRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull String typeId) {
+            this.projectId = projectId;
+            this.typeId = typeId;
+        }
+
+        /**
+         * Build call for getProjectAppType
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app content type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProjectAppTypeCall(projectId, typeId, _callback);
+        }
+
+        /**
+         * Execute getProjectAppType request
+         * @return InCodeTypeDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app content type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InCodeTypeDefinition execute() throws ApiException {
+            ApiResponse<InCodeTypeDefinition> localVarResp =
+                    getProjectAppTypeWithHttpInfo(projectId, typeId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProjectAppType request with HTTP info returned
+         * @return ApiResponse&lt;InCodeTypeDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app content type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InCodeTypeDefinition> executeWithHttpInfo() throws ApiException {
+            return getProjectAppTypeWithHttpInfo(projectId, typeId);
+        }
+
+        /**
+         * Execute getProjectAppType request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app content type. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InCodeTypeDefinition> _callback)
+                throws ApiException {
+            return getProjectAppTypeAsync(projectId, typeId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProjectAppView
+     * Retrieve a project app content type
+     * Retrieves a content type contributed by an installed app.
      * @param projectId  (required)
-     * @param viewId The app View, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param typeId The app content type, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
+     * @return APIgetProjectAppTypeRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested app content type. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProjectAppViewCall(
+    public APIgetProjectAppTypeRequest getProjectAppType(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String typeId) {
+        return new APIgetProjectAppTypeRequest(projectId, typeId);
+    }
+
+    private okhttp3.Call getProjectAppViewCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String viewId,
             final ApiCallback _callback)
@@ -1196,47 +1370,7 @@ public class ProjectsApi {
         return getProjectAppViewCall(projectId, viewId, _callback);
     }
 
-    /**
-     * Retrieve a project app View
-     * Retrieves a View Experience definition contributed by an installed app.
-     * @param projectId  (required)
-     * @param viewId The app View, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. (required)
-     * @return InCodeViewDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InCodeViewDefinition getProjectAppView(
-            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nonnull String viewId)
-            throws ApiException {
-        ApiResponse<InCodeViewDefinition> localVarResp =
-                getProjectAppViewWithHttpInfo(projectId, viewId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a project app View
-     * Retrieves a View Experience definition contributed by an installed app.
-     * @param projectId  (required)
-     * @param viewId The app View, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. (required)
-     * @return ApiResponse&lt;InCodeViewDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InCodeViewDefinition> getProjectAppViewWithHttpInfo(
+    private ApiResponse<InCodeViewDefinition> getProjectAppViewWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nonnull String viewId)
             throws ApiException {
         okhttp3.Call localVarCall = getProjectAppViewValidateBeforeCall(projectId, viewId, null);
@@ -1244,24 +1378,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a project app View (asynchronously)
-     * Retrieves a View Experience definition contributed by an installed app.
-     * @param projectId  (required)
-     * @param viewId The app View, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProjectAppViewAsync(
+    private okhttp3.Call getProjectAppViewAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String viewId,
             final ApiCallback<InCodeViewDefinition> _callback)
@@ -1274,22 +1391,113 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIgetProjectAppViewRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nonnull private final String viewId;
+
+        private APIgetProjectAppViewRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull String viewId) {
+            this.projectId = projectId;
+            this.viewId = viewId;
+        }
+
+        /**
+         * Build call for getProjectAppView
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProjectAppViewCall(projectId, viewId, _callback);
+        }
+
+        /**
+         * Execute getProjectAppView request
+         * @return InCodeViewDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InCodeViewDefinition execute() throws ApiException {
+            ApiResponse<InCodeViewDefinition> localVarResp =
+                    getProjectAppViewWithHttpInfo(projectId, viewId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProjectAppView request with HTTP info returned
+         * @return ApiResponse&lt;InCodeViewDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InCodeViewDefinition> executeWithHttpInfo() throws ApiException {
+            return getProjectAppViewWithHttpInfo(projectId, viewId);
+        }
+
+        /**
+         * Execute getProjectAppView request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InCodeViewDefinition> _callback)
+                throws ApiException {
+            return getProjectAppViewAsync(projectId, viewId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProjectCompositeApp
+     * Retrieve a project app View
+     * Retrieves a View Experience definition contributed by an installed app.
      * @param projectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param viewId The app View, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. (required)
+     * @return APIgetProjectAppViewRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Composite app configuration. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProjectCompositeAppCall(
+    public APIgetProjectAppViewRequest getProjectAppView(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String viewId) {
+        return new APIgetProjectAppViewRequest(projectId, viewId);
+    }
+
+    private okhttp3.Call getProjectCompositeAppCall(
             @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1361,67 +1569,14 @@ public class ProjectsApi {
         return getProjectCompositeAppCall(projectId, _callback);
     }
 
-    /**
-     * Retrieve composite app configuration
-     * Retrieves the composite app configuration for the project.
-     * @param projectId  (required)
-     * @return CompositeAppConfig
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Composite app configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CompositeAppConfig getProjectCompositeApp(@jakarta.annotation.Nonnull String projectId)
-            throws ApiException {
-        ApiResponse<CompositeAppConfig> localVarResp =
-                getProjectCompositeAppWithHttpInfo(projectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve composite app configuration
-     * Retrieves the composite app configuration for the project.
-     * @param projectId  (required)
-     * @return ApiResponse&lt;CompositeAppConfig&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Composite app configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CompositeAppConfig> getProjectCompositeAppWithHttpInfo(
+    private ApiResponse<CompositeAppConfig> getProjectCompositeAppWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = getProjectCompositeAppValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<CompositeAppConfig>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve composite app configuration (asynchronously)
-     * Retrieves the composite app configuration for the project.
-     * @param projectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Composite app configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProjectCompositeAppAsync(
+    private okhttp3.Call getProjectCompositeAppAsync(
             @jakarta.annotation.Nonnull String projectId,
             final ApiCallback<CompositeAppConfig> _callback)
             throws ApiException {
@@ -1432,23 +1587,107 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIgetProjectCompositeAppRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+
+        private APIgetProjectCompositeAppRequest(@jakarta.annotation.Nonnull String projectId) {
+            this.projectId = projectId;
+        }
+
+        /**
+         * Build call for getProjectCompositeApp
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Composite app configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProjectCompositeAppCall(projectId, _callback);
+        }
+
+        /**
+         * Execute getProjectCompositeApp request
+         * @return CompositeAppConfig
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Composite app configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CompositeAppConfig execute() throws ApiException {
+            ApiResponse<CompositeAppConfig> localVarResp =
+                    getProjectCompositeAppWithHttpInfo(projectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProjectCompositeApp request with HTTP info returned
+         * @return ApiResponse&lt;CompositeAppConfig&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Composite app configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CompositeAppConfig> executeWithHttpInfo() throws ApiException {
+            return getProjectCompositeAppWithHttpInfo(projectId);
+        }
+
+        /**
+         * Execute getProjectCompositeApp request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Composite app configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CompositeAppConfig> _callback)
+                throws ApiException {
+            return getProjectCompositeAppAsync(projectId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProjectIntegration
+     * Retrieve composite app configuration
+     * Retrieves the composite app configuration for the project.
      * @param projectId  (required)
-     * @param integrationId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetProjectCompositeAppRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project integration configuration. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Composite app configuration. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProjectIntegrationCall(
+    public APIgetProjectCompositeAppRequest getProjectCompositeApp(
+            @jakarta.annotation.Nonnull String projectId) {
+        return new APIgetProjectCompositeAppRequest(projectId);
+    }
+
+    private okhttp3.Call getProjectIntegrationCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String integrationId,
             final ApiCallback _callback)
@@ -1533,48 +1772,7 @@ public class ProjectsApi {
         return getProjectIntegrationCall(projectId, integrationId, _callback);
     }
 
-    /**
-     * Retrieve a project integration
-     * Retrieves configuration for a project integration.
-     * @param projectId  (required)
-     * @param integrationId  (required)
-     * @return ProjectIntegrationConfigResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project integration configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProjectIntegrationConfigResponse getProjectIntegration(
-            @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull String integrationId)
-            throws ApiException {
-        ApiResponse<ProjectIntegrationConfigResponse> localVarResp =
-                getProjectIntegrationWithHttpInfo(projectId, integrationId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a project integration
-     * Retrieves configuration for a project integration.
-     * @param projectId  (required)
-     * @param integrationId  (required)
-     * @return ApiResponse&lt;ProjectIntegrationConfigResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project integration configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProjectIntegrationConfigResponse> getProjectIntegrationWithHttpInfo(
+    private ApiResponse<ProjectIntegrationConfigResponse> getProjectIntegrationWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String integrationId)
             throws ApiException {
@@ -1584,24 +1782,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a project integration (asynchronously)
-     * Retrieves configuration for a project integration.
-     * @param projectId  (required)
-     * @param integrationId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project integration configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProjectIntegrationAsync(
+    private okhttp3.Call getProjectIntegrationAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String integrationId,
             final ApiCallback<ProjectIntegrationConfigResponse> _callback)
@@ -1614,23 +1795,114 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIgetProjectIntegrationRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nonnull private final String integrationId;
+
+        private APIgetProjectIntegrationRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull String integrationId) {
+            this.projectId = projectId;
+            this.integrationId = integrationId;
+        }
+
+        /**
+         * Build call for getProjectIntegration
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project integration configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProjectIntegrationCall(projectId, integrationId, _callback);
+        }
+
+        /**
+         * Execute getProjectIntegration request
+         * @return ProjectIntegrationConfigResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project integration configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProjectIntegrationConfigResponse execute() throws ApiException {
+            ApiResponse<ProjectIntegrationConfigResponse> localVarResp =
+                    getProjectIntegrationWithHttpInfo(projectId, integrationId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProjectIntegration request with HTTP info returned
+         * @return ApiResponse&lt;ProjectIntegrationConfigResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project integration configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProjectIntegrationConfigResponse> executeWithHttpInfo()
+                throws ApiException {
+            return getProjectIntegrationWithHttpInfo(projectId, integrationId);
+        }
+
+        /**
+         * Execute getProjectIntegration request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project integration configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<ProjectIntegrationConfigResponse> _callback) throws ApiException {
+            return getProjectIntegrationAsync(projectId, integrationId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProjectTool
+     * Retrieve a project integration
+     * Retrieves configuration for a project integration.
      * @param projectId  (required)
-     * @param toolName  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param integrationId  (required)
+     * @return APIgetProjectIntegrationRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested project tool. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Project integration configuration. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProjectToolCall(
+    public APIgetProjectIntegrationRequest getProjectIntegration(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId) {
+        return new APIgetProjectIntegrationRequest(projectId, integrationId);
+    }
+
+    private okhttp3.Call getProjectToolCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String toolName,
             final ApiCallback _callback)
@@ -1715,47 +1987,7 @@ public class ProjectsApi {
         return getProjectToolCall(projectId, toolName, _callback);
     }
 
-    /**
-     * Retrieve a project tool
-     * Retrieves a project tool by name.
-     * @param projectId  (required)
-     * @param toolName  (required)
-     * @return ProjectToolInfo
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested project tool. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProjectToolInfo getProjectTool(
-            @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull String toolName)
-            throws ApiException {
-        ApiResponse<ProjectToolInfo> localVarResp = getProjectToolWithHttpInfo(projectId, toolName);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a project tool
-     * Retrieves a project tool by name.
-     * @param projectId  (required)
-     * @param toolName  (required)
-     * @return ApiResponse&lt;ProjectToolInfo&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested project tool. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProjectToolInfo> getProjectToolWithHttpInfo(
+    private ApiResponse<ProjectToolInfo> getProjectToolWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String toolName)
             throws ApiException {
@@ -1764,24 +1996,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a project tool (asynchronously)
-     * Retrieves a project tool by name.
-     * @param projectId  (required)
-     * @param toolName  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested project tool. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProjectToolAsync(
+    private okhttp3.Call getProjectToolAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String toolName,
             final ApiCallback<ProjectToolInfo> _callback)
@@ -1794,23 +2009,113 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIgetProjectToolRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nonnull private final String toolName;
+
+        private APIgetProjectToolRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull String toolName) {
+            this.projectId = projectId;
+            this.toolName = toolName;
+        }
+
+        /**
+         * Build call for getProjectTool
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested project tool. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProjectToolCall(projectId, toolName, _callback);
+        }
+
+        /**
+         * Execute getProjectTool request
+         * @return ProjectToolInfo
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested project tool. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProjectToolInfo execute() throws ApiException {
+            ApiResponse<ProjectToolInfo> localVarResp =
+                    getProjectToolWithHttpInfo(projectId, toolName);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProjectTool request with HTTP info returned
+         * @return ApiResponse&lt;ProjectToolInfo&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested project tool. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProjectToolInfo> executeWithHttpInfo() throws ApiException {
+            return getProjectToolWithHttpInfo(projectId, toolName);
+        }
+
+        /**
+         * Execute getProjectTool request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested project tool. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProjectToolInfo> _callback)
+                throws ApiException {
+            return getProjectToolAsync(projectId, toolName, _callback);
+        }
+    }
+
     /**
-     * Build call for listProjectAppProcesses
+     * Retrieve a project tool
+     * Retrieves a project tool by name.
      * @param projectId  (required)
-     * @param tag  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param toolName  (required)
+     * @return APIgetProjectToolRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app process definitions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested project tool. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectAppProcessesCall(
+    public APIgetProjectToolRequest getProjectTool(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String toolName) {
+        return new APIgetProjectToolRequest(projectId, toolName);
+    }
+
+    private okhttp3.Call listProjectAppProcessesCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
@@ -1890,47 +2195,7 @@ public class ProjectsApi {
         return listProjectAppProcessesCall(projectId, tag, _callback);
     }
 
-    /**
-     * List project app processes
-     * Lists process definitions contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @return List&lt;InCodeProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app process definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InCodeProcessDefinition> listProjectAppProcesses(
-            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
-            throws ApiException {
-        ApiResponse<List<InCodeProcessDefinition>> localVarResp =
-                listProjectAppProcessesWithHttpInfo(projectId, tag);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List project app processes
-     * Lists process definitions contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @return ApiResponse&lt;List&lt;InCodeProcessDefinition&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app process definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InCodeProcessDefinition>> listProjectAppProcessesWithHttpInfo(
+    private ApiResponse<List<InCodeProcessDefinition>> listProjectAppProcessesWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         okhttp3.Call localVarCall = listProjectAppProcessesValidateBeforeCall(projectId, tag, null);
@@ -1938,24 +2203,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List project app processes (asynchronously)
-     * Lists process definitions contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app process definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectAppProcessesAsync(
+    private okhttp3.Call listProjectAppProcessesAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<InCodeProcessDefinition>> _callback)
@@ -1968,75 +2216,119 @@ public class ProjectsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listProjectAppProcesses with every optional parameter left unset.
-     * @param projectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listProjectAppProcessesCall(
-            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
-            throws ApiException {
-        return listProjectAppProcessesCall(projectId, null, _callback);
+    public class APIlistProjectAppProcessesRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nullable private String tag;
+
+        private APIlistProjectAppProcessesRequest(@jakarta.annotation.Nonnull String projectId) {
+            this.projectId = projectId;
+        }
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistProjectAppProcessesRequest
+         */
+        public APIlistProjectAppProcessesRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Build call for listProjectAppProcesses
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app process definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectAppProcessesCall(projectId, tag, _callback);
+        }
+
+        /**
+         * Execute listProjectAppProcesses request
+         * @return List&lt;InCodeProcessDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app process definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InCodeProcessDefinition> execute() throws ApiException {
+            ApiResponse<List<InCodeProcessDefinition>> localVarResp =
+                    listProjectAppProcessesWithHttpInfo(projectId, tag);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjectAppProcesses request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InCodeProcessDefinition&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app process definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InCodeProcessDefinition>> executeWithHttpInfo()
+                throws ApiException {
+            return listProjectAppProcessesWithHttpInfo(projectId, tag);
+        }
+
+        /**
+         * Execute listProjectAppProcesses request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app process definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InCodeProcessDefinition>> _callback)
+                throws ApiException {
+            return listProjectAppProcessesAsync(projectId, tag, _callback);
+        }
     }
 
     /**
      * List project app processes
-     * Calls {@code listProjectAppProcesses} with every optional parameter left unset.
+     * Lists process definitions contributed by installed apps in the project.
      * @param projectId  (required)
-     * @return List&lt;InCodeProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<InCodeProcessDefinition> listProjectAppProcesses(
-            @jakarta.annotation.Nonnull String projectId) throws ApiException {
-        return listProjectAppProcesses(projectId, null);
-    }
-
-    /**
-     * List project app processes
-     * Calls {@code listProjectAppProcessesWithHttpInfo} with every optional parameter left unset.
-     * @param projectId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<InCodeProcessDefinition>> listProjectAppProcessesWithHttpInfo(
-            @jakarta.annotation.Nonnull String projectId) throws ApiException {
-        return listProjectAppProcessesWithHttpInfo(projectId, null);
-    }
-
-    /**
-     * List project app processes (asynchronously)
-     * Calls {@code listProjectAppProcessesAsync} with every optional parameter left unset.
-     * @param projectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listProjectAppProcessesAsync(
-            @jakarta.annotation.Nonnull String projectId,
-            final ApiCallback<List<InCodeProcessDefinition>> _callback)
-            throws ApiException {
-        return listProjectAppProcessesAsync(projectId, null, _callback);
-    }
-
-    /**
-     * Build call for listProjectAppTemplates
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistProjectAppProcessesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app rendering templates. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Installed app process definitions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectAppTemplatesCall(
+    public APIlistProjectAppProcessesRequest listProjectAppProcesses(
+            @jakarta.annotation.Nonnull String projectId) {
+        return new APIlistProjectAppProcessesRequest(projectId);
+    }
+
+    private okhttp3.Call listProjectAppTemplatesCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
@@ -2116,47 +2408,7 @@ public class ProjectsApi {
         return listProjectAppTemplatesCall(projectId, tag, _callback);
     }
 
-    /**
-     * List project app templates
-     * Lists rendering templates contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @return List&lt;RenderingTemplateDefinitionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app rendering templates. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<RenderingTemplateDefinitionRef> listProjectAppTemplates(
-            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
-            throws ApiException {
-        ApiResponse<List<RenderingTemplateDefinitionRef>> localVarResp =
-                listProjectAppTemplatesWithHttpInfo(projectId, tag);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List project app templates
-     * Lists rendering templates contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @return ApiResponse&lt;List&lt;RenderingTemplateDefinitionRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app rendering templates. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<RenderingTemplateDefinitionRef>> listProjectAppTemplatesWithHttpInfo(
+    private ApiResponse<List<RenderingTemplateDefinitionRef>> listProjectAppTemplatesWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         okhttp3.Call localVarCall = listProjectAppTemplatesValidateBeforeCall(projectId, tag, null);
@@ -2165,24 +2417,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List project app templates (asynchronously)
-     * Lists rendering templates contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app rendering templates. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectAppTemplatesAsync(
+    private okhttp3.Call listProjectAppTemplatesAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<RenderingTemplateDefinitionRef>> _callback)
@@ -2196,75 +2431,120 @@ public class ProjectsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listProjectAppTemplates with every optional parameter left unset.
-     * @param projectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listProjectAppTemplatesCall(
-            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
-            throws ApiException {
-        return listProjectAppTemplatesCall(projectId, null, _callback);
+    public class APIlistProjectAppTemplatesRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nullable private String tag;
+
+        private APIlistProjectAppTemplatesRequest(@jakarta.annotation.Nonnull String projectId) {
+            this.projectId = projectId;
+        }
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistProjectAppTemplatesRequest
+         */
+        public APIlistProjectAppTemplatesRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Build call for listProjectAppTemplates
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app rendering templates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectAppTemplatesCall(projectId, tag, _callback);
+        }
+
+        /**
+         * Execute listProjectAppTemplates request
+         * @return List&lt;RenderingTemplateDefinitionRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app rendering templates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<RenderingTemplateDefinitionRef> execute() throws ApiException {
+            ApiResponse<List<RenderingTemplateDefinitionRef>> localVarResp =
+                    listProjectAppTemplatesWithHttpInfo(projectId, tag);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjectAppTemplates request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;RenderingTemplateDefinitionRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app rendering templates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<RenderingTemplateDefinitionRef>> executeWithHttpInfo()
+                throws ApiException {
+            return listProjectAppTemplatesWithHttpInfo(projectId, tag);
+        }
+
+        /**
+         * Execute listProjectAppTemplates request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app rendering templates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<RenderingTemplateDefinitionRef>> _callback)
+                throws ApiException {
+            return listProjectAppTemplatesAsync(projectId, tag, _callback);
+        }
     }
 
     /**
      * List project app templates
-     * Calls {@code listProjectAppTemplates} with every optional parameter left unset.
+     * Lists rendering templates contributed by installed apps in the project.
      * @param projectId  (required)
-     * @return List&lt;RenderingTemplateDefinitionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<RenderingTemplateDefinitionRef> listProjectAppTemplates(
-            @jakarta.annotation.Nonnull String projectId) throws ApiException {
-        return listProjectAppTemplates(projectId, null);
-    }
-
-    /**
-     * List project app templates
-     * Calls {@code listProjectAppTemplatesWithHttpInfo} with every optional parameter left unset.
-     * @param projectId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<RenderingTemplateDefinitionRef>> listProjectAppTemplatesWithHttpInfo(
-            @jakarta.annotation.Nonnull String projectId) throws ApiException {
-        return listProjectAppTemplatesWithHttpInfo(projectId, null);
-    }
-
-    /**
-     * List project app templates (asynchronously)
-     * Calls {@code listProjectAppTemplatesAsync} with every optional parameter left unset.
-     * @param projectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listProjectAppTemplatesAsync(
-            @jakarta.annotation.Nonnull String projectId,
-            final ApiCallback<List<RenderingTemplateDefinitionRef>> _callback)
-            throws ApiException {
-        return listProjectAppTemplatesAsync(projectId, null, _callback);
-    }
-
-    /**
-     * Build call for listProjectAppTypes
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistProjectAppTemplatesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app content types. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Installed app rendering templates. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectAppTypesCall(
+    public APIlistProjectAppTemplatesRequest listProjectAppTemplates(
+            @jakarta.annotation.Nonnull String projectId) {
+        return new APIlistProjectAppTemplatesRequest(projectId);
+    }
+
+    private okhttp3.Call listProjectAppTypesCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
@@ -2344,47 +2624,7 @@ public class ProjectsApi {
         return listProjectAppTypesCall(projectId, tag, _callback);
     }
 
-    /**
-     * List project app content types
-     * Lists content types contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @return List&lt;InCodeTypeDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app content types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InCodeTypeDefinition> listProjectAppTypes(
-            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
-            throws ApiException {
-        ApiResponse<List<InCodeTypeDefinition>> localVarResp =
-                listProjectAppTypesWithHttpInfo(projectId, tag);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List project app content types
-     * Lists content types contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @return ApiResponse&lt;List&lt;InCodeTypeDefinition&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app content types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InCodeTypeDefinition>> listProjectAppTypesWithHttpInfo(
+    private ApiResponse<List<InCodeTypeDefinition>> listProjectAppTypesWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         okhttp3.Call localVarCall = listProjectAppTypesValidateBeforeCall(projectId, tag, null);
@@ -2392,24 +2632,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List project app content types (asynchronously)
-     * Lists content types contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app content types. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectAppTypesAsync(
+    private okhttp3.Call listProjectAppTypesAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<InCodeTypeDefinition>> _callback)
@@ -2422,75 +2645,118 @@ public class ProjectsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listProjectAppTypes with every optional parameter left unset.
-     * @param projectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listProjectAppTypesCall(
-            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
-            throws ApiException {
-        return listProjectAppTypesCall(projectId, null, _callback);
+    public class APIlistProjectAppTypesRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nullable private String tag;
+
+        private APIlistProjectAppTypesRequest(@jakarta.annotation.Nonnull String projectId) {
+            this.projectId = projectId;
+        }
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistProjectAppTypesRequest
+         */
+        public APIlistProjectAppTypesRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Build call for listProjectAppTypes
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app content types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectAppTypesCall(projectId, tag, _callback);
+        }
+
+        /**
+         * Execute listProjectAppTypes request
+         * @return List&lt;InCodeTypeDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app content types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InCodeTypeDefinition> execute() throws ApiException {
+            ApiResponse<List<InCodeTypeDefinition>> localVarResp =
+                    listProjectAppTypesWithHttpInfo(projectId, tag);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjectAppTypes request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InCodeTypeDefinition&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app content types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InCodeTypeDefinition>> executeWithHttpInfo() throws ApiException {
+            return listProjectAppTypesWithHttpInfo(projectId, tag);
+        }
+
+        /**
+         * Execute listProjectAppTypes request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app content types. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InCodeTypeDefinition>> _callback)
+                throws ApiException {
+            return listProjectAppTypesAsync(projectId, tag, _callback);
+        }
     }
 
     /**
      * List project app content types
-     * Calls {@code listProjectAppTypes} with every optional parameter left unset.
+     * Lists content types contributed by installed apps in the project.
      * @param projectId  (required)
-     * @return List&lt;InCodeTypeDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<InCodeTypeDefinition> listProjectAppTypes(
-            @jakarta.annotation.Nonnull String projectId) throws ApiException {
-        return listProjectAppTypes(projectId, null);
-    }
-
-    /**
-     * List project app content types
-     * Calls {@code listProjectAppTypesWithHttpInfo} with every optional parameter left unset.
-     * @param projectId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<InCodeTypeDefinition>> listProjectAppTypesWithHttpInfo(
-            @jakarta.annotation.Nonnull String projectId) throws ApiException {
-        return listProjectAppTypesWithHttpInfo(projectId, null);
-    }
-
-    /**
-     * List project app content types (asynchronously)
-     * Calls {@code listProjectAppTypesAsync} with every optional parameter left unset.
-     * @param projectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listProjectAppTypesAsync(
-            @jakarta.annotation.Nonnull String projectId,
-            final ApiCallback<List<InCodeTypeDefinition>> _callback)
-            throws ApiException {
-        return listProjectAppTypesAsync(projectId, null, _callback);
-    }
-
-    /**
-     * Build call for listProjectAppViews
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistProjectAppTypesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Installed app content types. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectAppViewsCall(
+    public APIlistProjectAppTypesRequest listProjectAppTypes(
+            @jakarta.annotation.Nonnull String projectId) {
+        return new APIlistProjectAppTypesRequest(projectId);
+    }
+
+    private okhttp3.Call listProjectAppViewsCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
@@ -2570,47 +2836,7 @@ public class ProjectsApi {
         return listProjectAppViewsCall(projectId, tag, _callback);
     }
 
-    /**
-     * List project app Views
-     * Lists View Experience definitions contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @return List&lt;InCodeViewDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InCodeViewDefinition> listProjectAppViews(
-            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
-            throws ApiException {
-        ApiResponse<List<InCodeViewDefinition>> localVarResp =
-                listProjectAppViewsWithHttpInfo(projectId, tag);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List project app Views
-     * Lists View Experience definitions contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @return ApiResponse&lt;List&lt;InCodeViewDefinition&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InCodeViewDefinition>> listProjectAppViewsWithHttpInfo(
+    private ApiResponse<List<InCodeViewDefinition>> listProjectAppViewsWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         okhttp3.Call localVarCall = listProjectAppViewsValidateBeforeCall(projectId, tag, null);
@@ -2618,24 +2844,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List project app Views (asynchronously)
-     * Lists View Experience definitions contributed by installed apps in the project.
-     * @param projectId  (required)
-     * @param tag  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectAppViewsAsync(
+    private okhttp3.Call listProjectAppViewsAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<InCodeViewDefinition>> _callback)
@@ -2648,74 +2857,118 @@ public class ProjectsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listProjectAppViews with every optional parameter left unset.
-     * @param projectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listProjectAppViewsCall(
-            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
-            throws ApiException {
-        return listProjectAppViewsCall(projectId, null, _callback);
+    public class APIlistProjectAppViewsRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nullable private String tag;
+
+        private APIlistProjectAppViewsRequest(@jakarta.annotation.Nonnull String projectId) {
+            this.projectId = projectId;
+        }
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistProjectAppViewsRequest
+         */
+        public APIlistProjectAppViewsRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Build call for listProjectAppViews
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectAppViewsCall(projectId, tag, _callback);
+        }
+
+        /**
+         * Execute listProjectAppViews request
+         * @return List&lt;InCodeViewDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InCodeViewDefinition> execute() throws ApiException {
+            ApiResponse<List<InCodeViewDefinition>> localVarResp =
+                    listProjectAppViewsWithHttpInfo(projectId, tag);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjectAppViews request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InCodeViewDefinition&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InCodeViewDefinition>> executeWithHttpInfo() throws ApiException {
+            return listProjectAppViewsWithHttpInfo(projectId, tag);
+        }
+
+        /**
+         * Execute listProjectAppViews request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InCodeViewDefinition>> _callback)
+                throws ApiException {
+            return listProjectAppViewsAsync(projectId, tag, _callback);
+        }
     }
 
     /**
      * List project app Views
-     * Calls {@code listProjectAppViews} with every optional parameter left unset.
+     * Lists View Experience definitions contributed by installed apps in the project.
      * @param projectId  (required)
-     * @return List&lt;InCodeViewDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<InCodeViewDefinition> listProjectAppViews(
-            @jakarta.annotation.Nonnull String projectId) throws ApiException {
-        return listProjectAppViews(projectId, null);
-    }
-
-    /**
-     * List project app Views
-     * Calls {@code listProjectAppViewsWithHttpInfo} with every optional parameter left unset.
-     * @param projectId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<InCodeViewDefinition>> listProjectAppViewsWithHttpInfo(
-            @jakarta.annotation.Nonnull String projectId) throws ApiException {
-        return listProjectAppViewsWithHttpInfo(projectId, null);
-    }
-
-    /**
-     * List project app Views (asynchronously)
-     * Calls {@code listProjectAppViewsAsync} with every optional parameter left unset.
-     * @param projectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listProjectAppViewsAsync(
-            @jakarta.annotation.Nonnull String projectId,
-            final ApiCallback<List<InCodeViewDefinition>> _callback)
-            throws ApiException {
-        return listProjectAppViewsAsync(projectId, null, _callback);
-    }
-
-    /**
-     * Build call for listProjectIntegrations
-     * @param projectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistProjectAppViewsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project integrations. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectIntegrationsCall(
+    public APIlistProjectAppViewsRequest listProjectAppViews(
+            @jakarta.annotation.Nonnull String projectId) {
+        return new APIlistProjectAppViewsRequest(projectId);
+    }
+
+    private okhttp3.Call listProjectIntegrationsCall(
             @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2787,67 +3040,14 @@ public class ProjectsApi {
         return listProjectIntegrationsCall(projectId, _callback);
     }
 
-    /**
-     * List project integrations
-     * Lists integrations available for the project.
-     * @param projectId  (required)
-     * @return ProjectIntegrationListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project integrations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProjectIntegrationListResponse listProjectIntegrations(
-            @jakarta.annotation.Nonnull String projectId) throws ApiException {
-        ApiResponse<ProjectIntegrationListResponse> localVarResp =
-                listProjectIntegrationsWithHttpInfo(projectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List project integrations
-     * Lists integrations available for the project.
-     * @param projectId  (required)
-     * @return ApiResponse&lt;ProjectIntegrationListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project integrations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProjectIntegrationListResponse> listProjectIntegrationsWithHttpInfo(
+    private ApiResponse<ProjectIntegrationListResponse> listProjectIntegrationsWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = listProjectIntegrationsValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<ProjectIntegrationListResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List project integrations (asynchronously)
-     * Lists integrations available for the project.
-     * @param projectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project integrations. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectIntegrationsAsync(
+    private okhttp3.Call listProjectIntegrationsAsync(
             @jakarta.annotation.Nonnull String projectId,
             final ApiCallback<ProjectIntegrationListResponse> _callback)
             throws ApiException {
@@ -2858,22 +3058,108 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIlistProjectIntegrationsRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+
+        private APIlistProjectIntegrationsRequest(@jakarta.annotation.Nonnull String projectId) {
+            this.projectId = projectId;
+        }
+
+        /**
+         * Build call for listProjectIntegrations
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project integrations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectIntegrationsCall(projectId, _callback);
+        }
+
+        /**
+         * Execute listProjectIntegrations request
+         * @return ProjectIntegrationListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project integrations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProjectIntegrationListResponse execute() throws ApiException {
+            ApiResponse<ProjectIntegrationListResponse> localVarResp =
+                    listProjectIntegrationsWithHttpInfo(projectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjectIntegrations request with HTTP info returned
+         * @return ApiResponse&lt;ProjectIntegrationListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project integrations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProjectIntegrationListResponse> executeWithHttpInfo()
+                throws ApiException {
+            return listProjectIntegrationsWithHttpInfo(projectId);
+        }
+
+        /**
+         * Execute listProjectIntegrations request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project integrations. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<ProjectIntegrationListResponse> _callback) throws ApiException {
+            return listProjectIntegrationsAsync(projectId, _callback);
+        }
+    }
+
     /**
-     * Build call for listProjectPlugins
+     * List project integrations
+     * Lists integrations available for the project.
      * @param projectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistProjectIntegrationsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project plugins. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Project integrations. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectPluginsCall(
+    public APIlistProjectIntegrationsRequest listProjectIntegrations(
+            @jakarta.annotation.Nonnull String projectId) {
+        return new APIlistProjectIntegrationsRequest(projectId);
+    }
+
+    private okhttp3.Call listProjectPluginsCall(
             @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2945,66 +3231,14 @@ public class ProjectsApi {
         return listProjectPluginsCall(projectId, _callback);
     }
 
-    /**
-     * List project plugins
-     * Lists plugins enabled for the project.
-     * @param projectId  (required)
-     * @return List&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project plugins. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<String> listProjectPlugins(@jakarta.annotation.Nonnull String projectId)
-            throws ApiException {
-        ApiResponse<List<String>> localVarResp = listProjectPluginsWithHttpInfo(projectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List project plugins
-     * Lists plugins enabled for the project.
-     * @param projectId  (required)
-     * @return ApiResponse&lt;List&lt;String&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project plugins. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<String>> listProjectPluginsWithHttpInfo(
+    private ApiResponse<List<String>> listProjectPluginsWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = listProjectPluginsValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<List<String>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List project plugins (asynchronously)
-     * Lists plugins enabled for the project.
-     * @param projectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project plugins. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectPluginsAsync(
+    private okhttp3.Call listProjectPluginsAsync(
             @jakarta.annotation.Nonnull String projectId, final ApiCallback<List<String>> _callback)
             throws ApiException {
 
@@ -3014,22 +3248,106 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIlistProjectPluginsRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+
+        private APIlistProjectPluginsRequest(@jakarta.annotation.Nonnull String projectId) {
+            this.projectId = projectId;
+        }
+
+        /**
+         * Build call for listProjectPlugins
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project plugins. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectPluginsCall(projectId, _callback);
+        }
+
+        /**
+         * Execute listProjectPlugins request
+         * @return List&lt;String&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project plugins. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<String> execute() throws ApiException {
+            ApiResponse<List<String>> localVarResp = listProjectPluginsWithHttpInfo(projectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjectPlugins request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;String&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project plugins. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<String>> executeWithHttpInfo() throws ApiException {
+            return listProjectPluginsWithHttpInfo(projectId);
+        }
+
+        /**
+         * Execute listProjectPlugins request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project plugins. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<String>> _callback)
+                throws ApiException {
+            return listProjectPluginsAsync(projectId, _callback);
+        }
+    }
+
     /**
-     * Build call for listProjectTools
+     * List project plugins
+     * Lists plugins enabled for the project.
      * @param projectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistProjectPluginsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project tools. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Project plugins. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectToolsCall(
+    public APIlistProjectPluginsRequest listProjectPlugins(
+            @jakarta.annotation.Nonnull String projectId) {
+        return new APIlistProjectPluginsRequest(projectId);
+    }
+
+    private okhttp3.Call listProjectToolsCall(
             @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3101,66 +3419,14 @@ public class ProjectsApi {
         return listProjectToolsCall(projectId, _callback);
     }
 
-    /**
-     * List project tools
-     * Lists tools available in the project.
-     * @param projectId  (required)
-     * @return List&lt;ProjectToolInfo&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project tools. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ProjectToolInfo> listProjectTools(@jakarta.annotation.Nonnull String projectId)
-            throws ApiException {
-        ApiResponse<List<ProjectToolInfo>> localVarResp = listProjectToolsWithHttpInfo(projectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List project tools
-     * Lists tools available in the project.
-     * @param projectId  (required)
-     * @return ApiResponse&lt;List&lt;ProjectToolInfo&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project tools. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ProjectToolInfo>> listProjectToolsWithHttpInfo(
+    private ApiResponse<List<ProjectToolInfo>> listProjectToolsWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = listProjectToolsValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<List<ProjectToolInfo>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List project tools (asynchronously)
-     * Lists tools available in the project.
-     * @param projectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project tools. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectToolsAsync(
+    private okhttp3.Call listProjectToolsAsync(
             @jakarta.annotation.Nonnull String projectId,
             final ApiCallback<List<ProjectToolInfo>> _callback)
             throws ApiException {
@@ -3171,22 +3437,107 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIlistProjectToolsRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+
+        private APIlistProjectToolsRequest(@jakarta.annotation.Nonnull String projectId) {
+            this.projectId = projectId;
+        }
+
+        /**
+         * Build call for listProjectTools
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project tools. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectToolsCall(projectId, _callback);
+        }
+
+        /**
+         * Execute listProjectTools request
+         * @return List&lt;ProjectToolInfo&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project tools. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ProjectToolInfo> execute() throws ApiException {
+            ApiResponse<List<ProjectToolInfo>> localVarResp =
+                    listProjectToolsWithHttpInfo(projectId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjectTools request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ProjectToolInfo&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project tools. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ProjectToolInfo>> executeWithHttpInfo() throws ApiException {
+            return listProjectToolsWithHttpInfo(projectId);
+        }
+
+        /**
+         * Execute listProjectTools request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project tools. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ProjectToolInfo>> _callback)
+                throws ApiException {
+            return listProjectToolsAsync(projectId, _callback);
+        }
+    }
+
     /**
-     * Build call for listProjects
-     * @param account  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List project tools
+     * Lists tools available in the project.
+     * @param projectId  (required)
+     * @return APIlistProjectToolsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Projects. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Project tools. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectsCall(
+    public APIlistProjectToolsRequest listProjectTools(
+            @jakarta.annotation.Nonnull String projectId) {
+        return new APIlistProjectToolsRequest(projectId);
+    }
+
+    private okhttp3.Call listProjectsCall(
             @jakarta.annotation.Nullable String account, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3252,66 +3603,14 @@ public class ProjectsApi {
         return listProjectsCall(account, _callback);
     }
 
-    /**
-     * List projects
-     * Lists projects visible to the current principal.
-     * @param account  (optional)
-     * @return List&lt;ProjectRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Projects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ProjectRef> listProjects(@jakarta.annotation.Nullable String account)
-            throws ApiException {
-        ApiResponse<List<ProjectRef>> localVarResp = listProjectsWithHttpInfo(account);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List projects
-     * Lists projects visible to the current principal.
-     * @param account  (optional)
-     * @return ApiResponse&lt;List&lt;ProjectRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Projects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ProjectRef>> listProjectsWithHttpInfo(
+    private ApiResponse<List<ProjectRef>> listProjectsWithHttpInfo(
             @jakarta.annotation.Nullable String account) throws ApiException {
         okhttp3.Call localVarCall = listProjectsValidateBeforeCall(account, null);
         Type localVarReturnType = new TypeToken<List<ProjectRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List projects (asynchronously)
-     * Lists projects visible to the current principal.
-     * @param account  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Projects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectsAsync(
+    private okhttp3.Call listProjectsAsync(
             @jakarta.annotation.Nullable String account,
             final ApiCallback<List<ProjectRef>> _callback)
             throws ApiException {
@@ -3322,65 +3621,112 @@ public class ProjectsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listProjects with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listProjectsCall(final ApiCallback _callback) throws ApiException {
-        return listProjectsCall(null, _callback);
+    public class APIlistProjectsRequest {
+        @jakarta.annotation.Nullable private String account;
+
+        private APIlistProjectsRequest() {}
+
+        /**
+         * Set account
+         * @param account  (optional)
+         * @return APIlistProjectsRequest
+         */
+        public APIlistProjectsRequest account(@jakarta.annotation.Nullable String account) {
+            this.account = account;
+            return this;
+        }
+
+        /**
+         * Build call for listProjects
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectsCall(account, _callback);
+        }
+
+        /**
+         * Execute listProjects request
+         * @return List&lt;ProjectRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ProjectRef> execute() throws ApiException {
+            ApiResponse<List<ProjectRef>> localVarResp = listProjectsWithHttpInfo(account);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjects request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ProjectRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ProjectRef>> executeWithHttpInfo() throws ApiException {
+            return listProjectsWithHttpInfo(account);
+        }
+
+        /**
+         * Execute listProjects request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ProjectRef>> _callback)
+                throws ApiException {
+            return listProjectsAsync(account, _callback);
+        }
     }
 
     /**
      * List projects
-     * Calls {@code listProjects} with every optional parameter left unset.
-     * @return List&lt;ProjectRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ProjectRef> listProjects() throws ApiException {
-        return listProjects(null);
-    }
-
-    /**
-     * List projects
-     * Calls {@code listProjectsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ProjectRef>> listProjectsWithHttpInfo() throws ApiException {
-        return listProjectsWithHttpInfo(null);
-    }
-
-    /**
-     * List projects (asynchronously)
-     * Calls {@code listProjectsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listProjectsAsync(final ApiCallback<List<ProjectRef>> _callback)
-            throws ApiException {
-        return listProjectsAsync(null, _callback);
-    }
-
-    /**
-     * Build call for updateProject
-     * @param projectId  (required)
-     * @param updateProjectPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists projects visible to the current principal.
+     * @return APIlistProjectsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Projects. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateProjectCall(
+    public APIlistProjectsRequest listProjects() {
+        return new APIlistProjectsRequest();
+    }
+
+    private okhttp3.Call updateProjectCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload,
             final ApiCallback _callback)
@@ -3462,48 +3808,7 @@ public class ProjectsApi {
         return updateProjectCall(projectId, updateProjectPayload, _callback);
     }
 
-    /**
-     * Update a project
-     * Updates project metadata.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param projectId  (required)
-     * @param updateProjectPayload  (required)
-     * @return Project
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Project updateProject(
-            @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload)
-            throws ApiException {
-        ApiResponse<Project> localVarResp =
-                updateProjectWithHttpInfo(projectId, updateProjectPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a project
-     * Updates project metadata.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param projectId  (required)
-     * @param updateProjectPayload  (required)
-     * @return ApiResponse&lt;Project&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Project> updateProjectWithHttpInfo(
+    private ApiResponse<Project> updateProjectWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload)
             throws ApiException {
@@ -3513,24 +3818,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a project (asynchronously)
-     * Updates project metadata.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param projectId  (required)
-     * @param updateProjectPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateProjectAsync(
+    private okhttp3.Call updateProjectAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload,
             final ApiCallback<Project> _callback)
@@ -3543,24 +3831,112 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIupdateProjectRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nonnull private final UpdateProjectPayload updateProjectPayload;
+
+        private APIupdateProjectRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload) {
+            this.projectId = projectId;
+            this.updateProjectPayload = updateProjectPayload;
+        }
+
+        /**
+         * Build call for updateProject
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateProjectCall(projectId, updateProjectPayload, _callback);
+        }
+
+        /**
+         * Execute updateProject request
+         * @return Project
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Project execute() throws ApiException {
+            ApiResponse<Project> localVarResp =
+                    updateProjectWithHttpInfo(projectId, updateProjectPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateProject request with HTTP info returned
+         * @return ApiResponse&lt;Project&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Project> executeWithHttpInfo() throws ApiException {
+            return updateProjectWithHttpInfo(projectId, updateProjectPayload);
+        }
+
+        /**
+         * Execute updateProject request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Project> _callback) throws ApiException {
+            return updateProjectAsync(projectId, updateProjectPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateProjectCompositeApp
+     * Update a project
+     * Updates project metadata.  **Required permissions:** &#x60;project:settings_write&#x60;
      * @param projectId  (required)
-     * @param compositeAppConfigPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param updateProjectPayload  (required)
+     * @return APIupdateProjectRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated composite app configuration. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The composite app configuration was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateProjectCompositeAppCall(
+    public APIupdateProjectRequest updateProject(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload) {
+        return new APIupdateProjectRequest(projectId, updateProjectPayload);
+    }
+
+    private okhttp3.Call updateProjectCompositeAppCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload,
             final ApiCallback _callback)
@@ -3642,50 +4018,7 @@ public class ProjectsApi {
         return updateProjectCompositeAppCall(projectId, compositeAppConfigPayload, _callback);
     }
 
-    /**
-     * Update composite app configuration
-     * Creates or updates the composite app configuration for the project.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param projectId  (required)
-     * @param compositeAppConfigPayload  (required)
-     * @return CompositeAppConfig
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated composite app configuration. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The composite app configuration was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CompositeAppConfig updateProjectCompositeApp(
-            @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload)
-            throws ApiException {
-        ApiResponse<CompositeAppConfig> localVarResp =
-                updateProjectCompositeAppWithHttpInfo(projectId, compositeAppConfigPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update composite app configuration
-     * Creates or updates the composite app configuration for the project.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param projectId  (required)
-     * @param compositeAppConfigPayload  (required)
-     * @return ApiResponse&lt;CompositeAppConfig&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated composite app configuration. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The composite app configuration was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CompositeAppConfig> updateProjectCompositeAppWithHttpInfo(
+    private ApiResponse<CompositeAppConfig> updateProjectCompositeAppWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload)
             throws ApiException {
@@ -3696,25 +4029,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update composite app configuration (asynchronously)
-     * Creates or updates the composite app configuration for the project.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param projectId  (required)
-     * @param compositeAppConfigPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated composite app configuration. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The composite app configuration was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateProjectCompositeAppAsync(
+    private okhttp3.Call updateProjectCompositeAppAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload,
             final ApiCallback<CompositeAppConfig> _callback)
@@ -3728,23 +4043,120 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIupdateProjectCompositeAppRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+
+        @jakarta.annotation.Nonnull
+        private final CompositeAppConfigPayload compositeAppConfigPayload;
+
+        private APIupdateProjectCompositeAppRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload) {
+            this.projectId = projectId;
+            this.compositeAppConfigPayload = compositeAppConfigPayload;
+        }
+
+        /**
+         * Build call for updateProjectCompositeApp
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated composite app configuration. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The composite app configuration was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateProjectCompositeAppCall(projectId, compositeAppConfigPayload, _callback);
+        }
+
+        /**
+         * Execute updateProjectCompositeApp request
+         * @return CompositeAppConfig
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated composite app configuration. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The composite app configuration was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CompositeAppConfig execute() throws ApiException {
+            ApiResponse<CompositeAppConfig> localVarResp =
+                    updateProjectCompositeAppWithHttpInfo(projectId, compositeAppConfigPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateProjectCompositeApp request with HTTP info returned
+         * @return ApiResponse&lt;CompositeAppConfig&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated composite app configuration. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The composite app configuration was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CompositeAppConfig> executeWithHttpInfo() throws ApiException {
+            return updateProjectCompositeAppWithHttpInfo(projectId, compositeAppConfigPayload);
+        }
+
+        /**
+         * Execute updateProjectCompositeApp request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated composite app configuration. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The composite app configuration was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CompositeAppConfig> _callback)
+                throws ApiException {
+            return updateProjectCompositeAppAsync(projectId, compositeAppConfigPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateProjectConfiguration
+     * Update composite app configuration
+     * Creates or updates the composite app configuration for the project.  **Required permissions:** &#x60;account:admin&#x60;
      * @param projectId  (required)
-     * @param updateProjectConfigurationPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param compositeAppConfigPayload  (required)
+     * @return APIupdateProjectCompositeAppRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated project configuration. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Updated composite app configuration. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The composite app configuration was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateProjectConfigurationCall(
+    public APIupdateProjectCompositeAppRequest updateProjectCompositeApp(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload) {
+        return new APIupdateProjectCompositeAppRequest(projectId, compositeAppConfigPayload);
+    }
+
+    private okhttp3.Call updateProjectConfigurationCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull
                     UpdateProjectConfigurationPayload updateProjectConfigurationPayload,
@@ -3829,50 +4241,7 @@ public class ProjectsApi {
                 projectId, updateProjectConfigurationPayload, _callback);
     }
 
-    /**
-     * Update project configuration
-     * Updates project configuration fields.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param projectId  (required)
-     * @param updateProjectConfigurationPayload  (required)
-     * @return ProjectConfiguration
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated project configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProjectConfiguration updateProjectConfiguration(
-            @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull
-                    UpdateProjectConfigurationPayload updateProjectConfigurationPayload)
-            throws ApiException {
-        ApiResponse<ProjectConfiguration> localVarResp =
-                updateProjectConfigurationWithHttpInfo(
-                        projectId, updateProjectConfigurationPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update project configuration
-     * Updates project configuration fields.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param projectId  (required)
-     * @param updateProjectConfigurationPayload  (required)
-     * @return ApiResponse&lt;ProjectConfiguration&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated project configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProjectConfiguration> updateProjectConfigurationWithHttpInfo(
+    private ApiResponse<ProjectConfiguration> updateProjectConfigurationWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull
                     UpdateProjectConfigurationPayload updateProjectConfigurationPayload)
@@ -3884,24 +4253,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update project configuration (asynchronously)
-     * Updates project configuration fields.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param projectId  (required)
-     * @param updateProjectConfigurationPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated project configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateProjectConfigurationAsync(
+    private okhttp3.Call updateProjectConfigurationAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull
                     UpdateProjectConfigurationPayload updateProjectConfigurationPayload,
@@ -3916,24 +4268,122 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIupdateProjectConfigurationRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateProjectConfigurationPayload updateProjectConfigurationPayload;
+
+        private APIupdateProjectConfigurationRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull
+                        UpdateProjectConfigurationPayload updateProjectConfigurationPayload) {
+            this.projectId = projectId;
+            this.updateProjectConfigurationPayload = updateProjectConfigurationPayload;
+        }
+
+        /**
+         * Build call for updateProjectConfiguration
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated project configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateProjectConfigurationCall(
+                    projectId, updateProjectConfigurationPayload, _callback);
+        }
+
+        /**
+         * Execute updateProjectConfiguration request
+         * @return ProjectConfiguration
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated project configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProjectConfiguration execute() throws ApiException {
+            ApiResponse<ProjectConfiguration> localVarResp =
+                    updateProjectConfigurationWithHttpInfo(
+                            projectId, updateProjectConfigurationPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateProjectConfiguration request with HTTP info returned
+         * @return ApiResponse&lt;ProjectConfiguration&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated project configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProjectConfiguration> executeWithHttpInfo() throws ApiException {
+            return updateProjectConfigurationWithHttpInfo(
+                    projectId, updateProjectConfigurationPayload);
+        }
+
+        /**
+         * Execute updateProjectConfiguration request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated project configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProjectConfiguration> _callback)
+                throws ApiException {
+            return updateProjectConfigurationAsync(
+                    projectId, updateProjectConfigurationPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateProjectIntegration
+     * Update project configuration
+     * Updates project configuration fields.  **Required permissions:** &#x60;project:settings_write&#x60;
      * @param projectId  (required)
-     * @param integrationId  (required)
-     * @param projectIntegrationConfigRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param updateProjectConfigurationPayload  (required)
+     * @return APIupdateProjectConfigurationRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated project integration configuration. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Updated project configuration. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateProjectIntegrationCall(
+    public APIupdateProjectConfigurationRequest updateProjectConfiguration(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull
+                    UpdateProjectConfigurationPayload updateProjectConfigurationPayload) {
+        return new APIupdateProjectConfigurationRequest(
+                projectId, updateProjectConfigurationPayload);
+    }
+
+    private okhttp3.Call updateProjectIntegrationCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String integrationId,
             @jakarta.annotation.Nonnull
@@ -4029,53 +4479,7 @@ public class ProjectsApi {
                 projectId, integrationId, projectIntegrationConfigRequest, _callback);
     }
 
-    /**
-     * Update a project integration
-     * Updates a project integration configuration, including secrets.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param projectId  (required)
-     * @param integrationId  (required)
-     * @param projectIntegrationConfigRequest  (required)
-     * @return ProjectIntegrationConfigResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated project integration configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProjectIntegrationConfigResponse updateProjectIntegration(
-            @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull String integrationId,
-            @jakarta.annotation.Nonnull
-                    ProjectIntegrationConfigRequest projectIntegrationConfigRequest)
-            throws ApiException {
-        ApiResponse<ProjectIntegrationConfigResponse> localVarResp =
-                updateProjectIntegrationWithHttpInfo(
-                        projectId, integrationId, projectIntegrationConfigRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a project integration
-     * Updates a project integration configuration, including secrets.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param projectId  (required)
-     * @param integrationId  (required)
-     * @param projectIntegrationConfigRequest  (required)
-     * @return ApiResponse&lt;ProjectIntegrationConfigResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated project integration configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProjectIntegrationConfigResponse> updateProjectIntegrationWithHttpInfo(
+    private ApiResponse<ProjectIntegrationConfigResponse> updateProjectIntegrationWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String integrationId,
             @jakarta.annotation.Nonnull
@@ -4088,25 +4492,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a project integration (asynchronously)
-     * Updates a project integration configuration, including secrets.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param projectId  (required)
-     * @param integrationId  (required)
-     * @param projectIntegrationConfigRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated project integration configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateProjectIntegrationAsync(
+    private okhttp3.Call updateProjectIntegrationAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String integrationId,
             @jakarta.annotation.Nonnull
@@ -4122,23 +4508,128 @@ public class ProjectsApi {
         return localVarCall;
     }
 
+    public class APIupdateProjectIntegrationRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+        @jakarta.annotation.Nonnull private final String integrationId;
+
+        @jakarta.annotation.Nonnull
+        private final ProjectIntegrationConfigRequest projectIntegrationConfigRequest;
+
+        private APIupdateProjectIntegrationRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull String integrationId,
+                @jakarta.annotation.Nonnull
+                        ProjectIntegrationConfigRequest projectIntegrationConfigRequest) {
+            this.projectId = projectId;
+            this.integrationId = integrationId;
+            this.projectIntegrationConfigRequest = projectIntegrationConfigRequest;
+        }
+
+        /**
+         * Build call for updateProjectIntegration
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated project integration configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateProjectIntegrationCall(
+                    projectId, integrationId, projectIntegrationConfigRequest, _callback);
+        }
+
+        /**
+         * Execute updateProjectIntegration request
+         * @return ProjectIntegrationConfigResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated project integration configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProjectIntegrationConfigResponse execute() throws ApiException {
+            ApiResponse<ProjectIntegrationConfigResponse> localVarResp =
+                    updateProjectIntegrationWithHttpInfo(
+                            projectId, integrationId, projectIntegrationConfigRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateProjectIntegration request with HTTP info returned
+         * @return ApiResponse&lt;ProjectIntegrationConfigResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated project integration configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProjectIntegrationConfigResponse> executeWithHttpInfo()
+                throws ApiException {
+            return updateProjectIntegrationWithHttpInfo(
+                    projectId, integrationId, projectIntegrationConfigRequest);
+        }
+
+        /**
+         * Execute updateProjectIntegration request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated project integration configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<ProjectIntegrationConfigResponse> _callback) throws ApiException {
+            return updateProjectIntegrationAsync(
+                    projectId, integrationId, projectIntegrationConfigRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for updateProjectPlugins
+     * Update a project integration
+     * Updates a project integration configuration, including secrets.  **Required permissions:** &#x60;project:admin&#x60;
      * @param projectId  (required)
-     * @param projectPluginsUpdatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param integrationId  (required)
+     * @param projectIntegrationConfigRequest  (required)
+     * @return APIupdateProjectIntegrationRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project plugin update result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Updated project integration configuration. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateProjectPluginsCall(
+    public APIupdateProjectIntegrationRequest updateProjectIntegration(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId,
+            @jakarta.annotation.Nonnull
+                    ProjectIntegrationConfigRequest projectIntegrationConfigRequest) {
+        return new APIupdateProjectIntegrationRequest(
+                projectId, integrationId, projectIntegrationConfigRequest);
+    }
+
+    private okhttp3.Call updateProjectPluginsCall(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload,
             final ApiCallback _callback)
@@ -4220,48 +4711,7 @@ public class ProjectsApi {
         return updateProjectPluginsCall(projectId, projectPluginsUpdatePayload, _callback);
     }
 
-    /**
-     * Update project plugins
-     * Sets the list of enabled plugins for the project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param projectId  (required)
-     * @param projectPluginsUpdatePayload  (required)
-     * @return CountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project plugin update result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CountResult updateProjectPlugins(
-            @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload)
-            throws ApiException {
-        ApiResponse<CountResult> localVarResp =
-                updateProjectPluginsWithHttpInfo(projectId, projectPluginsUpdatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update project plugins
-     * Sets the list of enabled plugins for the project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param projectId  (required)
-     * @param projectPluginsUpdatePayload  (required)
-     * @return ApiResponse&lt;CountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project plugin update result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CountResult> updateProjectPluginsWithHttpInfo(
+    private ApiResponse<CountResult> updateProjectPluginsWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload)
             throws ApiException {
@@ -4272,24 +4722,7 @@ public class ProjectsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update project plugins (asynchronously)
-     * Sets the list of enabled plugins for the project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param projectId  (required)
-     * @param projectPluginsUpdatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project plugin update result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateProjectPluginsAsync(
+    private okhttp3.Call updateProjectPluginsAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload,
             final ApiCallback<CountResult> _callback)
@@ -4301,5 +4734,114 @@ public class ProjectsApi {
         Type localVarReturnType = new TypeToken<CountResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateProjectPluginsRequest {
+        @jakarta.annotation.Nonnull private final String projectId;
+
+        @jakarta.annotation.Nonnull
+        private final ProjectPluginsUpdatePayload projectPluginsUpdatePayload;
+
+        private APIupdateProjectPluginsRequest(
+                @jakarta.annotation.Nonnull String projectId,
+                @jakarta.annotation.Nonnull
+                        ProjectPluginsUpdatePayload projectPluginsUpdatePayload) {
+            this.projectId = projectId;
+            this.projectPluginsUpdatePayload = projectPluginsUpdatePayload;
+        }
+
+        /**
+         * Build call for updateProjectPlugins
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project plugin update result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateProjectPluginsCall(projectId, projectPluginsUpdatePayload, _callback);
+        }
+
+        /**
+         * Execute updateProjectPlugins request
+         * @return CountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project plugin update result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CountResult execute() throws ApiException {
+            ApiResponse<CountResult> localVarResp =
+                    updateProjectPluginsWithHttpInfo(projectId, projectPluginsUpdatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateProjectPlugins request with HTTP info returned
+         * @return ApiResponse&lt;CountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project plugin update result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CountResult> executeWithHttpInfo() throws ApiException {
+            return updateProjectPluginsWithHttpInfo(projectId, projectPluginsUpdatePayload);
+        }
+
+        /**
+         * Execute updateProjectPlugins request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project plugin update result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CountResult> _callback)
+                throws ApiException {
+            return updateProjectPluginsAsync(projectId, projectPluginsUpdatePayload, _callback);
+        }
+    }
+
+    /**
+     * Update project plugins
+     * Sets the list of enabled plugins for the project.  **Required permissions:** &#x60;project:admin&#x60;
+     * @param projectId  (required)
+     * @param projectPluginsUpdatePayload  (required)
+     * @return APIupdateProjectPluginsRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Project plugin update result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateProjectPluginsRequest updateProjectPlugins(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload) {
+        return new APIupdateProjectPluginsRequest(projectId, projectPluginsUpdatePayload);
     }
 }

@@ -69,23 +69,7 @@ public class RemoteMcpConnectionsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for authorizeRemoteMcpConnection
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authorization URL or immediate connection result for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call authorizeRemoteMcpConnectionCall(
+    private okhttp3.Call authorizeRemoteMcpConnectionCall(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
@@ -170,48 +154,7 @@ public class RemoteMcpConnectionsApi {
         return authorizeRemoteMcpConnectionCall(appInstallId, collectionId, _callback);
     }
 
-    /**
-     * Authorize a remote MCP connection
-     * Starts the OAuth flow for an OAuth-enabled MCP collection and returns the authorization URL or immediate connected status.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @return OAuthAuthorizeResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authorization URL or immediate connection result for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthAuthorizeResponse authorizeRemoteMcpConnection(
-            @jakarta.annotation.Nonnull String appInstallId,
-            @jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<OAuthAuthorizeResponse> localVarResp =
-                authorizeRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Authorize a remote MCP connection
-     * Starts the OAuth flow for an OAuth-enabled MCP collection and returns the authorization URL or immediate connected status.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;OAuthAuthorizeResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authorization URL or immediate connection result for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthAuthorizeResponse> authorizeRemoteMcpConnectionWithHttpInfo(
+    private ApiResponse<OAuthAuthorizeResponse> authorizeRemoteMcpConnectionWithHttpInfo(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
@@ -221,24 +164,7 @@ public class RemoteMcpConnectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Authorize a remote MCP connection (asynchronously)
-     * Starts the OAuth flow for an OAuth-enabled MCP collection and returns the authorization URL or immediate connected status.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authorization URL or immediate connection result for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call authorizeRemoteMcpConnectionAsync(
+    private okhttp3.Call authorizeRemoteMcpConnectionAsync(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<OAuthAuthorizeResponse> _callback)
@@ -252,23 +178,113 @@ public class RemoteMcpConnectionsApi {
         return localVarCall;
     }
 
+    public class APIauthorizeRemoteMcpConnectionRequest {
+        @jakarta.annotation.Nonnull private final String appInstallId;
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIauthorizeRemoteMcpConnectionRequest(
+                @jakarta.annotation.Nonnull String appInstallId,
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.appInstallId = appInstallId;
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for authorizeRemoteMcpConnection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authorization URL or immediate connection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return authorizeRemoteMcpConnectionCall(appInstallId, collectionId, _callback);
+        }
+
+        /**
+         * Execute authorizeRemoteMcpConnection request
+         * @return OAuthAuthorizeResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authorization URL or immediate connection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthAuthorizeResponse execute() throws ApiException {
+            ApiResponse<OAuthAuthorizeResponse> localVarResp =
+                    authorizeRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute authorizeRemoteMcpConnection request with HTTP info returned
+         * @return ApiResponse&lt;OAuthAuthorizeResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authorization URL or immediate connection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthAuthorizeResponse> executeWithHttpInfo() throws ApiException {
+            return authorizeRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
+        }
+
+        /**
+         * Execute authorizeRemoteMcpConnection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authorization URL or immediate connection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthAuthorizeResponse> _callback)
+                throws ApiException {
+            return authorizeRemoteMcpConnectionAsync(appInstallId, collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for connectRemoteMcpConnection
+     * Authorize a remote MCP connection
+     * Starts the OAuth flow for an OAuth-enabled MCP collection and returns the authorization URL or immediate connected status.
      * @param appInstallId  (required)
      * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIauthorizeRemoteMcpConnectionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Connection result for the MCP collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authorization URL or immediate connection result for the MCP collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call connectRemoteMcpConnectionCall(
+    public APIauthorizeRemoteMcpConnectionRequest authorizeRemoteMcpConnection(
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIauthorizeRemoteMcpConnectionRequest(appInstallId, collectionId);
+    }
+
+    private okhttp3.Call connectRemoteMcpConnectionCall(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
@@ -353,48 +369,7 @@ public class RemoteMcpConnectionsApi {
         return connectRemoteMcpConnectionCall(appInstallId, collectionId, _callback);
     }
 
-    /**
-     * Connect a remote MCP collection
-     * Obtains and stores a client-credentials token for a remote MCP collection linked to a client-credentials OAuth provider.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @return McpOAuthConnectResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Connection result for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public McpOAuthConnectResponse connectRemoteMcpConnection(
-            @jakarta.annotation.Nonnull String appInstallId,
-            @jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<McpOAuthConnectResponse> localVarResp =
-                connectRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Connect a remote MCP collection
-     * Obtains and stores a client-credentials token for a remote MCP collection linked to a client-credentials OAuth provider.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;McpOAuthConnectResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Connection result for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<McpOAuthConnectResponse> connectRemoteMcpConnectionWithHttpInfo(
+    private ApiResponse<McpOAuthConnectResponse> connectRemoteMcpConnectionWithHttpInfo(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
@@ -404,24 +379,7 @@ public class RemoteMcpConnectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Connect a remote MCP collection (asynchronously)
-     * Obtains and stores a client-credentials token for a remote MCP collection linked to a client-credentials OAuth provider.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Connection result for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call connectRemoteMcpConnectionAsync(
+    private okhttp3.Call connectRemoteMcpConnectionAsync(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<McpOAuthConnectResponse> _callback)
@@ -434,23 +392,113 @@ public class RemoteMcpConnectionsApi {
         return localVarCall;
     }
 
+    public class APIconnectRemoteMcpConnectionRequest {
+        @jakarta.annotation.Nonnull private final String appInstallId;
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIconnectRemoteMcpConnectionRequest(
+                @jakarta.annotation.Nonnull String appInstallId,
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.appInstallId = appInstallId;
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for connectRemoteMcpConnection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Connection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return connectRemoteMcpConnectionCall(appInstallId, collectionId, _callback);
+        }
+
+        /**
+         * Execute connectRemoteMcpConnection request
+         * @return McpOAuthConnectResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Connection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public McpOAuthConnectResponse execute() throws ApiException {
+            ApiResponse<McpOAuthConnectResponse> localVarResp =
+                    connectRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute connectRemoteMcpConnection request with HTTP info returned
+         * @return ApiResponse&lt;McpOAuthConnectResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Connection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<McpOAuthConnectResponse> executeWithHttpInfo() throws ApiException {
+            return connectRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
+        }
+
+        /**
+         * Execute connectRemoteMcpConnection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Connection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<McpOAuthConnectResponse> _callback)
+                throws ApiException {
+            return connectRemoteMcpConnectionAsync(appInstallId, collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for disconnectRemoteMcpConnection
+     * Connect a remote MCP collection
+     * Obtains and stores a client-credentials token for a remote MCP collection linked to a client-credentials OAuth provider.
      * @param appInstallId  (required)
      * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIconnectRemoteMcpConnectionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Disconnection result for the MCP collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Connection result for the MCP collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call disconnectRemoteMcpConnectionCall(
+    public APIconnectRemoteMcpConnectionRequest connectRemoteMcpConnection(
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIconnectRemoteMcpConnectionRequest(appInstallId, collectionId);
+    }
+
+    private okhttp3.Call disconnectRemoteMcpConnectionCall(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
@@ -535,48 +583,7 @@ public class RemoteMcpConnectionsApi {
         return disconnectRemoteMcpConnectionCall(appInstallId, collectionId, _callback);
     }
 
-    /**
-     * Disconnect a remote MCP collection
-     * Deletes stored OAuth tokens for a remote MCP collection and disconnects the current authentication state.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @return McpOAuthDisconnectResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Disconnection result for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public McpOAuthDisconnectResponse disconnectRemoteMcpConnection(
-            @jakarta.annotation.Nonnull String appInstallId,
-            @jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<McpOAuthDisconnectResponse> localVarResp =
-                disconnectRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Disconnect a remote MCP collection
-     * Deletes stored OAuth tokens for a remote MCP collection and disconnects the current authentication state.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;McpOAuthDisconnectResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Disconnection result for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<McpOAuthDisconnectResponse> disconnectRemoteMcpConnectionWithHttpInfo(
+    private ApiResponse<McpOAuthDisconnectResponse> disconnectRemoteMcpConnectionWithHttpInfo(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
@@ -586,24 +593,7 @@ public class RemoteMcpConnectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Disconnect a remote MCP collection (asynchronously)
-     * Deletes stored OAuth tokens for a remote MCP collection and disconnects the current authentication state.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Disconnection result for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call disconnectRemoteMcpConnectionAsync(
+    private okhttp3.Call disconnectRemoteMcpConnectionAsync(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<McpOAuthDisconnectResponse> _callback)
@@ -617,23 +607,113 @@ public class RemoteMcpConnectionsApi {
         return localVarCall;
     }
 
+    public class APIdisconnectRemoteMcpConnectionRequest {
+        @jakarta.annotation.Nonnull private final String appInstallId;
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIdisconnectRemoteMcpConnectionRequest(
+                @jakarta.annotation.Nonnull String appInstallId,
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.appInstallId = appInstallId;
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for disconnectRemoteMcpConnection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Disconnection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return disconnectRemoteMcpConnectionCall(appInstallId, collectionId, _callback);
+        }
+
+        /**
+         * Execute disconnectRemoteMcpConnection request
+         * @return McpOAuthDisconnectResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Disconnection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public McpOAuthDisconnectResponse execute() throws ApiException {
+            ApiResponse<McpOAuthDisconnectResponse> localVarResp =
+                    disconnectRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute disconnectRemoteMcpConnection request with HTTP info returned
+         * @return ApiResponse&lt;McpOAuthDisconnectResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Disconnection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<McpOAuthDisconnectResponse> executeWithHttpInfo() throws ApiException {
+            return disconnectRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
+        }
+
+        /**
+         * Execute disconnectRemoteMcpConnection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Disconnection result for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<McpOAuthDisconnectResponse> _callback)
+                throws ApiException {
+            return disconnectRemoteMcpConnectionAsync(appInstallId, collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for getRemoteMcpConnectionMetadata
+     * Disconnect a remote MCP collection
+     * Deletes stored OAuth tokens for a remote MCP collection and disconnects the current authentication state.
      * @param appInstallId  (required)
      * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdisconnectRemoteMcpConnectionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth metadata discovered for the MCP collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Disconnection result for the MCP collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getRemoteMcpConnectionMetadataCall(
+    public APIdisconnectRemoteMcpConnectionRequest disconnectRemoteMcpConnection(
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIdisconnectRemoteMcpConnectionRequest(appInstallId, collectionId);
+    }
+
+    private okhttp3.Call getRemoteMcpConnectionMetadataCall(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
@@ -718,48 +798,7 @@ public class RemoteMcpConnectionsApi {
         return getRemoteMcpConnectionMetadataCall(appInstallId, collectionId, _callback);
     }
 
-    /**
-     * Retrieve remote MCP OAuth metadata
-     * Fetches OAuth authorization-server metadata for an OAuth-enabled MCP collection installed through an app.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @return OAuthMetadataResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth metadata discovered for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthMetadataResponse getRemoteMcpConnectionMetadata(
-            @jakarta.annotation.Nonnull String appInstallId,
-            @jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<OAuthMetadataResponse> localVarResp =
-                getRemoteMcpConnectionMetadataWithHttpInfo(appInstallId, collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve remote MCP OAuth metadata
-     * Fetches OAuth authorization-server metadata for an OAuth-enabled MCP collection installed through an app.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;OAuthMetadataResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth metadata discovered for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthMetadataResponse> getRemoteMcpConnectionMetadataWithHttpInfo(
+    private ApiResponse<OAuthMetadataResponse> getRemoteMcpConnectionMetadataWithHttpInfo(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
@@ -769,24 +808,7 @@ public class RemoteMcpConnectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve remote MCP OAuth metadata (asynchronously)
-     * Fetches OAuth authorization-server metadata for an OAuth-enabled MCP collection installed through an app.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth metadata discovered for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getRemoteMcpConnectionMetadataAsync(
+    private okhttp3.Call getRemoteMcpConnectionMetadataAsync(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<OAuthMetadataResponse> _callback)
@@ -800,23 +822,113 @@ public class RemoteMcpConnectionsApi {
         return localVarCall;
     }
 
+    public class APIgetRemoteMcpConnectionMetadataRequest {
+        @jakarta.annotation.Nonnull private final String appInstallId;
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIgetRemoteMcpConnectionMetadataRequest(
+                @jakarta.annotation.Nonnull String appInstallId,
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.appInstallId = appInstallId;
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for getRemoteMcpConnectionMetadata
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth metadata discovered for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getRemoteMcpConnectionMetadataCall(appInstallId, collectionId, _callback);
+        }
+
+        /**
+         * Execute getRemoteMcpConnectionMetadata request
+         * @return OAuthMetadataResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth metadata discovered for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthMetadataResponse execute() throws ApiException {
+            ApiResponse<OAuthMetadataResponse> localVarResp =
+                    getRemoteMcpConnectionMetadataWithHttpInfo(appInstallId, collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getRemoteMcpConnectionMetadata request with HTTP info returned
+         * @return ApiResponse&lt;OAuthMetadataResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth metadata discovered for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthMetadataResponse> executeWithHttpInfo() throws ApiException {
+            return getRemoteMcpConnectionMetadataWithHttpInfo(appInstallId, collectionId);
+        }
+
+        /**
+         * Execute getRemoteMcpConnectionMetadata request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth metadata discovered for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthMetadataResponse> _callback)
+                throws ApiException {
+            return getRemoteMcpConnectionMetadataAsync(appInstallId, collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for getRemoteMcpConnectionStatus
+     * Retrieve remote MCP OAuth metadata
+     * Fetches OAuth authorization-server metadata for an OAuth-enabled MCP collection installed through an app.
      * @param appInstallId  (required)
      * @param collectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetRemoteMcpConnectionMetadataRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth metadata discovered for the MCP collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getRemoteMcpConnectionStatusCall(
+    public APIgetRemoteMcpConnectionMetadataRequest getRemoteMcpConnectionMetadata(
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIgetRemoteMcpConnectionMetadataRequest(appInstallId, collectionId);
+    }
+
+    private okhttp3.Call getRemoteMcpConnectionStatusCall(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
@@ -901,48 +1013,7 @@ public class RemoteMcpConnectionsApi {
         return getRemoteMcpConnectionStatusCall(appInstallId, collectionId, _callback);
     }
 
-    /**
-     * Retrieve a remote MCP connection status
-     * Returns authentication status for a specific OAuth or API-key MCP collection.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @return OAuthAuthStatus
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthAuthStatus getRemoteMcpConnectionStatus(
-            @jakarta.annotation.Nonnull String appInstallId,
-            @jakarta.annotation.Nonnull String collectionId)
-            throws ApiException {
-        ApiResponse<OAuthAuthStatus> localVarResp =
-                getRemoteMcpConnectionStatusWithHttpInfo(appInstallId, collectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a remote MCP connection status
-     * Returns authentication status for a specific OAuth or API-key MCP collection.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @return ApiResponse&lt;OAuthAuthStatus&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthAuthStatus> getRemoteMcpConnectionStatusWithHttpInfo(
+    private ApiResponse<OAuthAuthStatus> getRemoteMcpConnectionStatusWithHttpInfo(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
@@ -952,24 +1023,7 @@ public class RemoteMcpConnectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a remote MCP connection status (asynchronously)
-     * Returns authentication status for a specific OAuth or API-key MCP collection.
-     * @param appInstallId  (required)
-     * @param collectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getRemoteMcpConnectionStatusAsync(
+    private okhttp3.Call getRemoteMcpConnectionStatusAsync(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<OAuthAuthStatus> _callback)
@@ -983,22 +1037,113 @@ public class RemoteMcpConnectionsApi {
         return localVarCall;
     }
 
+    public class APIgetRemoteMcpConnectionStatusRequest {
+        @jakarta.annotation.Nonnull private final String appInstallId;
+        @jakarta.annotation.Nonnull private final String collectionId;
+
+        private APIgetRemoteMcpConnectionStatusRequest(
+                @jakarta.annotation.Nonnull String appInstallId,
+                @jakarta.annotation.Nonnull String collectionId) {
+            this.appInstallId = appInstallId;
+            this.collectionId = collectionId;
+        }
+
+        /**
+         * Build call for getRemoteMcpConnectionStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getRemoteMcpConnectionStatusCall(appInstallId, collectionId, _callback);
+        }
+
+        /**
+         * Execute getRemoteMcpConnectionStatus request
+         * @return OAuthAuthStatus
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthAuthStatus execute() throws ApiException {
+            ApiResponse<OAuthAuthStatus> localVarResp =
+                    getRemoteMcpConnectionStatusWithHttpInfo(appInstallId, collectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getRemoteMcpConnectionStatus request with HTTP info returned
+         * @return ApiResponse&lt;OAuthAuthStatus&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthAuthStatus> executeWithHttpInfo() throws ApiException {
+            return getRemoteMcpConnectionStatusWithHttpInfo(appInstallId, collectionId);
+        }
+
+        /**
+         * Execute getRemoteMcpConnectionStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthAuthStatus> _callback)
+                throws ApiException {
+            return getRemoteMcpConnectionStatusAsync(appInstallId, collectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for getRemoteMcpConnectionToken
-     * @param mcpOAuthTokenRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a remote MCP connection status
+     * Returns authentication status for a specific OAuth or API-key MCP collection.
+     * @param appInstallId  (required)
+     * @param collectionId  (required)
+     * @return APIgetRemoteMcpConnectionStatusRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access token for the remote MCP connection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getRemoteMcpConnectionTokenCall(
+    public APIgetRemoteMcpConnectionStatusRequest getRemoteMcpConnectionStatus(
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId) {
+        return new APIgetRemoteMcpConnectionStatusRequest(appInstallId, collectionId);
+    }
+
+    private okhttp3.Call getRemoteMcpConnectionTokenCall(
             @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -1068,45 +1213,7 @@ public class RemoteMcpConnectionsApi {
         return getRemoteMcpConnectionTokenCall(mcpOAuthTokenRequest, _callback);
     }
 
-    /**
-     * Retrieve a remote MCP access token
-     * Gets or refreshes an OAuth access token for a remote MCP collection using either an app-installation collection reference or a legacy MCP server URL.
-     * @param mcpOAuthTokenRequest  (required)
-     * @return McpOAuthTokenResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access token for the remote MCP connection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public McpOAuthTokenResponse getRemoteMcpConnectionToken(
-            @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest)
-            throws ApiException {
-        ApiResponse<McpOAuthTokenResponse> localVarResp =
-                getRemoteMcpConnectionTokenWithHttpInfo(mcpOAuthTokenRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a remote MCP access token
-     * Gets or refreshes an OAuth access token for a remote MCP collection using either an app-installation collection reference or a legacy MCP server URL.
-     * @param mcpOAuthTokenRequest  (required)
-     * @return ApiResponse&lt;McpOAuthTokenResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access token for the remote MCP connection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<McpOAuthTokenResponse> getRemoteMcpConnectionTokenWithHttpInfo(
+    private ApiResponse<McpOAuthTokenResponse> getRemoteMcpConnectionTokenWithHttpInfo(
             @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1115,23 +1222,7 @@ public class RemoteMcpConnectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a remote MCP access token (asynchronously)
-     * Gets or refreshes an OAuth access token for a remote MCP collection using either an app-installation collection reference or a legacy MCP server URL.
-     * @param mcpOAuthTokenRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Access token for the remote MCP connection. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getRemoteMcpConnectionTokenAsync(
+    private okhttp3.Call getRemoteMcpConnectionTokenAsync(
             @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest,
             final ApiCallback<McpOAuthTokenResponse> _callback)
             throws ApiException {
@@ -1143,22 +1234,108 @@ public class RemoteMcpConnectionsApi {
         return localVarCall;
     }
 
+    public class APIgetRemoteMcpConnectionTokenRequest {
+        @jakarta.annotation.Nonnull private final McpOAuthTokenRequest mcpOAuthTokenRequest;
+
+        private APIgetRemoteMcpConnectionTokenRequest(
+                @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest) {
+            this.mcpOAuthTokenRequest = mcpOAuthTokenRequest;
+        }
+
+        /**
+         * Build call for getRemoteMcpConnectionToken
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access token for the remote MCP connection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getRemoteMcpConnectionTokenCall(mcpOAuthTokenRequest, _callback);
+        }
+
+        /**
+         * Execute getRemoteMcpConnectionToken request
+         * @return McpOAuthTokenResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access token for the remote MCP connection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public McpOAuthTokenResponse execute() throws ApiException {
+            ApiResponse<McpOAuthTokenResponse> localVarResp =
+                    getRemoteMcpConnectionTokenWithHttpInfo(mcpOAuthTokenRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getRemoteMcpConnectionToken request with HTTP info returned
+         * @return ApiResponse&lt;McpOAuthTokenResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access token for the remote MCP connection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<McpOAuthTokenResponse> executeWithHttpInfo() throws ApiException {
+            return getRemoteMcpConnectionTokenWithHttpInfo(mcpOAuthTokenRequest);
+        }
+
+        /**
+         * Execute getRemoteMcpConnectionToken request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Access token for the remote MCP connection. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<McpOAuthTokenResponse> _callback)
+                throws ApiException {
+            return getRemoteMcpConnectionTokenAsync(mcpOAuthTokenRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for listRemoteMcpConnectionStatuses
-     * @param appInstallId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a remote MCP access token
+     * Gets or refreshes an OAuth access token for a remote MCP collection using either an app-installation collection reference or a legacy MCP server URL.
+     * @param mcpOAuthTokenRequest  (required)
+     * @return APIgetRemoteMcpConnectionTokenRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Access token for the remote MCP connection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listRemoteMcpConnectionStatusesCall(
+    public APIgetRemoteMcpConnectionTokenRequest getRemoteMcpConnectionToken(
+            @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest) {
+        return new APIgetRemoteMcpConnectionTokenRequest(mcpOAuthTokenRequest);
+    }
+
+    private okhttp3.Call listRemoteMcpConnectionStatusesCall(
             @jakarta.annotation.Nonnull String appInstallId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1230,44 +1407,7 @@ public class RemoteMcpConnectionsApi {
         return listRemoteMcpConnectionStatusesCall(appInstallId, _callback);
     }
 
-    /**
-     * List remote MCP connection statuses
-     * Returns authentication status for all OAuth and API-key MCP collections in an installed app.
-     * @param appInstallId  (required)
-     * @return List&lt;OAuthAuthStatus&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<OAuthAuthStatus> listRemoteMcpConnectionStatuses(
-            @jakarta.annotation.Nonnull String appInstallId) throws ApiException {
-        ApiResponse<List<OAuthAuthStatus>> localVarResp =
-                listRemoteMcpConnectionStatusesWithHttpInfo(appInstallId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List remote MCP connection statuses
-     * Returns authentication status for all OAuth and API-key MCP collections in an installed app.
-     * @param appInstallId  (required)
-     * @return ApiResponse&lt;List&lt;OAuthAuthStatus&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<OAuthAuthStatus>> listRemoteMcpConnectionStatusesWithHttpInfo(
+    private ApiResponse<List<OAuthAuthStatus>> listRemoteMcpConnectionStatusesWithHttpInfo(
             @jakarta.annotation.Nonnull String appInstallId) throws ApiException {
         okhttp3.Call localVarCall =
                 listRemoteMcpConnectionStatusesValidateBeforeCall(appInstallId, null);
@@ -1275,23 +1415,7 @@ public class RemoteMcpConnectionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List remote MCP connection statuses (asynchronously)
-     * Returns authentication status for all OAuth and API-key MCP collections in an installed app.
-     * @param appInstallId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listRemoteMcpConnectionStatusesAsync(
+    private okhttp3.Call listRemoteMcpConnectionStatusesAsync(
             @jakarta.annotation.Nonnull String appInstallId,
             final ApiCallback<List<OAuthAuthStatus>> _callback)
             throws ApiException {
@@ -1301,5 +1425,106 @@ public class RemoteMcpConnectionsApi {
         Type localVarReturnType = new TypeToken<List<OAuthAuthStatus>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIlistRemoteMcpConnectionStatusesRequest {
+        @jakarta.annotation.Nonnull private final String appInstallId;
+
+        private APIlistRemoteMcpConnectionStatusesRequest(
+                @jakarta.annotation.Nonnull String appInstallId) {
+            this.appInstallId = appInstallId;
+        }
+
+        /**
+         * Build call for listRemoteMcpConnectionStatuses
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listRemoteMcpConnectionStatusesCall(appInstallId, _callback);
+        }
+
+        /**
+         * Execute listRemoteMcpConnectionStatuses request
+         * @return List&lt;OAuthAuthStatus&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<OAuthAuthStatus> execute() throws ApiException {
+            ApiResponse<List<OAuthAuthStatus>> localVarResp =
+                    listRemoteMcpConnectionStatusesWithHttpInfo(appInstallId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listRemoteMcpConnectionStatuses request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;OAuthAuthStatus&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<OAuthAuthStatus>> executeWithHttpInfo() throws ApiException {
+            return listRemoteMcpConnectionStatusesWithHttpInfo(appInstallId);
+        }
+
+        /**
+         * Execute listRemoteMcpConnectionStatuses request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<OAuthAuthStatus>> _callback)
+                throws ApiException {
+            return listRemoteMcpConnectionStatusesAsync(appInstallId, _callback);
+        }
+    }
+
+    /**
+     * List remote MCP connection statuses
+     * Returns authentication status for all OAuth and API-key MCP collections in an installed app.
+     * @param appInstallId  (required)
+     * @return APIlistRemoteMcpConnectionStatusesRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIlistRemoteMcpConnectionStatusesRequest listRemoteMcpConnectionStatuses(
+            @jakarta.annotation.Nonnull String appInstallId) {
+        return new APIlistRemoteMcpConnectionStatusesRequest(appInstallId);
     }
 }

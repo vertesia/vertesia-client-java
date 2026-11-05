@@ -68,22 +68,7 @@ public class InteractionRunsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createRun
-     * @param runCreatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createRunCall(
+    private okhttp3.Call createRunCall(
             @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -153,67 +138,14 @@ public class InteractionRunsApi {
         return createRunCall(runCreatePayload, _callback);
     }
 
-    /**
-     * Create a run
-     * Executes an interaction and creates a run record that tracks the input, output, status, token usage, timing, and execution source. The request can provide input data, execution configuration, result schema, tags, validation behavior, and conversation state.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param runCreatePayload  (required)
-     * @return InteractionExecutionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InteractionExecutionResult createRun(
-            @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload) throws ApiException {
-        ApiResponse<InteractionExecutionResult> localVarResp =
-                createRunWithHttpInfo(runCreatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a run
-     * Executes an interaction and creates a run record that tracks the input, output, status, token usage, timing, and execution source. The request can provide input data, execution configuration, result schema, tags, validation behavior, and conversation state.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param runCreatePayload  (required)
-     * @return ApiResponse&lt;InteractionExecutionResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InteractionExecutionResult> createRunWithHttpInfo(
+    private ApiResponse<InteractionExecutionResult> createRunWithHttpInfo(
             @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload) throws ApiException {
         okhttp3.Call localVarCall = createRunValidateBeforeCall(runCreatePayload, null);
         Type localVarReturnType = new TypeToken<InteractionExecutionResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a run (asynchronously)
-     * Executes an interaction and creates a run record that tracks the input, output, status, token usage, timing, and execution source. The request can provide input data, execution configuration, result schema, tags, validation behavior, and conversation state.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param runCreatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createRunAsync(
+    private okhttp3.Call createRunAsync(
             @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload,
             final ApiCallback<InteractionExecutionResult> _callback)
             throws ApiException {
@@ -224,22 +156,107 @@ public class InteractionRunsApi {
         return localVarCall;
     }
 
+    public class APIcreateRunRequest {
+        @jakarta.annotation.Nonnull private final RunCreatePayload runCreatePayload;
+
+        private APIcreateRunRequest(@jakarta.annotation.Nonnull RunCreatePayload runCreatePayload) {
+            this.runCreatePayload = runCreatePayload;
+        }
+
+        /**
+         * Build call for createRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createRunCall(runCreatePayload, _callback);
+        }
+
+        /**
+         * Execute createRun request
+         * @return InteractionExecutionResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InteractionExecutionResult execute() throws ApiException {
+            ApiResponse<InteractionExecutionResult> localVarResp =
+                    createRunWithHttpInfo(runCreatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createRun request with HTTP info returned
+         * @return ApiResponse&lt;InteractionExecutionResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InteractionExecutionResult> executeWithHttpInfo() throws ApiException {
+            return createRunWithHttpInfo(runCreatePayload);
+        }
+
+        /**
+         * Execute createRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InteractionExecutionResult> _callback)
+                throws ApiException {
+            return createRunAsync(runCreatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteRun
-     * @param runId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a run
+     * Executes an interaction and creates a run record that tracks the input, output, status, token usage, timing, and execution source. The request can provide input data, execution configuration, result schema, tags, validation behavior, and conversation state.  **Required permissions:** &#x60;interaction:execute&#x60;
+     * @param runCreatePayload  (required)
+     * @return APIcreateRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Run deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteRunCall(
+    public APIcreateRunRequest createRun(
+            @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload) {
+        return new APIcreateRunRequest(runCreatePayload);
+    }
+
+    private okhttp3.Call deleteRunCall(
             @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -311,66 +328,14 @@ public class InteractionRunsApi {
         return deleteRunCall(runId, _callback);
     }
 
-    /**
-     * Delete a run
-     * Deletes an execution run from the current project and returns a document reference for the deleted run.  **Required permissions:** &#x60;run:write&#x60;
-     * @param runId  (required)
-     * @return DeleteByIdResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Run deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteByIdResult deleteRun(@jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp = deleteRunWithHttpInfo(runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a run
-     * Deletes an execution run from the current project and returns a document reference for the deleted run.  **Required permissions:** &#x60;run:write&#x60;
-     * @param runId  (required)
-     * @return ApiResponse&lt;DeleteByIdResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Run deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteByIdResult> deleteRunWithHttpInfo(
+    private ApiResponse<DeleteByIdResult> deleteRunWithHttpInfo(
             @jakarta.annotation.Nonnull String runId) throws ApiException {
         okhttp3.Call localVarCall = deleteRunValidateBeforeCall(runId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a run (asynchronously)
-     * Deletes an execution run from the current project and returns a document reference for the deleted run.  **Required permissions:** &#x60;run:write&#x60;
-     * @param runId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Run deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteRunAsync(
+    private okhttp3.Call deleteRunAsync(
             @jakarta.annotation.Nonnull String runId, final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
@@ -380,23 +345,105 @@ public class InteractionRunsApi {
         return localVarCall;
     }
 
+    public class APIdeleteRunRequest {
+        @jakarta.annotation.Nonnull private final String runId;
+
+        private APIdeleteRunRequest(@jakarta.annotation.Nonnull String runId) {
+            this.runId = runId;
+        }
+
+        /**
+         * Build call for deleteRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Run deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteRunCall(runId, _callback);
+        }
+
+        /**
+         * Execute deleteRun request
+         * @return DeleteByIdResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Run deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteByIdResult execute() throws ApiException {
+            ApiResponse<DeleteByIdResult> localVarResp = deleteRunWithHttpInfo(runId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteRun request with HTTP info returned
+         * @return ApiResponse&lt;DeleteByIdResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Run deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteByIdResult> executeWithHttpInfo() throws ApiException {
+            return deleteRunWithHttpInfo(runId);
+        }
+
+        /**
+         * Execute deleteRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Run deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteByIdResult> _callback)
+                throws ApiException {
+            return deleteRunAsync(runId, _callback);
+        }
+    }
+
     /**
-     * Build call for getRun
+     * Delete a run
+     * Deletes an execution run from the current project and returns a document reference for the deleted run.  **Required permissions:** &#x60;run:write&#x60;
      * @param runId  (required)
-     * @param includePrompt Whether the run includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined), and it is then not loaded from storage. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested execution run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Run deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getRunCall(
+    public APIdeleteRunRequest deleteRun(@jakarta.annotation.Nonnull String runId) {
+        return new APIdeleteRunRequest(runId);
+    }
+
+    private okhttp3.Call getRunCall(
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable Boolean includePrompt,
             final ApiCallback _callback)
@@ -477,47 +524,7 @@ public class InteractionRunsApi {
         return getRunCall(runId, includePrompt, _callback);
     }
 
-    /**
-     * Retrieve a run
-     * Retrieves a single execution run by ID, including populated interaction and environment references, execution parameters, output, status, timing, token usage, and source metadata.  **Required permissions:** &#x60;run:read&#x60;
-     * @param runId  (required)
-     * @param includePrompt Whether the run includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined), and it is then not loaded from storage. (optional)
-     * @return ExecutionRunRef
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested execution run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ExecutionRunRef getRun(
-            @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nullable Boolean includePrompt)
-            throws ApiException {
-        ApiResponse<ExecutionRunRef> localVarResp = getRunWithHttpInfo(runId, includePrompt);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a run
-     * Retrieves a single execution run by ID, including populated interaction and environment references, execution parameters, output, status, timing, token usage, and source metadata.  **Required permissions:** &#x60;run:read&#x60;
-     * @param runId  (required)
-     * @param includePrompt Whether the run includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined), and it is then not loaded from storage. (optional)
-     * @return ApiResponse&lt;ExecutionRunRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested execution run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ExecutionRunRef> getRunWithHttpInfo(
+    private ApiResponse<ExecutionRunRef> getRunWithHttpInfo(
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable Boolean includePrompt)
             throws ApiException {
@@ -526,24 +533,7 @@ public class InteractionRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a run (asynchronously)
-     * Retrieves a single execution run by ID, including populated interaction and environment references, execution parameters, output, status, timing, token usage, and source metadata.  **Required permissions:** &#x60;run:read&#x60;
-     * @param runId  (required)
-     * @param includePrompt Whether the run includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined), and it is then not loaded from storage. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested execution run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getRunAsync(
+    private okhttp3.Call getRunAsync(
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable Boolean includePrompt,
             final ApiCallback<ExecutionRunRef> _callback)
@@ -555,82 +545,116 @@ public class InteractionRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getRun with every optional parameter left unset.
-     * @param runId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getRunCall(
-            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
-            throws ApiException {
-        return getRunCall(runId, null, _callback);
+    public class APIgetRunRequest {
+        @jakarta.annotation.Nonnull private final String runId;
+        @jakarta.annotation.Nullable private Boolean includePrompt;
+
+        private APIgetRunRequest(@jakarta.annotation.Nonnull String runId) {
+            this.runId = runId;
+        }
+
+        /**
+         * Set includePrompt
+         * @param includePrompt Whether the run includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined), and it is then not loaded from storage. (optional)
+         * @return APIgetRunRequest
+         */
+        public APIgetRunRequest includePrompt(@jakarta.annotation.Nullable Boolean includePrompt) {
+            this.includePrompt = includePrompt;
+            return this;
+        }
+
+        /**
+         * Build call for getRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getRunCall(runId, includePrompt, _callback);
+        }
+
+        /**
+         * Execute getRun request
+         * @return ExecutionRunRef
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ExecutionRunRef execute() throws ApiException {
+            ApiResponse<ExecutionRunRef> localVarResp = getRunWithHttpInfo(runId, includePrompt);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getRun request with HTTP info returned
+         * @return ApiResponse&lt;ExecutionRunRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ExecutionRunRef> executeWithHttpInfo() throws ApiException {
+            return getRunWithHttpInfo(runId, includePrompt);
+        }
+
+        /**
+         * Execute getRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ExecutionRunRef> _callback)
+                throws ApiException {
+            return getRunAsync(runId, includePrompt, _callback);
+        }
     }
 
     /**
      * Retrieve a run
-     * Calls {@code getRun} with every optional parameter left unset.
+     * Retrieves a single execution run by ID, including populated interaction and environment references, execution parameters, output, status, timing, token usage, and source metadata.  **Required permissions:** &#x60;run:read&#x60;
      * @param runId  (required)
-     * @return ExecutionRunRef
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ExecutionRunRef getRun(@jakarta.annotation.Nonnull String runId) throws ApiException {
-        return getRun(runId, null);
-    }
-
-    /**
-     * Retrieve a run
-     * Calls {@code getRunWithHttpInfo} with every optional parameter left unset.
-     * @param runId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ExecutionRunRef> getRunWithHttpInfo(@jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        return getRunWithHttpInfo(runId, null);
-    }
-
-    /**
-     * Retrieve a run (asynchronously)
-     * Calls {@code getRunAsync} with every optional parameter left unset.
-     * @param runId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getRunAsync(
-            @jakarta.annotation.Nonnull String runId, final ApiCallback<ExecutionRunRef> _callback)
-            throws ApiException {
-        return getRunAsync(runId, null, _callback);
-    }
-
-    /**
-     * Build call for listRuns
-     * @param limit Maximum number of runs to return. (optional)
-     * @param offset Number of runs to skip. (optional)
-     * @param interaction Interaction ids, or in-code interaction names, to filter by. (optional)
-     * @param model Model ids to filter by. (optional)
-     * @param environment Environment ids to filter by, as 24 hexadecimal characters. (optional)
-     * @param status Run statuses to filter by. (optional)
-     * @param tag Run tags to filter by. (optional)
-     * @param parent Parent run ids to filter by. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
-     * @param isRoot Return only runs that have no parent. Mutually exclusive with &#x60;parent&#x60;. (optional)
-     * @param workflowRunIds Temporal workflow run ids. (optional)
-     * @param workflowIds Temporal workflow ids. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Execution runs in the current project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested execution run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listRunsCall(
+    public APIgetRunRequest getRun(@jakarta.annotation.Nonnull String runId) {
+        return new APIgetRunRequest(runId);
+    }
+
+    private okhttp3.Call listRunsCall(
             @jakarta.annotation.Nullable Integer limit,
             @jakarta.annotation.Nullable Integer offset,
             @jakarta.annotation.Nullable List<String> interaction,
@@ -779,86 +803,7 @@ public class InteractionRunsApi {
                 _callback);
     }
 
-    /**
-     * List runs
-     * Lists execution runs in the current project, sorted by most recently updated first. Supports pagination and query-string filters such as interaction, status, model, environment, tag, parent, and workflow.  **Required permissions:** &#x60;run:read&#x60;
-     * @param limit Maximum number of runs to return. (optional)
-     * @param offset Number of runs to skip. (optional)
-     * @param interaction Interaction ids, or in-code interaction names, to filter by. (optional)
-     * @param model Model ids to filter by. (optional)
-     * @param environment Environment ids to filter by, as 24 hexadecimal characters. (optional)
-     * @param status Run statuses to filter by. (optional)
-     * @param tag Run tags to filter by. (optional)
-     * @param parent Parent run ids to filter by. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
-     * @param isRoot Return only runs that have no parent. Mutually exclusive with &#x60;parent&#x60;. (optional)
-     * @param workflowRunIds Temporal workflow run ids. (optional)
-     * @param workflowIds Temporal workflow ids. (optional)
-     * @return List&lt;ExecutionRunRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Execution runs in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ExecutionRunRef> listRuns(
-            @jakarta.annotation.Nullable Integer limit,
-            @jakarta.annotation.Nullable Integer offset,
-            @jakarta.annotation.Nullable List<String> interaction,
-            @jakarta.annotation.Nullable List<String> model,
-            @jakarta.annotation.Nullable List<String> environment,
-            @jakarta.annotation.Nullable List<String> status,
-            @jakarta.annotation.Nullable List<String> tag,
-            @jakarta.annotation.Nullable List<String> parent,
-            @jakarta.annotation.Nullable Boolean isRoot,
-            @jakarta.annotation.Nullable List<String> workflowRunIds,
-            @jakarta.annotation.Nullable List<String> workflowIds)
-            throws ApiException {
-        ApiResponse<List<ExecutionRunRef>> localVarResp =
-                listRunsWithHttpInfo(
-                        limit,
-                        offset,
-                        interaction,
-                        model,
-                        environment,
-                        status,
-                        tag,
-                        parent,
-                        isRoot,
-                        workflowRunIds,
-                        workflowIds);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List runs
-     * Lists execution runs in the current project, sorted by most recently updated first. Supports pagination and query-string filters such as interaction, status, model, environment, tag, parent, and workflow.  **Required permissions:** &#x60;run:read&#x60;
-     * @param limit Maximum number of runs to return. (optional)
-     * @param offset Number of runs to skip. (optional)
-     * @param interaction Interaction ids, or in-code interaction names, to filter by. (optional)
-     * @param model Model ids to filter by. (optional)
-     * @param environment Environment ids to filter by, as 24 hexadecimal characters. (optional)
-     * @param status Run statuses to filter by. (optional)
-     * @param tag Run tags to filter by. (optional)
-     * @param parent Parent run ids to filter by. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
-     * @param isRoot Return only runs that have no parent. Mutually exclusive with &#x60;parent&#x60;. (optional)
-     * @param workflowRunIds Temporal workflow run ids. (optional)
-     * @param workflowIds Temporal workflow ids. (optional)
-     * @return ApiResponse&lt;List&lt;ExecutionRunRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Execution runs in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ExecutionRunRef>> listRunsWithHttpInfo(
+    private ApiResponse<List<ExecutionRunRef>> listRunsWithHttpInfo(
             @jakarta.annotation.Nullable Integer limit,
             @jakarta.annotation.Nullable Integer offset,
             @jakarta.annotation.Nullable List<String> interaction,
@@ -889,33 +834,7 @@ public class InteractionRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List runs (asynchronously)
-     * Lists execution runs in the current project, sorted by most recently updated first. Supports pagination and query-string filters such as interaction, status, model, environment, tag, parent, and workflow.  **Required permissions:** &#x60;run:read&#x60;
-     * @param limit Maximum number of runs to return. (optional)
-     * @param offset Number of runs to skip. (optional)
-     * @param interaction Interaction ids, or in-code interaction names, to filter by. (optional)
-     * @param model Model ids to filter by. (optional)
-     * @param environment Environment ids to filter by, as 24 hexadecimal characters. (optional)
-     * @param status Run statuses to filter by. (optional)
-     * @param tag Run tags to filter by. (optional)
-     * @param parent Parent run ids to filter by. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
-     * @param isRoot Return only runs that have no parent. Mutually exclusive with &#x60;parent&#x60;. (optional)
-     * @param workflowRunIds Temporal workflow run ids. (optional)
-     * @param workflowIds Temporal workflow ids. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Execution runs in the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listRunsAsync(
+    private okhttp3.Call listRunsAsync(
             @jakarta.annotation.Nullable Integer limit,
             @jakarta.annotation.Nullable Integer offset,
             @jakarta.annotation.Nullable List<String> interaction,
@@ -949,67 +868,273 @@ public class InteractionRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listRuns with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listRunsCall(final ApiCallback _callback) throws ApiException {
-        return listRunsCall(
-                null, null, null, null, null, null, null, null, null, null, null, _callback);
+    public class APIlistRunsRequest {
+        @jakarta.annotation.Nullable private Integer limit;
+        @jakarta.annotation.Nullable private Integer offset;
+        @jakarta.annotation.Nullable private List<String> interaction;
+        @jakarta.annotation.Nullable private List<String> model;
+        @jakarta.annotation.Nullable private List<String> environment;
+        @jakarta.annotation.Nullable private List<String> status;
+        @jakarta.annotation.Nullable private List<String> tag;
+        @jakarta.annotation.Nullable private List<String> parent;
+        @jakarta.annotation.Nullable private Boolean isRoot;
+        @jakarta.annotation.Nullable private List<String> workflowRunIds;
+        @jakarta.annotation.Nullable private List<String> workflowIds;
+
+        private APIlistRunsRequest() {}
+
+        /**
+         * Set limit
+         * @param limit Maximum number of runs to return. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest limit(@jakarta.annotation.Nullable Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset Number of runs to skip. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest offset(@jakarta.annotation.Nullable Integer offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set interaction
+         * @param interaction Interaction ids, or in-code interaction names, to filter by. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest interaction(
+                @jakarta.annotation.Nullable List<String> interaction) {
+            this.interaction = interaction;
+            return this;
+        }
+
+        /**
+         * Set model
+         * @param model Model ids to filter by. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest model(@jakarta.annotation.Nullable List<String> model) {
+            this.model = model;
+            return this;
+        }
+
+        /**
+         * Set environment
+         * @param environment Environment ids to filter by, as 24 hexadecimal characters. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest environment(
+                @jakarta.annotation.Nullable List<String> environment) {
+            this.environment = environment;
+            return this;
+        }
+
+        /**
+         * Set status
+         * @param status Run statuses to filter by. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest status(@jakarta.annotation.Nullable List<String> status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set tag
+         * @param tag Run tags to filter by. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest tag(@jakarta.annotation.Nullable List<String> tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Set parent
+         * @param parent Parent run ids to filter by. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest parent(@jakarta.annotation.Nullable List<String> parent) {
+            this.parent = parent;
+            return this;
+        }
+
+        /**
+         * Set isRoot
+         * @param isRoot Return only runs that have no parent. Mutually exclusive with &#x60;parent&#x60;. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest isRoot(@jakarta.annotation.Nullable Boolean isRoot) {
+            this.isRoot = isRoot;
+            return this;
+        }
+
+        /**
+         * Set workflowRunIds
+         * @param workflowRunIds Temporal workflow run ids. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest workflowRunIds(
+                @jakarta.annotation.Nullable List<String> workflowRunIds) {
+            this.workflowRunIds = workflowRunIds;
+            return this;
+        }
+
+        /**
+         * Set workflowIds
+         * @param workflowIds Temporal workflow ids. (optional)
+         * @return APIlistRunsRequest
+         */
+        public APIlistRunsRequest workflowIds(
+                @jakarta.annotation.Nullable List<String> workflowIds) {
+            this.workflowIds = workflowIds;
+            return this;
+        }
+
+        /**
+         * Build call for listRuns
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Execution runs in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listRunsCall(
+                    limit,
+                    offset,
+                    interaction,
+                    model,
+                    environment,
+                    status,
+                    tag,
+                    parent,
+                    isRoot,
+                    workflowRunIds,
+                    workflowIds,
+                    _callback);
+        }
+
+        /**
+         * Execute listRuns request
+         * @return List&lt;ExecutionRunRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Execution runs in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ExecutionRunRef> execute() throws ApiException {
+            ApiResponse<List<ExecutionRunRef>> localVarResp =
+                    listRunsWithHttpInfo(
+                            limit,
+                            offset,
+                            interaction,
+                            model,
+                            environment,
+                            status,
+                            tag,
+                            parent,
+                            isRoot,
+                            workflowRunIds,
+                            workflowIds);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listRuns request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ExecutionRunRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Execution runs in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ExecutionRunRef>> executeWithHttpInfo() throws ApiException {
+            return listRunsWithHttpInfo(
+                    limit,
+                    offset,
+                    interaction,
+                    model,
+                    environment,
+                    status,
+                    tag,
+                    parent,
+                    isRoot,
+                    workflowRunIds,
+                    workflowIds);
+        }
+
+        /**
+         * Execute listRuns request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Execution runs in the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ExecutionRunRef>> _callback)
+                throws ApiException {
+            return listRunsAsync(
+                    limit,
+                    offset,
+                    interaction,
+                    model,
+                    environment,
+                    status,
+                    tag,
+                    parent,
+                    isRoot,
+                    workflowRunIds,
+                    workflowIds,
+                    _callback);
+        }
     }
 
     /**
      * List runs
-     * Calls {@code listRuns} with every optional parameter left unset.
-     * @return List&lt;ExecutionRunRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ExecutionRunRef> listRuns() throws ApiException {
-        return listRuns(null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List runs
-     * Calls {@code listRunsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ExecutionRunRef>> listRunsWithHttpInfo() throws ApiException {
-        return listRunsWithHttpInfo(
-                null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List runs (asynchronously)
-     * Calls {@code listRunsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listRunsAsync(final ApiCallback<List<ExecutionRunRef>> _callback)
-            throws ApiException {
-        return listRunsAsync(
-                null, null, null, null, null, null, null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for searchRuns
-     * @param runSearchPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists execution runs in the current project, sorted by most recently updated first. Supports pagination and query-string filters such as interaction, status, model, environment, tag, parent, and workflow.  **Required permissions:** &#x60;run:read&#x60;
+     * @return APIlistRunsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching execution runs. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Execution runs in the current project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call searchRunsCall(
+    public APIlistRunsRequest listRuns() {
+        return new APIlistRunsRequest();
+    }
+
+    private okhttp3.Call searchRunsCall(
             @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1079,66 +1204,14 @@ public class InteractionRunsApi {
         return searchRunsCall(runSearchPayload, _callback);
     }
 
-    /**
-     * Search runs
-     * Searches execution runs with a structured query body. Filters can include name, status, interaction, environment, model, tags, parent runs, creation range, finish reason, creator, workflow IDs, run IDs, and agent-run status.  **Required permissions:** &#x60;run:read&#x60;
-     * @param runSearchPayload  (required)
-     * @return List&lt;ExecutionRunRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching execution runs. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ExecutionRunRef> searchRuns(
-            @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload) throws ApiException {
-        ApiResponse<List<ExecutionRunRef>> localVarResp = searchRunsWithHttpInfo(runSearchPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Search runs
-     * Searches execution runs with a structured query body. Filters can include name, status, interaction, environment, model, tags, parent runs, creation range, finish reason, creator, workflow IDs, run IDs, and agent-run status.  **Required permissions:** &#x60;run:read&#x60;
-     * @param runSearchPayload  (required)
-     * @return ApiResponse&lt;List&lt;ExecutionRunRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching execution runs. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ExecutionRunRef>> searchRunsWithHttpInfo(
+    private ApiResponse<List<ExecutionRunRef>> searchRunsWithHttpInfo(
             @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload) throws ApiException {
         okhttp3.Call localVarCall = searchRunsValidateBeforeCall(runSearchPayload, null);
         Type localVarReturnType = new TypeToken<List<ExecutionRunRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Search runs (asynchronously)
-     * Searches execution runs with a structured query body. Filters can include name, status, interaction, environment, model, tags, parent runs, creation range, finish reason, creator, workflow IDs, run IDs, and agent-run status.  **Required permissions:** &#x60;run:read&#x60;
-     * @param runSearchPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching execution runs. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call searchRunsAsync(
+    private okhttp3.Call searchRunsAsync(
             @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload,
             final ApiCallback<List<ExecutionRunRef>> _callback)
             throws ApiException {
@@ -1149,22 +1222,108 @@ public class InteractionRunsApi {
         return localVarCall;
     }
 
+    public class APIsearchRunsRequest {
+        @jakarta.annotation.Nonnull private final RunSearchPayload runSearchPayload;
+
+        private APIsearchRunsRequest(
+                @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload) {
+            this.runSearchPayload = runSearchPayload;
+        }
+
+        /**
+         * Build call for searchRuns
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching execution runs. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return searchRunsCall(runSearchPayload, _callback);
+        }
+
+        /**
+         * Execute searchRuns request
+         * @return List&lt;ExecutionRunRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching execution runs. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ExecutionRunRef> execute() throws ApiException {
+            ApiResponse<List<ExecutionRunRef>> localVarResp =
+                    searchRunsWithHttpInfo(runSearchPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute searchRuns request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ExecutionRunRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching execution runs. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ExecutionRunRef>> executeWithHttpInfo() throws ApiException {
+            return searchRunsWithHttpInfo(runSearchPayload);
+        }
+
+        /**
+         * Execute searchRuns request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching execution runs. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ExecutionRunRef>> _callback)
+                throws ApiException {
+            return searchRunsAsync(runSearchPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for streamRun
-     * @param runId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Search runs
+     * Searches execution runs with a structured query body. Filters can include name, status, interaction, environment, model, tags, parent runs, creation range, finish reason, creator, workflow IDs, run IDs, and agent-run status.  **Required permissions:** &#x60;run:read&#x60;
+     * @param runSearchPayload  (required)
+     * @return APIsearchRunsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent execution events for the run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Matching execution runs. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call streamRunCall(
+    public APIsearchRunsRequest searchRuns(
+            @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload) {
+        return new APIsearchRunsRequest(runSearchPayload);
+    }
+
+    private okhttp3.Call streamRunCall(
             @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1236,65 +1395,14 @@ public class InteractionRunsApi {
         return streamRunCall(runId, _callback);
     }
 
-    /**
-     * Stream a run
-     * Opens a Server-Sent Events stream for an existing run. The stream is authenticated with the &#x60;access_token&#x60; query parameter and emits execution chunks and completion events as the run progresses. No x-api-version header is required because native EventSource cannot send custom headers.  **Required permissions:** &#x60;run:read&#x60;
-     * @param runId  (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent execution events for the run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public String streamRun(@jakarta.annotation.Nonnull String runId) throws ApiException {
-        ApiResponse<String> localVarResp = streamRunWithHttpInfo(runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Stream a run
-     * Opens a Server-Sent Events stream for an existing run. The stream is authenticated with the &#x60;access_token&#x60; query parameter and emits execution chunks and completion events as the run progresses. No x-api-version header is required because native EventSource cannot send custom headers.  **Required permissions:** &#x60;run:read&#x60;
-     * @param runId  (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent execution events for the run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<String> streamRunWithHttpInfo(@jakarta.annotation.Nonnull String runId)
+    private ApiResponse<String> streamRunWithHttpInfo(@jakarta.annotation.Nonnull String runId)
             throws ApiException {
         okhttp3.Call localVarCall = streamRunValidateBeforeCall(runId, null);
         Type localVarReturnType = new TypeToken<String>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Stream a run (asynchronously)
-     * Opens a Server-Sent Events stream for an existing run. The stream is authenticated with the &#x60;access_token&#x60; query parameter and emits execution chunks and completion events as the run progresses. No x-api-version header is required because native EventSource cannot send custom headers.  **Required permissions:** &#x60;run:read&#x60;
-     * @param runId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent execution events for the run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call streamRunAsync(
+    private okhttp3.Call streamRunAsync(
             @jakarta.annotation.Nonnull String runId, final ApiCallback<String> _callback)
             throws ApiException {
 
@@ -1304,23 +1412,104 @@ public class InteractionRunsApi {
         return localVarCall;
     }
 
+    public class APIstreamRunRequest {
+        @jakarta.annotation.Nonnull private final String runId;
+
+        private APIstreamRunRequest(@jakarta.annotation.Nonnull String runId) {
+            this.runId = runId;
+        }
+
+        /**
+         * Build call for streamRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent execution events for the run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return streamRunCall(runId, _callback);
+        }
+
+        /**
+         * Execute streamRun request
+         * @return String
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent execution events for the run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public String execute() throws ApiException {
+            ApiResponse<String> localVarResp = streamRunWithHttpInfo(runId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute streamRun request with HTTP info returned
+         * @return ApiResponse&lt;String&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent execution events for the run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<String> executeWithHttpInfo() throws ApiException {
+            return streamRunWithHttpInfo(runId);
+        }
+
+        /**
+         * Execute streamRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent execution events for the run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<String> _callback) throws ApiException {
+            return streamRunAsync(runId, _callback);
+        }
+    }
+
     /**
-     * Build call for updateRun
+     * Stream a run
+     * Opens a Server-Sent Events stream for an existing run. The stream is authenticated with the &#x60;access_token&#x60; query parameter and emits execution chunks and completion events as the run progresses. No x-api-version header is required because native EventSource cannot send custom headers.  **Required permissions:** &#x60;run:read&#x60;
      * @param runId  (required)
-     * @param updateExecutionRunPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIstreamRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated execution run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Server-sent execution events for the run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateRunCall(
+    public APIstreamRunRequest streamRun(@jakarta.annotation.Nonnull String runId) {
+        return new APIstreamRunRequest(runId);
+    }
+
+    private okhttp3.Call updateRunCall(
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload,
             final ApiCallback _callback)
@@ -1402,48 +1591,7 @@ public class InteractionRunsApi {
         return updateRunCall(runId, updateExecutionRunPayload, _callback);
     }
 
-    /**
-     * Update a run
-     * Updates mutable fields on an execution run. Use this for run metadata or status updates rather than starting or resuming execution.  **Required permissions:** &#x60;run:write&#x60;
-     * @param runId  (required)
-     * @param updateExecutionRunPayload  (required)
-     * @return ExecutionRunRef
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated execution run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ExecutionRunRef updateRun(
-            @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload)
-            throws ApiException {
-        ApiResponse<ExecutionRunRef> localVarResp =
-                updateRunWithHttpInfo(runId, updateExecutionRunPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a run
-     * Updates mutable fields on an execution run. Use this for run metadata or status updates rather than starting or resuming execution.  **Required permissions:** &#x60;run:write&#x60;
-     * @param runId  (required)
-     * @param updateExecutionRunPayload  (required)
-     * @return ApiResponse&lt;ExecutionRunRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated execution run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ExecutionRunRef> updateRunWithHttpInfo(
+    private ApiResponse<ExecutionRunRef> updateRunWithHttpInfo(
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload)
             throws ApiException {
@@ -1453,24 +1601,7 @@ public class InteractionRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a run (asynchronously)
-     * Updates mutable fields on an execution run. Use this for run metadata or status updates rather than starting or resuming execution.  **Required permissions:** &#x60;run:write&#x60;
-     * @param runId  (required)
-     * @param updateExecutionRunPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated execution run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateRunAsync(
+    private okhttp3.Call updateRunAsync(
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload,
             final ApiCallback<ExecutionRunRef> _callback)
@@ -1481,5 +1612,113 @@ public class InteractionRunsApi {
         Type localVarReturnType = new TypeToken<ExecutionRunRef>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateRunRequest {
+        @jakarta.annotation.Nonnull private final String runId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateExecutionRunPayload updateExecutionRunPayload;
+
+        private APIupdateRunRequest(
+                @jakarta.annotation.Nonnull String runId,
+                @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload) {
+            this.runId = runId;
+            this.updateExecutionRunPayload = updateExecutionRunPayload;
+        }
+
+        /**
+         * Build call for updateRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateRunCall(runId, updateExecutionRunPayload, _callback);
+        }
+
+        /**
+         * Execute updateRun request
+         * @return ExecutionRunRef
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ExecutionRunRef execute() throws ApiException {
+            ApiResponse<ExecutionRunRef> localVarResp =
+                    updateRunWithHttpInfo(runId, updateExecutionRunPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateRun request with HTTP info returned
+         * @return ApiResponse&lt;ExecutionRunRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ExecutionRunRef> executeWithHttpInfo() throws ApiException {
+            return updateRunWithHttpInfo(runId, updateExecutionRunPayload);
+        }
+
+        /**
+         * Execute updateRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated execution run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ExecutionRunRef> _callback)
+                throws ApiException {
+            return updateRunAsync(runId, updateExecutionRunPayload, _callback);
+        }
+    }
+
+    /**
+     * Update a run
+     * Updates mutable fields on an execution run. Use this for run metadata or status updates rather than starting or resuming execution.  **Required permissions:** &#x60;run:write&#x60;
+     * @param runId  (required)
+     * @param updateExecutionRunPayload  (required)
+     * @return APIupdateRunRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated execution run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateRunRequest updateRun(
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload) {
+        return new APIupdateRunRequest(runId, updateExecutionRunPayload);
     }
 }

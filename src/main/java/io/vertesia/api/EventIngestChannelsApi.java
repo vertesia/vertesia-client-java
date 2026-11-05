@@ -67,22 +67,7 @@ public class EventIngestChannelsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createEventIngestChannel
-     * @param createEventIngestChannelPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created event ingest channel. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createEventIngestChannelCall(
+    private okhttp3.Call createEventIngestChannelCall(
             @jakarta.annotation.Nonnull
                     CreateEventIngestChannelPayload createEventIngestChannelPayload,
             final ApiCallback _callback)
@@ -154,46 +139,7 @@ public class EventIngestChannelsApi {
         return createEventIngestChannelCall(createEventIngestChannelPayload, _callback);
     }
 
-    /**
-     * Create an event ingest channel
-     * Creates an inbound channel for publishing external events. The ingest token is returned once in the response and cannot be retrieved later.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createEventIngestChannelPayload  (required)
-     * @return EventIngestChannelMutationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created event ingest channel. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EventIngestChannelMutationResponse createEventIngestChannel(
-            @jakarta.annotation.Nonnull
-                    CreateEventIngestChannelPayload createEventIngestChannelPayload)
-            throws ApiException {
-        ApiResponse<EventIngestChannelMutationResponse> localVarResp =
-                createEventIngestChannelWithHttpInfo(createEventIngestChannelPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an event ingest channel
-     * Creates an inbound channel for publishing external events. The ingest token is returned once in the response and cannot be retrieved later.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createEventIngestChannelPayload  (required)
-     * @return ApiResponse&lt;EventIngestChannelMutationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created event ingest channel. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EventIngestChannelMutationResponse> createEventIngestChannelWithHttpInfo(
+    private ApiResponse<EventIngestChannelMutationResponse> createEventIngestChannelWithHttpInfo(
             @jakarta.annotation.Nonnull
                     CreateEventIngestChannelPayload createEventIngestChannelPayload)
             throws ApiException {
@@ -203,23 +149,7 @@ public class EventIngestChannelsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an event ingest channel (asynchronously)
-     * Creates an inbound channel for publishing external events. The ingest token is returned once in the response and cannot be retrieved later.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createEventIngestChannelPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created event ingest channel. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createEventIngestChannelAsync(
+    private okhttp3.Call createEventIngestChannelAsync(
             @jakarta.annotation.Nonnull
                     CreateEventIngestChannelPayload createEventIngestChannelPayload,
             final ApiCallback<EventIngestChannelMutationResponse> _callback)
@@ -233,22 +163,113 @@ public class EventIngestChannelsApi {
         return localVarCall;
     }
 
+    public class APIcreateEventIngestChannelRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateEventIngestChannelPayload createEventIngestChannelPayload;
+
+        private APIcreateEventIngestChannelRequest(
+                @jakarta.annotation.Nonnull
+                        CreateEventIngestChannelPayload createEventIngestChannelPayload) {
+            this.createEventIngestChannelPayload = createEventIngestChannelPayload;
+        }
+
+        /**
+         * Build call for createEventIngestChannel
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createEventIngestChannelCall(createEventIngestChannelPayload, _callback);
+        }
+
+        /**
+         * Execute createEventIngestChannel request
+         * @return EventIngestChannelMutationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public EventIngestChannelMutationResponse execute() throws ApiException {
+            ApiResponse<EventIngestChannelMutationResponse> localVarResp =
+                    createEventIngestChannelWithHttpInfo(createEventIngestChannelPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createEventIngestChannel request with HTTP info returned
+         * @return ApiResponse&lt;EventIngestChannelMutationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<EventIngestChannelMutationResponse> executeWithHttpInfo()
+                throws ApiException {
+            return createEventIngestChannelWithHttpInfo(createEventIngestChannelPayload);
+        }
+
+        /**
+         * Execute createEventIngestChannel request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<EventIngestChannelMutationResponse> _callback)
+                throws ApiException {
+            return createEventIngestChannelAsync(createEventIngestChannelPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteEventIngestChannel
-     * @param channelId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an event ingest channel
+     * Creates an inbound channel for publishing external events. The ingest token is returned once in the response and cannot be retrieved later.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param createEventIngestChannelPayload  (required)
+     * @return APIcreateEventIngestChannelRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted event ingest channel status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created event ingest channel. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteEventIngestChannelCall(
+    public APIcreateEventIngestChannelRequest createEventIngestChannel(
+            @jakarta.annotation.Nonnull
+                    CreateEventIngestChannelPayload createEventIngestChannelPayload) {
+        return new APIcreateEventIngestChannelRequest(createEventIngestChannelPayload);
+    }
+
+    private okhttp3.Call deleteEventIngestChannelCall(
             @jakarta.annotation.Nonnull String channelId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -320,67 +341,14 @@ public class EventIngestChannelsApi {
         return deleteEventIngestChannelCall(channelId, _callback);
     }
 
-    /**
-     * Delete an event ingest channel
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param channelId  (required)
-     * @return DeleteCountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted event ingest channel status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteCountResult deleteEventIngestChannel(@jakarta.annotation.Nonnull String channelId)
-            throws ApiException {
-        ApiResponse<DeleteCountResult> localVarResp =
-                deleteEventIngestChannelWithHttpInfo(channelId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an event ingest channel
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param channelId  (required)
-     * @return ApiResponse&lt;DeleteCountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted event ingest channel status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteCountResult> deleteEventIngestChannelWithHttpInfo(
+    private ApiResponse<DeleteCountResult> deleteEventIngestChannelWithHttpInfo(
             @jakarta.annotation.Nonnull String channelId) throws ApiException {
         okhttp3.Call localVarCall = deleteEventIngestChannelValidateBeforeCall(channelId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an event ingest channel (asynchronously)
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param channelId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted event ingest channel status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteEventIngestChannelAsync(
+    private okhttp3.Call deleteEventIngestChannelAsync(
             @jakarta.annotation.Nonnull String channelId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
@@ -392,22 +360,107 @@ public class EventIngestChannelsApi {
         return localVarCall;
     }
 
+    public class APIdeleteEventIngestChannelRequest {
+        @jakarta.annotation.Nonnull private final String channelId;
+
+        private APIdeleteEventIngestChannelRequest(@jakarta.annotation.Nonnull String channelId) {
+            this.channelId = channelId;
+        }
+
+        /**
+         * Build call for deleteEventIngestChannel
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted event ingest channel status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteEventIngestChannelCall(channelId, _callback);
+        }
+
+        /**
+         * Execute deleteEventIngestChannel request
+         * @return DeleteCountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted event ingest channel status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteCountResult execute() throws ApiException {
+            ApiResponse<DeleteCountResult> localVarResp =
+                    deleteEventIngestChannelWithHttpInfo(channelId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteEventIngestChannel request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted event ingest channel status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteCountResult> executeWithHttpInfo() throws ApiException {
+            return deleteEventIngestChannelWithHttpInfo(channelId);
+        }
+
+        /**
+         * Execute deleteEventIngestChannel request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted event ingest channel status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCountResult> _callback)
+                throws ApiException {
+            return deleteEventIngestChannelAsync(channelId, _callback);
+        }
+    }
+
     /**
-     * Build call for getEventIngestChannel
+     * Delete an event ingest channel
+     * **Required permissions:** &#x60;workflow:admin&#x60;
      * @param channelId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteEventIngestChannelRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested event ingest channel. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Deleted event ingest channel status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getEventIngestChannelCall(
+    public APIdeleteEventIngestChannelRequest deleteEventIngestChannel(
+            @jakarta.annotation.Nonnull String channelId) {
+        return new APIdeleteEventIngestChannelRequest(channelId);
+    }
+
+    private okhttp3.Call getEventIngestChannelCall(
             @jakarta.annotation.Nonnull String channelId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -479,66 +532,14 @@ public class EventIngestChannelsApi {
         return getEventIngestChannelCall(channelId, _callback);
     }
 
-    /**
-     * Retrieve an event ingest channel
-     * **Required permissions:** &#x60;workflow:read&#x60;
-     * @param channelId  (required)
-     * @return EventIngestChannel
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested event ingest channel. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EventIngestChannel getEventIngestChannel(@jakarta.annotation.Nonnull String channelId)
-            throws ApiException {
-        ApiResponse<EventIngestChannel> localVarResp = getEventIngestChannelWithHttpInfo(channelId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an event ingest channel
-     * **Required permissions:** &#x60;workflow:read&#x60;
-     * @param channelId  (required)
-     * @return ApiResponse&lt;EventIngestChannel&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested event ingest channel. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EventIngestChannel> getEventIngestChannelWithHttpInfo(
+    private ApiResponse<EventIngestChannel> getEventIngestChannelWithHttpInfo(
             @jakarta.annotation.Nonnull String channelId) throws ApiException {
         okhttp3.Call localVarCall = getEventIngestChannelValidateBeforeCall(channelId, null);
         Type localVarReturnType = new TypeToken<EventIngestChannel>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an event ingest channel (asynchronously)
-     * **Required permissions:** &#x60;workflow:read&#x60;
-     * @param channelId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested event ingest channel. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getEventIngestChannelAsync(
+    private okhttp3.Call getEventIngestChannelAsync(
             @jakarta.annotation.Nonnull String channelId,
             final ApiCallback<EventIngestChannel> _callback)
             throws ApiException {
@@ -549,21 +550,107 @@ public class EventIngestChannelsApi {
         return localVarCall;
     }
 
+    public class APIgetEventIngestChannelRequest {
+        @jakarta.annotation.Nonnull private final String channelId;
+
+        private APIgetEventIngestChannelRequest(@jakarta.annotation.Nonnull String channelId) {
+            this.channelId = channelId;
+        }
+
+        /**
+         * Build call for getEventIngestChannel
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getEventIngestChannelCall(channelId, _callback);
+        }
+
+        /**
+         * Execute getEventIngestChannel request
+         * @return EventIngestChannel
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public EventIngestChannel execute() throws ApiException {
+            ApiResponse<EventIngestChannel> localVarResp =
+                    getEventIngestChannelWithHttpInfo(channelId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getEventIngestChannel request with HTTP info returned
+         * @return ApiResponse&lt;EventIngestChannel&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<EventIngestChannel> executeWithHttpInfo() throws ApiException {
+            return getEventIngestChannelWithHttpInfo(channelId);
+        }
+
+        /**
+         * Execute getEventIngestChannel request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<EventIngestChannel> _callback)
+                throws ApiException {
+            return getEventIngestChannelAsync(channelId, _callback);
+        }
+    }
+
     /**
-     * Build call for listEventIngestChannels
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve an event ingest channel
+     * **Required permissions:** &#x60;workflow:read&#x60;
+     * @param channelId  (required)
+     * @return APIgetEventIngestChannelRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Event ingest channels of the current project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested event ingest channel. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listEventIngestChannelsCall(final ApiCallback _callback)
+    public APIgetEventIngestChannelRequest getEventIngestChannel(
+            @jakarta.annotation.Nonnull String channelId) {
+        return new APIgetEventIngestChannelRequest(channelId);
+    }
+
+    private okhttp3.Call listEventIngestChannelsCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -623,62 +710,14 @@ public class EventIngestChannelsApi {
         return listEventIngestChannelsCall(_callback);
     }
 
-    /**
-     * List event ingest channels
-     * **Required permissions:** &#x60;workflow:read&#x60;
-     * @return List&lt;EventIngestChannel&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Event ingest channels of the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<EventIngestChannel> listEventIngestChannels() throws ApiException {
-        ApiResponse<List<EventIngestChannel>> localVarResp = listEventIngestChannelsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List event ingest channels
-     * **Required permissions:** &#x60;workflow:read&#x60;
-     * @return ApiResponse&lt;List&lt;EventIngestChannel&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Event ingest channels of the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<EventIngestChannel>> listEventIngestChannelsWithHttpInfo()
+    private ApiResponse<List<EventIngestChannel>> listEventIngestChannelsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listEventIngestChannelsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<EventIngestChannel>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List event ingest channels (asynchronously)
-     * **Required permissions:** &#x60;workflow:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Event ingest channels of the current project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listEventIngestChannelsAsync(
+    private okhttp3.Call listEventIngestChannelsAsync(
             final ApiCallback<List<EventIngestChannel>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listEventIngestChannelsValidateBeforeCall(_callback);
@@ -687,23 +726,102 @@ public class EventIngestChannelsApi {
         return localVarCall;
     }
 
+    public class APIlistEventIngestChannelsRequest {
+
+        private APIlistEventIngestChannelsRequest() {}
+
+        /**
+         * Build call for listEventIngestChannels
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Event ingest channels of the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listEventIngestChannelsCall(_callback);
+        }
+
+        /**
+         * Execute listEventIngestChannels request
+         * @return List&lt;EventIngestChannel&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Event ingest channels of the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<EventIngestChannel> execute() throws ApiException {
+            ApiResponse<List<EventIngestChannel>> localVarResp =
+                    listEventIngestChannelsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listEventIngestChannels request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;EventIngestChannel&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Event ingest channels of the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<EventIngestChannel>> executeWithHttpInfo() throws ApiException {
+            return listEventIngestChannelsWithHttpInfo();
+        }
+
+        /**
+         * Execute listEventIngestChannels request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Event ingest channels of the current project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<EventIngestChannel>> _callback)
+                throws ApiException {
+            return listEventIngestChannelsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateEventIngestChannel
-     * @param channelId  (required)
-     * @param updateEventIngestChannelPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List event ingest channels
+     * **Required permissions:** &#x60;workflow:read&#x60;
+     * @return APIlistEventIngestChannelsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated event ingest channel. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Event ingest channels of the current project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateEventIngestChannelCall(
+    public APIlistEventIngestChannelsRequest listEventIngestChannels() {
+        return new APIlistEventIngestChannelsRequest();
+    }
+
+    private okhttp3.Call updateEventIngestChannelCall(
             @jakarta.annotation.Nonnull String channelId,
             @jakarta.annotation.Nonnull
                     UpdateEventIngestChannelPayload updateEventIngestChannelPayload,
@@ -787,49 +905,7 @@ public class EventIngestChannelsApi {
         return updateEventIngestChannelCall(channelId, updateEventIngestChannelPayload, _callback);
     }
 
-    /**
-     * Update an event ingest channel
-     * Updates a channel. Set rotate_token to true to rotate the ingest token: the new token is returned once in the response. Create or rotate the signing secret separately from rotating the ingest token.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param channelId  (required)
-     * @param updateEventIngestChannelPayload  (required)
-     * @return EventIngestChannelMutationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated event ingest channel. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EventIngestChannelMutationResponse updateEventIngestChannel(
-            @jakarta.annotation.Nonnull String channelId,
-            @jakarta.annotation.Nonnull
-                    UpdateEventIngestChannelPayload updateEventIngestChannelPayload)
-            throws ApiException {
-        ApiResponse<EventIngestChannelMutationResponse> localVarResp =
-                updateEventIngestChannelWithHttpInfo(channelId, updateEventIngestChannelPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an event ingest channel
-     * Updates a channel. Set rotate_token to true to rotate the ingest token: the new token is returned once in the response. Create or rotate the signing secret separately from rotating the ingest token.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param channelId  (required)
-     * @param updateEventIngestChannelPayload  (required)
-     * @return ApiResponse&lt;EventIngestChannelMutationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated event ingest channel. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EventIngestChannelMutationResponse> updateEventIngestChannelWithHttpInfo(
+    private ApiResponse<EventIngestChannelMutationResponse> updateEventIngestChannelWithHttpInfo(
             @jakarta.annotation.Nonnull String channelId,
             @jakarta.annotation.Nonnull
                     UpdateEventIngestChannelPayload updateEventIngestChannelPayload)
@@ -841,24 +917,7 @@ public class EventIngestChannelsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an event ingest channel (asynchronously)
-     * Updates a channel. Set rotate_token to true to rotate the ingest token: the new token is returned once in the response. Create or rotate the signing secret separately from rotating the ingest token.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param channelId  (required)
-     * @param updateEventIngestChannelPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated event ingest channel. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateEventIngestChannelAsync(
+    private okhttp3.Call updateEventIngestChannelAsync(
             @jakarta.annotation.Nonnull String channelId,
             @jakarta.annotation.Nonnull
                     UpdateEventIngestChannelPayload updateEventIngestChannelPayload,
@@ -871,5 +930,120 @@ public class EventIngestChannelsApi {
         Type localVarReturnType = new TypeToken<EventIngestChannelMutationResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateEventIngestChannelRequest {
+        @jakarta.annotation.Nonnull private final String channelId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateEventIngestChannelPayload updateEventIngestChannelPayload;
+
+        private APIupdateEventIngestChannelRequest(
+                @jakarta.annotation.Nonnull String channelId,
+                @jakarta.annotation.Nonnull
+                        UpdateEventIngestChannelPayload updateEventIngestChannelPayload) {
+            this.channelId = channelId;
+            this.updateEventIngestChannelPayload = updateEventIngestChannelPayload;
+        }
+
+        /**
+         * Build call for updateEventIngestChannel
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateEventIngestChannelCall(
+                    channelId, updateEventIngestChannelPayload, _callback);
+        }
+
+        /**
+         * Execute updateEventIngestChannel request
+         * @return EventIngestChannelMutationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public EventIngestChannelMutationResponse execute() throws ApiException {
+            ApiResponse<EventIngestChannelMutationResponse> localVarResp =
+                    updateEventIngestChannelWithHttpInfo(
+                            channelId, updateEventIngestChannelPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateEventIngestChannel request with HTTP info returned
+         * @return ApiResponse&lt;EventIngestChannelMutationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<EventIngestChannelMutationResponse> executeWithHttpInfo()
+                throws ApiException {
+            return updateEventIngestChannelWithHttpInfo(channelId, updateEventIngestChannelPayload);
+        }
+
+        /**
+         * Execute updateEventIngestChannel request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated event ingest channel. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<EventIngestChannelMutationResponse> _callback)
+                throws ApiException {
+            return updateEventIngestChannelAsync(
+                    channelId, updateEventIngestChannelPayload, _callback);
+        }
+    }
+
+    /**
+     * Update an event ingest channel
+     * Updates a channel. Set rotate_token to true to rotate the ingest token: the new token is returned once in the response. Create or rotate the signing secret separately from rotating the ingest token.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param channelId  (required)
+     * @param updateEventIngestChannelPayload  (required)
+     * @return APIupdateEventIngestChannelRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated event ingest channel. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateEventIngestChannelRequest updateEventIngestChannel(
+            @jakarta.annotation.Nonnull String channelId,
+            @jakarta.annotation.Nonnull
+                    UpdateEventIngestChannelPayload updateEventIngestChannelPayload) {
+        return new APIupdateEventIngestChannelRequest(channelId, updateEventIngestChannelPayload);
     }
 }

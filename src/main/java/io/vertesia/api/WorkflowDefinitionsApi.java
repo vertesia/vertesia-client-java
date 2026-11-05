@@ -68,24 +68,7 @@ public class WorkflowDefinitionsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createWorkflowDefinition
-     * @param workflowDefinitionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created or updated workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call createWorkflowDefinitionCall(
+    private okhttp3.Call createWorkflowDefinitionCall(
             @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -156,49 +139,7 @@ public class WorkflowDefinitionsApi {
         return createWorkflowDefinitionCall(workflowDefinitionPayload, _callback);
     }
 
-    /**
-     * Create a workflow definition
-     * Workflow definitions are deprecated. Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param workflowDefinitionPayload  (required)
-     * @return DSLWorkflowDefinitionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created or updated workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public DSLWorkflowDefinitionResponse createWorkflowDefinition(
-            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload)
-            throws ApiException {
-        ApiResponse<DSLWorkflowDefinitionResponse> localVarResp =
-                createWorkflowDefinitionWithHttpInfo(workflowDefinitionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a workflow definition
-     * Workflow definitions are deprecated. Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param workflowDefinitionPayload  (required)
-     * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created or updated workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<DSLWorkflowDefinitionResponse> createWorkflowDefinitionWithHttpInfo(
+    private ApiResponse<DSLWorkflowDefinitionResponse> createWorkflowDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -207,25 +148,7 @@ public class WorkflowDefinitionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a workflow definition (asynchronously)
-     * Workflow definitions are deprecated. Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param workflowDefinitionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created or updated workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call createWorkflowDefinitionAsync(
+    private okhttp3.Call createWorkflowDefinitionAsync(
             @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
             final ApiCallback<DSLWorkflowDefinitionResponse> _callback)
             throws ApiException {
@@ -237,24 +160,120 @@ public class WorkflowDefinitionsApi {
         return localVarCall;
     }
 
+    public class APIcreateWorkflowDefinitionRequest {
+        @jakarta.annotation.Nonnull
+        private final WorkflowDefinitionPayload workflowDefinitionPayload;
+
+        private APIcreateWorkflowDefinitionRequest(
+                @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload) {
+            this.workflowDefinitionPayload = workflowDefinitionPayload;
+        }
+
+        /**
+         * Build call for createWorkflowDefinition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created or updated workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createWorkflowDefinitionCall(workflowDefinitionPayload, _callback);
+        }
+
+        /**
+         * Execute createWorkflowDefinition request
+         * @return DSLWorkflowDefinitionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created or updated workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public DSLWorkflowDefinitionResponse execute() throws ApiException {
+            ApiResponse<DSLWorkflowDefinitionResponse> localVarResp =
+                    createWorkflowDefinitionWithHttpInfo(workflowDefinitionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createWorkflowDefinition request with HTTP info returned
+         * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created or updated workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<DSLWorkflowDefinitionResponse> executeWithHttpInfo()
+                throws ApiException {
+            return createWorkflowDefinitionWithHttpInfo(workflowDefinitionPayload);
+        }
+
+        /**
+         * Execute createWorkflowDefinition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created or updated workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<DSLWorkflowDefinitionResponse> _callback)
+                throws ApiException {
+            return createWorkflowDefinitionAsync(workflowDefinitionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteWorkflowDefinition
-     * @param workflowId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a workflow definition
+     * Workflow definitions are deprecated. Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param workflowDefinitionPayload  (required)
+     * @return APIcreateWorkflowDefinitionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted workflow definition status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created or updated workflow definition. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call deleteWorkflowDefinitionCall(
+    public APIcreateWorkflowDefinitionRequest createWorkflowDefinition(
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload) {
+        return new APIcreateWorkflowDefinitionRequest(workflowDefinitionPayload);
+    }
+
+    private okhttp3.Call deleteWorkflowDefinitionCall(
             @jakarta.annotation.Nonnull String workflowId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -327,73 +346,14 @@ public class WorkflowDefinitionsApi {
         return deleteWorkflowDefinitionCall(workflowId, _callback);
     }
 
-    /**
-     * Delete a workflow definition
-     * Workflow definitions are deprecated. Deletes a DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param workflowId  (required)
-     * @return DeleteCountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted workflow definition status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public DeleteCountResult deleteWorkflowDefinition(@jakarta.annotation.Nonnull String workflowId)
-            throws ApiException {
-        ApiResponse<DeleteCountResult> localVarResp =
-                deleteWorkflowDefinitionWithHttpInfo(workflowId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a workflow definition
-     * Workflow definitions are deprecated. Deletes a DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param workflowId  (required)
-     * @return ApiResponse&lt;DeleteCountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted workflow definition status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<DeleteCountResult> deleteWorkflowDefinitionWithHttpInfo(
+    private ApiResponse<DeleteCountResult> deleteWorkflowDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId) throws ApiException {
         okhttp3.Call localVarCall = deleteWorkflowDefinitionValidateBeforeCall(workflowId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a workflow definition (asynchronously)
-     * Workflow definitions are deprecated. Deletes a DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param workflowId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted workflow definition status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call deleteWorkflowDefinitionAsync(
+    private okhttp3.Call deleteWorkflowDefinitionAsync(
             @jakarta.annotation.Nonnull String workflowId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
@@ -405,24 +365,117 @@ public class WorkflowDefinitionsApi {
         return localVarCall;
     }
 
+    public class APIdeleteWorkflowDefinitionRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+
+        private APIdeleteWorkflowDefinitionRequest(@jakarta.annotation.Nonnull String workflowId) {
+            this.workflowId = workflowId;
+        }
+
+        /**
+         * Build call for deleteWorkflowDefinition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted workflow definition status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteWorkflowDefinitionCall(workflowId, _callback);
+        }
+
+        /**
+         * Execute deleteWorkflowDefinition request
+         * @return DeleteCountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted workflow definition status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public DeleteCountResult execute() throws ApiException {
+            ApiResponse<DeleteCountResult> localVarResp =
+                    deleteWorkflowDefinitionWithHttpInfo(workflowId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteWorkflowDefinition request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted workflow definition status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<DeleteCountResult> executeWithHttpInfo() throws ApiException {
+            return deleteWorkflowDefinitionWithHttpInfo(workflowId);
+        }
+
+        /**
+         * Execute deleteWorkflowDefinition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted workflow definition status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCountResult> _callback)
+                throws ApiException {
+            return deleteWorkflowDefinitionAsync(workflowId, _callback);
+        }
+    }
+
     /**
-     * Build call for getWorkflowDefinition
+     * Delete a workflow definition
+     * Workflow definitions are deprecated. Deletes a DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteWorkflowDefinitionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested workflow definition. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Deleted workflow definition status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call getWorkflowDefinitionCall(
+    public APIdeleteWorkflowDefinitionRequest deleteWorkflowDefinition(
+            @jakarta.annotation.Nonnull String workflowId) {
+        return new APIdeleteWorkflowDefinitionRequest(workflowId);
+    }
+
+    private okhttp3.Call getWorkflowDefinitionCall(
             @jakarta.annotation.Nonnull String workflowId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -495,73 +548,14 @@ public class WorkflowDefinitionsApi {
         return getWorkflowDefinitionCall(workflowId, _callback);
     }
 
-    /**
-     * Retrieve a workflow definition
-     * Workflow definitions are deprecated. Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param workflowId  (required)
-     * @return DSLWorkflowDefinitionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public DSLWorkflowDefinitionResponse getWorkflowDefinition(
-            @jakarta.annotation.Nonnull String workflowId) throws ApiException {
-        ApiResponse<DSLWorkflowDefinitionResponse> localVarResp =
-                getWorkflowDefinitionWithHttpInfo(workflowId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a workflow definition
-     * Workflow definitions are deprecated. Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param workflowId  (required)
-     * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<DSLWorkflowDefinitionResponse> getWorkflowDefinitionWithHttpInfo(
+    private ApiResponse<DSLWorkflowDefinitionResponse> getWorkflowDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId) throws ApiException {
         okhttp3.Call localVarCall = getWorkflowDefinitionValidateBeforeCall(workflowId, null);
         Type localVarReturnType = new TypeToken<DSLWorkflowDefinitionResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a workflow definition (asynchronously)
-     * Workflow definitions are deprecated. Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param workflowId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getWorkflowDefinitionAsync(
+    private okhttp3.Call getWorkflowDefinitionAsync(
             @jakarta.annotation.Nonnull String workflowId,
             final ApiCallback<DSLWorkflowDefinitionResponse> _callback)
             throws ApiException {
@@ -572,21 +566,118 @@ public class WorkflowDefinitionsApi {
         return localVarCall;
     }
 
+    public class APIgetWorkflowDefinitionRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+
+        private APIgetWorkflowDefinitionRequest(@jakarta.annotation.Nonnull String workflowId) {
+            this.workflowId = workflowId;
+        }
+
+        /**
+         * Build call for getWorkflowDefinition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getWorkflowDefinitionCall(workflowId, _callback);
+        }
+
+        /**
+         * Execute getWorkflowDefinition request
+         * @return DSLWorkflowDefinitionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public DSLWorkflowDefinitionResponse execute() throws ApiException {
+            ApiResponse<DSLWorkflowDefinitionResponse> localVarResp =
+                    getWorkflowDefinitionWithHttpInfo(workflowId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getWorkflowDefinition request with HTTP info returned
+         * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<DSLWorkflowDefinitionResponse> executeWithHttpInfo()
+                throws ApiException {
+            return getWorkflowDefinitionWithHttpInfo(workflowId);
+        }
+
+        /**
+         * Execute getWorkflowDefinition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<DSLWorkflowDefinitionResponse> _callback)
+                throws ApiException {
+            return getWorkflowDefinitionAsync(workflowId, _callback);
+        }
+    }
+
     /**
-     * Build call for listSubscriptionWorkflowCatalog
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a workflow definition
+     * Workflow definitions are deprecated. Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * @param workflowId  (required)
+     * @return APIgetWorkflowDefinitionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested workflow definition. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
-    public okhttp3.Call listSubscriptionWorkflowCatalogCall(final ApiCallback _callback)
+    @Deprecated
+    public APIgetWorkflowDefinitionRequest getWorkflowDefinition(
+            @jakarta.annotation.Nonnull String workflowId) {
+        return new APIgetWorkflowDefinitionRequest(workflowId);
+    }
+
+    private okhttp3.Call listSubscriptionWorkflowCatalogCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -646,63 +737,14 @@ public class WorkflowDefinitionsApi {
         return listSubscriptionWorkflowCatalogCall(_callback);
     }
 
-    /**
-     * List packaged workflows supported as event subscription targets
-     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @return SubscriptionWorkflowCatalog
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SubscriptionWorkflowCatalog listSubscriptionWorkflowCatalog() throws ApiException {
-        ApiResponse<SubscriptionWorkflowCatalog> localVarResp =
-                listSubscriptionWorkflowCatalogWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List packaged workflows supported as event subscription targets
-     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @return ApiResponse&lt;SubscriptionWorkflowCatalog&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SubscriptionWorkflowCatalog> listSubscriptionWorkflowCatalogWithHttpInfo()
+    private ApiResponse<SubscriptionWorkflowCatalog> listSubscriptionWorkflowCatalogWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listSubscriptionWorkflowCatalogValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<SubscriptionWorkflowCatalog>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List packaged workflows supported as event subscription targets (asynchronously)
-     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listSubscriptionWorkflowCatalogAsync(
+    private okhttp3.Call listSubscriptionWorkflowCatalogAsync(
             final ApiCallback<SubscriptionWorkflowCatalog> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listSubscriptionWorkflowCatalogValidateBeforeCall(_callback);
@@ -711,23 +753,102 @@ public class WorkflowDefinitionsApi {
         return localVarCall;
     }
 
+    public class APIlistSubscriptionWorkflowCatalogRequest {
+
+        private APIlistSubscriptionWorkflowCatalogRequest() {}
+
+        /**
+         * Build call for listSubscriptionWorkflowCatalog
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSubscriptionWorkflowCatalogCall(_callback);
+        }
+
+        /**
+         * Execute listSubscriptionWorkflowCatalog request
+         * @return SubscriptionWorkflowCatalog
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SubscriptionWorkflowCatalog execute() throws ApiException {
+            ApiResponse<SubscriptionWorkflowCatalog> localVarResp =
+                    listSubscriptionWorkflowCatalogWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSubscriptionWorkflowCatalog request with HTTP info returned
+         * @return ApiResponse&lt;SubscriptionWorkflowCatalog&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SubscriptionWorkflowCatalog> executeWithHttpInfo() throws ApiException {
+            return listSubscriptionWorkflowCatalogWithHttpInfo();
+        }
+
+        /**
+         * Execute listSubscriptionWorkflowCatalog request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SubscriptionWorkflowCatalog> _callback)
+                throws ApiException {
+            return listSubscriptionWorkflowCatalogAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listWorkflowDefinitions
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List packaged workflows supported as event subscription targets
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * @return APIlistSubscriptionWorkflowCatalogRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow definitions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call listWorkflowDefinitionsCall(final ApiCallback _callback)
+    public APIlistSubscriptionWorkflowCatalogRequest listSubscriptionWorkflowCatalog() {
+        return new APIlistSubscriptionWorkflowCatalogRequest();
+    }
+
+    private okhttp3.Call listWorkflowDefinitionsCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -788,69 +909,14 @@ public class WorkflowDefinitionsApi {
         return listWorkflowDefinitionsCall(_callback);
     }
 
-    /**
-     * List workflow definitions
-     * Workflow definitions are deprecated. Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @return List&lt;WorkflowDefinitionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public List<WorkflowDefinitionRef> listWorkflowDefinitions() throws ApiException {
-        ApiResponse<List<WorkflowDefinitionRef>> localVarResp =
-                listWorkflowDefinitionsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List workflow definitions
-     * Workflow definitions are deprecated. Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @return ApiResponse&lt;List&lt;WorkflowDefinitionRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<List<WorkflowDefinitionRef>> listWorkflowDefinitionsWithHttpInfo()
+    private ApiResponse<List<WorkflowDefinitionRef>> listWorkflowDefinitionsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listWorkflowDefinitionsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<WorkflowDefinitionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List workflow definitions (asynchronously)
-     * Workflow definitions are deprecated. Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call listWorkflowDefinitionsAsync(
+    private okhttp3.Call listWorkflowDefinitionsAsync(
             final ApiCallback<List<WorkflowDefinitionRef>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listWorkflowDefinitionsValidateBeforeCall(_callback);
@@ -859,26 +925,112 @@ public class WorkflowDefinitionsApi {
         return localVarCall;
     }
 
+    public class APIlistWorkflowDefinitionsRequest {
+
+        private APIlistWorkflowDefinitionsRequest() {}
+
+        /**
+         * Build call for listWorkflowDefinitions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listWorkflowDefinitionsCall(_callback);
+        }
+
+        /**
+         * Execute listWorkflowDefinitions request
+         * @return List&lt;WorkflowDefinitionRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public List<WorkflowDefinitionRef> execute() throws ApiException {
+            ApiResponse<List<WorkflowDefinitionRef>> localVarResp =
+                    listWorkflowDefinitionsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listWorkflowDefinitions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;WorkflowDefinitionRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<List<WorkflowDefinitionRef>> executeWithHttpInfo() throws ApiException {
+            return listWorkflowDefinitionsWithHttpInfo();
+        }
+
+        /**
+         * Execute listWorkflowDefinitions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<List<WorkflowDefinitionRef>> _callback)
+                throws ApiException {
+            return listWorkflowDefinitionsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateWorkflowDefinition
-     * @param workflowId  (required)
-     * @param updateWorkflowDefinitionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List workflow definitions
+     * Workflow definitions are deprecated. Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * @return APIlistWorkflowDefinitionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow definition was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow definitions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call updateWorkflowDefinitionCall(
+    public APIlistWorkflowDefinitionsRequest listWorkflowDefinitions() {
+        return new APIlistWorkflowDefinitionsRequest();
+    }
+
+    private okhttp3.Call updateWorkflowDefinitionCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull
                     UpdateWorkflowDefinitionPayload updateWorkflowDefinitionPayload,
@@ -963,55 +1115,7 @@ public class WorkflowDefinitionsApi {
         return updateWorkflowDefinitionCall(workflowId, updateWorkflowDefinitionPayload, _callback);
     }
 
-    /**
-     * Update a workflow definition
-     * Workflow definitions are deprecated. Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param workflowId  (required)
-     * @param updateWorkflowDefinitionPayload  (required)
-     * @return DSLWorkflowDefinitionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow definition was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public DSLWorkflowDefinitionResponse updateWorkflowDefinition(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull
-                    UpdateWorkflowDefinitionPayload updateWorkflowDefinitionPayload)
-            throws ApiException {
-        ApiResponse<DSLWorkflowDefinitionResponse> localVarResp =
-                updateWorkflowDefinitionWithHttpInfo(workflowId, updateWorkflowDefinitionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a workflow definition
-     * Workflow definitions are deprecated. Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param workflowId  (required)
-     * @param updateWorkflowDefinitionPayload  (required)
-     * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow definition was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<DSLWorkflowDefinitionResponse> updateWorkflowDefinitionWithHttpInfo(
+    private ApiResponse<DSLWorkflowDefinitionResponse> updateWorkflowDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull
                     UpdateWorkflowDefinitionPayload updateWorkflowDefinitionPayload)
@@ -1023,27 +1127,7 @@ public class WorkflowDefinitionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a workflow definition (asynchronously)
-     * Workflow definitions are deprecated. Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param workflowId  (required)
-     * @param updateWorkflowDefinitionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated workflow definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow definition was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call updateWorkflowDefinitionAsync(
+    private okhttp3.Call updateWorkflowDefinitionAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull
                     UpdateWorkflowDefinitionPayload updateWorkflowDefinitionPayload,
@@ -1056,5 +1140,135 @@ public class WorkflowDefinitionsApi {
         Type localVarReturnType = new TypeToken<DSLWorkflowDefinitionResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateWorkflowDefinitionRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateWorkflowDefinitionPayload updateWorkflowDefinitionPayload;
+
+        private APIupdateWorkflowDefinitionRequest(
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull
+                        UpdateWorkflowDefinitionPayload updateWorkflowDefinitionPayload) {
+            this.workflowId = workflowId;
+            this.updateWorkflowDefinitionPayload = updateWorkflowDefinitionPayload;
+        }
+
+        /**
+         * Build call for updateWorkflowDefinition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow definition was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateWorkflowDefinitionCall(
+                    workflowId, updateWorkflowDefinitionPayload, _callback);
+        }
+
+        /**
+         * Execute updateWorkflowDefinition request
+         * @return DSLWorkflowDefinitionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow definition was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public DSLWorkflowDefinitionResponse execute() throws ApiException {
+            ApiResponse<DSLWorkflowDefinitionResponse> localVarResp =
+                    updateWorkflowDefinitionWithHttpInfo(
+                            workflowId, updateWorkflowDefinitionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateWorkflowDefinition request with HTTP info returned
+         * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow definition was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<DSLWorkflowDefinitionResponse> executeWithHttpInfo()
+                throws ApiException {
+            return updateWorkflowDefinitionWithHttpInfo(
+                    workflowId, updateWorkflowDefinitionPayload);
+        }
+
+        /**
+         * Execute updateWorkflowDefinition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated workflow definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow definition was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<DSLWorkflowDefinitionResponse> _callback)
+                throws ApiException {
+            return updateWorkflowDefinitionAsync(
+                    workflowId, updateWorkflowDefinitionPayload, _callback);
+        }
+    }
+
+    /**
+     * Update a workflow definition
+     * Workflow definitions are deprecated. Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param workflowId  (required)
+     * @param updateWorkflowDefinitionPayload  (required)
+     * @return APIupdateWorkflowDefinitionRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated workflow definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The workflow definition was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     * @deprecated
+     */
+    @Deprecated
+    public APIupdateWorkflowDefinitionRequest updateWorkflowDefinition(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull
+                    UpdateWorkflowDefinitionPayload updateWorkflowDefinitionPayload) {
+        return new APIupdateWorkflowDefinitionRequest(workflowId, updateWorkflowDefinitionPayload);
     }
 }

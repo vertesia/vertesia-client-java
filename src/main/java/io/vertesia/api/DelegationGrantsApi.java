@@ -64,22 +64,7 @@ public class DelegationGrantsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createDelegationGrant
-     * @param createDelegationGrantPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createDelegationGrantCall(
+    private okhttp3.Call createDelegationGrantCall(
             @jakarta.annotation.Nonnull CreateDelegationGrantPayload createDelegationGrantPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -149,45 +134,7 @@ public class DelegationGrantsApi {
         return createDelegationGrantCall(createDelegationGrantPayload, _callback);
     }
 
-    /**
-     * Authorize a scheduled user execution
-     * **Required permissions:** &#x60;schedule:delegate&#x60;
-     * @param createDelegationGrantPayload  (required)
-     * @return DelegationGrant
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DelegationGrant createDelegationGrant(
-            @jakarta.annotation.Nonnull CreateDelegationGrantPayload createDelegationGrantPayload)
-            throws ApiException {
-        ApiResponse<DelegationGrant> localVarResp =
-                createDelegationGrantWithHttpInfo(createDelegationGrantPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Authorize a scheduled user execution
-     * **Required permissions:** &#x60;schedule:delegate&#x60;
-     * @param createDelegationGrantPayload  (required)
-     * @return ApiResponse&lt;DelegationGrant&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DelegationGrant> createDelegationGrantWithHttpInfo(
+    private ApiResponse<DelegationGrant> createDelegationGrantWithHttpInfo(
             @jakarta.annotation.Nonnull CreateDelegationGrantPayload createDelegationGrantPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -196,23 +143,7 @@ public class DelegationGrantsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Authorize a scheduled user execution (asynchronously)
-     * **Required permissions:** &#x60;schedule:delegate&#x60;
-     * @param createDelegationGrantPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createDelegationGrantAsync(
+    private okhttp3.Call createDelegationGrantAsync(
             @jakarta.annotation.Nonnull CreateDelegationGrantPayload createDelegationGrantPayload,
             final ApiCallback<DelegationGrant> _callback)
             throws ApiException {
@@ -224,12 +155,95 @@ public class DelegationGrantsApi {
         return localVarCall;
     }
 
+    public class APIcreateDelegationGrantRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateDelegationGrantPayload createDelegationGrantPayload;
+
+        private APIcreateDelegationGrantRequest(
+                @jakarta.annotation.Nonnull
+                        CreateDelegationGrantPayload createDelegationGrantPayload) {
+            this.createDelegationGrantPayload = createDelegationGrantPayload;
+        }
+
+        /**
+         * Build call for createDelegationGrant
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createDelegationGrantCall(createDelegationGrantPayload, _callback);
+        }
+
+        /**
+         * Execute createDelegationGrant request
+         * @return DelegationGrant
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DelegationGrant execute() throws ApiException {
+            ApiResponse<DelegationGrant> localVarResp =
+                    createDelegationGrantWithHttpInfo(createDelegationGrantPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createDelegationGrant request with HTTP info returned
+         * @return ApiResponse&lt;DelegationGrant&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DelegationGrant> executeWithHttpInfo() throws ApiException {
+            return createDelegationGrantWithHttpInfo(createDelegationGrantPayload);
+        }
+
+        /**
+         * Execute createDelegationGrant request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DelegationGrant> _callback)
+                throws ApiException {
+            return createDelegationGrantAsync(createDelegationGrantPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getDelegationGrant
-     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Authorize a scheduled user execution
+     * **Required permissions:** &#x60;schedule:delegate&#x60;
+     * @param createDelegationGrantPayload  (required)
+     * @return APIcreateDelegationGrantRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -239,7 +253,12 @@ public class DelegationGrantsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getDelegationGrantCall(
+    public APIcreateDelegationGrantRequest createDelegationGrant(
+            @jakarta.annotation.Nonnull CreateDelegationGrantPayload createDelegationGrantPayload) {
+        return new APIcreateDelegationGrantRequest(createDelegationGrantPayload);
+    }
+
+    private okhttp3.Call getDelegationGrantCall(
             @jakarta.annotation.Nonnull String grantId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -311,66 +330,14 @@ public class DelegationGrantsApi {
         return getDelegationGrantCall(grantId, _callback);
     }
 
-    /**
-     * Retrieve a delegation grant
-     * **Required permissions:** &#x60;account:read&#x60;
-     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
-     * @return DelegationGrant
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DelegationGrant getDelegationGrant(@jakarta.annotation.Nonnull String grantId)
-            throws ApiException {
-        ApiResponse<DelegationGrant> localVarResp = getDelegationGrantWithHttpInfo(grantId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a delegation grant
-     * **Required permissions:** &#x60;account:read&#x60;
-     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DelegationGrant&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DelegationGrant> getDelegationGrantWithHttpInfo(
+    private ApiResponse<DelegationGrant> getDelegationGrantWithHttpInfo(
             @jakarta.annotation.Nonnull String grantId) throws ApiException {
         okhttp3.Call localVarCall = getDelegationGrantValidateBeforeCall(grantId, null);
         Type localVarReturnType = new TypeToken<DelegationGrant>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a delegation grant (asynchronously)
-     * **Required permissions:** &#x60;account:read&#x60;
-     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getDelegationGrantAsync(
+    private okhttp3.Call getDelegationGrantAsync(
             @jakarta.annotation.Nonnull String grantId,
             final ApiCallback<DelegationGrant> _callback)
             throws ApiException {
@@ -381,11 +348,91 @@ public class DelegationGrantsApi {
         return localVarCall;
     }
 
+    public class APIgetDelegationGrantRequest {
+        @jakarta.annotation.Nonnull private final String grantId;
+
+        private APIgetDelegationGrantRequest(@jakarta.annotation.Nonnull String grantId) {
+            this.grantId = grantId;
+        }
+
+        /**
+         * Build call for getDelegationGrant
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getDelegationGrantCall(grantId, _callback);
+        }
+
+        /**
+         * Execute getDelegationGrant request
+         * @return DelegationGrant
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DelegationGrant execute() throws ApiException {
+            ApiResponse<DelegationGrant> localVarResp = getDelegationGrantWithHttpInfo(grantId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getDelegationGrant request with HTTP info returned
+         * @return ApiResponse&lt;DelegationGrant&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DelegationGrant> executeWithHttpInfo() throws ApiException {
+            return getDelegationGrantWithHttpInfo(grantId);
+        }
+
+        /**
+         * Execute getDelegationGrant request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DelegationGrant> _callback)
+                throws ApiException {
+            return getDelegationGrantAsync(grantId, _callback);
+        }
+    }
+
     /**
-     * Build call for listDelegationGrants
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a delegation grant
+     * **Required permissions:** &#x60;account:read&#x60;
+     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
+     * @return APIgetDelegationGrantRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -395,7 +442,12 @@ public class DelegationGrantsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listDelegationGrantsCall(final ApiCallback _callback) throws ApiException {
+    public APIgetDelegationGrantRequest getDelegationGrant(
+            @jakarta.annotation.Nonnull String grantId) {
+        return new APIgetDelegationGrantRequest(grantId);
+    }
+
+    private okhttp3.Call listDelegationGrantsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -454,62 +506,14 @@ public class DelegationGrantsApi {
         return listDelegationGrantsCall(_callback);
     }
 
-    /**
-     * List project delegation grants
-     * **Required permissions:** &#x60;account:read&#x60;
-     * @return List&lt;DelegationGrant&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DelegationGrant> listDelegationGrants() throws ApiException {
-        ApiResponse<List<DelegationGrant>> localVarResp = listDelegationGrantsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List project delegation grants
-     * **Required permissions:** &#x60;account:read&#x60;
-     * @return ApiResponse&lt;List&lt;DelegationGrant&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DelegationGrant>> listDelegationGrantsWithHttpInfo()
+    private ApiResponse<List<DelegationGrant>> listDelegationGrantsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listDelegationGrantsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<DelegationGrant>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List project delegation grants (asynchronously)
-     * **Required permissions:** &#x60;account:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listDelegationGrantsAsync(
+    private okhttp3.Call listDelegationGrantsAsync(
             final ApiCallback<List<DelegationGrant>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listDelegationGrantsValidateBeforeCall(_callback);
@@ -518,11 +522,87 @@ public class DelegationGrantsApi {
         return localVarCall;
     }
 
+    public class APIlistDelegationGrantsRequest {
+
+        private APIlistDelegationGrantsRequest() {}
+
+        /**
+         * Build call for listDelegationGrants
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listDelegationGrantsCall(_callback);
+        }
+
+        /**
+         * Execute listDelegationGrants request
+         * @return List&lt;DelegationGrant&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<DelegationGrant> execute() throws ApiException {
+            ApiResponse<List<DelegationGrant>> localVarResp = listDelegationGrantsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listDelegationGrants request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DelegationGrant&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<DelegationGrant>> executeWithHttpInfo() throws ApiException {
+            return listDelegationGrantsWithHttpInfo();
+        }
+
+        /**
+         * Execute listDelegationGrants request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DelegationGrant>> _callback)
+                throws ApiException {
+            return listDelegationGrantsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listMyDelegationGrants
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List project delegation grants
+     * **Required permissions:** &#x60;account:read&#x60;
+     * @return APIlistDelegationGrantsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -532,7 +612,11 @@ public class DelegationGrantsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listMyDelegationGrantsCall(final ApiCallback _callback)
+    public APIlistDelegationGrantsRequest listDelegationGrants() {
+        return new APIlistDelegationGrantsRequest();
+    }
+
+    private okhttp3.Call listMyDelegationGrantsCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -592,62 +676,14 @@ public class DelegationGrantsApi {
         return listMyDelegationGrantsCall(_callback);
     }
 
-    /**
-     * List grants acting as the current user
-     *
-     * @return List&lt;DelegationGrant&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DelegationGrant> listMyDelegationGrants() throws ApiException {
-        ApiResponse<List<DelegationGrant>> localVarResp = listMyDelegationGrantsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List grants acting as the current user
-     *
-     * @return ApiResponse&lt;List&lt;DelegationGrant&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DelegationGrant>> listMyDelegationGrantsWithHttpInfo()
+    private ApiResponse<List<DelegationGrant>> listMyDelegationGrantsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listMyDelegationGrantsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<DelegationGrant>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List grants acting as the current user (asynchronously)
-     *
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listMyDelegationGrantsAsync(
+    private okhttp3.Call listMyDelegationGrantsAsync(
             final ApiCallback<List<DelegationGrant>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listMyDelegationGrantsValidateBeforeCall(_callback);
@@ -656,12 +692,87 @@ public class DelegationGrantsApi {
         return localVarCall;
     }
 
+    public class APIlistMyDelegationGrantsRequest {
+
+        private APIlistMyDelegationGrantsRequest() {}
+
+        /**
+         * Build call for listMyDelegationGrants
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listMyDelegationGrantsCall(_callback);
+        }
+
+        /**
+         * Execute listMyDelegationGrants request
+         * @return List&lt;DelegationGrant&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<DelegationGrant> execute() throws ApiException {
+            ApiResponse<List<DelegationGrant>> localVarResp = listMyDelegationGrantsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listMyDelegationGrants request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;DelegationGrant&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<DelegationGrant>> executeWithHttpInfo() throws ApiException {
+            return listMyDelegationGrantsWithHttpInfo();
+        }
+
+        /**
+         * Execute listMyDelegationGrants request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<DelegationGrant>> _callback)
+                throws ApiException {
+            return listMyDelegationGrantsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for revokeDelegationGrant
-     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List grants acting as the current user
+     *
+     * @return APIlistMyDelegationGrantsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -671,7 +782,11 @@ public class DelegationGrantsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call revokeDelegationGrantCall(
+    public APIlistMyDelegationGrantsRequest listMyDelegationGrants() {
+        return new APIlistMyDelegationGrantsRequest();
+    }
+
+    private okhttp3.Call revokeDelegationGrantCall(
             @jakarta.annotation.Nonnull String grantId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -743,66 +858,14 @@ public class DelegationGrantsApi {
         return revokeDelegationGrantCall(grantId, _callback);
     }
 
-    /**
-     * Revoke a standing delegation
-     *
-     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
-     * @return DelegationGrant
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DelegationGrant revokeDelegationGrant(@jakarta.annotation.Nonnull String grantId)
-            throws ApiException {
-        ApiResponse<DelegationGrant> localVarResp = revokeDelegationGrantWithHttpInfo(grantId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Revoke a standing delegation
-     *
-     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DelegationGrant&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DelegationGrant> revokeDelegationGrantWithHttpInfo(
+    private ApiResponse<DelegationGrant> revokeDelegationGrantWithHttpInfo(
             @jakarta.annotation.Nonnull String grantId) throws ApiException {
         okhttp3.Call localVarCall = revokeDelegationGrantValidateBeforeCall(grantId, null);
         Type localVarReturnType = new TypeToken<DelegationGrant>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Revoke a standing delegation (asynchronously)
-     *
-     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call revokeDelegationGrantAsync(
+    private okhttp3.Call revokeDelegationGrantAsync(
             @jakarta.annotation.Nonnull String grantId,
             final ApiCallback<DelegationGrant> _callback)
             throws ApiException {
@@ -811,5 +874,104 @@ public class DelegationGrantsApi {
         Type localVarReturnType = new TypeToken<DelegationGrant>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIrevokeDelegationGrantRequest {
+        @jakarta.annotation.Nonnull private final String grantId;
+
+        private APIrevokeDelegationGrantRequest(@jakarta.annotation.Nonnull String grantId) {
+            this.grantId = grantId;
+        }
+
+        /**
+         * Build call for revokeDelegationGrant
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return revokeDelegationGrantCall(grantId, _callback);
+        }
+
+        /**
+         * Execute revokeDelegationGrant request
+         * @return DelegationGrant
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DelegationGrant execute() throws ApiException {
+            ApiResponse<DelegationGrant> localVarResp = revokeDelegationGrantWithHttpInfo(grantId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute revokeDelegationGrant request with HTTP info returned
+         * @return ApiResponse&lt;DelegationGrant&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DelegationGrant> executeWithHttpInfo() throws ApiException {
+            return revokeDelegationGrantWithHttpInfo(grantId);
+        }
+
+        /**
+         * Execute revokeDelegationGrant request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DelegationGrant> _callback)
+                throws ApiException {
+            return revokeDelegationGrantAsync(grantId, _callback);
+        }
+    }
+
+    /**
+     * Revoke a standing delegation
+     *
+     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
+     * @return APIrevokeDelegationGrantRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIrevokeDelegationGrantRequest revokeDelegationGrant(
+            @jakarta.annotation.Nonnull String grantId) {
+        return new APIrevokeDelegationGrantRequest(grantId);
     }
 }

@@ -69,22 +69,7 @@ public class OAuthClientsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createOAuthClient
-     * @param createOAuthClientPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createOAuthClientCall(
+    private okhttp3.Call createOAuthClientCall(
             @jakarta.annotation.Nonnull CreateOAuthClientPayload createOAuthClientPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -154,45 +139,7 @@ public class OAuthClientsApi {
         return createOAuthClientCall(createOAuthClientPayload, _callback);
     }
 
-    /**
-     * Create an OAuth client
-     * Creates an OAuth client and returns any generated client secret. Project-admin clients are fixed to the current project and owning account.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param createOAuthClientPayload  (required)
-     * @return OAuthClientCreateResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthClientCreateResponse createOAuthClient(
-            @jakarta.annotation.Nonnull CreateOAuthClientPayload createOAuthClientPayload)
-            throws ApiException {
-        ApiResponse<OAuthClientCreateResponse> localVarResp =
-                createOAuthClientWithHttpInfo(createOAuthClientPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an OAuth client
-     * Creates an OAuth client and returns any generated client secret. Project-admin clients are fixed to the current project and owning account.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param createOAuthClientPayload  (required)
-     * @return ApiResponse&lt;OAuthClientCreateResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthClientCreateResponse> createOAuthClientWithHttpInfo(
+    private ApiResponse<OAuthClientCreateResponse> createOAuthClientWithHttpInfo(
             @jakarta.annotation.Nonnull CreateOAuthClientPayload createOAuthClientPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -201,23 +148,7 @@ public class OAuthClientsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an OAuth client (asynchronously)
-     * Creates an OAuth client and returns any generated client secret. Project-admin clients are fixed to the current project and owning account.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param createOAuthClientPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createOAuthClientAsync(
+    private okhttp3.Call createOAuthClientAsync(
             @jakarta.annotation.Nonnull CreateOAuthClientPayload createOAuthClientPayload,
             final ApiCallback<OAuthClientCreateResponse> _callback)
             throws ApiException {
@@ -229,23 +160,108 @@ public class OAuthClientsApi {
         return localVarCall;
     }
 
+    public class APIcreateOAuthClientRequest {
+        @jakarta.annotation.Nonnull private final CreateOAuthClientPayload createOAuthClientPayload;
+
+        private APIcreateOAuthClientRequest(
+                @jakarta.annotation.Nonnull CreateOAuthClientPayload createOAuthClientPayload) {
+            this.createOAuthClientPayload = createOAuthClientPayload;
+        }
+
+        /**
+         * Build call for createOAuthClient
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createOAuthClientCall(createOAuthClientPayload, _callback);
+        }
+
+        /**
+         * Execute createOAuthClient request
+         * @return OAuthClientCreateResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthClientCreateResponse execute() throws ApiException {
+            ApiResponse<OAuthClientCreateResponse> localVarResp =
+                    createOAuthClientWithHttpInfo(createOAuthClientPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createOAuthClient request with HTTP info returned
+         * @return ApiResponse&lt;OAuthClientCreateResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthClientCreateResponse> executeWithHttpInfo() throws ApiException {
+            return createOAuthClientWithHttpInfo(createOAuthClientPayload);
+        }
+
+        /**
+         * Execute createOAuthClient request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthClientCreateResponse> _callback)
+                throws ApiException {
+            return createOAuthClientAsync(createOAuthClientPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteOAuthClient
-     * @param clientId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an OAuth client
+     * Creates an OAuth client and returns any generated client secret. Project-admin clients are fixed to the current project and owning account.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
+     * @param createOAuthClientPayload  (required)
+     * @return APIcreateOAuthClientRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth client deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> App-managed clients can only be removed by deleting their application. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created OAuth client. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteOAuthClientCall(
+    public APIcreateOAuthClientRequest createOAuthClient(
+            @jakarta.annotation.Nonnull CreateOAuthClientPayload createOAuthClientPayload) {
+        return new APIcreateOAuthClientRequest(createOAuthClientPayload);
+    }
+
+    private okhttp3.Call deleteOAuthClientCall(
             @jakarta.annotation.Nonnull String clientId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -317,69 +333,14 @@ public class OAuthClientsApi {
         return deleteOAuthClientCall(clientId, _callback);
     }
 
-    /**
-     * Delete an OAuth client
-     * Deletes an OAuth client and associated authorization artifacts.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @return SuccessResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth client deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> App-managed clients can only be removed by deleting their application. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SuccessResponse deleteOAuthClient(@jakarta.annotation.Nonnull String clientId)
-            throws ApiException {
-        ApiResponse<SuccessResponse> localVarResp = deleteOAuthClientWithHttpInfo(clientId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an OAuth client
-     * Deletes an OAuth client and associated authorization artifacts.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @return ApiResponse&lt;SuccessResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth client deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> App-managed clients can only be removed by deleting their application. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SuccessResponse> deleteOAuthClientWithHttpInfo(
+    private ApiResponse<SuccessResponse> deleteOAuthClientWithHttpInfo(
             @jakarta.annotation.Nonnull String clientId) throws ApiException {
         okhttp3.Call localVarCall = deleteOAuthClientValidateBeforeCall(clientId, null);
         Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an OAuth client (asynchronously)
-     * Deletes an OAuth client and associated authorization artifacts.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth client deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> App-managed clients can only be removed by deleting their application. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteOAuthClientAsync(
+    private okhttp3.Call deleteOAuthClientAsync(
             @jakarta.annotation.Nonnull String clientId,
             final ApiCallback<SuccessResponse> _callback)
             throws ApiException {
@@ -390,22 +351,111 @@ public class OAuthClientsApi {
         return localVarCall;
     }
 
+    public class APIdeleteOAuthClientRequest {
+        @jakarta.annotation.Nonnull private final String clientId;
+
+        private APIdeleteOAuthClientRequest(@jakarta.annotation.Nonnull String clientId) {
+            this.clientId = clientId;
+        }
+
+        /**
+         * Build call for deleteOAuthClient
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth client deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> App-managed clients can only be removed by deleting their application. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteOAuthClientCall(clientId, _callback);
+        }
+
+        /**
+         * Execute deleteOAuthClient request
+         * @return SuccessResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth client deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> App-managed clients can only be removed by deleting their application. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SuccessResponse execute() throws ApiException {
+            ApiResponse<SuccessResponse> localVarResp = deleteOAuthClientWithHttpInfo(clientId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteOAuthClient request with HTTP info returned
+         * @return ApiResponse&lt;SuccessResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth client deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> App-managed clients can only be removed by deleting their application. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SuccessResponse> executeWithHttpInfo() throws ApiException {
+            return deleteOAuthClientWithHttpInfo(clientId);
+        }
+
+        /**
+         * Execute deleteOAuthClient request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth client deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> App-managed clients can only be removed by deleting their application. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SuccessResponse> _callback)
+                throws ApiException {
+            return deleteOAuthClientAsync(clientId, _callback);
+        }
+    }
+
     /**
-     * Build call for getOAuthClient
+     * Delete an OAuth client
+     * Deletes an OAuth client and associated authorization artifacts.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
      * @param clientId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteOAuthClientRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth client. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth client deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> App-managed clients can only be removed by deleting their application. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getOAuthClientCall(
+    public APIdeleteOAuthClientRequest deleteOAuthClient(
+            @jakarta.annotation.Nonnull String clientId) {
+        return new APIdeleteOAuthClientRequest(clientId);
+    }
+
+    private okhttp3.Call getOAuthClientCall(
             @jakarta.annotation.Nonnull String clientId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -477,66 +527,14 @@ public class OAuthClientsApi {
         return getOAuthClientCall(clientId, _callback);
     }
 
-    /**
-     * Retrieve an OAuth client
-     * Retrieves an OAuth client by client ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @return OAuthClient
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthClient getOAuthClient(@jakarta.annotation.Nonnull String clientId)
-            throws ApiException {
-        ApiResponse<OAuthClient> localVarResp = getOAuthClientWithHttpInfo(clientId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an OAuth client
-     * Retrieves an OAuth client by client ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @return ApiResponse&lt;OAuthClient&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthClient> getOAuthClientWithHttpInfo(
+    private ApiResponse<OAuthClient> getOAuthClientWithHttpInfo(
             @jakarta.annotation.Nonnull String clientId) throws ApiException {
         okhttp3.Call localVarCall = getOAuthClientValidateBeforeCall(clientId, null);
         Type localVarReturnType = new TypeToken<OAuthClient>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an OAuth client (asynchronously)
-     * Retrieves an OAuth client by client ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getOAuthClientAsync(
+    private okhttp3.Call getOAuthClientAsync(
             @jakarta.annotation.Nonnull String clientId, final ApiCallback<OAuthClient> _callback)
             throws ApiException {
 
@@ -546,21 +544,105 @@ public class OAuthClientsApi {
         return localVarCall;
     }
 
+    public class APIgetOAuthClientRequest {
+        @jakarta.annotation.Nonnull private final String clientId;
+
+        private APIgetOAuthClientRequest(@jakarta.annotation.Nonnull String clientId) {
+            this.clientId = clientId;
+        }
+
+        /**
+         * Build call for getOAuthClient
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getOAuthClientCall(clientId, _callback);
+        }
+
+        /**
+         * Execute getOAuthClient request
+         * @return OAuthClient
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthClient execute() throws ApiException {
+            ApiResponse<OAuthClient> localVarResp = getOAuthClientWithHttpInfo(clientId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getOAuthClient request with HTTP info returned
+         * @return ApiResponse&lt;OAuthClient&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthClient> executeWithHttpInfo() throws ApiException {
+            return getOAuthClientWithHttpInfo(clientId);
+        }
+
+        /**
+         * Execute getOAuthClient request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthClient> _callback)
+                throws ApiException {
+            return getOAuthClientAsync(clientId, _callback);
+        }
+    }
+
     /**
-     * Build call for getOAuthClientScopeMetadata
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve an OAuth client
+     * Retrieves an OAuth client by client ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
+     * @param clientId  (required)
+     * @return APIgetOAuthClientRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth client scope metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested OAuth client. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getOAuthClientScopeMetadataCall(final ApiCallback _callback)
+    public APIgetOAuthClientRequest getOAuthClient(@jakarta.annotation.Nonnull String clientId) {
+        return new APIgetOAuthClientRequest(clientId);
+    }
+
+    private okhttp3.Call getOAuthClientScopeMetadataCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -620,63 +702,14 @@ public class OAuthClientsApi {
         return getOAuthClientScopeMetadataCall(_callback);
     }
 
-    /**
-     * Retrieve OAuth client scope metadata
-     * Returns configurable OAuth scopes. Project admins receive only project permissions they hold and standard identity/session scopes.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @return OAuthClientScopeMetadata
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth client scope metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthClientScopeMetadata getOAuthClientScopeMetadata() throws ApiException {
-        ApiResponse<OAuthClientScopeMetadata> localVarResp =
-                getOAuthClientScopeMetadataWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve OAuth client scope metadata
-     * Returns configurable OAuth scopes. Project admins receive only project permissions they hold and standard identity/session scopes.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @return ApiResponse&lt;OAuthClientScopeMetadata&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth client scope metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthClientScopeMetadata> getOAuthClientScopeMetadataWithHttpInfo()
+    private ApiResponse<OAuthClientScopeMetadata> getOAuthClientScopeMetadataWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = getOAuthClientScopeMetadataValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<OAuthClientScopeMetadata>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve OAuth client scope metadata (asynchronously)
-     * Returns configurable OAuth scopes. Project admins receive only project permissions they hold and standard identity/session scopes.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth client scope metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getOAuthClientScopeMetadataAsync(
+    private okhttp3.Call getOAuthClientScopeMetadataAsync(
             final ApiCallback<OAuthClientScopeMetadata> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getOAuthClientScopeMetadataValidateBeforeCall(_callback);
@@ -685,21 +718,102 @@ public class OAuthClientsApi {
         return localVarCall;
     }
 
+    public class APIgetOAuthClientScopeMetadataRequest {
+
+        private APIgetOAuthClientScopeMetadataRequest() {}
+
+        /**
+         * Build call for getOAuthClientScopeMetadata
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth client scope metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getOAuthClientScopeMetadataCall(_callback);
+        }
+
+        /**
+         * Execute getOAuthClientScopeMetadata request
+         * @return OAuthClientScopeMetadata
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth client scope metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthClientScopeMetadata execute() throws ApiException {
+            ApiResponse<OAuthClientScopeMetadata> localVarResp =
+                    getOAuthClientScopeMetadataWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getOAuthClientScopeMetadata request with HTTP info returned
+         * @return ApiResponse&lt;OAuthClientScopeMetadata&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth client scope metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthClientScopeMetadata> executeWithHttpInfo() throws ApiException {
+            return getOAuthClientScopeMetadataWithHttpInfo();
+        }
+
+        /**
+         * Execute getOAuthClientScopeMetadata request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth client scope metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthClientScopeMetadata> _callback)
+                throws ApiException {
+            return getOAuthClientScopeMetadataAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listOAuthClients
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve OAuth client scope metadata
+     * Returns configurable OAuth scopes. Project admins receive only project permissions they hold and standard identity/session scopes.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
+     * @return APIgetOAuthClientScopeMetadataRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth clients the administrator can manage. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth client scope metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listOAuthClientsCall(final ApiCallback _callback) throws ApiException {
+    public APIgetOAuthClientScopeMetadataRequest getOAuthClientScopeMetadata() {
+        return new APIgetOAuthClientScopeMetadataRequest();
+    }
+
+    private okhttp3.Call listOAuthClientsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -758,61 +872,13 @@ public class OAuthClientsApi {
         return listOAuthClientsCall(_callback);
     }
 
-    /**
-     * List OAuth clients
-     * Organization admins see all account clients; project admins see standalone clients restricted to their current project whose stored scopes are within their own permissions.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @return List&lt;OAuthClient&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth clients the administrator can manage. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<OAuthClient> listOAuthClients() throws ApiException {
-        ApiResponse<List<OAuthClient>> localVarResp = listOAuthClientsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List OAuth clients
-     * Organization admins see all account clients; project admins see standalone clients restricted to their current project whose stored scopes are within their own permissions.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @return ApiResponse&lt;List&lt;OAuthClient&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth clients the administrator can manage. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<OAuthClient>> listOAuthClientsWithHttpInfo() throws ApiException {
+    private ApiResponse<List<OAuthClient>> listOAuthClientsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listOAuthClientsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<OAuthClient>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List OAuth clients (asynchronously)
-     * Organization admins see all account clients; project admins see standalone clients restricted to their current project whose stored scopes are within their own permissions.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth clients the administrator can manage. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listOAuthClientsAsync(final ApiCallback<List<OAuthClient>> _callback)
+    private okhttp3.Call listOAuthClientsAsync(final ApiCallback<List<OAuthClient>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listOAuthClientsValidateBeforeCall(_callback);
@@ -821,24 +887,101 @@ public class OAuthClientsApi {
         return localVarCall;
     }
 
+    public class APIlistOAuthClientsRequest {
+
+        private APIlistOAuthClientsRequest() {}
+
+        /**
+         * Build call for listOAuthClients
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth clients the administrator can manage. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listOAuthClientsCall(_callback);
+        }
+
+        /**
+         * Execute listOAuthClients request
+         * @return List&lt;OAuthClient&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth clients the administrator can manage. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<OAuthClient> execute() throws ApiException {
+            ApiResponse<List<OAuthClient>> localVarResp = listOAuthClientsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listOAuthClients request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;OAuthClient&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth clients the administrator can manage. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<OAuthClient>> executeWithHttpInfo() throws ApiException {
+            return listOAuthClientsWithHttpInfo();
+        }
+
+        /**
+         * Execute listOAuthClients request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth clients the administrator can manage. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<OAuthClient>> _callback)
+                throws ApiException {
+            return listOAuthClientsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateOAuthClient
-     * @param clientId  (required)
-     * @param updateOAuthClientPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List OAuth clients
+     * Organization admins see all account clients; project admins see standalone clients restricted to their current project whose stored scopes are within their own permissions.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
+     * @return APIlistOAuthClientsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> App-managed clients must be configured through their application. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth clients the administrator can manage. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateOAuthClientCall(
+    public APIlistOAuthClientsRequest listOAuthClients() {
+        return new APIlistOAuthClientsRequest();
+    }
+
+    private okhttp3.Call updateOAuthClientCall(
             @jakarta.annotation.Nonnull String clientId,
             @jakarta.annotation.Nonnull UpdateOAuthClientPayload updateOAuthClientPayload,
             final ApiCallback _callback)
@@ -920,50 +1063,7 @@ public class OAuthClientsApi {
         return updateOAuthClientCall(clientId, updateOAuthClientPayload, _callback);
     }
 
-    /**
-     * Update an OAuth client
-     * Updates an OAuth client. Project admins cannot change its project binding or widen organization access; app-managed clients must be configured through their app.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @param updateOAuthClientPayload  (required)
-     * @return OAuthClient
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> App-managed clients must be configured through their application. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthClient updateOAuthClient(
-            @jakarta.annotation.Nonnull String clientId,
-            @jakarta.annotation.Nonnull UpdateOAuthClientPayload updateOAuthClientPayload)
-            throws ApiException {
-        ApiResponse<OAuthClient> localVarResp =
-                updateOAuthClientWithHttpInfo(clientId, updateOAuthClientPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an OAuth client
-     * Updates an OAuth client. Project admins cannot change its project binding or widen organization access; app-managed clients must be configured through their app.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @param updateOAuthClientPayload  (required)
-     * @return ApiResponse&lt;OAuthClient&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> App-managed clients must be configured through their application. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthClient> updateOAuthClientWithHttpInfo(
+    private ApiResponse<OAuthClient> updateOAuthClientWithHttpInfo(
             @jakarta.annotation.Nonnull String clientId,
             @jakarta.annotation.Nonnull UpdateOAuthClientPayload updateOAuthClientPayload)
             throws ApiException {
@@ -973,25 +1073,7 @@ public class OAuthClientsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an OAuth client (asynchronously)
-     * Updates an OAuth client. Project admins cannot change its project binding or widen organization access; app-managed clients must be configured through their app.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @param updateOAuthClientPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated OAuth client. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> App-managed clients must be configured through their application. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateOAuthClientAsync(
+    private okhttp3.Call updateOAuthClientAsync(
             @jakarta.annotation.Nonnull String clientId,
             @jakarta.annotation.Nonnull UpdateOAuthClientPayload updateOAuthClientPayload,
             final ApiCallback<OAuthClient> _callback)
@@ -1004,23 +1086,118 @@ public class OAuthClientsApi {
         return localVarCall;
     }
 
+    public class APIupdateOAuthClientRequest {
+        @jakarta.annotation.Nonnull private final String clientId;
+        @jakarta.annotation.Nonnull private final UpdateOAuthClientPayload updateOAuthClientPayload;
+
+        private APIupdateOAuthClientRequest(
+                @jakarta.annotation.Nonnull String clientId,
+                @jakarta.annotation.Nonnull UpdateOAuthClientPayload updateOAuthClientPayload) {
+            this.clientId = clientId;
+            this.updateOAuthClientPayload = updateOAuthClientPayload;
+        }
+
+        /**
+         * Build call for updateOAuthClient
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> App-managed clients must be configured through their application. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateOAuthClientCall(clientId, updateOAuthClientPayload, _callback);
+        }
+
+        /**
+         * Execute updateOAuthClient request
+         * @return OAuthClient
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> App-managed clients must be configured through their application. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthClient execute() throws ApiException {
+            ApiResponse<OAuthClient> localVarResp =
+                    updateOAuthClientWithHttpInfo(clientId, updateOAuthClientPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateOAuthClient request with HTTP info returned
+         * @return ApiResponse&lt;OAuthClient&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> App-managed clients must be configured through their application. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthClient> executeWithHttpInfo() throws ApiException {
+            return updateOAuthClientWithHttpInfo(clientId, updateOAuthClientPayload);
+        }
+
+        /**
+         * Execute updateOAuthClient request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated OAuth client. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> App-managed clients must be configured through their application. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthClient> _callback)
+                throws ApiException {
+            return updateOAuthClientAsync(clientId, updateOAuthClientPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateOAuthClientStatus
+     * Update an OAuth client
+     * Updates an OAuth client. Project admins cannot change its project binding or widen organization access; app-managed clients must be configured through their app.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
      * @param clientId  (required)
-     * @param updateOAuthClientStatusPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param updateOAuthClientPayload  (required)
+     * @return APIupdateOAuthClientRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The OAuth client with its updated status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated OAuth client. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> App-managed clients must be configured through their application. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateOAuthClientStatusCall(
+    public APIupdateOAuthClientRequest updateOAuthClient(
+            @jakarta.annotation.Nonnull String clientId,
+            @jakarta.annotation.Nonnull UpdateOAuthClientPayload updateOAuthClientPayload) {
+        return new APIupdateOAuthClientRequest(clientId, updateOAuthClientPayload);
+    }
+
+    private okhttp3.Call updateOAuthClientStatusCall(
             @jakarta.annotation.Nonnull String clientId,
             @jakarta.annotation.Nonnull
                     UpdateOAuthClientStatusPayload updateOAuthClientStatusPayload,
@@ -1104,49 +1281,7 @@ public class OAuthClientsApi {
         return updateOAuthClientStatusCall(clientId, updateOAuthClientStatusPayload, _callback);
     }
 
-    /**
-     * Enable or disable an OAuth client
-     * **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @param updateOAuthClientStatusPayload  (required)
-     * @return OAuthClient
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The OAuth client with its updated status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthClient updateOAuthClientStatus(
-            @jakarta.annotation.Nonnull String clientId,
-            @jakarta.annotation.Nonnull
-                    UpdateOAuthClientStatusPayload updateOAuthClientStatusPayload)
-            throws ApiException {
-        ApiResponse<OAuthClient> localVarResp =
-                updateOAuthClientStatusWithHttpInfo(clientId, updateOAuthClientStatusPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Enable or disable an OAuth client
-     * **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @param updateOAuthClientStatusPayload  (required)
-     * @return ApiResponse&lt;OAuthClient&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The OAuth client with its updated status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthClient> updateOAuthClientStatusWithHttpInfo(
+    private ApiResponse<OAuthClient> updateOAuthClientStatusWithHttpInfo(
             @jakarta.annotation.Nonnull String clientId,
             @jakarta.annotation.Nonnull
                     UpdateOAuthClientStatusPayload updateOAuthClientStatusPayload)
@@ -1158,24 +1293,7 @@ public class OAuthClientsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Enable or disable an OAuth client (asynchronously)
-     * **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
-     * @param clientId  (required)
-     * @param updateOAuthClientStatusPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The OAuth client with its updated status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateOAuthClientStatusAsync(
+    private okhttp3.Call updateOAuthClientStatusAsync(
             @jakarta.annotation.Nonnull String clientId,
             @jakarta.annotation.Nonnull
                     UpdateOAuthClientStatusPayload updateOAuthClientStatusPayload,
@@ -1188,5 +1306,116 @@ public class OAuthClientsApi {
         Type localVarReturnType = new TypeToken<OAuthClient>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateOAuthClientStatusRequest {
+        @jakarta.annotation.Nonnull private final String clientId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateOAuthClientStatusPayload updateOAuthClientStatusPayload;
+
+        private APIupdateOAuthClientStatusRequest(
+                @jakarta.annotation.Nonnull String clientId,
+                @jakarta.annotation.Nonnull
+                        UpdateOAuthClientStatusPayload updateOAuthClientStatusPayload) {
+            this.clientId = clientId;
+            this.updateOAuthClientStatusPayload = updateOAuthClientStatusPayload;
+        }
+
+        /**
+         * Build call for updateOAuthClientStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The OAuth client with its updated status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateOAuthClientStatusCall(clientId, updateOAuthClientStatusPayload, _callback);
+        }
+
+        /**
+         * Execute updateOAuthClientStatus request
+         * @return OAuthClient
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The OAuth client with its updated status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthClient execute() throws ApiException {
+            ApiResponse<OAuthClient> localVarResp =
+                    updateOAuthClientStatusWithHttpInfo(clientId, updateOAuthClientStatusPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateOAuthClientStatus request with HTTP info returned
+         * @return ApiResponse&lt;OAuthClient&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The OAuth client with its updated status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthClient> executeWithHttpInfo() throws ApiException {
+            return updateOAuthClientStatusWithHttpInfo(clientId, updateOAuthClientStatusPayload);
+        }
+
+        /**
+         * Execute updateOAuthClientStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The OAuth client with its updated status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthClient> _callback)
+                throws ApiException {
+            return updateOAuthClientStatusAsync(
+                    clientId, updateOAuthClientStatusPayload, _callback);
+        }
+    }
+
+    /**
+     * Enable or disable an OAuth client
+     * **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;project:admin&#x60;
+     * @param clientId  (required)
+     * @param updateOAuthClientStatusPayload  (required)
+     * @return APIupdateOAuthClientStatusRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The OAuth client with its updated status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateOAuthClientStatusRequest updateOAuthClientStatus(
+            @jakarta.annotation.Nonnull String clientId,
+            @jakarta.annotation.Nonnull
+                    UpdateOAuthClientStatusPayload updateOAuthClientStatusPayload) {
+        return new APIupdateOAuthClientStatusRequest(clientId, updateOAuthClientStatusPayload);
     }
 }

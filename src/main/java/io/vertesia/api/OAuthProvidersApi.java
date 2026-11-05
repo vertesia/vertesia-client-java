@@ -70,22 +70,7 @@ public class OAuthProvidersApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for authorizeOAuthProvider
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authorization URL and state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call authorizeOAuthProviderCall(
+    private okhttp3.Call authorizeOAuthProviderCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -155,67 +140,14 @@ public class OAuthProvidersApi {
         return authorizeOAuthProviderCall(id, _callback);
     }
 
-    /**
-     * Initiate OAuth provider authorization
-     * Starts the OAuth 2.0 authorization flow for the current user.
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return OAuthProviderAuthorizeResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authorization URL and state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthProviderAuthorizeResponse authorizeOAuthProvider(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<OAuthProviderAuthorizeResponse> localVarResp =
-                authorizeOAuthProviderWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Initiate OAuth provider authorization
-     * Starts the OAuth 2.0 authorization flow for the current user.
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;OAuthProviderAuthorizeResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authorization URL and state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthProviderAuthorizeResponse> authorizeOAuthProviderWithHttpInfo(
+    private ApiResponse<OAuthProviderAuthorizeResponse> authorizeOAuthProviderWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = authorizeOAuthProviderValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<OAuthProviderAuthorizeResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Initiate OAuth provider authorization (asynchronously)
-     * Starts the OAuth 2.0 authorization flow for the current user.
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Authorization URL and state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call authorizeOAuthProviderAsync(
+    private okhttp3.Call authorizeOAuthProviderAsync(
             @jakarta.annotation.Nonnull String id,
             final ApiCallback<OAuthProviderAuthorizeResponse> _callback)
             throws ApiException {
@@ -226,22 +158,108 @@ public class OAuthProvidersApi {
         return localVarCall;
     }
 
+    public class APIauthorizeOAuthProviderRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIauthorizeOAuthProviderRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for authorizeOAuthProvider
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authorization URL and state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return authorizeOAuthProviderCall(id, _callback);
+        }
+
+        /**
+         * Execute authorizeOAuthProvider request
+         * @return OAuthProviderAuthorizeResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authorization URL and state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthProviderAuthorizeResponse execute() throws ApiException {
+            ApiResponse<OAuthProviderAuthorizeResponse> localVarResp =
+                    authorizeOAuthProviderWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute authorizeOAuthProvider request with HTTP info returned
+         * @return ApiResponse&lt;OAuthProviderAuthorizeResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authorization URL and state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthProviderAuthorizeResponse> executeWithHttpInfo()
+                throws ApiException {
+            return authorizeOAuthProviderWithHttpInfo(id);
+        }
+
+        /**
+         * Execute authorizeOAuthProvider request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Authorization URL and state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<OAuthProviderAuthorizeResponse> _callback) throws ApiException {
+            return authorizeOAuthProviderAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for connectOAuthProvider
+     * Initiate OAuth provider authorization
+     * Starts the OAuth 2.0 authorization flow for the current user.
      * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIauthorizeOAuthProviderRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider connection result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authorization URL and state. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call connectOAuthProviderCall(
+    public APIauthorizeOAuthProviderRequest authorizeOAuthProvider(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIauthorizeOAuthProviderRequest(id);
+    }
+
+    private okhttp3.Call connectOAuthProviderCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -311,66 +329,14 @@ public class OAuthProvidersApi {
         return connectOAuthProviderCall(id, _callback);
     }
 
-    /**
-     * Connect an OAuth provider
-     * Tests and establishes a client credentials connection for an OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return SuccessResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider connection result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SuccessResponse connectOAuthProvider(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<SuccessResponse> localVarResp = connectOAuthProviderWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Connect an OAuth provider
-     * Tests and establishes a client credentials connection for an OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;SuccessResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider connection result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SuccessResponse> connectOAuthProviderWithHttpInfo(
+    private ApiResponse<SuccessResponse> connectOAuthProviderWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = connectOAuthProviderValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Connect an OAuth provider (asynchronously)
-     * Tests and establishes a client credentials connection for an OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider connection result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call connectOAuthProviderAsync(
+    private okhttp3.Call connectOAuthProviderAsync(
             @jakarta.annotation.Nonnull String id, final ApiCallback<SuccessResponse> _callback)
             throws ApiException {
 
@@ -380,22 +346,106 @@ public class OAuthProvidersApi {
         return localVarCall;
     }
 
+    public class APIconnectOAuthProviderRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIconnectOAuthProviderRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for connectOAuthProvider
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider connection result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return connectOAuthProviderCall(id, _callback);
+        }
+
+        /**
+         * Execute connectOAuthProvider request
+         * @return SuccessResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider connection result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SuccessResponse execute() throws ApiException {
+            ApiResponse<SuccessResponse> localVarResp = connectOAuthProviderWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute connectOAuthProvider request with HTTP info returned
+         * @return ApiResponse&lt;SuccessResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider connection result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SuccessResponse> executeWithHttpInfo() throws ApiException {
+            return connectOAuthProviderWithHttpInfo(id);
+        }
+
+        /**
+         * Execute connectOAuthProvider request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider connection result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SuccessResponse> _callback)
+                throws ApiException {
+            return connectOAuthProviderAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for createOAuthProvider
-     * @param createOAuthProviderPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Connect an OAuth provider
+     * Tests and establishes a client credentials connection for an OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
+     * @return APIconnectOAuthProviderRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created OAuth provider. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth provider connection result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createOAuthProviderCall(
+    public APIconnectOAuthProviderRequest connectOAuthProvider(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIconnectOAuthProviderRequest(id);
+    }
+
+    private okhttp3.Call createOAuthProviderCall(
             @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -465,45 +515,7 @@ public class OAuthProvidersApi {
         return createOAuthProviderCall(createOAuthProviderPayload, _callback);
     }
 
-    /**
-     * Create an OAuth provider
-     * Creates a new OAuth provider in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param createOAuthProviderPayload  (required)
-     * @return OAuthProvider
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created OAuth provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthProvider createOAuthProvider(
-            @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload)
-            throws ApiException {
-        ApiResponse<OAuthProvider> localVarResp =
-                createOAuthProviderWithHttpInfo(createOAuthProviderPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an OAuth provider
-     * Creates a new OAuth provider in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param createOAuthProviderPayload  (required)
-     * @return ApiResponse&lt;OAuthProvider&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created OAuth provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthProvider> createOAuthProviderWithHttpInfo(
+    private ApiResponse<OAuthProvider> createOAuthProviderWithHttpInfo(
             @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -512,23 +524,7 @@ public class OAuthProvidersApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an OAuth provider (asynchronously)
-     * Creates a new OAuth provider in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param createOAuthProviderPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created OAuth provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createOAuthProviderAsync(
+    private okhttp3.Call createOAuthProviderAsync(
             @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload,
             final ApiCallback<OAuthProvider> _callback)
             throws ApiException {
@@ -540,22 +536,109 @@ public class OAuthProvidersApi {
         return localVarCall;
     }
 
+    public class APIcreateOAuthProviderRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateOAuthProviderPayload createOAuthProviderPayload;
+
+        private APIcreateOAuthProviderRequest(
+                @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload) {
+            this.createOAuthProviderPayload = createOAuthProviderPayload;
+        }
+
+        /**
+         * Build call for createOAuthProvider
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createOAuthProviderCall(createOAuthProviderPayload, _callback);
+        }
+
+        /**
+         * Execute createOAuthProvider request
+         * @return OAuthProvider
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthProvider execute() throws ApiException {
+            ApiResponse<OAuthProvider> localVarResp =
+                    createOAuthProviderWithHttpInfo(createOAuthProviderPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createOAuthProvider request with HTTP info returned
+         * @return ApiResponse&lt;OAuthProvider&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthProvider> executeWithHttpInfo() throws ApiException {
+            return createOAuthProviderWithHttpInfo(createOAuthProviderPayload);
+        }
+
+        /**
+         * Execute createOAuthProvider request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthProvider> _callback)
+                throws ApiException {
+            return createOAuthProviderAsync(createOAuthProviderPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteOAuthProvider
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an OAuth provider
+     * Creates a new OAuth provider in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param createOAuthProviderPayload  (required)
+     * @return APIcreateOAuthProviderRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created OAuth provider. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteOAuthProviderCall(
+    public APIcreateOAuthProviderRequest createOAuthProvider(
+            @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload) {
+        return new APIcreateOAuthProviderRequest(createOAuthProviderPayload);
+    }
+
+    private okhttp3.Call deleteOAuthProviderCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -625,66 +708,14 @@ public class OAuthProvidersApi {
         return deleteOAuthProviderCall(id, _callback);
     }
 
-    /**
-     * Delete an OAuth provider
-     * Deletes an OAuth provider and associated secrets and tokens.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return SuccessResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SuccessResponse deleteOAuthProvider(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<SuccessResponse> localVarResp = deleteOAuthProviderWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an OAuth provider
-     * Deletes an OAuth provider and associated secrets and tokens.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;SuccessResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SuccessResponse> deleteOAuthProviderWithHttpInfo(
+    private ApiResponse<SuccessResponse> deleteOAuthProviderWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteOAuthProviderValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an OAuth provider (asynchronously)
-     * Deletes an OAuth provider and associated secrets and tokens.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteOAuthProviderAsync(
+    private okhttp3.Call deleteOAuthProviderAsync(
             @jakarta.annotation.Nonnull String id, final ApiCallback<SuccessResponse> _callback)
             throws ApiException {
 
@@ -694,22 +725,106 @@ public class OAuthProvidersApi {
         return localVarCall;
     }
 
+    public class APIdeleteOAuthProviderRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIdeleteOAuthProviderRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for deleteOAuthProvider
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteOAuthProviderCall(id, _callback);
+        }
+
+        /**
+         * Execute deleteOAuthProvider request
+         * @return SuccessResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SuccessResponse execute() throws ApiException {
+            ApiResponse<SuccessResponse> localVarResp = deleteOAuthProviderWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteOAuthProvider request with HTTP info returned
+         * @return ApiResponse&lt;SuccessResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SuccessResponse> executeWithHttpInfo() throws ApiException {
+            return deleteOAuthProviderWithHttpInfo(id);
+        }
+
+        /**
+         * Execute deleteOAuthProvider request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SuccessResponse> _callback)
+                throws ApiException {
+            return deleteOAuthProviderAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for disconnectOAuthProvider
+     * Delete an OAuth provider
+     * Deletes an OAuth provider and associated secrets and tokens.  **Required permissions:** &#x60;project:admin&#x60;
      * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteOAuthProviderRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider disconnect result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth provider deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call disconnectOAuthProviderCall(
+    public APIdeleteOAuthProviderRequest deleteOAuthProvider(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIdeleteOAuthProviderRequest(id);
+    }
+
+    private okhttp3.Call disconnectOAuthProviderCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -779,66 +894,14 @@ public class OAuthProvidersApi {
         return disconnectOAuthProviderCall(id, _callback);
     }
 
-    /**
-     * Disconnect an OAuth provider
-     * Revokes and deletes stored tokens for an OAuth provider.
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return SuccessResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider disconnect result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SuccessResponse disconnectOAuthProvider(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<SuccessResponse> localVarResp = disconnectOAuthProviderWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Disconnect an OAuth provider
-     * Revokes and deletes stored tokens for an OAuth provider.
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;SuccessResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider disconnect result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SuccessResponse> disconnectOAuthProviderWithHttpInfo(
+    private ApiResponse<SuccessResponse> disconnectOAuthProviderWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = disconnectOAuthProviderValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Disconnect an OAuth provider (asynchronously)
-     * Revokes and deletes stored tokens for an OAuth provider.
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider disconnect result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call disconnectOAuthProviderAsync(
+    private okhttp3.Call disconnectOAuthProviderAsync(
             @jakarta.annotation.Nonnull String id, final ApiCallback<SuccessResponse> _callback)
             throws ApiException {
 
@@ -848,22 +911,106 @@ public class OAuthProvidersApi {
         return localVarCall;
     }
 
+    public class APIdisconnectOAuthProviderRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIdisconnectOAuthProviderRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for disconnectOAuthProvider
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider disconnect result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return disconnectOAuthProviderCall(id, _callback);
+        }
+
+        /**
+         * Execute disconnectOAuthProvider request
+         * @return SuccessResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider disconnect result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SuccessResponse execute() throws ApiException {
+            ApiResponse<SuccessResponse> localVarResp = disconnectOAuthProviderWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute disconnectOAuthProvider request with HTTP info returned
+         * @return ApiResponse&lt;SuccessResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider disconnect result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SuccessResponse> executeWithHttpInfo() throws ApiException {
+            return disconnectOAuthProviderWithHttpInfo(id);
+        }
+
+        /**
+         * Execute disconnectOAuthProvider request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider disconnect result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SuccessResponse> _callback)
+                throws ApiException {
+            return disconnectOAuthProviderAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for exchangeOAuthProviderCode
-     * @param oauthProviderExchangePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Disconnect an OAuth provider
+     * Revokes and deletes stored tokens for an OAuth provider.
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
+     * @return APIdisconnectOAuthProviderRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth exchange result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth provider disconnect result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call exchangeOAuthProviderCodeCall(
+    public APIdisconnectOAuthProviderRequest disconnectOAuthProvider(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIdisconnectOAuthProviderRequest(id);
+    }
+
+    private okhttp3.Call exchangeOAuthProviderCodeCall(
             @jakarta.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -933,45 +1080,7 @@ public class OAuthProvidersApi {
         return exchangeOAuthProviderCodeCall(oauthProviderExchangePayload, _callback);
     }
 
-    /**
-     * Exchange OAuth provider authorization code
-     * Exchanges an OAuth authorization code for tokens and stores them for the current user.
-     * @param oauthProviderExchangePayload  (required)
-     * @return SuccessResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth exchange result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SuccessResponse exchangeOAuthProviderCode(
-            @jakarta.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload)
-            throws ApiException {
-        ApiResponse<SuccessResponse> localVarResp =
-                exchangeOAuthProviderCodeWithHttpInfo(oauthProviderExchangePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Exchange OAuth provider authorization code
-     * Exchanges an OAuth authorization code for tokens and stores them for the current user.
-     * @param oauthProviderExchangePayload  (required)
-     * @return ApiResponse&lt;SuccessResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth exchange result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SuccessResponse> exchangeOAuthProviderCodeWithHttpInfo(
+    private ApiResponse<SuccessResponse> exchangeOAuthProviderCodeWithHttpInfo(
             @jakarta.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -980,23 +1089,7 @@ public class OAuthProvidersApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Exchange OAuth provider authorization code (asynchronously)
-     * Exchanges an OAuth authorization code for tokens and stores them for the current user.
-     * @param oauthProviderExchangePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth exchange result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call exchangeOAuthProviderCodeAsync(
+    private okhttp3.Call exchangeOAuthProviderCodeAsync(
             @jakarta.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload,
             final ApiCallback<SuccessResponse> _callback)
             throws ApiException {
@@ -1009,22 +1102,110 @@ public class OAuthProvidersApi {
         return localVarCall;
     }
 
+    public class APIexchangeOAuthProviderCodeRequest {
+        @jakarta.annotation.Nonnull
+        private final OAuthProviderExchangePayload oauthProviderExchangePayload;
+
+        private APIexchangeOAuthProviderCodeRequest(
+                @jakarta.annotation.Nonnull
+                        OAuthProviderExchangePayload oauthProviderExchangePayload) {
+            this.oauthProviderExchangePayload = oauthProviderExchangePayload;
+        }
+
+        /**
+         * Build call for exchangeOAuthProviderCode
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth exchange result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return exchangeOAuthProviderCodeCall(oauthProviderExchangePayload, _callback);
+        }
+
+        /**
+         * Execute exchangeOAuthProviderCode request
+         * @return SuccessResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth exchange result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SuccessResponse execute() throws ApiException {
+            ApiResponse<SuccessResponse> localVarResp =
+                    exchangeOAuthProviderCodeWithHttpInfo(oauthProviderExchangePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute exchangeOAuthProviderCode request with HTTP info returned
+         * @return ApiResponse&lt;SuccessResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth exchange result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SuccessResponse> executeWithHttpInfo() throws ApiException {
+            return exchangeOAuthProviderCodeWithHttpInfo(oauthProviderExchangePayload);
+        }
+
+        /**
+         * Execute exchangeOAuthProviderCode request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth exchange result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SuccessResponse> _callback)
+                throws ApiException {
+            return exchangeOAuthProviderCodeAsync(oauthProviderExchangePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getOAuthProvider
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Exchange OAuth provider authorization code
+     * Exchanges an OAuth authorization code for tokens and stores them for the current user.
+     * @param oauthProviderExchangePayload  (required)
+     * @return APIexchangeOAuthProviderCodeRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth provider. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth exchange result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getOAuthProviderCall(
+    public APIexchangeOAuthProviderCodeRequest exchangeOAuthProviderCode(
+            @jakarta.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload) {
+        return new APIexchangeOAuthProviderCodeRequest(oauthProviderExchangePayload);
+    }
+
+    private okhttp3.Call getOAuthProviderCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1094,66 +1275,14 @@ public class OAuthProvidersApi {
         return getOAuthProviderCall(id, _callback);
     }
 
-    /**
-     * Retrieve an OAuth provider
-     * Retrieves a single OAuth provider with sensitive client secret data redacted.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return OAuthProvider
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthProvider getOAuthProvider(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<OAuthProvider> localVarResp = getOAuthProviderWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an OAuth provider
-     * Retrieves a single OAuth provider with sensitive client secret data redacted.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;OAuthProvider&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthProvider> getOAuthProviderWithHttpInfo(
+    private ApiResponse<OAuthProvider> getOAuthProviderWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getOAuthProviderValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<OAuthProvider>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an OAuth provider (asynchronously)
-     * Retrieves a single OAuth provider with sensitive client secret data redacted.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getOAuthProviderAsync(
+    private okhttp3.Call getOAuthProviderAsync(
             @jakarta.annotation.Nonnull String id, final ApiCallback<OAuthProvider> _callback)
             throws ApiException {
 
@@ -1163,22 +1292,105 @@ public class OAuthProvidersApi {
         return localVarCall;
     }
 
+    public class APIgetOAuthProviderRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIgetOAuthProviderRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for getOAuthProvider
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getOAuthProviderCall(id, _callback);
+        }
+
+        /**
+         * Execute getOAuthProvider request
+         * @return OAuthProvider
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthProvider execute() throws ApiException {
+            ApiResponse<OAuthProvider> localVarResp = getOAuthProviderWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getOAuthProvider request with HTTP info returned
+         * @return ApiResponse&lt;OAuthProvider&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthProvider> executeWithHttpInfo() throws ApiException {
+            return getOAuthProviderWithHttpInfo(id);
+        }
+
+        /**
+         * Execute getOAuthProvider request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthProvider> _callback)
+                throws ApiException {
+            return getOAuthProviderAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for getOAuthProviderStatus
+     * Retrieve an OAuth provider
+     * Retrieves a single OAuth provider with sensitive client secret data redacted.  **Required permissions:** &#x60;project:settings_write&#x60;
      * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetOAuthProviderRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider authentication status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested OAuth provider. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getOAuthProviderStatusCall(
+    public APIgetOAuthProviderRequest getOAuthProvider(@jakarta.annotation.Nonnull String id) {
+        return new APIgetOAuthProviderRequest(id);
+    }
+
+    private okhttp3.Call getOAuthProviderStatusCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1248,66 +1460,14 @@ public class OAuthProvidersApi {
         return getOAuthProviderStatusCall(id, _callback);
     }
 
-    /**
-     * Get OAuth provider status
-     * Returns authentication status for the provider in the current project or user context.
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return OAuthProviderAuthStatus
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider authentication status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthProviderAuthStatus getOAuthProviderStatus(@jakarta.annotation.Nonnull String id)
-            throws ApiException {
-        ApiResponse<OAuthProviderAuthStatus> localVarResp = getOAuthProviderStatusWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get OAuth provider status
-     * Returns authentication status for the provider in the current project or user context.
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;OAuthProviderAuthStatus&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider authentication status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthProviderAuthStatus> getOAuthProviderStatusWithHttpInfo(
+    private ApiResponse<OAuthProviderAuthStatus> getOAuthProviderStatusWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getOAuthProviderStatusValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<OAuthProviderAuthStatus>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get OAuth provider status (asynchronously)
-     * Returns authentication status for the provider in the current project or user context.
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth provider authentication status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getOAuthProviderStatusAsync(
+    private okhttp3.Call getOAuthProviderStatusAsync(
             @jakarta.annotation.Nonnull String id,
             final ApiCallback<OAuthProviderAuthStatus> _callback)
             throws ApiException {
@@ -1318,22 +1478,107 @@ public class OAuthProvidersApi {
         return localVarCall;
     }
 
+    public class APIgetOAuthProviderStatusRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIgetOAuthProviderStatusRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for getOAuthProviderStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider authentication status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getOAuthProviderStatusCall(id, _callback);
+        }
+
+        /**
+         * Execute getOAuthProviderStatus request
+         * @return OAuthProviderAuthStatus
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider authentication status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthProviderAuthStatus execute() throws ApiException {
+            ApiResponse<OAuthProviderAuthStatus> localVarResp =
+                    getOAuthProviderStatusWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getOAuthProviderStatus request with HTTP info returned
+         * @return ApiResponse&lt;OAuthProviderAuthStatus&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider authentication status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthProviderAuthStatus> executeWithHttpInfo() throws ApiException {
+            return getOAuthProviderStatusWithHttpInfo(id);
+        }
+
+        /**
+         * Execute getOAuthProviderStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth provider authentication status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthProviderAuthStatus> _callback)
+                throws ApiException {
+            return getOAuthProviderStatusAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for getOAuthProviderToken
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get OAuth provider status
+     * Returns authentication status for the provider in the current project or user context.
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
+     * @return APIgetOAuthProviderStatusRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth access token response. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth provider authentication status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getOAuthProviderTokenCall(
+    public APIgetOAuthProviderStatusRequest getOAuthProviderStatus(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIgetOAuthProviderStatusRequest(id);
+    }
+
+    private okhttp3.Call getOAuthProviderTokenCall(
             @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1403,67 +1648,14 @@ public class OAuthProvidersApi {
         return getOAuthProviderTokenCall(id, _callback);
     }
 
-    /**
-     * Get an OAuth provider token
-     * Returns an access token for the configured OAuth provider.
-     * @param id  (required)
-     * @return OAuthProviderAccessTokenResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth access token response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthProviderAccessTokenResponse getOAuthProviderToken(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<OAuthProviderAccessTokenResponse> localVarResp =
-                getOAuthProviderTokenWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get an OAuth provider token
-     * Returns an access token for the configured OAuth provider.
-     * @param id  (required)
-     * @return ApiResponse&lt;OAuthProviderAccessTokenResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth access token response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthProviderAccessTokenResponse> getOAuthProviderTokenWithHttpInfo(
+    private ApiResponse<OAuthProviderAccessTokenResponse> getOAuthProviderTokenWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getOAuthProviderTokenValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<OAuthProviderAccessTokenResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get an OAuth provider token (asynchronously)
-     * Returns an access token for the configured OAuth provider.
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth access token response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getOAuthProviderTokenAsync(
+    private okhttp3.Call getOAuthProviderTokenAsync(
             @jakarta.annotation.Nonnull String id,
             final ApiCallback<OAuthProviderAccessTokenResponse> _callback)
             throws ApiException {
@@ -1474,21 +1666,108 @@ public class OAuthProvidersApi {
         return localVarCall;
     }
 
+    public class APIgetOAuthProviderTokenRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIgetOAuthProviderTokenRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for getOAuthProviderToken
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth access token response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getOAuthProviderTokenCall(id, _callback);
+        }
+
+        /**
+         * Execute getOAuthProviderToken request
+         * @return OAuthProviderAccessTokenResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth access token response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthProviderAccessTokenResponse execute() throws ApiException {
+            ApiResponse<OAuthProviderAccessTokenResponse> localVarResp =
+                    getOAuthProviderTokenWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getOAuthProviderToken request with HTTP info returned
+         * @return ApiResponse&lt;OAuthProviderAccessTokenResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth access token response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthProviderAccessTokenResponse> executeWithHttpInfo()
+                throws ApiException {
+            return getOAuthProviderTokenWithHttpInfo(id);
+        }
+
+        /**
+         * Execute getOAuthProviderToken request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth access token response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<OAuthProviderAccessTokenResponse> _callback) throws ApiException {
+            return getOAuthProviderTokenAsync(id, _callback);
+        }
+    }
+
     /**
-     * Build call for listOAuthProviders
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get an OAuth provider token
+     * Returns an access token for the configured OAuth provider.
+     * @param id  (required)
+     * @return APIgetOAuthProviderTokenRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth providers. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth access token response. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listOAuthProvidersCall(final ApiCallback _callback) throws ApiException {
+    public APIgetOAuthProviderTokenRequest getOAuthProviderToken(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIgetOAuthProviderTokenRequest(id);
+    }
+
+    private okhttp3.Call listOAuthProvidersCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1547,61 +1826,13 @@ public class OAuthProvidersApi {
         return listOAuthProvidersCall(_callback);
     }
 
-    /**
-     * List OAuth providers
-     * Lists OAuth providers configured for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return List&lt;OAuthProvider&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth providers. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<OAuthProvider> listOAuthProviders() throws ApiException {
-        ApiResponse<List<OAuthProvider>> localVarResp = listOAuthProvidersWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List OAuth providers
-     * Lists OAuth providers configured for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @return ApiResponse&lt;List&lt;OAuthProvider&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth providers. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<OAuthProvider>> listOAuthProvidersWithHttpInfo() throws ApiException {
+    private ApiResponse<List<OAuthProvider>> listOAuthProvidersWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listOAuthProvidersValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<OAuthProvider>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List OAuth providers (asynchronously)
-     * Lists OAuth providers configured for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth providers. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listOAuthProvidersAsync(final ApiCallback<List<OAuthProvider>> _callback)
+    private okhttp3.Call listOAuthProvidersAsync(final ApiCallback<List<OAuthProvider>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listOAuthProvidersValidateBeforeCall(_callback);
@@ -1610,23 +1841,101 @@ public class OAuthProvidersApi {
         return localVarCall;
     }
 
+    public class APIlistOAuthProvidersRequest {
+
+        private APIlistOAuthProvidersRequest() {}
+
+        /**
+         * Build call for listOAuthProviders
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth providers. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listOAuthProvidersCall(_callback);
+        }
+
+        /**
+         * Execute listOAuthProviders request
+         * @return List&lt;OAuthProvider&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth providers. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<OAuthProvider> execute() throws ApiException {
+            ApiResponse<List<OAuthProvider>> localVarResp = listOAuthProvidersWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listOAuthProviders request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;OAuthProvider&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth providers. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<OAuthProvider>> executeWithHttpInfo() throws ApiException {
+            return listOAuthProvidersWithHttpInfo();
+        }
+
+        /**
+         * Execute listOAuthProviders request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth providers. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<OAuthProvider>> _callback)
+                throws ApiException {
+            return listOAuthProvidersAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateOAuthProvider
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param updateOAuthProviderPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List OAuth providers
+     * Lists OAuth providers configured for the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @return APIlistOAuthProvidersRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated OAuth provider. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> OAuth providers. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateOAuthProviderCall(
+    public APIlistOAuthProvidersRequest listOAuthProviders() {
+        return new APIlistOAuthProvidersRequest();
+    }
+
+    private okhttp3.Call updateOAuthProviderCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload,
             final ApiCallback _callback)
@@ -1706,48 +2015,7 @@ public class OAuthProvidersApi {
         return updateOAuthProviderCall(id, updateOAuthProviderPayload, _callback);
     }
 
-    /**
-     * Update an OAuth provider
-     * Updates an existing OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param updateOAuthProviderPayload  (required)
-     * @return OAuthProvider
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated OAuth provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthProvider updateOAuthProvider(
-            @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload)
-            throws ApiException {
-        ApiResponse<OAuthProvider> localVarResp =
-                updateOAuthProviderWithHttpInfo(id, updateOAuthProviderPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an OAuth provider
-     * Updates an existing OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param updateOAuthProviderPayload  (required)
-     * @return ApiResponse&lt;OAuthProvider&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated OAuth provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthProvider> updateOAuthProviderWithHttpInfo(
+    private ApiResponse<OAuthProvider> updateOAuthProviderWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload)
             throws ApiException {
@@ -1757,24 +2025,7 @@ public class OAuthProvidersApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an OAuth provider (asynchronously)
-     * Updates an existing OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
-     * @param updateOAuthProviderPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated OAuth provider. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateOAuthProviderAsync(
+    private okhttp3.Call updateOAuthProviderAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload,
             final ApiCallback<OAuthProvider> _callback)
@@ -1785,5 +2036,113 @@ public class OAuthProvidersApi {
         Type localVarReturnType = new TypeToken<OAuthProvider>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateOAuthProviderRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateOAuthProviderPayload updateOAuthProviderPayload;
+
+        private APIupdateOAuthProviderRequest(
+                @jakarta.annotation.Nonnull String id,
+                @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload) {
+            this.id = id;
+            this.updateOAuthProviderPayload = updateOAuthProviderPayload;
+        }
+
+        /**
+         * Build call for updateOAuthProvider
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateOAuthProviderCall(id, updateOAuthProviderPayload, _callback);
+        }
+
+        /**
+         * Execute updateOAuthProvider request
+         * @return OAuthProvider
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthProvider execute() throws ApiException {
+            ApiResponse<OAuthProvider> localVarResp =
+                    updateOAuthProviderWithHttpInfo(id, updateOAuthProviderPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateOAuthProvider request with HTTP info returned
+         * @return ApiResponse&lt;OAuthProvider&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthProvider> executeWithHttpInfo() throws ApiException {
+            return updateOAuthProviderWithHttpInfo(id, updateOAuthProviderPayload);
+        }
+
+        /**
+         * Execute updateOAuthProvider request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated OAuth provider. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthProvider> _callback)
+                throws ApiException {
+            return updateOAuthProviderAsync(id, updateOAuthProviderPayload, _callback);
+        }
+    }
+
+    /**
+     * Update an OAuth provider
+     * Updates an existing OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
+     * @param updateOAuthProviderPayload  (required)
+     * @return APIupdateOAuthProviderRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated OAuth provider. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateOAuthProviderRequest updateOAuthProvider(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload) {
+        return new APIupdateOAuthProviderRequest(id, updateOAuthProviderPayload);
     }
 }

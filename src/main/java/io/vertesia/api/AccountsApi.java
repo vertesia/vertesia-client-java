@@ -73,22 +73,7 @@ public class AccountsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for acceptAccountInvite
-     * @param tokenId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite acceptance result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call acceptAccountInviteCall(
+    private okhttp3.Call acceptAccountInviteCall(
             @jakarta.annotation.Nonnull String tokenId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -160,67 +145,14 @@ public class AccountsApi {
         return acceptAccountInviteCall(tokenId, _callback);
     }
 
-    /**
-     * Accept an invite
-     * Accepts a pending invite token for the current interactive user.  **Required permissions:** &#x60;account:member&#x60;
-     * @param tokenId  (required)
-     * @return InviteAcceptanceResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite acceptance result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InviteAcceptanceResponse acceptAccountInvite(@jakarta.annotation.Nonnull String tokenId)
-            throws ApiException {
-        ApiResponse<InviteAcceptanceResponse> localVarResp =
-                acceptAccountInviteWithHttpInfo(tokenId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Accept an invite
-     * Accepts a pending invite token for the current interactive user.  **Required permissions:** &#x60;account:member&#x60;
-     * @param tokenId  (required)
-     * @return ApiResponse&lt;InviteAcceptanceResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite acceptance result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InviteAcceptanceResponse> acceptAccountInviteWithHttpInfo(
+    private ApiResponse<InviteAcceptanceResponse> acceptAccountInviteWithHttpInfo(
             @jakarta.annotation.Nonnull String tokenId) throws ApiException {
         okhttp3.Call localVarCall = acceptAccountInviteValidateBeforeCall(tokenId, null);
         Type localVarReturnType = new TypeToken<InviteAcceptanceResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Accept an invite (asynchronously)
-     * Accepts a pending invite token for the current interactive user.  **Required permissions:** &#x60;account:member&#x60;
-     * @param tokenId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite acceptance result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call acceptAccountInviteAsync(
+    private okhttp3.Call acceptAccountInviteAsync(
             @jakarta.annotation.Nonnull String tokenId,
             final ApiCallback<InviteAcceptanceResponse> _callback)
             throws ApiException {
@@ -231,22 +163,107 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIacceptAccountInviteRequest {
+        @jakarta.annotation.Nonnull private final String tokenId;
+
+        private APIacceptAccountInviteRequest(@jakarta.annotation.Nonnull String tokenId) {
+            this.tokenId = tokenId;
+        }
+
+        /**
+         * Build call for acceptAccountInvite
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite acceptance result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return acceptAccountInviteCall(tokenId, _callback);
+        }
+
+        /**
+         * Execute acceptAccountInvite request
+         * @return InviteAcceptanceResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite acceptance result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InviteAcceptanceResponse execute() throws ApiException {
+            ApiResponse<InviteAcceptanceResponse> localVarResp =
+                    acceptAccountInviteWithHttpInfo(tokenId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute acceptAccountInvite request with HTTP info returned
+         * @return ApiResponse&lt;InviteAcceptanceResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite acceptance result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InviteAcceptanceResponse> executeWithHttpInfo() throws ApiException {
+            return acceptAccountInviteWithHttpInfo(tokenId);
+        }
+
+        /**
+         * Execute acceptAccountInvite request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite acceptance result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InviteAcceptanceResponse> _callback)
+                throws ApiException {
+            return acceptAccountInviteAsync(tokenId, _callback);
+        }
+    }
+
     /**
-     * Build call for createAccountInvite
-     * @param inviteUserRequestPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Accept an invite
+     * Accepts a pending invite token for the current interactive user.  **Required permissions:** &#x60;account:member&#x60;
+     * @param tokenId  (required)
+     * @return APIacceptAccountInviteRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite creation result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Invite acceptance result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createAccountInviteCall(
+    public APIacceptAccountInviteRequest acceptAccountInvite(
+            @jakarta.annotation.Nonnull String tokenId) {
+        return new APIacceptAccountInviteRequest(tokenId);
+    }
+
+    private okhttp3.Call createAccountInviteCall(
             @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -316,45 +333,7 @@ public class AccountsApi {
         return createAccountInviteCall(inviteUserRequestPayload, _callback);
     }
 
-    /**
-     * Create an invite
-     * Creates a user invite for the current project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param inviteUserRequestPayload  (required)
-     * @return InviteUserResponsePayload
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite creation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InviteUserResponsePayload createAccountInvite(
-            @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload)
-            throws ApiException {
-        ApiResponse<InviteUserResponsePayload> localVarResp =
-                createAccountInviteWithHttpInfo(inviteUserRequestPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an invite
-     * Creates a user invite for the current project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param inviteUserRequestPayload  (required)
-     * @return ApiResponse&lt;InviteUserResponsePayload&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite creation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InviteUserResponsePayload> createAccountInviteWithHttpInfo(
+    private ApiResponse<InviteUserResponsePayload> createAccountInviteWithHttpInfo(
             @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -363,23 +342,7 @@ public class AccountsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an invite (asynchronously)
-     * Creates a user invite for the current project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param inviteUserRequestPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite creation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAccountInviteAsync(
+    private okhttp3.Call createAccountInviteAsync(
             @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload,
             final ApiCallback<InviteUserResponsePayload> _callback)
             throws ApiException {
@@ -391,22 +354,108 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIcreateAccountInviteRequest {
+        @jakarta.annotation.Nonnull private final InviteUserRequestPayload inviteUserRequestPayload;
+
+        private APIcreateAccountInviteRequest(
+                @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload) {
+            this.inviteUserRequestPayload = inviteUserRequestPayload;
+        }
+
+        /**
+         * Build call for createAccountInvite
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite creation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createAccountInviteCall(inviteUserRequestPayload, _callback);
+        }
+
+        /**
+         * Execute createAccountInvite request
+         * @return InviteUserResponsePayload
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite creation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InviteUserResponsePayload execute() throws ApiException {
+            ApiResponse<InviteUserResponsePayload> localVarResp =
+                    createAccountInviteWithHttpInfo(inviteUserRequestPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createAccountInvite request with HTTP info returned
+         * @return ApiResponse&lt;InviteUserResponsePayload&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite creation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InviteUserResponsePayload> executeWithHttpInfo() throws ApiException {
+            return createAccountInviteWithHttpInfo(inviteUserRequestPayload);
+        }
+
+        /**
+         * Execute createAccountInvite request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite creation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InviteUserResponsePayload> _callback)
+                throws ApiException {
+            return createAccountInviteAsync(inviteUserRequestPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for declineAccountInvite
-     * @param tokenId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an invite
+     * Creates a user invite for the current project.  **Required permissions:** &#x60;project:admin&#x60;
+     * @param inviteUserRequestPayload  (required)
+     * @return APIcreateAccountInviteRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite decline result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Invite creation result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call declineAccountInviteCall(
+    public APIcreateAccountInviteRequest createAccountInvite(
+            @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload) {
+        return new APIcreateAccountInviteRequest(inviteUserRequestPayload);
+    }
+
+    private okhttp3.Call declineAccountInviteCall(
             @jakarta.annotation.Nonnull String tokenId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -478,66 +527,14 @@ public class AccountsApi {
         return declineAccountInviteCall(tokenId, _callback);
     }
 
-    /**
-     * Decline an invite
-     * Declines and deletes a pending invite token.  **Required permissions:** &#x60;account:member&#x60;
-     * @param tokenId  (required)
-     * @return InviteDeclineResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite decline result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InviteDeclineResponse declineAccountInvite(@jakarta.annotation.Nonnull String tokenId)
-            throws ApiException {
-        ApiResponse<InviteDeclineResponse> localVarResp = declineAccountInviteWithHttpInfo(tokenId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Decline an invite
-     * Declines and deletes a pending invite token.  **Required permissions:** &#x60;account:member&#x60;
-     * @param tokenId  (required)
-     * @return ApiResponse&lt;InviteDeclineResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite decline result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InviteDeclineResponse> declineAccountInviteWithHttpInfo(
+    private ApiResponse<InviteDeclineResponse> declineAccountInviteWithHttpInfo(
             @jakarta.annotation.Nonnull String tokenId) throws ApiException {
         okhttp3.Call localVarCall = declineAccountInviteValidateBeforeCall(tokenId, null);
         Type localVarReturnType = new TypeToken<InviteDeclineResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Decline an invite (asynchronously)
-     * Declines and deletes a pending invite token.  **Required permissions:** &#x60;account:member&#x60;
-     * @param tokenId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Invite decline result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call declineAccountInviteAsync(
+    private okhttp3.Call declineAccountInviteAsync(
             @jakarta.annotation.Nonnull String tokenId,
             final ApiCallback<InviteDeclineResponse> _callback)
             throws ApiException {
@@ -548,21 +545,107 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIdeclineAccountInviteRequest {
+        @jakarta.annotation.Nonnull private final String tokenId;
+
+        private APIdeclineAccountInviteRequest(@jakarta.annotation.Nonnull String tokenId) {
+            this.tokenId = tokenId;
+        }
+
+        /**
+         * Build call for declineAccountInvite
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite decline result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return declineAccountInviteCall(tokenId, _callback);
+        }
+
+        /**
+         * Execute declineAccountInvite request
+         * @return InviteDeclineResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite decline result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InviteDeclineResponse execute() throws ApiException {
+            ApiResponse<InviteDeclineResponse> localVarResp =
+                    declineAccountInviteWithHttpInfo(tokenId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute declineAccountInvite request with HTTP info returned
+         * @return ApiResponse&lt;InviteDeclineResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite decline result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InviteDeclineResponse> executeWithHttpInfo() throws ApiException {
+            return declineAccountInviteWithHttpInfo(tokenId);
+        }
+
+        /**
+         * Execute declineAccountInvite request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Invite decline result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InviteDeclineResponse> _callback)
+                throws ApiException {
+            return declineAccountInviteAsync(tokenId, _callback);
+        }
+    }
+
     /**
-     * Build call for getAccountOnboardingProgress
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Decline an invite
+     * Declines and deletes a pending invite token.  **Required permissions:** &#x60;account:member&#x60;
+     * @param tokenId  (required)
+     * @return APIdeclineAccountInviteRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Onboarding progress. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Invite decline result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAccountOnboardingProgressCall(final ApiCallback _callback)
+    public APIdeclineAccountInviteRequest declineAccountInvite(
+            @jakarta.annotation.Nonnull String tokenId) {
+        return new APIdeclineAccountInviteRequest(tokenId);
+    }
+
+    private okhttp3.Call getAccountOnboardingProgressCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -622,62 +705,14 @@ public class AccountsApi {
         return getAccountOnboardingProgressCall(_callback);
     }
 
-    /**
-     * Get onboarding progress
-     * Returns onboarding progress for the current account and project context.  **Required permissions:** &#x60;account:member&#x60;
-     * @return OnboardingProgress
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Onboarding progress. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OnboardingProgress getAccountOnboardingProgress() throws ApiException {
-        ApiResponse<OnboardingProgress> localVarResp = getAccountOnboardingProgressWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get onboarding progress
-     * Returns onboarding progress for the current account and project context.  **Required permissions:** &#x60;account:member&#x60;
-     * @return ApiResponse&lt;OnboardingProgress&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Onboarding progress. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OnboardingProgress> getAccountOnboardingProgressWithHttpInfo()
+    private ApiResponse<OnboardingProgress> getAccountOnboardingProgressWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = getAccountOnboardingProgressValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<OnboardingProgress>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get onboarding progress (asynchronously)
-     * Returns onboarding progress for the current account and project context.  **Required permissions:** &#x60;account:member&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Onboarding progress. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAccountOnboardingProgressAsync(
+    private okhttp3.Call getAccountOnboardingProgressAsync(
             final ApiCallback<OnboardingProgress> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAccountOnboardingProgressValidateBeforeCall(_callback);
@@ -686,21 +721,102 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIgetAccountOnboardingProgressRequest {
+
+        private APIgetAccountOnboardingProgressRequest() {}
+
+        /**
+         * Build call for getAccountOnboardingProgress
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Onboarding progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAccountOnboardingProgressCall(_callback);
+        }
+
+        /**
+         * Execute getAccountOnboardingProgress request
+         * @return OnboardingProgress
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Onboarding progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OnboardingProgress execute() throws ApiException {
+            ApiResponse<OnboardingProgress> localVarResp =
+                    getAccountOnboardingProgressWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAccountOnboardingProgress request with HTTP info returned
+         * @return ApiResponse&lt;OnboardingProgress&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Onboarding progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OnboardingProgress> executeWithHttpInfo() throws ApiException {
+            return getAccountOnboardingProgressWithHttpInfo();
+        }
+
+        /**
+         * Execute getAccountOnboardingProgress request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Onboarding progress. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OnboardingProgress> _callback)
+                throws ApiException {
+            return getAccountOnboardingProgressAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getCurrentAccount
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get onboarding progress
+     * Returns onboarding progress for the current account and project context.  **Required permissions:** &#x60;account:member&#x60;
+     * @return APIgetAccountOnboardingProgressRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current account. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Onboarding progress. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getCurrentAccountCall(final ApiCallback _callback) throws ApiException {
+    public APIgetAccountOnboardingProgressRequest getAccountOnboardingProgress() {
+        return new APIgetAccountOnboardingProgressRequest();
+    }
+
+    private okhttp3.Call getCurrentAccountCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -759,61 +875,13 @@ public class AccountsApi {
         return getCurrentAccountCall(_callback);
     }
 
-    /**
-     * Retrieve the current account
-     * Retrieves the current authenticated account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @return Account
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current account. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Account getCurrentAccount() throws ApiException {
-        ApiResponse<Account> localVarResp = getCurrentAccountWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve the current account
-     * Retrieves the current authenticated account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @return ApiResponse&lt;Account&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current account. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Account> getCurrentAccountWithHttpInfo() throws ApiException {
+    private ApiResponse<Account> getCurrentAccountWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getCurrentAccountValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<Account>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve the current account (asynchronously)
-     * Retrieves the current authenticated account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current account. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getCurrentAccountAsync(final ApiCallback<Account> _callback)
+    private okhttp3.Call getCurrentAccountAsync(final ApiCallback<Account> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getCurrentAccountValidateBeforeCall(_callback);
@@ -822,21 +890,100 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIgetCurrentAccountRequest {
+
+        private APIgetCurrentAccountRequest() {}
+
+        /**
+         * Build call for getCurrentAccount
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current account. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCurrentAccountCall(_callback);
+        }
+
+        /**
+         * Execute getCurrentAccount request
+         * @return Account
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current account. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Account execute() throws ApiException {
+            ApiResponse<Account> localVarResp = getCurrentAccountWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCurrentAccount request with HTTP info returned
+         * @return ApiResponse&lt;Account&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current account. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Account> executeWithHttpInfo() throws ApiException {
+            return getCurrentAccountWithHttpInfo();
+        }
+
+        /**
+         * Execute getCurrentAccount request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The current account. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Account> _callback) throws ApiException {
+            return getCurrentAccountAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getStripeBillingStatus
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve the current account
+     * Retrieves the current authenticated account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
+     * @return APIgetCurrentAccountRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stripe billing status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The current account. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getStripeBillingStatusCall(final ApiCallback _callback)
+    public APIgetCurrentAccountRequest getCurrentAccount() {
+        return new APIgetCurrentAccountRequest();
+    }
+
+    private okhttp3.Call getStripeBillingStatusCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -896,63 +1043,14 @@ public class AccountsApi {
         return getStripeBillingStatusCall(_callback);
     }
 
-    /**
-     * Get Stripe billing status
-     * Returns Stripe billing portal availability and status for the current account.  **Required permissions:** Any of &#x60;account:billing&#x60;, &#x60;account:billing:status_read&#x60;
-     * @return StripeBillingStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stripe billing status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public StripeBillingStatusResponse getStripeBillingStatus() throws ApiException {
-        ApiResponse<StripeBillingStatusResponse> localVarResp =
-                getStripeBillingStatusWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get Stripe billing status
-     * Returns Stripe billing portal availability and status for the current account.  **Required permissions:** Any of &#x60;account:billing&#x60;, &#x60;account:billing:status_read&#x60;
-     * @return ApiResponse&lt;StripeBillingStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stripe billing status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<StripeBillingStatusResponse> getStripeBillingStatusWithHttpInfo()
+    private ApiResponse<StripeBillingStatusResponse> getStripeBillingStatusWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = getStripeBillingStatusValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<StripeBillingStatusResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get Stripe billing status (asynchronously)
-     * Returns Stripe billing portal availability and status for the current account.  **Required permissions:** Any of &#x60;account:billing&#x60;, &#x60;account:billing:status_read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stripe billing status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getStripeBillingStatusAsync(
+    private okhttp3.Call getStripeBillingStatusAsync(
             final ApiCallback<StripeBillingStatusResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getStripeBillingStatusValidateBeforeCall(_callback);
@@ -961,21 +1059,102 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIgetStripeBillingStatusRequest {
+
+        private APIgetStripeBillingStatusRequest() {}
+
+        /**
+         * Build call for getStripeBillingStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stripe billing status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getStripeBillingStatusCall(_callback);
+        }
+
+        /**
+         * Execute getStripeBillingStatus request
+         * @return StripeBillingStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stripe billing status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public StripeBillingStatusResponse execute() throws ApiException {
+            ApiResponse<StripeBillingStatusResponse> localVarResp =
+                    getStripeBillingStatusWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getStripeBillingStatus request with HTTP info returned
+         * @return ApiResponse&lt;StripeBillingStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stripe billing status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<StripeBillingStatusResponse> executeWithHttpInfo() throws ApiException {
+            return getStripeBillingStatusWithHttpInfo();
+        }
+
+        /**
+         * Execute getStripeBillingStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stripe billing status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<StripeBillingStatusResponse> _callback)
+                throws ApiException {
+            return getStripeBillingStatusAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listAccountInvites
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get Stripe billing status
+     * Returns Stripe billing portal availability and status for the current account.  **Required permissions:** Any of &#x60;account:billing&#x60;, &#x60;account:billing:status_read&#x60;
+     * @return APIgetStripeBillingStatusRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account invites. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Stripe billing status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAccountInvitesCall(final ApiCallback _callback) throws ApiException {
+    public APIgetStripeBillingStatusRequest getStripeBillingStatus() {
+        return new APIgetStripeBillingStatusRequest();
+    }
+
+    private okhttp3.Call listAccountInvitesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1034,41 +1213,7 @@ public class AccountsApi {
         return listAccountInvitesCall(_callback);
     }
 
-    /**
-     * List account invites
-     * Lists pending invites across the current account.  **Required permissions:** &#x60;account:admin&#x60;
-     * @return List&lt;TransientTokenUserInviteTokenData&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account invites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<TransientTokenUserInviteTokenData> listAccountInvites() throws ApiException {
-        ApiResponse<List<TransientTokenUserInviteTokenData>> localVarResp =
-                listAccountInvitesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List account invites
-     * Lists pending invites across the current account.  **Required permissions:** &#x60;account:admin&#x60;
-     * @return ApiResponse&lt;List&lt;TransientTokenUserInviteTokenData&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account invites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<TransientTokenUserInviteTokenData>> listAccountInvitesWithHttpInfo()
+    private ApiResponse<List<TransientTokenUserInviteTokenData>> listAccountInvitesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listAccountInvitesValidateBeforeCall(null);
         Type localVarReturnType =
@@ -1076,22 +1221,7 @@ public class AccountsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List account invites (asynchronously)
-     * Lists pending invites across the current account.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account invites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAccountInvitesAsync(
+    private okhttp3.Call listAccountInvitesAsync(
             final ApiCallback<List<TransientTokenUserInviteTokenData>> _callback)
             throws ApiException {
 
@@ -1102,21 +1232,104 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIlistAccountInvitesRequest {
+
+        private APIlistAccountInvitesRequest() {}
+
+        /**
+         * Build call for listAccountInvites
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAccountInvitesCall(_callback);
+        }
+
+        /**
+         * Execute listAccountInvites request
+         * @return List&lt;TransientTokenUserInviteTokenData&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<TransientTokenUserInviteTokenData> execute() throws ApiException {
+            ApiResponse<List<TransientTokenUserInviteTokenData>> localVarResp =
+                    listAccountInvitesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAccountInvites request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;TransientTokenUserInviteTokenData&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<TransientTokenUserInviteTokenData>> executeWithHttpInfo()
+                throws ApiException {
+            return listAccountInvitesWithHttpInfo();
+        }
+
+        /**
+         * Execute listAccountInvites request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<TransientTokenUserInviteTokenData>> _callback)
+                throws ApiException {
+            return listAccountInvitesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listAccountMembers
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List account invites
+     * Lists pending invites across the current account.  **Required permissions:** &#x60;account:admin&#x60;
+     * @return APIlistAccountInvitesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account members. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account invites. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAccountMembersCall(final ApiCallback _callback) throws ApiException {
+    public APIlistAccountInvitesRequest listAccountInvites() {
+        return new APIlistAccountInvitesRequest();
+    }
+
+    private okhttp3.Call listAccountMembersCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1175,61 +1388,13 @@ public class AccountsApi {
         return listAccountMembersCall(_callback);
     }
 
-    /**
-     * List account members
-     * Lists members who have access to the current account or its projects.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
-     * @return List&lt;User&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<User> listAccountMembers() throws ApiException {
-        ApiResponse<List<User>> localVarResp = listAccountMembersWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List account members
-     * Lists members who have access to the current account or its projects.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
-     * @return ApiResponse&lt;List&lt;User&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<User>> listAccountMembersWithHttpInfo() throws ApiException {
+    private ApiResponse<List<User>> listAccountMembersWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listAccountMembersValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<User>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List account members (asynchronously)
-     * Lists members who have access to the current account or its projects.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAccountMembersAsync(final ApiCallback<List<User>> _callback)
+    private okhttp3.Call listAccountMembersAsync(final ApiCallback<List<User>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listAccountMembersValidateBeforeCall(_callback);
@@ -1238,21 +1403,101 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIlistAccountMembersRequest {
+
+        private APIlistAccountMembersRequest() {}
+
+        /**
+         * Build call for listAccountMembers
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAccountMembersCall(_callback);
+        }
+
+        /**
+         * Execute listAccountMembers request
+         * @return List&lt;User&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<User> execute() throws ApiException {
+            ApiResponse<List<User>> localVarResp = listAccountMembersWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAccountMembers request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;User&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<User>> executeWithHttpInfo() throws ApiException {
+            return listAccountMembersWithHttpInfo();
+        }
+
+        /**
+         * Execute listAccountMembers request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<User>> _callback)
+                throws ApiException {
+            return listAccountMembersAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listAccountProjects
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List account members
+     * Lists members who have access to the current account or its projects.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
+     * @return APIlistAccountMembersRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account projects. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account members. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAccountProjectsCall(final ApiCallback _callback) throws ApiException {
+    public APIlistAccountMembersRequest listAccountMembers() {
+        return new APIlistAccountMembersRequest();
+    }
+
+    private okhttp3.Call listAccountProjectsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1311,62 +1556,14 @@ public class AccountsApi {
         return listAccountProjectsCall(_callback);
     }
 
-    /**
-     * List account projects
-     * Lists projects in the current account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @return AccountProjectsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account projects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AccountProjectsResponse listAccountProjects() throws ApiException {
-        ApiResponse<AccountProjectsResponse> localVarResp = listAccountProjectsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List account projects
-     * Lists projects in the current account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @return ApiResponse&lt;AccountProjectsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account projects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AccountProjectsResponse> listAccountProjectsWithHttpInfo()
+    private ApiResponse<AccountProjectsResponse> listAccountProjectsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listAccountProjectsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<AccountProjectsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List account projects (asynchronously)
-     * Lists projects in the current account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Account projects. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAccountProjectsAsync(
+    private okhttp3.Call listAccountProjectsAsync(
             final ApiCallback<AccountProjectsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listAccountProjectsValidateBeforeCall(_callback);
@@ -1375,21 +1572,101 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIlistAccountProjectsRequest {
+
+        private APIlistAccountProjectsRequest() {}
+
+        /**
+         * Build call for listAccountProjects
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAccountProjectsCall(_callback);
+        }
+
+        /**
+         * Execute listAccountProjects request
+         * @return AccountProjectsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AccountProjectsResponse execute() throws ApiException {
+            ApiResponse<AccountProjectsResponse> localVarResp = listAccountProjectsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAccountProjects request with HTTP info returned
+         * @return ApiResponse&lt;AccountProjectsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AccountProjectsResponse> executeWithHttpInfo() throws ApiException {
+            return listAccountProjectsWithHttpInfo();
+        }
+
+        /**
+         * Execute listAccountProjects request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Account projects. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AccountProjectsResponse> _callback)
+                throws ApiException {
+            return listAccountProjectsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listProjectInvites
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List account projects
+     * Lists projects in the current account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
+     * @return APIlistAccountProjectsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project invites. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account projects. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectInvitesCall(final ApiCallback _callback) throws ApiException {
+    public APIlistAccountProjectsRequest listAccountProjects() {
+        return new APIlistAccountProjectsRequest();
+    }
+
+    private okhttp3.Call listProjectInvitesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1448,41 +1725,7 @@ public class AccountsApi {
         return listProjectInvitesCall(_callback);
     }
 
-    /**
-     * List project invites
-     * Lists pending invites for the current project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @return List&lt;TransientTokenUserInviteTokenData&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project invites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<TransientTokenUserInviteTokenData> listProjectInvites() throws ApiException {
-        ApiResponse<List<TransientTokenUserInviteTokenData>> localVarResp =
-                listProjectInvitesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List project invites
-     * Lists pending invites for the current project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @return ApiResponse&lt;List&lt;TransientTokenUserInviteTokenData&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project invites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<TransientTokenUserInviteTokenData>> listProjectInvitesWithHttpInfo()
+    private ApiResponse<List<TransientTokenUserInviteTokenData>> listProjectInvitesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listProjectInvitesValidateBeforeCall(null);
         Type localVarReturnType =
@@ -1490,22 +1733,7 @@ public class AccountsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List project invites (asynchronously)
-     * Lists pending invites for the current project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project invites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectInvitesAsync(
+    private okhttp3.Call listProjectInvitesAsync(
             final ApiCallback<List<TransientTokenUserInviteTokenData>> _callback)
             throws ApiException {
 
@@ -1516,21 +1744,104 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIlistProjectInvitesRequest {
+
+        private APIlistProjectInvitesRequest() {}
+
+        /**
+         * Build call for listProjectInvites
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectInvitesCall(_callback);
+        }
+
+        /**
+         * Execute listProjectInvites request
+         * @return List&lt;TransientTokenUserInviteTokenData&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<TransientTokenUserInviteTokenData> execute() throws ApiException {
+            ApiResponse<List<TransientTokenUserInviteTokenData>> localVarResp =
+                    listProjectInvitesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjectInvites request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;TransientTokenUserInviteTokenData&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<TransientTokenUserInviteTokenData>> executeWithHttpInfo()
+                throws ApiException {
+            return listProjectInvitesWithHttpInfo();
+        }
+
+        /**
+         * Execute listProjectInvites request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<TransientTokenUserInviteTokenData>> _callback)
+                throws ApiException {
+            return listProjectInvitesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listUserInvites
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List project invites
+     * Lists pending invites for the current project.  **Required permissions:** &#x60;project:admin&#x60;
+     * @return APIlistProjectInvitesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending invites. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Project invites. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listUserInvitesCall(final ApiCallback _callback) throws ApiException {
+    public APIlistProjectInvitesRequest listProjectInvites() {
+        return new APIlistProjectInvitesRequest();
+    }
+
+    private okhttp3.Call listUserInvitesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1589,41 +1900,7 @@ public class AccountsApi {
         return listUserInvitesCall(_callback);
     }
 
-    /**
-     * List pending invites for the current user
-     * Lists pending account or project invites that apply to the current user.  **Required permissions:** &#x60;account:member&#x60;
-     * @return List&lt;TransientTokenUserInviteTokenData&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending invites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<TransientTokenUserInviteTokenData> listUserInvites() throws ApiException {
-        ApiResponse<List<TransientTokenUserInviteTokenData>> localVarResp =
-                listUserInvitesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List pending invites for the current user
-     * Lists pending account or project invites that apply to the current user.  **Required permissions:** &#x60;account:member&#x60;
-     * @return ApiResponse&lt;List&lt;TransientTokenUserInviteTokenData&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending invites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<TransientTokenUserInviteTokenData>> listUserInvitesWithHttpInfo()
+    private ApiResponse<List<TransientTokenUserInviteTokenData>> listUserInvitesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listUserInvitesValidateBeforeCall(null);
         Type localVarReturnType =
@@ -1631,22 +1908,7 @@ public class AccountsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List pending invites for the current user (asynchronously)
-     * Lists pending account or project invites that apply to the current user.  **Required permissions:** &#x60;account:member&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pending invites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listUserInvitesAsync(
+    private okhttp3.Call listUserInvitesAsync(
             final ApiCallback<List<TransientTokenUserInviteTokenData>> _callback)
             throws ApiException {
 
@@ -1657,22 +1919,104 @@ public class AccountsApi {
         return localVarCall;
     }
 
+    public class APIlistUserInvitesRequest {
+
+        private APIlistUserInvitesRequest() {}
+
+        /**
+         * Build call for listUserInvites
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listUserInvitesCall(_callback);
+        }
+
+        /**
+         * Execute listUserInvites request
+         * @return List&lt;TransientTokenUserInviteTokenData&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<TransientTokenUserInviteTokenData> execute() throws ApiException {
+            ApiResponse<List<TransientTokenUserInviteTokenData>> localVarResp =
+                    listUserInvitesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listUserInvites request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;TransientTokenUserInviteTokenData&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<TransientTokenUserInviteTokenData>> executeWithHttpInfo()
+                throws ApiException {
+            return listUserInvitesWithHttpInfo();
+        }
+
+        /**
+         * Execute listUserInvites request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pending invites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<TransientTokenUserInviteTokenData>> _callback)
+                throws ApiException {
+            return listUserInvitesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateCurrentAccount
-     * @param updateAccountPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List pending invites for the current user
+     * Lists pending account or project invites that apply to the current user.  **Required permissions:** &#x60;account:member&#x60;
+     * @return APIlistUserInvitesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated account. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Pending invites. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateCurrentAccountCall(
+    public APIlistUserInvitesRequest listUserInvites() {
+        return new APIlistUserInvitesRequest();
+    }
+
+    private okhttp3.Call updateCurrentAccountCall(
             @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1742,44 +2086,7 @@ public class AccountsApi {
         return updateCurrentAccountCall(updateAccountPayload, _callback);
     }
 
-    /**
-     * Update the current account
-     * Updates account settings such as name, email domains, and billing configuration.  **Required permissions:** &#x60;account:write&#x60;
-     * @param updateAccountPayload  (required)
-     * @return Account
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated account. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Account updateCurrentAccount(
-            @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload)
-            throws ApiException {
-        ApiResponse<Account> localVarResp = updateCurrentAccountWithHttpInfo(updateAccountPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update the current account
-     * Updates account settings such as name, email domains, and billing configuration.  **Required permissions:** &#x60;account:write&#x60;
-     * @param updateAccountPayload  (required)
-     * @return ApiResponse&lt;Account&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated account. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Account> updateCurrentAccountWithHttpInfo(
+    private ApiResponse<Account> updateCurrentAccountWithHttpInfo(
             @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1788,23 +2095,7 @@ public class AccountsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update the current account (asynchronously)
-     * Updates account settings such as name, email domains, and billing configuration.  **Required permissions:** &#x60;account:write&#x60;
-     * @param updateAccountPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated account. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateCurrentAccountAsync(
+    private okhttp3.Call updateCurrentAccountAsync(
             @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload,
             final ApiCallback<Account> _callback)
             throws ApiException {
@@ -1814,5 +2105,105 @@ public class AccountsApi {
         Type localVarReturnType = new TypeToken<Account>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateCurrentAccountRequest {
+        @jakarta.annotation.Nonnull private final UpdateAccountPayload updateAccountPayload;
+
+        private APIupdateCurrentAccountRequest(
+                @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload) {
+            this.updateAccountPayload = updateAccountPayload;
+        }
+
+        /**
+         * Build call for updateCurrentAccount
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated account. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateCurrentAccountCall(updateAccountPayload, _callback);
+        }
+
+        /**
+         * Execute updateCurrentAccount request
+         * @return Account
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated account. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Account execute() throws ApiException {
+            ApiResponse<Account> localVarResp =
+                    updateCurrentAccountWithHttpInfo(updateAccountPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateCurrentAccount request with HTTP info returned
+         * @return ApiResponse&lt;Account&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated account. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Account> executeWithHttpInfo() throws ApiException {
+            return updateCurrentAccountWithHttpInfo(updateAccountPayload);
+        }
+
+        /**
+         * Execute updateCurrentAccount request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated account. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Account> _callback) throws ApiException {
+            return updateCurrentAccountAsync(updateAccountPayload, _callback);
+        }
+    }
+
+    /**
+     * Update the current account
+     * Updates account settings such as name, email domains, and billing configuration.  **Required permissions:** &#x60;account:write&#x60;
+     * @param updateAccountPayload  (required)
+     * @return APIupdateCurrentAccountRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated account. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateCurrentAccountRequest updateCurrentAccount(
+            @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload) {
+        return new APIupdateCurrentAccountRequest(updateAccountPayload);
     }
 }

@@ -75,23 +75,7 @@ public class ProcessesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for cancelProcessTestRun
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call cancelProcessTestRunCall(
+    private okhttp3.Call cancelProcessTestRunCall(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull String runId,
             final ApiCallback _callback)
@@ -176,47 +160,7 @@ public class ProcessesApi {
         return cancelProcessTestRunCall(processId, runId, _callback);
     }
 
-    /**
-     * Cancel process test run
-     * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @return ProcessTestRun
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessTestRun cancelProcessTestRun(
-            @jakarta.annotation.Nonnull String processId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        ApiResponse<ProcessTestRun> localVarResp =
-                cancelProcessTestRunWithHttpInfo(processId, runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Cancel process test run
-     * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;ProcessTestRun&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessTestRun> cancelProcessTestRunWithHttpInfo(
+    private ApiResponse<ProcessTestRun> cancelProcessTestRunWithHttpInfo(
             @jakarta.annotation.Nonnull String processId, @jakarta.annotation.Nonnull String runId)
             throws ApiException {
         okhttp3.Call localVarCall = cancelProcessTestRunValidateBeforeCall(processId, runId, null);
@@ -224,24 +168,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Cancel process test run (asynchronously)
-     * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call cancelProcessTestRunAsync(
+    private okhttp3.Call cancelProcessTestRunAsync(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull String runId,
             final ApiCallback<ProcessTestRun> _callback)
@@ -254,12 +181,97 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIcancelProcessTestRunRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+        @jakarta.annotation.Nonnull private final String runId;
+
+        private APIcancelProcessTestRunRequest(
+                @jakarta.annotation.Nonnull String processId,
+                @jakarta.annotation.Nonnull String runId) {
+            this.processId = processId;
+            this.runId = runId;
+        }
+
+        /**
+         * Build call for cancelProcessTestRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return cancelProcessTestRunCall(processId, runId, _callback);
+        }
+
+        /**
+         * Execute cancelProcessTestRun request
+         * @return ProcessTestRun
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessTestRun execute() throws ApiException {
+            ApiResponse<ProcessTestRun> localVarResp =
+                    cancelProcessTestRunWithHttpInfo(processId, runId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute cancelProcessTestRun request with HTTP info returned
+         * @return ApiResponse&lt;ProcessTestRun&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessTestRun> executeWithHttpInfo() throws ApiException {
+            return cancelProcessTestRunWithHttpInfo(processId, runId);
+        }
+
+        /**
+         * Execute cancelProcessTestRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessTestRun> _callback)
+                throws ApiException {
+            return cancelProcessTestRunAsync(processId, runId, _callback);
+        }
+    }
+
     /**
-     * Build call for cancelProcessTestRunById
+     * Cancel process test run
+     * **Required permissions:** &#x60;workflow:run&#x60;
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIcancelProcessTestRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -269,7 +281,13 @@ public class ProcessesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call cancelProcessTestRunByIdCall(
+    public APIcancelProcessTestRunRequest cancelProcessTestRun(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIcancelProcessTestRunRequest(processId, runId);
+    }
+
+    private okhttp3.Call cancelProcessTestRunByIdCall(
             @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -341,66 +359,14 @@ public class ProcessesApi {
         return cancelProcessTestRunByIdCall(runId, _callback);
     }
 
-    /**
-     * Cancel a process test run by id
-     * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @return ProcessTestRun
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessTestRun cancelProcessTestRunById(@jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        ApiResponse<ProcessTestRun> localVarResp = cancelProcessTestRunByIdWithHttpInfo(runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Cancel a process test run by id
-     * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;ProcessTestRun&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessTestRun> cancelProcessTestRunByIdWithHttpInfo(
+    private ApiResponse<ProcessTestRun> cancelProcessTestRunByIdWithHttpInfo(
             @jakarta.annotation.Nonnull String runId) throws ApiException {
         okhttp3.Call localVarCall = cancelProcessTestRunByIdValidateBeforeCall(runId, null);
         Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Cancel a process test run by id (asynchronously)
-     * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call cancelProcessTestRunByIdAsync(
+    private okhttp3.Call cancelProcessTestRunByIdAsync(
             @jakarta.annotation.Nonnull String runId, final ApiCallback<ProcessTestRun> _callback)
             throws ApiException {
 
@@ -410,22 +376,106 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIcancelProcessTestRunByIdRequest {
+        @jakarta.annotation.Nonnull private final String runId;
+
+        private APIcancelProcessTestRunByIdRequest(@jakarta.annotation.Nonnull String runId) {
+            this.runId = runId;
+        }
+
+        /**
+         * Build call for cancelProcessTestRunById
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return cancelProcessTestRunByIdCall(runId, _callback);
+        }
+
+        /**
+         * Execute cancelProcessTestRunById request
+         * @return ProcessTestRun
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessTestRun execute() throws ApiException {
+            ApiResponse<ProcessTestRun> localVarResp = cancelProcessTestRunByIdWithHttpInfo(runId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute cancelProcessTestRunById request with HTTP info returned
+         * @return ApiResponse&lt;ProcessTestRun&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessTestRun> executeWithHttpInfo() throws ApiException {
+            return cancelProcessTestRunByIdWithHttpInfo(runId);
+        }
+
+        /**
+         * Execute cancelProcessTestRunById request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessTestRun> _callback)
+                throws ApiException {
+            return cancelProcessTestRunByIdAsync(runId, _callback);
+        }
+    }
+
     /**
-     * Build call for createProcessDefinition
-     * @param createProcessDefinitionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Cancel a process test run by id
+     * **Required permissions:** &#x60;workflow:run&#x60;
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
+     * @return APIcancelProcessTestRunByIdRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created process definition. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createProcessDefinitionCall(
+    public APIcancelProcessTestRunByIdRequest cancelProcessTestRunById(
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIcancelProcessTestRunByIdRequest(runId);
+    }
+
+    private okhttp3.Call createProcessDefinitionCall(
             @jakarta.annotation.Nonnull
                     CreateProcessDefinitionPayload createProcessDefinitionPayload,
             final ApiCallback _callback)
@@ -497,46 +547,7 @@ public class ProcessesApi {
         return createProcessDefinitionCall(createProcessDefinitionPayload, _callback);
     }
 
-    /**
-     * Create a process definition
-     * Creates a new draft process definition after validating the referenced interactions and builtin tools. New definitions are always created as draft revisions, &#x60;status&#x60; and &#x60;version&#x60; are server-owned, and native process definitions must declare &#x60;format_version: 1&#x60;.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createProcessDefinitionPayload  (required)
-     * @return ProcessDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created process definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessDefinition createProcessDefinition(
-            @jakarta.annotation.Nonnull
-                    CreateProcessDefinitionPayload createProcessDefinitionPayload)
-            throws ApiException {
-        ApiResponse<ProcessDefinition> localVarResp =
-                createProcessDefinitionWithHttpInfo(createProcessDefinitionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a process definition
-     * Creates a new draft process definition after validating the referenced interactions and builtin tools. New definitions are always created as draft revisions, &#x60;status&#x60; and &#x60;version&#x60; are server-owned, and native process definitions must declare &#x60;format_version: 1&#x60;.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createProcessDefinitionPayload  (required)
-     * @return ApiResponse&lt;ProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created process definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessDefinition> createProcessDefinitionWithHttpInfo(
+    private ApiResponse<ProcessDefinition> createProcessDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull
                     CreateProcessDefinitionPayload createProcessDefinitionPayload)
             throws ApiException {
@@ -546,23 +557,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a process definition (asynchronously)
-     * Creates a new draft process definition after validating the referenced interactions and builtin tools. New definitions are always created as draft revisions, &#x60;status&#x60; and &#x60;version&#x60; are server-owned, and native process definitions must declare &#x60;format_version: 1&#x60;.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createProcessDefinitionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> The created process definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createProcessDefinitionAsync(
+    private okhttp3.Call createProcessDefinitionAsync(
             @jakarta.annotation.Nonnull
                     CreateProcessDefinitionPayload createProcessDefinitionPayload,
             final ApiCallback<ProcessDefinition> _callback)
@@ -576,23 +571,111 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIcreateProcessDefinitionRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateProcessDefinitionPayload createProcessDefinitionPayload;
+
+        private APIcreateProcessDefinitionRequest(
+                @jakarta.annotation.Nonnull
+                        CreateProcessDefinitionPayload createProcessDefinitionPayload) {
+            this.createProcessDefinitionPayload = createProcessDefinitionPayload;
+        }
+
+        /**
+         * Build call for createProcessDefinition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createProcessDefinitionCall(createProcessDefinitionPayload, _callback);
+        }
+
+        /**
+         * Execute createProcessDefinition request
+         * @return ProcessDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessDefinition execute() throws ApiException {
+            ApiResponse<ProcessDefinition> localVarResp =
+                    createProcessDefinitionWithHttpInfo(createProcessDefinitionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createProcessDefinition request with HTTP info returned
+         * @return ApiResponse&lt;ProcessDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessDefinition> executeWithHttpInfo() throws ApiException {
+            return createProcessDefinitionWithHttpInfo(createProcessDefinitionPayload);
+        }
+
+        /**
+         * Execute createProcessDefinition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> The created process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessDefinition> _callback)
+                throws ApiException {
+            return createProcessDefinitionAsync(createProcessDefinitionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createProcessTestSuite
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param createProcessTestSuitePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a process definition
+     * Creates a new draft process definition after validating the referenced interactions and builtin tools. New definitions are always created as draft revisions, &#x60;status&#x60; and &#x60;version&#x60; are server-owned, and native process definitions must declare &#x60;format_version: 1&#x60;.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param createProcessDefinitionPayload  (required)
+     * @return APIcreateProcessDefinitionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> The created process definition. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createProcessTestSuiteCall(
+    public APIcreateProcessDefinitionRequest createProcessDefinition(
+            @jakarta.annotation.Nonnull
+                    CreateProcessDefinitionPayload createProcessDefinitionPayload) {
+        return new APIcreateProcessDefinitionRequest(createProcessDefinitionPayload);
+    }
+
+    private okhttp3.Call createProcessTestSuiteCall(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull CreateProcessTestSuitePayload createProcessTestSuitePayload,
             final ApiCallback _callback)
@@ -674,48 +757,7 @@ public class ProcessesApi {
         return createProcessTestSuiteCall(processId, createProcessTestSuitePayload, _callback);
     }
 
-    /**
-     * Create process test suite
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param createProcessTestSuitePayload  (required)
-     * @return ProcessTestSuite
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessTestSuite createProcessTestSuite(
-            @jakarta.annotation.Nonnull String processId,
-            @jakarta.annotation.Nonnull CreateProcessTestSuitePayload createProcessTestSuitePayload)
-            throws ApiException {
-        ApiResponse<ProcessTestSuite> localVarResp =
-                createProcessTestSuiteWithHttpInfo(processId, createProcessTestSuitePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create process test suite
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param createProcessTestSuitePayload  (required)
-     * @return ApiResponse&lt;ProcessTestSuite&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessTestSuite> createProcessTestSuiteWithHttpInfo(
+    private ApiResponse<ProcessTestSuite> createProcessTestSuiteWithHttpInfo(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull CreateProcessTestSuitePayload createProcessTestSuitePayload)
             throws ApiException {
@@ -726,24 +768,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create process test suite (asynchronously)
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param createProcessTestSuitePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createProcessTestSuiteAsync(
+    private okhttp3.Call createProcessTestSuiteAsync(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull CreateProcessTestSuitePayload createProcessTestSuitePayload,
             final ApiCallback<ProcessTestSuite> _callback)
@@ -757,22 +782,117 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIcreateProcessTestSuiteRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+
+        @jakarta.annotation.Nonnull
+        private final CreateProcessTestSuitePayload createProcessTestSuitePayload;
+
+        private APIcreateProcessTestSuiteRequest(
+                @jakarta.annotation.Nonnull String processId,
+                @jakarta.annotation.Nonnull
+                        CreateProcessTestSuitePayload createProcessTestSuitePayload) {
+            this.processId = processId;
+            this.createProcessTestSuitePayload = createProcessTestSuitePayload;
+        }
+
+        /**
+         * Build call for createProcessTestSuite
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createProcessTestSuiteCall(processId, createProcessTestSuitePayload, _callback);
+        }
+
+        /**
+         * Execute createProcessTestSuite request
+         * @return ProcessTestSuite
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessTestSuite execute() throws ApiException {
+            ApiResponse<ProcessTestSuite> localVarResp =
+                    createProcessTestSuiteWithHttpInfo(processId, createProcessTestSuitePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createProcessTestSuite request with HTTP info returned
+         * @return ApiResponse&lt;ProcessTestSuite&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessTestSuite> executeWithHttpInfo() throws ApiException {
+            return createProcessTestSuiteWithHttpInfo(processId, createProcessTestSuitePayload);
+        }
+
+        /**
+         * Execute createProcessTestSuite request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessTestSuite> _callback)
+                throws ApiException {
+            return createProcessTestSuiteAsync(processId, createProcessTestSuitePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteProcessDefinition
+     * Create process test suite
+     * **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param createProcessTestSuitePayload  (required)
+     * @return APIcreateProcessTestSuiteRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process definition deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteProcessDefinitionCall(
+    public APIcreateProcessTestSuiteRequest createProcessTestSuite(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    CreateProcessTestSuitePayload createProcessTestSuitePayload) {
+        return new APIcreateProcessTestSuiteRequest(processId, createProcessTestSuitePayload);
+    }
+
+    private okhttp3.Call deleteProcessDefinitionCall(
             @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -844,67 +964,14 @@ public class ProcessesApi {
         return deleteProcessDefinitionCall(processId, _callback);
     }
 
-    /**
-     * Delete a process definition
-     * Deletes a process definition revision by id.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @return DeleteCountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process definition deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteCountResult deleteProcessDefinition(@jakarta.annotation.Nonnull String processId)
-            throws ApiException {
-        ApiResponse<DeleteCountResult> localVarResp =
-                deleteProcessDefinitionWithHttpInfo(processId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a process definition
-     * Deletes a process definition revision by id.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DeleteCountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process definition deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteCountResult> deleteProcessDefinitionWithHttpInfo(
+    private ApiResponse<DeleteCountResult> deleteProcessDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String processId) throws ApiException {
         okhttp3.Call localVarCall = deleteProcessDefinitionValidateBeforeCall(processId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a process definition (asynchronously)
-     * Deletes a process definition revision by id.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process definition deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteProcessDefinitionAsync(
+    private okhttp3.Call deleteProcessDefinitionAsync(
             @jakarta.annotation.Nonnull String processId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
@@ -915,22 +982,107 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIdeleteProcessDefinitionRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+
+        private APIdeleteProcessDefinitionRequest(@jakarta.annotation.Nonnull String processId) {
+            this.processId = processId;
+        }
+
+        /**
+         * Build call for deleteProcessDefinition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process definition deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteProcessDefinitionCall(processId, _callback);
+        }
+
+        /**
+         * Execute deleteProcessDefinition request
+         * @return DeleteCountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process definition deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteCountResult execute() throws ApiException {
+            ApiResponse<DeleteCountResult> localVarResp =
+                    deleteProcessDefinitionWithHttpInfo(processId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteProcessDefinition request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process definition deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteCountResult> executeWithHttpInfo() throws ApiException {
+            return deleteProcessDefinitionWithHttpInfo(processId);
+        }
+
+        /**
+         * Execute deleteProcessDefinition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process definition deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCountResult> _callback)
+                throws ApiException {
+            return deleteProcessDefinitionAsync(processId, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteProcessTestRun
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete a process definition
+     * Deletes a process definition revision by id.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @return APIdeleteProcessDefinitionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Process definition deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteProcessTestRunCall(
+    public APIdeleteProcessDefinitionRequest deleteProcessDefinition(
+            @jakarta.annotation.Nonnull String processId) {
+        return new APIdeleteProcessDefinitionRequest(processId);
+    }
+
+    private okhttp3.Call deleteProcessTestRunCall(
             @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1002,66 +1154,14 @@ public class ProcessesApi {
         return deleteProcessTestRunCall(runId, _callback);
     }
 
-    /**
-     * Delete a process test run
-     * Deletes a process test run and its definition snapshot. A run that is still active is cancelled first. Test runs are disposable diagnostic records; this is how a CI client or a test fixture cleans up after itself.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @return DeleteCountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteCountResult deleteProcessTestRun(@jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        ApiResponse<DeleteCountResult> localVarResp = deleteProcessTestRunWithHttpInfo(runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a process test run
-     * Deletes a process test run and its definition snapshot. A run that is still active is cancelled first. Test runs are disposable diagnostic records; this is how a CI client or a test fixture cleans up after itself.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DeleteCountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteCountResult> deleteProcessTestRunWithHttpInfo(
+    private ApiResponse<DeleteCountResult> deleteProcessTestRunWithHttpInfo(
             @jakarta.annotation.Nonnull String runId) throws ApiException {
         okhttp3.Call localVarCall = deleteProcessTestRunValidateBeforeCall(runId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a process test run (asynchronously)
-     * Deletes a process test run and its definition snapshot. A run that is still active is cancelled first. Test runs are disposable diagnostic records; this is how a CI client or a test fixture cleans up after itself.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteProcessTestRunAsync(
+    private okhttp3.Call deleteProcessTestRunAsync(
             @jakarta.annotation.Nonnull String runId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
@@ -1072,23 +1172,106 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIdeleteProcessTestRunRequest {
+        @jakarta.annotation.Nonnull private final String runId;
+
+        private APIdeleteProcessTestRunRequest(@jakarta.annotation.Nonnull String runId) {
+            this.runId = runId;
+        }
+
+        /**
+         * Build call for deleteProcessTestRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteProcessTestRunCall(runId, _callback);
+        }
+
+        /**
+         * Execute deleteProcessTestRun request
+         * @return DeleteCountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteCountResult execute() throws ApiException {
+            ApiResponse<DeleteCountResult> localVarResp = deleteProcessTestRunWithHttpInfo(runId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteProcessTestRun request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteCountResult> executeWithHttpInfo() throws ApiException {
+            return deleteProcessTestRunWithHttpInfo(runId);
+        }
+
+        /**
+         * Execute deleteProcessTestRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCountResult> _callback)
+                throws ApiException {
+            return deleteProcessTestRunAsync(runId, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteProcessTestSuite
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Delete a process test run
+     * Deletes a process test run and its definition snapshot. A run that is still active is cancelled first. Test runs are disposable diagnostic records; this is how a CI client or a test fixture cleans up after itself.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
+     * @return APIdeleteProcessTestRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteProcessTestSuiteCall(
+    public APIdeleteProcessTestRunRequest deleteProcessTestRun(
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIdeleteProcessTestRunRequest(runId);
+    }
+
+    private okhttp3.Call deleteProcessTestSuiteCall(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull String suiteId,
             final ApiCallback _callback)
@@ -1173,48 +1356,7 @@ public class ProcessesApi {
         return deleteProcessTestSuiteCall(processId, suiteId, _callback);
     }
 
-    /**
-     * Delete process test suite
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
-     * @return DeleteCountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteCountResult deleteProcessTestSuite(
-            @jakarta.annotation.Nonnull String processId,
-            @jakarta.annotation.Nonnull String suiteId)
-            throws ApiException {
-        ApiResponse<DeleteCountResult> localVarResp =
-                deleteProcessTestSuiteWithHttpInfo(processId, suiteId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete process test suite
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;DeleteCountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteCountResult> deleteProcessTestSuiteWithHttpInfo(
+    private ApiResponse<DeleteCountResult> deleteProcessTestSuiteWithHttpInfo(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull String suiteId)
             throws ApiException {
@@ -1224,24 +1366,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete process test suite (asynchronously)
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteProcessTestSuiteAsync(
+    private okhttp3.Call deleteProcessTestSuiteAsync(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull String suiteId,
             final ApiCallback<DeleteCountResult> _callback)
@@ -1254,22 +1379,113 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIdeleteProcessTestSuiteRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+        @jakarta.annotation.Nonnull private final String suiteId;
+
+        private APIdeleteProcessTestSuiteRequest(
+                @jakarta.annotation.Nonnull String processId,
+                @jakarta.annotation.Nonnull String suiteId) {
+            this.processId = processId;
+            this.suiteId = suiteId;
+        }
+
+        /**
+         * Build call for deleteProcessTestSuite
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteProcessTestSuiteCall(processId, suiteId, _callback);
+        }
+
+        /**
+         * Execute deleteProcessTestSuite request
+         * @return DeleteCountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteCountResult execute() throws ApiException {
+            ApiResponse<DeleteCountResult> localVarResp =
+                    deleteProcessTestSuiteWithHttpInfo(processId, suiteId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteProcessTestSuite request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteCountResult> executeWithHttpInfo() throws ApiException {
+            return deleteProcessTestSuiteWithHttpInfo(processId, suiteId);
+        }
+
+        /**
+         * Execute deleteProcessTestSuite request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCountResult> _callback)
+                throws ApiException {
+            return deleteProcessTestSuiteAsync(processId, suiteId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProcessDefinition
+     * Delete process test suite
+     * **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
+     * @return APIdeleteProcessTestSuiteRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested process definition. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProcessDefinitionCall(
+    public APIdeleteProcessTestSuiteRequest deleteProcessTestSuite(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId) {
+        return new APIdeleteProcessTestSuiteRequest(processId, suiteId);
+    }
+
+    private okhttp3.Call getProcessDefinitionCall(
             @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1341,66 +1557,14 @@ public class ProcessesApi {
         return getProcessDefinitionCall(processId, _callback);
     }
 
-    /**
-     * Retrieve a process definition
-     * Retrieves a process definition by id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @return ProcessDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested process definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessDefinition getProcessDefinition(@jakarta.annotation.Nonnull String processId)
-            throws ApiException {
-        ApiResponse<ProcessDefinition> localVarResp = getProcessDefinitionWithHttpInfo(processId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a process definition
-     * Retrieves a process definition by id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;ProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested process definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessDefinition> getProcessDefinitionWithHttpInfo(
+    private ApiResponse<ProcessDefinition> getProcessDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String processId) throws ApiException {
         okhttp3.Call localVarCall = getProcessDefinitionValidateBeforeCall(processId, null);
         Type localVarReturnType = new TypeToken<ProcessDefinition>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a process definition (asynchronously)
-     * Retrieves a process definition by id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested process definition. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProcessDefinitionAsync(
+    private okhttp3.Call getProcessDefinitionAsync(
             @jakarta.annotation.Nonnull String processId,
             final ApiCallback<ProcessDefinition> _callback)
             throws ApiException {
@@ -1411,23 +1575,107 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIgetProcessDefinitionRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+
+        private APIgetProcessDefinitionRequest(@jakarta.annotation.Nonnull String processId) {
+            this.processId = processId;
+        }
+
+        /**
+         * Build call for getProcessDefinition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProcessDefinitionCall(processId, _callback);
+        }
+
+        /**
+         * Execute getProcessDefinition request
+         * @return ProcessDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessDefinition execute() throws ApiException {
+            ApiResponse<ProcessDefinition> localVarResp =
+                    getProcessDefinitionWithHttpInfo(processId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProcessDefinition request with HTTP info returned
+         * @return ApiResponse&lt;ProcessDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessDefinition> executeWithHttpInfo() throws ApiException {
+            return getProcessDefinitionWithHttpInfo(processId);
+        }
+
+        /**
+         * Execute getProcessDefinition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested process definition. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessDefinition> _callback)
+                throws ApiException {
+            return getProcessDefinitionAsync(processId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProcessTestRun
+     * Retrieve a process definition
+     * Retrieves a process definition by id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetProcessDefinitionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested process definition. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProcessTestRunCall(
+    public APIgetProcessDefinitionRequest getProcessDefinition(
+            @jakarta.annotation.Nonnull String processId) {
+        return new APIgetProcessDefinitionRequest(processId);
+    }
+
+    private okhttp3.Call getProcessTestRunCall(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull String runId,
             final ApiCallback _callback)
@@ -1512,46 +1760,7 @@ public class ProcessesApi {
         return getProcessTestRunCall(processId, runId, _callback);
     }
 
-    /**
-     * Retrieve process test run
-     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @return ProcessTestRun
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessTestRun getProcessTestRun(
-            @jakarta.annotation.Nonnull String processId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        ApiResponse<ProcessTestRun> localVarResp = getProcessTestRunWithHttpInfo(processId, runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve process test run
-     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;ProcessTestRun&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessTestRun> getProcessTestRunWithHttpInfo(
+    private ApiResponse<ProcessTestRun> getProcessTestRunWithHttpInfo(
             @jakarta.annotation.Nonnull String processId, @jakarta.annotation.Nonnull String runId)
             throws ApiException {
         okhttp3.Call localVarCall = getProcessTestRunValidateBeforeCall(processId, runId, null);
@@ -1559,24 +1768,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve process test run (asynchronously)
-     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProcessTestRunAsync(
+    private okhttp3.Call getProcessTestRunAsync(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull String runId,
             final ApiCallback<ProcessTestRun> _callback)
@@ -1589,12 +1781,97 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIgetProcessTestRunRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+        @jakarta.annotation.Nonnull private final String runId;
+
+        private APIgetProcessTestRunRequest(
+                @jakarta.annotation.Nonnull String processId,
+                @jakarta.annotation.Nonnull String runId) {
+            this.processId = processId;
+            this.runId = runId;
+        }
+
+        /**
+         * Build call for getProcessTestRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProcessTestRunCall(processId, runId, _callback);
+        }
+
+        /**
+         * Execute getProcessTestRun request
+         * @return ProcessTestRun
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessTestRun execute() throws ApiException {
+            ApiResponse<ProcessTestRun> localVarResp =
+                    getProcessTestRunWithHttpInfo(processId, runId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProcessTestRun request with HTTP info returned
+         * @return ApiResponse&lt;ProcessTestRun&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessTestRun> executeWithHttpInfo() throws ApiException {
+            return getProcessTestRunWithHttpInfo(processId, runId);
+        }
+
+        /**
+         * Execute getProcessTestRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessTestRun> _callback)
+                throws ApiException {
+            return getProcessTestRunAsync(processId, runId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProcessTestRunById
+     * Retrieve process test run
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetProcessTestRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -1604,7 +1881,13 @@ public class ProcessesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProcessTestRunByIdCall(
+    public APIgetProcessTestRunRequest getProcessTestRun(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIgetProcessTestRunRequest(processId, runId);
+    }
+
+    private okhttp3.Call getProcessTestRunByIdCall(
             @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1676,66 +1959,14 @@ public class ProcessesApi {
         return getProcessTestRunByIdCall(runId, _callback);
     }
 
-    /**
-     * Retrieve a process test run by id
-     * Retrieves any process test run by its own id, whatever it was started against. Runs against a stored process report staleness against the current head revision; runs against an in-code or inline definition are never stale, since no later revision exists to drift from.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @return ProcessTestRun
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessTestRun getProcessTestRunById(@jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        ApiResponse<ProcessTestRun> localVarResp = getProcessTestRunByIdWithHttpInfo(runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a process test run by id
-     * Retrieves any process test run by its own id, whatever it was started against. Runs against a stored process report staleness against the current head revision; runs against an in-code or inline definition are never stale, since no later revision exists to drift from.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;ProcessTestRun&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessTestRun> getProcessTestRunByIdWithHttpInfo(
+    private ApiResponse<ProcessTestRun> getProcessTestRunByIdWithHttpInfo(
             @jakarta.annotation.Nonnull String runId) throws ApiException {
         okhttp3.Call localVarCall = getProcessTestRunByIdValidateBeforeCall(runId, null);
         Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a process test run by id (asynchronously)
-     * Retrieves any process test run by its own id, whatever it was started against. Runs against a stored process report staleness against the current head revision; runs against an in-code or inline definition are never stale, since no later revision exists to drift from.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProcessTestRunByIdAsync(
+    private okhttp3.Call getProcessTestRunByIdAsync(
             @jakarta.annotation.Nonnull String runId, final ApiCallback<ProcessTestRun> _callback)
             throws ApiException {
 
@@ -1745,22 +1976,106 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIgetProcessTestRunByIdRequest {
+        @jakarta.annotation.Nonnull private final String runId;
+
+        private APIgetProcessTestRunByIdRequest(@jakarta.annotation.Nonnull String runId) {
+            this.runId = runId;
+        }
+
+        /**
+         * Build call for getProcessTestRunById
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProcessTestRunByIdCall(runId, _callback);
+        }
+
+        /**
+         * Execute getProcessTestRunById request
+         * @return ProcessTestRun
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessTestRun execute() throws ApiException {
+            ApiResponse<ProcessTestRun> localVarResp = getProcessTestRunByIdWithHttpInfo(runId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProcessTestRunById request with HTTP info returned
+         * @return ApiResponse&lt;ProcessTestRun&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessTestRun> executeWithHttpInfo() throws ApiException {
+            return getProcessTestRunByIdWithHttpInfo(runId);
+        }
+
+        /**
+         * Execute getProcessTestRunById request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessTestRun> _callback)
+                throws ApiException {
+            return getProcessTestRunByIdAsync(runId, _callback);
+        }
+    }
+
     /**
-     * Build call for listProcessDefinitionVersions
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a process test run by id
+     * Retrieves any process test run by its own id, whatever it was started against. Runs against a stored process report staleness against the current head revision; runs against an in-code or inline definition are never stale, since no later revision exists to drift from.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
+     * @return APIgetProcessTestRunByIdRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process definition revisions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProcessDefinitionVersionsCall(
+    public APIgetProcessTestRunByIdRequest getProcessTestRunById(
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIgetProcessTestRunByIdRequest(runId);
+    }
+
+    private okhttp3.Call listProcessDefinitionVersionsCall(
             @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1832,44 +2147,7 @@ public class ProcessesApi {
         return listProcessDefinitionVersionsCall(processId, _callback);
     }
 
-    /**
-     * List process definition versions
-     * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @return List&lt;ProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process definition revisions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ProcessDefinition> listProcessDefinitionVersions(
-            @jakarta.annotation.Nonnull String processId) throws ApiException {
-        ApiResponse<List<ProcessDefinition>> localVarResp =
-                listProcessDefinitionVersionsWithHttpInfo(processId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List process definition versions
-     * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;List&lt;ProcessDefinition&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process definition revisions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ProcessDefinition>> listProcessDefinitionVersionsWithHttpInfo(
+    private ApiResponse<List<ProcessDefinition>> listProcessDefinitionVersionsWithHttpInfo(
             @jakarta.annotation.Nonnull String processId) throws ApiException {
         okhttp3.Call localVarCall =
                 listProcessDefinitionVersionsValidateBeforeCall(processId, null);
@@ -1877,23 +2155,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List process definition versions (asynchronously)
-     * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process definition revisions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProcessDefinitionVersionsAsync(
+    private okhttp3.Call listProcessDefinitionVersionsAsync(
             @jakarta.annotation.Nonnull String processId,
             final ApiCallback<List<ProcessDefinition>> _callback)
             throws ApiException {
@@ -1905,26 +2167,108 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIlistProcessDefinitionVersionsRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+
+        private APIlistProcessDefinitionVersionsRequest(
+                @jakarta.annotation.Nonnull String processId) {
+            this.processId = processId;
+        }
+
+        /**
+         * Build call for listProcessDefinitionVersions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process definition revisions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProcessDefinitionVersionsCall(processId, _callback);
+        }
+
+        /**
+         * Execute listProcessDefinitionVersions request
+         * @return List&lt;ProcessDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process definition revisions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ProcessDefinition> execute() throws ApiException {
+            ApiResponse<List<ProcessDefinition>> localVarResp =
+                    listProcessDefinitionVersionsWithHttpInfo(processId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProcessDefinitionVersions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ProcessDefinition&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process definition revisions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ProcessDefinition>> executeWithHttpInfo() throws ApiException {
+            return listProcessDefinitionVersionsWithHttpInfo(processId);
+        }
+
+        /**
+         * Execute listProcessDefinitionVersions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process definition revisions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ProcessDefinition>> _callback)
+                throws ApiException {
+            return listProcessDefinitionVersionsAsync(processId, _callback);
+        }
+    }
+
     /**
-     * Build call for listProcessDefinitions
-     * @param status  (optional)
-     * @param process  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param allVersions  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List process definition versions
+     * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @return APIlistProcessDefinitionVersionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process definitions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Process definition revisions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProcessDefinitionsCall(
+    public APIlistProcessDefinitionVersionsRequest listProcessDefinitionVersions(
+            @jakarta.annotation.Nonnull String processId) {
+        return new APIlistProcessDefinitionVersionsRequest(processId);
+    }
+
+    private okhttp3.Call listProcessDefinitionsCall(
             @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String process,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -2017,57 +2361,7 @@ public class ProcessesApi {
         return listProcessDefinitionsCall(status, process, limit, offset, allVersions, _callback);
     }
 
-    /**
-     * List process definitions
-     * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param status  (optional)
-     * @param process  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param allVersions  (optional)
-     * @return List&lt;ProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ProcessDefinition> listProcessDefinitions(
-            @jakarta.annotation.Nullable String status,
-            @jakarta.annotation.Nullable String process,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable Boolean allVersions)
-            throws ApiException {
-        ApiResponse<List<ProcessDefinition>> localVarResp =
-                listProcessDefinitionsWithHttpInfo(status, process, limit, offset, allVersions);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List process definitions
-     * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param status  (optional)
-     * @param process  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param allVersions  (optional)
-     * @return ApiResponse&lt;List&lt;ProcessDefinition&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ProcessDefinition>> listProcessDefinitionsWithHttpInfo(
+    private ApiResponse<List<ProcessDefinition>> listProcessDefinitionsWithHttpInfo(
             @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String process,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -2081,27 +2375,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List process definitions (asynchronously)
-     * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param status  (optional)
-     * @param process  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param allVersions  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProcessDefinitionsAsync(
+    private okhttp3.Call listProcessDefinitionsAsync(
             @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String process,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -2118,67 +2392,163 @@ public class ProcessesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listProcessDefinitions with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listProcessDefinitionsCall(final ApiCallback _callback)
-            throws ApiException {
-        return listProcessDefinitionsCall(null, null, null, null, null, _callback);
+    public class APIlistProcessDefinitionsRequest {
+        @jakarta.annotation.Nullable private String status;
+        @jakarta.annotation.Nullable private String process;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+        @jakarta.annotation.Nullable private Boolean allVersions;
+
+        private APIlistProcessDefinitionsRequest() {}
+
+        /**
+         * Set status
+         * @param status  (optional)
+         * @return APIlistProcessDefinitionsRequest
+         */
+        public APIlistProcessDefinitionsRequest status(@jakarta.annotation.Nullable String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set process
+         * @param process  (optional)
+         * @return APIlistProcessDefinitionsRequest
+         */
+        public APIlistProcessDefinitionsRequest process(
+                @jakarta.annotation.Nullable String process) {
+            this.process = process;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistProcessDefinitionsRequest
+         */
+        public APIlistProcessDefinitionsRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistProcessDefinitionsRequest
+         */
+        public APIlistProcessDefinitionsRequest offset(
+                @jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set allVersions
+         * @param allVersions  (optional)
+         * @return APIlistProcessDefinitionsRequest
+         */
+        public APIlistProcessDefinitionsRequest allVersions(
+                @jakarta.annotation.Nullable Boolean allVersions) {
+            this.allVersions = allVersions;
+            return this;
+        }
+
+        /**
+         * Build call for listProcessDefinitions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProcessDefinitionsCall(
+                    status, process, limit, offset, allVersions, _callback);
+        }
+
+        /**
+         * Execute listProcessDefinitions request
+         * @return List&lt;ProcessDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ProcessDefinition> execute() throws ApiException {
+            ApiResponse<List<ProcessDefinition>> localVarResp =
+                    listProcessDefinitionsWithHttpInfo(status, process, limit, offset, allVersions);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProcessDefinitions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ProcessDefinition&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ProcessDefinition>> executeWithHttpInfo() throws ApiException {
+            return listProcessDefinitionsWithHttpInfo(status, process, limit, offset, allVersions);
+        }
+
+        /**
+         * Execute listProcessDefinitions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ProcessDefinition>> _callback)
+                throws ApiException {
+            return listProcessDefinitionsAsync(
+                    status, process, limit, offset, allVersions, _callback);
+        }
     }
 
     /**
      * List process definitions
-     * Calls {@code listProcessDefinitions} with every optional parameter left unset.
-     * @return List&lt;ProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ProcessDefinition> listProcessDefinitions() throws ApiException {
-        return listProcessDefinitions(null, null, null, null, null);
-    }
-
-    /**
-     * List process definitions
-     * Calls {@code listProcessDefinitionsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ProcessDefinition>> listProcessDefinitionsWithHttpInfo()
-            throws ApiException {
-        return listProcessDefinitionsWithHttpInfo(null, null, null, null, null);
-    }
-
-    /**
-     * List process definitions (asynchronously)
-     * Calls {@code listProcessDefinitionsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listProcessDefinitionsAsync(
-            final ApiCallback<List<ProcessDefinition>> _callback) throws ApiException {
-        return listProcessDefinitionsAsync(null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for listProcessTestRuns
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param limit  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @return APIlistProcessDefinitionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Matching process definitions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProcessTestRunsCall(
+    public APIlistProcessDefinitionsRequest listProcessDefinitions() {
+        return new APIlistProcessDefinitionsRequest();
+    }
+
+    private okhttp3.Call listProcessTestRunsCall(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nullable Integer limit,
             final ApiCallback _callback)
@@ -2258,48 +2628,7 @@ public class ProcessesApi {
         return listProcessTestRunsCall(processId, limit, _callback);
     }
 
-    /**
-     * List process test runs
-     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param limit  (optional)
-     * @return List&lt;ProcessTestRun&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ProcessTestRun> listProcessTestRuns(
-            @jakarta.annotation.Nonnull String processId,
-            @jakarta.annotation.Nullable Integer limit)
-            throws ApiException {
-        ApiResponse<List<ProcessTestRun>> localVarResp =
-                listProcessTestRunsWithHttpInfo(processId, limit);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List process test runs
-     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param limit  (optional)
-     * @return ApiResponse&lt;List&lt;ProcessTestRun&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ProcessTestRun>> listProcessTestRunsWithHttpInfo(
+    private ApiResponse<List<ProcessTestRun>> listProcessTestRunsWithHttpInfo(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nullable Integer limit)
             throws ApiException {
@@ -2308,24 +2637,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List process test runs (asynchronously)
-     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param limit  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProcessTestRunsAsync(
+    private okhttp3.Call listProcessTestRunsAsync(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nullable Integer limit,
             final ApiCallback<List<ProcessTestRun>> _callback)
@@ -2338,74 +2650,118 @@ public class ProcessesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listProcessTestRuns with every optional parameter left unset.
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listProcessTestRunsCall(
-            @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
-            throws ApiException {
-        return listProcessTestRunsCall(processId, null, _callback);
+    public class APIlistProcessTestRunsRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+        @jakarta.annotation.Nullable private Integer limit;
+
+        private APIlistProcessTestRunsRequest(@jakarta.annotation.Nonnull String processId) {
+            this.processId = processId;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistProcessTestRunsRequest
+         */
+        public APIlistProcessTestRunsRequest limit(@jakarta.annotation.Nullable Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for listProcessTestRuns
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProcessTestRunsCall(processId, limit, _callback);
+        }
+
+        /**
+         * Execute listProcessTestRuns request
+         * @return List&lt;ProcessTestRun&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ProcessTestRun> execute() throws ApiException {
+            ApiResponse<List<ProcessTestRun>> localVarResp =
+                    listProcessTestRunsWithHttpInfo(processId, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProcessTestRuns request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ProcessTestRun&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ProcessTestRun>> executeWithHttpInfo() throws ApiException {
+            return listProcessTestRunsWithHttpInfo(processId, limit);
+        }
+
+        /**
+         * Execute listProcessTestRuns request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ProcessTestRun>> _callback)
+                throws ApiException {
+            return listProcessTestRunsAsync(processId, limit, _callback);
+        }
     }
 
     /**
      * List process test runs
-     * Calls {@code listProcessTestRuns} with every optional parameter left unset.
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @return List&lt;ProcessTestRun&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<ProcessTestRun> listProcessTestRuns(@jakarta.annotation.Nonnull String processId)
-            throws ApiException {
-        return listProcessTestRuns(processId, null);
-    }
-
-    /**
-     * List process test runs
-     * Calls {@code listProcessTestRunsWithHttpInfo} with every optional parameter left unset.
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<ProcessTestRun>> listProcessTestRunsWithHttpInfo(
-            @jakarta.annotation.Nonnull String processId) throws ApiException {
-        return listProcessTestRunsWithHttpInfo(processId, null);
-    }
-
-    /**
-     * List process test runs (asynchronously)
-     * Calls {@code listProcessTestRunsAsync} with every optional parameter left unset.
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listProcessTestRunsAsync(
-            @jakarta.annotation.Nonnull String processId,
-            final ApiCallback<List<ProcessTestRun>> _callback)
-            throws ApiException {
-        return listProcessTestRunsAsync(processId, null, _callback);
-    }
-
-    /**
-     * Build call for listProcessTestSuites
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistProcessTestRunsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProcessTestSuitesCall(
+    public APIlistProcessTestRunsRequest listProcessTestRuns(
+            @jakarta.annotation.Nonnull String processId) {
+        return new APIlistProcessTestRunsRequest(processId);
+    }
+
+    private okhttp3.Call listProcessTestSuitesCall(
             @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2477,67 +2833,14 @@ public class ProcessesApi {
         return listProcessTestSuitesCall(processId, _callback);
     }
 
-    /**
-     * List process test suites
-     * Lists deterministic test suites attached to this process revision family.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @return List&lt;ProcessTestSuite&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<ProcessTestSuite> listProcessTestSuites(
-            @jakarta.annotation.Nonnull String processId) throws ApiException {
-        ApiResponse<List<ProcessTestSuite>> localVarResp =
-                listProcessTestSuitesWithHttpInfo(processId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List process test suites
-     * Lists deterministic test suites attached to this process revision family.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;List&lt;ProcessTestSuite&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<ProcessTestSuite>> listProcessTestSuitesWithHttpInfo(
+    private ApiResponse<List<ProcessTestSuite>> listProcessTestSuitesWithHttpInfo(
             @jakarta.annotation.Nonnull String processId) throws ApiException {
         okhttp3.Call localVarCall = listProcessTestSuitesValidateBeforeCall(processId, null);
         Type localVarReturnType = new TypeToken<List<ProcessTestSuite>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List process test suites (asynchronously)
-     * Lists deterministic test suites attached to this process revision family.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProcessTestSuitesAsync(
+    private okhttp3.Call listProcessTestSuitesAsync(
             @jakarta.annotation.Nonnull String processId,
             final ApiCallback<List<ProcessTestSuite>> _callback)
             throws ApiException {
@@ -2548,25 +2851,107 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIlistProcessTestSuitesRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+
+        private APIlistProcessTestSuitesRequest(@jakarta.annotation.Nonnull String processId) {
+            this.processId = processId;
+        }
+
+        /**
+         * Build call for listProcessTestSuites
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProcessTestSuitesCall(processId, _callback);
+        }
+
+        /**
+         * Execute listProcessTestSuites request
+         * @return List&lt;ProcessTestSuite&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<ProcessTestSuite> execute() throws ApiException {
+            ApiResponse<List<ProcessTestSuite>> localVarResp =
+                    listProcessTestSuitesWithHttpInfo(processId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProcessTestSuites request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;ProcessTestSuite&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<ProcessTestSuite>> executeWithHttpInfo() throws ApiException {
+            return listProcessTestSuitesWithHttpInfo(processId);
+        }
+
+        /**
+         * Execute listProcessTestSuites request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<ProcessTestSuite>> _callback)
+                throws ApiException {
+            return listProcessTestSuitesAsync(processId, _callback);
+        }
+    }
+
     /**
-     * Build call for publishProcessDefinition
+     * List process test suites
+     * Lists deterministic test suites attached to this process revision family.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param publishProcessDefinitionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistProcessTestSuitesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call publishProcessDefinitionCall(
+    public APIlistProcessTestSuitesRequest listProcessTestSuites(
+            @jakarta.annotation.Nonnull String processId) {
+        return new APIlistProcessTestSuitesRequest(processId);
+    }
+
+    private okhttp3.Call publishProcessDefinitionCall(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull
                     PublishProcessDefinitionPayload publishProcessDefinitionPayload,
@@ -2650,53 +3035,7 @@ public class ProcessesApi {
         return publishProcessDefinitionCall(processId, publishProcessDefinitionPayload, _callback);
     }
 
-    /**
-     * Publish a process definition
-     * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions. With an &#x60;idempotency_key&#x60;, a repeat of the request that published the revision returns that revision instead of being rejected.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param publishProcessDefinitionPayload  (required)
-     * @return ProcessDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessDefinition publishProcessDefinition(
-            @jakarta.annotation.Nonnull String processId,
-            @jakarta.annotation.Nonnull
-                    PublishProcessDefinitionPayload publishProcessDefinitionPayload)
-            throws ApiException {
-        ApiResponse<ProcessDefinition> localVarResp =
-                publishProcessDefinitionWithHttpInfo(processId, publishProcessDefinitionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Publish a process definition
-     * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions. With an &#x60;idempotency_key&#x60;, a repeat of the request that published the revision returns that revision instead of being rejected.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param publishProcessDefinitionPayload  (required)
-     * @return ApiResponse&lt;ProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessDefinition> publishProcessDefinitionWithHttpInfo(
+    private ApiResponse<ProcessDefinition> publishProcessDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull
                     PublishProcessDefinitionPayload publishProcessDefinitionPayload)
@@ -2708,26 +3047,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Publish a process definition (asynchronously)
-     * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions. With an &#x60;idempotency_key&#x60;, a repeat of the request that published the revision returns that revision instead of being rejected.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param publishProcessDefinitionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call publishProcessDefinitionAsync(
+    private okhttp3.Call publishProcessDefinitionAsync(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull
                     PublishProcessDefinitionPayload publishProcessDefinitionPayload,
@@ -2742,24 +3062,130 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIpublishProcessDefinitionRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+
+        @jakarta.annotation.Nonnull
+        private final PublishProcessDefinitionPayload publishProcessDefinitionPayload;
+
+        private APIpublishProcessDefinitionRequest(
+                @jakarta.annotation.Nonnull String processId,
+                @jakarta.annotation.Nonnull
+                        PublishProcessDefinitionPayload publishProcessDefinitionPayload) {
+            this.processId = processId;
+            this.publishProcessDefinitionPayload = publishProcessDefinitionPayload;
+        }
+
+        /**
+         * Build call for publishProcessDefinition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return publishProcessDefinitionCall(
+                    processId, publishProcessDefinitionPayload, _callback);
+        }
+
+        /**
+         * Execute publishProcessDefinition request
+         * @return ProcessDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessDefinition execute() throws ApiException {
+            ApiResponse<ProcessDefinition> localVarResp =
+                    publishProcessDefinitionWithHttpInfo(
+                            processId, publishProcessDefinitionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute publishProcessDefinition request with HTTP info returned
+         * @return ApiResponse&lt;ProcessDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessDefinition> executeWithHttpInfo() throws ApiException {
+            return publishProcessDefinitionWithHttpInfo(processId, publishProcessDefinitionPayload);
+        }
+
+        /**
+         * Execute publishProcessDefinition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+         * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessDefinition> _callback)
+                throws ApiException {
+            return publishProcessDefinitionAsync(
+                    processId, publishProcessDefinitionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for revertProcessDefinition
+     * Publish a process definition
+     * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions. With an &#x60;idempotency_key&#x60;, a repeat of the request that published the revision returns that revision instead of being rejected.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param revertProcessDefinitionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param publishProcessDefinitionPayload  (required)
+     * @return APIpublishProcessDefinitionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call revertProcessDefinitionCall(
+    public APIpublishProcessDefinitionRequest publishProcessDefinition(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    PublishProcessDefinitionPayload publishProcessDefinitionPayload) {
+        return new APIpublishProcessDefinitionRequest(processId, publishProcessDefinitionPayload);
+    }
+
+    private okhttp3.Call revertProcessDefinitionCall(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull
                     RevertProcessDefinitionPayload revertProcessDefinitionPayload,
@@ -2843,51 +3269,7 @@ public class ProcessesApi {
         return revertProcessDefinitionCall(processId, revertProcessDefinitionPayload, _callback);
     }
 
-    /**
-     * Revert a process definition
-     * Creates or overwrites the latest draft revision from the requested process definition revision. If the current head is already a draft it is overwritten; otherwise a new draft head is created from the selected revision.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param revertProcessDefinitionPayload  (required)
-     * @return ProcessDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessDefinition revertProcessDefinition(
-            @jakarta.annotation.Nonnull String processId,
-            @jakarta.annotation.Nonnull
-                    RevertProcessDefinitionPayload revertProcessDefinitionPayload)
-            throws ApiException {
-        ApiResponse<ProcessDefinition> localVarResp =
-                revertProcessDefinitionWithHttpInfo(processId, revertProcessDefinitionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Revert a process definition
-     * Creates or overwrites the latest draft revision from the requested process definition revision. If the current head is already a draft it is overwritten; otherwise a new draft head is created from the selected revision.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param revertProcessDefinitionPayload  (required)
-     * @return ApiResponse&lt;ProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessDefinition> revertProcessDefinitionWithHttpInfo(
+    private ApiResponse<ProcessDefinition> revertProcessDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull
                     RevertProcessDefinitionPayload revertProcessDefinitionPayload)
@@ -2899,25 +3281,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Revert a process definition (asynchronously)
-     * Creates or overwrites the latest draft revision from the requested process definition revision. If the current head is already a draft it is overwritten; otherwise a new draft head is created from the selected revision.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param revertProcessDefinitionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call revertProcessDefinitionAsync(
+    private okhttp3.Call revertProcessDefinitionAsync(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull
                     RevertProcessDefinitionPayload revertProcessDefinitionPayload,
@@ -2932,23 +3296,124 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIrevertProcessDefinitionRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+
+        @jakarta.annotation.Nonnull
+        private final RevertProcessDefinitionPayload revertProcessDefinitionPayload;
+
+        private APIrevertProcessDefinitionRequest(
+                @jakarta.annotation.Nonnull String processId,
+                @jakarta.annotation.Nonnull
+                        RevertProcessDefinitionPayload revertProcessDefinitionPayload) {
+            this.processId = processId;
+            this.revertProcessDefinitionPayload = revertProcessDefinitionPayload;
+        }
+
+        /**
+         * Build call for revertProcessDefinition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return revertProcessDefinitionCall(
+                    processId, revertProcessDefinitionPayload, _callback);
+        }
+
+        /**
+         * Execute revertProcessDefinition request
+         * @return ProcessDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessDefinition execute() throws ApiException {
+            ApiResponse<ProcessDefinition> localVarResp =
+                    revertProcessDefinitionWithHttpInfo(processId, revertProcessDefinitionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute revertProcessDefinition request with HTTP info returned
+         * @return ApiResponse&lt;ProcessDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessDefinition> executeWithHttpInfo() throws ApiException {
+            return revertProcessDefinitionWithHttpInfo(processId, revertProcessDefinitionPayload);
+        }
+
+        /**
+         * Execute revertProcessDefinition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessDefinition> _callback)
+                throws ApiException {
+            return revertProcessDefinitionAsync(
+                    processId, revertProcessDefinitionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for startProcessTestRun
+     * Revert a process definition
+     * Creates or overwrites the latest draft revision from the requested process definition revision. If the current head is already a draft it is overwritten; otherwise a new draft head is created from the selected revision.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param startProcessTestRunPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param revertProcessDefinitionPayload  (required)
+     * @return APIrevertProcessDefinitionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call startProcessTestRunCall(
+    public APIrevertProcessDefinitionRequest revertProcessDefinition(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    RevertProcessDefinitionPayload revertProcessDefinitionPayload) {
+        return new APIrevertProcessDefinitionRequest(processId, revertProcessDefinitionPayload);
+    }
+
+    private okhttp3.Call startProcessTestRunCall(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload,
             final ApiCallback _callback)
@@ -3030,48 +3495,7 @@ public class ProcessesApi {
         return startProcessTestRunCall(processId, startProcessTestRunPayload, _callback);
     }
 
-    /**
-     * Start process test run
-     * Starts isolated deterministic scenarios against an explicit stored process revision.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param startProcessTestRunPayload  (required)
-     * @return ProcessTestRun
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessTestRun startProcessTestRun(
-            @jakarta.annotation.Nonnull String processId,
-            @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload)
-            throws ApiException {
-        ApiResponse<ProcessTestRun> localVarResp =
-                startProcessTestRunWithHttpInfo(processId, startProcessTestRunPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Start process test run
-     * Starts isolated deterministic scenarios against an explicit stored process revision.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param startProcessTestRunPayload  (required)
-     * @return ApiResponse&lt;ProcessTestRun&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessTestRun> startProcessTestRunWithHttpInfo(
+    private ApiResponse<ProcessTestRun> startProcessTestRunWithHttpInfo(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload)
             throws ApiException {
@@ -3081,24 +3505,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Start process test run (asynchronously)
-     * Starts isolated deterministic scenarios against an explicit stored process revision.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param startProcessTestRunPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call startProcessTestRunAsync(
+    private okhttp3.Call startProcessTestRunAsync(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload,
             final ApiCallback<ProcessTestRun> _callback)
@@ -3112,12 +3519,99 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIstartProcessTestRunRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+
+        @jakarta.annotation.Nonnull
+        private final StartProcessTestRunPayload startProcessTestRunPayload;
+
+        private APIstartProcessTestRunRequest(
+                @jakarta.annotation.Nonnull String processId,
+                @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload) {
+            this.processId = processId;
+            this.startProcessTestRunPayload = startProcessTestRunPayload;
+        }
+
+        /**
+         * Build call for startProcessTestRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return startProcessTestRunCall(processId, startProcessTestRunPayload, _callback);
+        }
+
+        /**
+         * Execute startProcessTestRun request
+         * @return ProcessTestRun
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessTestRun execute() throws ApiException {
+            ApiResponse<ProcessTestRun> localVarResp =
+                    startProcessTestRunWithHttpInfo(processId, startProcessTestRunPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute startProcessTestRun request with HTTP info returned
+         * @return ApiResponse&lt;ProcessTestRun&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessTestRun> executeWithHttpInfo() throws ApiException {
+            return startProcessTestRunWithHttpInfo(processId, startProcessTestRunPayload);
+        }
+
+        /**
+         * Execute startProcessTestRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessTestRun> _callback)
+                throws ApiException {
+            return startProcessTestRunAsync(processId, startProcessTestRunPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for submitProcessTestRun
-     * @param submitProcessTestRunPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Start process test run
+     * Starts isolated deterministic scenarios against an explicit stored process revision.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param startProcessTestRunPayload  (required)
+     * @return APIstartProcessTestRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -3127,7 +3621,13 @@ public class ProcessesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call submitProcessTestRunCall(
+    public APIstartProcessTestRunRequest startProcessTestRun(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload) {
+        return new APIstartProcessTestRunRequest(processId, startProcessTestRunPayload);
+    }
+
+    private okhttp3.Call submitProcessTestRunCall(
             @jakarta.annotation.Nonnull SubmitProcessTestRunPayload submitProcessTestRunPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -3197,45 +3697,7 @@ public class ProcessesApi {
         return submitProcessTestRunCall(submitProcessTestRunPayload, _callback);
     }
 
-    /**
-     * Submit a process test run
-     * Starts deterministic test scenarios against an in-code process (&#x60;app:&#x60; or &#x60;sys:&#x60;) or an inline definition, with the scenarios supplied in the request instead of a stored suite. Use POST /processes/{processId}/test-runs for stored process definitions.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param submitProcessTestRunPayload  (required)
-     * @return ProcessTestRun
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessTestRun submitProcessTestRun(
-            @jakarta.annotation.Nonnull SubmitProcessTestRunPayload submitProcessTestRunPayload)
-            throws ApiException {
-        ApiResponse<ProcessTestRun> localVarResp =
-                submitProcessTestRunWithHttpInfo(submitProcessTestRunPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Submit a process test run
-     * Starts deterministic test scenarios against an in-code process (&#x60;app:&#x60; or &#x60;sys:&#x60;) or an inline definition, with the scenarios supplied in the request instead of a stored suite. Use POST /processes/{processId}/test-runs for stored process definitions.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param submitProcessTestRunPayload  (required)
-     * @return ApiResponse&lt;ProcessTestRun&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessTestRun> submitProcessTestRunWithHttpInfo(
+    private ApiResponse<ProcessTestRun> submitProcessTestRunWithHttpInfo(
             @jakarta.annotation.Nonnull SubmitProcessTestRunPayload submitProcessTestRunPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -3244,23 +3706,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Submit a process test run (asynchronously)
-     * Starts deterministic test scenarios against an in-code process (&#x60;app:&#x60; or &#x60;sys:&#x60;) or an inline definition, with the scenarios supplied in the request instead of a stored suite. Use POST /processes/{processId}/test-runs for stored process definitions.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param submitProcessTestRunPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call submitProcessTestRunAsync(
+    private okhttp3.Call submitProcessTestRunAsync(
             @jakarta.annotation.Nonnull SubmitProcessTestRunPayload submitProcessTestRunPayload,
             final ApiCallback<ProcessTestRun> _callback)
             throws ApiException {
@@ -3272,24 +3718,110 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIsubmitProcessTestRunRequest {
+        @jakarta.annotation.Nonnull
+        private final SubmitProcessTestRunPayload submitProcessTestRunPayload;
+
+        private APIsubmitProcessTestRunRequest(
+                @jakarta.annotation.Nonnull
+                        SubmitProcessTestRunPayload submitProcessTestRunPayload) {
+            this.submitProcessTestRunPayload = submitProcessTestRunPayload;
+        }
+
+        /**
+         * Build call for submitProcessTestRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return submitProcessTestRunCall(submitProcessTestRunPayload, _callback);
+        }
+
+        /**
+         * Execute submitProcessTestRun request
+         * @return ProcessTestRun
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessTestRun execute() throws ApiException {
+            ApiResponse<ProcessTestRun> localVarResp =
+                    submitProcessTestRunWithHttpInfo(submitProcessTestRunPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute submitProcessTestRun request with HTTP info returned
+         * @return ApiResponse&lt;ProcessTestRun&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessTestRun> executeWithHttpInfo() throws ApiException {
+            return submitProcessTestRunWithHttpInfo(submitProcessTestRunPayload);
+        }
+
+        /**
+         * Execute submitProcessTestRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessTestRun> _callback)
+                throws ApiException {
+            return submitProcessTestRunAsync(submitProcessTestRunPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateProcessDefinition
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param updateProcessDefinitionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Submit a process test run
+     * Starts deterministic test scenarios against an in-code process (&#x60;app:&#x60; or &#x60;sys:&#x60;) or an inline definition, with the scenarios supplied in the request instead of a stored suite. Use POST /processes/{processId}/test-runs for stored process definitions.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param submitProcessTestRunPayload  (required)
+     * @return APIsubmitProcessTestRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateProcessDefinitionCall(
+    public APIsubmitProcessTestRunRequest submitProcessTestRun(
+            @jakarta.annotation.Nonnull SubmitProcessTestRunPayload submitProcessTestRunPayload) {
+        return new APIsubmitProcessTestRunRequest(submitProcessTestRunPayload);
+    }
+
+    private okhttp3.Call updateProcessDefinitionCall(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull
                     UpdateProcessDefinitionPayload updateProcessDefinitionPayload,
@@ -3373,51 +3905,7 @@ public class ProcessesApi {
         return updateProcessDefinitionCall(processId, updateProcessDefinitionPayload, _callback);
     }
 
-    /**
-     * Update a process definition
-     * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable. The processId must identify the current head; non-head revisions are rejected with HTTP 400 and the response identifies the head to update.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param updateProcessDefinitionPayload  (required)
-     * @return ProcessDefinition
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessDefinition updateProcessDefinition(
-            @jakarta.annotation.Nonnull String processId,
-            @jakarta.annotation.Nonnull
-                    UpdateProcessDefinitionPayload updateProcessDefinitionPayload)
-            throws ApiException {
-        ApiResponse<ProcessDefinition> localVarResp =
-                updateProcessDefinitionWithHttpInfo(processId, updateProcessDefinitionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a process definition
-     * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable. The processId must identify the current head; non-head revisions are rejected with HTTP 400 and the response identifies the head to update.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param updateProcessDefinitionPayload  (required)
-     * @return ApiResponse&lt;ProcessDefinition&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessDefinition> updateProcessDefinitionWithHttpInfo(
+    private ApiResponse<ProcessDefinition> updateProcessDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull
                     UpdateProcessDefinitionPayload updateProcessDefinitionPayload)
@@ -3429,25 +3917,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a process definition (asynchronously)
-     * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable. The processId must identify the current head; non-head revisions are rejected with HTTP 400 and the response identifies the head to update.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param updateProcessDefinitionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateProcessDefinitionAsync(
+    private okhttp3.Call updateProcessDefinitionAsync(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull
                     UpdateProcessDefinitionPayload updateProcessDefinitionPayload,
@@ -3462,24 +3932,124 @@ public class ProcessesApi {
         return localVarCall;
     }
 
+    public class APIupdateProcessDefinitionRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateProcessDefinitionPayload updateProcessDefinitionPayload;
+
+        private APIupdateProcessDefinitionRequest(
+                @jakarta.annotation.Nonnull String processId,
+                @jakarta.annotation.Nonnull
+                        UpdateProcessDefinitionPayload updateProcessDefinitionPayload) {
+            this.processId = processId;
+            this.updateProcessDefinitionPayload = updateProcessDefinitionPayload;
+        }
+
+        /**
+         * Build call for updateProcessDefinition
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateProcessDefinitionCall(
+                    processId, updateProcessDefinitionPayload, _callback);
+        }
+
+        /**
+         * Execute updateProcessDefinition request
+         * @return ProcessDefinition
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessDefinition execute() throws ApiException {
+            ApiResponse<ProcessDefinition> localVarResp =
+                    updateProcessDefinitionWithHttpInfo(processId, updateProcessDefinitionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateProcessDefinition request with HTTP info returned
+         * @return ApiResponse&lt;ProcessDefinition&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessDefinition> executeWithHttpInfo() throws ApiException {
+            return updateProcessDefinitionWithHttpInfo(processId, updateProcessDefinitionPayload);
+        }
+
+        /**
+         * Execute updateProcessDefinition request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessDefinition> _callback)
+                throws ApiException {
+            return updateProcessDefinitionAsync(
+                    processId, updateProcessDefinitionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateProcessTestSuite
+     * Update a process definition
+     * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable. The processId must identify the current head; non-head revisions are rejected with HTTP 400 and the response identifies the head to update.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
-     * @param updateProcessTestSuitePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param updateProcessDefinitionPayload  (required)
+     * @return APIupdateProcessDefinitionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateProcessTestSuiteCall(
+    public APIupdateProcessDefinitionRequest updateProcessDefinition(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    UpdateProcessDefinitionPayload updateProcessDefinitionPayload) {
+        return new APIupdateProcessDefinitionRequest(processId, updateProcessDefinitionPayload);
+    }
+
+    private okhttp3.Call updateProcessTestSuiteCall(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull String suiteId,
             @jakarta.annotation.Nonnull UpdateProcessTestSuitePayload updateProcessTestSuitePayload,
@@ -3573,52 +4143,7 @@ public class ProcessesApi {
                 processId, suiteId, updateProcessTestSuitePayload, _callback);
     }
 
-    /**
-     * Update process test suite
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
-     * @param updateProcessTestSuitePayload  (required)
-     * @return ProcessTestSuite
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessTestSuite updateProcessTestSuite(
-            @jakarta.annotation.Nonnull String processId,
-            @jakarta.annotation.Nonnull String suiteId,
-            @jakarta.annotation.Nonnull UpdateProcessTestSuitePayload updateProcessTestSuitePayload)
-            throws ApiException {
-        ApiResponse<ProcessTestSuite> localVarResp =
-                updateProcessTestSuiteWithHttpInfo(
-                        processId, suiteId, updateProcessTestSuitePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update process test suite
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
-     * @param updateProcessTestSuitePayload  (required)
-     * @return ApiResponse&lt;ProcessTestSuite&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessTestSuite> updateProcessTestSuiteWithHttpInfo(
+    private ApiResponse<ProcessTestSuite> updateProcessTestSuiteWithHttpInfo(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull String suiteId,
             @jakarta.annotation.Nonnull UpdateProcessTestSuitePayload updateProcessTestSuitePayload)
@@ -3630,25 +4155,7 @@ public class ProcessesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update process test suite (asynchronously)
-     * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
-     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
-     * @param updateProcessTestSuitePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateProcessTestSuiteAsync(
+    private okhttp3.Call updateProcessTestSuiteAsync(
             @jakarta.annotation.Nonnull String processId,
             @jakarta.annotation.Nonnull String suiteId,
             @jakarta.annotation.Nonnull UpdateProcessTestSuitePayload updateProcessTestSuitePayload,
@@ -3661,5 +4168,125 @@ public class ProcessesApi {
         Type localVarReturnType = new TypeToken<ProcessTestSuite>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateProcessTestSuiteRequest {
+        @jakarta.annotation.Nonnull private final String processId;
+        @jakarta.annotation.Nonnull private final String suiteId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateProcessTestSuitePayload updateProcessTestSuitePayload;
+
+        private APIupdateProcessTestSuiteRequest(
+                @jakarta.annotation.Nonnull String processId,
+                @jakarta.annotation.Nonnull String suiteId,
+                @jakarta.annotation.Nonnull
+                        UpdateProcessTestSuitePayload updateProcessTestSuitePayload) {
+            this.processId = processId;
+            this.suiteId = suiteId;
+            this.updateProcessTestSuitePayload = updateProcessTestSuitePayload;
+        }
+
+        /**
+         * Build call for updateProcessTestSuite
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateProcessTestSuiteCall(
+                    processId, suiteId, updateProcessTestSuitePayload, _callback);
+        }
+
+        /**
+         * Execute updateProcessTestSuite request
+         * @return ProcessTestSuite
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessTestSuite execute() throws ApiException {
+            ApiResponse<ProcessTestSuite> localVarResp =
+                    updateProcessTestSuiteWithHttpInfo(
+                            processId, suiteId, updateProcessTestSuitePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateProcessTestSuite request with HTTP info returned
+         * @return ApiResponse&lt;ProcessTestSuite&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessTestSuite> executeWithHttpInfo() throws ApiException {
+            return updateProcessTestSuiteWithHttpInfo(
+                    processId, suiteId, updateProcessTestSuitePayload);
+        }
+
+        /**
+         * Execute updateProcessTestSuite request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessTestSuite> _callback)
+                throws ApiException {
+            return updateProcessTestSuiteAsync(
+                    processId, suiteId, updateProcessTestSuitePayload, _callback);
+        }
+    }
+
+    /**
+     * Update process test suite
+     * **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
+     * @param updateProcessTestSuitePayload  (required)
+     * @return APIupdateProcessTestSuiteRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateProcessTestSuiteRequest updateProcessTestSuite(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId,
+            @jakarta.annotation.Nonnull
+                    UpdateProcessTestSuitePayload updateProcessTestSuitePayload) {
+        return new APIupdateProcessTestSuiteRequest(
+                processId, suiteId, updateProcessTestSuitePayload);
     }
 }

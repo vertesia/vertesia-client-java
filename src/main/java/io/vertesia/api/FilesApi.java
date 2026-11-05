@@ -75,22 +75,7 @@ public class FilesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for copyProjectFile
-     * @param copyFilePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Copy operation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call copyProjectFileCall(
+    private okhttp3.Call copyProjectFileCall(
             @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -160,66 +145,14 @@ public class FilesApi {
         return copyProjectFileCall(copyFilePayload, _callback);
     }
 
-    /**
-     * Copy a file
-     * Copies a file to a new destination within the same project bucket.  **Required permissions:** &#x60;content:write&#x60;
-     * @param copyFilePayload  (required)
-     * @return CopyFileResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Copy operation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CopyFileResponse copyProjectFile(
-            @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload) throws ApiException {
-        ApiResponse<CopyFileResponse> localVarResp = copyProjectFileWithHttpInfo(copyFilePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Copy a file
-     * Copies a file to a new destination within the same project bucket.  **Required permissions:** &#x60;content:write&#x60;
-     * @param copyFilePayload  (required)
-     * @return ApiResponse&lt;CopyFileResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Copy operation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CopyFileResponse> copyProjectFileWithHttpInfo(
+    private ApiResponse<CopyFileResponse> copyProjectFileWithHttpInfo(
             @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload) throws ApiException {
         okhttp3.Call localVarCall = copyProjectFileValidateBeforeCall(copyFilePayload, null);
         Type localVarReturnType = new TypeToken<CopyFileResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Copy a file (asynchronously)
-     * Copies a file to a new destination within the same project bucket.  **Required permissions:** &#x60;content:write&#x60;
-     * @param copyFilePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Copy operation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call copyProjectFileAsync(
+    private okhttp3.Call copyProjectFileAsync(
             @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload,
             final ApiCallback<CopyFileResponse> _callback)
             throws ApiException {
@@ -230,23 +163,108 @@ public class FilesApi {
         return localVarCall;
     }
 
+    public class APIcopyProjectFileRequest {
+        @jakarta.annotation.Nonnull private final CopyFilePayload copyFilePayload;
+
+        private APIcopyProjectFileRequest(
+                @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload) {
+            this.copyFilePayload = copyFilePayload;
+        }
+
+        /**
+         * Build call for copyProjectFile
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Copy operation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return copyProjectFileCall(copyFilePayload, _callback);
+        }
+
+        /**
+         * Execute copyProjectFile request
+         * @return CopyFileResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Copy operation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CopyFileResponse execute() throws ApiException {
+            ApiResponse<CopyFileResponse> localVarResp =
+                    copyProjectFileWithHttpInfo(copyFilePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute copyProjectFile request with HTTP info returned
+         * @return ApiResponse&lt;CopyFileResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Copy operation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CopyFileResponse> executeWithHttpInfo() throws ApiException {
+            return copyProjectFileWithHttpInfo(copyFilePayload);
+        }
+
+        /**
+         * Execute copyProjectFile request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Copy operation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CopyFileResponse> _callback)
+                throws ApiException {
+            return copyProjectFileAsync(copyFilePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteProjectFile
-     * @param path  (required)
-     * @param prefix  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Copy a file
+     * Copies a file to a new destination within the same project bucket.  **Required permissions:** &#x60;content:write&#x60;
+     * @param copyFilePayload  (required)
+     * @return APIcopyProjectFileRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Copy operation result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteProjectFileCall(
+    public APIcopyProjectFileRequest copyProjectFile(
+            @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload) {
+        return new APIcopyProjectFileRequest(copyFilePayload);
+    }
+
+    private okhttp3.Call deleteProjectFileCall(
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable Boolean prefix,
             final ApiCallback _callback)
@@ -326,46 +344,7 @@ public class FilesApi {
         return deleteProjectFileCall(path, prefix, _callback);
     }
 
-    /**
-     * Delete a file or file prefix
-     * Deletes a single file or, with &#x60;prefix&#x3D;true&#x60;, all files under the provided relative project path prefix. The path must contain at least one &#x60;/&#x60;, so a top-level object cannot be deleted; it may be sent percent-encoded (&#x60;cache%2Fthumb.png&#x60;) or with literal slashes.  **Required permissions:** Any of &#x60;content:write&#x60;, &#x60;content:delete&#x60;, &#x60;content:superadmin&#x60;
-     * @param path  (required)
-     * @param prefix  (optional)
-     * @return DeleteFileResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteFileResult deleteProjectFile(
-            @jakarta.annotation.Nonnull String path, @jakarta.annotation.Nullable Boolean prefix)
-            throws ApiException {
-        ApiResponse<DeleteFileResult> localVarResp = deleteProjectFileWithHttpInfo(path, prefix);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a file or file prefix
-     * Deletes a single file or, with &#x60;prefix&#x3D;true&#x60;, all files under the provided relative project path prefix. The path must contain at least one &#x60;/&#x60;, so a top-level object cannot be deleted; it may be sent percent-encoded (&#x60;cache%2Fthumb.png&#x60;) or with literal slashes.  **Required permissions:** Any of &#x60;content:write&#x60;, &#x60;content:delete&#x60;, &#x60;content:superadmin&#x60;
-     * @param path  (required)
-     * @param prefix  (optional)
-     * @return ApiResponse&lt;DeleteFileResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteFileResult> deleteProjectFileWithHttpInfo(
+    private ApiResponse<DeleteFileResult> deleteProjectFileWithHttpInfo(
             @jakarta.annotation.Nonnull String path, @jakarta.annotation.Nullable Boolean prefix)
             throws ApiException {
         okhttp3.Call localVarCall = deleteProjectFileValidateBeforeCall(path, prefix, null);
@@ -373,24 +352,7 @@ public class FilesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a file or file prefix (asynchronously)
-     * Deletes a single file or, with &#x60;prefix&#x3D;true&#x60;, all files under the provided relative project path prefix. The path must contain at least one &#x60;/&#x60;, so a top-level object cannot be deleted; it may be sent percent-encoded (&#x60;cache%2Fthumb.png&#x60;) or with literal slashes.  **Required permissions:** Any of &#x60;content:write&#x60;, &#x60;content:delete&#x60;, &#x60;content:superadmin&#x60;
-     * @param path  (required)
-     * @param prefix  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteProjectFileAsync(
+    private okhttp3.Call deleteProjectFileAsync(
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable Boolean prefix,
             final ApiCallback<DeleteFileResult> _callback)
@@ -402,72 +364,117 @@ public class FilesApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for deleteProjectFile with every optional parameter left unset.
-     * @param path  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call deleteProjectFileCall(
-            @jakarta.annotation.Nonnull String path, final ApiCallback _callback)
-            throws ApiException {
-        return deleteProjectFileCall(path, null, _callback);
+    public class APIdeleteProjectFileRequest {
+        @jakarta.annotation.Nonnull private final String path;
+        @jakarta.annotation.Nullable private Boolean prefix;
+
+        private APIdeleteProjectFileRequest(@jakarta.annotation.Nonnull String path) {
+            this.path = path;
+        }
+
+        /**
+         * Set prefix
+         * @param prefix  (optional)
+         * @return APIdeleteProjectFileRequest
+         */
+        public APIdeleteProjectFileRequest prefix(@jakarta.annotation.Nullable Boolean prefix) {
+            this.prefix = prefix;
+            return this;
+        }
+
+        /**
+         * Build call for deleteProjectFile
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteProjectFileCall(path, prefix, _callback);
+        }
+
+        /**
+         * Execute deleteProjectFile request
+         * @return DeleteFileResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteFileResult execute() throws ApiException {
+            ApiResponse<DeleteFileResult> localVarResp =
+                    deleteProjectFileWithHttpInfo(path, prefix);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteProjectFile request with HTTP info returned
+         * @return ApiResponse&lt;DeleteFileResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteFileResult> executeWithHttpInfo() throws ApiException {
+            return deleteProjectFileWithHttpInfo(path, prefix);
+        }
+
+        /**
+         * Execute deleteProjectFile request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteFileResult> _callback)
+                throws ApiException {
+            return deleteProjectFileAsync(path, prefix, _callback);
+        }
     }
 
     /**
      * Delete a file or file prefix
-     * Calls {@code deleteProjectFile} with every optional parameter left unset.
+     * Deletes a single file or, with &#x60;prefix&#x3D;true&#x60;, all files under the provided relative project path prefix. The path must contain at least one &#x60;/&#x60;, so a top-level object cannot be deleted; it may be sent percent-encoded (&#x60;cache%2Fthumb.png&#x60;) or with literal slashes.  **Required permissions:** Any of &#x60;content:write&#x60;, &#x60;content:delete&#x60;, &#x60;content:superadmin&#x60;
      * @param path  (required)
-     * @return DeleteFileResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DeleteFileResult deleteProjectFile(@jakarta.annotation.Nonnull String path)
-            throws ApiException {
-        return deleteProjectFile(path, null);
-    }
-
-    /**
-     * Delete a file or file prefix
-     * Calls {@code deleteProjectFileWithHttpInfo} with every optional parameter left unset.
-     * @param path  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DeleteFileResult> deleteProjectFileWithHttpInfo(
-            @jakarta.annotation.Nonnull String path) throws ApiException {
-        return deleteProjectFileWithHttpInfo(path, null);
-    }
-
-    /**
-     * Delete a file or file prefix (asynchronously)
-     * Calls {@code deleteProjectFileAsync} with every optional parameter left unset.
-     * @param path  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call deleteProjectFileAsync(
-            @jakarta.annotation.Nonnull String path, final ApiCallback<DeleteFileResult> _callback)
-            throws ApiException {
-        return deleteProjectFileAsync(path, null, _callback);
-    }
-
-    /**
-     * Build call for ensureProjectFileBucket
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteProjectFileRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project bucket URI. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call ensureProjectFileBucketCall(final ApiCallback _callback)
+    public APIdeleteProjectFileRequest deleteProjectFile(@jakarta.annotation.Nonnull String path) {
+        return new APIdeleteProjectFileRequest(path);
+    }
+
+    private okhttp3.Call ensureProjectFileBucketCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -527,62 +534,14 @@ public class FilesApi {
         return ensureProjectFileBucketCall(_callback);
     }
 
-    /**
-     * Ensure the project file bucket exists
-     * Creates the project-scoped storage bucket when needed and returns its URI.  **Required permissions:** &#x60;content:write&#x60;
-     * @return FileBucketResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project bucket URI. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public FileBucketResponse ensureProjectFileBucket() throws ApiException {
-        ApiResponse<FileBucketResponse> localVarResp = ensureProjectFileBucketWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Ensure the project file bucket exists
-     * Creates the project-scoped storage bucket when needed and returns its URI.  **Required permissions:** &#x60;content:write&#x60;
-     * @return ApiResponse&lt;FileBucketResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project bucket URI. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<FileBucketResponse> ensureProjectFileBucketWithHttpInfo()
+    private ApiResponse<FileBucketResponse> ensureProjectFileBucketWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = ensureProjectFileBucketValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<FileBucketResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Ensure the project file bucket exists (asynchronously)
-     * Creates the project-scoped storage bucket when needed and returns its URI.  **Required permissions:** &#x60;content:write&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Project bucket URI. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call ensureProjectFileBucketAsync(
+    private okhttp3.Call ensureProjectFileBucketAsync(
             final ApiCallback<FileBucketResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = ensureProjectFileBucketValidateBeforeCall(_callback);
@@ -591,22 +550,101 @@ public class FilesApi {
         return localVarCall;
     }
 
+    public class APIensureProjectFileBucketRequest {
+
+        private APIensureProjectFileBucketRequest() {}
+
+        /**
+         * Build call for ensureProjectFileBucket
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project bucket URI. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return ensureProjectFileBucketCall(_callback);
+        }
+
+        /**
+         * Execute ensureProjectFileBucket request
+         * @return FileBucketResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project bucket URI. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public FileBucketResponse execute() throws ApiException {
+            ApiResponse<FileBucketResponse> localVarResp = ensureProjectFileBucketWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute ensureProjectFileBucket request with HTTP info returned
+         * @return ApiResponse&lt;FileBucketResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project bucket URI. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<FileBucketResponse> executeWithHttpInfo() throws ApiException {
+            return ensureProjectFileBucketWithHttpInfo();
+        }
+
+        /**
+         * Execute ensureProjectFileBucket request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Project bucket URI. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<FileBucketResponse> _callback)
+                throws ApiException {
+            return ensureProjectFileBucketAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getBulkFileUploadUrls
-     * @param bulkUploadUrlsPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Ensure the project file bucket exists
+     * Creates the project-scoped storage bucket when needed and returns its URI.  **Required permissions:** &#x60;content:write&#x60;
+     * @return APIensureProjectFileBucketRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata for each requested file. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Project bucket URI. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getBulkFileUploadUrlsCall(
+    public APIensureProjectFileBucketRequest ensureProjectFileBucket() {
+        return new APIensureProjectFileBucketRequest();
+    }
+
+    private okhttp3.Call getBulkFileUploadUrlsCall(
             @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -676,45 +714,7 @@ public class FilesApi {
         return getBulkFileUploadUrlsCall(bulkUploadUrlsPayload, _callback);
     }
 
-    /**
-     * Get signed upload URLs for multiple files
-     * Generates signed upload URLs for a batch of files in a single request.  **Required permissions:** &#x60;content:write&#x60;
-     * @param bulkUploadUrlsPayload  (required)
-     * @return BulkUploadUrlsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata for each requested file. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public BulkUploadUrlsResponse getBulkFileUploadUrls(
-            @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload)
-            throws ApiException {
-        ApiResponse<BulkUploadUrlsResponse> localVarResp =
-                getBulkFileUploadUrlsWithHttpInfo(bulkUploadUrlsPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get signed upload URLs for multiple files
-     * Generates signed upload URLs for a batch of files in a single request.  **Required permissions:** &#x60;content:write&#x60;
-     * @param bulkUploadUrlsPayload  (required)
-     * @return ApiResponse&lt;BulkUploadUrlsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata for each requested file. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<BulkUploadUrlsResponse> getBulkFileUploadUrlsWithHttpInfo(
+    private ApiResponse<BulkUploadUrlsResponse> getBulkFileUploadUrlsWithHttpInfo(
             @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -723,23 +723,7 @@ public class FilesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get signed upload URLs for multiple files (asynchronously)
-     * Generates signed upload URLs for a batch of files in a single request.  **Required permissions:** &#x60;content:write&#x60;
-     * @param bulkUploadUrlsPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata for each requested file. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getBulkFileUploadUrlsAsync(
+    private okhttp3.Call getBulkFileUploadUrlsAsync(
             @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload,
             final ApiCallback<BulkUploadUrlsResponse> _callback)
             throws ApiException {
@@ -751,22 +735,108 @@ public class FilesApi {
         return localVarCall;
     }
 
+    public class APIgetBulkFileUploadUrlsRequest {
+        @jakarta.annotation.Nonnull private final BulkUploadUrlsPayload bulkUploadUrlsPayload;
+
+        private APIgetBulkFileUploadUrlsRequest(
+                @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload) {
+            this.bulkUploadUrlsPayload = bulkUploadUrlsPayload;
+        }
+
+        /**
+         * Build call for getBulkFileUploadUrls
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata for each requested file. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getBulkFileUploadUrlsCall(bulkUploadUrlsPayload, _callback);
+        }
+
+        /**
+         * Execute getBulkFileUploadUrls request
+         * @return BulkUploadUrlsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata for each requested file. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public BulkUploadUrlsResponse execute() throws ApiException {
+            ApiResponse<BulkUploadUrlsResponse> localVarResp =
+                    getBulkFileUploadUrlsWithHttpInfo(bulkUploadUrlsPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getBulkFileUploadUrls request with HTTP info returned
+         * @return ApiResponse&lt;BulkUploadUrlsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata for each requested file. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<BulkUploadUrlsResponse> executeWithHttpInfo() throws ApiException {
+            return getBulkFileUploadUrlsWithHttpInfo(bulkUploadUrlsPayload);
+        }
+
+        /**
+         * Execute getBulkFileUploadUrls request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata for each requested file. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<BulkUploadUrlsResponse> _callback)
+                throws ApiException {
+            return getBulkFileUploadUrlsAsync(bulkUploadUrlsPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getFileDownloadUrl
-     * @param getFileUrlPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get signed upload URLs for multiple files
+     * Generates signed upload URLs for a batch of files in a single request.  **Required permissions:** &#x60;content:write&#x60;
+     * @param bulkUploadUrlsPayload  (required)
+     * @return APIgetBulkFileUploadUrlsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed upload URL metadata for each requested file. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getFileDownloadUrlCall(
+    public APIgetBulkFileUploadUrlsRequest getBulkFileUploadUrls(
+            @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload) {
+        return new APIgetBulkFileUploadUrlsRequest(bulkUploadUrlsPayload);
+    }
+
+    private okhttp3.Call getFileDownloadUrlCall(
             @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -836,67 +906,14 @@ public class FilesApi {
         return getFileDownloadUrlCall(getFileUrlPayload, _callback);
     }
 
-    /**
-     * Get a signed download URL
-     * Generates a signed download URL for a file by relative path or fully qualified storage URI.  **Required permissions:** &#x60;content:read&#x60;
-     * @param getFileUrlPayload  (required)
-     * @return GetFileUrlResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GetFileUrlResponse getFileDownloadUrl(
-            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
-        ApiResponse<GetFileUrlResponse> localVarResp =
-                getFileDownloadUrlWithHttpInfo(getFileUrlPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get a signed download URL
-     * Generates a signed download URL for a file by relative path or fully qualified storage URI.  **Required permissions:** &#x60;content:read&#x60;
-     * @param getFileUrlPayload  (required)
-     * @return ApiResponse&lt;GetFileUrlResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GetFileUrlResponse> getFileDownloadUrlWithHttpInfo(
+    private ApiResponse<GetFileUrlResponse> getFileDownloadUrlWithHttpInfo(
             @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
         okhttp3.Call localVarCall = getFileDownloadUrlValidateBeforeCall(getFileUrlPayload, null);
         Type localVarReturnType = new TypeToken<GetFileUrlResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get a signed download URL (asynchronously)
-     * Generates a signed download URL for a file by relative path or fully qualified storage URI.  **Required permissions:** &#x60;content:read&#x60;
-     * @param getFileUrlPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getFileDownloadUrlAsync(
+    private okhttp3.Call getFileDownloadUrlAsync(
             @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
             final ApiCallback<GetFileUrlResponse> _callback)
             throws ApiException {
@@ -908,23 +925,108 @@ public class FilesApi {
         return localVarCall;
     }
 
+    public class APIgetFileDownloadUrlRequest {
+        @jakarta.annotation.Nonnull private final GetFileUrlPayload getFileUrlPayload;
+
+        private APIgetFileDownloadUrlRequest(
+                @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) {
+            this.getFileUrlPayload = getFileUrlPayload;
+        }
+
+        /**
+         * Build call for getFileDownloadUrl
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getFileDownloadUrlCall(getFileUrlPayload, _callback);
+        }
+
+        /**
+         * Execute getFileDownloadUrl request
+         * @return GetFileUrlResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GetFileUrlResponse execute() throws ApiException {
+            ApiResponse<GetFileUrlResponse> localVarResp =
+                    getFileDownloadUrlWithHttpInfo(getFileUrlPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getFileDownloadUrl request with HTTP info returned
+         * @return ApiResponse&lt;GetFileUrlResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GetFileUrlResponse> executeWithHttpInfo() throws ApiException {
+            return getFileDownloadUrlWithHttpInfo(getFileUrlPayload);
+        }
+
+        /**
+         * Execute getFileDownloadUrl request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetFileUrlResponse> _callback)
+                throws ApiException {
+            return getFileDownloadUrlAsync(getFileUrlPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getFileMetadata
-     * @param _file  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get a signed download URL
+     * Generates a signed download URL for a file by relative path or fully qualified storage URI.  **Required permissions:** &#x60;content:read&#x60;
+     * @param getFileUrlPayload  (required)
+     * @return APIgetFileDownloadUrlRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved file metadata. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The file does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getFileMetadataCall(
+    public APIgetFileDownloadUrlRequest getFileDownloadUrl(
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) {
+        return new APIgetFileDownloadUrlRequest(getFileUrlPayload);
+    }
+
+    private okhttp3.Call getFileMetadataCall(
             @jakarta.annotation.Nonnull String _file, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -996,69 +1098,14 @@ public class FilesApi {
         return getFileMetadataCall(_file, _callback);
     }
 
-    /**
-     * Get file metadata
-     * Retrieves metadata for a file by relative project path or fully qualified storage URI.  **Required permissions:** &#x60;content:read&#x60;
-     * @param _file  (required)
-     * @return FileMetadataResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved file metadata. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The file does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public FileMetadataResponse getFileMetadata(@jakarta.annotation.Nonnull String _file)
-            throws ApiException {
-        ApiResponse<FileMetadataResponse> localVarResp = getFileMetadataWithHttpInfo(_file);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get file metadata
-     * Retrieves metadata for a file by relative project path or fully qualified storage URI.  **Required permissions:** &#x60;content:read&#x60;
-     * @param _file  (required)
-     * @return ApiResponse&lt;FileMetadataResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved file metadata. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The file does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<FileMetadataResponse> getFileMetadataWithHttpInfo(
+    private ApiResponse<FileMetadataResponse> getFileMetadataWithHttpInfo(
             @jakarta.annotation.Nonnull String _file) throws ApiException {
         okhttp3.Call localVarCall = getFileMetadataValidateBeforeCall(_file, null);
         Type localVarReturnType = new TypeToken<FileMetadataResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get file metadata (asynchronously)
-     * Retrieves metadata for a file by relative project path or fully qualified storage URI.  **Required permissions:** &#x60;content:read&#x60;
-     * @param _file  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved file metadata. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The file does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getFileMetadataAsync(
+    private okhttp3.Call getFileMetadataAsync(
             @jakarta.annotation.Nonnull String _file,
             final ApiCallback<FileMetadataResponse> _callback)
             throws ApiException {
@@ -1069,22 +1116,110 @@ public class FilesApi {
         return localVarCall;
     }
 
+    public class APIgetFileMetadataRequest {
+        @jakarta.annotation.Nonnull private final String _file;
+
+        private APIgetFileMetadataRequest(@jakarta.annotation.Nonnull String _file) {
+            this._file = _file;
+        }
+
+        /**
+         * Build call for getFileMetadata
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved file metadata. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The file does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getFileMetadataCall(_file, _callback);
+        }
+
+        /**
+         * Execute getFileMetadata request
+         * @return FileMetadataResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved file metadata. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The file does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public FileMetadataResponse execute() throws ApiException {
+            ApiResponse<FileMetadataResponse> localVarResp = getFileMetadataWithHttpInfo(_file);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getFileMetadata request with HTTP info returned
+         * @return ApiResponse&lt;FileMetadataResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved file metadata. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The file does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<FileMetadataResponse> executeWithHttpInfo() throws ApiException {
+            return getFileMetadataWithHttpInfo(_file);
+        }
+
+        /**
+         * Execute getFileMetadata request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved file metadata. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The file does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<FileMetadataResponse> _callback)
+                throws ApiException {
+            return getFileMetadataAsync(_file, _callback);
+        }
+    }
+
     /**
-     * Build call for getFileUploadUrl
-     * @param getUploadUrlPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get file metadata
+     * Retrieves metadata for a file by relative project path or fully qualified storage URI.  **Required permissions:** &#x60;content:read&#x60;
+     * @param _file  (required)
+     * @return APIgetFileMetadataRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Resolved file metadata. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The file does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getFileUploadUrlCall(
+    public APIgetFileMetadataRequest getFileMetadata(@jakarta.annotation.Nonnull String _file) {
+        return new APIgetFileMetadataRequest(_file);
+    }
+
+    private okhttp3.Call getFileUploadUrlCall(
             @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1154,45 +1289,7 @@ public class FilesApi {
         return getFileUploadUrlCall(getUploadUrlPayload, _callback);
     }
 
-    /**
-     * Get a signed upload URL
-     * Generates a signed upload URL for a single file in the project bucket.  **Required permissions:** &#x60;content:write&#x60;
-     * @param getUploadUrlPayload  (required)
-     * @return GetFileUrlResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GetFileUrlResponse getFileUploadUrl(
-            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload)
-            throws ApiException {
-        ApiResponse<GetFileUrlResponse> localVarResp =
-                getFileUploadUrlWithHttpInfo(getUploadUrlPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get a signed upload URL
-     * Generates a signed upload URL for a single file in the project bucket.  **Required permissions:** &#x60;content:write&#x60;
-     * @param getUploadUrlPayload  (required)
-     * @return ApiResponse&lt;GetFileUrlResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GetFileUrlResponse> getFileUploadUrlWithHttpInfo(
+    private ApiResponse<GetFileUrlResponse> getFileUploadUrlWithHttpInfo(
             @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload)
             throws ApiException {
         okhttp3.Call localVarCall = getFileUploadUrlValidateBeforeCall(getUploadUrlPayload, null);
@@ -1200,23 +1297,7 @@ public class FilesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get a signed upload URL (asynchronously)
-     * Generates a signed upload URL for a single file in the project bucket.  **Required permissions:** &#x60;content:write&#x60;
-     * @param getUploadUrlPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getFileUploadUrlAsync(
+    private okhttp3.Call getFileUploadUrlAsync(
             @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
             final ApiCallback<GetFileUrlResponse> _callback)
             throws ApiException {
@@ -1228,22 +1309,108 @@ public class FilesApi {
         return localVarCall;
     }
 
+    public class APIgetFileUploadUrlRequest {
+        @jakarta.annotation.Nonnull private final GetUploadUrlPayload getUploadUrlPayload;
+
+        private APIgetFileUploadUrlRequest(
+                @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload) {
+            this.getUploadUrlPayload = getUploadUrlPayload;
+        }
+
+        /**
+         * Build call for getFileUploadUrl
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getFileUploadUrlCall(getUploadUrlPayload, _callback);
+        }
+
+        /**
+         * Execute getFileUploadUrl request
+         * @return GetFileUrlResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GetFileUrlResponse execute() throws ApiException {
+            ApiResponse<GetFileUrlResponse> localVarResp =
+                    getFileUploadUrlWithHttpInfo(getUploadUrlPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getFileUploadUrl request with HTTP info returned
+         * @return ApiResponse&lt;GetFileUrlResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GetFileUrlResponse> executeWithHttpInfo() throws ApiException {
+            return getFileUploadUrlWithHttpInfo(getUploadUrlPayload);
+        }
+
+        /**
+         * Execute getFileUploadUrl request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetFileUrlResponse> _callback)
+                throws ApiException {
+            return getFileUploadUrlAsync(getUploadUrlPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for listProjectFiles
-     * @param prefix  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get a signed upload URL
+     * Generates a signed upload URL for a single file in the project bucket.  **Required permissions:** &#x60;content:write&#x60;
+     * @param getUploadUrlPayload  (required)
+     * @return APIgetFileUploadUrlRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching project file paths. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed upload URL metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listProjectFilesCall(
+    public APIgetFileUploadUrlRequest getFileUploadUrl(
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload) {
+        return new APIgetFileUploadUrlRequest(getUploadUrlPayload);
+    }
+
+    private okhttp3.Call listProjectFilesCall(
             @jakarta.annotation.Nonnull String prefix, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1315,66 +1482,14 @@ public class FilesApi {
         return listProjectFilesCall(prefix, _callback);
     }
 
-    /**
-     * List files by prefix
-     * Lists project-bucket file paths that match the supplied prefix.  **Required permissions:** &#x60;content:read&#x60;
-     * @param prefix  (required)
-     * @return FileListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching project file paths. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public FileListResponse listProjectFiles(@jakarta.annotation.Nonnull String prefix)
-            throws ApiException {
-        ApiResponse<FileListResponse> localVarResp = listProjectFilesWithHttpInfo(prefix);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List files by prefix
-     * Lists project-bucket file paths that match the supplied prefix.  **Required permissions:** &#x60;content:read&#x60;
-     * @param prefix  (required)
-     * @return ApiResponse&lt;FileListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching project file paths. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<FileListResponse> listProjectFilesWithHttpInfo(
+    private ApiResponse<FileListResponse> listProjectFilesWithHttpInfo(
             @jakarta.annotation.Nonnull String prefix) throws ApiException {
         okhttp3.Call localVarCall = listProjectFilesValidateBeforeCall(prefix, null);
         Type localVarReturnType = new TypeToken<FileListResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List files by prefix (asynchronously)
-     * Lists project-bucket file paths that match the supplied prefix.  **Required permissions:** &#x60;content:read&#x60;
-     * @param prefix  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching project file paths. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listProjectFilesAsync(
+    private okhttp3.Call listProjectFilesAsync(
             @jakarta.annotation.Nonnull String prefix,
             final ApiCallback<FileListResponse> _callback)
             throws ApiException {
@@ -1385,22 +1500,105 @@ public class FilesApi {
         return localVarCall;
     }
 
+    public class APIlistProjectFilesRequest {
+        @jakarta.annotation.Nonnull private final String prefix;
+
+        private APIlistProjectFilesRequest(@jakarta.annotation.Nonnull String prefix) {
+            this.prefix = prefix;
+        }
+
+        /**
+         * Build call for listProjectFiles
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching project file paths. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listProjectFilesCall(prefix, _callback);
+        }
+
+        /**
+         * Execute listProjectFiles request
+         * @return FileListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching project file paths. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public FileListResponse execute() throws ApiException {
+            ApiResponse<FileListResponse> localVarResp = listProjectFilesWithHttpInfo(prefix);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listProjectFiles request with HTTP info returned
+         * @return ApiResponse&lt;FileListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching project file paths. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<FileListResponse> executeWithHttpInfo() throws ApiException {
+            return listProjectFilesWithHttpInfo(prefix);
+        }
+
+        /**
+         * Execute listProjectFiles request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching project file paths. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<FileListResponse> _callback)
+                throws ApiException {
+            return listProjectFilesAsync(prefix, _callback);
+        }
+    }
+
     /**
-     * Build call for setFileMetadata
-     * @param setFileMetadataPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List files by prefix
+     * Lists project-bucket file paths that match the supplied prefix.  **Required permissions:** &#x60;content:read&#x60;
+     * @param prefix  (required)
+     * @return APIlistProjectFilesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Metadata update status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Matching project file paths. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call setFileMetadataCall(
+    public APIlistProjectFilesRequest listProjectFiles(@jakarta.annotation.Nonnull String prefix) {
+        return new APIlistProjectFilesRequest(prefix);
+    }
+
+    private okhttp3.Call setFileMetadataCall(
             @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1470,45 +1668,7 @@ public class FilesApi {
         return setFileMetadataCall(setFileMetadataPayload, _callback);
     }
 
-    /**
-     * Set custom file metadata
-     * Applies custom metadata key-value pairs to a file in project storage.  **Required permissions:** &#x60;content:write&#x60;
-     * @param setFileMetadataPayload  (required)
-     * @return FileMetadataUpdateResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Metadata update status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public FileMetadataUpdateResult setFileMetadata(
-            @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload)
-            throws ApiException {
-        ApiResponse<FileMetadataUpdateResult> localVarResp =
-                setFileMetadataWithHttpInfo(setFileMetadataPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Set custom file metadata
-     * Applies custom metadata key-value pairs to a file in project storage.  **Required permissions:** &#x60;content:write&#x60;
-     * @param setFileMetadataPayload  (required)
-     * @return ApiResponse&lt;FileMetadataUpdateResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Metadata update status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<FileMetadataUpdateResult> setFileMetadataWithHttpInfo(
+    private ApiResponse<FileMetadataUpdateResult> setFileMetadataWithHttpInfo(
             @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload)
             throws ApiException {
         okhttp3.Call localVarCall = setFileMetadataValidateBeforeCall(setFileMetadataPayload, null);
@@ -1516,23 +1676,7 @@ public class FilesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Set custom file metadata (asynchronously)
-     * Applies custom metadata key-value pairs to a file in project storage.  **Required permissions:** &#x60;content:write&#x60;
-     * @param setFileMetadataPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Metadata update status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call setFileMetadataAsync(
+    private okhttp3.Call setFileMetadataAsync(
             @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload,
             final ApiCallback<FileMetadataUpdateResult> _callback)
             throws ApiException {
@@ -1542,5 +1686,106 @@ public class FilesApi {
         Type localVarReturnType = new TypeToken<FileMetadataUpdateResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIsetFileMetadataRequest {
+        @jakarta.annotation.Nonnull private final SetFileMetadataPayload setFileMetadataPayload;
+
+        private APIsetFileMetadataRequest(
+                @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload) {
+            this.setFileMetadataPayload = setFileMetadataPayload;
+        }
+
+        /**
+         * Build call for setFileMetadata
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Metadata update status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return setFileMetadataCall(setFileMetadataPayload, _callback);
+        }
+
+        /**
+         * Execute setFileMetadata request
+         * @return FileMetadataUpdateResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Metadata update status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public FileMetadataUpdateResult execute() throws ApiException {
+            ApiResponse<FileMetadataUpdateResult> localVarResp =
+                    setFileMetadataWithHttpInfo(setFileMetadataPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute setFileMetadata request with HTTP info returned
+         * @return ApiResponse&lt;FileMetadataUpdateResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Metadata update status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<FileMetadataUpdateResult> executeWithHttpInfo() throws ApiException {
+            return setFileMetadataWithHttpInfo(setFileMetadataPayload);
+        }
+
+        /**
+         * Execute setFileMetadata request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Metadata update status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<FileMetadataUpdateResult> _callback)
+                throws ApiException {
+            return setFileMetadataAsync(setFileMetadataPayload, _callback);
+        }
+    }
+
+    /**
+     * Set custom file metadata
+     * Applies custom metadata key-value pairs to a file in project storage.  **Required permissions:** &#x60;content:write&#x60;
+     * @param setFileMetadataPayload  (required)
+     * @return APIsetFileMetadataRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Metadata update status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIsetFileMetadataRequest setFileMetadata(
+            @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload) {
+        return new APIsetFileMetadataRequest(setFileMetadataPayload);
     }
 }

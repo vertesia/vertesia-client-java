@@ -65,22 +65,7 @@ public class OidcFederationApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createOidcFederationConnection
-     * @param oidcFederationConnectionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createOidcFederationConnectionCall(
+    private okhttp3.Call createOidcFederationConnectionCall(
             @jakarta.annotation.Nonnull
                     OidcFederationConnectionPayload oidcFederationConnectionPayload,
             final ApiCallback _callback)
@@ -152,46 +137,7 @@ public class OidcFederationApi {
         return createOidcFederationConnectionCall(oidcFederationConnectionPayload, _callback);
     }
 
-    /**
-     * Create an OIDC federation connection
-     * GitHub Actions, GitLab.com and Google issuers require a recognized immutable signed tenant or application binding in required_claims, such as repository_id, namespace_id or azp.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param oidcFederationConnectionPayload  (required)
-     * @return OidcFederationConnection
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OidcFederationConnection createOidcFederationConnection(
-            @jakarta.annotation.Nonnull
-                    OidcFederationConnectionPayload oidcFederationConnectionPayload)
-            throws ApiException {
-        ApiResponse<OidcFederationConnection> localVarResp =
-                createOidcFederationConnectionWithHttpInfo(oidcFederationConnectionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an OIDC federation connection
-     * GitHub Actions, GitLab.com and Google issuers require a recognized immutable signed tenant or application binding in required_claims, such as repository_id, namespace_id or azp.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param oidcFederationConnectionPayload  (required)
-     * @return ApiResponse&lt;OidcFederationConnection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OidcFederationConnection> createOidcFederationConnectionWithHttpInfo(
+    private ApiResponse<OidcFederationConnection> createOidcFederationConnectionWithHttpInfo(
             @jakarta.annotation.Nonnull
                     OidcFederationConnectionPayload oidcFederationConnectionPayload)
             throws ApiException {
@@ -202,23 +148,7 @@ public class OidcFederationApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an OIDC federation connection (asynchronously)
-     * GitHub Actions, GitLab.com and Google issuers require a recognized immutable signed tenant or application binding in required_claims, such as repository_id, namespace_id or azp.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param oidcFederationConnectionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createOidcFederationConnectionAsync(
+    private okhttp3.Call createOidcFederationConnectionAsync(
             @jakarta.annotation.Nonnull
                     OidcFederationConnectionPayload oidcFederationConnectionPayload,
             final ApiCallback<OidcFederationConnection> _callback)
@@ -232,12 +162,95 @@ public class OidcFederationApi {
         return localVarCall;
     }
 
+    public class APIcreateOidcFederationConnectionRequest {
+        @jakarta.annotation.Nonnull
+        private final OidcFederationConnectionPayload oidcFederationConnectionPayload;
+
+        private APIcreateOidcFederationConnectionRequest(
+                @jakarta.annotation.Nonnull
+                        OidcFederationConnectionPayload oidcFederationConnectionPayload) {
+            this.oidcFederationConnectionPayload = oidcFederationConnectionPayload;
+        }
+
+        /**
+         * Build call for createOidcFederationConnection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createOidcFederationConnectionCall(oidcFederationConnectionPayload, _callback);
+        }
+
+        /**
+         * Execute createOidcFederationConnection request
+         * @return OidcFederationConnection
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OidcFederationConnection execute() throws ApiException {
+            ApiResponse<OidcFederationConnection> localVarResp =
+                    createOidcFederationConnectionWithHttpInfo(oidcFederationConnectionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createOidcFederationConnection request with HTTP info returned
+         * @return ApiResponse&lt;OidcFederationConnection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OidcFederationConnection> executeWithHttpInfo() throws ApiException {
+            return createOidcFederationConnectionWithHttpInfo(oidcFederationConnectionPayload);
+        }
+
+        /**
+         * Execute createOidcFederationConnection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OidcFederationConnection> _callback)
+                throws ApiException {
+            return createOidcFederationConnectionAsync(oidcFederationConnectionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteOidcFederationConnection
-     * @param connectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an OIDC federation connection
+     * GitHub Actions, GitLab.com and Google issuers require a recognized immutable signed tenant or application binding in required_claims, such as repository_id, namespace_id or azp.  **Required permissions:** &#x60;account:admin&#x60;
+     * @param oidcFederationConnectionPayload  (required)
+     * @return APIcreateOidcFederationConnectionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -247,7 +260,13 @@ public class OidcFederationApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteOidcFederationConnectionCall(
+    public APIcreateOidcFederationConnectionRequest createOidcFederationConnection(
+            @jakarta.annotation.Nonnull
+                    OidcFederationConnectionPayload oidcFederationConnectionPayload) {
+        return new APIcreateOidcFederationConnectionRequest(oidcFederationConnectionPayload);
+    }
+
+    private okhttp3.Call deleteOidcFederationConnectionCall(
             @jakarta.annotation.Nonnull String connectionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -319,44 +338,7 @@ public class OidcFederationApi {
         return deleteOidcFederationConnectionCall(connectionId, _callback);
     }
 
-    /**
-     * Delete an OIDC federation connection
-     * **Required permissions:** &#x60;account:admin&#x60;
-     * @param connectionId  (required)
-     * @return SuccessResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SuccessResponse deleteOidcFederationConnection(
-            @jakarta.annotation.Nonnull String connectionId) throws ApiException {
-        ApiResponse<SuccessResponse> localVarResp =
-                deleteOidcFederationConnectionWithHttpInfo(connectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an OIDC federation connection
-     * **Required permissions:** &#x60;account:admin&#x60;
-     * @param connectionId  (required)
-     * @return ApiResponse&lt;SuccessResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SuccessResponse> deleteOidcFederationConnectionWithHttpInfo(
+    private ApiResponse<SuccessResponse> deleteOidcFederationConnectionWithHttpInfo(
             @jakarta.annotation.Nonnull String connectionId) throws ApiException {
         okhttp3.Call localVarCall =
                 deleteOidcFederationConnectionValidateBeforeCall(connectionId, null);
@@ -364,23 +346,7 @@ public class OidcFederationApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an OIDC federation connection (asynchronously)
-     * **Required permissions:** &#x60;account:admin&#x60;
-     * @param connectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteOidcFederationConnectionAsync(
+    private okhttp3.Call deleteOidcFederationConnectionAsync(
             @jakarta.annotation.Nonnull String connectionId,
             final ApiCallback<SuccessResponse> _callback)
             throws ApiException {
@@ -392,12 +358,93 @@ public class OidcFederationApi {
         return localVarCall;
     }
 
+    public class APIdeleteOidcFederationConnectionRequest {
+        @jakarta.annotation.Nonnull private final String connectionId;
+
+        private APIdeleteOidcFederationConnectionRequest(
+                @jakarta.annotation.Nonnull String connectionId) {
+            this.connectionId = connectionId;
+        }
+
+        /**
+         * Build call for deleteOidcFederationConnection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteOidcFederationConnectionCall(connectionId, _callback);
+        }
+
+        /**
+         * Execute deleteOidcFederationConnection request
+         * @return SuccessResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SuccessResponse execute() throws ApiException {
+            ApiResponse<SuccessResponse> localVarResp =
+                    deleteOidcFederationConnectionWithHttpInfo(connectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteOidcFederationConnection request with HTTP info returned
+         * @return ApiResponse&lt;SuccessResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SuccessResponse> executeWithHttpInfo() throws ApiException {
+            return deleteOidcFederationConnectionWithHttpInfo(connectionId);
+        }
+
+        /**
+         * Execute deleteOidcFederationConnection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SuccessResponse> _callback)
+                throws ApiException {
+            return deleteOidcFederationConnectionAsync(connectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for getOidcFederationConnection
+     * Delete an OIDC federation connection
+     * **Required permissions:** &#x60;account:admin&#x60;
      * @param connectionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteOidcFederationConnectionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -407,7 +454,12 @@ public class OidcFederationApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getOidcFederationConnectionCall(
+    public APIdeleteOidcFederationConnectionRequest deleteOidcFederationConnection(
+            @jakarta.annotation.Nonnull String connectionId) {
+        return new APIdeleteOidcFederationConnectionRequest(connectionId);
+    }
+
+    private okhttp3.Call getOidcFederationConnectionCall(
             @jakarta.annotation.Nonnull String connectionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -479,44 +531,7 @@ public class OidcFederationApi {
         return getOidcFederationConnectionCall(connectionId, _callback);
     }
 
-    /**
-     * Get an OIDC federation connection
-     * **Required permissions:** &#x60;account:admin&#x60;
-     * @param connectionId  (required)
-     * @return OidcFederationConnection
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OidcFederationConnection getOidcFederationConnection(
-            @jakarta.annotation.Nonnull String connectionId) throws ApiException {
-        ApiResponse<OidcFederationConnection> localVarResp =
-                getOidcFederationConnectionWithHttpInfo(connectionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get an OIDC federation connection
-     * **Required permissions:** &#x60;account:admin&#x60;
-     * @param connectionId  (required)
-     * @return ApiResponse&lt;OidcFederationConnection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OidcFederationConnection> getOidcFederationConnectionWithHttpInfo(
+    private ApiResponse<OidcFederationConnection> getOidcFederationConnectionWithHttpInfo(
             @jakarta.annotation.Nonnull String connectionId) throws ApiException {
         okhttp3.Call localVarCall =
                 getOidcFederationConnectionValidateBeforeCall(connectionId, null);
@@ -524,23 +539,7 @@ public class OidcFederationApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get an OIDC federation connection (asynchronously)
-     * **Required permissions:** &#x60;account:admin&#x60;
-     * @param connectionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getOidcFederationConnectionAsync(
+    private okhttp3.Call getOidcFederationConnectionAsync(
             @jakarta.annotation.Nonnull String connectionId,
             final ApiCallback<OidcFederationConnection> _callback)
             throws ApiException {
@@ -552,11 +551,93 @@ public class OidcFederationApi {
         return localVarCall;
     }
 
+    public class APIgetOidcFederationConnectionRequest {
+        @jakarta.annotation.Nonnull private final String connectionId;
+
+        private APIgetOidcFederationConnectionRequest(
+                @jakarta.annotation.Nonnull String connectionId) {
+            this.connectionId = connectionId;
+        }
+
+        /**
+         * Build call for getOidcFederationConnection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getOidcFederationConnectionCall(connectionId, _callback);
+        }
+
+        /**
+         * Execute getOidcFederationConnection request
+         * @return OidcFederationConnection
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OidcFederationConnection execute() throws ApiException {
+            ApiResponse<OidcFederationConnection> localVarResp =
+                    getOidcFederationConnectionWithHttpInfo(connectionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getOidcFederationConnection request with HTTP info returned
+         * @return ApiResponse&lt;OidcFederationConnection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OidcFederationConnection> executeWithHttpInfo() throws ApiException {
+            return getOidcFederationConnectionWithHttpInfo(connectionId);
+        }
+
+        /**
+         * Execute getOidcFederationConnection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OidcFederationConnection> _callback)
+                throws ApiException {
+            return getOidcFederationConnectionAsync(connectionId, _callback);
+        }
+    }
+
     /**
-     * Build call for listOidcFederationConnections
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get an OIDC federation connection
+     * **Required permissions:** &#x60;account:admin&#x60;
+     * @param connectionId  (required)
+     * @return APIgetOidcFederationConnectionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -566,7 +647,12 @@ public class OidcFederationApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listOidcFederationConnectionsCall(final ApiCallback _callback)
+    public APIgetOidcFederationConnectionRequest getOidcFederationConnection(
+            @jakarta.annotation.Nonnull String connectionId) {
+        return new APIgetOidcFederationConnectionRequest(connectionId);
+    }
+
+    private okhttp3.Call listOidcFederationConnectionsCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -626,63 +712,14 @@ public class OidcFederationApi {
         return listOidcFederationConnectionsCall(_callback);
     }
 
-    /**
-     * List OIDC federation connections
-     * **Required permissions:** &#x60;account:admin&#x60;
-     * @return List&lt;OidcFederationConnection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<OidcFederationConnection> listOidcFederationConnections() throws ApiException {
-        ApiResponse<List<OidcFederationConnection>> localVarResp =
-                listOidcFederationConnectionsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List OIDC federation connections
-     * **Required permissions:** &#x60;account:admin&#x60;
-     * @return ApiResponse&lt;List&lt;OidcFederationConnection&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<OidcFederationConnection>> listOidcFederationConnectionsWithHttpInfo()
+    private ApiResponse<List<OidcFederationConnection>> listOidcFederationConnectionsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listOidcFederationConnectionsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<OidcFederationConnection>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List OIDC federation connections (asynchronously)
-     * **Required permissions:** &#x60;account:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listOidcFederationConnectionsAsync(
+    private okhttp3.Call listOidcFederationConnectionsAsync(
             final ApiCallback<List<OidcFederationConnection>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listOidcFederationConnectionsValidateBeforeCall(_callback);
@@ -691,13 +728,89 @@ public class OidcFederationApi {
         return localVarCall;
     }
 
+    public class APIlistOidcFederationConnectionsRequest {
+
+        private APIlistOidcFederationConnectionsRequest() {}
+
+        /**
+         * Build call for listOidcFederationConnections
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listOidcFederationConnectionsCall(_callback);
+        }
+
+        /**
+         * Execute listOidcFederationConnections request
+         * @return List&lt;OidcFederationConnection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<OidcFederationConnection> execute() throws ApiException {
+            ApiResponse<List<OidcFederationConnection>> localVarResp =
+                    listOidcFederationConnectionsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listOidcFederationConnections request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;OidcFederationConnection&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<OidcFederationConnection>> executeWithHttpInfo()
+                throws ApiException {
+            return listOidcFederationConnectionsWithHttpInfo();
+        }
+
+        /**
+         * Execute listOidcFederationConnections request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<OidcFederationConnection>> _callback) throws ApiException {
+            return listOidcFederationConnectionsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateOidcFederationConnection
-     * @param connectionId  (required)
-     * @param oidcFederationConnectionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List OIDC federation connections
+     * **Required permissions:** &#x60;account:admin&#x60;
+     * @return APIlistOidcFederationConnectionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -707,7 +820,11 @@ public class OidcFederationApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateOidcFederationConnectionCall(
+    public APIlistOidcFederationConnectionsRequest listOidcFederationConnections() {
+        return new APIlistOidcFederationConnectionsRequest();
+    }
+
+    private okhttp3.Call updateOidcFederationConnectionCall(
             @jakarta.annotation.Nonnull String connectionId,
             @jakarta.annotation.Nonnull
                     OidcFederationConnectionPayload oidcFederationConnectionPayload,
@@ -792,50 +909,7 @@ public class OidcFederationApi {
                 connectionId, oidcFederationConnectionPayload, _callback);
     }
 
-    /**
-     * Replace an OIDC federation trust policy
-     * Shared GitHub Actions, GitLab.com and Google issuers require a recognized immutable signed tenant or application binding. Status-only disabling remains available for an unsafe or unavailable policy.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param connectionId  (required)
-     * @param oidcFederationConnectionPayload  (required)
-     * @return OidcFederationConnection
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OidcFederationConnection updateOidcFederationConnection(
-            @jakarta.annotation.Nonnull String connectionId,
-            @jakarta.annotation.Nonnull
-                    OidcFederationConnectionPayload oidcFederationConnectionPayload)
-            throws ApiException {
-        ApiResponse<OidcFederationConnection> localVarResp =
-                updateOidcFederationConnectionWithHttpInfo(
-                        connectionId, oidcFederationConnectionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Replace an OIDC federation trust policy
-     * Shared GitHub Actions, GitLab.com and Google issuers require a recognized immutable signed tenant or application binding. Status-only disabling remains available for an unsafe or unavailable policy.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param connectionId  (required)
-     * @param oidcFederationConnectionPayload  (required)
-     * @return ApiResponse&lt;OidcFederationConnection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OidcFederationConnection> updateOidcFederationConnectionWithHttpInfo(
+    private ApiResponse<OidcFederationConnection> updateOidcFederationConnectionWithHttpInfo(
             @jakarta.annotation.Nonnull String connectionId,
             @jakarta.annotation.Nonnull
                     OidcFederationConnectionPayload oidcFederationConnectionPayload)
@@ -847,24 +921,7 @@ public class OidcFederationApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Replace an OIDC federation trust policy (asynchronously)
-     * Shared GitHub Actions, GitLab.com and Google issuers require a recognized immutable signed tenant or application binding. Status-only disabling remains available for an unsafe or unavailable policy.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param connectionId  (required)
-     * @param oidcFederationConnectionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateOidcFederationConnectionAsync(
+    private okhttp3.Call updateOidcFederationConnectionAsync(
             @jakarta.annotation.Nonnull String connectionId,
             @jakarta.annotation.Nonnull
                     OidcFederationConnectionPayload oidcFederationConnectionPayload,
@@ -877,5 +934,120 @@ public class OidcFederationApi {
         Type localVarReturnType = new TypeToken<OidcFederationConnection>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateOidcFederationConnectionRequest {
+        @jakarta.annotation.Nonnull private final String connectionId;
+
+        @jakarta.annotation.Nonnull
+        private final OidcFederationConnectionPayload oidcFederationConnectionPayload;
+
+        private APIupdateOidcFederationConnectionRequest(
+                @jakarta.annotation.Nonnull String connectionId,
+                @jakarta.annotation.Nonnull
+                        OidcFederationConnectionPayload oidcFederationConnectionPayload) {
+            this.connectionId = connectionId;
+            this.oidcFederationConnectionPayload = oidcFederationConnectionPayload;
+        }
+
+        /**
+         * Build call for updateOidcFederationConnection
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateOidcFederationConnectionCall(
+                    connectionId, oidcFederationConnectionPayload, _callback);
+        }
+
+        /**
+         * Execute updateOidcFederationConnection request
+         * @return OidcFederationConnection
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OidcFederationConnection execute() throws ApiException {
+            ApiResponse<OidcFederationConnection> localVarResp =
+                    updateOidcFederationConnectionWithHttpInfo(
+                            connectionId, oidcFederationConnectionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateOidcFederationConnection request with HTTP info returned
+         * @return ApiResponse&lt;OidcFederationConnection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OidcFederationConnection> executeWithHttpInfo() throws ApiException {
+            return updateOidcFederationConnectionWithHttpInfo(
+                    connectionId, oidcFederationConnectionPayload);
+        }
+
+        /**
+         * Execute updateOidcFederationConnection request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OidcFederationConnection> _callback)
+                throws ApiException {
+            return updateOidcFederationConnectionAsync(
+                    connectionId, oidcFederationConnectionPayload, _callback);
+        }
+    }
+
+    /**
+     * Replace an OIDC federation trust policy
+     * Shared GitHub Actions, GitLab.com and Google issuers require a recognized immutable signed tenant or application binding. Status-only disabling remains available for an unsafe or unavailable policy.  **Required permissions:** &#x60;account:admin&#x60;
+     * @param connectionId  (required)
+     * @param oidcFederationConnectionPayload  (required)
+     * @return APIupdateOidcFederationConnectionRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateOidcFederationConnectionRequest updateOidcFederationConnection(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull
+                    OidcFederationConnectionPayload oidcFederationConnectionPayload) {
+        return new APIupdateOidcFederationConnectionRequest(
+                connectionId, oidcFederationConnectionPayload);
     }
 }

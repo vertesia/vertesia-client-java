@@ -91,22 +91,7 @@ public class InteractionsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for computeInteractionFacets
-     * @param computeInteractionFacetPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call computeInteractionFacetsCall(
+    private okhttp3.Call computeInteractionFacetsCall(
             @jakarta.annotation.Nonnull
                     ComputeInteractionFacetPayload computeInteractionFacetPayload,
             final ApiCallback _callback)
@@ -178,46 +163,7 @@ public class InteractionsApi {
         return computeInteractionFacetsCall(computeInteractionFacetPayload, _callback);
     }
 
-    /**
-     * Compute interaction facets
-     * Computes aggregation buckets and counts for interaction filters such as tags, status, version, and prompt template.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param computeInteractionFacetPayload  (required)
-     * @return ComputedFacetResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ComputedFacetResponse computeInteractionFacets(
-            @jakarta.annotation.Nonnull
-                    ComputeInteractionFacetPayload computeInteractionFacetPayload)
-            throws ApiException {
-        ApiResponse<ComputedFacetResponse> localVarResp =
-                computeInteractionFacetsWithHttpInfo(computeInteractionFacetPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Compute interaction facets
-     * Computes aggregation buckets and counts for interaction filters such as tags, status, version, and prompt template.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param computeInteractionFacetPayload  (required)
-     * @return ApiResponse&lt;ComputedFacetResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ComputedFacetResponse> computeInteractionFacetsWithHttpInfo(
+    private ApiResponse<ComputedFacetResponse> computeInteractionFacetsWithHttpInfo(
             @jakarta.annotation.Nonnull
                     ComputeInteractionFacetPayload computeInteractionFacetPayload)
             throws ApiException {
@@ -227,23 +173,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Compute interaction facets (asynchronously)
-     * Computes aggregation buckets and counts for interaction filters such as tags, status, version, and prompt template.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param computeInteractionFacetPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Facet buckets and total count for matching interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call computeInteractionFacetsAsync(
+    private okhttp3.Call computeInteractionFacetsAsync(
             @jakarta.annotation.Nonnull
                     ComputeInteractionFacetPayload computeInteractionFacetPayload,
             final ApiCallback<ComputedFacetResponse> _callback)
@@ -257,24 +187,111 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIcomputeInteractionFacetsRequest {
+        @jakarta.annotation.Nonnull
+        private final ComputeInteractionFacetPayload computeInteractionFacetPayload;
+
+        private APIcomputeInteractionFacetsRequest(
+                @jakarta.annotation.Nonnull
+                        ComputeInteractionFacetPayload computeInteractionFacetPayload) {
+            this.computeInteractionFacetPayload = computeInteractionFacetPayload;
+        }
+
+        /**
+         * Build call for computeInteractionFacets
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return computeInteractionFacetsCall(computeInteractionFacetPayload, _callback);
+        }
+
+        /**
+         * Execute computeInteractionFacets request
+         * @return ComputedFacetResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ComputedFacetResponse execute() throws ApiException {
+            ApiResponse<ComputedFacetResponse> localVarResp =
+                    computeInteractionFacetsWithHttpInfo(computeInteractionFacetPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute computeInteractionFacets request with HTTP info returned
+         * @return ApiResponse&lt;ComputedFacetResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ComputedFacetResponse> executeWithHttpInfo() throws ApiException {
+            return computeInteractionFacetsWithHttpInfo(computeInteractionFacetPayload);
+        }
+
+        /**
+         * Execute computeInteractionFacets request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Facet buckets and total count for matching interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ComputedFacetResponse> _callback)
+                throws ApiException {
+            return computeInteractionFacetsAsync(computeInteractionFacetPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createInteraction
-     * @param interactionCreatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Compute interaction facets
+     * Computes aggregation buckets and counts for interaction filters such as tags, status, version, and prompt template.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param computeInteractionFacetPayload  (required)
+     * @return APIcomputeInteractionFacetsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Facet buckets and total count for matching interactions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createInteractionCall(
+    public APIcomputeInteractionFacetsRequest computeInteractionFacets(
+            @jakarta.annotation.Nonnull
+                    ComputeInteractionFacetPayload computeInteractionFacetPayload) {
+        return new APIcomputeInteractionFacetsRequest(computeInteractionFacetPayload);
+    }
+
+    private okhttp3.Call createInteractionCall(
             @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -344,49 +361,7 @@ public class InteractionsApi {
         return createInteractionCall(interactionCreatePayload, _callback);
     }
 
-    /**
-     * Create an interaction
-     * Creates a draft interaction in the current project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionCreatePayload  (required)
-     * @return Interaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Interaction createInteraction(
-            @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload)
-            throws ApiException {
-        ApiResponse<Interaction> localVarResp =
-                createInteractionWithHttpInfo(interactionCreatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an interaction
-     * Creates a draft interaction in the current project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionCreatePayload  (required)
-     * @return ApiResponse&lt;Interaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Interaction> createInteractionWithHttpInfo(
+    private ApiResponse<Interaction> createInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -395,25 +370,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an interaction (asynchronously)
-     * Creates a draft interaction in the current project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionCreatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createInteractionAsync(
+    private okhttp3.Call createInteractionAsync(
             @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload,
             final ApiCallback<Interaction> _callback)
             throws ApiException {
@@ -425,23 +382,118 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIcreateInteractionRequest {
+        @jakarta.annotation.Nonnull private final InteractionCreatePayload interactionCreatePayload;
+
+        private APIcreateInteractionRequest(
+                @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload) {
+            this.interactionCreatePayload = interactionCreatePayload;
+        }
+
+        /**
+         * Build call for createInteraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createInteractionCall(interactionCreatePayload, _callback);
+        }
+
+        /**
+         * Execute createInteraction request
+         * @return Interaction
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Interaction execute() throws ApiException {
+            ApiResponse<Interaction> localVarResp =
+                    createInteractionWithHttpInfo(interactionCreatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createInteraction request with HTTP info returned
+         * @return ApiResponse&lt;Interaction&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Interaction> executeWithHttpInfo() throws ApiException {
+            return createInteractionWithHttpInfo(interactionCreatePayload);
+        }
+
+        /**
+         * Execute createInteraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Interaction> _callback)
+                throws ApiException {
+            return createInteractionAsync(interactionCreatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteInteraction
-     * @param interactionId  (required)
-     * @param cascade Set to true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an interaction
+     * Creates a draft interaction in the current project.  **Required permissions:** &#x60;interaction:write&#x60;
+     * @param interactionCreatePayload  (required)
+     * @return APIcreateInteractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteInteractionCall(
+    public APIcreateInteractionRequest createInteraction(
+            @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload) {
+        return new APIcreateInteractionRequest(interactionCreatePayload);
+    }
+
+    private okhttp3.Call deleteInteractionCall(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nullable Boolean cascade,
             final ApiCallback _callback)
@@ -521,48 +573,7 @@ public class InteractionsApi {
         return deleteInteractionCall(interactionId, cascade, _callback);
     }
 
-    /**
-     * Delete an interaction
-     * Deletes an interaction from the current project. Pass ?cascade&#x3D;true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks.  **Required permissions:** &#x60;interaction:delete&#x60;
-     * @param interactionId  (required)
-     * @param cascade Set to true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks. (optional)
-     * @return DeleteByIdResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DeleteByIdResult deleteInteraction(
-            @jakarta.annotation.Nonnull String interactionId,
-            @jakarta.annotation.Nullable Boolean cascade)
-            throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp =
-                deleteInteractionWithHttpInfo(interactionId, cascade);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete an interaction
-     * Deletes an interaction from the current project. Pass ?cascade&#x3D;true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks.  **Required permissions:** &#x60;interaction:delete&#x60;
-     * @param interactionId  (required)
-     * @param cascade Set to true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks. (optional)
-     * @return ApiResponse&lt;DeleteByIdResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DeleteByIdResult> deleteInteractionWithHttpInfo(
+    private ApiResponse<DeleteByIdResult> deleteInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nullable Boolean cascade)
             throws ApiException {
@@ -572,24 +583,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete an interaction (asynchronously)
-     * Deletes an interaction from the current project. Pass ?cascade&#x3D;true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks.  **Required permissions:** &#x60;interaction:delete&#x60;
-     * @param interactionId  (required)
-     * @param cascade Set to true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction deletion result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteInteractionAsync(
+    private okhttp3.Call deleteInteractionAsync(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nullable Boolean cascade,
             final ApiCallback<DeleteByIdResult> _callback)
@@ -602,74 +596,118 @@ public class InteractionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for deleteInteraction with every optional parameter left unset.
-     * @param interactionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call deleteInteractionCall(
-            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
-            throws ApiException {
-        return deleteInteractionCall(interactionId, null, _callback);
+    public class APIdeleteInteractionRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+        @jakarta.annotation.Nullable private Boolean cascade;
+
+        private APIdeleteInteractionRequest(@jakarta.annotation.Nonnull String interactionId) {
+            this.interactionId = interactionId;
+        }
+
+        /**
+         * Set cascade
+         * @param cascade Set to true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks. (optional)
+         * @return APIdeleteInteractionRequest
+         */
+        public APIdeleteInteractionRequest cascade(@jakarta.annotation.Nullable Boolean cascade) {
+            this.cascade = cascade;
+            return this;
+        }
+
+        /**
+         * Build call for deleteInteraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteInteractionCall(interactionId, cascade, _callback);
+        }
+
+        /**
+         * Execute deleteInteraction request
+         * @return DeleteByIdResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public DeleteByIdResult execute() throws ApiException {
+            ApiResponse<DeleteByIdResult> localVarResp =
+                    deleteInteractionWithHttpInfo(interactionId, cascade);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteInteraction request with HTTP info returned
+         * @return ApiResponse&lt;DeleteByIdResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<DeleteByIdResult> executeWithHttpInfo() throws ApiException {
+            return deleteInteractionWithHttpInfo(interactionId, cascade);
+        }
+
+        /**
+         * Execute deleteInteraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteByIdResult> _callback)
+                throws ApiException {
+            return deleteInteractionAsync(interactionId, cascade, _callback);
+        }
     }
 
     /**
      * Delete an interaction
-     * Calls {@code deleteInteraction} with every optional parameter left unset.
+     * Deletes an interaction from the current project. Pass ?cascade&#x3D;true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks.  **Required permissions:** &#x60;interaction:delete&#x60;
      * @param interactionId  (required)
-     * @return DeleteByIdResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public DeleteByIdResult deleteInteraction(@jakarta.annotation.Nonnull String interactionId)
-            throws ApiException {
-        return deleteInteraction(interactionId, null);
-    }
-
-    /**
-     * Delete an interaction
-     * Calls {@code deleteInteractionWithHttpInfo} with every optional parameter left unset.
-     * @param interactionId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<DeleteByIdResult> deleteInteractionWithHttpInfo(
-            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
-        return deleteInteractionWithHttpInfo(interactionId, null);
-    }
-
-    /**
-     * Delete an interaction (asynchronously)
-     * Calls {@code deleteInteractionAsync} with every optional parameter left unset.
-     * @param interactionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call deleteInteractionAsync(
-            @jakarta.annotation.Nonnull String interactionId,
-            final ApiCallback<DeleteByIdResult> _callback)
-            throws ApiException {
-        return deleteInteractionAsync(interactionId, null, _callback);
-    }
-
-    /**
-     * Build call for deleteInteractionConfiguration
-     * @param interactionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteInteractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Interaction deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteInteractionConfigurationCall(
+    public APIdeleteInteractionRequest deleteInteraction(
+            @jakarta.annotation.Nonnull String interactionId) {
+        return new APIdeleteInteractionRequest(interactionId);
+    }
+
+    private okhttp3.Call deleteInteractionConfigurationCall(
             @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -741,44 +779,7 @@ public class InteractionsApi {
         return deleteInteractionConfigurationCall(interactionId, _callback);
     }
 
-    /**
-     * Remove code interaction configuration
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param interactionId  (required)
-     * @return InteractionConfigurationResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InteractionConfigurationResult deleteInteractionConfiguration(
-            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
-        ApiResponse<InteractionConfigurationResult> localVarResp =
-                deleteInteractionConfigurationWithHttpInfo(interactionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Remove code interaction configuration
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param interactionId  (required)
-     * @return ApiResponse&lt;InteractionConfigurationResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InteractionConfigurationResult> deleteInteractionConfigurationWithHttpInfo(
+    private ApiResponse<InteractionConfigurationResult> deleteInteractionConfigurationWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall =
                 deleteInteractionConfigurationValidateBeforeCall(interactionId, null);
@@ -786,23 +787,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Remove code interaction configuration (asynchronously)
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param interactionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call deleteInteractionConfigurationAsync(
+    private okhttp3.Call deleteInteractionConfigurationAsync(
             @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<InteractionConfigurationResult> _callback)
             throws ApiException {
@@ -814,23 +799,109 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIdeleteInteractionConfigurationRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+
+        private APIdeleteInteractionConfigurationRequest(
+                @jakarta.annotation.Nonnull String interactionId) {
+            this.interactionId = interactionId;
+        }
+
+        /**
+         * Build call for deleteInteractionConfiguration
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteInteractionConfigurationCall(interactionId, _callback);
+        }
+
+        /**
+         * Execute deleteInteractionConfiguration request
+         * @return InteractionConfigurationResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InteractionConfigurationResult execute() throws ApiException {
+            ApiResponse<InteractionConfigurationResult> localVarResp =
+                    deleteInteractionConfigurationWithHttpInfo(interactionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteInteractionConfiguration request with HTTP info returned
+         * @return ApiResponse&lt;InteractionConfigurationResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InteractionConfigurationResult> executeWithHttpInfo()
+                throws ApiException {
+            return deleteInteractionConfigurationWithHttpInfo(interactionId);
+        }
+
+        /**
+         * Execute deleteInteractionConfiguration request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<InteractionConfigurationResult> _callback) throws ApiException {
+            return deleteInteractionConfigurationAsync(interactionId, _callback);
+        }
+    }
+
     /**
-     * Build call for executeInteraction
+     * Remove code interaction configuration
+     * **Required permissions:** &#x60;project:settings_write&#x60;
      * @param interactionId  (required)
-     * @param interactionExecutionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteInteractionConfigurationRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call executeInteractionCall(
+    public APIdeleteInteractionConfigurationRequest deleteInteractionConfiguration(
+            @jakarta.annotation.Nonnull String interactionId) {
+        return new APIdeleteInteractionConfigurationRequest(interactionId);
+    }
+
+    private okhttp3.Call executeInteractionCall(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             final ApiCallback _callback)
@@ -912,48 +983,7 @@ public class InteractionsApi {
         return executeInteractionCall(interactionId, interactionExecutionPayload, _callback);
     }
 
-    /**
-     * Execute an interaction
-     * Executes the selected interaction with input data, execution configuration, optional result schema, conversation state, and streaming options.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param interactionId  (required)
-     * @param interactionExecutionPayload  (required)
-     * @return InteractionExecutionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InteractionExecutionResult executeInteraction(
-            @jakarta.annotation.Nonnull String interactionId,
-            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload)
-            throws ApiException {
-        ApiResponse<InteractionExecutionResult> localVarResp =
-                executeInteractionWithHttpInfo(interactionId, interactionExecutionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Execute an interaction
-     * Executes the selected interaction with input data, execution configuration, optional result schema, conversation state, and streaming options.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param interactionId  (required)
-     * @param interactionExecutionPayload  (required)
-     * @return ApiResponse&lt;InteractionExecutionResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InteractionExecutionResult> executeInteractionWithHttpInfo(
+    private ApiResponse<InteractionExecutionResult> executeInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload)
             throws ApiException {
@@ -964,24 +994,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Execute an interaction (asynchronously)
-     * Executes the selected interaction with input data, execution configuration, optional result schema, conversation state, and streaming options.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param interactionId  (required)
-     * @param interactionExecutionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call executeInteractionAsync(
+    private okhttp3.Call executeInteractionAsync(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             final ApiCallback<InteractionExecutionResult> _callback)
@@ -995,22 +1008,116 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIexecuteInteractionRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+
+        @jakarta.annotation.Nonnull
+        private final InteractionExecutionPayload interactionExecutionPayload;
+
+        private APIexecuteInteractionRequest(
+                @jakarta.annotation.Nonnull String interactionId,
+                @jakarta.annotation.Nonnull
+                        InteractionExecutionPayload interactionExecutionPayload) {
+            this.interactionId = interactionId;
+            this.interactionExecutionPayload = interactionExecutionPayload;
+        }
+
+        /**
+         * Build call for executeInteraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return executeInteractionCall(interactionId, interactionExecutionPayload, _callback);
+        }
+
+        /**
+         * Execute executeInteraction request
+         * @return InteractionExecutionResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InteractionExecutionResult execute() throws ApiException {
+            ApiResponse<InteractionExecutionResult> localVarResp =
+                    executeInteractionWithHttpInfo(interactionId, interactionExecutionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute executeInteraction request with HTTP info returned
+         * @return ApiResponse&lt;InteractionExecutionResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InteractionExecutionResult> executeWithHttpInfo() throws ApiException {
+            return executeInteractionWithHttpInfo(interactionId, interactionExecutionPayload);
+        }
+
+        /**
+         * Execute executeInteraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InteractionExecutionResult> _callback)
+                throws ApiException {
+            return executeInteractionAsync(interactionId, interactionExecutionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for executeInteractionAsync
-     * @param asyncExecutionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Execute an interaction
+     * Executes the selected interaction with input data, execution configuration, optional result schema, conversation state, and streaming options.  **Required permissions:** &#x60;interaction:execute&#x60;
+     * @param interactionId  (required)
+     * @param interactionExecutionPayload  (required)
+     * @return APIexecuteInteractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Asynchronous execution identifiers. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call executeInteractionAsyncCall(
+    public APIexecuteInteractionRequest executeInteraction(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload) {
+        return new APIexecuteInteractionRequest(interactionId, interactionExecutionPayload);
+    }
+
+    private okhttp3.Call executeInteractionAsyncCall(
             @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1080,45 +1187,7 @@ public class InteractionsApi {
         return executeInteractionAsyncCall(asyncExecutionPayload, _callback);
     }
 
-    /**
-     * Execute an interaction asynchronously
-     * Starts an asynchronous interaction or conversation execution and returns the workflow and run identifiers.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param asyncExecutionPayload  (required)
-     * @return AsyncExecutionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Asynchronous execution identifiers. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AsyncExecutionResult executeInteractionAsync(
-            @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload)
-            throws ApiException {
-        ApiResponse<AsyncExecutionResult> localVarResp =
-                executeInteractionAsyncWithHttpInfo(asyncExecutionPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Execute an interaction asynchronously
-     * Starts an asynchronous interaction or conversation execution and returns the workflow and run identifiers.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param asyncExecutionPayload  (required)
-     * @return ApiResponse&lt;AsyncExecutionResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Asynchronous execution identifiers. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AsyncExecutionResult> executeInteractionAsyncWithHttpInfo(
+    private ApiResponse<AsyncExecutionResult> executeInteractionAsyncWithHttpInfo(
             @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1127,23 +1196,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Execute an interaction asynchronously (asynchronously)
-     * Starts an asynchronous interaction or conversation execution and returns the workflow and run identifiers.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param asyncExecutionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Asynchronous execution identifiers. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call executeInteractionAsyncAsync(
+    private okhttp3.Call executeInteractionAsyncAsync(
             @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload,
             final ApiCallback<AsyncExecutionResult> _callback)
             throws ApiException {
@@ -1155,26 +1208,108 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIexecuteInteractionAsyncRequest {
+        @jakarta.annotation.Nonnull private final AsyncExecutionPayload asyncExecutionPayload;
+
+        private APIexecuteInteractionAsyncRequest(
+                @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload) {
+            this.asyncExecutionPayload = asyncExecutionPayload;
+        }
+
+        /**
+         * Build call for executeInteractionAsync
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Asynchronous execution identifiers. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return executeInteractionAsyncCall(asyncExecutionPayload, _callback);
+        }
+
+        /**
+         * Execute executeInteractionAsync request
+         * @return AsyncExecutionResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Asynchronous execution identifiers. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AsyncExecutionResult execute() throws ApiException {
+            ApiResponse<AsyncExecutionResult> localVarResp =
+                    executeInteractionAsyncWithHttpInfo(asyncExecutionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute executeInteractionAsync request with HTTP info returned
+         * @return ApiResponse&lt;AsyncExecutionResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Asynchronous execution identifiers. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AsyncExecutionResult> executeWithHttpInfo() throws ApiException {
+            return executeInteractionAsyncWithHttpInfo(asyncExecutionPayload);
+        }
+
+        /**
+         * Execute executeInteractionAsync request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Asynchronous execution identifiers. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AsyncExecutionResult> _callback)
+                throws ApiException {
+            return executeInteractionAsyncAsync(asyncExecutionPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for executeInteractionByEndpoint
-     * @param endpoint  (required)
-     * @param interactionExecutionPayload  (required)
-     * @param tag  (optional)
-     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
-     * @param xInteractionTag  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Execute an interaction asynchronously
+     * Starts an asynchronous interaction or conversation execution and returns the workflow and run identifiers.  **Required permissions:** &#x60;interaction:execute&#x60;
+     * @param asyncExecutionPayload  (required)
+     * @return APIexecuteInteractionAsyncRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Asynchronous execution identifiers. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call executeInteractionByEndpointCall(
+    public APIexecuteInteractionAsyncRequest executeInteractionAsync(
+            @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload) {
+        return new APIexecuteInteractionAsyncRequest(asyncExecutionPayload);
+    }
+
+    private okhttp3.Call executeInteractionByEndpointCall(
             @jakarta.annotation.Nonnull String endpoint,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             @jakarta.annotation.Nullable String tag,
@@ -1282,58 +1417,7 @@ public class InteractionsApi {
                 _callback);
     }
 
-    /**
-     * Execute an interaction by endpoint
-     * Executes an interaction resolved from the endpoint path and optional interaction tag header.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param endpoint  (required)
-     * @param interactionExecutionPayload  (required)
-     * @param tag  (optional)
-     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
-     * @param xInteractionTag  (optional)
-     * @return InteractionExecutionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InteractionExecutionResult executeInteractionByEndpoint(
-            @jakarta.annotation.Nonnull String endpoint,
-            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
-            @jakarta.annotation.Nullable String tag,
-            @jakarta.annotation.Nullable Boolean includePrompt,
-            @jakarta.annotation.Nullable String xInteractionTag)
-            throws ApiException {
-        ApiResponse<InteractionExecutionResult> localVarResp =
-                executeInteractionByEndpointWithHttpInfo(
-                        endpoint, interactionExecutionPayload, tag, includePrompt, xInteractionTag);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Execute an interaction by endpoint
-     * Executes an interaction resolved from the endpoint path and optional interaction tag header.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param endpoint  (required)
-     * @param interactionExecutionPayload  (required)
-     * @param tag  (optional)
-     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
-     * @param xInteractionTag  (optional)
-     * @return ApiResponse&lt;InteractionExecutionResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InteractionExecutionResult> executeInteractionByEndpointWithHttpInfo(
+    private ApiResponse<InteractionExecutionResult> executeInteractionByEndpointWithHttpInfo(
             @jakarta.annotation.Nonnull String endpoint,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             @jakarta.annotation.Nullable String tag,
@@ -1352,27 +1436,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Execute an interaction by endpoint (asynchronously)
-     * Executes an interaction resolved from the endpoint path and optional interaction tag header.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param endpoint  (required)
-     * @param interactionExecutionPayload  (required)
-     * @param tag  (optional)
-     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
-     * @param xInteractionTag  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call executeInteractionByEndpointAsync(
+    private okhttp3.Call executeInteractionByEndpointAsync(
             @jakarta.annotation.Nonnull String endpoint,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             @jakarta.annotation.Nullable String tag,
@@ -1394,80 +1458,154 @@ public class InteractionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for executeInteractionByEndpoint with every optional parameter left unset.
-     * @param endpoint  (required)
-     * @param interactionExecutionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call executeInteractionByEndpointCall(
-            @jakarta.annotation.Nonnull String endpoint,
-            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
-            final ApiCallback _callback)
-            throws ApiException {
-        return executeInteractionByEndpointCall(
-                endpoint, interactionExecutionPayload, null, null, null, _callback);
+    public class APIexecuteInteractionByEndpointRequest {
+        @jakarta.annotation.Nonnull private final String endpoint;
+
+        @jakarta.annotation.Nonnull
+        private final InteractionExecutionPayload interactionExecutionPayload;
+
+        @jakarta.annotation.Nullable private String tag;
+        @jakarta.annotation.Nullable private Boolean includePrompt;
+        @jakarta.annotation.Nullable private String xInteractionTag;
+
+        private APIexecuteInteractionByEndpointRequest(
+                @jakarta.annotation.Nonnull String endpoint,
+                @jakarta.annotation.Nonnull
+                        InteractionExecutionPayload interactionExecutionPayload) {
+            this.endpoint = endpoint;
+            this.interactionExecutionPayload = interactionExecutionPayload;
+        }
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIexecuteInteractionByEndpointRequest
+         */
+        public APIexecuteInteractionByEndpointRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Set includePrompt
+         * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
+         * @return APIexecuteInteractionByEndpointRequest
+         */
+        public APIexecuteInteractionByEndpointRequest includePrompt(
+                @jakarta.annotation.Nullable Boolean includePrompt) {
+            this.includePrompt = includePrompt;
+            return this;
+        }
+
+        /**
+         * Set xInteractionTag
+         * @param xInteractionTag  (optional)
+         * @return APIexecuteInteractionByEndpointRequest
+         */
+        public APIexecuteInteractionByEndpointRequest xInteractionTag(
+                @jakarta.annotation.Nullable String xInteractionTag) {
+            this.xInteractionTag = xInteractionTag;
+            return this;
+        }
+
+        /**
+         * Build call for executeInteractionByEndpoint
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return executeInteractionByEndpointCall(
+                    endpoint,
+                    interactionExecutionPayload,
+                    tag,
+                    includePrompt,
+                    xInteractionTag,
+                    _callback);
+        }
+
+        /**
+         * Execute executeInteractionByEndpoint request
+         * @return InteractionExecutionResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InteractionExecutionResult execute() throws ApiException {
+            ApiResponse<InteractionExecutionResult> localVarResp =
+                    executeInteractionByEndpointWithHttpInfo(
+                            endpoint,
+                            interactionExecutionPayload,
+                            tag,
+                            includePrompt,
+                            xInteractionTag);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute executeInteractionByEndpoint request with HTTP info returned
+         * @return ApiResponse&lt;InteractionExecutionResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InteractionExecutionResult> executeWithHttpInfo() throws ApiException {
+            return executeInteractionByEndpointWithHttpInfo(
+                    endpoint, interactionExecutionPayload, tag, includePrompt, xInteractionTag);
+        }
+
+        /**
+         * Execute executeInteractionByEndpoint request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InteractionExecutionResult> _callback)
+                throws ApiException {
+            return executeInteractionByEndpointAsync(
+                    endpoint,
+                    interactionExecutionPayload,
+                    tag,
+                    includePrompt,
+                    xInteractionTag,
+                    _callback);
+        }
     }
 
     /**
      * Execute an interaction by endpoint
-     * Calls {@code executeInteractionByEndpoint} with every optional parameter left unset.
+     * Executes an interaction resolved from the endpoint path and optional interaction tag header.  **Required permissions:** &#x60;interaction:execute&#x60;
      * @param endpoint  (required)
      * @param interactionExecutionPayload  (required)
-     * @return InteractionExecutionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InteractionExecutionResult executeInteractionByEndpoint(
-            @jakarta.annotation.Nonnull String endpoint,
-            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload)
-            throws ApiException {
-        return executeInteractionByEndpoint(
-                endpoint, interactionExecutionPayload, null, null, null);
-    }
-
-    /**
-     * Execute an interaction by endpoint
-     * Calls {@code executeInteractionByEndpointWithHttpInfo} with every optional parameter left unset.
-     * @param endpoint  (required)
-     * @param interactionExecutionPayload  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InteractionExecutionResult> executeInteractionByEndpointWithHttpInfo(
-            @jakarta.annotation.Nonnull String endpoint,
-            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload)
-            throws ApiException {
-        return executeInteractionByEndpointWithHttpInfo(
-                endpoint, interactionExecutionPayload, null, null, null);
-    }
-
-    /**
-     * Execute an interaction by endpoint (asynchronously)
-     * Calls {@code executeInteractionByEndpointAsync} with every optional parameter left unset.
-     * @param endpoint  (required)
-     * @param interactionExecutionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call executeInteractionByEndpointAsync(
-            @jakarta.annotation.Nonnull String endpoint,
-            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
-            final ApiCallback<InteractionExecutionResult> _callback)
-            throws ApiException {
-        return executeInteractionByEndpointAsync(
-                endpoint, interactionExecutionPayload, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for executeNamedInteraction
-     * @param namedInteractionExecutionPayload  (required)
-     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIexecuteInteractionByEndpointRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -1477,7 +1615,13 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call executeNamedInteractionCall(
+    public APIexecuteInteractionByEndpointRequest executeInteractionByEndpoint(
+            @jakarta.annotation.Nonnull String endpoint,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload) {
+        return new APIexecuteInteractionByEndpointRequest(endpoint, interactionExecutionPayload);
+    }
+
+    private okhttp3.Call executeNamedInteractionCall(
             @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload,
             @jakarta.annotation.Nullable Boolean includePrompt,
@@ -1557,50 +1701,7 @@ public class InteractionsApi {
                 namedInteractionExecutionPayload, includePrompt, _callback);
     }
 
-    /**
-     * Execute an interaction by selector
-     * Executes an interaction selected by name, tag, or version and returns the interaction run result.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param namedInteractionExecutionPayload  (required)
-     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
-     * @return InteractionExecutionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InteractionExecutionResult executeNamedInteraction(
-            @jakarta.annotation.Nonnull
-                    NamedInteractionExecutionPayload namedInteractionExecutionPayload,
-            @jakarta.annotation.Nullable Boolean includePrompt)
-            throws ApiException {
-        ApiResponse<InteractionExecutionResult> localVarResp =
-                executeNamedInteractionWithHttpInfo(
-                        namedInteractionExecutionPayload, includePrompt);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Execute an interaction by selector
-     * Executes an interaction selected by name, tag, or version and returns the interaction run result.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param namedInteractionExecutionPayload  (required)
-     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
-     * @return ApiResponse&lt;InteractionExecutionResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InteractionExecutionResult> executeNamedInteractionWithHttpInfo(
+    private ApiResponse<InteractionExecutionResult> executeNamedInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload,
             @jakarta.annotation.Nullable Boolean includePrompt)
@@ -1612,24 +1713,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Execute an interaction by selector (asynchronously)
-     * Executes an interaction selected by name, tag, or version and returns the interaction run result.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param namedInteractionExecutionPayload  (required)
-     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call executeNamedInteractionAsync(
+    private okhttp3.Call executeNamedInteractionAsync(
             @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload,
             @jakarta.annotation.Nullable Boolean includePrompt,
@@ -1644,81 +1728,128 @@ public class InteractionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for executeNamedInteraction with every optional parameter left unset.
-     * @param namedInteractionExecutionPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call executeNamedInteractionCall(
-            @jakarta.annotation.Nonnull
-                    NamedInteractionExecutionPayload namedInteractionExecutionPayload,
-            final ApiCallback _callback)
-            throws ApiException {
-        return executeNamedInteractionCall(namedInteractionExecutionPayload, null, _callback);
+    public class APIexecuteNamedInteractionRequest {
+        @jakarta.annotation.Nonnull
+        private final NamedInteractionExecutionPayload namedInteractionExecutionPayload;
+
+        @jakarta.annotation.Nullable private Boolean includePrompt;
+
+        private APIexecuteNamedInteractionRequest(
+                @jakarta.annotation.Nonnull
+                        NamedInteractionExecutionPayload namedInteractionExecutionPayload) {
+            this.namedInteractionExecutionPayload = namedInteractionExecutionPayload;
+        }
+
+        /**
+         * Set includePrompt
+         * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
+         * @return APIexecuteNamedInteractionRequest
+         */
+        public APIexecuteNamedInteractionRequest includePrompt(
+                @jakarta.annotation.Nullable Boolean includePrompt) {
+            this.includePrompt = includePrompt;
+            return this;
+        }
+
+        /**
+         * Build call for executeNamedInteraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return executeNamedInteractionCall(
+                    namedInteractionExecutionPayload, includePrompt, _callback);
+        }
+
+        /**
+         * Execute executeNamedInteraction request
+         * @return InteractionExecutionResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InteractionExecutionResult execute() throws ApiException {
+            ApiResponse<InteractionExecutionResult> localVarResp =
+                    executeNamedInteractionWithHttpInfo(
+                            namedInteractionExecutionPayload, includePrompt);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute executeNamedInteraction request with HTTP info returned
+         * @return ApiResponse&lt;InteractionExecutionResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InteractionExecutionResult> executeWithHttpInfo() throws ApiException {
+            return executeNamedInteractionWithHttpInfo(
+                    namedInteractionExecutionPayload, includePrompt);
+        }
+
+        /**
+         * Execute executeNamedInteraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InteractionExecutionResult> _callback)
+                throws ApiException {
+            return executeNamedInteractionAsync(
+                    namedInteractionExecutionPayload, includePrompt, _callback);
+        }
     }
 
     /**
      * Execute an interaction by selector
-     * Calls {@code executeNamedInteraction} with every optional parameter left unset.
+     * Executes an interaction selected by name, tag, or version and returns the interaction run result.  **Required permissions:** &#x60;interaction:execute&#x60;
      * @param namedInteractionExecutionPayload  (required)
-     * @return InteractionExecutionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public InteractionExecutionResult executeNamedInteraction(
-            @jakarta.annotation.Nonnull
-                    NamedInteractionExecutionPayload namedInteractionExecutionPayload)
-            throws ApiException {
-        return executeNamedInteraction(namedInteractionExecutionPayload, null);
-    }
-
-    /**
-     * Execute an interaction by selector
-     * Calls {@code executeNamedInteractionWithHttpInfo} with every optional parameter left unset.
-     * @param namedInteractionExecutionPayload  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<InteractionExecutionResult> executeNamedInteractionWithHttpInfo(
-            @jakarta.annotation.Nonnull
-                    NamedInteractionExecutionPayload namedInteractionExecutionPayload)
-            throws ApiException {
-        return executeNamedInteractionWithHttpInfo(namedInteractionExecutionPayload, null);
-    }
-
-    /**
-     * Execute an interaction by selector (asynchronously)
-     * Calls {@code executeNamedInteractionAsync} with every optional parameter left unset.
-     * @param namedInteractionExecutionPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call executeNamedInteractionAsync(
-            @jakarta.annotation.Nonnull
-                    NamedInteractionExecutionPayload namedInteractionExecutionPayload,
-            final ApiCallback<InteractionExecutionResult> _callback)
-            throws ApiException {
-        return executeNamedInteractionAsync(namedInteractionExecutionPayload, null, _callback);
-    }
-
-    /**
-     * Build call for exportInteractions
-     * @param interactionsExportPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIexecuteNamedInteractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Exported interaction definitions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Interaction execution result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call exportInteractionsCall(
+    public APIexecuteNamedInteractionRequest executeNamedInteraction(
+            @jakarta.annotation.Nonnull
+                    NamedInteractionExecutionPayload namedInteractionExecutionPayload) {
+        return new APIexecuteNamedInteractionRequest(namedInteractionExecutionPayload);
+    }
+
+    private okhttp3.Call exportInteractionsCall(
             @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1788,45 +1919,7 @@ public class InteractionsApi {
         return exportInteractionsCall(interactionsExportPayload, _callback);
     }
 
-    /**
-     * Export interactions
-     * Exports interactions by name, tags, and selected versions, including prompt input schemas.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionsExportPayload  (required)
-     * @return List&lt;InteractionRefWithSchema&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Exported interaction definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InteractionRefWithSchema> exportInteractions(
-            @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload)
-            throws ApiException {
-        ApiResponse<List<InteractionRefWithSchema>> localVarResp =
-                exportInteractionsWithHttpInfo(interactionsExportPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Export interactions
-     * Exports interactions by name, tags, and selected versions, including prompt input schemas.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionsExportPayload  (required)
-     * @return ApiResponse&lt;List&lt;InteractionRefWithSchema&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Exported interaction definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InteractionRefWithSchema>> exportInteractionsWithHttpInfo(
+    private ApiResponse<List<InteractionRefWithSchema>> exportInteractionsWithHttpInfo(
             @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1835,23 +1928,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Export interactions (asynchronously)
-     * Exports interactions by name, tags, and selected versions, including prompt input schemas.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionsExportPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Exported interaction definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call exportInteractionsAsync(
+    private okhttp3.Call exportInteractionsAsync(
             @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload,
             final ApiCallback<List<InteractionRefWithSchema>> _callback)
             throws ApiException {
@@ -1863,24 +1940,110 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIexportInteractionsRequest {
+        @jakarta.annotation.Nonnull
+        private final InteractionsExportPayload interactionsExportPayload;
+
+        private APIexportInteractionsRequest(
+                @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload) {
+            this.interactionsExportPayload = interactionsExportPayload;
+        }
+
+        /**
+         * Build call for exportInteractions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Exported interaction definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return exportInteractionsCall(interactionsExportPayload, _callback);
+        }
+
+        /**
+         * Execute exportInteractions request
+         * @return List&lt;InteractionRefWithSchema&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Exported interaction definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InteractionRefWithSchema> execute() throws ApiException {
+            ApiResponse<List<InteractionRefWithSchema>> localVarResp =
+                    exportInteractionsWithHttpInfo(interactionsExportPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute exportInteractions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InteractionRefWithSchema&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Exported interaction definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InteractionRefWithSchema>> executeWithHttpInfo()
+                throws ApiException {
+            return exportInteractionsWithHttpInfo(interactionsExportPayload);
+        }
+
+        /**
+         * Execute exportInteractions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Exported interaction definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<InteractionRefWithSchema>> _callback) throws ApiException {
+            return exportInteractionsAsync(interactionsExportPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for forkInteraction
-     * @param interactionId  (required)
-     * @param interactionForkPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Export interactions
+     * Exports interactions by name, tags, and selected versions, including prompt input schemas.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param interactionsExportPayload  (required)
+     * @return APIexportInteractionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Exported interaction definitions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call forkInteractionCall(
+    public APIexportInteractionsRequest exportInteractions(
+            @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload) {
+        return new APIexportInteractionsRequest(interactionsExportPayload);
+    }
+
+    private okhttp3.Call forkInteractionCall(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload,
             final ApiCallback _callback)
@@ -1962,50 +2125,7 @@ public class InteractionsApi {
         return forkInteractionCall(interactionId, interactionForkPayload, _callback);
     }
 
-    /**
-     * Fork an interaction
-     * Creates a draft copy of an interaction, optionally for another accessible project and with prompt templates forked alongside it. Without &#x60;newName&#x60;, a fork into another project keeps the source name; otherwise, or when that endpoint is taken, it gets the first of &#x60;&lt;name&gt; (fork)&#x60;, &#x60;&lt;name&gt; (fork 2)&#x60;, ... whose endpoint is free in the target project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionId  (required)
-     * @param interactionForkPayload  (required)
-     * @return Interaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Interaction forkInteraction(
-            @jakarta.annotation.Nonnull String interactionId,
-            @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload)
-            throws ApiException {
-        ApiResponse<Interaction> localVarResp =
-                forkInteractionWithHttpInfo(interactionId, interactionForkPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Fork an interaction
-     * Creates a draft copy of an interaction, optionally for another accessible project and with prompt templates forked alongside it. Without &#x60;newName&#x60;, a fork into another project keeps the source name; otherwise, or when that endpoint is taken, it gets the first of &#x60;&lt;name&gt; (fork)&#x60;, &#x60;&lt;name&gt; (fork 2)&#x60;, ... whose endpoint is free in the target project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionId  (required)
-     * @param interactionForkPayload  (required)
-     * @return ApiResponse&lt;Interaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Interaction> forkInteractionWithHttpInfo(
+    private ApiResponse<Interaction> forkInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload)
             throws ApiException {
@@ -2015,25 +2135,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fork an interaction (asynchronously)
-     * Creates a draft copy of an interaction, optionally for another accessible project and with prompt templates forked alongside it. Without &#x60;newName&#x60;, a fork into another project keeps the source name; otherwise, or when that endpoint is taken, it gets the first of &#x60;&lt;name&gt; (fork)&#x60;, &#x60;&lt;name&gt; (fork 2)&#x60;, ... whose endpoint is free in the target project.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionId  (required)
-     * @param interactionForkPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call forkInteractionAsync(
+    private okhttp3.Call forkInteractionAsync(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload,
             final ApiCallback<Interaction> _callback)
@@ -2046,23 +2148,118 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIforkInteractionRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+        @jakarta.annotation.Nonnull private final InteractionForkPayload interactionForkPayload;
+
+        private APIforkInteractionRequest(
+                @jakarta.annotation.Nonnull String interactionId,
+                @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload) {
+            this.interactionId = interactionId;
+            this.interactionForkPayload = interactionForkPayload;
+        }
+
+        /**
+         * Build call for forkInteraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return forkInteractionCall(interactionId, interactionForkPayload, _callback);
+        }
+
+        /**
+         * Execute forkInteraction request
+         * @return Interaction
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Interaction execute() throws ApiException {
+            ApiResponse<Interaction> localVarResp =
+                    forkInteractionWithHttpInfo(interactionId, interactionForkPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute forkInteraction request with HTTP info returned
+         * @return ApiResponse&lt;Interaction&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Interaction> executeWithHttpInfo() throws ApiException {
+            return forkInteractionWithHttpInfo(interactionId, interactionForkPayload);
+        }
+
+        /**
+         * Execute forkInteraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Interaction> _callback)
+                throws ApiException {
+            return forkInteractionAsync(interactionId, interactionForkPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for generateInteractionTestData
+     * Fork an interaction
+     * Creates a draft copy of an interaction, optionally for another accessible project and with prompt templates forked alongside it. Without &#x60;newName&#x60;, a fork into another project keeps the source name; otherwise, or when that endpoint is taken, it gets the first of &#x60;&lt;name&gt; (fork)&#x60;, &#x60;&lt;name&gt; (fork 2)&#x60;, ... whose endpoint is free in the target project.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param interactionId  (required)
-     * @param generateTestDataPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param interactionForkPayload  (required)
+     * @return APIforkInteractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated test data records. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call generateInteractionTestDataCall(
+    public APIforkInteractionRequest forkInteraction(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload) {
+        return new APIforkInteractionRequest(interactionId, interactionForkPayload);
+    }
+
+    private okhttp3.Call generateInteractionTestDataCall(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload,
             final ApiCallback _callback)
@@ -2144,48 +2341,7 @@ public class InteractionsApi {
         return generateInteractionTestDataCall(interactionId, generateTestDataPayload, _callback);
     }
 
-    /**
-     * Generate interaction test data
-     * Uses a system interaction to generate synthetic input data for the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @param generateTestDataPayload  (required)
-     * @return List&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated test data records. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<Object> generateInteractionTestData(
-            @jakarta.annotation.Nonnull String interactionId,
-            @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload)
-            throws ApiException {
-        ApiResponse<List<Object>> localVarResp =
-                generateInteractionTestDataWithHttpInfo(interactionId, generateTestDataPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Generate interaction test data
-     * Uses a system interaction to generate synthetic input data for the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @param generateTestDataPayload  (required)
-     * @return ApiResponse&lt;List&lt;Object&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated test data records. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<Object>> generateInteractionTestDataWithHttpInfo(
+    private ApiResponse<List<Object>> generateInteractionTestDataWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload)
             throws ApiException {
@@ -2196,24 +2352,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Generate interaction test data (asynchronously)
-     * Uses a system interaction to generate synthetic input data for the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @param generateTestDataPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Generated test data records. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call generateInteractionTestDataAsync(
+    private okhttp3.Call generateInteractionTestDataAsync(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload,
             final ApiCallback<List<Object>> _callback)
@@ -2227,22 +2366,115 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIgenerateInteractionTestDataRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+        @jakarta.annotation.Nonnull private final GenerateTestDataPayload generateTestDataPayload;
+
+        private APIgenerateInteractionTestDataRequest(
+                @jakarta.annotation.Nonnull String interactionId,
+                @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload) {
+            this.interactionId = interactionId;
+            this.generateTestDataPayload = generateTestDataPayload;
+        }
+
+        /**
+         * Build call for generateInteractionTestData
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated test data records. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return generateInteractionTestDataCall(
+                    interactionId, generateTestDataPayload, _callback);
+        }
+
+        /**
+         * Execute generateInteractionTestData request
+         * @return List&lt;Object&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated test data records. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<Object> execute() throws ApiException {
+            ApiResponse<List<Object>> localVarResp =
+                    generateInteractionTestDataWithHttpInfo(interactionId, generateTestDataPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute generateInteractionTestData request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;Object&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated test data records. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<Object>> executeWithHttpInfo() throws ApiException {
+            return generateInteractionTestDataWithHttpInfo(interactionId, generateTestDataPayload);
+        }
+
+        /**
+         * Execute generateInteractionTestData request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Generated test data records. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<Object>> _callback)
+                throws ApiException {
+            return generateInteractionTestDataAsync(
+                    interactionId, generateTestDataPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getInteraction
+     * Generate interaction test data
+     * Uses a system interaction to generate synthetic input data for the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param generateTestDataPayload  (required)
+     * @return APIgenerateInteractionTestDataRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested interaction. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Generated test data records. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getInteractionCall(
+    public APIgenerateInteractionTestDataRequest generateInteractionTestData(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload) {
+        return new APIgenerateInteractionTestDataRequest(interactionId, generateTestDataPayload);
+    }
+
+    private okhttp3.Call getInteractionCall(
             @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2314,66 +2546,14 @@ public class InteractionsApi {
         return getInteractionCall(interactionId, _callback);
     }
 
-    /**
-     * Retrieve an interaction
-     * Retrieves an interaction by ID, including its prompts, model configuration, status, version, tags, and result schema.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @return Interaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested interaction. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Interaction getInteraction(@jakarta.annotation.Nonnull String interactionId)
-            throws ApiException {
-        ApiResponse<Interaction> localVarResp = getInteractionWithHttpInfo(interactionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an interaction
-     * Retrieves an interaction by ID, including its prompts, model configuration, status, version, tags, and result schema.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @return ApiResponse&lt;Interaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested interaction. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Interaction> getInteractionWithHttpInfo(
+    private ApiResponse<Interaction> getInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall = getInteractionValidateBeforeCall(interactionId, null);
         Type localVarReturnType = new TypeToken<Interaction>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an interaction (asynchronously)
-     * Retrieves an interaction by ID, including its prompts, model configuration, status, version, tags, and result schema.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested interaction. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getInteractionAsync(
+    private okhttp3.Call getInteractionAsync(
             @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<Interaction> _callback)
             throws ApiException {
@@ -2384,22 +2564,106 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIgetInteractionRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+
+        private APIgetInteractionRequest(@jakarta.annotation.Nonnull String interactionId) {
+            this.interactionId = interactionId;
+        }
+
+        /**
+         * Build call for getInteraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested interaction. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getInteractionCall(interactionId, _callback);
+        }
+
+        /**
+         * Execute getInteraction request
+         * @return Interaction
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested interaction. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Interaction execute() throws ApiException {
+            ApiResponse<Interaction> localVarResp = getInteractionWithHttpInfo(interactionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getInteraction request with HTTP info returned
+         * @return ApiResponse&lt;Interaction&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested interaction. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Interaction> executeWithHttpInfo() throws ApiException {
+            return getInteractionWithHttpInfo(interactionId);
+        }
+
+        /**
+         * Execute getInteraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested interaction. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Interaction> _callback)
+                throws ApiException {
+            return getInteractionAsync(interactionId, _callback);
+        }
+    }
+
     /**
-     * Build call for getInteractionConfiguration
+     * Retrieve an interaction
+     * Retrieves an interaction by ID, including its prompts, model configuration, status, version, tags, and result schema.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetInteractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested interaction. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getInteractionConfigurationCall(
+    public APIgetInteractionRequest getInteraction(
+            @jakarta.annotation.Nonnull String interactionId) {
+        return new APIgetInteractionRequest(interactionId);
+    }
+
+    private okhttp3.Call getInteractionConfigurationCall(
             @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2471,44 +2735,7 @@ public class InteractionsApi {
         return getInteractionConfigurationCall(interactionId, _callback);
     }
 
-    /**
-     * Get saved code interaction configuration
-     *
-     * @param interactionId  (required)
-     * @return InteractionConfigurationResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InteractionConfigurationResult getInteractionConfiguration(
-            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
-        ApiResponse<InteractionConfigurationResult> localVarResp =
-                getInteractionConfigurationWithHttpInfo(interactionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get saved code interaction configuration
-     *
-     * @param interactionId  (required)
-     * @return ApiResponse&lt;InteractionConfigurationResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InteractionConfigurationResult> getInteractionConfigurationWithHttpInfo(
+    private ApiResponse<InteractionConfigurationResult> getInteractionConfigurationWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall =
                 getInteractionConfigurationValidateBeforeCall(interactionId, null);
@@ -2516,23 +2743,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get saved code interaction configuration (asynchronously)
-     *
-     * @param interactionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getInteractionConfigurationAsync(
+    private okhttp3.Call getInteractionConfigurationAsync(
             @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<InteractionConfigurationResult> _callback)
             throws ApiException {
@@ -2544,22 +2755,109 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIgetInteractionConfigurationRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+
+        private APIgetInteractionConfigurationRequest(
+                @jakarta.annotation.Nonnull String interactionId) {
+            this.interactionId = interactionId;
+        }
+
+        /**
+         * Build call for getInteractionConfiguration
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getInteractionConfigurationCall(interactionId, _callback);
+        }
+
+        /**
+         * Execute getInteractionConfiguration request
+         * @return InteractionConfigurationResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InteractionConfigurationResult execute() throws ApiException {
+            ApiResponse<InteractionConfigurationResult> localVarResp =
+                    getInteractionConfigurationWithHttpInfo(interactionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getInteractionConfiguration request with HTTP info returned
+         * @return ApiResponse&lt;InteractionConfigurationResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InteractionConfigurationResult> executeWithHttpInfo()
+                throws ApiException {
+            return getInteractionConfigurationWithHttpInfo(interactionId);
+        }
+
+        /**
+         * Execute getInteractionConfiguration request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<InteractionConfigurationResult> _callback) throws ApiException {
+            return getInteractionConfigurationAsync(interactionId, _callback);
+        }
+    }
+
     /**
-     * Build call for listAllAppInteractions
-     * @param tag  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get saved code interaction configuration
+     *
+     * @param interactionId  (required)
+     * @return APIgetInteractionConfigurationRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Available app catalog interactions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAllAppInteractionsCall(
+    public APIgetInteractionConfigurationRequest getInteractionConfiguration(
+            @jakarta.annotation.Nonnull String interactionId) {
+        return new APIgetInteractionConfigurationRequest(interactionId);
+    }
+
+    private okhttp3.Call listAllAppInteractionsCall(
             @jakarta.annotation.Nullable String tag, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2625,67 +2923,14 @@ public class InteractionsApi {
         return listAllAppInteractionsCall(tag, _callback);
     }
 
-    /**
-     * List all app interactions
-     * Lists in-code interactions available from apps assigned to the current principal.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param tag  (optional)
-     * @return List&lt;CatalogInteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Available app catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<CatalogInteractionRef> listAllAppInteractions(
-            @jakarta.annotation.Nullable String tag) throws ApiException {
-        ApiResponse<List<CatalogInteractionRef>> localVarResp =
-                listAllAppInteractionsWithHttpInfo(tag);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List all app interactions
-     * Lists in-code interactions available from apps assigned to the current principal.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param tag  (optional)
-     * @return ApiResponse&lt;List&lt;CatalogInteractionRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Available app catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<CatalogInteractionRef>> listAllAppInteractionsWithHttpInfo(
+    private ApiResponse<List<CatalogInteractionRef>> listAllAppInteractionsWithHttpInfo(
             @jakarta.annotation.Nullable String tag) throws ApiException {
         okhttp3.Call localVarCall = listAllAppInteractionsValidateBeforeCall(tag, null);
         Type localVarReturnType = new TypeToken<List<CatalogInteractionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List all app interactions (asynchronously)
-     * Lists in-code interactions available from apps assigned to the current principal.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param tag  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Available app catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAllAppInteractionsAsync(
+    private okhttp3.Call listAllAppInteractionsAsync(
             @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<CatalogInteractionRef>> _callback)
             throws ApiException {
@@ -2696,67 +2941,113 @@ public class InteractionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listAllAppInteractions with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listAllAppInteractionsCall(final ApiCallback _callback)
-            throws ApiException {
-        return listAllAppInteractionsCall(null, _callback);
+    public class APIlistAllAppInteractionsRequest {
+        @jakarta.annotation.Nullable private String tag;
+
+        private APIlistAllAppInteractionsRequest() {}
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistAllAppInteractionsRequest
+         */
+        public APIlistAllAppInteractionsRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Build call for listAllAppInteractions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Available app catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAllAppInteractionsCall(tag, _callback);
+        }
+
+        /**
+         * Execute listAllAppInteractions request
+         * @return List&lt;CatalogInteractionRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Available app catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<CatalogInteractionRef> execute() throws ApiException {
+            ApiResponse<List<CatalogInteractionRef>> localVarResp =
+                    listAllAppInteractionsWithHttpInfo(tag);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAllAppInteractions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CatalogInteractionRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Available app catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<CatalogInteractionRef>> executeWithHttpInfo() throws ApiException {
+            return listAllAppInteractionsWithHttpInfo(tag);
+        }
+
+        /**
+         * Execute listAllAppInteractions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Available app catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CatalogInteractionRef>> _callback)
+                throws ApiException {
+            return listAllAppInteractionsAsync(tag, _callback);
+        }
     }
 
     /**
      * List all app interactions
-     * Calls {@code listAllAppInteractions} with every optional parameter left unset.
-     * @return List&lt;CatalogInteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<CatalogInteractionRef> listAllAppInteractions() throws ApiException {
-        return listAllAppInteractions(null);
-    }
-
-    /**
-     * List all app interactions
-     * Calls {@code listAllAppInteractionsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<CatalogInteractionRef>> listAllAppInteractionsWithHttpInfo()
-            throws ApiException {
-        return listAllAppInteractionsWithHttpInfo(null);
-    }
-
-    /**
-     * List all app interactions (asynchronously)
-     * Calls {@code listAllAppInteractionsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listAllAppInteractionsAsync(
-            final ApiCallback<List<CatalogInteractionRef>> _callback) throws ApiException {
-        return listAllAppInteractionsAsync(null, _callback);
-    }
-
-    /**
-     * Build call for listAppInteractions
-     * @param appName  (required)
-     * @param tag  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists in-code interactions available from apps assigned to the current principal.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistAllAppInteractionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App catalog interactions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Available app catalog interactions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppInteractionsCall(
+    public APIlistAllAppInteractionsRequest listAllAppInteractions() {
+        return new APIlistAllAppInteractionsRequest();
+    }
+
+    private okhttp3.Call listAppInteractionsCall(
             @jakarta.annotation.Nonnull String appName,
             @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
@@ -2836,47 +3127,7 @@ public class InteractionsApi {
         return listAppInteractionsCall(appName, tag, _callback);
     }
 
-    /**
-     * List app interactions
-     * Lists in-code interactions provided by a specific app, optionally filtered by tag.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param appName  (required)
-     * @param tag  (optional)
-     * @return List&lt;CatalogInteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<CatalogInteractionRef> listAppInteractions(
-            @jakarta.annotation.Nonnull String appName, @jakarta.annotation.Nullable String tag)
-            throws ApiException {
-        ApiResponse<List<CatalogInteractionRef>> localVarResp =
-                listAppInteractionsWithHttpInfo(appName, tag);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List app interactions
-     * Lists in-code interactions provided by a specific app, optionally filtered by tag.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param appName  (required)
-     * @param tag  (optional)
-     * @return ApiResponse&lt;List&lt;CatalogInteractionRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<CatalogInteractionRef>> listAppInteractionsWithHttpInfo(
+    private ApiResponse<List<CatalogInteractionRef>> listAppInteractionsWithHttpInfo(
             @jakarta.annotation.Nonnull String appName, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         okhttp3.Call localVarCall = listAppInteractionsValidateBeforeCall(appName, tag, null);
@@ -2884,24 +3135,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List app interactions (asynchronously)
-     * Lists in-code interactions provided by a specific app, optionally filtered by tag.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param appName  (required)
-     * @param tag  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> App catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAppInteractionsAsync(
+    private okhttp3.Call listAppInteractionsAsync(
             @jakarta.annotation.Nonnull String appName,
             @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<CatalogInteractionRef>> _callback)
@@ -2913,74 +3147,118 @@ public class InteractionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listAppInteractions with every optional parameter left unset.
-     * @param appName  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listAppInteractionsCall(
-            @jakarta.annotation.Nonnull String appName, final ApiCallback _callback)
-            throws ApiException {
-        return listAppInteractionsCall(appName, null, _callback);
+    public class APIlistAppInteractionsRequest {
+        @jakarta.annotation.Nonnull private final String appName;
+        @jakarta.annotation.Nullable private String tag;
+
+        private APIlistAppInteractionsRequest(@jakarta.annotation.Nonnull String appName) {
+            this.appName = appName;
+        }
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistAppInteractionsRequest
+         */
+        public APIlistAppInteractionsRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Build call for listAppInteractions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAppInteractionsCall(appName, tag, _callback);
+        }
+
+        /**
+         * Execute listAppInteractions request
+         * @return List&lt;CatalogInteractionRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<CatalogInteractionRef> execute() throws ApiException {
+            ApiResponse<List<CatalogInteractionRef>> localVarResp =
+                    listAppInteractionsWithHttpInfo(appName, tag);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAppInteractions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CatalogInteractionRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<CatalogInteractionRef>> executeWithHttpInfo() throws ApiException {
+            return listAppInteractionsWithHttpInfo(appName, tag);
+        }
+
+        /**
+         * Execute listAppInteractions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> App catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CatalogInteractionRef>> _callback)
+                throws ApiException {
+            return listAppInteractionsAsync(appName, tag, _callback);
+        }
     }
 
     /**
      * List app interactions
-     * Calls {@code listAppInteractions} with every optional parameter left unset.
+     * Lists in-code interactions provided by a specific app, optionally filtered by tag.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param appName  (required)
-     * @return List&lt;CatalogInteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<CatalogInteractionRef> listAppInteractions(
-            @jakarta.annotation.Nonnull String appName) throws ApiException {
-        return listAppInteractions(appName, null);
-    }
-
-    /**
-     * List app interactions
-     * Calls {@code listAppInteractionsWithHttpInfo} with every optional parameter left unset.
-     * @param appName  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<CatalogInteractionRef>> listAppInteractionsWithHttpInfo(
-            @jakarta.annotation.Nonnull String appName) throws ApiException {
-        return listAppInteractionsWithHttpInfo(appName, null);
-    }
-
-    /**
-     * List app interactions (asynchronously)
-     * Calls {@code listAppInteractionsAsync} with every optional parameter left unset.
-     * @param appName  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listAppInteractionsAsync(
-            @jakarta.annotation.Nonnull String appName,
-            final ApiCallback<List<CatalogInteractionRef>> _callback)
-            throws ApiException {
-        return listAppInteractionsAsync(appName, null, _callback);
-    }
-
-    /**
-     * Build call for listInteractionEndpoints
-     * @param interactionEndpointQuery  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistAppInteractionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Executable interaction endpoint definitions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> App catalog interactions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listInteractionEndpointsCall(
+    public APIlistAppInteractionsRequest listAppInteractions(
+            @jakarta.annotation.Nonnull String appName) {
+        return new APIlistAppInteractionsRequest(appName);
+    }
+
+    private okhttp3.Call listInteractionEndpointsCall(
             @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery,
             final ApiCallback _callback)
             throws ApiException {
@@ -3050,45 +3328,7 @@ public class InteractionsApi {
         return listInteractionEndpointsCall(interactionEndpointQuery, _callback);
     }
 
-    /**
-     * List interaction endpoints
-     * Lists executable interaction endpoint definitions, optionally including parameter and result schemas.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionEndpointQuery  (required)
-     * @return List&lt;InteractionEndpoint&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Executable interaction endpoint definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InteractionEndpoint> listInteractionEndpoints(
-            @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery)
-            throws ApiException {
-        ApiResponse<List<InteractionEndpoint>> localVarResp =
-                listInteractionEndpointsWithHttpInfo(interactionEndpointQuery);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List interaction endpoints
-     * Lists executable interaction endpoint definitions, optionally including parameter and result schemas.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionEndpointQuery  (required)
-     * @return ApiResponse&lt;List&lt;InteractionEndpoint&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Executable interaction endpoint definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InteractionEndpoint>> listInteractionEndpointsWithHttpInfo(
+    private ApiResponse<List<InteractionEndpoint>> listInteractionEndpointsWithHttpInfo(
             @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -3097,23 +3337,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List interaction endpoints (asynchronously)
-     * Lists executable interaction endpoint definitions, optionally including parameter and result schemas.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionEndpointQuery  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Executable interaction endpoint definitions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listInteractionEndpointsAsync(
+    private okhttp3.Call listInteractionEndpointsAsync(
             @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery,
             final ApiCallback<List<InteractionEndpoint>> _callback)
             throws ApiException {
@@ -3125,22 +3349,108 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIlistInteractionEndpointsRequest {
+        @jakarta.annotation.Nonnull private final InteractionEndpointQuery interactionEndpointQuery;
+
+        private APIlistInteractionEndpointsRequest(
+                @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery) {
+            this.interactionEndpointQuery = interactionEndpointQuery;
+        }
+
+        /**
+         * Build call for listInteractionEndpoints
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Executable interaction endpoint definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listInteractionEndpointsCall(interactionEndpointQuery, _callback);
+        }
+
+        /**
+         * Execute listInteractionEndpoints request
+         * @return List&lt;InteractionEndpoint&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Executable interaction endpoint definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InteractionEndpoint> execute() throws ApiException {
+            ApiResponse<List<InteractionEndpoint>> localVarResp =
+                    listInteractionEndpointsWithHttpInfo(interactionEndpointQuery);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listInteractionEndpoints request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InteractionEndpoint&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Executable interaction endpoint definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InteractionEndpoint>> executeWithHttpInfo() throws ApiException {
+            return listInteractionEndpointsWithHttpInfo(interactionEndpointQuery);
+        }
+
+        /**
+         * Execute listInteractionEndpoints request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Executable interaction endpoint definitions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InteractionEndpoint>> _callback)
+                throws ApiException {
+            return listInteractionEndpointsAsync(interactionEndpointQuery, _callback);
+        }
+    }
+
     /**
-     * Build call for listInteractionForks
-     * @param interactionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List interaction endpoints
+     * Lists executable interaction endpoint definitions, optionally including parameter and result schemas.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param interactionEndpointQuery  (required)
+     * @return APIlistInteractionEndpointsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interaction forks. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Executable interaction endpoint definitions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listInteractionForksCall(
+    public APIlistInteractionEndpointsRequest listInteractionEndpoints(
+            @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery) {
+        return new APIlistInteractionEndpointsRequest(interactionEndpointQuery);
+    }
+
+    private okhttp3.Call listInteractionForksCall(
             @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3212,67 +3522,14 @@ public class InteractionsApi {
         return listInteractionForksCall(interactionId, _callback);
     }
 
-    /**
-     * List interaction forks
-     * Lists draft interactions forked from the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @return List&lt;InteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interaction forks. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InteractionRef> listInteractionForks(
-            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
-        ApiResponse<List<InteractionRef>> localVarResp =
-                listInteractionForksWithHttpInfo(interactionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List interaction forks
-     * Lists draft interactions forked from the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interaction forks. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InteractionRef>> listInteractionForksWithHttpInfo(
+    private ApiResponse<List<InteractionRef>> listInteractionForksWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall = listInteractionForksValidateBeforeCall(interactionId, null);
         Type localVarReturnType = new TypeToken<List<InteractionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List interaction forks (asynchronously)
-     * Lists draft interactions forked from the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interaction forks. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listInteractionForksAsync(
+    private okhttp3.Call listInteractionForksAsync(
             @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<List<InteractionRef>> _callback)
             throws ApiException {
@@ -3284,21 +3541,107 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIlistInteractionForksRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+
+        private APIlistInteractionForksRequest(@jakarta.annotation.Nonnull String interactionId) {
+            this.interactionId = interactionId;
+        }
+
+        /**
+         * Build call for listInteractionForks
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft interaction forks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listInteractionForksCall(interactionId, _callback);
+        }
+
+        /**
+         * Execute listInteractionForks request
+         * @return List&lt;InteractionRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft interaction forks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InteractionRef> execute() throws ApiException {
+            ApiResponse<List<InteractionRef>> localVarResp =
+                    listInteractionForksWithHttpInfo(interactionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listInteractionForks request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft interaction forks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InteractionRef>> executeWithHttpInfo() throws ApiException {
+            return listInteractionForksWithHttpInfo(interactionId);
+        }
+
+        /**
+         * Execute listInteractionForks request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft interaction forks. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InteractionRef>> _callback)
+                throws ApiException {
+            return listInteractionForksAsync(interactionId, _callback);
+        }
+    }
+
     /**
-     * Build call for listInteractionNames
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List interaction forks
+     * Lists draft interactions forked from the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param interactionId  (required)
+     * @return APIlistInteractionForksRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Draft interaction forks. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listInteractionNamesCall(final ApiCallback _callback) throws ApiException {
+    public APIlistInteractionForksRequest listInteractionForks(
+            @jakarta.annotation.Nonnull String interactionId) {
+        return new APIlistInteractionForksRequest(interactionId);
+    }
+
+    private okhttp3.Call listInteractionNamesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -3357,62 +3700,14 @@ public class InteractionsApi {
         return listInteractionNamesCall(_callback);
     }
 
-    /**
-     * List interaction names
-     * Lists draft interaction names in the current project.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @return List&lt;InteractionName&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InteractionName> listInteractionNames() throws ApiException {
-        ApiResponse<List<InteractionName>> localVarResp = listInteractionNamesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List interaction names
-     * Lists draft interaction names in the current project.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @return ApiResponse&lt;List&lt;InteractionName&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InteractionName>> listInteractionNamesWithHttpInfo()
+    private ApiResponse<List<InteractionName>> listInteractionNamesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listInteractionNamesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<InteractionName>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List interaction names (asynchronously)
-     * Lists draft interaction names in the current project.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listInteractionNamesAsync(
+    private okhttp3.Call listInteractionNamesAsync(
             final ApiCallback<List<InteractionName>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listInteractionNamesValidateBeforeCall(_callback);
@@ -3421,35 +3716,101 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIlistInteractionNamesRequest {
+
+        private APIlistInteractionNamesRequest() {}
+
+        /**
+         * Build call for listInteractionNames
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listInteractionNamesCall(_callback);
+        }
+
+        /**
+         * Execute listInteractionNames request
+         * @return List&lt;InteractionName&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InteractionName> execute() throws ApiException {
+            ApiResponse<List<InteractionName>> localVarResp = listInteractionNamesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listInteractionNames request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InteractionName&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InteractionName>> executeWithHttpInfo() throws ApiException {
+            return listInteractionNamesWithHttpInfo();
+        }
+
+        /**
+         * Execute listInteractionNames request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InteractionName>> _callback)
+                throws ApiException {
+            return listInteractionNamesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for listInteractionTags
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param prompt  (optional)
-     * @param tags  (optional)
-     * @param version  (optional)
-     * @param model  (optional)
-     * @param environment  (optional)
-     * @param isAgent  (optional)
-     * @param isTool  (optional)
-     * @param isSkill  (optional)
-     * @param isBasic  (optional)
-     * @param isSubAgent  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List interaction names
+     * Lists draft interaction names in the current project.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistInteractionNamesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction tag counts and matching interactions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listInteractionTagsCall(
+    public APIlistInteractionNamesRequest listInteractionNames() {
+        return new APIlistInteractionNamesRequest();
+    }
+
+    private okhttp3.Call listInteractionTagsCall(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -3614,98 +3975,7 @@ public class InteractionsApi {
                 _callback);
     }
 
-    /**
-     * List interaction tags
-     * Aggregates tag usage across interactions matching the current query filters.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param prompt  (optional)
-     * @param tags  (optional)
-     * @param version  (optional)
-     * @param model  (optional)
-     * @param environment  (optional)
-     * @param isAgent  (optional)
-     * @param isTool  (optional)
-     * @param isSkill  (optional)
-     * @param isBasic  (optional)
-     * @param isSubAgent  (optional)
-     * @return List&lt;InteractionTags&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction tag counts and matching interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InteractionTags> listInteractionTags(
-            @jakarta.annotation.Nullable String name,
-            @jakarta.annotation.Nullable List<String> status,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String prompt,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable String version,
-            @jakarta.annotation.Nullable String model,
-            @jakarta.annotation.Nullable String environment,
-            @jakarta.annotation.Nullable Boolean isAgent,
-            @jakarta.annotation.Nullable Boolean isTool,
-            @jakarta.annotation.Nullable Boolean isSkill,
-            @jakarta.annotation.Nullable Boolean isBasic,
-            @jakarta.annotation.Nullable Boolean isSubAgent)
-            throws ApiException {
-        ApiResponse<List<InteractionTags>> localVarResp =
-                listInteractionTagsWithHttpInfo(
-                        name,
-                        status,
-                        limit,
-                        offset,
-                        prompt,
-                        tags,
-                        version,
-                        model,
-                        environment,
-                        isAgent,
-                        isTool,
-                        isSkill,
-                        isBasic,
-                        isSubAgent);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List interaction tags
-     * Aggregates tag usage across interactions matching the current query filters.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param prompt  (optional)
-     * @param tags  (optional)
-     * @param version  (optional)
-     * @param model  (optional)
-     * @param environment  (optional)
-     * @param isAgent  (optional)
-     * @param isTool  (optional)
-     * @param isSkill  (optional)
-     * @param isBasic  (optional)
-     * @param isSubAgent  (optional)
-     * @return ApiResponse&lt;List&lt;InteractionTags&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction tag counts and matching interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InteractionTags>> listInteractionTagsWithHttpInfo(
+    private ApiResponse<List<InteractionTags>> listInteractionTagsWithHttpInfo(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -3742,36 +4012,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List interaction tags (asynchronously)
-     * Aggregates tag usage across interactions matching the current query filters.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param prompt  (optional)
-     * @param tags  (optional)
-     * @param version  (optional)
-     * @param model  (optional)
-     * @param environment  (optional)
-     * @param isAgent  (optional)
-     * @param isTool  (optional)
-     * @param isSkill  (optional)
-     * @param isBasic  (optional)
-     * @param isSubAgent  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interaction tag counts and matching interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listInteractionTagsAsync(
+    private okhttp3.Call listInteractionTagsAsync(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -3811,71 +4052,318 @@ public class InteractionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listInteractionTags with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listInteractionTagsCall(final ApiCallback _callback) throws ApiException {
-        return listInteractionTagsCall(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                _callback);
+    public class APIlistInteractionTagsRequest {
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private List<String> status;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+        @jakarta.annotation.Nullable private String prompt;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private String version;
+        @jakarta.annotation.Nullable private String model;
+        @jakarta.annotation.Nullable private String environment;
+        @jakarta.annotation.Nullable private Boolean isAgent;
+        @jakarta.annotation.Nullable private Boolean isTool;
+        @jakarta.annotation.Nullable private Boolean isSkill;
+        @jakarta.annotation.Nullable private Boolean isBasic;
+        @jakarta.annotation.Nullable private Boolean isSubAgent;
+
+        private APIlistInteractionTagsRequest() {}
+
+        /**
+         * Set name
+         * @param name  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest name(@jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set status
+         * @param status  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest status(
+                @jakarta.annotation.Nullable List<String> status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest offset(
+                @jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set prompt
+         * @param prompt  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest prompt(@jakarta.annotation.Nullable String prompt) {
+            this.prompt = prompt;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest tags(@jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set version
+         * @param version  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest version(@jakarta.annotation.Nullable String version) {
+            this.version = version;
+            return this;
+        }
+
+        /**
+         * Set model
+         * @param model  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest model(@jakarta.annotation.Nullable String model) {
+            this.model = model;
+            return this;
+        }
+
+        /**
+         * Set environment
+         * @param environment  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest environment(
+                @jakarta.annotation.Nullable String environment) {
+            this.environment = environment;
+            return this;
+        }
+
+        /**
+         * Set isAgent
+         * @param isAgent  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest isAgent(@jakarta.annotation.Nullable Boolean isAgent) {
+            this.isAgent = isAgent;
+            return this;
+        }
+
+        /**
+         * Set isTool
+         * @param isTool  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest isTool(@jakarta.annotation.Nullable Boolean isTool) {
+            this.isTool = isTool;
+            return this;
+        }
+
+        /**
+         * Set isSkill
+         * @param isSkill  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest isSkill(@jakarta.annotation.Nullable Boolean isSkill) {
+            this.isSkill = isSkill;
+            return this;
+        }
+
+        /**
+         * Set isBasic
+         * @param isBasic  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest isBasic(@jakarta.annotation.Nullable Boolean isBasic) {
+            this.isBasic = isBasic;
+            return this;
+        }
+
+        /**
+         * Set isSubAgent
+         * @param isSubAgent  (optional)
+         * @return APIlistInteractionTagsRequest
+         */
+        public APIlistInteractionTagsRequest isSubAgent(
+                @jakarta.annotation.Nullable Boolean isSubAgent) {
+            this.isSubAgent = isSubAgent;
+            return this;
+        }
+
+        /**
+         * Build call for listInteractionTags
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction tag counts and matching interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listInteractionTagsCall(
+                    name,
+                    status,
+                    limit,
+                    offset,
+                    prompt,
+                    tags,
+                    version,
+                    model,
+                    environment,
+                    isAgent,
+                    isTool,
+                    isSkill,
+                    isBasic,
+                    isSubAgent,
+                    _callback);
+        }
+
+        /**
+         * Execute listInteractionTags request
+         * @return List&lt;InteractionTags&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction tag counts and matching interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InteractionTags> execute() throws ApiException {
+            ApiResponse<List<InteractionTags>> localVarResp =
+                    listInteractionTagsWithHttpInfo(
+                            name,
+                            status,
+                            limit,
+                            offset,
+                            prompt,
+                            tags,
+                            version,
+                            model,
+                            environment,
+                            isAgent,
+                            isTool,
+                            isSkill,
+                            isBasic,
+                            isSubAgent);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listInteractionTags request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InteractionTags&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction tag counts and matching interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InteractionTags>> executeWithHttpInfo() throws ApiException {
+            return listInteractionTagsWithHttpInfo(
+                    name,
+                    status,
+                    limit,
+                    offset,
+                    prompt,
+                    tags,
+                    version,
+                    model,
+                    environment,
+                    isAgent,
+                    isTool,
+                    isSkill,
+                    isBasic,
+                    isSubAgent);
+        }
+
+        /**
+         * Execute listInteractionTags request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interaction tag counts and matching interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InteractionTags>> _callback)
+                throws ApiException {
+            return listInteractionTagsAsync(
+                    name,
+                    status,
+                    limit,
+                    offset,
+                    prompt,
+                    tags,
+                    version,
+                    model,
+                    environment,
+                    isAgent,
+                    isTool,
+                    isSkill,
+                    isBasic,
+                    isSubAgent,
+                    _callback);
+        }
     }
 
     /**
      * List interaction tags
-     * Calls {@code listInteractionTags} with every optional parameter left unset.
-     * @return List&lt;InteractionTags&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<InteractionTags> listInteractionTags() throws ApiException {
-        return listInteractionTags(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List interaction tags
-     * Calls {@code listInteractionTagsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<InteractionTags>> listInteractionTagsWithHttpInfo()
-            throws ApiException {
-        return listInteractionTagsWithHttpInfo(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List interaction tags (asynchronously)
-     * Calls {@code listInteractionTagsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listInteractionTagsAsync(final ApiCallback<List<InteractionTags>> _callback)
-            throws ApiException {
-        return listInteractionTagsAsync(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                _callback);
-    }
-
-    /**
-     * Build call for listInteractionVersions
-     * @param interactionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Aggregates tag usage across interactions matching the current query filters.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistInteractionTagsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published interaction versions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Interaction tag counts and matching interactions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listInteractionVersionsCall(
+    public APIlistInteractionTagsRequest listInteractionTags() {
+        return new APIlistInteractionTagsRequest();
+    }
+
+    private okhttp3.Call listInteractionVersionsCall(
             @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3947,67 +4435,14 @@ public class InteractionsApi {
         return listInteractionVersionsCall(interactionId, _callback);
     }
 
-    /**
-     * List interaction versions
-     * Lists published versions for an interaction, sorted by most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @return List&lt;InteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published interaction versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InteractionRef> listInteractionVersions(
-            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
-        ApiResponse<List<InteractionRef>> localVarResp =
-                listInteractionVersionsWithHttpInfo(interactionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List interaction versions
-     * Lists published versions for an interaction, sorted by most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published interaction versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InteractionRef>> listInteractionVersionsWithHttpInfo(
+    private ApiResponse<List<InteractionRef>> listInteractionVersionsWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall = listInteractionVersionsValidateBeforeCall(interactionId, null);
         Type localVarReturnType = new TypeToken<List<InteractionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List interaction versions (asynchronously)
-     * Lists published versions for an interaction, sorted by most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published interaction versions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listInteractionVersionsAsync(
+    private okhttp3.Call listInteractionVersionsAsync(
             @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<List<InteractionRef>> _callback)
             throws ApiException {
@@ -4019,22 +4454,108 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIlistInteractionVersionsRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+
+        private APIlistInteractionVersionsRequest(
+                @jakarta.annotation.Nonnull String interactionId) {
+            this.interactionId = interactionId;
+        }
+
+        /**
+         * Build call for listInteractionVersions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published interaction versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listInteractionVersionsCall(interactionId, _callback);
+        }
+
+        /**
+         * Execute listInteractionVersions request
+         * @return List&lt;InteractionRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published interaction versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InteractionRef> execute() throws ApiException {
+            ApiResponse<List<InteractionRef>> localVarResp =
+                    listInteractionVersionsWithHttpInfo(interactionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listInteractionVersions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published interaction versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InteractionRef>> executeWithHttpInfo() throws ApiException {
+            return listInteractionVersionsWithHttpInfo(interactionId);
+        }
+
+        /**
+         * Execute listInteractionVersions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published interaction versions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InteractionRef>> _callback)
+                throws ApiException {
+            return listInteractionVersionsAsync(interactionId, _callback);
+        }
+    }
+
     /**
-     * Build call for listInteractionVersionsByName
-     * @param name  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List interaction versions
+     * Lists published versions for an interaction, sorted by most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param interactionId  (required)
+     * @return APIlistInteractionVersionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published interaction versions for the endpoint name. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Published interaction versions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listInteractionVersionsByNameCall(
+    public APIlistInteractionVersionsRequest listInteractionVersions(
+            @jakarta.annotation.Nonnull String interactionId) {
+        return new APIlistInteractionVersionsRequest(interactionId);
+    }
+
+    private okhttp3.Call listInteractionVersionsByNameCall(
             @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4106,67 +4627,14 @@ public class InteractionsApi {
         return listInteractionVersionsByNameCall(name, _callback);
     }
 
-    /**
-     * List interaction versions by name
-     * Lists published versions for an interaction endpoint name.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (required)
-     * @return List&lt;InteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published interaction versions for the endpoint name. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InteractionRef> listInteractionVersionsByName(
-            @jakarta.annotation.Nonnull String name) throws ApiException {
-        ApiResponse<List<InteractionRef>> localVarResp =
-                listInteractionVersionsByNameWithHttpInfo(name);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List interaction versions by name
-     * Lists published versions for an interaction endpoint name.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (required)
-     * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published interaction versions for the endpoint name. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InteractionRef>> listInteractionVersionsByNameWithHttpInfo(
+    private ApiResponse<List<InteractionRef>> listInteractionVersionsByNameWithHttpInfo(
             @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = listInteractionVersionsByNameValidateBeforeCall(name, null);
         Type localVarReturnType = new TypeToken<List<InteractionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List interaction versions by name (asynchronously)
-     * Lists published versions for an interaction endpoint name.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Published interaction versions for the endpoint name. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listInteractionVersionsByNameAsync(
+    private okhttp3.Call listInteractionVersionsByNameAsync(
             @jakarta.annotation.Nonnull String name,
             final ApiCallback<List<InteractionRef>> _callback)
             throws ApiException {
@@ -4178,35 +4646,107 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIlistInteractionVersionsByNameRequest {
+        @jakarta.annotation.Nonnull private final String name;
+
+        private APIlistInteractionVersionsByNameRequest(@jakarta.annotation.Nonnull String name) {
+            this.name = name;
+        }
+
+        /**
+         * Build call for listInteractionVersionsByName
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published interaction versions for the endpoint name. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listInteractionVersionsByNameCall(name, _callback);
+        }
+
+        /**
+         * Execute listInteractionVersionsByName request
+         * @return List&lt;InteractionRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published interaction versions for the endpoint name. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InteractionRef> execute() throws ApiException {
+            ApiResponse<List<InteractionRef>> localVarResp =
+                    listInteractionVersionsByNameWithHttpInfo(name);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listInteractionVersionsByName request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published interaction versions for the endpoint name. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InteractionRef>> executeWithHttpInfo() throws ApiException {
+            return listInteractionVersionsByNameWithHttpInfo(name);
+        }
+
+        /**
+         * Execute listInteractionVersionsByName request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Published interaction versions for the endpoint name. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InteractionRef>> _callback)
+                throws ApiException {
+            return listInteractionVersionsByNameAsync(name, _callback);
+        }
+    }
+
     /**
-     * Build call for listInteractions
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param prompt  (optional)
-     * @param tags  (optional)
-     * @param version  (optional)
-     * @param model  (optional)
-     * @param environment  (optional)
-     * @param isAgent  (optional)
-     * @param isTool  (optional)
-     * @param isSkill  (optional)
-     * @param isBasic  (optional)
-     * @param isSubAgent  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List interaction versions by name
+     * Lists published versions for an interaction endpoint name.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param name  (required)
+     * @return APIlistInteractionVersionsByNameRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interactions matching the query filters. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Published interaction versions for the endpoint name. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listInteractionsCall(
+    public APIlistInteractionVersionsByNameRequest listInteractionVersionsByName(
+            @jakarta.annotation.Nonnull String name) {
+        return new APIlistInteractionVersionsByNameRequest(name);
+    }
+
+    private okhttp3.Call listInteractionsCall(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -4371,98 +4911,7 @@ public class InteractionsApi {
                 _callback);
     }
 
-    /**
-     * List interactions
-     * Lists interactions in the current project with query-string filters for name, status, version, tags, prompt, model, environment, and agent-runner capability flags.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param prompt  (optional)
-     * @param tags  (optional)
-     * @param version  (optional)
-     * @param model  (optional)
-     * @param environment  (optional)
-     * @param isAgent  (optional)
-     * @param isTool  (optional)
-     * @param isSkill  (optional)
-     * @param isBasic  (optional)
-     * @param isSubAgent  (optional)
-     * @return List&lt;InteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interactions matching the query filters. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<InteractionRef> listInteractions(
-            @jakarta.annotation.Nullable String name,
-            @jakarta.annotation.Nullable List<String> status,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String prompt,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable String version,
-            @jakarta.annotation.Nullable String model,
-            @jakarta.annotation.Nullable String environment,
-            @jakarta.annotation.Nullable Boolean isAgent,
-            @jakarta.annotation.Nullable Boolean isTool,
-            @jakarta.annotation.Nullable Boolean isSkill,
-            @jakarta.annotation.Nullable Boolean isBasic,
-            @jakarta.annotation.Nullable Boolean isSubAgent)
-            throws ApiException {
-        ApiResponse<List<InteractionRef>> localVarResp =
-                listInteractionsWithHttpInfo(
-                        name,
-                        status,
-                        limit,
-                        offset,
-                        prompt,
-                        tags,
-                        version,
-                        model,
-                        environment,
-                        isAgent,
-                        isTool,
-                        isSkill,
-                        isBasic,
-                        isSubAgent);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List interactions
-     * Lists interactions in the current project with query-string filters for name, status, version, tags, prompt, model, environment, and agent-runner capability flags.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param prompt  (optional)
-     * @param tags  (optional)
-     * @param version  (optional)
-     * @param model  (optional)
-     * @param environment  (optional)
-     * @param isAgent  (optional)
-     * @param isTool  (optional)
-     * @param isSkill  (optional)
-     * @param isBasic  (optional)
-     * @param isSubAgent  (optional)
-     * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interactions matching the query filters. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<InteractionRef>> listInteractionsWithHttpInfo(
+    private ApiResponse<List<InteractionRef>> listInteractionsWithHttpInfo(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -4499,36 +4948,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List interactions (asynchronously)
-     * Lists interactions in the current project with query-string filters for name, status, version, tags, prompt, model, environment, and agent-runner capability flags.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param prompt  (optional)
-     * @param tags  (optional)
-     * @param version  (optional)
-     * @param model  (optional)
-     * @param environment  (optional)
-     * @param isAgent  (optional)
-     * @param isTool  (optional)
-     * @param isSkill  (optional)
-     * @param isBasic  (optional)
-     * @param isSubAgent  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Interactions matching the query filters. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listInteractionsAsync(
+    private okhttp3.Call listInteractionsAsync(
             @jakarta.annotation.Nullable String name,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -4568,72 +4988,316 @@ public class InteractionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listInteractions with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listInteractionsCall(final ApiCallback _callback) throws ApiException {
-        return listInteractionsCall(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                _callback);
+    public class APIlistInteractionsRequest {
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private List<String> status;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+        @jakarta.annotation.Nullable private String prompt;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private String version;
+        @jakarta.annotation.Nullable private String model;
+        @jakarta.annotation.Nullable private String environment;
+        @jakarta.annotation.Nullable private Boolean isAgent;
+        @jakarta.annotation.Nullable private Boolean isTool;
+        @jakarta.annotation.Nullable private Boolean isSkill;
+        @jakarta.annotation.Nullable private Boolean isBasic;
+        @jakarta.annotation.Nullable private Boolean isSubAgent;
+
+        private APIlistInteractionsRequest() {}
+
+        /**
+         * Set name
+         * @param name  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest name(@jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set status
+         * @param status  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest status(@jakarta.annotation.Nullable List<String> status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest offset(@jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set prompt
+         * @param prompt  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest prompt(@jakarta.annotation.Nullable String prompt) {
+            this.prompt = prompt;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest tags(@jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set version
+         * @param version  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest version(@jakarta.annotation.Nullable String version) {
+            this.version = version;
+            return this;
+        }
+
+        /**
+         * Set model
+         * @param model  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest model(@jakarta.annotation.Nullable String model) {
+            this.model = model;
+            return this;
+        }
+
+        /**
+         * Set environment
+         * @param environment  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest environment(
+                @jakarta.annotation.Nullable String environment) {
+            this.environment = environment;
+            return this;
+        }
+
+        /**
+         * Set isAgent
+         * @param isAgent  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest isAgent(@jakarta.annotation.Nullable Boolean isAgent) {
+            this.isAgent = isAgent;
+            return this;
+        }
+
+        /**
+         * Set isTool
+         * @param isTool  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest isTool(@jakarta.annotation.Nullable Boolean isTool) {
+            this.isTool = isTool;
+            return this;
+        }
+
+        /**
+         * Set isSkill
+         * @param isSkill  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest isSkill(@jakarta.annotation.Nullable Boolean isSkill) {
+            this.isSkill = isSkill;
+            return this;
+        }
+
+        /**
+         * Set isBasic
+         * @param isBasic  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest isBasic(@jakarta.annotation.Nullable Boolean isBasic) {
+            this.isBasic = isBasic;
+            return this;
+        }
+
+        /**
+         * Set isSubAgent
+         * @param isSubAgent  (optional)
+         * @return APIlistInteractionsRequest
+         */
+        public APIlistInteractionsRequest isSubAgent(
+                @jakarta.annotation.Nullable Boolean isSubAgent) {
+            this.isSubAgent = isSubAgent;
+            return this;
+        }
+
+        /**
+         * Build call for listInteractions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interactions matching the query filters. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listInteractionsCall(
+                    name,
+                    status,
+                    limit,
+                    offset,
+                    prompt,
+                    tags,
+                    version,
+                    model,
+                    environment,
+                    isAgent,
+                    isTool,
+                    isSkill,
+                    isBasic,
+                    isSubAgent,
+                    _callback);
+        }
+
+        /**
+         * Execute listInteractions request
+         * @return List&lt;InteractionRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interactions matching the query filters. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<InteractionRef> execute() throws ApiException {
+            ApiResponse<List<InteractionRef>> localVarResp =
+                    listInteractionsWithHttpInfo(
+                            name,
+                            status,
+                            limit,
+                            offset,
+                            prompt,
+                            tags,
+                            version,
+                            model,
+                            environment,
+                            isAgent,
+                            isTool,
+                            isSkill,
+                            isBasic,
+                            isSubAgent);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listInteractions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interactions matching the query filters. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<InteractionRef>> executeWithHttpInfo() throws ApiException {
+            return listInteractionsWithHttpInfo(
+                    name,
+                    status,
+                    limit,
+                    offset,
+                    prompt,
+                    tags,
+                    version,
+                    model,
+                    environment,
+                    isAgent,
+                    isTool,
+                    isSkill,
+                    isBasic,
+                    isSubAgent);
+        }
+
+        /**
+         * Execute listInteractions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Interactions matching the query filters. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<InteractionRef>> _callback)
+                throws ApiException {
+            return listInteractionsAsync(
+                    name,
+                    status,
+                    limit,
+                    offset,
+                    prompt,
+                    tags,
+                    version,
+                    model,
+                    environment,
+                    isAgent,
+                    isTool,
+                    isSkill,
+                    isBasic,
+                    isSubAgent,
+                    _callback);
+        }
     }
 
     /**
      * List interactions
-     * Calls {@code listInteractions} with every optional parameter left unset.
-     * @return List&lt;InteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<InteractionRef> listInteractions() throws ApiException {
-        return listInteractions(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List interactions
-     * Calls {@code listInteractionsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<InteractionRef>> listInteractionsWithHttpInfo() throws ApiException {
-        return listInteractionsWithHttpInfo(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List interactions (asynchronously)
-     * Calls {@code listInteractionsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listInteractionsAsync(final ApiCallback<List<InteractionRef>> _callback)
-            throws ApiException {
-        return listInteractionsAsync(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                _callback);
-    }
-
-    /**
-     * Build call for listStoredCatalogInteractions
-     * @param tag  (optional)
-     * @param status  (optional)
-     * @param published  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists interactions in the current project with query-string filters for name, status, version, tags, prompt, model, environment, and agent-runner capability flags.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistInteractionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored catalog interactions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Interactions matching the query filters. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listStoredCatalogInteractionsCall(
+    public APIlistInteractionsRequest listInteractions() {
+        return new APIlistInteractionsRequest();
+    }
+
+    private okhttp3.Call listStoredCatalogInteractionsCall(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable Boolean published,
@@ -4713,51 +5377,7 @@ public class InteractionsApi {
         return listStoredCatalogInteractionsCall(tag, status, published, _callback);
     }
 
-    /**
-     * List stored catalog interactions
-     * Lists stored project interactions in catalog format, optionally filtered by tag and status.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param tag  (optional)
-     * @param status  (optional)
-     * @param published  (optional)
-     * @return List&lt;CatalogInteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<CatalogInteractionRef> listStoredCatalogInteractions(
-            @jakarta.annotation.Nullable String tag,
-            @jakarta.annotation.Nullable String status,
-            @jakarta.annotation.Nullable Boolean published)
-            throws ApiException {
-        ApiResponse<List<CatalogInteractionRef>> localVarResp =
-                listStoredCatalogInteractionsWithHttpInfo(tag, status, published);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List stored catalog interactions
-     * Lists stored project interactions in catalog format, optionally filtered by tag and status.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param tag  (optional)
-     * @param status  (optional)
-     * @param published  (optional)
-     * @return ApiResponse&lt;List&lt;CatalogInteractionRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<CatalogInteractionRef>> listStoredCatalogInteractionsWithHttpInfo(
+    private ApiResponse<List<CatalogInteractionRef>> listStoredCatalogInteractionsWithHttpInfo(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable Boolean published)
@@ -4768,25 +5388,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List stored catalog interactions (asynchronously)
-     * Lists stored project interactions in catalog format, optionally filtered by tag and status.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param tag  (optional)
-     * @param status  (optional)
-     * @param published  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Stored catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listStoredCatalogInteractionsAsync(
+    private okhttp3.Call listStoredCatalogInteractionsAsync(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable Boolean published,
@@ -4800,66 +5402,138 @@ public class InteractionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listStoredCatalogInteractions with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listStoredCatalogInteractionsCall(final ApiCallback _callback)
-            throws ApiException {
-        return listStoredCatalogInteractionsCall(null, null, null, _callback);
+    public class APIlistStoredCatalogInteractionsRequest {
+        @jakarta.annotation.Nullable private String tag;
+        @jakarta.annotation.Nullable private String status;
+        @jakarta.annotation.Nullable private Boolean published;
+
+        private APIlistStoredCatalogInteractionsRequest() {}
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistStoredCatalogInteractionsRequest
+         */
+        public APIlistStoredCatalogInteractionsRequest tag(
+                @jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Set status
+         * @param status  (optional)
+         * @return APIlistStoredCatalogInteractionsRequest
+         */
+        public APIlistStoredCatalogInteractionsRequest status(
+                @jakarta.annotation.Nullable String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set published
+         * @param published  (optional)
+         * @return APIlistStoredCatalogInteractionsRequest
+         */
+        public APIlistStoredCatalogInteractionsRequest published(
+                @jakarta.annotation.Nullable Boolean published) {
+            this.published = published;
+            return this;
+        }
+
+        /**
+         * Build call for listStoredCatalogInteractions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listStoredCatalogInteractionsCall(tag, status, published, _callback);
+        }
+
+        /**
+         * Execute listStoredCatalogInteractions request
+         * @return List&lt;CatalogInteractionRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<CatalogInteractionRef> execute() throws ApiException {
+            ApiResponse<List<CatalogInteractionRef>> localVarResp =
+                    listStoredCatalogInteractionsWithHttpInfo(tag, status, published);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listStoredCatalogInteractions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CatalogInteractionRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<CatalogInteractionRef>> executeWithHttpInfo() throws ApiException {
+            return listStoredCatalogInteractionsWithHttpInfo(tag, status, published);
+        }
+
+        /**
+         * Execute listStoredCatalogInteractions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Stored catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CatalogInteractionRef>> _callback)
+                throws ApiException {
+            return listStoredCatalogInteractionsAsync(tag, status, published, _callback);
+        }
     }
 
     /**
      * List stored catalog interactions
-     * Calls {@code listStoredCatalogInteractions} with every optional parameter left unset.
-     * @return List&lt;CatalogInteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<CatalogInteractionRef> listStoredCatalogInteractions() throws ApiException {
-        return listStoredCatalogInteractions(null, null, null);
-    }
-
-    /**
-     * List stored catalog interactions
-     * Calls {@code listStoredCatalogInteractionsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<CatalogInteractionRef>> listStoredCatalogInteractionsWithHttpInfo()
-            throws ApiException {
-        return listStoredCatalogInteractionsWithHttpInfo(null, null, null);
-    }
-
-    /**
-     * List stored catalog interactions (asynchronously)
-     * Calls {@code listStoredCatalogInteractionsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listStoredCatalogInteractionsAsync(
-            final ApiCallback<List<CatalogInteractionRef>> _callback) throws ApiException {
-        return listStoredCatalogInteractionsAsync(null, null, null, _callback);
-    }
-
-    /**
-     * Build call for listSystemInteractions
-     * @param tag  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists stored project interactions in catalog format, optionally filtered by tag and status.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistStoredCatalogInteractionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System catalog interactions. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Stored catalog interactions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listSystemInteractionsCall(
+    public APIlistStoredCatalogInteractionsRequest listStoredCatalogInteractions() {
+        return new APIlistStoredCatalogInteractionsRequest();
+    }
+
+    private okhttp3.Call listSystemInteractionsCall(
             @jakarta.annotation.Nullable String tag, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4925,67 +5599,14 @@ public class InteractionsApi {
         return listSystemInteractionsCall(tag, _callback);
     }
 
-    /**
-     * List system interactions
-     * Lists in-code system interactions, optionally filtered by tag.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param tag  (optional)
-     * @return List&lt;CatalogInteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<CatalogInteractionRef> listSystemInteractions(
-            @jakarta.annotation.Nullable String tag) throws ApiException {
-        ApiResponse<List<CatalogInteractionRef>> localVarResp =
-                listSystemInteractionsWithHttpInfo(tag);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List system interactions
-     * Lists in-code system interactions, optionally filtered by tag.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param tag  (optional)
-     * @return ApiResponse&lt;List&lt;CatalogInteractionRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<CatalogInteractionRef>> listSystemInteractionsWithHttpInfo(
+    private ApiResponse<List<CatalogInteractionRef>> listSystemInteractionsWithHttpInfo(
             @jakarta.annotation.Nullable String tag) throws ApiException {
         okhttp3.Call localVarCall = listSystemInteractionsValidateBeforeCall(tag, null);
         Type localVarReturnType = new TypeToken<List<CatalogInteractionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List system interactions (asynchronously)
-     * Lists in-code system interactions, optionally filtered by tag.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param tag  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> System catalog interactions. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listSystemInteractionsAsync(
+    private okhttp3.Call listSystemInteractionsAsync(
             @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<CatalogInteractionRef>> _callback)
             throws ApiException {
@@ -4996,68 +5617,113 @@ public class InteractionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listSystemInteractions with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listSystemInteractionsCall(final ApiCallback _callback)
-            throws ApiException {
-        return listSystemInteractionsCall(null, _callback);
+    public class APIlistSystemInteractionsRequest {
+        @jakarta.annotation.Nullable private String tag;
+
+        private APIlistSystemInteractionsRequest() {}
+
+        /**
+         * Set tag
+         * @param tag  (optional)
+         * @return APIlistSystemInteractionsRequest
+         */
+        public APIlistSystemInteractionsRequest tag(@jakarta.annotation.Nullable String tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Build call for listSystemInteractions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listSystemInteractionsCall(tag, _callback);
+        }
+
+        /**
+         * Execute listSystemInteractions request
+         * @return List&lt;CatalogInteractionRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<CatalogInteractionRef> execute() throws ApiException {
+            ApiResponse<List<CatalogInteractionRef>> localVarResp =
+                    listSystemInteractionsWithHttpInfo(tag);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listSystemInteractions request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;CatalogInteractionRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<CatalogInteractionRef>> executeWithHttpInfo() throws ApiException {
+            return listSystemInteractionsWithHttpInfo(tag);
+        }
+
+        /**
+         * Execute listSystemInteractions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> System catalog interactions. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<CatalogInteractionRef>> _callback)
+                throws ApiException {
+            return listSystemInteractionsAsync(tag, _callback);
+        }
     }
 
     /**
      * List system interactions
-     * Calls {@code listSystemInteractions} with every optional parameter left unset.
-     * @return List&lt;CatalogInteractionRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<CatalogInteractionRef> listSystemInteractions() throws ApiException {
-        return listSystemInteractions(null);
-    }
-
-    /**
-     * List system interactions
-     * Calls {@code listSystemInteractionsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<CatalogInteractionRef>> listSystemInteractionsWithHttpInfo()
-            throws ApiException {
-        return listSystemInteractionsWithHttpInfo(null);
-    }
-
-    /**
-     * List system interactions (asynchronously)
-     * Calls {@code listSystemInteractionsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listSystemInteractionsAsync(
-            final ApiCallback<List<CatalogInteractionRef>> _callback) throws ApiException {
-        return listSystemInteractionsAsync(null, _callback);
-    }
-
-    /**
-     * Build call for publishInteraction
-     * @param interactionId  (required)
-     * @param interactionPublishPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists in-code system interactions, optionally filtered by tag.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistSystemInteractionsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> System catalog interactions. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call publishInteractionCall(
+    public APIlistSystemInteractionsRequest listSystemInteractions() {
+        return new APIlistSystemInteractionsRequest();
+    }
+
+    private okhttp3.Call publishInteractionCall(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload,
             final ApiCallback _callback)
@@ -5139,50 +5805,7 @@ public class InteractionsApi {
         return publishInteractionCall(interactionId, interactionPublishPayload, _callback);
     }
 
-    /**
-     * Publish an interaction
-     * Publishes a draft interaction as a new immutable version and advances the draft&#39;s version counter.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionId  (required)
-     * @param interactionPublishPayload  (required)
-     * @return Interaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Interaction publishInteraction(
-            @jakarta.annotation.Nonnull String interactionId,
-            @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload)
-            throws ApiException {
-        ApiResponse<Interaction> localVarResp =
-                publishInteractionWithHttpInfo(interactionId, interactionPublishPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Publish an interaction
-     * Publishes a draft interaction as a new immutable version and advances the draft&#39;s version counter.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionId  (required)
-     * @param interactionPublishPayload  (required)
-     * @return ApiResponse&lt;Interaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Interaction> publishInteractionWithHttpInfo(
+    private ApiResponse<Interaction> publishInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload)
             throws ApiException {
@@ -5193,25 +5816,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Publish an interaction (asynchronously)
-     * Publishes a draft interaction as a new immutable version and advances the draft&#39;s version counter.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionId  (required)
-     * @param interactionPublishPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call publishInteractionAsync(
+    private okhttp3.Call publishInteractionAsync(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload,
             final ApiCallback<Interaction> _callback)
@@ -5225,22 +5830,120 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIpublishInteractionRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+
+        @jakarta.annotation.Nonnull
+        private final InteractionPublishPayload interactionPublishPayload;
+
+        private APIpublishInteractionRequest(
+                @jakarta.annotation.Nonnull String interactionId,
+                @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload) {
+            this.interactionId = interactionId;
+            this.interactionPublishPayload = interactionPublishPayload;
+        }
+
+        /**
+         * Build call for publishInteraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return publishInteractionCall(interactionId, interactionPublishPayload, _callback);
+        }
+
+        /**
+         * Execute publishInteraction request
+         * @return Interaction
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Interaction execute() throws ApiException {
+            ApiResponse<Interaction> localVarResp =
+                    publishInteractionWithHttpInfo(interactionId, interactionPublishPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute publishInteraction request with HTTP info returned
+         * @return ApiResponse&lt;Interaction&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Interaction> executeWithHttpInfo() throws ApiException {
+            return publishInteractionWithHttpInfo(interactionId, interactionPublishPayload);
+        }
+
+        /**
+         * Execute publishInteraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Interaction> _callback)
+                throws ApiException {
+            return publishInteractionAsync(interactionId, interactionPublishPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for requestInteractionRateLimitSlot
-     * @param rateLimitRequestPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Publish an interaction
+     * Publishes a draft interaction as a new immutable version and advances the draft&#39;s version counter.  **Required permissions:** &#x60;interaction:write&#x60;
+     * @param interactionId  (required)
+     * @param interactionPublishPayload  (required)
+     * @return APIpublishInteractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested rate-limit delay. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call requestInteractionRateLimitSlotCall(
+    public APIpublishInteractionRequest publishInteraction(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload) {
+        return new APIpublishInteractionRequest(interactionId, interactionPublishPayload);
+    }
+
+    private okhttp3.Call requestInteractionRateLimitSlotCall(
             @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -5310,45 +6013,7 @@ public class InteractionsApi {
         return requestInteractionRateLimitSlotCall(rateLimitRequestPayload, _callback);
     }
 
-    /**
-     * Request an interaction rate-limit slot
-     * Checks the current interaction rate limiter and returns the delay before the request should be executed.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param rateLimitRequestPayload  (required)
-     * @return RateLimitRequestResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested rate-limit delay. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RateLimitRequestResponse requestInteractionRateLimitSlot(
-            @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload)
-            throws ApiException {
-        ApiResponse<RateLimitRequestResponse> localVarResp =
-                requestInteractionRateLimitSlotWithHttpInfo(rateLimitRequestPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Request an interaction rate-limit slot
-     * Checks the current interaction rate limiter and returns the delay before the request should be executed.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param rateLimitRequestPayload  (required)
-     * @return ApiResponse&lt;RateLimitRequestResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested rate-limit delay. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RateLimitRequestResponse> requestInteractionRateLimitSlotWithHttpInfo(
+    private ApiResponse<RateLimitRequestResponse> requestInteractionRateLimitSlotWithHttpInfo(
             @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -5357,23 +6022,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Request an interaction rate-limit slot (asynchronously)
-     * Checks the current interaction rate limiter and returns the delay before the request should be executed.  **Required permissions:** &#x60;interaction:execute&#x60;
-     * @param rateLimitRequestPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Requested rate-limit delay. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call requestInteractionRateLimitSlotAsync(
+    private okhttp3.Call requestInteractionRateLimitSlotAsync(
             @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload,
             final ApiCallback<RateLimitRequestResponse> _callback)
             throws ApiException {
@@ -5386,22 +6035,108 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIrequestInteractionRateLimitSlotRequest {
+        @jakarta.annotation.Nonnull private final RateLimitRequestPayload rateLimitRequestPayload;
+
+        private APIrequestInteractionRateLimitSlotRequest(
+                @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload) {
+            this.rateLimitRequestPayload = rateLimitRequestPayload;
+        }
+
+        /**
+         * Build call for requestInteractionRateLimitSlot
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested rate-limit delay. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return requestInteractionRateLimitSlotCall(rateLimitRequestPayload, _callback);
+        }
+
+        /**
+         * Execute requestInteractionRateLimitSlot request
+         * @return RateLimitRequestResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested rate-limit delay. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public RateLimitRequestResponse execute() throws ApiException {
+            ApiResponse<RateLimitRequestResponse> localVarResp =
+                    requestInteractionRateLimitSlotWithHttpInfo(rateLimitRequestPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute requestInteractionRateLimitSlot request with HTTP info returned
+         * @return ApiResponse&lt;RateLimitRequestResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested rate-limit delay. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<RateLimitRequestResponse> executeWithHttpInfo() throws ApiException {
+            return requestInteractionRateLimitSlotWithHttpInfo(rateLimitRequestPayload);
+        }
+
+        /**
+         * Execute requestInteractionRateLimitSlot request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Requested rate-limit delay. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<RateLimitRequestResponse> _callback)
+                throws ApiException {
+            return requestInteractionRateLimitSlotAsync(rateLimitRequestPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for resolveCatalogInteraction
-     * @param interactionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Request an interaction rate-limit slot
+     * Checks the current interaction rate limiter and returns the delay before the request should be executed.  **Required permissions:** &#x60;interaction:execute&#x60;
+     * @param rateLimitRequestPayload  (required)
+     * @return APIrequestInteractionRateLimitSlotRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved catalog interaction. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Requested rate-limit delay. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call resolveCatalogInteractionCall(
+    public APIrequestInteractionRateLimitSlotRequest requestInteractionRateLimitSlot(
+            @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload) {
+        return new APIrequestInteractionRateLimitSlotRequest(rateLimitRequestPayload);
+    }
+
+    private okhttp3.Call resolveCatalogInteractionCall(
             @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5473,44 +6208,7 @@ public class InteractionsApi {
         return resolveCatalogInteractionCall(interactionId, _callback);
     }
 
-    /**
-     * Resolve catalog interaction
-     * Resolves an in-code catalog interaction by ID for the current principal.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @return ResolvedCatalogInteraction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved catalog interaction. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ResolvedCatalogInteraction resolveCatalogInteraction(
-            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
-        ApiResponse<ResolvedCatalogInteraction> localVarResp =
-                resolveCatalogInteractionWithHttpInfo(interactionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Resolve catalog interaction
-     * Resolves an in-code catalog interaction by ID for the current principal.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @return ApiResponse&lt;ResolvedCatalogInteraction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved catalog interaction. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ResolvedCatalogInteraction> resolveCatalogInteractionWithHttpInfo(
+    private ApiResponse<ResolvedCatalogInteraction> resolveCatalogInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall =
                 resolveCatalogInteractionValidateBeforeCall(interactionId, null);
@@ -5518,23 +6216,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Resolve catalog interaction (asynchronously)
-     * Resolves an in-code catalog interaction by ID for the current principal.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param interactionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved catalog interaction. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call resolveCatalogInteractionAsync(
+    private okhttp3.Call resolveCatalogInteractionAsync(
             @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<ResolvedCatalogInteraction> _callback)
             throws ApiException {
@@ -5546,28 +6228,108 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIresolveCatalogInteractionRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+
+        private APIresolveCatalogInteractionRequest(
+                @jakarta.annotation.Nonnull String interactionId) {
+            this.interactionId = interactionId;
+        }
+
+        /**
+         * Build call for resolveCatalogInteraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved catalog interaction. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return resolveCatalogInteractionCall(interactionId, _callback);
+        }
+
+        /**
+         * Execute resolveCatalogInteraction request
+         * @return ResolvedCatalogInteraction
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved catalog interaction. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ResolvedCatalogInteraction execute() throws ApiException {
+            ApiResponse<ResolvedCatalogInteraction> localVarResp =
+                    resolveCatalogInteractionWithHttpInfo(interactionId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute resolveCatalogInteraction request with HTTP info returned
+         * @return ApiResponse&lt;ResolvedCatalogInteraction&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved catalog interaction. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ResolvedCatalogInteraction> executeWithHttpInfo() throws ApiException {
+            return resolveCatalogInteractionWithHttpInfo(interactionId);
+        }
+
+        /**
+         * Execute resolveCatalogInteraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved catalog interaction. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ResolvedCatalogInteraction> _callback)
+                throws ApiException {
+            return resolveCatalogInteractionAsync(interactionId, _callback);
+        }
+    }
+
     /**
-     * Build call for resolveInteraction
-     * @param nameOrId  (required)
-     * @param environment  (optional)
-     * @param model  (optional)
-     * @param inferenceProfile  (optional)
-     * @param inheritModelConfig Treat the supplied environment, model and inference_profile as the caller&#39;s settings, inherited as a fallback: the interaction&#39;s bound or attached profile, or its own model, replaces them. (optional)
-     * @param hasImage  (optional)
-     * @param hasVideo  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Resolve catalog interaction
+     * Resolves an in-code catalog interaction by ID for the current principal.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param interactionId  (required)
+     * @return APIresolveCatalogInteractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved interaction execution information. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Resolved catalog interaction. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call resolveInteractionCall(
+    public APIresolveCatalogInteractionRequest resolveCatalogInteraction(
+            @jakarta.annotation.Nonnull String interactionId) {
+        return new APIresolveCatalogInteractionRequest(interactionId);
+    }
+
+    private okhttp3.Call resolveInteractionCall(
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
@@ -5688,70 +6450,7 @@ public class InteractionsApi {
                 _callback);
     }
 
-    /**
-     * Resolve an interaction
-     * Resolves an interaction by ID or endpoint name, including optional &#x60;@version&#x60; or &#x60;@tag&#x60; suffixes, and returns the environment and model that execution would use.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param nameOrId  (required)
-     * @param environment  (optional)
-     * @param model  (optional)
-     * @param inferenceProfile  (optional)
-     * @param inheritModelConfig Treat the supplied environment, model and inference_profile as the caller&#39;s settings, inherited as a fallback: the interaction&#39;s bound or attached profile, or its own model, replaces them. (optional)
-     * @param hasImage  (optional)
-     * @param hasVideo  (optional)
-     * @return ResolvedInteractionExecutionInfo
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved interaction execution information. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ResolvedInteractionExecutionInfo resolveInteraction(
-            @jakarta.annotation.Nonnull String nameOrId,
-            @jakarta.annotation.Nullable String environment,
-            @jakarta.annotation.Nullable String model,
-            @jakarta.annotation.Nullable String inferenceProfile,
-            @jakarta.annotation.Nullable Boolean inheritModelConfig,
-            @jakarta.annotation.Nullable Boolean hasImage,
-            @jakarta.annotation.Nullable Boolean hasVideo)
-            throws ApiException {
-        ApiResponse<ResolvedInteractionExecutionInfo> localVarResp =
-                resolveInteractionWithHttpInfo(
-                        nameOrId,
-                        environment,
-                        model,
-                        inferenceProfile,
-                        inheritModelConfig,
-                        hasImage,
-                        hasVideo);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Resolve an interaction
-     * Resolves an interaction by ID or endpoint name, including optional &#x60;@version&#x60; or &#x60;@tag&#x60; suffixes, and returns the environment and model that execution would use.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param nameOrId  (required)
-     * @param environment  (optional)
-     * @param model  (optional)
-     * @param inferenceProfile  (optional)
-     * @param inheritModelConfig Treat the supplied environment, model and inference_profile as the caller&#39;s settings, inherited as a fallback: the interaction&#39;s bound or attached profile, or its own model, replaces them. (optional)
-     * @param hasImage  (optional)
-     * @param hasVideo  (optional)
-     * @return ApiResponse&lt;ResolvedInteractionExecutionInfo&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved interaction execution information. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ResolvedInteractionExecutionInfo> resolveInteractionWithHttpInfo(
+    private ApiResponse<ResolvedInteractionExecutionInfo> resolveInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
@@ -5774,29 +6473,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Resolve an interaction (asynchronously)
-     * Resolves an interaction by ID or endpoint name, including optional &#x60;@version&#x60; or &#x60;@tag&#x60; suffixes, and returns the environment and model that execution would use.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param nameOrId  (required)
-     * @param environment  (optional)
-     * @param model  (optional)
-     * @param inferenceProfile  (optional)
-     * @param inheritModelConfig Treat the supplied environment, model and inference_profile as the caller&#39;s settings, inherited as a fallback: the interaction&#39;s bound or attached profile, or its own model, replaces them. (optional)
-     * @param hasImage  (optional)
-     * @param hasVideo  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved interaction execution information. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call resolveInteractionAsync(
+    private okhttp3.Call resolveInteractionAsync(
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
@@ -5822,77 +6499,209 @@ public class InteractionsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for resolveInteraction with every optional parameter left unset.
-     * @param nameOrId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call resolveInteractionCall(
-            @jakarta.annotation.Nonnull String nameOrId, final ApiCallback _callback)
-            throws ApiException {
-        return resolveInteractionCall(nameOrId, null, null, null, null, null, null, _callback);
+    public class APIresolveInteractionRequest {
+        @jakarta.annotation.Nonnull private final String nameOrId;
+        @jakarta.annotation.Nullable private String environment;
+        @jakarta.annotation.Nullable private String model;
+        @jakarta.annotation.Nullable private String inferenceProfile;
+        @jakarta.annotation.Nullable private Boolean inheritModelConfig;
+        @jakarta.annotation.Nullable private Boolean hasImage;
+        @jakarta.annotation.Nullable private Boolean hasVideo;
+
+        private APIresolveInteractionRequest(@jakarta.annotation.Nonnull String nameOrId) {
+            this.nameOrId = nameOrId;
+        }
+
+        /**
+         * Set environment
+         * @param environment  (optional)
+         * @return APIresolveInteractionRequest
+         */
+        public APIresolveInteractionRequest environment(
+                @jakarta.annotation.Nullable String environment) {
+            this.environment = environment;
+            return this;
+        }
+
+        /**
+         * Set model
+         * @param model  (optional)
+         * @return APIresolveInteractionRequest
+         */
+        public APIresolveInteractionRequest model(@jakarta.annotation.Nullable String model) {
+            this.model = model;
+            return this;
+        }
+
+        /**
+         * Set inferenceProfile
+         * @param inferenceProfile  (optional)
+         * @return APIresolveInteractionRequest
+         */
+        public APIresolveInteractionRequest inferenceProfile(
+                @jakarta.annotation.Nullable String inferenceProfile) {
+            this.inferenceProfile = inferenceProfile;
+            return this;
+        }
+
+        /**
+         * Set inheritModelConfig
+         * @param inheritModelConfig Treat the supplied environment, model and inference_profile as the caller&#39;s settings, inherited as a fallback: the interaction&#39;s bound or attached profile, or its own model, replaces them. (optional)
+         * @return APIresolveInteractionRequest
+         */
+        public APIresolveInteractionRequest inheritModelConfig(
+                @jakarta.annotation.Nullable Boolean inheritModelConfig) {
+            this.inheritModelConfig = inheritModelConfig;
+            return this;
+        }
+
+        /**
+         * Set hasImage
+         * @param hasImage  (optional)
+         * @return APIresolveInteractionRequest
+         */
+        public APIresolveInteractionRequest hasImage(
+                @jakarta.annotation.Nullable Boolean hasImage) {
+            this.hasImage = hasImage;
+            return this;
+        }
+
+        /**
+         * Set hasVideo
+         * @param hasVideo  (optional)
+         * @return APIresolveInteractionRequest
+         */
+        public APIresolveInteractionRequest hasVideo(
+                @jakarta.annotation.Nullable Boolean hasVideo) {
+            this.hasVideo = hasVideo;
+            return this;
+        }
+
+        /**
+         * Build call for resolveInteraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved interaction execution information. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return resolveInteractionCall(
+                    nameOrId,
+                    environment,
+                    model,
+                    inferenceProfile,
+                    inheritModelConfig,
+                    hasImage,
+                    hasVideo,
+                    _callback);
+        }
+
+        /**
+         * Execute resolveInteraction request
+         * @return ResolvedInteractionExecutionInfo
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved interaction execution information. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ResolvedInteractionExecutionInfo execute() throws ApiException {
+            ApiResponse<ResolvedInteractionExecutionInfo> localVarResp =
+                    resolveInteractionWithHttpInfo(
+                            nameOrId,
+                            environment,
+                            model,
+                            inferenceProfile,
+                            inheritModelConfig,
+                            hasImage,
+                            hasVideo);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute resolveInteraction request with HTTP info returned
+         * @return ApiResponse&lt;ResolvedInteractionExecutionInfo&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved interaction execution information. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ResolvedInteractionExecutionInfo> executeWithHttpInfo()
+                throws ApiException {
+            return resolveInteractionWithHttpInfo(
+                    nameOrId,
+                    environment,
+                    model,
+                    inferenceProfile,
+                    inheritModelConfig,
+                    hasImage,
+                    hasVideo);
+        }
+
+        /**
+         * Execute resolveInteraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved interaction execution information. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<ResolvedInteractionExecutionInfo> _callback) throws ApiException {
+            return resolveInteractionAsync(
+                    nameOrId,
+                    environment,
+                    model,
+                    inferenceProfile,
+                    inheritModelConfig,
+                    hasImage,
+                    hasVideo,
+                    _callback);
+        }
     }
 
     /**
      * Resolve an interaction
-     * Calls {@code resolveInteraction} with every optional parameter left unset.
+     * Resolves an interaction by ID or endpoint name, including optional &#x60;@version&#x60; or &#x60;@tag&#x60; suffixes, and returns the environment and model that execution would use.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param nameOrId  (required)
-     * @return ResolvedInteractionExecutionInfo
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ResolvedInteractionExecutionInfo resolveInteraction(
-            @jakarta.annotation.Nonnull String nameOrId) throws ApiException {
-        return resolveInteraction(nameOrId, null, null, null, null, null, null);
-    }
-
-    /**
-     * Resolve an interaction
-     * Calls {@code resolveInteractionWithHttpInfo} with every optional parameter left unset.
-     * @param nameOrId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ResolvedInteractionExecutionInfo> resolveInteractionWithHttpInfo(
-            @jakarta.annotation.Nonnull String nameOrId) throws ApiException {
-        return resolveInteractionWithHttpInfo(nameOrId, null, null, null, null, null, null);
-    }
-
-    /**
-     * Resolve an interaction (asynchronously)
-     * Calls {@code resolveInteractionAsync} with every optional parameter left unset.
-     * @param nameOrId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call resolveInteractionAsync(
-            @jakarta.annotation.Nonnull String nameOrId,
-            final ApiCallback<ResolvedInteractionExecutionInfo> _callback)
-            throws ApiException {
-        return resolveInteractionAsync(nameOrId, null, null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for updateInteraction
-     * @param interactionId  (required)
-     * @param interactionUpdatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIresolveInteractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Resolved interaction execution information. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateInteractionCall(
+    public APIresolveInteractionRequest resolveInteraction(
+            @jakarta.annotation.Nonnull String nameOrId) {
+        return new APIresolveInteractionRequest(nameOrId);
+    }
+
+    private okhttp3.Call updateInteractionCall(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload,
             final ApiCallback _callback)
@@ -5974,52 +6783,7 @@ public class InteractionsApi {
         return updateInteractionCall(interactionId, interactionUpdatePayload, _callback);
     }
 
-    /**
-     * Update an interaction
-     * Updates mutable fields on a draft interaction, such as prompts, model configuration, tags, schemas, and agent runner options.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionId  (required)
-     * @param interactionUpdatePayload  (required)
-     * @return Interaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Interaction updateInteraction(
-            @jakarta.annotation.Nonnull String interactionId,
-            @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload)
-            throws ApiException {
-        ApiResponse<Interaction> localVarResp =
-                updateInteractionWithHttpInfo(interactionId, interactionUpdatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update an interaction
-     * Updates mutable fields on a draft interaction, such as prompts, model configuration, tags, schemas, and agent runner options.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionId  (required)
-     * @param interactionUpdatePayload  (required)
-     * @return ApiResponse&lt;Interaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Interaction> updateInteractionWithHttpInfo(
+    private ApiResponse<Interaction> updateInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload)
             throws ApiException {
@@ -6029,26 +6793,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update an interaction (asynchronously)
-     * Updates mutable fields on a draft interaction, such as prompts, model configuration, tags, schemas, and agent runner options.  **Required permissions:** &#x60;interaction:write&#x60;
-     * @param interactionId  (required)
-     * @param interactionUpdatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateInteractionAsync(
+    private okhttp3.Call updateInteractionAsync(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload,
             final ApiCallback<Interaction> _callback)
@@ -6062,23 +6807,123 @@ public class InteractionsApi {
         return localVarCall;
     }
 
+    public class APIupdateInteractionRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+        @jakarta.annotation.Nonnull private final InteractionUpdatePayload interactionUpdatePayload;
+
+        private APIupdateInteractionRequest(
+                @jakarta.annotation.Nonnull String interactionId,
+                @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload) {
+            this.interactionId = interactionId;
+            this.interactionUpdatePayload = interactionUpdatePayload;
+        }
+
+        /**
+         * Build call for updateInteraction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateInteractionCall(interactionId, interactionUpdatePayload, _callback);
+        }
+
+        /**
+         * Execute updateInteraction request
+         * @return Interaction
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Interaction execute() throws ApiException {
+            ApiResponse<Interaction> localVarResp =
+                    updateInteractionWithHttpInfo(interactionId, interactionUpdatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateInteraction request with HTTP info returned
+         * @return ApiResponse&lt;Interaction&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Interaction> executeWithHttpInfo() throws ApiException {
+            return updateInteractionWithHttpInfo(interactionId, interactionUpdatePayload);
+        }
+
+        /**
+         * Execute updateInteraction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Interaction> _callback)
+                throws ApiException {
+            return updateInteractionAsync(interactionId, interactionUpdatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for updateInteractionConfiguration
+     * Update an interaction
+     * Updates mutable fields on a draft interaction, such as prompts, model configuration, tags, schemas, and agent runner options.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param interactionId  (required)
-     * @param updateInteractionConfigurationPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param interactionUpdatePayload  (required)
+     * @return APIupdateInteractionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateInteractionConfigurationCall(
+    public APIupdateInteractionRequest updateInteraction(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload) {
+        return new APIupdateInteractionRequest(interactionId, interactionUpdatePayload);
+    }
+
+    private okhttp3.Call updateInteractionConfigurationCall(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull
                     UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload,
@@ -6163,50 +7008,7 @@ public class InteractionsApi {
                 interactionId, updateInteractionConfigurationPayload, _callback);
     }
 
-    /**
-     * Create or update code interaction configuration
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param interactionId  (required)
-     * @param updateInteractionConfigurationPayload  (required)
-     * @return InteractionConfigurationResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public InteractionConfigurationResult updateInteractionConfiguration(
-            @jakarta.annotation.Nonnull String interactionId,
-            @jakarta.annotation.Nonnull
-                    UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload)
-            throws ApiException {
-        ApiResponse<InteractionConfigurationResult> localVarResp =
-                updateInteractionConfigurationWithHttpInfo(
-                        interactionId, updateInteractionConfigurationPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create or update code interaction configuration
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param interactionId  (required)
-     * @param updateInteractionConfigurationPayload  (required)
-     * @return ApiResponse&lt;InteractionConfigurationResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<InteractionConfigurationResult> updateInteractionConfigurationWithHttpInfo(
+    private ApiResponse<InteractionConfigurationResult> updateInteractionConfigurationWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull
                     UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload)
@@ -6218,24 +7020,7 @@ public class InteractionsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create or update code interaction configuration (asynchronously)
-     * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param interactionId  (required)
-     * @param updateInteractionConfigurationPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateInteractionConfigurationAsync(
+    private okhttp3.Call updateInteractionConfigurationAsync(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull
                     UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload,
@@ -6248,5 +7033,122 @@ public class InteractionsApi {
         Type localVarReturnType = new TypeToken<InteractionConfigurationResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateInteractionConfigurationRequest {
+        @jakarta.annotation.Nonnull private final String interactionId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload;
+
+        private APIupdateInteractionConfigurationRequest(
+                @jakarta.annotation.Nonnull String interactionId,
+                @jakarta.annotation.Nonnull
+                        UpdateInteractionConfigurationPayload
+                                updateInteractionConfigurationPayload) {
+            this.interactionId = interactionId;
+            this.updateInteractionConfigurationPayload = updateInteractionConfigurationPayload;
+        }
+
+        /**
+         * Build call for updateInteractionConfiguration
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateInteractionConfigurationCall(
+                    interactionId, updateInteractionConfigurationPayload, _callback);
+        }
+
+        /**
+         * Execute updateInteractionConfiguration request
+         * @return InteractionConfigurationResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InteractionConfigurationResult execute() throws ApiException {
+            ApiResponse<InteractionConfigurationResult> localVarResp =
+                    updateInteractionConfigurationWithHttpInfo(
+                            interactionId, updateInteractionConfigurationPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateInteractionConfiguration request with HTTP info returned
+         * @return ApiResponse&lt;InteractionConfigurationResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InteractionConfigurationResult> executeWithHttpInfo()
+                throws ApiException {
+            return updateInteractionConfigurationWithHttpInfo(
+                    interactionId, updateInteractionConfigurationPayload);
+        }
+
+        /**
+         * Execute updateInteractionConfiguration request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<InteractionConfigurationResult> _callback) throws ApiException {
+            return updateInteractionConfigurationAsync(
+                    interactionId, updateInteractionConfigurationPayload, _callback);
+        }
+    }
+
+    /**
+     * Create or update code interaction configuration
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param interactionId  (required)
+     * @param updateInteractionConfigurationPayload  (required)
+     * @return APIupdateInteractionConfigurationRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateInteractionConfigurationRequest updateInteractionConfiguration(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull
+                    UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload) {
+        return new APIupdateInteractionConfigurationRequest(
+                interactionId, updateInteractionConfigurationPayload);
     }
 }

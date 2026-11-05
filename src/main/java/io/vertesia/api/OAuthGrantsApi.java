@@ -67,22 +67,7 @@ public class OAuthGrantsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for bulkRevokeOAuthGrants
-     * @param bulkRevokeOAuthGrantsPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk OAuth grant revocation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call bulkRevokeOAuthGrantsCall(
+    private okhttp3.Call bulkRevokeOAuthGrantsCall(
             @jakarta.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -152,45 +137,7 @@ public class OAuthGrantsApi {
         return bulkRevokeOAuthGrantsCall(bulkRevokeOAuthGrantsPayload, _callback);
     }
 
-    /**
-     * Bulk revoke OAuth grants
-     * Revokes multiple OAuth grants selected by explicit grant IDs or by account, project, user, client, resource, and status filters.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param bulkRevokeOAuthGrantsPayload  (required)
-     * @return OAuthGrantRevokeResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk OAuth grant revocation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthGrantRevokeResponse bulkRevokeOAuthGrants(
-            @jakarta.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload)
-            throws ApiException {
-        ApiResponse<OAuthGrantRevokeResponse> localVarResp =
-                bulkRevokeOAuthGrantsWithHttpInfo(bulkRevokeOAuthGrantsPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Bulk revoke OAuth grants
-     * Revokes multiple OAuth grants selected by explicit grant IDs or by account, project, user, client, resource, and status filters.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param bulkRevokeOAuthGrantsPayload  (required)
-     * @return ApiResponse&lt;OAuthGrantRevokeResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk OAuth grant revocation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthGrantRevokeResponse> bulkRevokeOAuthGrantsWithHttpInfo(
+    private ApiResponse<OAuthGrantRevokeResponse> bulkRevokeOAuthGrantsWithHttpInfo(
             @jakarta.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -199,23 +146,7 @@ public class OAuthGrantsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Bulk revoke OAuth grants (asynchronously)
-     * Revokes multiple OAuth grants selected by explicit grant IDs or by account, project, user, client, resource, and status filters.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param bulkRevokeOAuthGrantsPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Bulk OAuth grant revocation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call bulkRevokeOAuthGrantsAsync(
+    private okhttp3.Call bulkRevokeOAuthGrantsAsync(
             @jakarta.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload,
             final ApiCallback<OAuthGrantRevokeResponse> _callback)
             throws ApiException {
@@ -227,22 +158,110 @@ public class OAuthGrantsApi {
         return localVarCall;
     }
 
+    public class APIbulkRevokeOAuthGrantsRequest {
+        @jakarta.annotation.Nonnull
+        private final BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload;
+
+        private APIbulkRevokeOAuthGrantsRequest(
+                @jakarta.annotation.Nonnull
+                        BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload) {
+            this.bulkRevokeOAuthGrantsPayload = bulkRevokeOAuthGrantsPayload;
+        }
+
+        /**
+         * Build call for bulkRevokeOAuthGrants
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk OAuth grant revocation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return bulkRevokeOAuthGrantsCall(bulkRevokeOAuthGrantsPayload, _callback);
+        }
+
+        /**
+         * Execute bulkRevokeOAuthGrants request
+         * @return OAuthGrantRevokeResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk OAuth grant revocation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthGrantRevokeResponse execute() throws ApiException {
+            ApiResponse<OAuthGrantRevokeResponse> localVarResp =
+                    bulkRevokeOAuthGrantsWithHttpInfo(bulkRevokeOAuthGrantsPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute bulkRevokeOAuthGrants request with HTTP info returned
+         * @return ApiResponse&lt;OAuthGrantRevokeResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk OAuth grant revocation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthGrantRevokeResponse> executeWithHttpInfo() throws ApiException {
+            return bulkRevokeOAuthGrantsWithHttpInfo(bulkRevokeOAuthGrantsPayload);
+        }
+
+        /**
+         * Execute bulkRevokeOAuthGrants request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Bulk OAuth grant revocation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthGrantRevokeResponse> _callback)
+                throws ApiException {
+            return bulkRevokeOAuthGrantsAsync(bulkRevokeOAuthGrantsPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getOAuthGrant
-     * @param grantId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Bulk revoke OAuth grants
+     * Revokes multiple OAuth grants selected by explicit grant IDs or by account, project, user, client, resource, and status filters.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
+     * @param bulkRevokeOAuthGrantsPayload  (required)
+     * @return APIbulkRevokeOAuthGrantsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth grant. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Bulk OAuth grant revocation result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getOAuthGrantCall(
+    public APIbulkRevokeOAuthGrantsRequest bulkRevokeOAuthGrants(
+            @jakarta.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload) {
+        return new APIbulkRevokeOAuthGrantsRequest(bulkRevokeOAuthGrantsPayload);
+    }
+
+    private okhttp3.Call getOAuthGrantCall(
             @jakarta.annotation.Nonnull String grantId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -314,66 +333,14 @@ public class OAuthGrantsApi {
         return getOAuthGrantCall(grantId, _callback);
     }
 
-    /**
-     * Retrieve an OAuth grant
-     * Retrieves a single OAuth grant by its encoded grant identifier.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param grantId  (required)
-     * @return OAuthGrant
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth grant. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthGrant getOAuthGrant(@jakarta.annotation.Nonnull String grantId)
-            throws ApiException {
-        ApiResponse<OAuthGrant> localVarResp = getOAuthGrantWithHttpInfo(grantId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an OAuth grant
-     * Retrieves a single OAuth grant by its encoded grant identifier.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param grantId  (required)
-     * @return ApiResponse&lt;OAuthGrant&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth grant. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthGrant> getOAuthGrantWithHttpInfo(
+    private ApiResponse<OAuthGrant> getOAuthGrantWithHttpInfo(
             @jakarta.annotation.Nonnull String grantId) throws ApiException {
         okhttp3.Call localVarCall = getOAuthGrantValidateBeforeCall(grantId, null);
         Type localVarReturnType = new TypeToken<OAuthGrant>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an OAuth grant (asynchronously)
-     * Retrieves a single OAuth grant by its encoded grant identifier.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param grantId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested OAuth grant. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getOAuthGrantAsync(
+    private okhttp3.Call getOAuthGrantAsync(
             @jakarta.annotation.Nonnull String grantId, final ApiCallback<OAuthGrant> _callback)
             throws ApiException {
 
@@ -383,31 +350,105 @@ public class OAuthGrantsApi {
         return localVarCall;
     }
 
+    public class APIgetOAuthGrantRequest {
+        @jakarta.annotation.Nonnull private final String grantId;
+
+        private APIgetOAuthGrantRequest(@jakarta.annotation.Nonnull String grantId) {
+            this.grantId = grantId;
+        }
+
+        /**
+         * Build call for getOAuthGrant
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth grant. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getOAuthGrantCall(grantId, _callback);
+        }
+
+        /**
+         * Execute getOAuthGrant request
+         * @return OAuthGrant
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth grant. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthGrant execute() throws ApiException {
+            ApiResponse<OAuthGrant> localVarResp = getOAuthGrantWithHttpInfo(grantId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getOAuthGrant request with HTTP info returned
+         * @return ApiResponse&lt;OAuthGrant&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth grant. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthGrant> executeWithHttpInfo() throws ApiException {
+            return getOAuthGrantWithHttpInfo(grantId);
+        }
+
+        /**
+         * Execute getOAuthGrant request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested OAuth grant. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthGrant> _callback)
+                throws ApiException {
+            return getOAuthGrantAsync(grantId, _callback);
+        }
+    }
+
     /**
-     * Build call for listOAuthGrants
-     * @param accountId  (optional)
-     * @param projectId  (optional)
-     * @param userId  (optional)
-     * @param clientId  (optional)
-     * @param resource  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param sortBy  (optional)
-     * @param sortOrder  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve an OAuth grant
+     * Retrieves a single OAuth grant by its encoded grant identifier.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
+     * @param grantId  (required)
+     * @return APIgetOAuthGrantRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching OAuth grants with pagination metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested OAuth grant. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listOAuthGrantsCall(
+    public APIgetOAuthGrantRequest getOAuthGrant(@jakarta.annotation.Nonnull String grantId) {
+        return new APIgetOAuthGrantRequest(grantId);
+    }
+
+    private okhttp3.Call listOAuthGrantsCall(
             @jakarta.annotation.Nullable String accountId,
             @jakarta.annotation.Nullable String projectId,
             @jakarta.annotation.Nullable String userId,
@@ -531,74 +572,7 @@ public class OAuthGrantsApi {
                 sortOrder, _callback);
     }
 
-    /**
-     * List OAuth grants
-     * Lists active, revoked, or expired OAuth grants visible to the current user, project admin, or account admin.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param accountId  (optional)
-     * @param projectId  (optional)
-     * @param userId  (optional)
-     * @param clientId  (optional)
-     * @param resource  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param sortBy  (optional)
-     * @param sortOrder  (optional)
-     * @return OAuthGrantListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching OAuth grants with pagination metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthGrantListResponse listOAuthGrants(
-            @jakarta.annotation.Nullable String accountId,
-            @jakarta.annotation.Nullable String projectId,
-            @jakarta.annotation.Nullable String userId,
-            @jakarta.annotation.Nullable String clientId,
-            @jakarta.annotation.Nullable String resource,
-            @jakarta.annotation.Nullable String status,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String sortBy,
-            @jakarta.annotation.Nullable String sortOrder)
-            throws ApiException {
-        ApiResponse<OAuthGrantListResponse> localVarResp =
-                listOAuthGrantsWithHttpInfo(
-                        accountId, projectId, userId, clientId, resource, status, limit, offset,
-                        sortBy, sortOrder);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List OAuth grants
-     * Lists active, revoked, or expired OAuth grants visible to the current user, project admin, or account admin.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param accountId  (optional)
-     * @param projectId  (optional)
-     * @param userId  (optional)
-     * @param clientId  (optional)
-     * @param resource  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param sortBy  (optional)
-     * @param sortOrder  (optional)
-     * @return ApiResponse&lt;OAuthGrantListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching OAuth grants with pagination metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthGrantListResponse> listOAuthGrantsWithHttpInfo(
+    private ApiResponse<OAuthGrantListResponse> listOAuthGrantsWithHttpInfo(
             @jakarta.annotation.Nullable String accountId,
             @jakarta.annotation.Nullable String projectId,
             @jakarta.annotation.Nullable String userId,
@@ -618,32 +592,7 @@ public class OAuthGrantsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List OAuth grants (asynchronously)
-     * Lists active, revoked, or expired OAuth grants visible to the current user, project admin, or account admin.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param accountId  (optional)
-     * @param projectId  (optional)
-     * @param userId  (optional)
-     * @param clientId  (optional)
-     * @param resource  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param sortBy  (optional)
-     * @param sortOrder  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Matching OAuth grants with pagination metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listOAuthGrantsAsync(
+    private okhttp3.Call listOAuthGrantsAsync(
             @jakarta.annotation.Nullable String accountId,
             @jakarta.annotation.Nullable String projectId,
             @jakarta.annotation.Nullable String userId,
@@ -666,68 +615,220 @@ public class OAuthGrantsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listOAuthGrants with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listOAuthGrantsCall(final ApiCallback _callback) throws ApiException {
-        return listOAuthGrantsCall(
-                null, null, null, null, null, null, null, null, null, null, _callback);
+    public class APIlistOAuthGrantsRequest {
+        @jakarta.annotation.Nullable private String accountId;
+        @jakarta.annotation.Nullable private String projectId;
+        @jakarta.annotation.Nullable private String userId;
+        @jakarta.annotation.Nullable private String clientId;
+        @jakarta.annotation.Nullable private String resource;
+        @jakarta.annotation.Nullable private String status;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+        @jakarta.annotation.Nullable private String sortBy;
+        @jakarta.annotation.Nullable private String sortOrder;
+
+        private APIlistOAuthGrantsRequest() {}
+
+        /**
+         * Set accountId
+         * @param accountId  (optional)
+         * @return APIlistOAuthGrantsRequest
+         */
+        public APIlistOAuthGrantsRequest accountId(@jakarta.annotation.Nullable String accountId) {
+            this.accountId = accountId;
+            return this;
+        }
+
+        /**
+         * Set projectId
+         * @param projectId  (optional)
+         * @return APIlistOAuthGrantsRequest
+         */
+        public APIlistOAuthGrantsRequest projectId(@jakarta.annotation.Nullable String projectId) {
+            this.projectId = projectId;
+            return this;
+        }
+
+        /**
+         * Set userId
+         * @param userId  (optional)
+         * @return APIlistOAuthGrantsRequest
+         */
+        public APIlistOAuthGrantsRequest userId(@jakarta.annotation.Nullable String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Set clientId
+         * @param clientId  (optional)
+         * @return APIlistOAuthGrantsRequest
+         */
+        public APIlistOAuthGrantsRequest clientId(@jakarta.annotation.Nullable String clientId) {
+            this.clientId = clientId;
+            return this;
+        }
+
+        /**
+         * Set resource
+         * @param resource  (optional)
+         * @return APIlistOAuthGrantsRequest
+         */
+        public APIlistOAuthGrantsRequest resource(@jakarta.annotation.Nullable String resource) {
+            this.resource = resource;
+            return this;
+        }
+
+        /**
+         * Set status
+         * @param status  (optional)
+         * @return APIlistOAuthGrantsRequest
+         */
+        public APIlistOAuthGrantsRequest status(@jakarta.annotation.Nullable String status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistOAuthGrantsRequest
+         */
+        public APIlistOAuthGrantsRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistOAuthGrantsRequest
+         */
+        public APIlistOAuthGrantsRequest offset(@jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set sortBy
+         * @param sortBy  (optional)
+         * @return APIlistOAuthGrantsRequest
+         */
+        public APIlistOAuthGrantsRequest sortBy(@jakarta.annotation.Nullable String sortBy) {
+            this.sortBy = sortBy;
+            return this;
+        }
+
+        /**
+         * Set sortOrder
+         * @param sortOrder  (optional)
+         * @return APIlistOAuthGrantsRequest
+         */
+        public APIlistOAuthGrantsRequest sortOrder(@jakarta.annotation.Nullable String sortOrder) {
+            this.sortOrder = sortOrder;
+            return this;
+        }
+
+        /**
+         * Build call for listOAuthGrants
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching OAuth grants with pagination metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listOAuthGrantsCall(
+                    accountId, projectId, userId, clientId, resource, status, limit, offset, sortBy,
+                    sortOrder, _callback);
+        }
+
+        /**
+         * Execute listOAuthGrants request
+         * @return OAuthGrantListResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching OAuth grants with pagination metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthGrantListResponse execute() throws ApiException {
+            ApiResponse<OAuthGrantListResponse> localVarResp =
+                    listOAuthGrantsWithHttpInfo(
+                            accountId, projectId, userId, clientId, resource, status, limit, offset,
+                            sortBy, sortOrder);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listOAuthGrants request with HTTP info returned
+         * @return ApiResponse&lt;OAuthGrantListResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching OAuth grants with pagination metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthGrantListResponse> executeWithHttpInfo() throws ApiException {
+            return listOAuthGrantsWithHttpInfo(
+                    accountId, projectId, userId, clientId, resource, status, limit, offset, sortBy,
+                    sortOrder);
+        }
+
+        /**
+         * Execute listOAuthGrants request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching OAuth grants with pagination metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthGrantListResponse> _callback)
+                throws ApiException {
+            return listOAuthGrantsAsync(
+                    accountId, projectId, userId, clientId, resource, status, limit, offset, sortBy,
+                    sortOrder, _callback);
+        }
     }
 
     /**
      * List OAuth grants
-     * Calls {@code listOAuthGrants} with every optional parameter left unset.
-     * @return OAuthGrantListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public OAuthGrantListResponse listOAuthGrants() throws ApiException {
-        return listOAuthGrants(null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List OAuth grants
-     * Calls {@code listOAuthGrantsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<OAuthGrantListResponse> listOAuthGrantsWithHttpInfo() throws ApiException {
-        return listOAuthGrantsWithHttpInfo(
-                null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * List OAuth grants (asynchronously)
-     * Calls {@code listOAuthGrantsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listOAuthGrantsAsync(final ApiCallback<OAuthGrantListResponse> _callback)
-            throws ApiException {
-        return listOAuthGrantsAsync(
-                null, null, null, null, null, null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for revokeOAuthGrant
-     * @param grantId  (required)
-     * @param includeConsent  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists active, revoked, or expired OAuth grants visible to the current user, project admin, or account admin.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
+     * @return APIlistOAuthGrantsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth grant revocation result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Matching OAuth grants with pagination metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call revokeOAuthGrantCall(
+    public APIlistOAuthGrantsRequest listOAuthGrants() {
+        return new APIlistOAuthGrantsRequest();
+    }
+
+    private okhttp3.Call revokeOAuthGrantCall(
             @jakarta.annotation.Nonnull String grantId,
             @jakarta.annotation.Nullable Boolean includeConsent,
             final ApiCallback _callback)
@@ -808,48 +909,7 @@ public class OAuthGrantsApi {
         return revokeOAuthGrantCall(grantId, includeConsent, _callback);
     }
 
-    /**
-     * Revoke an OAuth grant
-     * Revokes the refresh tokens associated with a single OAuth grant, and optionally deletes the stored consent.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param grantId  (required)
-     * @param includeConsent  (optional)
-     * @return OAuthGrantRevokeResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth grant revocation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public OAuthGrantRevokeResponse revokeOAuthGrant(
-            @jakarta.annotation.Nonnull String grantId,
-            @jakarta.annotation.Nullable Boolean includeConsent)
-            throws ApiException {
-        ApiResponse<OAuthGrantRevokeResponse> localVarResp =
-                revokeOAuthGrantWithHttpInfo(grantId, includeConsent);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Revoke an OAuth grant
-     * Revokes the refresh tokens associated with a single OAuth grant, and optionally deletes the stored consent.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param grantId  (required)
-     * @param includeConsent  (optional)
-     * @return ApiResponse&lt;OAuthGrantRevokeResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth grant revocation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<OAuthGrantRevokeResponse> revokeOAuthGrantWithHttpInfo(
+    private ApiResponse<OAuthGrantRevokeResponse> revokeOAuthGrantWithHttpInfo(
             @jakarta.annotation.Nonnull String grantId,
             @jakarta.annotation.Nullable Boolean includeConsent)
             throws ApiException {
@@ -859,24 +919,7 @@ public class OAuthGrantsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Revoke an OAuth grant (asynchronously)
-     * Revokes the refresh tokens associated with a single OAuth grant, and optionally deletes the stored consent.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
-     * @param grantId  (required)
-     * @param includeConsent  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth grant revocation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call revokeOAuthGrantAsync(
+    private okhttp3.Call revokeOAuthGrantAsync(
             @jakarta.annotation.Nonnull String grantId,
             @jakarta.annotation.Nullable Boolean includeConsent,
             final ApiCallback<OAuthGrantRevokeResponse> _callback)
@@ -889,55 +932,114 @@ public class OAuthGrantsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for revokeOAuthGrant with every optional parameter left unset.
-     * @param grantId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call revokeOAuthGrantCall(
-            @jakarta.annotation.Nonnull String grantId, final ApiCallback _callback)
-            throws ApiException {
-        return revokeOAuthGrantCall(grantId, null, _callback);
+    public class APIrevokeOAuthGrantRequest {
+        @jakarta.annotation.Nonnull private final String grantId;
+        @jakarta.annotation.Nullable private Boolean includeConsent;
+
+        private APIrevokeOAuthGrantRequest(@jakarta.annotation.Nonnull String grantId) {
+            this.grantId = grantId;
+        }
+
+        /**
+         * Set includeConsent
+         * @param includeConsent  (optional)
+         * @return APIrevokeOAuthGrantRequest
+         */
+        public APIrevokeOAuthGrantRequest includeConsent(
+                @jakarta.annotation.Nullable Boolean includeConsent) {
+            this.includeConsent = includeConsent;
+            return this;
+        }
+
+        /**
+         * Build call for revokeOAuthGrant
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth grant revocation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return revokeOAuthGrantCall(grantId, includeConsent, _callback);
+        }
+
+        /**
+         * Execute revokeOAuthGrant request
+         * @return OAuthGrantRevokeResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth grant revocation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public OAuthGrantRevokeResponse execute() throws ApiException {
+            ApiResponse<OAuthGrantRevokeResponse> localVarResp =
+                    revokeOAuthGrantWithHttpInfo(grantId, includeConsent);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute revokeOAuthGrant request with HTTP info returned
+         * @return ApiResponse&lt;OAuthGrantRevokeResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth grant revocation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<OAuthGrantRevokeResponse> executeWithHttpInfo() throws ApiException {
+            return revokeOAuthGrantWithHttpInfo(grantId, includeConsent);
+        }
+
+        /**
+         * Execute revokeOAuthGrant request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> OAuth grant revocation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<OAuthGrantRevokeResponse> _callback)
+                throws ApiException {
+            return revokeOAuthGrantAsync(grantId, includeConsent, _callback);
+        }
     }
 
     /**
      * Revoke an OAuth grant
-     * Calls {@code revokeOAuthGrant} with every optional parameter left unset.
+     * Revokes the refresh tokens associated with a single OAuth grant, and optionally deletes the stored consent.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
      * @param grantId  (required)
-     * @return OAuthGrantRevokeResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @return APIrevokeOAuthGrantRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OAuth grant revocation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
      */
-    public OAuthGrantRevokeResponse revokeOAuthGrant(@jakarta.annotation.Nonnull String grantId)
-            throws ApiException {
-        return revokeOAuthGrant(grantId, null);
-    }
-
-    /**
-     * Revoke an OAuth grant
-     * Calls {@code revokeOAuthGrantWithHttpInfo} with every optional parameter left unset.
-     * @param grantId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<OAuthGrantRevokeResponse> revokeOAuthGrantWithHttpInfo(
-            @jakarta.annotation.Nonnull String grantId) throws ApiException {
-        return revokeOAuthGrantWithHttpInfo(grantId, null);
-    }
-
-    /**
-     * Revoke an OAuth grant (asynchronously)
-     * Calls {@code revokeOAuthGrantAsync} with every optional parameter left unset.
-     * @param grantId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call revokeOAuthGrantAsync(
-            @jakarta.annotation.Nonnull String grantId,
-            final ApiCallback<OAuthGrantRevokeResponse> _callback)
-            throws ApiException {
-        return revokeOAuthGrantAsync(grantId, null, _callback);
+    public APIrevokeOAuthGrantRequest revokeOAuthGrant(@jakarta.annotation.Nonnull String grantId) {
+        return new APIrevokeOAuthGrantRequest(grantId);
     }
 }

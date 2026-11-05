@@ -67,23 +67,7 @@ public class UserGroupsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for addUserGroupMember
-     * @param groupId  (required)
-     * @param userId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call addUserGroupMemberCall(
+    private okhttp3.Call addUserGroupMemberCall(
             @jakarta.annotation.Nonnull String groupId,
             @jakarta.annotation.Nonnull String userId,
             final ApiCallback _callback)
@@ -168,46 +152,7 @@ public class UserGroupsApi {
         return addUserGroupMemberCall(groupId, userId, _callback);
     }
 
-    /**
-     * Add a user to a group
-     * Adds a user to a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param userId  (required)
-     * @return UserGroup
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UserGroup addUserGroupMember(
-            @jakarta.annotation.Nonnull String groupId, @jakarta.annotation.Nonnull String userId)
-            throws ApiException {
-        ApiResponse<UserGroup> localVarResp = addUserGroupMemberWithHttpInfo(groupId, userId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Add a user to a group
-     * Adds a user to a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param userId  (required)
-     * @return ApiResponse&lt;UserGroup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UserGroup> addUserGroupMemberWithHttpInfo(
+    private ApiResponse<UserGroup> addUserGroupMemberWithHttpInfo(
             @jakarta.annotation.Nonnull String groupId, @jakarta.annotation.Nonnull String userId)
             throws ApiException {
         okhttp3.Call localVarCall = addUserGroupMemberValidateBeforeCall(groupId, userId, null);
@@ -215,24 +160,7 @@ public class UserGroupsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Add a user to a group (asynchronously)
-     * Adds a user to a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param userId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call addUserGroupMemberAsync(
+    private okhttp3.Call addUserGroupMemberAsync(
             @jakarta.annotation.Nonnull String groupId,
             @jakarta.annotation.Nonnull String userId,
             final ApiCallback<UserGroup> _callback)
@@ -245,22 +173,111 @@ public class UserGroupsApi {
         return localVarCall;
     }
 
+    public class APIaddUserGroupMemberRequest {
+        @jakarta.annotation.Nonnull private final String groupId;
+        @jakarta.annotation.Nonnull private final String userId;
+
+        private APIaddUserGroupMemberRequest(
+                @jakarta.annotation.Nonnull String groupId,
+                @jakarta.annotation.Nonnull String userId) {
+            this.groupId = groupId;
+            this.userId = userId;
+        }
+
+        /**
+         * Build call for addUserGroupMember
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return addUserGroupMemberCall(groupId, userId, _callback);
+        }
+
+        /**
+         * Execute addUserGroupMember request
+         * @return UserGroup
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public UserGroup execute() throws ApiException {
+            ApiResponse<UserGroup> localVarResp = addUserGroupMemberWithHttpInfo(groupId, userId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute addUserGroupMember request with HTTP info returned
+         * @return ApiResponse&lt;UserGroup&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<UserGroup> executeWithHttpInfo() throws ApiException {
+            return addUserGroupMemberWithHttpInfo(groupId, userId);
+        }
+
+        /**
+         * Execute addUserGroupMember request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UserGroup> _callback)
+                throws ApiException {
+            return addUserGroupMemberAsync(groupId, userId, _callback);
+        }
+    }
+
     /**
-     * Build call for createUserGroup
-     * @param createUserGroupPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Add a user to a group
+     * Adds a user to a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
+     * @param groupId  (required)
+     * @param userId  (required)
+     * @return APIaddUserGroupMemberRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created user group. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createUserGroupCall(
+    public APIaddUserGroupMemberRequest addUserGroupMember(
+            @jakarta.annotation.Nonnull String groupId, @jakarta.annotation.Nonnull String userId) {
+        return new APIaddUserGroupMemberRequest(groupId, userId);
+    }
+
+    private okhttp3.Call createUserGroupCall(
             @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -330,44 +347,7 @@ public class UserGroupsApi {
         return createUserGroupCall(createUserGroupPayload, _callback);
     }
 
-    /**
-     * Create a user group
-     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param createUserGroupPayload  (required)
-     * @return UserGroup
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UserGroup createUserGroup(
-            @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload)
-            throws ApiException {
-        ApiResponse<UserGroup> localVarResp = createUserGroupWithHttpInfo(createUserGroupPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a user group
-     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param createUserGroupPayload  (required)
-     * @return ApiResponse&lt;UserGroup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UserGroup> createUserGroupWithHttpInfo(
+    private ApiResponse<UserGroup> createUserGroupWithHttpInfo(
             @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload)
             throws ApiException {
         okhttp3.Call localVarCall = createUserGroupValidateBeforeCall(createUserGroupPayload, null);
@@ -375,23 +355,7 @@ public class UserGroupsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a user group (asynchronously)
-     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param createUserGroupPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createUserGroupAsync(
+    private okhttp3.Call createUserGroupAsync(
             @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload,
             final ApiCallback<UserGroup> _callback)
             throws ApiException {
@@ -403,22 +367,108 @@ public class UserGroupsApi {
         return localVarCall;
     }
 
+    public class APIcreateUserGroupRequest {
+        @jakarta.annotation.Nonnull private final CreateUserGroupPayload createUserGroupPayload;
+
+        private APIcreateUserGroupRequest(
+                @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload) {
+            this.createUserGroupPayload = createUserGroupPayload;
+        }
+
+        /**
+         * Build call for createUserGroup
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createUserGroupCall(createUserGroupPayload, _callback);
+        }
+
+        /**
+         * Execute createUserGroup request
+         * @return UserGroup
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public UserGroup execute() throws ApiException {
+            ApiResponse<UserGroup> localVarResp =
+                    createUserGroupWithHttpInfo(createUserGroupPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createUserGroup request with HTTP info returned
+         * @return ApiResponse&lt;UserGroup&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<UserGroup> executeWithHttpInfo() throws ApiException {
+            return createUserGroupWithHttpInfo(createUserGroupPayload);
+        }
+
+        /**
+         * Execute createUserGroup request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UserGroup> _callback)
+                throws ApiException {
+            return createUserGroupAsync(createUserGroupPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getUserGroup
-     * @param groupId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a user group
+     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
+     * @param createUserGroupPayload  (required)
+     * @return APIcreateUserGroupRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user group. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created user group. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getUserGroupCall(
+    public APIcreateUserGroupRequest createUserGroup(
+            @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload) {
+        return new APIcreateUserGroupRequest(createUserGroupPayload);
+    }
+
+    private okhttp3.Call getUserGroupCall(
             @jakarta.annotation.Nonnull String groupId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -490,65 +540,14 @@ public class UserGroupsApi {
         return getUserGroupCall(groupId, _callback);
     }
 
-    /**
-     * Retrieve a user group
-     * Retrieves a user group by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
-     * @param groupId  (required)
-     * @return UserGroup
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UserGroup getUserGroup(@jakarta.annotation.Nonnull String groupId) throws ApiException {
-        ApiResponse<UserGroup> localVarResp = getUserGroupWithHttpInfo(groupId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a user group
-     * Retrieves a user group by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
-     * @param groupId  (required)
-     * @return ApiResponse&lt;UserGroup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UserGroup> getUserGroupWithHttpInfo(
+    private ApiResponse<UserGroup> getUserGroupWithHttpInfo(
             @jakarta.annotation.Nonnull String groupId) throws ApiException {
         okhttp3.Call localVarCall = getUserGroupValidateBeforeCall(groupId, null);
         Type localVarReturnType = new TypeToken<UserGroup>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a user group (asynchronously)
-     * Retrieves a user group by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
-     * @param groupId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getUserGroupAsync(
+    private okhttp3.Call getUserGroupAsync(
             @jakarta.annotation.Nonnull String groupId, final ApiCallback<UserGroup> _callback)
             throws ApiException {
 
@@ -558,22 +557,105 @@ public class UserGroupsApi {
         return localVarCall;
     }
 
+    public class APIgetUserGroupRequest {
+        @jakarta.annotation.Nonnull private final String groupId;
+
+        private APIgetUserGroupRequest(@jakarta.annotation.Nonnull String groupId) {
+            this.groupId = groupId;
+        }
+
+        /**
+         * Build call for getUserGroup
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getUserGroupCall(groupId, _callback);
+        }
+
+        /**
+         * Execute getUserGroup request
+         * @return UserGroup
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public UserGroup execute() throws ApiException {
+            ApiResponse<UserGroup> localVarResp = getUserGroupWithHttpInfo(groupId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getUserGroup request with HTTP info returned
+         * @return ApiResponse&lt;UserGroup&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<UserGroup> executeWithHttpInfo() throws ApiException {
+            return getUserGroupWithHttpInfo(groupId);
+        }
+
+        /**
+         * Execute getUserGroup request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UserGroup> _callback)
+                throws ApiException {
+            return getUserGroupAsync(groupId, _callback);
+        }
+    }
+
     /**
-     * Build call for listUserGroupMembers
+     * Retrieve a user group
+     * Retrieves a user group by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @param groupId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetUserGroupRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User group members. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested user group. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listUserGroupMembersCall(
+    public APIgetUserGroupRequest getUserGroup(@jakarta.annotation.Nonnull String groupId) {
+        return new APIgetUserGroupRequest(groupId);
+    }
+
+    private okhttp3.Call listUserGroupMembersCall(
             @jakarta.annotation.Nonnull String groupId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -645,66 +727,14 @@ public class UserGroupsApi {
         return listUserGroupMembersCall(groupId, _callback);
     }
 
-    /**
-     * List user group members
-     * Lists members of a user group.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
-     * @param groupId  (required)
-     * @return List&lt;UserRef&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User group members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<UserRef> listUserGroupMembers(@jakarta.annotation.Nonnull String groupId)
-            throws ApiException {
-        ApiResponse<List<UserRef>> localVarResp = listUserGroupMembersWithHttpInfo(groupId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List user group members
-     * Lists members of a user group.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
-     * @param groupId  (required)
-     * @return ApiResponse&lt;List&lt;UserRef&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User group members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<UserRef>> listUserGroupMembersWithHttpInfo(
+    private ApiResponse<List<UserRef>> listUserGroupMembersWithHttpInfo(
             @jakarta.annotation.Nonnull String groupId) throws ApiException {
         okhttp3.Call localVarCall = listUserGroupMembersValidateBeforeCall(groupId, null);
         Type localVarReturnType = new TypeToken<List<UserRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List user group members (asynchronously)
-     * Lists members of a user group.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
-     * @param groupId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User group members. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listUserGroupMembersAsync(
+    private okhttp3.Call listUserGroupMembersAsync(
             @jakarta.annotation.Nonnull String groupId, final ApiCallback<List<UserRef>> _callback)
             throws ApiException {
 
@@ -714,26 +744,106 @@ public class UserGroupsApi {
         return localVarCall;
     }
 
+    public class APIlistUserGroupMembersRequest {
+        @jakarta.annotation.Nonnull private final String groupId;
+
+        private APIlistUserGroupMembersRequest(@jakarta.annotation.Nonnull String groupId) {
+            this.groupId = groupId;
+        }
+
+        /**
+         * Build call for listUserGroupMembers
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User group members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listUserGroupMembersCall(groupId, _callback);
+        }
+
+        /**
+         * Execute listUserGroupMembers request
+         * @return List&lt;UserRef&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User group members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<UserRef> execute() throws ApiException {
+            ApiResponse<List<UserRef>> localVarResp = listUserGroupMembersWithHttpInfo(groupId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listUserGroupMembers request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;UserRef&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User group members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<UserRef>> executeWithHttpInfo() throws ApiException {
+            return listUserGroupMembersWithHttpInfo(groupId);
+        }
+
+        /**
+         * Execute listUserGroupMembers request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User group members. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<UserRef>> _callback)
+                throws ApiException {
+            return listUserGroupMembersAsync(groupId, _callback);
+        }
+    }
+
     /**
-     * Build call for listUserGroups
-     * @param search  (optional)
-     * @param tags  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param project  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List user group members
+     * Lists members of a user group.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
+     * @param groupId  (required)
+     * @return APIlistUserGroupMembersRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User groups. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> User group members. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listUserGroupsCall(
+    public APIlistUserGroupMembersRequest listUserGroupMembers(
+            @jakarta.annotation.Nonnull String groupId) {
+        return new APIlistUserGroupMembersRequest(groupId);
+    }
+
+    private okhttp3.Call listUserGroupsCall(
             @jakarta.annotation.Nullable String search,
             @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -826,57 +936,7 @@ public class UserGroupsApi {
         return listUserGroupsCall(search, tags, limit, offset, project, _callback);
     }
 
-    /**
-     * List user groups
-     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
-     * @param search  (optional)
-     * @param tags  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param project  (optional)
-     * @return List&lt;UserGroup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User groups. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<UserGroup> listUserGroups(
-            @jakarta.annotation.Nullable String search,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String project)
-            throws ApiException {
-        ApiResponse<List<UserGroup>> localVarResp =
-                listUserGroupsWithHttpInfo(search, tags, limit, offset, project);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List user groups
-     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
-     * @param search  (optional)
-     * @param tags  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param project  (optional)
-     * @return ApiResponse&lt;List&lt;UserGroup&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User groups. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<UserGroup>> listUserGroupsWithHttpInfo(
+    private ApiResponse<List<UserGroup>> listUserGroupsWithHttpInfo(
             @jakarta.annotation.Nullable String search,
             @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -889,27 +949,7 @@ public class UserGroupsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List user groups (asynchronously)
-     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
-     * @param search  (optional)
-     * @param tags  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param project  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User groups. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listUserGroupsAsync(
+    private okhttp3.Call listUserGroupsAsync(
             @jakarta.annotation.Nullable String search,
             @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable BigDecimal limit,
@@ -925,65 +965,157 @@ public class UserGroupsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listUserGroups with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listUserGroupsCall(final ApiCallback _callback) throws ApiException {
-        return listUserGroupsCall(null, null, null, null, null, _callback);
+    public class APIlistUserGroupsRequest {
+        @jakarta.annotation.Nullable private String search;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+        @jakarta.annotation.Nullable private String project;
+
+        private APIlistUserGroupsRequest() {}
+
+        /**
+         * Set search
+         * @param search  (optional)
+         * @return APIlistUserGroupsRequest
+         */
+        public APIlistUserGroupsRequest search(@jakarta.annotation.Nullable String search) {
+            this.search = search;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags  (optional)
+         * @return APIlistUserGroupsRequest
+         */
+        public APIlistUserGroupsRequest tags(@jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIlistUserGroupsRequest
+         */
+        public APIlistUserGroupsRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset  (optional)
+         * @return APIlistUserGroupsRequest
+         */
+        public APIlistUserGroupsRequest offset(@jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set project
+         * @param project  (optional)
+         * @return APIlistUserGroupsRequest
+         */
+        public APIlistUserGroupsRequest project(@jakarta.annotation.Nullable String project) {
+            this.project = project;
+            return this;
+        }
+
+        /**
+         * Build call for listUserGroups
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User groups. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listUserGroupsCall(search, tags, limit, offset, project, _callback);
+        }
+
+        /**
+         * Execute listUserGroups request
+         * @return List&lt;UserGroup&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User groups. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<UserGroup> execute() throws ApiException {
+            ApiResponse<List<UserGroup>> localVarResp =
+                    listUserGroupsWithHttpInfo(search, tags, limit, offset, project);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listUserGroups request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;UserGroup&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User groups. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<UserGroup>> executeWithHttpInfo() throws ApiException {
+            return listUserGroupsWithHttpInfo(search, tags, limit, offset, project);
+        }
+
+        /**
+         * Execute listUserGroups request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> User groups. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<UserGroup>> _callback)
+                throws ApiException {
+            return listUserGroupsAsync(search, tags, limit, offset, project, _callback);
+        }
     }
 
     /**
      * List user groups
-     * Calls {@code listUserGroups} with every optional parameter left unset.
-     * @return List&lt;UserGroup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<UserGroup> listUserGroups() throws ApiException {
-        return listUserGroups(null, null, null, null, null);
-    }
-
-    /**
-     * List user groups
-     * Calls {@code listUserGroupsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<UserGroup>> listUserGroupsWithHttpInfo() throws ApiException {
-        return listUserGroupsWithHttpInfo(null, null, null, null, null);
-    }
-
-    /**
-     * List user groups (asynchronously)
-     * Calls {@code listUserGroupsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listUserGroupsAsync(final ApiCallback<List<UserGroup>> _callback)
-            throws ApiException {
-        return listUserGroupsAsync(null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for removeUserGroupMember
-     * @param groupId  (required)
-     * @param userId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
+     * @return APIlistUserGroupsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> User groups. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call removeUserGroupMemberCall(
+    public APIlistUserGroupsRequest listUserGroups() {
+        return new APIlistUserGroupsRequest();
+    }
+
+    private okhttp3.Call removeUserGroupMemberCall(
             @jakarta.annotation.Nonnull String groupId,
             @jakarta.annotation.Nonnull String userId,
             final ApiCallback _callback)
@@ -1068,46 +1200,7 @@ public class UserGroupsApi {
         return removeUserGroupMemberCall(groupId, userId, _callback);
     }
 
-    /**
-     * Remove a user from a group
-     * Removes a user from a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param userId  (required)
-     * @return UserGroup
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UserGroup removeUserGroupMember(
-            @jakarta.annotation.Nonnull String groupId, @jakarta.annotation.Nonnull String userId)
-            throws ApiException {
-        ApiResponse<UserGroup> localVarResp = removeUserGroupMemberWithHttpInfo(groupId, userId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Remove a user from a group
-     * Removes a user from a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param userId  (required)
-     * @return ApiResponse&lt;UserGroup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UserGroup> removeUserGroupMemberWithHttpInfo(
+    private ApiResponse<UserGroup> removeUserGroupMemberWithHttpInfo(
             @jakarta.annotation.Nonnull String groupId, @jakarta.annotation.Nonnull String userId)
             throws ApiException {
         okhttp3.Call localVarCall = removeUserGroupMemberValidateBeforeCall(groupId, userId, null);
@@ -1115,24 +1208,7 @@ public class UserGroupsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Remove a user from a group (asynchronously)
-     * Removes a user from a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param userId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call removeUserGroupMemberAsync(
+    private okhttp3.Call removeUserGroupMemberAsync(
             @jakarta.annotation.Nonnull String groupId,
             @jakarta.annotation.Nonnull String userId,
             final ApiCallback<UserGroup> _callback)
@@ -1145,21 +1221,112 @@ public class UserGroupsApi {
         return localVarCall;
     }
 
+    public class APIremoveUserGroupMemberRequest {
+        @jakarta.annotation.Nonnull private final String groupId;
+        @jakarta.annotation.Nonnull private final String userId;
+
+        private APIremoveUserGroupMemberRequest(
+                @jakarta.annotation.Nonnull String groupId,
+                @jakarta.annotation.Nonnull String userId) {
+            this.groupId = groupId;
+            this.userId = userId;
+        }
+
+        /**
+         * Build call for removeUserGroupMember
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return removeUserGroupMemberCall(groupId, userId, _callback);
+        }
+
+        /**
+         * Execute removeUserGroupMember request
+         * @return UserGroup
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public UserGroup execute() throws ApiException {
+            ApiResponse<UserGroup> localVarResp =
+                    removeUserGroupMemberWithHttpInfo(groupId, userId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute removeUserGroupMember request with HTTP info returned
+         * @return ApiResponse&lt;UserGroup&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<UserGroup> executeWithHttpInfo() throws ApiException {
+            return removeUserGroupMemberWithHttpInfo(groupId, userId);
+        }
+
+        /**
+         * Execute removeUserGroupMember request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UserGroup> _callback)
+                throws ApiException {
+            return removeUserGroupMemberAsync(groupId, userId, _callback);
+        }
+    }
+
     /**
-     * Build call for syncMembersUserGroup
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Remove a user from a group
+     * Removes a user from a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
+     * @param groupId  (required)
+     * @param userId  (required)
+     * @return APIremoveUserGroupMemberRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The synchronized members group. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call syncMembersUserGroupCall(final ApiCallback _callback) throws ApiException {
+    public APIremoveUserGroupMemberRequest removeUserGroupMember(
+            @jakarta.annotation.Nonnull String groupId, @jakarta.annotation.Nonnull String userId) {
+        return new APIremoveUserGroupMemberRequest(groupId, userId);
+    }
+
+    private okhttp3.Call syncMembersUserGroupCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1218,61 +1385,13 @@ public class UserGroupsApi {
         return syncMembersUserGroupCall(_callback);
     }
 
-    /**
-     * Sync the members group
-     * Synchronizes the built-in members group with current account membership.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @return UserGroup
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The synchronized members group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UserGroup syncMembersUserGroup() throws ApiException {
-        ApiResponse<UserGroup> localVarResp = syncMembersUserGroupWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Sync the members group
-     * Synchronizes the built-in members group with current account membership.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @return ApiResponse&lt;UserGroup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The synchronized members group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UserGroup> syncMembersUserGroupWithHttpInfo() throws ApiException {
+    private ApiResponse<UserGroup> syncMembersUserGroupWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = syncMembersUserGroupValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<UserGroup>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Sync the members group (asynchronously)
-     * Synchronizes the built-in members group with current account membership.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The synchronized members group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call syncMembersUserGroupAsync(final ApiCallback<UserGroup> _callback)
+    private okhttp3.Call syncMembersUserGroupAsync(final ApiCallback<UserGroup> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = syncMembersUserGroupValidateBeforeCall(_callback);
@@ -1281,23 +1400,101 @@ public class UserGroupsApi {
         return localVarCall;
     }
 
+    public class APIsyncMembersUserGroupRequest {
+
+        private APIsyncMembersUserGroupRequest() {}
+
+        /**
+         * Build call for syncMembersUserGroup
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The synchronized members group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return syncMembersUserGroupCall(_callback);
+        }
+
+        /**
+         * Execute syncMembersUserGroup request
+         * @return UserGroup
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The synchronized members group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public UserGroup execute() throws ApiException {
+            ApiResponse<UserGroup> localVarResp = syncMembersUserGroupWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute syncMembersUserGroup request with HTTP info returned
+         * @return ApiResponse&lt;UserGroup&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The synchronized members group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<UserGroup> executeWithHttpInfo() throws ApiException {
+            return syncMembersUserGroupWithHttpInfo();
+        }
+
+        /**
+         * Execute syncMembersUserGroup request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The synchronized members group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UserGroup> _callback)
+                throws ApiException {
+            return syncMembersUserGroupAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateUserGroup
-     * @param groupId  (required)
-     * @param updateUserGroupPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Sync the members group
+     * Synchronizes the built-in members group with current account membership.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
+     * @return APIsyncMembersUserGroupRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The synchronized members group. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateUserGroupCall(
+    public APIsyncMembersUserGroupRequest syncMembersUserGroup() {
+        return new APIsyncMembersUserGroupRequest();
+    }
+
+    private okhttp3.Call updateUserGroupCall(
             @jakarta.annotation.Nonnull String groupId,
             @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload,
             final ApiCallback _callback)
@@ -1379,48 +1576,7 @@ public class UserGroupsApi {
         return updateUserGroupCall(groupId, updateUserGroupPayload, _callback);
     }
 
-    /**
-     * Update a user group
-     * Updates a user group by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param updateUserGroupPayload  (required)
-     * @return UserGroup
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UserGroup updateUserGroup(
-            @jakarta.annotation.Nonnull String groupId,
-            @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload)
-            throws ApiException {
-        ApiResponse<UserGroup> localVarResp =
-                updateUserGroupWithHttpInfo(groupId, updateUserGroupPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a user group
-     * Updates a user group by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param updateUserGroupPayload  (required)
-     * @return ApiResponse&lt;UserGroup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UserGroup> updateUserGroupWithHttpInfo(
+    private ApiResponse<UserGroup> updateUserGroupWithHttpInfo(
             @jakarta.annotation.Nonnull String groupId,
             @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload)
             throws ApiException {
@@ -1430,24 +1586,7 @@ public class UserGroupsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a user group (asynchronously)
-     * Updates a user group by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param updateUserGroupPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateUserGroupAsync(
+    private okhttp3.Call updateUserGroupAsync(
             @jakarta.annotation.Nonnull String groupId,
             @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload,
             final ApiCallback<UserGroup> _callback)
@@ -1458,5 +1597,111 @@ public class UserGroupsApi {
         Type localVarReturnType = new TypeToken<UserGroup>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateUserGroupRequest {
+        @jakarta.annotation.Nonnull private final String groupId;
+        @jakarta.annotation.Nonnull private final UpdateUserGroupPayload updateUserGroupPayload;
+
+        private APIupdateUserGroupRequest(
+                @jakarta.annotation.Nonnull String groupId,
+                @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload) {
+            this.groupId = groupId;
+            this.updateUserGroupPayload = updateUserGroupPayload;
+        }
+
+        /**
+         * Build call for updateUserGroup
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateUserGroupCall(groupId, updateUserGroupPayload, _callback);
+        }
+
+        /**
+         * Execute updateUserGroup request
+         * @return UserGroup
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public UserGroup execute() throws ApiException {
+            ApiResponse<UserGroup> localVarResp =
+                    updateUserGroupWithHttpInfo(groupId, updateUserGroupPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateUserGroup request with HTTP info returned
+         * @return ApiResponse&lt;UserGroup&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<UserGroup> executeWithHttpInfo() throws ApiException {
+            return updateUserGroupWithHttpInfo(groupId, updateUserGroupPayload);
+        }
+
+        /**
+         * Execute updateUserGroup request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UserGroup> _callback)
+                throws ApiException {
+            return updateUserGroupAsync(groupId, updateUserGroupPayload, _callback);
+        }
+    }
+
+    /**
+     * Update a user group
+     * Updates a user group by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
+     * @param groupId  (required)
+     * @param updateUserGroupPayload  (required)
+     * @return APIupdateUserGroupRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated user group. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateUserGroupRequest updateUserGroup(
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload) {
+        return new APIupdateUserGroupRequest(groupId, updateUserGroupPayload);
     }
 }

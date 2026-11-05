@@ -71,22 +71,7 @@ public class EmailApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createEmailRoute
-     * @param createEmailRouteRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created email route. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createEmailRouteCall(
+    private okhttp3.Call createEmailRouteCall(
             @jakarta.annotation.Nonnull CreateEmailRouteRequest createEmailRouteRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -156,45 +141,7 @@ public class EmailApi {
         return createEmailRouteCall(createEmailRouteRequest, _callback);
     }
 
-    /**
-     * Create an email reply route
-     * Create a new email route without sending an email. Useful for external services that want to handle email sending themselves but need reply routing back to Vertesia workflows.  Returns the route key to use in reply-to addresses: r+{route_key}@{email_domain}  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param createEmailRouteRequest  (required)
-     * @return CreateEmailRouteResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created email route. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CreateEmailRouteResponse createEmailRoute(
-            @jakarta.annotation.Nonnull CreateEmailRouteRequest createEmailRouteRequest)
-            throws ApiException {
-        ApiResponse<CreateEmailRouteResponse> localVarResp =
-                createEmailRouteWithHttpInfo(createEmailRouteRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an email reply route
-     * Create a new email route without sending an email. Useful for external services that want to handle email sending themselves but need reply routing back to Vertesia workflows.  Returns the route key to use in reply-to addresses: r+{route_key}@{email_domain}  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param createEmailRouteRequest  (required)
-     * @return ApiResponse&lt;CreateEmailRouteResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created email route. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CreateEmailRouteResponse> createEmailRouteWithHttpInfo(
+    private ApiResponse<CreateEmailRouteResponse> createEmailRouteWithHttpInfo(
             @jakarta.annotation.Nonnull CreateEmailRouteRequest createEmailRouteRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -203,23 +150,7 @@ public class EmailApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an email reply route (asynchronously)
-     * Create a new email route without sending an email. Useful for external services that want to handle email sending themselves but need reply routing back to Vertesia workflows.  Returns the route key to use in reply-to addresses: r+{route_key}@{email_domain}  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param createEmailRouteRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Created email route. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createEmailRouteAsync(
+    private okhttp3.Call createEmailRouteAsync(
             @jakarta.annotation.Nonnull CreateEmailRouteRequest createEmailRouteRequest,
             final ApiCallback<CreateEmailRouteResponse> _callback)
             throws ApiException {
@@ -231,23 +162,108 @@ public class EmailApi {
         return localVarCall;
     }
 
+    public class APIcreateEmailRouteRequest {
+        @jakarta.annotation.Nonnull private final CreateEmailRouteRequest createEmailRouteRequest;
+
+        private APIcreateEmailRouteRequest(
+                @jakarta.annotation.Nonnull CreateEmailRouteRequest createEmailRouteRequest) {
+            this.createEmailRouteRequest = createEmailRouteRequest;
+        }
+
+        /**
+         * Build call for createEmailRoute
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created email route. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createEmailRouteCall(createEmailRouteRequest, _callback);
+        }
+
+        /**
+         * Execute createEmailRoute request
+         * @return CreateEmailRouteResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created email route. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CreateEmailRouteResponse execute() throws ApiException {
+            ApiResponse<CreateEmailRouteResponse> localVarResp =
+                    createEmailRouteWithHttpInfo(createEmailRouteRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createEmailRoute request with HTTP info returned
+         * @return ApiResponse&lt;CreateEmailRouteResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created email route. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CreateEmailRouteResponse> executeWithHttpInfo() throws ApiException {
+            return createEmailRouteWithHttpInfo(createEmailRouteRequest);
+        }
+
+        /**
+         * Execute createEmailRoute request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Created email route. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CreateEmailRouteResponse> _callback)
+                throws ApiException {
+            return createEmailRouteAsync(createEmailRouteRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for forwardEmailToWorkflow
-     * @param key  (required)
-     * @param forwardEmailRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an email reply route
+     * Create a new email route without sending an email. Useful for external services that want to handle email sending themselves but need reply routing back to Vertesia workflows.  Returns the route key to use in reply-to addresses: r+{route_key}@{email_domain}  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param createEmailRouteRequest  (required)
+     * @return APIcreateEmailRouteRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Forwarding result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Created email route. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call forwardEmailToWorkflowCall(
+    public APIcreateEmailRouteRequest createEmailRoute(
+            @jakarta.annotation.Nonnull CreateEmailRouteRequest createEmailRouteRequest) {
+        return new APIcreateEmailRouteRequest(createEmailRouteRequest);
+    }
+
+    private okhttp3.Call forwardEmailToWorkflowCall(
             @jakarta.annotation.Nonnull String key,
             @jakarta.annotation.Nonnull ForwardEmailRequest forwardEmailRequest,
             final ApiCallback _callback)
@@ -327,48 +343,7 @@ public class EmailApi {
         return forwardEmailToWorkflowCall(key, forwardEmailRequest, _callback);
     }
 
-    /**
-     * Forward an email to a workflow
-     * Forward an email to an existing workflow via route key.  Use this when an external service receives an email reply and needs to forward it to the Vertesia workflow. The external service can add custom context data (like auth tokens) that will be passed to the workflow.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param key  (required)
-     * @param forwardEmailRequest  (required)
-     * @return ForwardEmailResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Forwarding result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ForwardEmailResponse forwardEmailToWorkflow(
-            @jakarta.annotation.Nonnull String key,
-            @jakarta.annotation.Nonnull ForwardEmailRequest forwardEmailRequest)
-            throws ApiException {
-        ApiResponse<ForwardEmailResponse> localVarResp =
-                forwardEmailToWorkflowWithHttpInfo(key, forwardEmailRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Forward an email to a workflow
-     * Forward an email to an existing workflow via route key.  Use this when an external service receives an email reply and needs to forward it to the Vertesia workflow. The external service can add custom context data (like auth tokens) that will be passed to the workflow.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param key  (required)
-     * @param forwardEmailRequest  (required)
-     * @return ApiResponse&lt;ForwardEmailResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Forwarding result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ForwardEmailResponse> forwardEmailToWorkflowWithHttpInfo(
+    private ApiResponse<ForwardEmailResponse> forwardEmailToWorkflowWithHttpInfo(
             @jakarta.annotation.Nonnull String key,
             @jakarta.annotation.Nonnull ForwardEmailRequest forwardEmailRequest)
             throws ApiException {
@@ -378,24 +353,7 @@ public class EmailApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Forward an email to a workflow (asynchronously)
-     * Forward an email to an existing workflow via route key.  Use this when an external service receives an email reply and needs to forward it to the Vertesia workflow. The external service can add custom context data (like auth tokens) that will be passed to the workflow.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param key  (required)
-     * @param forwardEmailRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Forwarding result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call forwardEmailToWorkflowAsync(
+    private okhttp3.Call forwardEmailToWorkflowAsync(
             @jakarta.annotation.Nonnull String key,
             @jakarta.annotation.Nonnull ForwardEmailRequest forwardEmailRequest,
             final ApiCallback<ForwardEmailResponse> _callback)
@@ -408,22 +366,113 @@ public class EmailApi {
         return localVarCall;
     }
 
+    public class APIforwardEmailToWorkflowRequest {
+        @jakarta.annotation.Nonnull private final String key;
+        @jakarta.annotation.Nonnull private final ForwardEmailRequest forwardEmailRequest;
+
+        private APIforwardEmailToWorkflowRequest(
+                @jakarta.annotation.Nonnull String key,
+                @jakarta.annotation.Nonnull ForwardEmailRequest forwardEmailRequest) {
+            this.key = key;
+            this.forwardEmailRequest = forwardEmailRequest;
+        }
+
+        /**
+         * Build call for forwardEmailToWorkflow
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Forwarding result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return forwardEmailToWorkflowCall(key, forwardEmailRequest, _callback);
+        }
+
+        /**
+         * Execute forwardEmailToWorkflow request
+         * @return ForwardEmailResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Forwarding result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ForwardEmailResponse execute() throws ApiException {
+            ApiResponse<ForwardEmailResponse> localVarResp =
+                    forwardEmailToWorkflowWithHttpInfo(key, forwardEmailRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute forwardEmailToWorkflow request with HTTP info returned
+         * @return ApiResponse&lt;ForwardEmailResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Forwarding result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ForwardEmailResponse> executeWithHttpInfo() throws ApiException {
+            return forwardEmailToWorkflowWithHttpInfo(key, forwardEmailRequest);
+        }
+
+        /**
+         * Execute forwardEmailToWorkflow request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Forwarding result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ForwardEmailResponse> _callback)
+                throws ApiException {
+            return forwardEmailToWorkflowAsync(key, forwardEmailRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for getEmailRoute
+     * Forward an email to a workflow
+     * Forward an email to an existing workflow via route key.  Use this when an external service receives an email reply and needs to forward it to the Vertesia workflow. The external service can add custom context data (like auth tokens) that will be passed to the workflow.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param key  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param forwardEmailRequest  (required)
+     * @return APIforwardEmailToWorkflowRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email route data. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Forwarding result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getEmailRouteCall(
+    public APIforwardEmailToWorkflowRequest forwardEmailToWorkflow(
+            @jakarta.annotation.Nonnull String key,
+            @jakarta.annotation.Nonnull ForwardEmailRequest forwardEmailRequest) {
+        return new APIforwardEmailToWorkflowRequest(key, forwardEmailRequest);
+    }
+
+    private okhttp3.Call getEmailRouteCall(
             @jakarta.annotation.Nonnull String key, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -493,66 +542,14 @@ public class EmailApi {
         return getEmailRouteCall(key, _callback);
     }
 
-    /**
-     * Retrieve an email route
-     * Get an email route by key.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param key  (required)
-     * @return EmailRouteResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email route data. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EmailRouteResponse getEmailRoute(@jakarta.annotation.Nonnull String key)
-            throws ApiException {
-        ApiResponse<EmailRouteResponse> localVarResp = getEmailRouteWithHttpInfo(key);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an email route
-     * Get an email route by key.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param key  (required)
-     * @return ApiResponse&lt;EmailRouteResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email route data. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EmailRouteResponse> getEmailRouteWithHttpInfo(
+    private ApiResponse<EmailRouteResponse> getEmailRouteWithHttpInfo(
             @jakarta.annotation.Nonnull String key) throws ApiException {
         okhttp3.Call localVarCall = getEmailRouteValidateBeforeCall(key, null);
         Type localVarReturnType = new TypeToken<EmailRouteResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an email route (asynchronously)
-     * Get an email route by key.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param key  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email route data. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getEmailRouteAsync(
+    private okhttp3.Call getEmailRouteAsync(
             @jakarta.annotation.Nonnull String key, final ApiCallback<EmailRouteResponse> _callback)
             throws ApiException {
 
@@ -562,22 +559,105 @@ public class EmailApi {
         return localVarCall;
     }
 
+    public class APIgetEmailRouteRequest {
+        @jakarta.annotation.Nonnull private final String key;
+
+        private APIgetEmailRouteRequest(@jakarta.annotation.Nonnull String key) {
+            this.key = key;
+        }
+
+        /**
+         * Build call for getEmailRoute
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email route data. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getEmailRouteCall(key, _callback);
+        }
+
+        /**
+         * Execute getEmailRoute request
+         * @return EmailRouteResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email route data. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public EmailRouteResponse execute() throws ApiException {
+            ApiResponse<EmailRouteResponse> localVarResp = getEmailRouteWithHttpInfo(key);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getEmailRoute request with HTTP info returned
+         * @return ApiResponse&lt;EmailRouteResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email route data. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<EmailRouteResponse> executeWithHttpInfo() throws ApiException {
+            return getEmailRouteWithHttpInfo(key);
+        }
+
+        /**
+         * Execute getEmailRoute request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email route data. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<EmailRouteResponse> _callback)
+                throws ApiException {
+            return getEmailRouteAsync(key, _callback);
+        }
+    }
+
     /**
-     * Build call for sendAgentEmail
-     * @param sendEmailRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve an email route
+     * Get an email route by key.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param key  (required)
+     * @return APIgetEmailRouteRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email delivery result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Email route data. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call sendAgentEmailCall(
+    public APIgetEmailRouteRequest getEmailRoute(@jakarta.annotation.Nonnull String key) {
+        return new APIgetEmailRouteRequest(key);
+    }
+
+    private okhttp3.Call sendAgentEmailCall(
             @jakarta.annotation.Nonnull SendEmailRequest sendEmailRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -647,66 +727,14 @@ public class EmailApi {
         return sendAgentEmailCall(sendEmailRequest, _callback);
     }
 
-    /**
-     * Send an email from an agent workflow
-     * Send an email from an agent/workflow. Creates a route key if not provided, sends via Resend, and returns routing info. Resend configuration is fetched from the project&#39;s integration settings.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param sendEmailRequest  (required)
-     * @return SendEmailResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email delivery result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SendEmailResponse sendAgentEmail(
-            @jakarta.annotation.Nonnull SendEmailRequest sendEmailRequest) throws ApiException {
-        ApiResponse<SendEmailResponse> localVarResp = sendAgentEmailWithHttpInfo(sendEmailRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Send an email from an agent workflow
-     * Send an email from an agent/workflow. Creates a route key if not provided, sends via Resend, and returns routing info. Resend configuration is fetched from the project&#39;s integration settings.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param sendEmailRequest  (required)
-     * @return ApiResponse&lt;SendEmailResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email delivery result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SendEmailResponse> sendAgentEmailWithHttpInfo(
+    private ApiResponse<SendEmailResponse> sendAgentEmailWithHttpInfo(
             @jakarta.annotation.Nonnull SendEmailRequest sendEmailRequest) throws ApiException {
         okhttp3.Call localVarCall = sendAgentEmailValidateBeforeCall(sendEmailRequest, null);
         Type localVarReturnType = new TypeToken<SendEmailResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Send an email from an agent workflow (asynchronously)
-     * Send an email from an agent/workflow. Creates a route key if not provided, sends via Resend, and returns routing info. Resend configuration is fetched from the project&#39;s integration settings.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param sendEmailRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email delivery result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call sendAgentEmailAsync(
+    private okhttp3.Call sendAgentEmailAsync(
             @jakarta.annotation.Nonnull SendEmailRequest sendEmailRequest,
             final ApiCallback<SendEmailResponse> _callback)
             throws ApiException {
@@ -717,23 +745,108 @@ public class EmailApi {
         return localVarCall;
     }
 
+    public class APIsendAgentEmailRequest {
+        @jakarta.annotation.Nonnull private final SendEmailRequest sendEmailRequest;
+
+        private APIsendAgentEmailRequest(
+                @jakarta.annotation.Nonnull SendEmailRequest sendEmailRequest) {
+            this.sendEmailRequest = sendEmailRequest;
+        }
+
+        /**
+         * Build call for sendAgentEmail
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email delivery result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return sendAgentEmailCall(sendEmailRequest, _callback);
+        }
+
+        /**
+         * Execute sendAgentEmail request
+         * @return SendEmailResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email delivery result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SendEmailResponse execute() throws ApiException {
+            ApiResponse<SendEmailResponse> localVarResp =
+                    sendAgentEmailWithHttpInfo(sendEmailRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute sendAgentEmail request with HTTP info returned
+         * @return ApiResponse&lt;SendEmailResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email delivery result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SendEmailResponse> executeWithHttpInfo() throws ApiException {
+            return sendAgentEmailWithHttpInfo(sendEmailRequest);
+        }
+
+        /**
+         * Execute sendAgentEmail request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email delivery result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SendEmailResponse> _callback)
+                throws ApiException {
+            return sendAgentEmailAsync(sendEmailRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for updateEmailRoute
-     * @param key  (required)
-     * @param updateEmailRouteRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Send an email from an agent workflow
+     * Send an email from an agent/workflow. Creates a route key if not provided, sends via Resend, and returns routing info. Resend configuration is fetched from the project&#39;s integration settings.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param sendEmailRequest  (required)
+     * @return APIsendAgentEmailRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email route update result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Email delivery result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateEmailRouteCall(
+    public APIsendAgentEmailRequest sendAgentEmail(
+            @jakarta.annotation.Nonnull SendEmailRequest sendEmailRequest) {
+        return new APIsendAgentEmailRequest(sendEmailRequest);
+    }
+
+    private okhttp3.Call updateEmailRouteCall(
             @jakarta.annotation.Nonnull String key,
             @jakarta.annotation.Nonnull UpdateEmailRouteRequest updateEmailRouteRequest,
             final ApiCallback _callback)
@@ -813,48 +926,7 @@ public class EmailApi {
         return updateEmailRouteCall(key, updateEmailRouteRequest, _callback);
     }
 
-    /**
-     * Update email route threading data
-     * Update an email route (e.g., to update threading info).  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param key  (required)
-     * @param updateEmailRouteRequest  (required)
-     * @return UpdateEmailRouteResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email route update result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UpdateEmailRouteResponse updateEmailRoute(
-            @jakarta.annotation.Nonnull String key,
-            @jakarta.annotation.Nonnull UpdateEmailRouteRequest updateEmailRouteRequest)
-            throws ApiException {
-        ApiResponse<UpdateEmailRouteResponse> localVarResp =
-                updateEmailRouteWithHttpInfo(key, updateEmailRouteRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update email route threading data
-     * Update an email route (e.g., to update threading info).  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param key  (required)
-     * @param updateEmailRouteRequest  (required)
-     * @return ApiResponse&lt;UpdateEmailRouteResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email route update result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UpdateEmailRouteResponse> updateEmailRouteWithHttpInfo(
+    private ApiResponse<UpdateEmailRouteResponse> updateEmailRouteWithHttpInfo(
             @jakarta.annotation.Nonnull String key,
             @jakarta.annotation.Nonnull UpdateEmailRouteRequest updateEmailRouteRequest)
             throws ApiException {
@@ -864,24 +936,7 @@ public class EmailApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update email route threading data (asynchronously)
-     * Update an email route (e.g., to update threading info).  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param key  (required)
-     * @param updateEmailRouteRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Email route update result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateEmailRouteAsync(
+    private okhttp3.Call updateEmailRouteAsync(
             @jakarta.annotation.Nonnull String key,
             @jakarta.annotation.Nonnull UpdateEmailRouteRequest updateEmailRouteRequest,
             final ApiCallback<UpdateEmailRouteResponse> _callback)
@@ -892,5 +947,111 @@ public class EmailApi {
         Type localVarReturnType = new TypeToken<UpdateEmailRouteResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateEmailRouteRequest {
+        @jakarta.annotation.Nonnull private final String key;
+        @jakarta.annotation.Nonnull private final UpdateEmailRouteRequest updateEmailRouteRequest;
+
+        private APIupdateEmailRouteRequest(
+                @jakarta.annotation.Nonnull String key,
+                @jakarta.annotation.Nonnull UpdateEmailRouteRequest updateEmailRouteRequest) {
+            this.key = key;
+            this.updateEmailRouteRequest = updateEmailRouteRequest;
+        }
+
+        /**
+         * Build call for updateEmailRoute
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email route update result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateEmailRouteCall(key, updateEmailRouteRequest, _callback);
+        }
+
+        /**
+         * Execute updateEmailRoute request
+         * @return UpdateEmailRouteResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email route update result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public UpdateEmailRouteResponse execute() throws ApiException {
+            ApiResponse<UpdateEmailRouteResponse> localVarResp =
+                    updateEmailRouteWithHttpInfo(key, updateEmailRouteRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateEmailRoute request with HTTP info returned
+         * @return ApiResponse&lt;UpdateEmailRouteResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email route update result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<UpdateEmailRouteResponse> executeWithHttpInfo() throws ApiException {
+            return updateEmailRouteWithHttpInfo(key, updateEmailRouteRequest);
+        }
+
+        /**
+         * Execute updateEmailRoute request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Email route update result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UpdateEmailRouteResponse> _callback)
+                throws ApiException {
+            return updateEmailRouteAsync(key, updateEmailRouteRequest, _callback);
+        }
+    }
+
+    /**
+     * Update email route threading data
+     * Update an email route (e.g., to update threading info).  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param key  (required)
+     * @param updateEmailRouteRequest  (required)
+     * @return APIupdateEmailRouteRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Email route update result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateEmailRouteRequest updateEmailRoute(
+            @jakarta.annotation.Nonnull String key,
+            @jakarta.annotation.Nonnull UpdateEmailRouteRequest updateEmailRouteRequest) {
+        return new APIupdateEmailRouteRequest(key, updateEmailRouteRequest);
     }
 }

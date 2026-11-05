@@ -89,24 +89,7 @@ public class AgentRunsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for advanceProcessRun
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param advanceProcessPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call advanceProcessRunCall(
+    private okhttp3.Call advanceProcessRunCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AdvanceProcessPayload advanceProcessPayload,
             final ApiCallback _callback)
@@ -188,50 +171,7 @@ public class AgentRunsApi {
         return advanceProcessRunCall(agentRunId, advanceProcessPayload, _callback);
     }
 
-    /**
-     * Advance a process run
-     * Signals a process workflow to advance to an explicit target or continue from its current node. The engine still validates the requested target against the current node&#39;s declared user-triggered transitions and guards.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param advanceProcessPayload  (required)
-     * @return SignalAgentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SignalAgentResponse advanceProcessRun(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull AdvanceProcessPayload advanceProcessPayload)
-            throws ApiException {
-        ApiResponse<SignalAgentResponse> localVarResp =
-                advanceProcessRunWithHttpInfo(agentRunId, advanceProcessPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Advance a process run
-     * Signals a process workflow to advance to an explicit target or continue from its current node. The engine still validates the requested target against the current node&#39;s declared user-triggered transitions and guards.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param advanceProcessPayload  (required)
-     * @return ApiResponse&lt;SignalAgentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SignalAgentResponse> advanceProcessRunWithHttpInfo(
+    private ApiResponse<SignalAgentResponse> advanceProcessRunWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AdvanceProcessPayload advanceProcessPayload)
             throws ApiException {
@@ -241,25 +181,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Advance a process run (asynchronously)
-     * Signals a process workflow to advance to an explicit target or continue from its current node. The engine still validates the requested target against the current node&#39;s declared user-triggered transitions and guards.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param advanceProcessPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call advanceProcessRunAsync(
+    private okhttp3.Call advanceProcessRunAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AdvanceProcessPayload advanceProcessPayload,
             final ApiCallback<SignalAgentResponse> _callback)
@@ -272,23 +194,118 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIadvanceProcessRunRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final AdvanceProcessPayload advanceProcessPayload;
+
+        private APIadvanceProcessRunRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull AdvanceProcessPayload advanceProcessPayload) {
+            this.agentRunId = agentRunId;
+            this.advanceProcessPayload = advanceProcessPayload;
+        }
+
+        /**
+         * Build call for advanceProcessRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return advanceProcessRunCall(agentRunId, advanceProcessPayload, _callback);
+        }
+
+        /**
+         * Execute advanceProcessRun request
+         * @return SignalAgentResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SignalAgentResponse execute() throws ApiException {
+            ApiResponse<SignalAgentResponse> localVarResp =
+                    advanceProcessRunWithHttpInfo(agentRunId, advanceProcessPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute advanceProcessRun request with HTTP info returned
+         * @return ApiResponse&lt;SignalAgentResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SignalAgentResponse> executeWithHttpInfo() throws ApiException {
+            return advanceProcessRunWithHttpInfo(agentRunId, advanceProcessPayload);
+        }
+
+        /**
+         * Execute advanceProcessRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SignalAgentResponse> _callback)
+                throws ApiException {
+            return advanceProcessRunAsync(agentRunId, advanceProcessPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for allocateAgentRunBudget
+     * Advance a process run
+     * Signals a process workflow to advance to an explicit target or continue from its current node. The engine still validates the requested target against the current node&#39;s declared user-triggered transitions and guards.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param allocateAgentRunBudgetPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param advanceProcessPayload  (required)
+     * @return APIadvanceProcessRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call allocateAgentRunBudgetCall(
+    public APIadvanceProcessRunRequest advanceProcessRun(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AdvanceProcessPayload advanceProcessPayload) {
+        return new APIadvanceProcessRunRequest(agentRunId, advanceProcessPayload);
+    }
+
+    private okhttp3.Call allocateAgentRunBudgetCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload,
             final ApiCallback _callback)
@@ -370,48 +387,7 @@ public class AgentRunsApi {
         return allocateAgentRunBudgetCall(agentRunId, allocateAgentRunBudgetPayload, _callback);
     }
 
-    /**
-     * Add token budget to a paused run
-     * Adds token budget to a run paused because its budget ran out; the run resumes from where it stopped. Interactive agent runs pause when their budget runs out, and so do process runs managed by one; other runs end instead. The amount is added to the limit the run was granted, so usage past that limit is paid out of it. Sent to a run that is not paused yet, it is applied when the budget runs out.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param allocateAgentRunBudgetPayload  (required)
-     * @return SignalAgentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SignalAgentResponse allocateAgentRunBudget(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload)
-            throws ApiException {
-        ApiResponse<SignalAgentResponse> localVarResp =
-                allocateAgentRunBudgetWithHttpInfo(agentRunId, allocateAgentRunBudgetPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Add token budget to a paused run
-     * Adds token budget to a run paused because its budget ran out; the run resumes from where it stopped. Interactive agent runs pause when their budget runs out, and so do process runs managed by one; other runs end instead. The amount is added to the limit the run was granted, so usage past that limit is paid out of it. Sent to a run that is not paused yet, it is applied when the budget runs out.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param allocateAgentRunBudgetPayload  (required)
-     * @return ApiResponse&lt;SignalAgentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SignalAgentResponse> allocateAgentRunBudgetWithHttpInfo(
+    private ApiResponse<SignalAgentResponse> allocateAgentRunBudgetWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload)
             throws ApiException {
@@ -422,24 +398,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Add token budget to a paused run (asynchronously)
-     * Adds token budget to a run paused because its budget ran out; the run resumes from where it stopped. Interactive agent runs pause when their budget runs out, and so do process runs managed by one; other runs end instead. The amount is added to the limit the run was granted, so usage past that limit is paid out of it. Sent to a run that is not paused yet, it is applied when the budget runs out.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param allocateAgentRunBudgetPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call allocateAgentRunBudgetAsync(
+    private okhttp3.Call allocateAgentRunBudgetAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload,
             final ApiCallback<SignalAgentResponse> _callback)
@@ -453,24 +412,118 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIallocateAgentRunBudgetRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+
+        @jakarta.annotation.Nonnull
+        private final AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload;
+
+        private APIallocateAgentRunBudgetRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull
+                        AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload) {
+            this.agentRunId = agentRunId;
+            this.allocateAgentRunBudgetPayload = allocateAgentRunBudgetPayload;
+        }
+
+        /**
+         * Build call for allocateAgentRunBudget
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return allocateAgentRunBudgetCall(agentRunId, allocateAgentRunBudgetPayload, _callback);
+        }
+
+        /**
+         * Execute allocateAgentRunBudget request
+         * @return SignalAgentResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SignalAgentResponse execute() throws ApiException {
+            ApiResponse<SignalAgentResponse> localVarResp =
+                    allocateAgentRunBudgetWithHttpInfo(agentRunId, allocateAgentRunBudgetPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute allocateAgentRunBudget request with HTTP info returned
+         * @return ApiResponse&lt;SignalAgentResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SignalAgentResponse> executeWithHttpInfo() throws ApiException {
+            return allocateAgentRunBudgetWithHttpInfo(agentRunId, allocateAgentRunBudgetPayload);
+        }
+
+        /**
+         * Execute allocateAgentRunBudget request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SignalAgentResponse> _callback)
+                throws ApiException {
+            return allocateAgentRunBudgetAsync(
+                    agentRunId, allocateAgentRunBudgetPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for answerProcessTask
+     * Add token budget to a paused run
+     * Adds token budget to a run paused because its budget ran out; the run resumes from where it stopped. Interactive agent runs pause when their budget runs out, and so do process runs managed by one; other runs end instead. The amount is added to the limit the run was granted, so usage past that limit is paid out of it. Sent to a run that is not paused yet, it is applied when the budget runs out.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param answerProcessTaskPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param allocateAgentRunBudgetPayload  (required)
+     * @return APIallocateAgentRunBudgetRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call answerProcessTaskCall(
+    public APIallocateAgentRunBudgetRequest allocateAgentRunBudget(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull
+                    AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload) {
+        return new APIallocateAgentRunBudgetRequest(agentRunId, allocateAgentRunBudgetPayload);
+    }
+
+    private okhttp3.Call answerProcessTaskCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AnswerProcessTaskPayload answerProcessTaskPayload,
             final ApiCallback _callback)
@@ -552,50 +605,7 @@ public class AgentRunsApi {
         return answerProcessTaskCall(agentRunId, answerProcessTaskPayload, _callback);
     }
 
-    /**
-     * Answer a process task
-     * Validates and signals a human task answer to the backing process workflow, resuming a run paused on a &#x60;human_task&#x60; node. The caller must be the task assignee or have &#x60;task:manage&#x60;.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param answerProcessTaskPayload  (required)
-     * @return SignalAgentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SignalAgentResponse answerProcessTask(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull AnswerProcessTaskPayload answerProcessTaskPayload)
-            throws ApiException {
-        ApiResponse<SignalAgentResponse> localVarResp =
-                answerProcessTaskWithHttpInfo(agentRunId, answerProcessTaskPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Answer a process task
-     * Validates and signals a human task answer to the backing process workflow, resuming a run paused on a &#x60;human_task&#x60; node. The caller must be the task assignee or have &#x60;task:manage&#x60;.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param answerProcessTaskPayload  (required)
-     * @return ApiResponse&lt;SignalAgentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SignalAgentResponse> answerProcessTaskWithHttpInfo(
+    private ApiResponse<SignalAgentResponse> answerProcessTaskWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AnswerProcessTaskPayload answerProcessTaskPayload)
             throws ApiException {
@@ -605,25 +615,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Answer a process task (asynchronously)
-     * Validates and signals a human task answer to the backing process workflow, resuming a run paused on a &#x60;human_task&#x60; node. The caller must be the task assignee or have &#x60;task:manage&#x60;.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param answerProcessTaskPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call answerProcessTaskAsync(
+    private okhttp3.Call answerProcessTaskAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AnswerProcessTaskPayload answerProcessTaskPayload,
             final ApiCallback<SignalAgentResponse> _callback)
@@ -637,22 +629,118 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIanswerProcessTaskRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final AnswerProcessTaskPayload answerProcessTaskPayload;
+
+        private APIanswerProcessTaskRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull AnswerProcessTaskPayload answerProcessTaskPayload) {
+            this.agentRunId = agentRunId;
+            this.answerProcessTaskPayload = answerProcessTaskPayload;
+        }
+
+        /**
+         * Build call for answerProcessTask
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return answerProcessTaskCall(agentRunId, answerProcessTaskPayload, _callback);
+        }
+
+        /**
+         * Execute answerProcessTask request
+         * @return SignalAgentResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SignalAgentResponse execute() throws ApiException {
+            ApiResponse<SignalAgentResponse> localVarResp =
+                    answerProcessTaskWithHttpInfo(agentRunId, answerProcessTaskPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute answerProcessTask request with HTTP info returned
+         * @return ApiResponse&lt;SignalAgentResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SignalAgentResponse> executeWithHttpInfo() throws ApiException {
+            return answerProcessTaskWithHttpInfo(agentRunId, answerProcessTaskPayload);
+        }
+
+        /**
+         * Execute answerProcessTask request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SignalAgentResponse> _callback)
+                throws ApiException {
+            return answerProcessTaskAsync(agentRunId, answerProcessTaskPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createAgentRun
-     * @param createRunPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Answer a process task
+     * Validates and signals a human task answer to the backing process workflow, resuming a run paused on a &#x60;human_task&#x60; node. The caller must be the task assignee or have &#x60;task:manage&#x60;.
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param answerProcessTaskPayload  (required)
+     * @return APIanswerProcessTaskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createAgentRunCall(
+    public APIanswerProcessTaskRequest answerProcessTask(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AnswerProcessTaskPayload answerProcessTaskPayload) {
+        return new APIanswerProcessTaskRequest(agentRunId, answerProcessTaskPayload);
+    }
+
+    private okhttp3.Call createAgentRunCall(
             @jakarta.annotation.Nonnull CreateRunPayload createRunPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -722,66 +810,14 @@ public class AgentRunsApi {
         return createAgentRunCall(createRunPayload, _callback);
     }
 
-    /**
-     * Create an agent run
-     * Creates a stable agent run record and starts the backing workflow. When the request body matches the process-run payload shape, the same endpoint creates a process run that shares the durable agent-run identity, streaming, artifacts, and observability APIs.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param createRunPayload  (required)
-     * @return AgentRunResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AgentRunResponse createAgentRun(
-            @jakarta.annotation.Nonnull CreateRunPayload createRunPayload) throws ApiException {
-        ApiResponse<AgentRunResponse> localVarResp = createAgentRunWithHttpInfo(createRunPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an agent run
-     * Creates a stable agent run record and starts the backing workflow. When the request body matches the process-run payload shape, the same endpoint creates a process run that shares the durable agent-run identity, streaming, artifacts, and observability APIs.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param createRunPayload  (required)
-     * @return ApiResponse&lt;AgentRunResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AgentRunResponse> createAgentRunWithHttpInfo(
+    private ApiResponse<AgentRunResponse> createAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull CreateRunPayload createRunPayload) throws ApiException {
         okhttp3.Call localVarCall = createAgentRunValidateBeforeCall(createRunPayload, null);
         Type localVarReturnType = new TypeToken<AgentRunResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an agent run (asynchronously)
-     * Creates a stable agent run record and starts the backing workflow. When the request body matches the process-run payload shape, the same endpoint creates a process run that shares the durable agent-run identity, streaming, artifacts, and observability APIs.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param createRunPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAgentRunAsync(
+    private okhttp3.Call createAgentRunAsync(
             @jakarta.annotation.Nonnull CreateRunPayload createRunPayload,
             final ApiCallback<AgentRunResponse> _callback)
             throws ApiException {
@@ -792,24 +828,108 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIcreateAgentRunRequest {
+        @jakarta.annotation.Nonnull private final CreateRunPayload createRunPayload;
+
+        private APIcreateAgentRunRequest(
+                @jakarta.annotation.Nonnull CreateRunPayload createRunPayload) {
+            this.createRunPayload = createRunPayload;
+        }
+
+        /**
+         * Build call for createAgentRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createAgentRunCall(createRunPayload, _callback);
+        }
+
+        /**
+         * Execute createAgentRun request
+         * @return AgentRunResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AgentRunResponse execute() throws ApiException {
+            ApiResponse<AgentRunResponse> localVarResp =
+                    createAgentRunWithHttpInfo(createRunPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createAgentRun request with HTTP info returned
+         * @return ApiResponse&lt;AgentRunResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AgentRunResponse> executeWithHttpInfo() throws ApiException {
+            return createAgentRunWithHttpInfo(createRunPayload);
+        }
+
+        /**
+         * Execute createAgentRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AgentRunResponse> _callback)
+                throws ApiException {
+            return createAgentRunAsync(createRunPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for createAgentRunArtifactUploadUrl
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param contentType  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create an agent run
+     * Creates a stable agent run record and starts the backing workflow. When the request body matches the process-run payload shape, the same endpoint creates a process run that shares the durable agent-run identity, streaming, artifacts, and observability APIs.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param createRunPayload  (required)
+     * @return APIcreateAgentRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed artifact upload URL metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createAgentRunArtifactUploadUrlCall(
+    public APIcreateAgentRunRequest createAgentRun(
+            @jakarta.annotation.Nonnull CreateRunPayload createRunPayload) {
+        return new APIcreateAgentRunRequest(createRunPayload);
+    }
+
+    private okhttp3.Call createAgentRunArtifactUploadUrlCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable String contentType,
@@ -901,51 +1021,7 @@ public class AgentRunsApi {
         return createAgentRunArtifactUploadUrlCall(agentRunId, path, contentType, _callback);
     }
 
-    /**
-     * Create an artifact upload URL
-     * Creates a signed upload URL for writing an artifact into the agent run artifact namespace.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param contentType  (optional)
-     * @return AgentArtifactUrlResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed artifact upload URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AgentArtifactUrlResponse createAgentRunArtifactUploadUrl(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String path,
-            @jakarta.annotation.Nullable String contentType)
-            throws ApiException {
-        ApiResponse<AgentArtifactUrlResponse> localVarResp =
-                createAgentRunArtifactUploadUrlWithHttpInfo(agentRunId, path, contentType);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create an artifact upload URL
-     * Creates a signed upload URL for writing an artifact into the agent run artifact namespace.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param contentType  (optional)
-     * @return ApiResponse&lt;AgentArtifactUrlResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed artifact upload URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AgentArtifactUrlResponse> createAgentRunArtifactUploadUrlWithHttpInfo(
+    private ApiResponse<AgentArtifactUrlResponse> createAgentRunArtifactUploadUrlWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable String contentType)
@@ -957,25 +1033,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create an artifact upload URL (asynchronously)
-     * Creates a signed upload URL for writing an artifact into the agent run artifact namespace.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param contentType  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed artifact upload URL metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAgentRunArtifactUploadUrlAsync(
+    private okhttp3.Call createAgentRunArtifactUploadUrlAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable String contentType,
@@ -990,83 +1048,125 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for createAgentRunArtifactUploadUrl with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call createAgentRunArtifactUploadUrlCall(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String path,
-            final ApiCallback _callback)
-            throws ApiException {
-        return createAgentRunArtifactUploadUrlCall(agentRunId, path, null, _callback);
+    public class APIcreateAgentRunArtifactUploadUrlRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final String path;
+        @jakarta.annotation.Nullable private String contentType;
+
+        private APIcreateAgentRunArtifactUploadUrlRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull String path) {
+            this.agentRunId = agentRunId;
+            this.path = path;
+        }
+
+        /**
+         * Set contentType
+         * @param contentType  (optional)
+         * @return APIcreateAgentRunArtifactUploadUrlRequest
+         */
+        public APIcreateAgentRunArtifactUploadUrlRequest contentType(
+                @jakarta.annotation.Nullable String contentType) {
+            this.contentType = contentType;
+            return this;
+        }
+
+        /**
+         * Build call for createAgentRunArtifactUploadUrl
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed artifact upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createAgentRunArtifactUploadUrlCall(agentRunId, path, contentType, _callback);
+        }
+
+        /**
+         * Execute createAgentRunArtifactUploadUrl request
+         * @return AgentArtifactUrlResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed artifact upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AgentArtifactUrlResponse execute() throws ApiException {
+            ApiResponse<AgentArtifactUrlResponse> localVarResp =
+                    createAgentRunArtifactUploadUrlWithHttpInfo(agentRunId, path, contentType);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createAgentRunArtifactUploadUrl request with HTTP info returned
+         * @return ApiResponse&lt;AgentArtifactUrlResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed artifact upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AgentArtifactUrlResponse> executeWithHttpInfo() throws ApiException {
+            return createAgentRunArtifactUploadUrlWithHttpInfo(agentRunId, path, contentType);
+        }
+
+        /**
+         * Execute createAgentRunArtifactUploadUrl request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed artifact upload URL metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AgentArtifactUrlResponse> _callback)
+                throws ApiException {
+            return createAgentRunArtifactUploadUrlAsync(agentRunId, path, contentType, _callback);
+        }
     }
 
     /**
      * Create an artifact upload URL
-     * Calls {@code createAgentRunArtifactUploadUrl} with every optional parameter left unset.
+     * Creates a signed upload URL for writing an artifact into the agent run artifact namespace.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
-     * @return AgentArtifactUrlResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AgentArtifactUrlResponse createAgentRunArtifactUploadUrl(
-            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
-            throws ApiException {
-        return createAgentRunArtifactUploadUrl(agentRunId, path, null);
-    }
-
-    /**
-     * Create an artifact upload URL
-     * Calls {@code createAgentRunArtifactUploadUrlWithHttpInfo} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AgentArtifactUrlResponse> createAgentRunArtifactUploadUrlWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
-            throws ApiException {
-        return createAgentRunArtifactUploadUrlWithHttpInfo(agentRunId, path, null);
-    }
-
-    /**
-     * Create an artifact upload URL (asynchronously)
-     * Calls {@code createAgentRunArtifactUploadUrlAsync} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call createAgentRunArtifactUploadUrlAsync(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String path,
-            final ApiCallback<AgentArtifactUrlResponse> _callback)
-            throws ApiException {
-        return createAgentRunArtifactUploadUrlAsync(agentRunId, path, null, _callback);
-    }
-
-    /**
-     * Build call for forkAgentRun
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIcreateAgentRunArtifactUploadUrlRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed artifact upload URL metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call forkAgentRunCall(
+    public APIcreateAgentRunArtifactUploadUrlRequest createAgentRunArtifactUploadUrl(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path) {
+        return new APIcreateAgentRunArtifactUploadUrlRequest(agentRunId, path);
+    }
+
+    private okhttp3.Call forkAgentRunCall(
             @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1138,66 +1238,14 @@ public class AgentRunsApi {
         return forkAgentRunCall(agentRunId, _callback);
     }
 
-    /**
-     * Fork an agent run
-     * Creates a new agent run from an existing run&#39;s interaction, input, configuration, artifacts, and conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return AgentRun
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked agent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AgentRun forkAgentRun(@jakarta.annotation.Nonnull String agentRunId)
-            throws ApiException {
-        ApiResponse<AgentRun> localVarResp = forkAgentRunWithHttpInfo(agentRunId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Fork an agent run
-     * Creates a new agent run from an existing run&#39;s interaction, input, configuration, artifacts, and conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;AgentRun&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked agent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AgentRun> forkAgentRunWithHttpInfo(
+    private ApiResponse<AgentRun> forkAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
         okhttp3.Call localVarCall = forkAgentRunValidateBeforeCall(agentRunId, null);
         Type localVarReturnType = new TypeToken<AgentRun>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Fork an agent run (asynchronously)
-     * Creates a new agent run from an existing run&#39;s interaction, input, configuration, artifacts, and conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The forked agent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call forkAgentRunAsync(
+    private okhttp3.Call forkAgentRunAsync(
             @jakarta.annotation.Nonnull String agentRunId, final ApiCallback<AgentRun> _callback)
             throws ApiException {
 
@@ -1207,22 +1255,105 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIforkAgentRunRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+
+        private APIforkAgentRunRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Build call for forkAgentRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return forkAgentRunCall(agentRunId, _callback);
+        }
+
+        /**
+         * Execute forkAgentRun request
+         * @return AgentRun
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AgentRun execute() throws ApiException {
+            ApiResponse<AgentRun> localVarResp = forkAgentRunWithHttpInfo(agentRunId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute forkAgentRun request with HTTP info returned
+         * @return ApiResponse&lt;AgentRun&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AgentRun> executeWithHttpInfo() throws ApiException {
+            return forkAgentRunWithHttpInfo(agentRunId);
+        }
+
+        /**
+         * Execute forkAgentRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The forked agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AgentRun> _callback)
+                throws ApiException {
+            return forkAgentRunAsync(agentRunId, _callback);
+        }
+    }
+
     /**
-     * Build call for getAgentRun
+     * Fork an agent run
+     * Creates a new agent run from an existing run&#39;s interaction, input, configuration, artifacts, and conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIforkAgentRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The forked agent run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAgentRunCall(
+    public APIforkAgentRunRequest forkAgentRun(@jakarta.annotation.Nonnull String agentRunId) {
+        return new APIforkAgentRunRequest(agentRunId);
+    }
+
+    private okhttp3.Call getAgentRunCall(
             @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1294,66 +1425,14 @@ public class AgentRunsApi {
         return getAgentRunCall(agentRunId, _callback);
     }
 
-    /**
-     * Retrieve an agent run
-     * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return AgentRunResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AgentRunResponse getAgentRun(@jakarta.annotation.Nonnull String agentRunId)
-            throws ApiException {
-        ApiResponse<AgentRunResponse> localVarResp = getAgentRunWithHttpInfo(agentRunId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve an agent run
-     * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;AgentRunResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AgentRunResponse> getAgentRunWithHttpInfo(
+    private ApiResponse<AgentRunResponse> getAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
         okhttp3.Call localVarCall = getAgentRunValidateBeforeCall(agentRunId, null);
         Type localVarReturnType = new TypeToken<AgentRunResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve an agent run (asynchronously)
-     * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAgentRunAsync(
+    private okhttp3.Call getAgentRunAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             final ApiCallback<AgentRunResponse> _callback)
             throws ApiException {
@@ -1364,27 +1443,105 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIgetAgentRunRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+
+        private APIgetAgentRunRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Build call for getAgentRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAgentRunCall(agentRunId, _callback);
+        }
+
+        /**
+         * Execute getAgentRun request
+         * @return AgentRunResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AgentRunResponse execute() throws ApiException {
+            ApiResponse<AgentRunResponse> localVarResp = getAgentRunWithHttpInfo(agentRunId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAgentRun request with HTTP info returned
+         * @return ApiResponse&lt;AgentRunResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AgentRunResponse> executeWithHttpInfo() throws ApiException {
+            return getAgentRunWithHttpInfo(agentRunId);
+        }
+
+        /**
+         * Execute getAgentRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AgentRunResponse> _callback)
+                throws ApiException {
+            return getAgentRunAsync(agentRunId, _callback);
+        }
+    }
+
     /**
-     * Build call for getAgentRunArtifact
+     * Retrieve an agent run
+     * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param url  (optional)
-     * @param disposition  (optional)
-     * @param filename  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAgentRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAgentRunArtifactCall(
+    public APIgetAgentRunRequest getAgentRun(@jakarta.annotation.Nonnull String agentRunId) {
+        return new APIgetAgentRunRequest(agentRunId);
+    }
+
+    private okhttp3.Call getAgentRunArtifactCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable Boolean url,
@@ -1488,59 +1645,7 @@ public class AgentRunsApi {
         return getAgentRunArtifactCall(agentRunId, path, url, disposition, filename, _callback);
     }
 
-    /**
-     * Get an agent run artifact
-     * Returns a signed download URL as JSON when &#x60;url&#x3D;1&#x60; is supplied, and otherwise streams the artifact bytes as &#x60;application/octet-stream&#x60;. Prefer &#x60;url&#x3D;1&#x60; and download from the signed URL.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param url  (optional)
-     * @param disposition  (optional)
-     * @param filename  (optional)
-     * @return AgentArtifactUrlResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AgentArtifactUrlResponse getAgentRunArtifact(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String path,
-            @jakarta.annotation.Nullable Boolean url,
-            @jakarta.annotation.Nullable String disposition,
-            @jakarta.annotation.Nullable String filename)
-            throws ApiException {
-        ApiResponse<AgentArtifactUrlResponse> localVarResp =
-                getAgentRunArtifactWithHttpInfo(agentRunId, path, url, disposition, filename);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get an agent run artifact
-     * Returns a signed download URL as JSON when &#x60;url&#x3D;1&#x60; is supplied, and otherwise streams the artifact bytes as &#x60;application/octet-stream&#x60;. Prefer &#x60;url&#x3D;1&#x60; and download from the signed URL.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param url  (optional)
-     * @param disposition  (optional)
-     * @param filename  (optional)
-     * @return ApiResponse&lt;AgentArtifactUrlResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AgentArtifactUrlResponse> getAgentRunArtifactWithHttpInfo(
+    private ApiResponse<AgentArtifactUrlResponse> getAgentRunArtifactWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable Boolean url,
@@ -1554,28 +1659,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get an agent run artifact (asynchronously)
-     * Returns a signed download URL as JSON when &#x60;url&#x3D;1&#x60; is supplied, and otherwise streams the artifact bytes as &#x60;application/octet-stream&#x60;. Prefer &#x60;url&#x3D;1&#x60; and download from the signed URL.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param url  (optional)
-     * @param disposition  (optional)
-     * @param filename  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAgentRunArtifactAsync(
+    private okhttp3.Call getAgentRunArtifactAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nullable Boolean url,
@@ -1592,85 +1676,154 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getAgentRunArtifact with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getAgentRunArtifactCall(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String path,
-            final ApiCallback _callback)
-            throws ApiException {
-        return getAgentRunArtifactCall(agentRunId, path, null, null, null, _callback);
+    public class APIgetAgentRunArtifactRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final String path;
+        @jakarta.annotation.Nullable private Boolean url;
+        @jakarta.annotation.Nullable private String disposition;
+        @jakarta.annotation.Nullable private String filename;
+
+        private APIgetAgentRunArtifactRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull String path) {
+            this.agentRunId = agentRunId;
+            this.path = path;
+        }
+
+        /**
+         * Set url
+         * @param url  (optional)
+         * @return APIgetAgentRunArtifactRequest
+         */
+        public APIgetAgentRunArtifactRequest url(@jakarta.annotation.Nullable Boolean url) {
+            this.url = url;
+            return this;
+        }
+
+        /**
+         * Set disposition
+         * @param disposition  (optional)
+         * @return APIgetAgentRunArtifactRequest
+         */
+        public APIgetAgentRunArtifactRequest disposition(
+                @jakarta.annotation.Nullable String disposition) {
+            this.disposition = disposition;
+            return this;
+        }
+
+        /**
+         * Set filename
+         * @param filename  (optional)
+         * @return APIgetAgentRunArtifactRequest
+         */
+        public APIgetAgentRunArtifactRequest filename(
+                @jakarta.annotation.Nullable String filename) {
+            this.filename = filename;
+            return this;
+        }
+
+        /**
+         * Build call for getAgentRunArtifact
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAgentRunArtifactCall(agentRunId, path, url, disposition, filename, _callback);
+        }
+
+        /**
+         * Execute getAgentRunArtifact request
+         * @return AgentArtifactUrlResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AgentArtifactUrlResponse execute() throws ApiException {
+            ApiResponse<AgentArtifactUrlResponse> localVarResp =
+                    getAgentRunArtifactWithHttpInfo(agentRunId, path, url, disposition, filename);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAgentRunArtifact request with HTTP info returned
+         * @return ApiResponse&lt;AgentArtifactUrlResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AgentArtifactUrlResponse> executeWithHttpInfo() throws ApiException {
+            return getAgentRunArtifactWithHttpInfo(agentRunId, path, url, disposition, filename);
+        }
+
+        /**
+         * Execute getAgentRunArtifact request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AgentArtifactUrlResponse> _callback)
+                throws ApiException {
+            return getAgentRunArtifactAsync(
+                    agentRunId, path, url, disposition, filename, _callback);
+        }
     }
 
     /**
      * Get an agent run artifact
-     * Calls {@code getAgentRunArtifact} with every optional parameter left unset.
+     * Returns a signed download URL as JSON when &#x60;url&#x3D;1&#x60; is supplied, and otherwise streams the artifact bytes as &#x60;application/octet-stream&#x60;. Prefer &#x60;url&#x3D;1&#x60; and download from the signed URL.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
-     * @return AgentArtifactUrlResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AgentArtifactUrlResponse getAgentRunArtifact(
-            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
-            throws ApiException {
-        return getAgentRunArtifact(agentRunId, path, null, null, null);
-    }
-
-    /**
-     * Get an agent run artifact
-     * Calls {@code getAgentRunArtifactWithHttpInfo} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AgentArtifactUrlResponse> getAgentRunArtifactWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
-            throws ApiException {
-        return getAgentRunArtifactWithHttpInfo(agentRunId, path, null, null, null);
-    }
-
-    /**
-     * Get an agent run artifact (asynchronously)
-     * Calls {@code getAgentRunArtifactAsync} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAgentRunArtifactAsync(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String path,
-            final ApiCallback<AgentArtifactUrlResponse> _callback)
-            throws ApiException {
-        return getAgentRunArtifactAsync(agentRunId, path, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for getAgentRunArtifactContent
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAgentRunArtifactRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
-     * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAgentRunArtifactContentCall(
+    public APIgetAgentRunArtifactRequest getAgentRunArtifact(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path) {
+        return new APIgetAgentRunArtifactRequest(agentRunId, path);
+    }
+
+    private okhttp3.Call getAgentRunArtifactContentCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String path,
             final ApiCallback _callback)
@@ -1755,49 +1908,7 @@ public class AgentRunsApi {
         return getAgentRunArtifactContentCall(agentRunId, path, _callback);
     }
 
-    /**
-     * Read editable agent artifact content
-     * Reads a text artifact and returns its blob generation token for conditional updates.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @return AgentArtifactContentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
-     * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AgentArtifactContentResponse getAgentRunArtifactContent(
-            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
-            throws ApiException {
-        ApiResponse<AgentArtifactContentResponse> localVarResp =
-                getAgentRunArtifactContentWithHttpInfo(agentRunId, path);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Read editable agent artifact content
-     * Reads a text artifact and returns its blob generation token for conditional updates.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @return ApiResponse&lt;AgentArtifactContentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
-     * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AgentArtifactContentResponse> getAgentRunArtifactContentWithHttpInfo(
+    private ApiResponse<AgentArtifactContentResponse> getAgentRunArtifactContentWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1806,25 +1917,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Read editable agent artifact content (asynchronously)
-     * Reads a text artifact and returns its blob generation token for conditional updates.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
-     * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAgentRunArtifactContentAsync(
+    private okhttp3.Call getAgentRunArtifactContentAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String path,
             final ApiCallback<AgentArtifactContentResponse> _callback)
@@ -1837,26 +1930,118 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIgetAgentRunArtifactContentRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final String path;
+
+        private APIgetAgentRunArtifactContentRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull String path) {
+            this.agentRunId = agentRunId;
+            this.path = path;
+        }
+
+        /**
+         * Build call for getAgentRunArtifactContent
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
+         * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAgentRunArtifactContentCall(agentRunId, path, _callback);
+        }
+
+        /**
+         * Execute getAgentRunArtifactContent request
+         * @return AgentArtifactContentResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
+         * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AgentArtifactContentResponse execute() throws ApiException {
+            ApiResponse<AgentArtifactContentResponse> localVarResp =
+                    getAgentRunArtifactContentWithHttpInfo(agentRunId, path);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAgentRunArtifactContent request with HTTP info returned
+         * @return ApiResponse&lt;AgentArtifactContentResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
+         * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AgentArtifactContentResponse> executeWithHttpInfo() throws ApiException {
+            return getAgentRunArtifactContentWithHttpInfo(agentRunId, path);
+        }
+
+        /**
+         * Execute getAgentRunArtifactContent request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
+         * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AgentArtifactContentResponse> _callback)
+                throws ApiException {
+            return getAgentRunArtifactContentAsync(agentRunId, path, _callback);
+        }
+    }
+
     /**
-     * Build call for getAgentRunChildDetails
+     * Read editable agent artifact content
+     * Reads a text artifact and returns its blob generation token for conditional updates.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param childWorkflowId  (required)
-     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
-     * @param includeHistory  (optional)
-     * @param hydratePayloads  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param path  (required)
+     * @return APIgetAgentRunArtifactContentRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Detailed child workflow execution state. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAgentRunChildDetailsCall(
+    public APIgetAgentRunArtifactContentRequest getAgentRunArtifactContent(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path) {
+        return new APIgetAgentRunArtifactContentRequest(agentRunId, path);
+    }
+
+    private okhttp3.Call getAgentRunChildDetailsCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String childWorkflowId,
             @jakarta.annotation.Nullable String from,
@@ -1962,58 +2147,7 @@ public class AgentRunsApi {
                 agentRunId, childWorkflowId, from, includeHistory, hydratePayloads, _callback);
     }
 
-    /**
-     * Get child agent run details
-     * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param childWorkflowId  (required)
-     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
-     * @param includeHistory  (optional)
-     * @param hydratePayloads  (optional)
-     * @return WorkflowRunWithDetails
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Detailed child workflow execution state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public WorkflowRunWithDetails getAgentRunChildDetails(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String childWorkflowId,
-            @jakarta.annotation.Nullable String from,
-            @jakarta.annotation.Nullable Boolean includeHistory,
-            @jakarta.annotation.Nullable Boolean hydratePayloads)
-            throws ApiException {
-        ApiResponse<WorkflowRunWithDetails> localVarResp =
-                getAgentRunChildDetailsWithHttpInfo(
-                        agentRunId, childWorkflowId, from, includeHistory, hydratePayloads);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get child agent run details
-     * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param childWorkflowId  (required)
-     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
-     * @param includeHistory  (optional)
-     * @param hydratePayloads  (optional)
-     * @return ApiResponse&lt;WorkflowRunWithDetails&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Detailed child workflow execution state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<WorkflowRunWithDetails> getAgentRunChildDetailsWithHttpInfo(
+    private ApiResponse<WorkflowRunWithDetails> getAgentRunChildDetailsWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String childWorkflowId,
             @jakarta.annotation.Nullable String from,
@@ -2027,27 +2161,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get child agent run details (asynchronously)
-     * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param childWorkflowId  (required)
-     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
-     * @param includeHistory  (optional)
-     * @param hydratePayloads  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Detailed child workflow execution state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAgentRunChildDetailsAsync(
+    private okhttp3.Call getAgentRunChildDetailsAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String childWorkflowId,
             @jakarta.annotation.Nullable String from,
@@ -2069,90 +2183,152 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getAgentRunChildDetails with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param childWorkflowId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getAgentRunChildDetailsCall(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String childWorkflowId,
-            final ApiCallback _callback)
-            throws ApiException {
-        return getAgentRunChildDetailsCall(
-                agentRunId, childWorkflowId, null, null, null, _callback);
+    public class APIgetAgentRunChildDetailsRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final String childWorkflowId;
+        @jakarta.annotation.Nullable private String from;
+        @jakarta.annotation.Nullable private Boolean includeHistory;
+        @jakarta.annotation.Nullable private Boolean hydratePayloads;
+
+        private APIgetAgentRunChildDetailsRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull String childWorkflowId) {
+            this.agentRunId = agentRunId;
+            this.childWorkflowId = childWorkflowId;
+        }
+
+        /**
+         * Set from
+         * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
+         * @return APIgetAgentRunChildDetailsRequest
+         */
+        public APIgetAgentRunChildDetailsRequest from(@jakarta.annotation.Nullable String from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set includeHistory
+         * @param includeHistory  (optional)
+         * @return APIgetAgentRunChildDetailsRequest
+         */
+        public APIgetAgentRunChildDetailsRequest includeHistory(
+                @jakarta.annotation.Nullable Boolean includeHistory) {
+            this.includeHistory = includeHistory;
+            return this;
+        }
+
+        /**
+         * Set hydratePayloads
+         * @param hydratePayloads  (optional)
+         * @return APIgetAgentRunChildDetailsRequest
+         */
+        public APIgetAgentRunChildDetailsRequest hydratePayloads(
+                @jakarta.annotation.Nullable Boolean hydratePayloads) {
+            this.hydratePayloads = hydratePayloads;
+            return this;
+        }
+
+        /**
+         * Build call for getAgentRunChildDetails
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Detailed child workflow execution state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAgentRunChildDetailsCall(
+                    agentRunId, childWorkflowId, from, includeHistory, hydratePayloads, _callback);
+        }
+
+        /**
+         * Execute getAgentRunChildDetails request
+         * @return WorkflowRunWithDetails
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Detailed child workflow execution state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public WorkflowRunWithDetails execute() throws ApiException {
+            ApiResponse<WorkflowRunWithDetails> localVarResp =
+                    getAgentRunChildDetailsWithHttpInfo(
+                            agentRunId, childWorkflowId, from, includeHistory, hydratePayloads);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAgentRunChildDetails request with HTTP info returned
+         * @return ApiResponse&lt;WorkflowRunWithDetails&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Detailed child workflow execution state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<WorkflowRunWithDetails> executeWithHttpInfo() throws ApiException {
+            return getAgentRunChildDetailsWithHttpInfo(
+                    agentRunId, childWorkflowId, from, includeHistory, hydratePayloads);
+        }
+
+        /**
+         * Execute getAgentRunChildDetails request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Detailed child workflow execution state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<WorkflowRunWithDetails> _callback)
+                throws ApiException {
+            return getAgentRunChildDetailsAsync(
+                    agentRunId, childWorkflowId, from, includeHistory, hydratePayloads, _callback);
+        }
     }
 
     /**
      * Get child agent run details
-     * Calls {@code getAgentRunChildDetails} with every optional parameter left unset.
+     * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param childWorkflowId  (required)
-     * @return WorkflowRunWithDetails
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public WorkflowRunWithDetails getAgentRunChildDetails(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String childWorkflowId)
-            throws ApiException {
-        return getAgentRunChildDetails(agentRunId, childWorkflowId, null, null, null);
-    }
-
-    /**
-     * Get child agent run details
-     * Calls {@code getAgentRunChildDetailsWithHttpInfo} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param childWorkflowId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WorkflowRunWithDetails> getAgentRunChildDetailsWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String childWorkflowId)
-            throws ApiException {
-        return getAgentRunChildDetailsWithHttpInfo(agentRunId, childWorkflowId, null, null, null);
-    }
-
-    /**
-     * Get child agent run details (asynchronously)
-     * Calls {@code getAgentRunChildDetailsAsync} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param childWorkflowId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAgentRunChildDetailsAsync(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String childWorkflowId,
-            final ApiCallback<WorkflowRunWithDetails> _callback)
-            throws ApiException {
-        return getAgentRunChildDetailsAsync(
-                agentRunId, childWorkflowId, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for getAgentRunDetails
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
-     * @param includeHistory  (optional)
-     * @param hydratePayloads  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAgentRunChildDetailsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Detailed workflow execution state. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Detailed child workflow execution state. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAgentRunDetailsCall(
+    public APIgetAgentRunChildDetailsRequest getAgentRunChildDetails(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String childWorkflowId) {
+        return new APIgetAgentRunChildDetailsRequest(agentRunId, childWorkflowId);
+    }
+
+    private okhttp3.Call getAgentRunDetailsCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable String from,
             @jakarta.annotation.Nullable Boolean includeHistory,
@@ -2246,54 +2422,7 @@ public class AgentRunsApi {
         return getAgentRunDetailsCall(agentRunId, from, includeHistory, hydratePayloads, _callback);
     }
 
-    /**
-     * Get agent run details
-     * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
-     * @param includeHistory  (optional)
-     * @param hydratePayloads  (optional)
-     * @return WorkflowRunWithDetails
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Detailed workflow execution state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public WorkflowRunWithDetails getAgentRunDetails(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nullable String from,
-            @jakarta.annotation.Nullable Boolean includeHistory,
-            @jakarta.annotation.Nullable Boolean hydratePayloads)
-            throws ApiException {
-        ApiResponse<WorkflowRunWithDetails> localVarResp =
-                getAgentRunDetailsWithHttpInfo(agentRunId, from, includeHistory, hydratePayloads);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get agent run details
-     * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
-     * @param includeHistory  (optional)
-     * @param hydratePayloads  (optional)
-     * @return ApiResponse&lt;WorkflowRunWithDetails&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Detailed workflow execution state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<WorkflowRunWithDetails> getAgentRunDetailsWithHttpInfo(
+    private ApiResponse<WorkflowRunWithDetails> getAgentRunDetailsWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable String from,
             @jakarta.annotation.Nullable Boolean includeHistory,
@@ -2306,26 +2435,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get agent run details (asynchronously)
-     * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
-     * @param includeHistory  (optional)
-     * @param hydratePayloads  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Detailed workflow execution state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAgentRunDetailsAsync(
+    private okhttp3.Call getAgentRunDetailsAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable String from,
             @jakarta.annotation.Nullable Boolean includeHistory,
@@ -2341,74 +2451,146 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getAgentRunDetails with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getAgentRunDetailsCall(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
-            throws ApiException {
-        return getAgentRunDetailsCall(agentRunId, null, null, null, _callback);
+    public class APIgetAgentRunDetailsRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nullable private String from;
+        @jakarta.annotation.Nullable private Boolean includeHistory;
+        @jakarta.annotation.Nullable private Boolean hydratePayloads;
+
+        private APIgetAgentRunDetailsRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Set from
+         * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
+         * @return APIgetAgentRunDetailsRequest
+         */
+        public APIgetAgentRunDetailsRequest from(@jakarta.annotation.Nullable String from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set includeHistory
+         * @param includeHistory  (optional)
+         * @return APIgetAgentRunDetailsRequest
+         */
+        public APIgetAgentRunDetailsRequest includeHistory(
+                @jakarta.annotation.Nullable Boolean includeHistory) {
+            this.includeHistory = includeHistory;
+            return this;
+        }
+
+        /**
+         * Set hydratePayloads
+         * @param hydratePayloads  (optional)
+         * @return APIgetAgentRunDetailsRequest
+         */
+        public APIgetAgentRunDetailsRequest hydratePayloads(
+                @jakarta.annotation.Nullable Boolean hydratePayloads) {
+            this.hydratePayloads = hydratePayloads;
+            return this;
+        }
+
+        /**
+         * Build call for getAgentRunDetails
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Detailed workflow execution state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getAgentRunDetailsCall(
+                    agentRunId, from, includeHistory, hydratePayloads, _callback);
+        }
+
+        /**
+         * Execute getAgentRunDetails request
+         * @return WorkflowRunWithDetails
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Detailed workflow execution state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public WorkflowRunWithDetails execute() throws ApiException {
+            ApiResponse<WorkflowRunWithDetails> localVarResp =
+                    getAgentRunDetailsWithHttpInfo(
+                            agentRunId, from, includeHistory, hydratePayloads);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getAgentRunDetails request with HTTP info returned
+         * @return ApiResponse&lt;WorkflowRunWithDetails&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Detailed workflow execution state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<WorkflowRunWithDetails> executeWithHttpInfo() throws ApiException {
+            return getAgentRunDetailsWithHttpInfo(
+                    agentRunId, from, includeHistory, hydratePayloads);
+        }
+
+        /**
+         * Execute getAgentRunDetails request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Detailed workflow execution state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<WorkflowRunWithDetails> _callback)
+                throws ApiException {
+            return getAgentRunDetailsAsync(
+                    agentRunId, from, includeHistory, hydratePayloads, _callback);
+        }
     }
 
     /**
      * Get agent run details
-     * Calls {@code getAgentRunDetails} with every optional parameter left unset.
+     * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return WorkflowRunWithDetails
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public WorkflowRunWithDetails getAgentRunDetails(@jakarta.annotation.Nonnull String agentRunId)
-            throws ApiException {
-        return getAgentRunDetails(agentRunId, null, null, null);
-    }
-
-    /**
-     * Get agent run details
-     * Calls {@code getAgentRunDetailsWithHttpInfo} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WorkflowRunWithDetails> getAgentRunDetailsWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        return getAgentRunDetailsWithHttpInfo(agentRunId, null, null, null);
-    }
-
-    /**
-     * Get agent run details (asynchronously)
-     * Calls {@code getAgentRunDetailsAsync} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getAgentRunDetailsAsync(
-            @jakarta.annotation.Nonnull String agentRunId,
-            final ApiCallback<WorkflowRunWithDetails> _callback)
-            throws ApiException {
-        return getAgentRunDetailsAsync(agentRunId, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for getProcessRunContext
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetAgentRunDetailsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current process context. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Detailed workflow execution state. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProcessRunContextCall(
+    public APIgetAgentRunDetailsRequest getAgentRunDetails(
+            @jakarta.annotation.Nonnull String agentRunId) {
+        return new APIgetAgentRunDetailsRequest(agentRunId);
+    }
+
+    private okhttp3.Call getProcessRunContextCall(
             @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2480,67 +2662,14 @@ public class AgentRunsApi {
         return getProcessRunContextCall(agentRunId, _callback);
     }
 
-    /**
-     * Get process run context
-     * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return ProcessContextResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current process context. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessContextResponse getProcessRunContext(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        ApiResponse<ProcessContextResponse> localVarResp =
-                getProcessRunContextWithHttpInfo(agentRunId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get process run context
-     * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;ProcessContextResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current process context. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessContextResponse> getProcessRunContextWithHttpInfo(
+    private ApiResponse<ProcessContextResponse> getProcessRunContextWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
         okhttp3.Call localVarCall = getProcessRunContextValidateBeforeCall(agentRunId, null);
         Type localVarReturnType = new TypeToken<ProcessContextResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get process run context (asynchronously)
-     * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current process context. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProcessRunContextAsync(
+    private okhttp3.Call getProcessRunContextAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             final ApiCallback<ProcessContextResponse> _callback)
             throws ApiException {
@@ -2551,22 +2680,107 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIgetProcessRunContextRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+
+        private APIgetProcessRunContextRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Build call for getProcessRunContext
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current process context. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProcessRunContextCall(agentRunId, _callback);
+        }
+
+        /**
+         * Execute getProcessRunContext request
+         * @return ProcessContextResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current process context. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessContextResponse execute() throws ApiException {
+            ApiResponse<ProcessContextResponse> localVarResp =
+                    getProcessRunContextWithHttpInfo(agentRunId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProcessRunContext request with HTTP info returned
+         * @return ApiResponse&lt;ProcessContextResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current process context. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessContextResponse> executeWithHttpInfo() throws ApiException {
+            return getProcessRunContextWithHttpInfo(agentRunId);
+        }
+
+        /**
+         * Execute getProcessRunContext request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current process context. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessContextResponse> _callback)
+                throws ApiException {
+            return getProcessRunContextAsync(agentRunId, _callback);
+        }
+    }
+
     /**
-     * Build call for getProcessRunHistory
+     * Get process run context
+     * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetProcessRunContextRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process node history. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Current process context. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getProcessRunHistoryCall(
+    public APIgetProcessRunContextRequest getProcessRunContext(
+            @jakarta.annotation.Nonnull String agentRunId) {
+        return new APIgetProcessRunContextRequest(agentRunId);
+    }
+
+    private okhttp3.Call getProcessRunHistoryCall(
             @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2638,67 +2852,14 @@ public class AgentRunsApi {
         return getProcessRunHistoryCall(agentRunId, _callback);
     }
 
-    /**
-     * Get process run history
-     * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return ProcessHistoryResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process node history. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ProcessHistoryResponse getProcessRunHistory(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        ApiResponse<ProcessHistoryResponse> localVarResp =
-                getProcessRunHistoryWithHttpInfo(agentRunId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get process run history
-     * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;ProcessHistoryResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process node history. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ProcessHistoryResponse> getProcessRunHistoryWithHttpInfo(
+    private ApiResponse<ProcessHistoryResponse> getProcessRunHistoryWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
         okhttp3.Call localVarCall = getProcessRunHistoryValidateBeforeCall(agentRunId, null);
         Type localVarReturnType = new TypeToken<ProcessHistoryResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get process run history (asynchronously)
-     * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Process node history. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getProcessRunHistoryAsync(
+    private okhttp3.Call getProcessRunHistoryAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             final ApiCallback<ProcessHistoryResponse> _callback)
             throws ApiException {
@@ -2709,23 +2870,107 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIgetProcessRunHistoryRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+
+        private APIgetProcessRunHistoryRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Build call for getProcessRunHistory
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process node history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProcessRunHistoryCall(agentRunId, _callback);
+        }
+
+        /**
+         * Execute getProcessRunHistory request
+         * @return ProcessHistoryResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process node history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ProcessHistoryResponse execute() throws ApiException {
+            ApiResponse<ProcessHistoryResponse> localVarResp =
+                    getProcessRunHistoryWithHttpInfo(agentRunId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProcessRunHistory request with HTTP info returned
+         * @return ApiResponse&lt;ProcessHistoryResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process node history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ProcessHistoryResponse> executeWithHttpInfo() throws ApiException {
+            return getProcessRunHistoryWithHttpInfo(agentRunId);
+        }
+
+        /**
+         * Execute getProcessRunHistory request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Process node history. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessHistoryResponse> _callback)
+                throws ApiException {
+            return getProcessRunHistoryAsync(agentRunId, _callback);
+        }
+    }
+
     /**
-     * Build call for listAgentRunArtifacts
+     * Get process run history
+     * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param visibility  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetProcessRunHistoryRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact paths for the agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Process node history. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAgentRunArtifactsCall(
+    public APIgetProcessRunHistoryRequest getProcessRunHistory(
+            @jakarta.annotation.Nonnull String agentRunId) {
+        return new APIgetProcessRunHistoryRequest(agentRunId);
+    }
+
+    private okhttp3.Call listAgentRunArtifactsCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable String visibility,
             final ApiCallback _callback)
@@ -2805,48 +3050,7 @@ public class AgentRunsApi {
         return listAgentRunArtifactsCall(agentRunId, visibility, _callback);
     }
 
-    /**
-     * List agent run artifacts
-     * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param visibility  (optional)
-     * @return List&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact paths for the agent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<String> listAgentRunArtifacts(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nullable String visibility)
-            throws ApiException {
-        ApiResponse<List<String>> localVarResp =
-                listAgentRunArtifactsWithHttpInfo(agentRunId, visibility);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List agent run artifacts
-     * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param visibility  (optional)
-     * @return ApiResponse&lt;List&lt;String&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact paths for the agent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<String>> listAgentRunArtifactsWithHttpInfo(
+    private ApiResponse<List<String>> listAgentRunArtifactsWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable String visibility)
             throws ApiException {
@@ -2856,24 +3060,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List agent run artifacts (asynchronously)
-     * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param visibility  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact paths for the agent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAgentRunArtifactsAsync(
+    private okhttp3.Call listAgentRunArtifactsAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable String visibility,
             final ApiCallback<List<String>> _callback)
@@ -2886,74 +3073,119 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listAgentRunArtifacts with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listAgentRunArtifactsCall(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
-            throws ApiException {
-        return listAgentRunArtifactsCall(agentRunId, null, _callback);
+    public class APIlistAgentRunArtifactsRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nullable private String visibility;
+
+        private APIlistAgentRunArtifactsRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Set visibility
+         * @param visibility  (optional)
+         * @return APIlistAgentRunArtifactsRequest
+         */
+        public APIlistAgentRunArtifactsRequest visibility(
+                @jakarta.annotation.Nullable String visibility) {
+            this.visibility = visibility;
+            return this;
+        }
+
+        /**
+         * Build call for listAgentRunArtifacts
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Artifact paths for the agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAgentRunArtifactsCall(agentRunId, visibility, _callback);
+        }
+
+        /**
+         * Execute listAgentRunArtifacts request
+         * @return List&lt;String&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Artifact paths for the agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<String> execute() throws ApiException {
+            ApiResponse<List<String>> localVarResp =
+                    listAgentRunArtifactsWithHttpInfo(agentRunId, visibility);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAgentRunArtifacts request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;String&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Artifact paths for the agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<String>> executeWithHttpInfo() throws ApiException {
+            return listAgentRunArtifactsWithHttpInfo(agentRunId, visibility);
+        }
+
+        /**
+         * Execute listAgentRunArtifacts request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Artifact paths for the agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<String>> _callback)
+                throws ApiException {
+            return listAgentRunArtifactsAsync(agentRunId, visibility, _callback);
+        }
     }
 
     /**
      * List agent run artifacts
-     * Calls {@code listAgentRunArtifacts} with every optional parameter left unset.
+     * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return List&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<String> listAgentRunArtifacts(@jakarta.annotation.Nonnull String agentRunId)
-            throws ApiException {
-        return listAgentRunArtifacts(agentRunId, null);
-    }
-
-    /**
-     * List agent run artifacts
-     * Calls {@code listAgentRunArtifactsWithHttpInfo} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<String>> listAgentRunArtifactsWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        return listAgentRunArtifactsWithHttpInfo(agentRunId, null);
-    }
-
-    /**
-     * List agent run artifacts (asynchronously)
-     * Calls {@code listAgentRunArtifactsAsync} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listAgentRunArtifactsAsync(
-            @jakarta.annotation.Nonnull String agentRunId,
-            final ApiCallback<List<String>> _callback)
-            throws ApiException {
-        return listAgentRunArtifactsAsync(agentRunId, null, _callback);
-    }
-
-    /**
-     * Build call for listAgentRunChildren
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistAgentRunArtifactsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Child workflow run summaries. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Artifact paths for the agent run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAgentRunChildrenCall(
+    public APIlistAgentRunArtifactsRequest listAgentRunArtifacts(
+            @jakarta.annotation.Nonnull String agentRunId) {
+        return new APIlistAgentRunArtifactsRequest(agentRunId);
+    }
+
+    private okhttp3.Call listAgentRunChildrenCall(
             @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3025,67 +3257,14 @@ public class AgentRunsApi {
         return listAgentRunChildrenCall(agentRunId, _callback);
     }
 
-    /**
-     * List child agent runs
-     * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return ListWorkflowRunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Child workflow run summaries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ListWorkflowRunsResponse listAgentRunChildren(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        ApiResponse<ListWorkflowRunsResponse> localVarResp =
-                listAgentRunChildrenWithHttpInfo(agentRunId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List child agent runs
-     * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Child workflow run summaries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ListWorkflowRunsResponse> listAgentRunChildrenWithHttpInfo(
+    private ApiResponse<ListWorkflowRunsResponse> listAgentRunChildrenWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
         okhttp3.Call localVarCall = listAgentRunChildrenValidateBeforeCall(agentRunId, null);
         Type localVarReturnType = new TypeToken<ListWorkflowRunsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List child agent runs (asynchronously)
-     * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Child workflow run summaries. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAgentRunChildrenAsync(
+    private okhttp3.Call listAgentRunChildrenAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             final ApiCallback<ListWorkflowRunsResponse> _callback)
             throws ApiException {
@@ -3096,23 +3275,107 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIlistAgentRunChildrenRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+
+        private APIlistAgentRunChildrenRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Build call for listAgentRunChildren
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Child workflow run summaries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAgentRunChildrenCall(agentRunId, _callback);
+        }
+
+        /**
+         * Execute listAgentRunChildren request
+         * @return ListWorkflowRunsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Child workflow run summaries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ListWorkflowRunsResponse execute() throws ApiException {
+            ApiResponse<ListWorkflowRunsResponse> localVarResp =
+                    listAgentRunChildrenWithHttpInfo(agentRunId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAgentRunChildren request with HTTP info returned
+         * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Child workflow run summaries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ListWorkflowRunsResponse> executeWithHttpInfo() throws ApiException {
+            return listAgentRunChildrenWithHttpInfo(agentRunId);
+        }
+
+        /**
+         * Execute listAgentRunChildren request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Child workflow run summaries. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ListWorkflowRunsResponse> _callback)
+                throws ApiException {
+            return listAgentRunChildrenAsync(agentRunId, _callback);
+        }
+    }
+
     /**
-     * Build call for listAgentRunUpdates
+     * List child agent runs
+     * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param since  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistAgentRunChildrenRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent run messages. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Child workflow run summaries. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAgentRunUpdatesCall(
+    public APIlistAgentRunChildrenRequest listAgentRunChildren(
+            @jakarta.annotation.Nonnull String agentRunId) {
+        return new APIlistAgentRunChildrenRequest(agentRunId);
+    }
+
+    private okhttp3.Call listAgentRunUpdatesCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable BigDecimal since,
             final ApiCallback _callback)
@@ -3192,48 +3455,7 @@ public class AgentRunsApi {
         return listAgentRunUpdatesCall(agentRunId, since, _callback);
     }
 
-    /**
-     * List agent run updates
-     * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param since  (optional)
-     * @return AgentRunUpdatesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent run messages. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AgentRunUpdatesResponse listAgentRunUpdates(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nullable BigDecimal since)
-            throws ApiException {
-        ApiResponse<AgentRunUpdatesResponse> localVarResp =
-                listAgentRunUpdatesWithHttpInfo(agentRunId, since);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List agent run updates
-     * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param since  (optional)
-     * @return ApiResponse&lt;AgentRunUpdatesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent run messages. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AgentRunUpdatesResponse> listAgentRunUpdatesWithHttpInfo(
+    private ApiResponse<AgentRunUpdatesResponse> listAgentRunUpdatesWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable BigDecimal since)
             throws ApiException {
@@ -3242,24 +3464,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List agent run updates (asynchronously)
-     * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param since  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent run messages. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAgentRunUpdatesAsync(
+    private okhttp3.Call listAgentRunUpdatesAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable BigDecimal since,
             final ApiCallback<AgentRunUpdatesResponse> _callback)
@@ -3272,92 +3477,118 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listAgentRunUpdates with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listAgentRunUpdatesCall(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
-            throws ApiException {
-        return listAgentRunUpdatesCall(agentRunId, null, _callback);
+    public class APIlistAgentRunUpdatesRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nullable private BigDecimal since;
+
+        private APIlistAgentRunUpdatesRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Set since
+         * @param since  (optional)
+         * @return APIlistAgentRunUpdatesRequest
+         */
+        public APIlistAgentRunUpdatesRequest since(@jakarta.annotation.Nullable BigDecimal since) {
+            this.since = since;
+            return this;
+        }
+
+        /**
+         * Build call for listAgentRunUpdates
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent run messages. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAgentRunUpdatesCall(agentRunId, since, _callback);
+        }
+
+        /**
+         * Execute listAgentRunUpdates request
+         * @return AgentRunUpdatesResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent run messages. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AgentRunUpdatesResponse execute() throws ApiException {
+            ApiResponse<AgentRunUpdatesResponse> localVarResp =
+                    listAgentRunUpdatesWithHttpInfo(agentRunId, since);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAgentRunUpdates request with HTTP info returned
+         * @return ApiResponse&lt;AgentRunUpdatesResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent run messages. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AgentRunUpdatesResponse> executeWithHttpInfo() throws ApiException {
+            return listAgentRunUpdatesWithHttpInfo(agentRunId, since);
+        }
+
+        /**
+         * Execute listAgentRunUpdates request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent run messages. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AgentRunUpdatesResponse> _callback)
+                throws ApiException {
+            return listAgentRunUpdatesAsync(agentRunId, since, _callback);
+        }
     }
 
     /**
      * List agent run updates
-     * Calls {@code listAgentRunUpdates} with every optional parameter left unset.
+     * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return AgentRunUpdatesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AgentRunUpdatesResponse listAgentRunUpdates(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        return listAgentRunUpdates(agentRunId, null);
-    }
-
-    /**
-     * List agent run updates
-     * Calls {@code listAgentRunUpdatesWithHttpInfo} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AgentRunUpdatesResponse> listAgentRunUpdatesWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        return listAgentRunUpdatesWithHttpInfo(agentRunId, null);
-    }
-
-    /**
-     * List agent run updates (asynchronously)
-     * Calls {@code listAgentRunUpdatesAsync} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listAgentRunUpdatesAsync(
-            @jakarta.annotation.Nonnull String agentRunId,
-            final ApiCallback<AgentRunUpdatesResponse> _callback)
-            throws ApiException {
-        return listAgentRunUpdatesAsync(agentRunId, null, _callback);
-    }
-
-    /**
-     * Build call for listAgentRuns
-     * @param id Filter by agent run ID (optional)
-     * @param status Filter by status (single or multiple) (optional)
-     * @param interaction Filter by interaction ID or code (optional)
-     * @param startedBy Filter by user who started the run (optional)
-     * @param since Only return runs started after this date (optional)
-     * @param until Only return runs started at or before this date (optional)
-     * @param limit Maximum number of results (default: 50) (optional)
-     * @param offset Offset for pagination (optional)
-     * @param cursor Cursor for stable pagination (optional)
-     * @param scheduleId Filter by schedule ID (optional)
-     * @param type Filter by run type (optional)
-     * @param runType Filter by public runtime mode (optional)
-     * @param runKind Filter by internal run discriminator (optional)
-     * @param sort Field to sort by (optional)
-     * @param order Sort order (optional)
-     * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
-     * @param evaluationFlag Filter by evaluation flag (any of) (optional)
-     * @param feedbackRating Filter by last feedback rating (optional)
-     * @param contradicted Only runs whose feedback or LLM evaluation contradicts the detectors (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlistAgentRunUpdatesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Paged agent runs and total count. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Agent run messages. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAgentRunsCall(
+    public APIlistAgentRunUpdatesRequest listAgentRunUpdates(
+            @jakarta.annotation.Nonnull String agentRunId) {
+        return new APIlistAgentRunUpdatesRequest(agentRunId);
+    }
+
+    private okhttp3.Call listAgentRunsCall(
             @jakarta.annotation.Nullable String id,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable String interaction,
@@ -3562,118 +3793,7 @@ public class AgentRunsApi {
                 _callback);
     }
 
-    /**
-     * List agent runs
-     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order. Process runs are listed with an empty &#x60;process_state.node_history&#x60;; &#x60;process_state.node_history_ref.count&#x60; gives the number of entries, and &#x60;GET /agents/{agentRunId}/history&#x60; returns them.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param id Filter by agent run ID (optional)
-     * @param status Filter by status (single or multiple) (optional)
-     * @param interaction Filter by interaction ID or code (optional)
-     * @param startedBy Filter by user who started the run (optional)
-     * @param since Only return runs started after this date (optional)
-     * @param until Only return runs started at or before this date (optional)
-     * @param limit Maximum number of results (default: 50) (optional)
-     * @param offset Offset for pagination (optional)
-     * @param cursor Cursor for stable pagination (optional)
-     * @param scheduleId Filter by schedule ID (optional)
-     * @param type Filter by run type (optional)
-     * @param runType Filter by public runtime mode (optional)
-     * @param runKind Filter by internal run discriminator (optional)
-     * @param sort Field to sort by (optional)
-     * @param order Sort order (optional)
-     * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
-     * @param evaluationFlag Filter by evaluation flag (any of) (optional)
-     * @param feedbackRating Filter by last feedback rating (optional)
-     * @param contradicted Only runs whose feedback or LLM evaluation contradicts the detectors (optional)
-     * @return ListAgentRunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Paged agent runs and total count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ListAgentRunsResponse listAgentRuns(
-            @jakarta.annotation.Nullable String id,
-            @jakarta.annotation.Nullable List<String> status,
-            @jakarta.annotation.Nullable String interaction,
-            @jakarta.annotation.Nullable String startedBy,
-            @jakarta.annotation.Nullable OffsetDateTime since,
-            @jakarta.annotation.Nullable OffsetDateTime until,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String cursor,
-            @jakarta.annotation.Nullable String scheduleId,
-            @jakarta.annotation.Nullable String type,
-            @jakarta.annotation.Nullable List<String> runType,
-            @jakarta.annotation.Nullable String runKind,
-            @jakarta.annotation.Nullable String sort,
-            @jakarta.annotation.Nullable String order,
-            @jakarta.annotation.Nullable List<String> evaluationSeverity,
-            @jakarta.annotation.Nullable List<String> evaluationFlag,
-            @jakarta.annotation.Nullable String feedbackRating,
-            @jakarta.annotation.Nullable Boolean contradicted)
-            throws ApiException {
-        ApiResponse<ListAgentRunsResponse> localVarResp =
-                listAgentRunsWithHttpInfo(
-                        id,
-                        status,
-                        interaction,
-                        startedBy,
-                        since,
-                        until,
-                        limit,
-                        offset,
-                        cursor,
-                        scheduleId,
-                        type,
-                        runType,
-                        runKind,
-                        sort,
-                        order,
-                        evaluationSeverity,
-                        evaluationFlag,
-                        feedbackRating,
-                        contradicted);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List agent runs
-     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order. Process runs are listed with an empty &#x60;process_state.node_history&#x60;; &#x60;process_state.node_history_ref.count&#x60; gives the number of entries, and &#x60;GET /agents/{agentRunId}/history&#x60; returns them.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param id Filter by agent run ID (optional)
-     * @param status Filter by status (single or multiple) (optional)
-     * @param interaction Filter by interaction ID or code (optional)
-     * @param startedBy Filter by user who started the run (optional)
-     * @param since Only return runs started after this date (optional)
-     * @param until Only return runs started at or before this date (optional)
-     * @param limit Maximum number of results (default: 50) (optional)
-     * @param offset Offset for pagination (optional)
-     * @param cursor Cursor for stable pagination (optional)
-     * @param scheduleId Filter by schedule ID (optional)
-     * @param type Filter by run type (optional)
-     * @param runType Filter by public runtime mode (optional)
-     * @param runKind Filter by internal run discriminator (optional)
-     * @param sort Field to sort by (optional)
-     * @param order Sort order (optional)
-     * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
-     * @param evaluationFlag Filter by evaluation flag (any of) (optional)
-     * @param feedbackRating Filter by last feedback rating (optional)
-     * @param contradicted Only runs whose feedback or LLM evaluation contradicts the detectors (optional)
-     * @return ApiResponse&lt;ListAgentRunsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Paged agent runs and total count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ListAgentRunsResponse> listAgentRunsWithHttpInfo(
+    private ApiResponse<ListAgentRunsResponse> listAgentRunsWithHttpInfo(
             @jakarta.annotation.Nullable String id,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable String interaction,
@@ -3720,41 +3840,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List agent runs (asynchronously)
-     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order. Process runs are listed with an empty &#x60;process_state.node_history&#x60;; &#x60;process_state.node_history_ref.count&#x60; gives the number of entries, and &#x60;GET /agents/{agentRunId}/history&#x60; returns them.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param id Filter by agent run ID (optional)
-     * @param status Filter by status (single or multiple) (optional)
-     * @param interaction Filter by interaction ID or code (optional)
-     * @param startedBy Filter by user who started the run (optional)
-     * @param since Only return runs started after this date (optional)
-     * @param until Only return runs started at or before this date (optional)
-     * @param limit Maximum number of results (default: 50) (optional)
-     * @param offset Offset for pagination (optional)
-     * @param cursor Cursor for stable pagination (optional)
-     * @param scheduleId Filter by schedule ID (optional)
-     * @param type Filter by run type (optional)
-     * @param runType Filter by public runtime mode (optional)
-     * @param runKind Filter by internal run discriminator (optional)
-     * @param sort Field to sort by (optional)
-     * @param order Sort order (optional)
-     * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
-     * @param evaluationFlag Filter by evaluation flag (any of) (optional)
-     * @param feedbackRating Filter by last feedback rating (optional)
-     * @param contradicted Only runs whose feedback or LLM evaluation contradicts the detectors (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Paged agent runs and total count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAgentRunsAsync(
+    private okhttp3.Call listAgentRunsAsync(
             @jakarta.annotation.Nullable String id,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable String interaction,
@@ -3804,73 +3890,394 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listAgentRuns with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listAgentRunsCall(final ApiCallback _callback) throws ApiException {
-        return listAgentRunsCall(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                null, null, null, null, null, _callback);
+    public class APIlistAgentRunsRequest {
+        @jakarta.annotation.Nullable private String id;
+        @jakarta.annotation.Nullable private List<String> status;
+        @jakarta.annotation.Nullable private String interaction;
+        @jakarta.annotation.Nullable private String startedBy;
+        @jakarta.annotation.Nullable private OffsetDateTime since;
+        @jakarta.annotation.Nullable private OffsetDateTime until;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+        @jakarta.annotation.Nullable private String cursor;
+        @jakarta.annotation.Nullable private String scheduleId;
+        @jakarta.annotation.Nullable private String type;
+        @jakarta.annotation.Nullable private List<String> runType;
+        @jakarta.annotation.Nullable private String runKind;
+        @jakarta.annotation.Nullable private String sort;
+        @jakarta.annotation.Nullable private String order;
+        @jakarta.annotation.Nullable private List<String> evaluationSeverity;
+        @jakarta.annotation.Nullable private List<String> evaluationFlag;
+        @jakarta.annotation.Nullable private String feedbackRating;
+        @jakarta.annotation.Nullable private Boolean contradicted;
+
+        private APIlistAgentRunsRequest() {}
+
+        /**
+         * Set id
+         * @param id Filter by agent run ID (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest id(@jakarta.annotation.Nullable String id) {
+            this.id = id;
+            return this;
+        }
+
+        /**
+         * Set status
+         * @param status Filter by status (single or multiple) (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest status(@jakarta.annotation.Nullable List<String> status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set interaction
+         * @param interaction Filter by interaction ID or code (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest interaction(
+                @jakarta.annotation.Nullable String interaction) {
+            this.interaction = interaction;
+            return this;
+        }
+
+        /**
+         * Set startedBy
+         * @param startedBy Filter by user who started the run (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest startedBy(@jakarta.annotation.Nullable String startedBy) {
+            this.startedBy = startedBy;
+            return this;
+        }
+
+        /**
+         * Set since
+         * @param since Only return runs started after this date (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest since(@jakarta.annotation.Nullable OffsetDateTime since) {
+            this.since = since;
+            return this;
+        }
+
+        /**
+         * Set until
+         * @param until Only return runs started at or before this date (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest until(@jakarta.annotation.Nullable OffsetDateTime until) {
+            this.until = until;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of results (default: 50) (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset Offset for pagination (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest offset(@jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set cursor
+         * @param cursor Cursor for stable pagination (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest cursor(@jakarta.annotation.Nullable String cursor) {
+            this.cursor = cursor;
+            return this;
+        }
+
+        /**
+         * Set scheduleId
+         * @param scheduleId Filter by schedule ID (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest scheduleId(@jakarta.annotation.Nullable String scheduleId) {
+            this.scheduleId = scheduleId;
+            return this;
+        }
+
+        /**
+         * Set type
+         * @param type Filter by run type (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest type(@jakarta.annotation.Nullable String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Set runType
+         * @param runType Filter by public runtime mode (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest runType(@jakarta.annotation.Nullable List<String> runType) {
+            this.runType = runType;
+            return this;
+        }
+
+        /**
+         * Set runKind
+         * @param runKind Filter by internal run discriminator (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest runKind(@jakarta.annotation.Nullable String runKind) {
+            this.runKind = runKind;
+            return this;
+        }
+
+        /**
+         * Set sort
+         * @param sort Field to sort by (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest sort(@jakarta.annotation.Nullable String sort) {
+            this.sort = sort;
+            return this;
+        }
+
+        /**
+         * Set order
+         * @param order Sort order (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest order(@jakarta.annotation.Nullable String order) {
+            this.order = order;
+            return this;
+        }
+
+        /**
+         * Set evaluationSeverity
+         * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest evaluationSeverity(
+                @jakarta.annotation.Nullable List<String> evaluationSeverity) {
+            this.evaluationSeverity = evaluationSeverity;
+            return this;
+        }
+
+        /**
+         * Set evaluationFlag
+         * @param evaluationFlag Filter by evaluation flag (any of) (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest evaluationFlag(
+                @jakarta.annotation.Nullable List<String> evaluationFlag) {
+            this.evaluationFlag = evaluationFlag;
+            return this;
+        }
+
+        /**
+         * Set feedbackRating
+         * @param feedbackRating Filter by last feedback rating (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest feedbackRating(
+                @jakarta.annotation.Nullable String feedbackRating) {
+            this.feedbackRating = feedbackRating;
+            return this;
+        }
+
+        /**
+         * Set contradicted
+         * @param contradicted Only runs whose feedback or LLM evaluation contradicts the detectors (optional)
+         * @return APIlistAgentRunsRequest
+         */
+        public APIlistAgentRunsRequest contradicted(
+                @jakarta.annotation.Nullable Boolean contradicted) {
+            this.contradicted = contradicted;
+            return this;
+        }
+
+        /**
+         * Build call for listAgentRuns
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Paged agent runs and total count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAgentRunsCall(
+                    id,
+                    status,
+                    interaction,
+                    startedBy,
+                    since,
+                    until,
+                    limit,
+                    offset,
+                    cursor,
+                    scheduleId,
+                    type,
+                    runType,
+                    runKind,
+                    sort,
+                    order,
+                    evaluationSeverity,
+                    evaluationFlag,
+                    feedbackRating,
+                    contradicted,
+                    _callback);
+        }
+
+        /**
+         * Execute listAgentRuns request
+         * @return ListAgentRunsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Paged agent runs and total count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ListAgentRunsResponse execute() throws ApiException {
+            ApiResponse<ListAgentRunsResponse> localVarResp =
+                    listAgentRunsWithHttpInfo(
+                            id,
+                            status,
+                            interaction,
+                            startedBy,
+                            since,
+                            until,
+                            limit,
+                            offset,
+                            cursor,
+                            scheduleId,
+                            type,
+                            runType,
+                            runKind,
+                            sort,
+                            order,
+                            evaluationSeverity,
+                            evaluationFlag,
+                            feedbackRating,
+                            contradicted);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAgentRuns request with HTTP info returned
+         * @return ApiResponse&lt;ListAgentRunsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Paged agent runs and total count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ListAgentRunsResponse> executeWithHttpInfo() throws ApiException {
+            return listAgentRunsWithHttpInfo(
+                    id,
+                    status,
+                    interaction,
+                    startedBy,
+                    since,
+                    until,
+                    limit,
+                    offset,
+                    cursor,
+                    scheduleId,
+                    type,
+                    runType,
+                    runKind,
+                    sort,
+                    order,
+                    evaluationSeverity,
+                    evaluationFlag,
+                    feedbackRating,
+                    contradicted);
+        }
+
+        /**
+         * Execute listAgentRuns request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Paged agent runs and total count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ListAgentRunsResponse> _callback)
+                throws ApiException {
+            return listAgentRunsAsync(
+                    id,
+                    status,
+                    interaction,
+                    startedBy,
+                    since,
+                    until,
+                    limit,
+                    offset,
+                    cursor,
+                    scheduleId,
+                    type,
+                    runType,
+                    runKind,
+                    sort,
+                    order,
+                    evaluationSeverity,
+                    evaluationFlag,
+                    feedbackRating,
+                    contradicted,
+                    _callback);
+        }
     }
 
     /**
      * List agent runs
-     * Calls {@code listAgentRuns} with every optional parameter left unset.
-     * @return ListAgentRunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ListAgentRunsResponse listAgentRuns() throws ApiException {
-        return listAgentRuns(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                null, null, null, null, null);
-    }
-
-    /**
-     * List agent runs
-     * Calls {@code listAgentRunsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ListAgentRunsResponse> listAgentRunsWithHttpInfo() throws ApiException {
-        return listAgentRunsWithHttpInfo(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                null, null, null, null, null);
-    }
-
-    /**
-     * List agent runs (asynchronously)
-     * Calls {@code listAgentRunsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listAgentRunsAsync(final ApiCallback<ListAgentRunsResponse> _callback)
-            throws ApiException {
-        return listAgentRunsAsync(
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for postAgentRunUpdate
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param postAgentRunUpdatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order. Process runs are listed with an empty &#x60;process_state.node_history&#x60;; &#x60;process_state.node_history_ref.count&#x60; gives the number of entries, and &#x60;GET /agents/{agentRunId}/history&#x60; returns them.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @return APIlistAgentRunsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Update publication status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Paged agent runs and total count. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call postAgentRunUpdateCall(
+    public APIlistAgentRunsRequest listAgentRuns() {
+        return new APIlistAgentRunsRequest();
+    }
+
+    private okhttp3.Call postAgentRunUpdateCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload,
             final ApiCallback _callback)
@@ -3952,48 +4359,7 @@ public class AgentRunsApi {
         return postAgentRunUpdateCall(agentRunId, postAgentRunUpdatePayload, _callback);
     }
 
-    /**
-     * Post an agent run update
-     * Publishes a message or update into an agent run&#39;s workflow stream.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param postAgentRunUpdatePayload  (required)
-     * @return PostAgentRunUpdateResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Update publication status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PostAgentRunUpdateResponse postAgentRunUpdate(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload)
-            throws ApiException {
-        ApiResponse<PostAgentRunUpdateResponse> localVarResp =
-                postAgentRunUpdateWithHttpInfo(agentRunId, postAgentRunUpdatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Post an agent run update
-     * Publishes a message or update into an agent run&#39;s workflow stream.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param postAgentRunUpdatePayload  (required)
-     * @return ApiResponse&lt;PostAgentRunUpdateResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Update publication status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PostAgentRunUpdateResponse> postAgentRunUpdateWithHttpInfo(
+    private ApiResponse<PostAgentRunUpdateResponse> postAgentRunUpdateWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload)
             throws ApiException {
@@ -4003,24 +4369,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Post an agent run update (asynchronously)
-     * Publishes a message or update into an agent run&#39;s workflow stream.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param postAgentRunUpdatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Update publication status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call postAgentRunUpdateAsync(
+    private okhttp3.Call postAgentRunUpdateAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload,
             final ApiCallback<PostAgentRunUpdateResponse> _callback)
@@ -4034,23 +4383,115 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIpostAgentRunUpdateRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+
+        @jakarta.annotation.Nonnull
+        private final PostAgentRunUpdatePayload postAgentRunUpdatePayload;
+
+        private APIpostAgentRunUpdateRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload) {
+            this.agentRunId = agentRunId;
+            this.postAgentRunUpdatePayload = postAgentRunUpdatePayload;
+        }
+
+        /**
+         * Build call for postAgentRunUpdate
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Update publication status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return postAgentRunUpdateCall(agentRunId, postAgentRunUpdatePayload, _callback);
+        }
+
+        /**
+         * Execute postAgentRunUpdate request
+         * @return PostAgentRunUpdateResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Update publication status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public PostAgentRunUpdateResponse execute() throws ApiException {
+            ApiResponse<PostAgentRunUpdateResponse> localVarResp =
+                    postAgentRunUpdateWithHttpInfo(agentRunId, postAgentRunUpdatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute postAgentRunUpdate request with HTTP info returned
+         * @return ApiResponse&lt;PostAgentRunUpdateResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Update publication status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<PostAgentRunUpdateResponse> executeWithHttpInfo() throws ApiException {
+            return postAgentRunUpdateWithHttpInfo(agentRunId, postAgentRunUpdatePayload);
+        }
+
+        /**
+         * Execute postAgentRunUpdate request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Update publication status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PostAgentRunUpdateResponse> _callback)
+                throws ApiException {
+            return postAgentRunUpdateAsync(agentRunId, postAgentRunUpdatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for queryAgentRun
+     * Post an agent run update
+     * Publishes a message or update into an agent run&#39;s workflow stream.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param queryName  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param postAgentRunUpdatePayload  (required)
+     * @return APIpostAgentRunUpdateRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Update publication status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call queryAgentRunCall(
+    public APIpostAgentRunUpdateRequest postAgentRunUpdate(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload) {
+        return new APIpostAgentRunUpdateRequest(agentRunId, postAgentRunUpdatePayload);
+    }
+
+    private okhttp3.Call queryAgentRunCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String queryName,
             final ApiCallback _callback)
@@ -4135,47 +4576,7 @@ public class AgentRunsApi {
         return queryAgentRunCall(agentRunId, queryName, _callback);
     }
 
-    /**
-     * Query an agent run
-     * Runs a named query against an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param queryName  (required)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Object queryAgentRun(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String queryName)
-            throws ApiException {
-        ApiResponse<Object> localVarResp = queryAgentRunWithHttpInfo(agentRunId, queryName);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Query an agent run
-     * Runs a named query against an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param queryName  (required)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Object> queryAgentRunWithHttpInfo(
+    private ApiResponse<Object> queryAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String queryName)
             throws ApiException {
@@ -4184,24 +4585,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Query an agent run (asynchronously)
-     * Runs a named query against an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param queryName  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call queryAgentRunAsync(
+    private okhttp3.Call queryAgentRunAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String queryName,
             final ApiCallback<Object> _callback)
@@ -4214,23 +4598,111 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIqueryAgentRunRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final String queryName;
+
+        private APIqueryAgentRunRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull String queryName) {
+            this.agentRunId = agentRunId;
+            this.queryName = queryName;
+        }
+
+        /**
+         * Build call for queryAgentRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return queryAgentRunCall(agentRunId, queryName, _callback);
+        }
+
+        /**
+         * Execute queryAgentRun request
+         * @return Object
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Object execute() throws ApiException {
+            ApiResponse<Object> localVarResp = queryAgentRunWithHttpInfo(agentRunId, queryName);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute queryAgentRun request with HTTP info returned
+         * @return ApiResponse&lt;Object&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
+            return queryAgentRunWithHttpInfo(agentRunId, queryName);
+        }
+
+        /**
+         * Execute queryAgentRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
+            return queryAgentRunAsync(agentRunId, queryName, _callback);
+        }
+    }
+
     /**
-     * Build call for recordAgentRunFeedback
+     * Query an agent run
+     * Runs a named query against an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param agentRunFeedbackPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param queryName  (required)
+     * @return APIqueryAgentRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call recordAgentRunFeedbackCall(
+    public APIqueryAgentRunRequest queryAgentRun(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String queryName) {
+        return new APIqueryAgentRunRequest(agentRunId, queryName);
+    }
+
+    private okhttp3.Call recordAgentRunFeedbackCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload,
             final ApiCallback _callback)
@@ -4312,48 +4784,7 @@ public class AgentRunsApi {
         return recordAgentRunFeedbackCall(agentRunId, agentRunFeedbackPayload, _callback);
     }
 
-    /**
-     * Rate an agent run
-     * Records a thumbs up/down, an optional reason code and an optional comment against an agent run. One active rating per user and scope; a new rating replaces the previous one and a retried &#x60;feedback_id&#x60; is idempotent. The comment stays in the project; only its presence is exported.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param agentRunFeedbackPayload  (required)
-     * @return AgentRunFeedbackResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AgentRunFeedbackResponse recordAgentRunFeedback(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload)
-            throws ApiException {
-        ApiResponse<AgentRunFeedbackResponse> localVarResp =
-                recordAgentRunFeedbackWithHttpInfo(agentRunId, agentRunFeedbackPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Rate an agent run
-     * Records a thumbs up/down, an optional reason code and an optional comment against an agent run. One active rating per user and scope; a new rating replaces the previous one and a retried &#x60;feedback_id&#x60; is idempotent. The comment stays in the project; only its presence is exported.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param agentRunFeedbackPayload  (required)
-     * @return ApiResponse&lt;AgentRunFeedbackResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AgentRunFeedbackResponse> recordAgentRunFeedbackWithHttpInfo(
+    private ApiResponse<AgentRunFeedbackResponse> recordAgentRunFeedbackWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload)
             throws ApiException {
@@ -4363,24 +4794,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Rate an agent run (asynchronously)
-     * Records a thumbs up/down, an optional reason code and an optional comment against an agent run. One active rating per user and scope; a new rating replaces the previous one and a retried &#x60;feedback_id&#x60; is idempotent. The comment stays in the project; only its presence is exported.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param agentRunFeedbackPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call recordAgentRunFeedbackAsync(
+    private okhttp3.Call recordAgentRunFeedbackAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload,
             final ApiCallback<AgentRunFeedbackResponse> _callback)
@@ -4394,23 +4808,113 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIrecordAgentRunFeedbackRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final AgentRunFeedbackPayload agentRunFeedbackPayload;
+
+        private APIrecordAgentRunFeedbackRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload) {
+            this.agentRunId = agentRunId;
+            this.agentRunFeedbackPayload = agentRunFeedbackPayload;
+        }
+
+        /**
+         * Build call for recordAgentRunFeedback
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return recordAgentRunFeedbackCall(agentRunId, agentRunFeedbackPayload, _callback);
+        }
+
+        /**
+         * Execute recordAgentRunFeedback request
+         * @return AgentRunFeedbackResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AgentRunFeedbackResponse execute() throws ApiException {
+            ApiResponse<AgentRunFeedbackResponse> localVarResp =
+                    recordAgentRunFeedbackWithHttpInfo(agentRunId, agentRunFeedbackPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute recordAgentRunFeedback request with HTTP info returned
+         * @return ApiResponse&lt;AgentRunFeedbackResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AgentRunFeedbackResponse> executeWithHttpInfo() throws ApiException {
+            return recordAgentRunFeedbackWithHttpInfo(agentRunId, agentRunFeedbackPayload);
+        }
+
+        /**
+         * Execute recordAgentRunFeedback request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AgentRunFeedbackResponse> _callback)
+                throws ApiException {
+            return recordAgentRunFeedbackAsync(agentRunId, agentRunFeedbackPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for restartAgentRun
+     * Rate an agent run
+     * Records a thumbs up/down, an optional reason code and an optional comment against an agent run. One active rating per user and scope; a new rating replaces the previous one and a retried &#x60;feedback_id&#x60; is idempotent. The comment stays in the project; only its presence is exported.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param restartAgentRunPayload  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param agentRunFeedbackPayload  (required)
+     * @return APIrecordAgentRunFeedbackRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call restartAgentRunCall(
+    public APIrecordAgentRunFeedbackRequest recordAgentRunFeedback(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload) {
+        return new APIrecordAgentRunFeedbackRequest(agentRunId, agentRunFeedbackPayload);
+    }
+
+    private okhttp3.Call restartAgentRunCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable RestartAgentRunPayload restartAgentRunPayload,
             final ApiCallback _callback)
@@ -4486,48 +4990,7 @@ public class AgentRunsApi {
         return restartAgentRunCall(agentRunId, restartAgentRunPayload, _callback);
     }
 
-    /**
-     * Restart an agent run
-     * Restarts a stopped, failed, or completed agent run by launching a new workflow that loads the previous conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param restartAgentRunPayload  (optional)
-     * @return AgentRun
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AgentRun restartAgentRun(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nullable RestartAgentRunPayload restartAgentRunPayload)
-            throws ApiException {
-        ApiResponse<AgentRun> localVarResp =
-                restartAgentRunWithHttpInfo(agentRunId, restartAgentRunPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Restart an agent run
-     * Restarts a stopped, failed, or completed agent run by launching a new workflow that loads the previous conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param restartAgentRunPayload  (optional)
-     * @return ApiResponse&lt;AgentRun&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AgentRun> restartAgentRunWithHttpInfo(
+    private ApiResponse<AgentRun> restartAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable RestartAgentRunPayload restartAgentRunPayload)
             throws ApiException {
@@ -4537,24 +5000,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Restart an agent run (asynchronously)
-     * Restarts a stopped, failed, or completed agent run by launching a new workflow that loads the previous conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param restartAgentRunPayload  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call restartAgentRunAsync(
+    private okhttp3.Call restartAgentRunAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable RestartAgentRunPayload restartAgentRunPayload,
             final ApiCallback<AgentRun> _callback)
@@ -4567,75 +5013,119 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for restartAgentRun with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call restartAgentRunCall(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
-            throws ApiException {
-        return restartAgentRunCall(agentRunId, null, _callback);
+    public class APIrestartAgentRunRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nullable private RestartAgentRunPayload restartAgentRunPayload;
+
+        private APIrestartAgentRunRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Set restartAgentRunPayload
+         * @param restartAgentRunPayload  (optional)
+         * @return APIrestartAgentRunRequest
+         */
+        public APIrestartAgentRunRequest restartAgentRunPayload(
+                @jakarta.annotation.Nullable RestartAgentRunPayload restartAgentRunPayload) {
+            this.restartAgentRunPayload = restartAgentRunPayload;
+            return this;
+        }
+
+        /**
+         * Build call for restartAgentRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return restartAgentRunCall(agentRunId, restartAgentRunPayload, _callback);
+        }
+
+        /**
+         * Execute restartAgentRun request
+         * @return AgentRun
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AgentRun execute() throws ApiException {
+            ApiResponse<AgentRun> localVarResp =
+                    restartAgentRunWithHttpInfo(agentRunId, restartAgentRunPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute restartAgentRun request with HTTP info returned
+         * @return ApiResponse&lt;AgentRun&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AgentRun> executeWithHttpInfo() throws ApiException {
+            return restartAgentRunWithHttpInfo(agentRunId, restartAgentRunPayload);
+        }
+
+        /**
+         * Execute restartAgentRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AgentRun> _callback)
+                throws ApiException {
+            return restartAgentRunAsync(agentRunId, restartAgentRunPayload, _callback);
+        }
     }
 
     /**
      * Restart an agent run
-     * Calls {@code restartAgentRun} with every optional parameter left unset.
+     * Restarts a stopped, failed, or completed agent run by launching a new workflow that loads the previous conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return AgentRun
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public AgentRun restartAgentRun(@jakarta.annotation.Nonnull String agentRunId)
-            throws ApiException {
-        return restartAgentRun(agentRunId, null);
-    }
-
-    /**
-     * Restart an agent run
-     * Calls {@code restartAgentRunWithHttpInfo} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<AgentRun> restartAgentRunWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        return restartAgentRunWithHttpInfo(agentRunId, null);
-    }
-
-    /**
-     * Restart an agent run (asynchronously)
-     * Calls {@code restartAgentRunAsync} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call restartAgentRunAsync(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback<AgentRun> _callback)
-            throws ApiException {
-        return restartAgentRunAsync(agentRunId, null, _callback);
-    }
-
-    /**
-     * Build call for retryProcessNode
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param retryProcessNodePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIrestartAgentRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call retryProcessNodeCall(
+    public APIrestartAgentRunRequest restartAgentRun(
+            @jakarta.annotation.Nonnull String agentRunId) {
+        return new APIrestartAgentRunRequest(agentRunId);
+    }
+
+    private okhttp3.Call retryProcessNodeCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull RetryProcessNodePayload retryProcessNodePayload,
             final ApiCallback _callback)
@@ -4717,50 +5207,7 @@ public class AgentRunsApi {
         return retryProcessNodeCall(agentRunId, retryProcessNodePayload, _callback);
     }
 
-    /**
-     * Retry a process node
-     * Signals a process workflow to retry the current node or a requested node, re-entering the node with the current process context.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param retryProcessNodePayload  (required)
-     * @return SignalAgentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SignalAgentResponse retryProcessNode(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull RetryProcessNodePayload retryProcessNodePayload)
-            throws ApiException {
-        ApiResponse<SignalAgentResponse> localVarResp =
-                retryProcessNodeWithHttpInfo(agentRunId, retryProcessNodePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retry a process node
-     * Signals a process workflow to retry the current node or a requested node, re-entering the node with the current process context.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param retryProcessNodePayload  (required)
-     * @return ApiResponse&lt;SignalAgentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SignalAgentResponse> retryProcessNodeWithHttpInfo(
+    private ApiResponse<SignalAgentResponse> retryProcessNodeWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull RetryProcessNodePayload retryProcessNodePayload)
             throws ApiException {
@@ -4770,25 +5217,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retry a process node (asynchronously)
-     * Signals a process workflow to retry the current node or a requested node, re-entering the node with the current process context.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param retryProcessNodePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call retryProcessNodeAsync(
+    private okhttp3.Call retryProcessNodeAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull RetryProcessNodePayload retryProcessNodePayload,
             final ApiCallback<SignalAgentResponse> _callback)
@@ -4801,34 +5230,118 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIretryProcessNodeRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final RetryProcessNodePayload retryProcessNodePayload;
+
+        private APIretryProcessNodeRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull RetryProcessNodePayload retryProcessNodePayload) {
+            this.agentRunId = agentRunId;
+            this.retryProcessNodePayload = retryProcessNodePayload;
+        }
+
+        /**
+         * Build call for retryProcessNode
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return retryProcessNodeCall(agentRunId, retryProcessNodePayload, _callback);
+        }
+
+        /**
+         * Execute retryProcessNode request
+         * @return SignalAgentResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SignalAgentResponse execute() throws ApiException {
+            ApiResponse<SignalAgentResponse> localVarResp =
+                    retryProcessNodeWithHttpInfo(agentRunId, retryProcessNodePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute retryProcessNode request with HTTP info returned
+         * @return ApiResponse&lt;SignalAgentResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SignalAgentResponse> executeWithHttpInfo() throws ApiException {
+            return retryProcessNodeWithHttpInfo(agentRunId, retryProcessNodePayload);
+        }
+
+        /**
+         * Execute retryProcessNode request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SignalAgentResponse> _callback)
+                throws ApiException {
+            return retryProcessNodeAsync(agentRunId, retryProcessNodePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for searchAgentRuns
-     * @param query Full-text search across name, title, topic, interaction_name, and content (optional)
-     * @param status Filter by status (single or multiple) (optional)
-     * @param interaction Filter by interaction ID or code (optional)
-     * @param startedBy Filter by user who started the run (optional)
-     * @param categories Filter by categories (optional)
-     * @param tags Filter by tags (optional)
-     * @param contentTypeName Filter by content type name (optional)
-     * @param runType Filter by public runtime mode (optional)
-     * @param since Only return runs started after this date (optional)
-     * @param until Only return runs started at or before this date (optional)
-     * @param limit Maximum number of results (default: 50) (optional)
-     * @param offset Offset for pagination (optional)
-     * @param sort Multi-field sort. Each item has the form &#x60;field&#x60; or &#x60;field:order&#x60;, where   field is one of: &#x60;started_at&#x60;, &#x60;updated_at&#x60;   order is one of: &#x60;asc&#x60;, &#x60;desc&#x60; (default: &#x60;desc&#x60;) The first item is the primary sort; subsequent items are tie-breakers. Example: &#x60;[&#39;updated_at:desc&#39;, &#39;started_at:asc&#39;]&#x60;. Defaults to &#x60;[&#39;started_at:desc&#39;]&#x60; when omitted. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retry a process node
+     * Signals a process workflow to retry the current node or a requested node, re-entering the node with the current process context.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param retryProcessNodePayload  (required)
+     * @return APIretryProcessNodeRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search hits and total count. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call searchAgentRunsCall(
+    public APIretryProcessNodeRequest retryProcessNode(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull RetryProcessNodePayload retryProcessNodePayload) {
+        return new APIretryProcessNodeRequest(agentRunId, retryProcessNodePayload);
+    }
+
+    private okhttp3.Call searchAgentRunsCall(
             @jakarta.annotation.Nullable String query,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable String interaction,
@@ -4989,94 +5502,7 @@ public class AgentRunsApi {
                 _callback);
     }
 
-    /**
-     * Search agent runs
-     * Searches indexed agent runs with full-text query support and filters for status, interaction, starter, categories, tags, content type, and date range.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param query Full-text search across name, title, topic, interaction_name, and content (optional)
-     * @param status Filter by status (single or multiple) (optional)
-     * @param interaction Filter by interaction ID or code (optional)
-     * @param startedBy Filter by user who started the run (optional)
-     * @param categories Filter by categories (optional)
-     * @param tags Filter by tags (optional)
-     * @param contentTypeName Filter by content type name (optional)
-     * @param runType Filter by public runtime mode (optional)
-     * @param since Only return runs started after this date (optional)
-     * @param until Only return runs started at or before this date (optional)
-     * @param limit Maximum number of results (default: 50) (optional)
-     * @param offset Offset for pagination (optional)
-     * @param sort Multi-field sort. Each item has the form &#x60;field&#x60; or &#x60;field:order&#x60;, where   field is one of: &#x60;started_at&#x60;, &#x60;updated_at&#x60;   order is one of: &#x60;asc&#x60;, &#x60;desc&#x60; (default: &#x60;desc&#x60;) The first item is the primary sort; subsequent items are tie-breakers. Example: &#x60;[&#39;updated_at:desc&#39;, &#39;started_at:asc&#39;]&#x60;. Defaults to &#x60;[&#39;started_at:desc&#39;]&#x60; when omitted. (optional)
-     * @return SearchAgentRunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search hits and total count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SearchAgentRunsResponse searchAgentRuns(
-            @jakarta.annotation.Nullable String query,
-            @jakarta.annotation.Nullable List<String> status,
-            @jakarta.annotation.Nullable String interaction,
-            @jakarta.annotation.Nullable String startedBy,
-            @jakarta.annotation.Nullable List<String> categories,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable String contentTypeName,
-            @jakarta.annotation.Nullable List<String> runType,
-            @jakarta.annotation.Nullable OffsetDateTime since,
-            @jakarta.annotation.Nullable OffsetDateTime until,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable List<String> sort)
-            throws ApiException {
-        ApiResponse<SearchAgentRunsResponse> localVarResp =
-                searchAgentRunsWithHttpInfo(
-                        query,
-                        status,
-                        interaction,
-                        startedBy,
-                        categories,
-                        tags,
-                        contentTypeName,
-                        runType,
-                        since,
-                        until,
-                        limit,
-                        offset,
-                        sort);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Search agent runs
-     * Searches indexed agent runs with full-text query support and filters for status, interaction, starter, categories, tags, content type, and date range.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param query Full-text search across name, title, topic, interaction_name, and content (optional)
-     * @param status Filter by status (single or multiple) (optional)
-     * @param interaction Filter by interaction ID or code (optional)
-     * @param startedBy Filter by user who started the run (optional)
-     * @param categories Filter by categories (optional)
-     * @param tags Filter by tags (optional)
-     * @param contentTypeName Filter by content type name (optional)
-     * @param runType Filter by public runtime mode (optional)
-     * @param since Only return runs started after this date (optional)
-     * @param until Only return runs started at or before this date (optional)
-     * @param limit Maximum number of results (default: 50) (optional)
-     * @param offset Offset for pagination (optional)
-     * @param sort Multi-field sort. Each item has the form &#x60;field&#x60; or &#x60;field:order&#x60;, where   field is one of: &#x60;started_at&#x60;, &#x60;updated_at&#x60;   order is one of: &#x60;asc&#x60;, &#x60;desc&#x60; (default: &#x60;desc&#x60;) The first item is the primary sort; subsequent items are tie-breakers. Example: &#x60;[&#39;updated_at:desc&#39;, &#39;started_at:asc&#39;]&#x60;. Defaults to &#x60;[&#39;started_at:desc&#39;]&#x60; when omitted. (optional)
-     * @return ApiResponse&lt;SearchAgentRunsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search hits and total count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SearchAgentRunsResponse> searchAgentRunsWithHttpInfo(
+    private ApiResponse<SearchAgentRunsResponse> searchAgentRunsWithHttpInfo(
             @jakarta.annotation.Nullable String query,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable String interaction,
@@ -5111,35 +5537,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Search agent runs (asynchronously)
-     * Searches indexed agent runs with full-text query support and filters for status, interaction, starter, categories, tags, content type, and date range.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param query Full-text search across name, title, topic, interaction_name, and content (optional)
-     * @param status Filter by status (single or multiple) (optional)
-     * @param interaction Filter by interaction ID or code (optional)
-     * @param startedBy Filter by user who started the run (optional)
-     * @param categories Filter by categories (optional)
-     * @param tags Filter by tags (optional)
-     * @param contentTypeName Filter by content type name (optional)
-     * @param runType Filter by public runtime mode (optional)
-     * @param since Only return runs started after this date (optional)
-     * @param until Only return runs started at or before this date (optional)
-     * @param limit Maximum number of results (default: 50) (optional)
-     * @param offset Offset for pagination (optional)
-     * @param sort Multi-field sort. Each item has the form &#x60;field&#x60; or &#x60;field:order&#x60;, where   field is one of: &#x60;started_at&#x60;, &#x60;updated_at&#x60;   order is one of: &#x60;asc&#x60;, &#x60;desc&#x60; (default: &#x60;desc&#x60;) The first item is the primary sort; subsequent items are tie-breakers. Example: &#x60;[&#39;updated_at:desc&#39;, &#39;started_at:asc&#39;]&#x60;. Defaults to &#x60;[&#39;started_at:desc&#39;]&#x60; when omitted. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Search hits and total count. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call searchAgentRunsAsync(
+    private okhttp3.Call searchAgentRunsAsync(
             @jakarta.annotation.Nullable String query,
             @jakarta.annotation.Nullable List<String> status,
             @jakarta.annotation.Nullable String interaction,
@@ -5177,73 +5575,303 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for searchAgentRuns with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call searchAgentRunsCall(final ApiCallback _callback) throws ApiException {
-        return searchAgentRunsCall(
-                null, null, null, null, null, null, null, null, null, null, null, null, null,
-                _callback);
+    public class APIsearchAgentRunsRequest {
+        @jakarta.annotation.Nullable private String query;
+        @jakarta.annotation.Nullable private List<String> status;
+        @jakarta.annotation.Nullable private String interaction;
+        @jakarta.annotation.Nullable private String startedBy;
+        @jakarta.annotation.Nullable private List<String> categories;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private String contentTypeName;
+        @jakarta.annotation.Nullable private List<String> runType;
+        @jakarta.annotation.Nullable private OffsetDateTime since;
+        @jakarta.annotation.Nullable private OffsetDateTime until;
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private BigDecimal offset;
+        @jakarta.annotation.Nullable private List<String> sort;
+
+        private APIsearchAgentRunsRequest() {}
+
+        /**
+         * Set query
+         * @param query Full-text search across name, title, topic, interaction_name, and content (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest query(@jakarta.annotation.Nullable String query) {
+            this.query = query;
+            return this;
+        }
+
+        /**
+         * Set status
+         * @param status Filter by status (single or multiple) (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest status(@jakarta.annotation.Nullable List<String> status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Set interaction
+         * @param interaction Filter by interaction ID or code (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest interaction(
+                @jakarta.annotation.Nullable String interaction) {
+            this.interaction = interaction;
+            return this;
+        }
+
+        /**
+         * Set startedBy
+         * @param startedBy Filter by user who started the run (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest startedBy(@jakarta.annotation.Nullable String startedBy) {
+            this.startedBy = startedBy;
+            return this;
+        }
+
+        /**
+         * Set categories
+         * @param categories Filter by categories (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest categories(
+                @jakarta.annotation.Nullable List<String> categories) {
+            this.categories = categories;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags Filter by tags (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest tags(@jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set contentTypeName
+         * @param contentTypeName Filter by content type name (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest contentTypeName(
+                @jakarta.annotation.Nullable String contentTypeName) {
+            this.contentTypeName = contentTypeName;
+            return this;
+        }
+
+        /**
+         * Set runType
+         * @param runType Filter by public runtime mode (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest runType(
+                @jakarta.annotation.Nullable List<String> runType) {
+            this.runType = runType;
+            return this;
+        }
+
+        /**
+         * Set since
+         * @param since Only return runs started after this date (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest since(@jakarta.annotation.Nullable OffsetDateTime since) {
+            this.since = since;
+            return this;
+        }
+
+        /**
+         * Set until
+         * @param until Only return runs started at or before this date (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest until(@jakarta.annotation.Nullable OffsetDateTime until) {
+            this.until = until;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit Maximum number of results (default: 50) (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest limit(@jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set offset
+         * @param offset Offset for pagination (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest offset(@jakarta.annotation.Nullable BigDecimal offset) {
+            this.offset = offset;
+            return this;
+        }
+
+        /**
+         * Set sort
+         * @param sort Multi-field sort. Each item has the form &#x60;field&#x60; or &#x60;field:order&#x60;, where   field is one of: &#x60;started_at&#x60;, &#x60;updated_at&#x60;   order is one of: &#x60;asc&#x60;, &#x60;desc&#x60; (default: &#x60;desc&#x60;) The first item is the primary sort; subsequent items are tie-breakers. Example: &#x60;[&#39;updated_at:desc&#39;, &#39;started_at:asc&#39;]&#x60;. Defaults to &#x60;[&#39;started_at:desc&#39;]&#x60; when omitted. (optional)
+         * @return APIsearchAgentRunsRequest
+         */
+        public APIsearchAgentRunsRequest sort(@jakarta.annotation.Nullable List<String> sort) {
+            this.sort = sort;
+            return this;
+        }
+
+        /**
+         * Build call for searchAgentRuns
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search hits and total count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return searchAgentRunsCall(
+                    query,
+                    status,
+                    interaction,
+                    startedBy,
+                    categories,
+                    tags,
+                    contentTypeName,
+                    runType,
+                    since,
+                    until,
+                    limit,
+                    offset,
+                    sort,
+                    _callback);
+        }
+
+        /**
+         * Execute searchAgentRuns request
+         * @return SearchAgentRunsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search hits and total count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SearchAgentRunsResponse execute() throws ApiException {
+            ApiResponse<SearchAgentRunsResponse> localVarResp =
+                    searchAgentRunsWithHttpInfo(
+                            query,
+                            status,
+                            interaction,
+                            startedBy,
+                            categories,
+                            tags,
+                            contentTypeName,
+                            runType,
+                            since,
+                            until,
+                            limit,
+                            offset,
+                            sort);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute searchAgentRuns request with HTTP info returned
+         * @return ApiResponse&lt;SearchAgentRunsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search hits and total count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SearchAgentRunsResponse> executeWithHttpInfo() throws ApiException {
+            return searchAgentRunsWithHttpInfo(
+                    query,
+                    status,
+                    interaction,
+                    startedBy,
+                    categories,
+                    tags,
+                    contentTypeName,
+                    runType,
+                    since,
+                    until,
+                    limit,
+                    offset,
+                    sort);
+        }
+
+        /**
+         * Execute searchAgentRuns request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Search hits and total count. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SearchAgentRunsResponse> _callback)
+                throws ApiException {
+            return searchAgentRunsAsync(
+                    query,
+                    status,
+                    interaction,
+                    startedBy,
+                    categories,
+                    tags,
+                    contentTypeName,
+                    runType,
+                    since,
+                    until,
+                    limit,
+                    offset,
+                    sort,
+                    _callback);
+        }
     }
 
     /**
      * Search agent runs
-     * Calls {@code searchAgentRuns} with every optional parameter left unset.
-     * @return SearchAgentRunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public SearchAgentRunsResponse searchAgentRuns() throws ApiException {
-        return searchAgentRuns(
-                null, null, null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * Search agent runs
-     * Calls {@code searchAgentRunsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<SearchAgentRunsResponse> searchAgentRunsWithHttpInfo() throws ApiException {
-        return searchAgentRunsWithHttpInfo(
-                null, null, null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * Search agent runs (asynchronously)
-     * Calls {@code searchAgentRunsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call searchAgentRunsAsync(final ApiCallback<SearchAgentRunsResponse> _callback)
-            throws ApiException {
-        return searchAgentRunsAsync(
-                null, null, null, null, null, null, null, null, null, null, null, null, null,
-                _callback);
-    }
-
-    /**
-     * Build call for signalAgentRun
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param signalName  (required)
-     * @param requestBody  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Searches indexed agent runs with full-text query support and filters for status, interaction, starter, categories, tags, content type, and date range.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @return APIsearchAgentRunsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Search hits and total count. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call signalAgentRunCall(
+    public APIsearchAgentRunsRequest searchAgentRuns() {
+        return new APIsearchAgentRunsRequest();
+    }
+
+    private okhttp3.Call signalAgentRunCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String signalName,
             @jakarta.annotation.Nullable Map<String, Object> requestBody,
@@ -5330,53 +5958,7 @@ public class AgentRunsApi {
         return signalAgentRunCall(agentRunId, signalName, requestBody, _callback);
     }
 
-    /**
-     * Signal an agent run
-     * Sends a named signal to an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param signalName  (required)
-     * @param requestBody  (optional)
-     * @return SignalAgentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SignalAgentResponse signalAgentRun(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String signalName,
-            @jakarta.annotation.Nullable Map<String, Object> requestBody)
-            throws ApiException {
-        ApiResponse<SignalAgentResponse> localVarResp =
-                signalAgentRunWithHttpInfo(agentRunId, signalName, requestBody);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Signal an agent run
-     * Sends a named signal to an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param signalName  (required)
-     * @param requestBody  (optional)
-     * @return ApiResponse&lt;SignalAgentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SignalAgentResponse> signalAgentRunWithHttpInfo(
+    private ApiResponse<SignalAgentResponse> signalAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String signalName,
             @jakarta.annotation.Nullable Map<String, Object> requestBody)
@@ -5387,26 +5969,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Signal an agent run (asynchronously)
-     * Sends a named signal to an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param signalName  (required)
-     * @param requestBody  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call signalAgentRunAsync(
+    private okhttp3.Call signalAgentRunAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String signalName,
             @jakarta.annotation.Nullable Map<String, Object> requestBody,
@@ -5420,87 +5983,130 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for signalAgentRun with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param signalName  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call signalAgentRunCall(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String signalName,
-            final ApiCallback _callback)
-            throws ApiException {
-        return signalAgentRunCall(agentRunId, signalName, null, _callback);
+    public class APIsignalAgentRunRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final String signalName;
+        @jakarta.annotation.Nullable private Map<String, Object> requestBody;
+
+        private APIsignalAgentRunRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull String signalName) {
+            this.agentRunId = agentRunId;
+            this.signalName = signalName;
+        }
+
+        /**
+         * Set requestBody
+         * @param requestBody  (optional)
+         * @return APIsignalAgentRunRequest
+         */
+        public APIsignalAgentRunRequest requestBody(
+                @jakarta.annotation.Nullable Map<String, Object> requestBody) {
+            this.requestBody = requestBody;
+            return this;
+        }
+
+        /**
+         * Build call for signalAgentRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return signalAgentRunCall(agentRunId, signalName, requestBody, _callback);
+        }
+
+        /**
+         * Execute signalAgentRun request
+         * @return SignalAgentResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SignalAgentResponse execute() throws ApiException {
+            ApiResponse<SignalAgentResponse> localVarResp =
+                    signalAgentRunWithHttpInfo(agentRunId, signalName, requestBody);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute signalAgentRun request with HTTP info returned
+         * @return ApiResponse&lt;SignalAgentResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SignalAgentResponse> executeWithHttpInfo() throws ApiException {
+            return signalAgentRunWithHttpInfo(agentRunId, signalName, requestBody);
+        }
+
+        /**
+         * Execute signalAgentRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SignalAgentResponse> _callback)
+                throws ApiException {
+            return signalAgentRunAsync(agentRunId, signalName, requestBody, _callback);
+        }
     }
 
     /**
      * Signal an agent run
-     * Calls {@code signalAgentRun} with every optional parameter left unset.
+     * Sends a named signal to an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param signalName  (required)
-     * @return SignalAgentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public SignalAgentResponse signalAgentRun(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String signalName)
-            throws ApiException {
-        return signalAgentRun(agentRunId, signalName, null);
-    }
-
-    /**
-     * Signal an agent run
-     * Calls {@code signalAgentRunWithHttpInfo} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param signalName  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<SignalAgentResponse> signalAgentRunWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String signalName)
-            throws ApiException {
-        return signalAgentRunWithHttpInfo(agentRunId, signalName, null);
-    }
-
-    /**
-     * Signal an agent run (asynchronously)
-     * Calls {@code signalAgentRunAsync} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param signalName  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call signalAgentRunAsync(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String signalName,
-            final ApiCallback<SignalAgentResponse> _callback)
-            throws ApiException {
-        return signalAgentRunAsync(agentRunId, signalName, null, _callback);
-    }
-
-    /**
-     * Build call for streamAgentRun
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param since  (optional)
-     * @param skipHistory  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIsignalAgentRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent agent run message events. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call streamAgentRunCall(
+    public APIsignalAgentRunRequest signalAgentRun(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String signalName) {
+        return new APIsignalAgentRunRequest(agentRunId, signalName);
+    }
+
+    private okhttp3.Call streamAgentRunCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable BigDecimal since,
             @jakarta.annotation.Nullable Boolean skipHistory,
@@ -5587,51 +6193,7 @@ public class AgentRunsApi {
         return streamAgentRunCall(agentRunId, since, skipHistory, _callback);
     }
 
-    /**
-     * Stream an agent run
-     * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param since  (optional)
-     * @param skipHistory  (optional)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent agent run message events. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public String streamAgentRun(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nullable BigDecimal since,
-            @jakarta.annotation.Nullable Boolean skipHistory)
-            throws ApiException {
-        ApiResponse<String> localVarResp =
-                streamAgentRunWithHttpInfo(agentRunId, since, skipHistory);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Stream an agent run
-     * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param since  (optional)
-     * @param skipHistory  (optional)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent agent run message events. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<String> streamAgentRunWithHttpInfo(
+    private ApiResponse<String> streamAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable BigDecimal since,
             @jakarta.annotation.Nullable Boolean skipHistory)
@@ -5642,25 +6204,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Stream an agent run (asynchronously)
-     * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param since  (optional)
-     * @param skipHistory  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent agent run message events. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call streamAgentRunAsync(
+    private okhttp3.Call streamAgentRunAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable BigDecimal since,
             @jakarta.annotation.Nullable Boolean skipHistory,
@@ -5674,73 +6218,128 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for streamAgentRun with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call streamAgentRunCall(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
-            throws ApiException {
-        return streamAgentRunCall(agentRunId, null, null, _callback);
+    public class APIstreamAgentRunRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nullable private BigDecimal since;
+        @jakarta.annotation.Nullable private Boolean skipHistory;
+
+        private APIstreamAgentRunRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Set since
+         * @param since  (optional)
+         * @return APIstreamAgentRunRequest
+         */
+        public APIstreamAgentRunRequest since(@jakarta.annotation.Nullable BigDecimal since) {
+            this.since = since;
+            return this;
+        }
+
+        /**
+         * Set skipHistory
+         * @param skipHistory  (optional)
+         * @return APIstreamAgentRunRequest
+         */
+        public APIstreamAgentRunRequest skipHistory(
+                @jakarta.annotation.Nullable Boolean skipHistory) {
+            this.skipHistory = skipHistory;
+            return this;
+        }
+
+        /**
+         * Build call for streamAgentRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent agent run message events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return streamAgentRunCall(agentRunId, since, skipHistory, _callback);
+        }
+
+        /**
+         * Execute streamAgentRun request
+         * @return String
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent agent run message events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public String execute() throws ApiException {
+            ApiResponse<String> localVarResp =
+                    streamAgentRunWithHttpInfo(agentRunId, since, skipHistory);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute streamAgentRun request with HTTP info returned
+         * @return ApiResponse&lt;String&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent agent run message events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<String> executeWithHttpInfo() throws ApiException {
+            return streamAgentRunWithHttpInfo(agentRunId, since, skipHistory);
+        }
+
+        /**
+         * Execute streamAgentRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent agent run message events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<String> _callback) throws ApiException {
+            return streamAgentRunAsync(agentRunId, since, skipHistory, _callback);
+        }
     }
 
     /**
      * Stream an agent run
-     * Calls {@code streamAgentRun} with every optional parameter left unset.
+     * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public String streamAgentRun(@jakarta.annotation.Nonnull String agentRunId)
-            throws ApiException {
-        return streamAgentRun(agentRunId, null, null);
-    }
-
-    /**
-     * Stream an agent run
-     * Calls {@code streamAgentRunWithHttpInfo} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> streamAgentRunWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        return streamAgentRunWithHttpInfo(agentRunId, null, null);
-    }
-
-    /**
-     * Stream an agent run (asynchronously)
-     * Calls {@code streamAgentRunAsync} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call streamAgentRunAsync(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback<String> _callback)
-            throws ApiException {
-        return streamAgentRunAsync(agentRunId, null, null, _callback);
-    }
-
-    /**
-     * Build call for streamAgentRunDetails
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIstreamAgentRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent workflow history events. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Server-sent agent run message events. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call streamAgentRunDetailsCall(
+    public APIstreamAgentRunRequest streamAgentRun(@jakarta.annotation.Nonnull String agentRunId) {
+        return new APIstreamAgentRunRequest(agentRunId);
+    }
+
+    private okhttp3.Call streamAgentRunDetailsCall(
             @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5812,66 +6411,14 @@ public class AgentRunsApi {
         return streamAgentRunDetailsCall(agentRunId, _callback);
     }
 
-    /**
-     * Stream agent run details
-     * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent workflow history events. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public String streamAgentRunDetails(@jakarta.annotation.Nonnull String agentRunId)
-            throws ApiException {
-        ApiResponse<String> localVarResp = streamAgentRunDetailsWithHttpInfo(agentRunId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Stream agent run details
-     * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent workflow history events. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<String> streamAgentRunDetailsWithHttpInfo(
+    private ApiResponse<String> streamAgentRunDetailsWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
         okhttp3.Call localVarCall = streamAgentRunDetailsValidateBeforeCall(agentRunId, null);
         Type localVarReturnType = new TypeToken<String>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Stream agent run details (asynchronously)
-     * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent workflow history events. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call streamAgentRunDetailsAsync(
+    private okhttp3.Call streamAgentRunDetailsAsync(
             @jakarta.annotation.Nonnull String agentRunId, final ApiCallback<String> _callback)
             throws ApiException {
 
@@ -5881,23 +6428,105 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
+    public class APIstreamAgentRunDetailsRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+
+        private APIstreamAgentRunDetailsRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Build call for streamAgentRunDetails
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent workflow history events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return streamAgentRunDetailsCall(agentRunId, _callback);
+        }
+
+        /**
+         * Execute streamAgentRunDetails request
+         * @return String
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent workflow history events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public String execute() throws ApiException {
+            ApiResponse<String> localVarResp = streamAgentRunDetailsWithHttpInfo(agentRunId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute streamAgentRunDetails request with HTTP info returned
+         * @return ApiResponse&lt;String&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent workflow history events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<String> executeWithHttpInfo() throws ApiException {
+            return streamAgentRunDetailsWithHttpInfo(agentRunId);
+        }
+
+        /**
+         * Execute streamAgentRunDetails request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent workflow history events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<String> _callback) throws ApiException {
+            return streamAgentRunDetailsAsync(agentRunId, _callback);
+        }
+    }
+
     /**
-     * Build call for terminateAgentRun
+     * Stream agent run details
+     * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param reason Why the run is being terminated. Takes precedence over a &#x60;reason&#x60; in the body. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIstreamAgentRunDetailsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Termination confirmation. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Server-sent workflow history events. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call terminateAgentRunCall(
+    public APIstreamAgentRunDetailsRequest streamAgentRunDetails(
+            @jakarta.annotation.Nonnull String agentRunId) {
+        return new APIstreamAgentRunDetailsRequest(agentRunId);
+    }
+
+    private okhttp3.Call terminateAgentRunCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable String reason,
             final ApiCallback _callback)
@@ -5977,48 +6606,7 @@ public class AgentRunsApi {
         return terminateAgentRunCall(agentRunId, reason, _callback);
     }
 
-    /**
-     * Terminate an agent run
-     * Cancels the backing workflow, marks the agent run as cancelled, and schedules archival.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param reason Why the run is being terminated. Takes precedence over a &#x60;reason&#x60; in the body. (optional)
-     * @return TerminateAgentRunResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Termination confirmation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public TerminateAgentRunResponse terminateAgentRun(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nullable String reason)
-            throws ApiException {
-        ApiResponse<TerminateAgentRunResponse> localVarResp =
-                terminateAgentRunWithHttpInfo(agentRunId, reason);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Terminate an agent run
-     * Cancels the backing workflow, marks the agent run as cancelled, and schedules archival.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param reason Why the run is being terminated. Takes precedence over a &#x60;reason&#x60; in the body. (optional)
-     * @return ApiResponse&lt;TerminateAgentRunResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Termination confirmation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<TerminateAgentRunResponse> terminateAgentRunWithHttpInfo(
+    private ApiResponse<TerminateAgentRunResponse> terminateAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable String reason)
             throws ApiException {
@@ -6027,24 +6615,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Terminate an agent run (asynchronously)
-     * Cancels the backing workflow, marks the agent run as cancelled, and schedules archival.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param reason Why the run is being terminated. Takes precedence over a &#x60;reason&#x60; in the body. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Termination confirmation. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call terminateAgentRunAsync(
+    private okhttp3.Call terminateAgentRunAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nullable String reason,
             final ApiCallback<TerminateAgentRunResponse> _callback)
@@ -6057,76 +6628,118 @@ public class AgentRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for terminateAgentRun with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call terminateAgentRunCall(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback _callback)
-            throws ApiException {
-        return terminateAgentRunCall(agentRunId, null, _callback);
+    public class APIterminateAgentRunRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nullable private String reason;
+
+        private APIterminateAgentRunRequest(@jakarta.annotation.Nonnull String agentRunId) {
+            this.agentRunId = agentRunId;
+        }
+
+        /**
+         * Set reason
+         * @param reason Why the run is being terminated. Takes precedence over a &#x60;reason&#x60; in the body. (optional)
+         * @return APIterminateAgentRunRequest
+         */
+        public APIterminateAgentRunRequest reason(@jakarta.annotation.Nullable String reason) {
+            this.reason = reason;
+            return this;
+        }
+
+        /**
+         * Build call for terminateAgentRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Termination confirmation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return terminateAgentRunCall(agentRunId, reason, _callback);
+        }
+
+        /**
+         * Execute terminateAgentRun request
+         * @return TerminateAgentRunResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Termination confirmation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public TerminateAgentRunResponse execute() throws ApiException {
+            ApiResponse<TerminateAgentRunResponse> localVarResp =
+                    terminateAgentRunWithHttpInfo(agentRunId, reason);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute terminateAgentRun request with HTTP info returned
+         * @return ApiResponse&lt;TerminateAgentRunResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Termination confirmation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<TerminateAgentRunResponse> executeWithHttpInfo() throws ApiException {
+            return terminateAgentRunWithHttpInfo(agentRunId, reason);
+        }
+
+        /**
+         * Execute terminateAgentRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Termination confirmation. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<TerminateAgentRunResponse> _callback)
+                throws ApiException {
+            return terminateAgentRunAsync(agentRunId, reason, _callback);
+        }
     }
 
     /**
      * Terminate an agent run
-     * Calls {@code terminateAgentRun} with every optional parameter left unset.
+     * Cancels the backing workflow, marks the agent run as cancelled, and schedules archival.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return TerminateAgentRunResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public TerminateAgentRunResponse terminateAgentRun(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        return terminateAgentRun(agentRunId, null);
-    }
-
-    /**
-     * Terminate an agent run
-     * Calls {@code terminateAgentRunWithHttpInfo} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<TerminateAgentRunResponse> terminateAgentRunWithHttpInfo(
-            @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        return terminateAgentRunWithHttpInfo(agentRunId, null);
-    }
-
-    /**
-     * Terminate an agent run (asynchronously)
-     * Calls {@code terminateAgentRunAsync} with every optional parameter left unset.
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call terminateAgentRunAsync(
-            @jakarta.annotation.Nonnull String agentRunId,
-            final ApiCallback<TerminateAgentRunResponse> _callback)
-            throws ApiException {
-        return terminateAgentRunAsync(agentRunId, null, _callback);
-    }
-
-    /**
-     * Build call for updateAgentRunArtifactContent
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param updateAgentArtifactContentPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIterminateAgentRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Termination confirmation. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAgentRunArtifactContentCall(
+    public APIterminateAgentRunRequest terminateAgentRun(
+            @jakarta.annotation.Nonnull String agentRunId) {
+        return new APIterminateAgentRunRequest(agentRunId);
+    }
+
+    private okhttp3.Call updateAgentRunArtifactContentCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nonnull
@@ -6222,53 +6835,7 @@ public class AgentRunsApi {
                 agentRunId, path, updateAgentArtifactContentPayload, _callback);
     }
 
-    /**
-     * Update editable agent artifact content
-     * Updates a text artifact only when its blob generation token still matches.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param updateAgentArtifactContentPayload  (required)
-     * @return UpdateAgentArtifactContentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UpdateAgentArtifactContentResponse updateAgentRunArtifactContent(
-            @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String path,
-            @jakarta.annotation.Nonnull
-                    UpdateAgentArtifactContentPayload updateAgentArtifactContentPayload)
-            throws ApiException {
-        ApiResponse<UpdateAgentArtifactContentResponse> localVarResp =
-                updateAgentRunArtifactContentWithHttpInfo(
-                        agentRunId, path, updateAgentArtifactContentPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update editable agent artifact content
-     * Updates a text artifact only when its blob generation token still matches.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param updateAgentArtifactContentPayload  (required)
-     * @return ApiResponse&lt;UpdateAgentArtifactContentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UpdateAgentArtifactContentResponse>
+    private ApiResponse<UpdateAgentArtifactContentResponse>
             updateAgentRunArtifactContentWithHttpInfo(
                     @jakarta.annotation.Nonnull String agentRunId,
                     @jakarta.annotation.Nonnull String path,
@@ -6282,25 +6849,7 @@ public class AgentRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update editable agent artifact content (asynchronously)
-     * Updates a text artifact only when its blob generation token still matches.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
-     * @param path  (required)
-     * @param updateAgentArtifactContentPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call updateAgentRunArtifactContentAsync(
+    private okhttp3.Call updateAgentRunArtifactContentAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String path,
             @jakarta.annotation.Nonnull
@@ -6314,5 +6863,127 @@ public class AgentRunsApi {
         Type localVarReturnType = new TypeToken<UpdateAgentArtifactContentResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateAgentRunArtifactContentRequest {
+        @jakarta.annotation.Nonnull private final String agentRunId;
+        @jakarta.annotation.Nonnull private final String path;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateAgentArtifactContentPayload updateAgentArtifactContentPayload;
+
+        private APIupdateAgentRunArtifactContentRequest(
+                @jakarta.annotation.Nonnull String agentRunId,
+                @jakarta.annotation.Nonnull String path,
+                @jakarta.annotation.Nonnull
+                        UpdateAgentArtifactContentPayload updateAgentArtifactContentPayload) {
+            this.agentRunId = agentRunId;
+            this.path = path;
+            this.updateAgentArtifactContentPayload = updateAgentArtifactContentPayload;
+        }
+
+        /**
+         * Build call for updateAgentRunArtifactContent
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateAgentRunArtifactContentCall(
+                    agentRunId, path, updateAgentArtifactContentPayload, _callback);
+        }
+
+        /**
+         * Execute updateAgentRunArtifactContent request
+         * @return UpdateAgentArtifactContentResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public UpdateAgentArtifactContentResponse execute() throws ApiException {
+            ApiResponse<UpdateAgentArtifactContentResponse> localVarResp =
+                    updateAgentRunArtifactContentWithHttpInfo(
+                            agentRunId, path, updateAgentArtifactContentPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateAgentRunArtifactContent request with HTTP info returned
+         * @return ApiResponse&lt;UpdateAgentArtifactContentResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<UpdateAgentArtifactContentResponse> executeWithHttpInfo()
+                throws ApiException {
+            return updateAgentRunArtifactContentWithHttpInfo(
+                    agentRunId, path, updateAgentArtifactContentPayload);
+        }
+
+        /**
+         * Execute updateAgentRunArtifactContent request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<UpdateAgentArtifactContentResponse> _callback)
+                throws ApiException {
+            return updateAgentRunArtifactContentAsync(
+                    agentRunId, path, updateAgentArtifactContentPayload, _callback);
+        }
+    }
+
+    /**
+     * Update editable agent artifact content
+     * Updates a text artifact only when its blob generation token still matches.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
+     * @param path  (required)
+     * @param updateAgentArtifactContentPayload  (required)
+     * @return APIupdateAgentRunArtifactContentRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateAgentRunArtifactContentRequest updateAgentRunArtifactContent(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nonnull
+                    UpdateAgentArtifactContentPayload updateAgentArtifactContentPayload) {
+        return new APIupdateAgentRunArtifactContentRequest(
+                agentRunId, path, updateAgentArtifactContentPayload);
     }
 }

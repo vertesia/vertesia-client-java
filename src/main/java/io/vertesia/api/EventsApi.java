@@ -69,22 +69,7 @@ public class EventsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for cancelEventDeliveryIntents
-     * @param cancelEventDeliveryIntentsPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call cancelEventDeliveryIntentsCall(
+    private okhttp3.Call cancelEventDeliveryIntentsCall(
             @jakarta.annotation.Nonnull
                     CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload,
             final ApiCallback _callback)
@@ -156,46 +141,7 @@ public class EventsApi {
         return cancelEventDeliveryIntentsCall(cancelEventDeliveryIntentsPayload, _callback);
     }
 
-    /**
-     * Cancel queued event delivery intents
-     * Cancels matching pending and retrying delivery intents for the current project and deployment environment through a server-side watermark. Active deliveries and later events are not changed.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param cancelEventDeliveryIntentsPayload  (required)
-     * @return CancelEventDeliveryIntentsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CancelEventDeliveryIntentsResponse cancelEventDeliveryIntents(
-            @jakarta.annotation.Nonnull
-                    CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload)
-            throws ApiException {
-        ApiResponse<CancelEventDeliveryIntentsResponse> localVarResp =
-                cancelEventDeliveryIntentsWithHttpInfo(cancelEventDeliveryIntentsPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Cancel queued event delivery intents
-     * Cancels matching pending and retrying delivery intents for the current project and deployment environment through a server-side watermark. Active deliveries and later events are not changed.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param cancelEventDeliveryIntentsPayload  (required)
-     * @return ApiResponse&lt;CancelEventDeliveryIntentsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CancelEventDeliveryIntentsResponse> cancelEventDeliveryIntentsWithHttpInfo(
+    private ApiResponse<CancelEventDeliveryIntentsResponse> cancelEventDeliveryIntentsWithHttpInfo(
             @jakarta.annotation.Nonnull
                     CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload)
             throws ApiException {
@@ -206,23 +152,7 @@ public class EventsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Cancel queued event delivery intents (asynchronously)
-     * Cancels matching pending and retrying delivery intents for the current project and deployment environment through a server-side watermark. Active deliveries and later events are not changed.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param cancelEventDeliveryIntentsPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call cancelEventDeliveryIntentsAsync(
+    private okhttp3.Call cancelEventDeliveryIntentsAsync(
             @jakarta.annotation.Nonnull
                     CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload,
             final ApiCallback<CancelEventDeliveryIntentsResponse> _callback)
@@ -236,22 +166,113 @@ public class EventsApi {
         return localVarCall;
     }
 
+    public class APIcancelEventDeliveryIntentsRequest {
+        @jakarta.annotation.Nonnull
+        private final CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload;
+
+        private APIcancelEventDeliveryIntentsRequest(
+                @jakarta.annotation.Nonnull
+                        CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload) {
+            this.cancelEventDeliveryIntentsPayload = cancelEventDeliveryIntentsPayload;
+        }
+
+        /**
+         * Build call for cancelEventDeliveryIntents
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return cancelEventDeliveryIntentsCall(cancelEventDeliveryIntentsPayload, _callback);
+        }
+
+        /**
+         * Execute cancelEventDeliveryIntents request
+         * @return CancelEventDeliveryIntentsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CancelEventDeliveryIntentsResponse execute() throws ApiException {
+            ApiResponse<CancelEventDeliveryIntentsResponse> localVarResp =
+                    cancelEventDeliveryIntentsWithHttpInfo(cancelEventDeliveryIntentsPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute cancelEventDeliveryIntents request with HTTP info returned
+         * @return ApiResponse&lt;CancelEventDeliveryIntentsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CancelEventDeliveryIntentsResponse> executeWithHttpInfo()
+                throws ApiException {
+            return cancelEventDeliveryIntentsWithHttpInfo(cancelEventDeliveryIntentsPayload);
+        }
+
+        /**
+         * Execute cancelEventDeliveryIntents request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<CancelEventDeliveryIntentsResponse> _callback)
+                throws ApiException {
+            return cancelEventDeliveryIntentsAsync(cancelEventDeliveryIntentsPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getEventDeliveryQueueSummary
-     * @param eventDeliveryQueueSummaryPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Cancel queued event delivery intents
+     * Cancels matching pending and retrying delivery intents for the current project and deployment environment through a server-side watermark. Active deliveries and later events are not changed.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param cancelEventDeliveryIntentsPayload  (required)
+     * @return APIcancelEventDeliveryIntentsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current event delivery queue state. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getEventDeliveryQueueSummaryCall(
+    public APIcancelEventDeliveryIntentsRequest cancelEventDeliveryIntents(
+            @jakarta.annotation.Nonnull
+                    CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload) {
+        return new APIcancelEventDeliveryIntentsRequest(cancelEventDeliveryIntentsPayload);
+    }
+
+    private okhttp3.Call getEventDeliveryQueueSummaryCall(
             @jakarta.annotation.Nonnull
                     EventDeliveryQueueSummaryPayload eventDeliveryQueueSummaryPayload,
             final ApiCallback _callback)
@@ -323,46 +344,7 @@ public class EventsApi {
         return getEventDeliveryQueueSummaryCall(eventDeliveryQueueSummaryPayload, _callback);
     }
 
-    /**
-     * Get event delivery queue summary
-     * Summarizes outbox routing backlog and non-succeeded delivery intents for the current project, grouped by subscription and delivery target type.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param eventDeliveryQueueSummaryPayload  (required)
-     * @return EventDeliveryQueueSummaryResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current event delivery queue state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EventDeliveryQueueSummaryResponse getEventDeliveryQueueSummary(
-            @jakarta.annotation.Nonnull
-                    EventDeliveryQueueSummaryPayload eventDeliveryQueueSummaryPayload)
-            throws ApiException {
-        ApiResponse<EventDeliveryQueueSummaryResponse> localVarResp =
-                getEventDeliveryQueueSummaryWithHttpInfo(eventDeliveryQueueSummaryPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get event delivery queue summary
-     * Summarizes outbox routing backlog and non-succeeded delivery intents for the current project, grouped by subscription and delivery target type.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param eventDeliveryQueueSummaryPayload  (required)
-     * @return ApiResponse&lt;EventDeliveryQueueSummaryResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current event delivery queue state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EventDeliveryQueueSummaryResponse> getEventDeliveryQueueSummaryWithHttpInfo(
+    private ApiResponse<EventDeliveryQueueSummaryResponse> getEventDeliveryQueueSummaryWithHttpInfo(
             @jakarta.annotation.Nonnull
                     EventDeliveryQueueSummaryPayload eventDeliveryQueueSummaryPayload)
             throws ApiException {
@@ -373,23 +355,7 @@ public class EventsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get event delivery queue summary (asynchronously)
-     * Summarizes outbox routing backlog and non-succeeded delivery intents for the current project, grouped by subscription and delivery target type.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param eventDeliveryQueueSummaryPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Current event delivery queue state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getEventDeliveryQueueSummaryAsync(
+    private okhttp3.Call getEventDeliveryQueueSummaryAsync(
             @jakarta.annotation.Nonnull
                     EventDeliveryQueueSummaryPayload eventDeliveryQueueSummaryPayload,
             final ApiCallback<EventDeliveryQueueSummaryResponse> _callback)
@@ -403,22 +369,113 @@ public class EventsApi {
         return localVarCall;
     }
 
+    public class APIgetEventDeliveryQueueSummaryRequest {
+        @jakarta.annotation.Nonnull
+        private final EventDeliveryQueueSummaryPayload eventDeliveryQueueSummaryPayload;
+
+        private APIgetEventDeliveryQueueSummaryRequest(
+                @jakarta.annotation.Nonnull
+                        EventDeliveryQueueSummaryPayload eventDeliveryQueueSummaryPayload) {
+            this.eventDeliveryQueueSummaryPayload = eventDeliveryQueueSummaryPayload;
+        }
+
+        /**
+         * Build call for getEventDeliveryQueueSummary
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current event delivery queue state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getEventDeliveryQueueSummaryCall(eventDeliveryQueueSummaryPayload, _callback);
+        }
+
+        /**
+         * Execute getEventDeliveryQueueSummary request
+         * @return EventDeliveryQueueSummaryResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current event delivery queue state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public EventDeliveryQueueSummaryResponse execute() throws ApiException {
+            ApiResponse<EventDeliveryQueueSummaryResponse> localVarResp =
+                    getEventDeliveryQueueSummaryWithHttpInfo(eventDeliveryQueueSummaryPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getEventDeliveryQueueSummary request with HTTP info returned
+         * @return ApiResponse&lt;EventDeliveryQueueSummaryResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current event delivery queue state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<EventDeliveryQueueSummaryResponse> executeWithHttpInfo()
+                throws ApiException {
+            return getEventDeliveryQueueSummaryWithHttpInfo(eventDeliveryQueueSummaryPayload);
+        }
+
+        /**
+         * Execute getEventDeliveryQueueSummary request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Current event delivery queue state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<EventDeliveryQueueSummaryResponse> _callback)
+                throws ApiException {
+            return getEventDeliveryQueueSummaryAsync(eventDeliveryQueueSummaryPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for searchEventDeliveries
-     * @param listEventDeliveriesPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Get event delivery queue summary
+     * Summarizes outbox routing backlog and non-succeeded delivery intents for the current project, grouped by subscription and delivery target type.  **Required permissions:** &#x60;workflow:read&#x60;
+     * @param eventDeliveryQueueSummaryPayload  (required)
+     * @return APIgetEventDeliveryQueueSummaryRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Recent event delivery state. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Current event delivery queue state. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call searchEventDeliveriesCall(
+    public APIgetEventDeliveryQueueSummaryRequest getEventDeliveryQueueSummary(
+            @jakarta.annotation.Nonnull
+                    EventDeliveryQueueSummaryPayload eventDeliveryQueueSummaryPayload) {
+        return new APIgetEventDeliveryQueueSummaryRequest(eventDeliveryQueueSummaryPayload);
+    }
+
+    private okhttp3.Call searchEventDeliveriesCall(
             @jakarta.annotation.Nonnull ListEventDeliveriesPayload listEventDeliveriesPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -488,45 +545,7 @@ public class EventsApi {
         return searchEventDeliveriesCall(listEventDeliveriesPayload, _callback);
     }
 
-    /**
-     * Search event deliveries
-     * Lists recent event outbox rows with their materialized delivery intents for the current project.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param listEventDeliveriesPayload  (required)
-     * @return ListEventDeliveriesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Recent event delivery state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ListEventDeliveriesResponse searchEventDeliveries(
-            @jakarta.annotation.Nonnull ListEventDeliveriesPayload listEventDeliveriesPayload)
-            throws ApiException {
-        ApiResponse<ListEventDeliveriesResponse> localVarResp =
-                searchEventDeliveriesWithHttpInfo(listEventDeliveriesPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Search event deliveries
-     * Lists recent event outbox rows with their materialized delivery intents for the current project.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param listEventDeliveriesPayload  (required)
-     * @return ApiResponse&lt;ListEventDeliveriesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Recent event delivery state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ListEventDeliveriesResponse> searchEventDeliveriesWithHttpInfo(
+    private ApiResponse<ListEventDeliveriesResponse> searchEventDeliveriesWithHttpInfo(
             @jakarta.annotation.Nonnull ListEventDeliveriesPayload listEventDeliveriesPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -535,23 +554,7 @@ public class EventsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Search event deliveries (asynchronously)
-     * Lists recent event outbox rows with their materialized delivery intents for the current project.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param listEventDeliveriesPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Recent event delivery state. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call searchEventDeliveriesAsync(
+    private okhttp3.Call searchEventDeliveriesAsync(
             @jakarta.annotation.Nonnull ListEventDeliveriesPayload listEventDeliveriesPayload,
             final ApiCallback<ListEventDeliveriesResponse> _callback)
             throws ApiException {
@@ -563,32 +566,109 @@ public class EventsApi {
         return localVarCall;
     }
 
+    public class APIsearchEventDeliveriesRequest {
+        @jakarta.annotation.Nonnull
+        private final ListEventDeliveriesPayload listEventDeliveriesPayload;
+
+        private APIsearchEventDeliveriesRequest(
+                @jakarta.annotation.Nonnull ListEventDeliveriesPayload listEventDeliveriesPayload) {
+            this.listEventDeliveriesPayload = listEventDeliveriesPayload;
+        }
+
+        /**
+         * Build call for searchEventDeliveries
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Recent event delivery state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return searchEventDeliveriesCall(listEventDeliveriesPayload, _callback);
+        }
+
+        /**
+         * Execute searchEventDeliveries request
+         * @return ListEventDeliveriesResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Recent event delivery state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ListEventDeliveriesResponse execute() throws ApiException {
+            ApiResponse<ListEventDeliveriesResponse> localVarResp =
+                    searchEventDeliveriesWithHttpInfo(listEventDeliveriesPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute searchEventDeliveries request with HTTP info returned
+         * @return ApiResponse&lt;ListEventDeliveriesResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Recent event delivery state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ListEventDeliveriesResponse> executeWithHttpInfo() throws ApiException {
+            return searchEventDeliveriesWithHttpInfo(listEventDeliveriesPayload);
+        }
+
+        /**
+         * Execute searchEventDeliveries request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Recent event delivery state. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ListEventDeliveriesResponse> _callback)
+                throws ApiException {
+            return searchEventDeliveriesAsync(listEventDeliveriesPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for streamEventDeliveries
-     * @param limit  (optional)
-     * @param eventId  (optional)
-     * @param resourceId  (optional)
-     * @param resourceType  (optional)
-     * @param eventCategory  (optional)
-     * @param action  (optional)
-     * @param outboxStatus  (optional)
-     * @param sinceEventId  (optional)
-     * @param sinceCreatedAt  (optional)
-     * @param includeEvent  (optional)
-     * @param pollIntervalMs  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Search event deliveries
+     * Lists recent event outbox rows with their materialized delivery intents for the current project.  **Required permissions:** &#x60;workflow:read&#x60;
+     * @param listEventDeliveriesPayload  (required)
+     * @return APIsearchEventDeliveriesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent event delivery envelopes. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Recent event delivery state. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call streamEventDeliveriesCall(
+    public APIsearchEventDeliveriesRequest searchEventDeliveries(
+            @jakarta.annotation.Nonnull ListEventDeliveriesPayload listEventDeliveriesPayload) {
+        return new APIsearchEventDeliveriesRequest(listEventDeliveriesPayload);
+    }
+
+    private okhttp3.Call streamEventDeliveriesCall(
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable String eventId,
             @jakarta.annotation.Nullable String resourceId,
@@ -737,86 +817,7 @@ public class EventsApi {
                 _callback);
     }
 
-    /**
-     * Stream event deliveries
-     * Opens a Server-Sent Events stream of recent, new, and changed event delivery rows filtered by category, action, resource type, resource id, and status.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param limit  (optional)
-     * @param eventId  (optional)
-     * @param resourceId  (optional)
-     * @param resourceType  (optional)
-     * @param eventCategory  (optional)
-     * @param action  (optional)
-     * @param outboxStatus  (optional)
-     * @param sinceEventId  (optional)
-     * @param sinceCreatedAt  (optional)
-     * @param includeEvent  (optional)
-     * @param pollIntervalMs  (optional)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent event delivery envelopes. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public String streamEventDeliveries(
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable String eventId,
-            @jakarta.annotation.Nullable String resourceId,
-            @jakarta.annotation.Nullable List<String> resourceType,
-            @jakarta.annotation.Nullable List<String> eventCategory,
-            @jakarta.annotation.Nullable List<String> action,
-            @jakarta.annotation.Nullable List<String> outboxStatus,
-            @jakarta.annotation.Nullable String sinceEventId,
-            @jakarta.annotation.Nullable String sinceCreatedAt,
-            @jakarta.annotation.Nullable Boolean includeEvent,
-            @jakarta.annotation.Nullable BigDecimal pollIntervalMs)
-            throws ApiException {
-        ApiResponse<String> localVarResp =
-                streamEventDeliveriesWithHttpInfo(
-                        limit,
-                        eventId,
-                        resourceId,
-                        resourceType,
-                        eventCategory,
-                        action,
-                        outboxStatus,
-                        sinceEventId,
-                        sinceCreatedAt,
-                        includeEvent,
-                        pollIntervalMs);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Stream event deliveries
-     * Opens a Server-Sent Events stream of recent, new, and changed event delivery rows filtered by category, action, resource type, resource id, and status.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param limit  (optional)
-     * @param eventId  (optional)
-     * @param resourceId  (optional)
-     * @param resourceType  (optional)
-     * @param eventCategory  (optional)
-     * @param action  (optional)
-     * @param outboxStatus  (optional)
-     * @param sinceEventId  (optional)
-     * @param sinceCreatedAt  (optional)
-     * @param includeEvent  (optional)
-     * @param pollIntervalMs  (optional)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent event delivery envelopes. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<String> streamEventDeliveriesWithHttpInfo(
+    private ApiResponse<String> streamEventDeliveriesWithHttpInfo(
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable String eventId,
             @jakarta.annotation.Nullable String resourceId,
@@ -847,33 +848,7 @@ public class EventsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Stream event deliveries (asynchronously)
-     * Opens a Server-Sent Events stream of recent, new, and changed event delivery rows filtered by category, action, resource type, resource id, and status.  **Required permissions:** &#x60;workflow:read&#x60;
-     * @param limit  (optional)
-     * @param eventId  (optional)
-     * @param resourceId  (optional)
-     * @param resourceType  (optional)
-     * @param eventCategory  (optional)
-     * @param action  (optional)
-     * @param outboxStatus  (optional)
-     * @param sinceEventId  (optional)
-     * @param sinceCreatedAt  (optional)
-     * @param includeEvent  (optional)
-     * @param pollIntervalMs  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Server-sent event delivery envelopes. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call streamEventDeliveriesAsync(
+    private okhttp3.Call streamEventDeliveriesAsync(
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable String eventId,
             @jakarta.annotation.Nullable String resourceId,
@@ -907,49 +882,275 @@ public class EventsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for streamEventDeliveries with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call streamEventDeliveriesCall(final ApiCallback _callback) throws ApiException {
-        return streamEventDeliveriesCall(
-                null, null, null, null, null, null, null, null, null, null, null, _callback);
+    public class APIstreamEventDeliveriesRequest {
+        @jakarta.annotation.Nullable private BigDecimal limit;
+        @jakarta.annotation.Nullable private String eventId;
+        @jakarta.annotation.Nullable private String resourceId;
+        @jakarta.annotation.Nullable private List<String> resourceType;
+        @jakarta.annotation.Nullable private List<String> eventCategory;
+        @jakarta.annotation.Nullable private List<String> action;
+        @jakarta.annotation.Nullable private List<String> outboxStatus;
+        @jakarta.annotation.Nullable private String sinceEventId;
+        @jakarta.annotation.Nullable private String sinceCreatedAt;
+        @jakarta.annotation.Nullable private Boolean includeEvent;
+        @jakarta.annotation.Nullable private BigDecimal pollIntervalMs;
+
+        private APIstreamEventDeliveriesRequest() {}
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest limit(
+                @jakarta.annotation.Nullable BigDecimal limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set eventId
+         * @param eventId  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest eventId(
+                @jakarta.annotation.Nullable String eventId) {
+            this.eventId = eventId;
+            return this;
+        }
+
+        /**
+         * Set resourceId
+         * @param resourceId  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest resourceId(
+                @jakarta.annotation.Nullable String resourceId) {
+            this.resourceId = resourceId;
+            return this;
+        }
+
+        /**
+         * Set resourceType
+         * @param resourceType  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest resourceType(
+                @jakarta.annotation.Nullable List<String> resourceType) {
+            this.resourceType = resourceType;
+            return this;
+        }
+
+        /**
+         * Set eventCategory
+         * @param eventCategory  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest eventCategory(
+                @jakarta.annotation.Nullable List<String> eventCategory) {
+            this.eventCategory = eventCategory;
+            return this;
+        }
+
+        /**
+         * Set action
+         * @param action  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest action(
+                @jakarta.annotation.Nullable List<String> action) {
+            this.action = action;
+            return this;
+        }
+
+        /**
+         * Set outboxStatus
+         * @param outboxStatus  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest outboxStatus(
+                @jakarta.annotation.Nullable List<String> outboxStatus) {
+            this.outboxStatus = outboxStatus;
+            return this;
+        }
+
+        /**
+         * Set sinceEventId
+         * @param sinceEventId  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest sinceEventId(
+                @jakarta.annotation.Nullable String sinceEventId) {
+            this.sinceEventId = sinceEventId;
+            return this;
+        }
+
+        /**
+         * Set sinceCreatedAt
+         * @param sinceCreatedAt  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest sinceCreatedAt(
+                @jakarta.annotation.Nullable String sinceCreatedAt) {
+            this.sinceCreatedAt = sinceCreatedAt;
+            return this;
+        }
+
+        /**
+         * Set includeEvent
+         * @param includeEvent  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest includeEvent(
+                @jakarta.annotation.Nullable Boolean includeEvent) {
+            this.includeEvent = includeEvent;
+            return this;
+        }
+
+        /**
+         * Set pollIntervalMs
+         * @param pollIntervalMs  (optional)
+         * @return APIstreamEventDeliveriesRequest
+         */
+        public APIstreamEventDeliveriesRequest pollIntervalMs(
+                @jakarta.annotation.Nullable BigDecimal pollIntervalMs) {
+            this.pollIntervalMs = pollIntervalMs;
+            return this;
+        }
+
+        /**
+         * Build call for streamEventDeliveries
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent event delivery envelopes. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return streamEventDeliveriesCall(
+                    limit,
+                    eventId,
+                    resourceId,
+                    resourceType,
+                    eventCategory,
+                    action,
+                    outboxStatus,
+                    sinceEventId,
+                    sinceCreatedAt,
+                    includeEvent,
+                    pollIntervalMs,
+                    _callback);
+        }
+
+        /**
+         * Execute streamEventDeliveries request
+         * @return String
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent event delivery envelopes. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public String execute() throws ApiException {
+            ApiResponse<String> localVarResp =
+                    streamEventDeliveriesWithHttpInfo(
+                            limit,
+                            eventId,
+                            resourceId,
+                            resourceType,
+                            eventCategory,
+                            action,
+                            outboxStatus,
+                            sinceEventId,
+                            sinceCreatedAt,
+                            includeEvent,
+                            pollIntervalMs);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute streamEventDeliveries request with HTTP info returned
+         * @return ApiResponse&lt;String&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent event delivery envelopes. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<String> executeWithHttpInfo() throws ApiException {
+            return streamEventDeliveriesWithHttpInfo(
+                    limit,
+                    eventId,
+                    resourceId,
+                    resourceType,
+                    eventCategory,
+                    action,
+                    outboxStatus,
+                    sinceEventId,
+                    sinceCreatedAt,
+                    includeEvent,
+                    pollIntervalMs);
+        }
+
+        /**
+         * Execute streamEventDeliveries request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Server-sent event delivery envelopes. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<String> _callback) throws ApiException {
+            return streamEventDeliveriesAsync(
+                    limit,
+                    eventId,
+                    resourceId,
+                    resourceType,
+                    eventCategory,
+                    action,
+                    outboxStatus,
+                    sinceEventId,
+                    sinceCreatedAt,
+                    includeEvent,
+                    pollIntervalMs,
+                    _callback);
+        }
     }
 
     /**
      * Stream event deliveries
-     * Calls {@code streamEventDeliveries} with every optional parameter left unset.
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Opens a Server-Sent Events stream of recent, new, and changed event delivery rows filtered by category, action, resource type, resource id, and status.  **Required permissions:** &#x60;workflow:read&#x60;
+     * @return APIstreamEventDeliveriesRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Server-sent event delivery envelopes. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
      */
-    public String streamEventDeliveries() throws ApiException {
-        return streamEventDeliveries(
-                null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * Stream event deliveries
-     * Calls {@code streamEventDeliveriesWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> streamEventDeliveriesWithHttpInfo() throws ApiException {
-        return streamEventDeliveriesWithHttpInfo(
-                null, null, null, null, null, null, null, null, null, null, null);
-    }
-
-    /**
-     * Stream event deliveries (asynchronously)
-     * Calls {@code streamEventDeliveriesAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call streamEventDeliveriesAsync(final ApiCallback<String> _callback)
-            throws ApiException {
-        return streamEventDeliveriesAsync(
-                null, null, null, null, null, null, null, null, null, null, null, _callback);
+    public APIstreamEventDeliveriesRequest streamEventDeliveries() {
+        return new APIstreamEventDeliveriesRequest();
     }
 }

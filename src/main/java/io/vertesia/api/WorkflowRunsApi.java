@@ -73,24 +73,7 @@ public class WorkflowRunsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for applyWorkflowRunAction
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param action  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow action result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call applyWorkflowRunActionCall(
+    private okhttp3.Call applyWorkflowRunActionCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull String action,
@@ -186,51 +169,7 @@ public class WorkflowRunsApi {
         return applyWorkflowRunActionCall(workflowId, runId, action, _callback);
     }
 
-    /**
-     * Apply an action to a workflow run
-     * Applies a runtime action such as cancellation to a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param action  (required)
-     * @return WorkflowActionResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow action result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public WorkflowActionResponse applyWorkflowRunAction(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nonnull String action)
-            throws ApiException {
-        ApiResponse<WorkflowActionResponse> localVarResp =
-                applyWorkflowRunActionWithHttpInfo(workflowId, runId, action);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Apply an action to a workflow run
-     * Applies a runtime action such as cancellation to a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param action  (required)
-     * @return ApiResponse&lt;WorkflowActionResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow action result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<WorkflowActionResponse> applyWorkflowRunActionWithHttpInfo(
+    private ApiResponse<WorkflowActionResponse> applyWorkflowRunActionWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull String action)
@@ -241,25 +180,7 @@ public class WorkflowRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Apply an action to a workflow run (asynchronously)
-     * Applies a runtime action such as cancellation to a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param action  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow action result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call applyWorkflowRunActionAsync(
+    private okhttp3.Call applyWorkflowRunActionAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull String action,
@@ -273,23 +194,118 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
+    public class APIapplyWorkflowRunActionRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+        @jakarta.annotation.Nonnull private final String runId;
+        @jakarta.annotation.Nonnull private final String action;
+
+        private APIapplyWorkflowRunActionRequest(
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull String runId,
+                @jakarta.annotation.Nonnull String action) {
+            this.workflowId = workflowId;
+            this.runId = runId;
+            this.action = action;
+        }
+
+        /**
+         * Build call for applyWorkflowRunAction
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow action result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return applyWorkflowRunActionCall(workflowId, runId, action, _callback);
+        }
+
+        /**
+         * Execute applyWorkflowRunAction request
+         * @return WorkflowActionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow action result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public WorkflowActionResponse execute() throws ApiException {
+            ApiResponse<WorkflowActionResponse> localVarResp =
+                    applyWorkflowRunActionWithHttpInfo(workflowId, runId, action);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute applyWorkflowRunAction request with HTTP info returned
+         * @return ApiResponse&lt;WorkflowActionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow action result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<WorkflowActionResponse> executeWithHttpInfo() throws ApiException {
+            return applyWorkflowRunActionWithHttpInfo(workflowId, runId, action);
+        }
+
+        /**
+         * Execute applyWorkflowRunAction request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow action result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<WorkflowActionResponse> _callback)
+                throws ApiException {
+            return applyWorkflowRunActionAsync(workflowId, runId, action, _callback);
+        }
+    }
+
     /**
-     * Build call for executeWorkflow
-     * @param workflowName  (required)
-     * @param executeWorkflowPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Apply an action to a workflow run
+     * Applies a runtime action such as cancellation to a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @param action  (required)
+     * @return APIapplyWorkflowRunActionRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow action result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call executeWorkflowCall(
+    public APIapplyWorkflowRunActionRequest applyWorkflowRunAction(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String action) {
+        return new APIapplyWorkflowRunActionRequest(workflowId, runId, action);
+    }
+
+    private okhttp3.Call executeWorkflowCall(
             @jakarta.annotation.Nonnull String workflowName,
             @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
             final ApiCallback _callback)
@@ -371,48 +387,7 @@ public class WorkflowRunsApi {
         return executeWorkflowCall(workflowName, executeWorkflowPayload, _callback);
     }
 
-    /**
-     * Execute a workflow
-     * Executes a workflow directly by workflow name and returns the created run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param workflowName  (required)
-     * @param executeWorkflowPayload  (required)
-     * @return List&lt;WorkflowExecutionStartResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<WorkflowExecutionStartResult> executeWorkflow(
-            @jakarta.annotation.Nonnull String workflowName,
-            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
-            throws ApiException {
-        ApiResponse<List<WorkflowExecutionStartResult>> localVarResp =
-                executeWorkflowWithHttpInfo(workflowName, executeWorkflowPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Execute a workflow
-     * Executes a workflow directly by workflow name and returns the created run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param workflowName  (required)
-     * @param executeWorkflowPayload  (required)
-     * @return ApiResponse&lt;List&lt;WorkflowExecutionStartResult&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<WorkflowExecutionStartResult>> executeWorkflowWithHttpInfo(
+    private ApiResponse<List<WorkflowExecutionStartResult>> executeWorkflowWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowName,
             @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
             throws ApiException {
@@ -422,24 +397,7 @@ public class WorkflowRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Execute a workflow (asynchronously)
-     * Executes a workflow directly by workflow name and returns the created run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param workflowName  (required)
-     * @param executeWorkflowPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call executeWorkflowAsync(
+    private okhttp3.Call executeWorkflowAsync(
             @jakarta.annotation.Nonnull String workflowName,
             @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
             final ApiCallback<List<WorkflowExecutionStartResult>> _callback)
@@ -452,13 +410,99 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
+    public class APIexecuteWorkflowRequest {
+        @jakarta.annotation.Nonnull private final String workflowName;
+        @jakarta.annotation.Nonnull private final ExecuteWorkflowPayload executeWorkflowPayload;
+
+        private APIexecuteWorkflowRequest(
+                @jakarta.annotation.Nonnull String workflowName,
+                @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload) {
+            this.workflowName = workflowName;
+            this.executeWorkflowPayload = executeWorkflowPayload;
+        }
+
+        /**
+         * Build call for executeWorkflow
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return executeWorkflowCall(workflowName, executeWorkflowPayload, _callback);
+        }
+
+        /**
+         * Execute executeWorkflow request
+         * @return List&lt;WorkflowExecutionStartResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<WorkflowExecutionStartResult> execute() throws ApiException {
+            ApiResponse<List<WorkflowExecutionStartResult>> localVarResp =
+                    executeWorkflowWithHttpInfo(workflowName, executeWorkflowPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute executeWorkflow request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;WorkflowExecutionStartResult&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<WorkflowExecutionStartResult>> executeWithHttpInfo()
+                throws ApiException {
+            return executeWorkflowWithHttpInfo(workflowName, executeWorkflowPayload);
+        }
+
+        /**
+         * Execute executeWorkflow request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<WorkflowExecutionStartResult>> _callback)
+                throws ApiException {
+            return executeWorkflowAsync(workflowName, executeWorkflowPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for executeWorkflowRule
-     * @param ruleId  (required)
+     * Execute a workflow
+     * Executes a workflow directly by workflow name and returns the created run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param workflowName  (required)
      * @param executeWorkflowPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIexecuteWorkflowRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
@@ -467,10 +511,14 @@ public class WorkflowRunsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call executeWorkflowRuleCall(
+    public APIexecuteWorkflowRequest executeWorkflow(
+            @jakarta.annotation.Nonnull String workflowName,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload) {
+        return new APIexecuteWorkflowRequest(workflowName, executeWorkflowPayload);
+    }
+
+    private okhttp3.Call executeWorkflowRuleCall(
             @jakarta.annotation.Nonnull String ruleId,
             @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
             final ApiCallback _callback)
@@ -553,52 +601,7 @@ public class WorkflowRunsApi {
         return executeWorkflowRuleCall(ruleId, executeWorkflowPayload, _callback);
     }
 
-    /**
-     * Execute a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Executes a workflow through a configured workflow rule and returns the created run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param ruleId  (required)
-     * @param executeWorkflowPayload  (required)
-     * @return List&lt;WorkflowExecutionStartResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public List<WorkflowExecutionStartResult> executeWorkflowRule(
-            @jakarta.annotation.Nonnull String ruleId,
-            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
-            throws ApiException {
-        ApiResponse<List<WorkflowExecutionStartResult>> localVarResp =
-                executeWorkflowRuleWithHttpInfo(ruleId, executeWorkflowPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Execute a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Executes a workflow through a configured workflow rule and returns the created run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param ruleId  (required)
-     * @param executeWorkflowPayload  (required)
-     * @return ApiResponse&lt;List&lt;WorkflowExecutionStartResult&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<List<WorkflowExecutionStartResult>> executeWorkflowRuleWithHttpInfo(
+    private ApiResponse<List<WorkflowExecutionStartResult>> executeWorkflowRuleWithHttpInfo(
             @jakarta.annotation.Nonnull String ruleId,
             @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
             throws ApiException {
@@ -608,26 +611,7 @@ public class WorkflowRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Execute a workflow rule (asynchronously)
-     * Workflow rules are deprecated; use event subscriptions instead. Executes a workflow through a configured workflow rule and returns the created run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param ruleId  (required)
-     * @param executeWorkflowPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call executeWorkflowRuleAsync(
+    private okhttp3.Call executeWorkflowRuleAsync(
             @jakarta.annotation.Nonnull String ruleId,
             @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
             final ApiCallback<List<WorkflowExecutionStartResult>> _callback)
@@ -640,26 +624,125 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
+    public class APIexecuteWorkflowRuleRequest {
+        @jakarta.annotation.Nonnull private final String ruleId;
+        @jakarta.annotation.Nonnull private final ExecuteWorkflowPayload executeWorkflowPayload;
+
+        private APIexecuteWorkflowRuleRequest(
+                @jakarta.annotation.Nonnull String ruleId,
+                @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload) {
+            this.ruleId = ruleId;
+            this.executeWorkflowPayload = executeWorkflowPayload;
+        }
+
+        /**
+         * Build call for executeWorkflowRule
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return executeWorkflowRuleCall(ruleId, executeWorkflowPayload, _callback);
+        }
+
+        /**
+         * Execute executeWorkflowRule request
+         * @return List&lt;WorkflowExecutionStartResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public List<WorkflowExecutionStartResult> execute() throws ApiException {
+            ApiResponse<List<WorkflowExecutionStartResult>> localVarResp =
+                    executeWorkflowRuleWithHttpInfo(ruleId, executeWorkflowPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute executeWorkflowRule request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;WorkflowExecutionStartResult&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<List<WorkflowExecutionStartResult>> executeWithHttpInfo()
+                throws ApiException {
+            return executeWorkflowRuleWithHttpInfo(ruleId, executeWorkflowPayload);
+        }
+
+        /**
+         * Execute executeWorkflowRule request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(
+                final ApiCallback<List<WorkflowExecutionStartResult>> _callback)
+                throws ApiException {
+            return executeWorkflowRuleAsync(ruleId, executeWorkflowPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for getWorkflowRun
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param includeHistory  (optional)
-     * @param historyFormat  (optional)
-     * @param hydratePayloads  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Execute a workflow rule
+     * Workflow rules are deprecated; use event subscriptions instead. Executes a workflow through a configured workflow rule and returns the created run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param ruleId  (required)
+     * @param executeWorkflowPayload  (required)
+     * @return APIexecuteWorkflowRuleRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run details. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The started workflow run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
-    public okhttp3.Call getWorkflowRunCall(
+    @Deprecated
+    public APIexecuteWorkflowRuleRequest executeWorkflowRule(
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload) {
+        return new APIexecuteWorkflowRuleRequest(ruleId, executeWorkflowPayload);
+    }
+
+    private okhttp3.Call getWorkflowRunCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable Boolean includeHistory,
@@ -766,58 +849,7 @@ public class WorkflowRunsApi {
                 workflowId, runId, includeHistory, historyFormat, hydratePayloads, _callback);
     }
 
-    /**
-     * Retrieve a workflow run
-     * Retrieves workflow run status, timing, input, result, and optional execution history.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param includeHistory  (optional)
-     * @param historyFormat  (optional)
-     * @param hydratePayloads  (optional)
-     * @return WorkflowRunWithDetails
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public WorkflowRunWithDetails getWorkflowRun(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nullable Boolean includeHistory,
-            @jakarta.annotation.Nullable String historyFormat,
-            @jakarta.annotation.Nullable Boolean hydratePayloads)
-            throws ApiException {
-        ApiResponse<WorkflowRunWithDetails> localVarResp =
-                getWorkflowRunWithHttpInfo(
-                        workflowId, runId, includeHistory, historyFormat, hydratePayloads);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a workflow run
-     * Retrieves workflow run status, timing, input, result, and optional execution history.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param includeHistory  (optional)
-     * @param historyFormat  (optional)
-     * @param hydratePayloads  (optional)
-     * @return ApiResponse&lt;WorkflowRunWithDetails&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<WorkflowRunWithDetails> getWorkflowRunWithHttpInfo(
+    private ApiResponse<WorkflowRunWithDetails> getWorkflowRunWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable Boolean includeHistory,
@@ -831,27 +863,7 @@ public class WorkflowRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a workflow run (asynchronously)
-     * Retrieves workflow run status, timing, input, result, and optional execution history.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param includeHistory  (optional)
-     * @param historyFormat  (optional)
-     * @param hydratePayloads  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run details. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getWorkflowRunAsync(
+    private okhttp3.Call getWorkflowRunAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable Boolean includeHistory,
@@ -873,85 +885,153 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getWorkflowRun with every optional parameter left unset.
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getWorkflowRunCall(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            final ApiCallback _callback)
-            throws ApiException {
-        return getWorkflowRunCall(workflowId, runId, null, null, null, _callback);
+    public class APIgetWorkflowRunRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+        @jakarta.annotation.Nonnull private final String runId;
+        @jakarta.annotation.Nullable private Boolean includeHistory;
+        @jakarta.annotation.Nullable private String historyFormat;
+        @jakarta.annotation.Nullable private Boolean hydratePayloads;
+
+        private APIgetWorkflowRunRequest(
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull String runId) {
+            this.workflowId = workflowId;
+            this.runId = runId;
+        }
+
+        /**
+         * Set includeHistory
+         * @param includeHistory  (optional)
+         * @return APIgetWorkflowRunRequest
+         */
+        public APIgetWorkflowRunRequest includeHistory(
+                @jakarta.annotation.Nullable Boolean includeHistory) {
+            this.includeHistory = includeHistory;
+            return this;
+        }
+
+        /**
+         * Set historyFormat
+         * @param historyFormat  (optional)
+         * @return APIgetWorkflowRunRequest
+         */
+        public APIgetWorkflowRunRequest historyFormat(
+                @jakarta.annotation.Nullable String historyFormat) {
+            this.historyFormat = historyFormat;
+            return this;
+        }
+
+        /**
+         * Set hydratePayloads
+         * @param hydratePayloads  (optional)
+         * @return APIgetWorkflowRunRequest
+         */
+        public APIgetWorkflowRunRequest hydratePayloads(
+                @jakarta.annotation.Nullable Boolean hydratePayloads) {
+            this.hydratePayloads = hydratePayloads;
+            return this;
+        }
+
+        /**
+         * Build call for getWorkflowRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getWorkflowRunCall(
+                    workflowId, runId, includeHistory, historyFormat, hydratePayloads, _callback);
+        }
+
+        /**
+         * Execute getWorkflowRun request
+         * @return WorkflowRunWithDetails
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public WorkflowRunWithDetails execute() throws ApiException {
+            ApiResponse<WorkflowRunWithDetails> localVarResp =
+                    getWorkflowRunWithHttpInfo(
+                            workflowId, runId, includeHistory, historyFormat, hydratePayloads);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getWorkflowRun request with HTTP info returned
+         * @return ApiResponse&lt;WorkflowRunWithDetails&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<WorkflowRunWithDetails> executeWithHttpInfo() throws ApiException {
+            return getWorkflowRunWithHttpInfo(
+                    workflowId, runId, includeHistory, historyFormat, hydratePayloads);
+        }
+
+        /**
+         * Execute getWorkflowRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run details. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<WorkflowRunWithDetails> _callback)
+                throws ApiException {
+            return getWorkflowRunAsync(
+                    workflowId, runId, includeHistory, historyFormat, hydratePayloads, _callback);
+        }
     }
 
     /**
      * Retrieve a workflow run
-     * Calls {@code getWorkflowRun} with every optional parameter left unset.
+     * Retrieves workflow run status, timing, input, result, and optional execution history.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
-     * @return WorkflowRunWithDetails
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public WorkflowRunWithDetails getWorkflowRun(
-            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        return getWorkflowRun(workflowId, runId, null, null, null);
-    }
-
-    /**
-     * Retrieve a workflow run
-     * Calls {@code getWorkflowRunWithHttpInfo} with every optional parameter left unset.
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WorkflowRunWithDetails> getWorkflowRunWithHttpInfo(
-            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        return getWorkflowRunWithHttpInfo(workflowId, runId, null, null, null);
-    }
-
-    /**
-     * Retrieve a workflow run (asynchronously)
-     * Calls {@code getWorkflowRunAsync} with every optional parameter left unset.
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getWorkflowRunAsync(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            final ApiCallback<WorkflowRunWithDetails> _callback)
-            throws ApiException {
-        return getWorkflowRunAsync(workflowId, runId, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for getWorkflowRunUpdates
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param since  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetWorkflowRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run updates. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow run details. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getWorkflowRunUpdatesCall(
+    public APIgetWorkflowRunRequest getWorkflowRun(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIgetWorkflowRunRequest(workflowId, runId);
+    }
+
+    private okhttp3.Call getWorkflowRunUpdatesCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable BigDecimal since,
@@ -1042,51 +1122,7 @@ public class WorkflowRunsApi {
         return getWorkflowRunUpdatesCall(workflowId, runId, since, _callback);
     }
 
-    /**
-     * Get workflow run updates
-     * Retrieves compact workflow updates published since the provided offset.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param since  (optional)
-     * @return WorkflowRunUpdatesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run updates. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public WorkflowRunUpdatesResponse getWorkflowRunUpdates(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nullable BigDecimal since)
-            throws ApiException {
-        ApiResponse<WorkflowRunUpdatesResponse> localVarResp =
-                getWorkflowRunUpdatesWithHttpInfo(workflowId, runId, since);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get workflow run updates
-     * Retrieves compact workflow updates published since the provided offset.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param since  (optional)
-     * @return ApiResponse&lt;WorkflowRunUpdatesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run updates. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<WorkflowRunUpdatesResponse> getWorkflowRunUpdatesWithHttpInfo(
+    private ApiResponse<WorkflowRunUpdatesResponse> getWorkflowRunUpdatesWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable BigDecimal since)
@@ -1097,25 +1133,7 @@ public class WorkflowRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Get workflow run updates (asynchronously)
-     * Retrieves compact workflow updates published since the provided offset.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param since  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run updates. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getWorkflowRunUpdatesAsync(
+    private okhttp3.Call getWorkflowRunUpdatesAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable BigDecimal since,
@@ -1129,85 +1147,125 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getWorkflowRunUpdates with every optional parameter left unset.
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getWorkflowRunUpdatesCall(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            final ApiCallback _callback)
-            throws ApiException {
-        return getWorkflowRunUpdatesCall(workflowId, runId, null, _callback);
+    public class APIgetWorkflowRunUpdatesRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+        @jakarta.annotation.Nonnull private final String runId;
+        @jakarta.annotation.Nullable private BigDecimal since;
+
+        private APIgetWorkflowRunUpdatesRequest(
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull String runId) {
+            this.workflowId = workflowId;
+            this.runId = runId;
+        }
+
+        /**
+         * Set since
+         * @param since  (optional)
+         * @return APIgetWorkflowRunUpdatesRequest
+         */
+        public APIgetWorkflowRunUpdatesRequest since(
+                @jakarta.annotation.Nullable BigDecimal since) {
+            this.since = since;
+            return this;
+        }
+
+        /**
+         * Build call for getWorkflowRunUpdates
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run updates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getWorkflowRunUpdatesCall(workflowId, runId, since, _callback);
+        }
+
+        /**
+         * Execute getWorkflowRunUpdates request
+         * @return WorkflowRunUpdatesResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run updates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public WorkflowRunUpdatesResponse execute() throws ApiException {
+            ApiResponse<WorkflowRunUpdatesResponse> localVarResp =
+                    getWorkflowRunUpdatesWithHttpInfo(workflowId, runId, since);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getWorkflowRunUpdates request with HTTP info returned
+         * @return ApiResponse&lt;WorkflowRunUpdatesResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run updates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<WorkflowRunUpdatesResponse> executeWithHttpInfo() throws ApiException {
+            return getWorkflowRunUpdatesWithHttpInfo(workflowId, runId, since);
+        }
+
+        /**
+         * Execute getWorkflowRunUpdates request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run updates. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<WorkflowRunUpdatesResponse> _callback)
+                throws ApiException {
+            return getWorkflowRunUpdatesAsync(workflowId, runId, since, _callback);
+        }
     }
 
     /**
      * Get workflow run updates
-     * Calls {@code getWorkflowRunUpdates} with every optional parameter left unset.
+     * Retrieves compact workflow updates published since the provided offset.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
-     * @return WorkflowRunUpdatesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public WorkflowRunUpdatesResponse getWorkflowRunUpdates(
-            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        return getWorkflowRunUpdates(workflowId, runId, null);
-    }
-
-    /**
-     * Get workflow run updates
-     * Calls {@code getWorkflowRunUpdatesWithHttpInfo} with every optional parameter left unset.
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<WorkflowRunUpdatesResponse> getWorkflowRunUpdatesWithHttpInfo(
-            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        return getWorkflowRunUpdatesWithHttpInfo(workflowId, runId, null);
-    }
-
-    /**
-     * Get workflow run updates (asynchronously)
-     * Calls {@code getWorkflowRunUpdatesAsync} with every optional parameter left unset.
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getWorkflowRunUpdatesAsync(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            final ApiCallback<WorkflowRunUpdatesResponse> _callback)
-            throws ApiException {
-        return getWorkflowRunUpdatesAsync(workflowId, runId, null, _callback);
-    }
-
-    /**
-     * Build call for listWorkflowRuleRuns
-     * @param ruleId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetWorkflowRunUpdatesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow runs for the selected rule. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow run updates. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
-     * @deprecated
      */
-    @Deprecated
-    public okhttp3.Call listWorkflowRuleRunsCall(
+    public APIgetWorkflowRunUpdatesRequest getWorkflowRunUpdates(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIgetWorkflowRunUpdatesRequest(workflowId, runId);
+    }
+
+    private okhttp3.Call listWorkflowRuleRunsCall(
             @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1280,73 +1338,14 @@ public class WorkflowRunsApi {
         return listWorkflowRuleRunsCall(ruleId, _callback);
     }
 
-    /**
-     * List runs for a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow runs started from a specific workflow rule.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @return ListWorkflowRunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow runs for the selected rule. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ListWorkflowRunsResponse listWorkflowRuleRuns(@jakarta.annotation.Nonnull String ruleId)
-            throws ApiException {
-        ApiResponse<ListWorkflowRunsResponse> localVarResp =
-                listWorkflowRuleRunsWithHttpInfo(ruleId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List runs for a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow runs started from a specific workflow rule.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow runs for the selected rule. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<ListWorkflowRunsResponse> listWorkflowRuleRunsWithHttpInfo(
+    private ApiResponse<ListWorkflowRunsResponse> listWorkflowRuleRunsWithHttpInfo(
             @jakarta.annotation.Nonnull String ruleId) throws ApiException {
         okhttp3.Call localVarCall = listWorkflowRuleRunsValidateBeforeCall(ruleId, null);
         Type localVarReturnType = new TypeToken<ListWorkflowRunsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List runs for a workflow rule (asynchronously)
-     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow runs started from a specific workflow rule.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow runs for the selected rule. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call listWorkflowRuleRunsAsync(
+    private okhttp3.Call listWorkflowRuleRunsAsync(
             @jakarta.annotation.Nonnull String ruleId,
             final ApiCallback<ListWorkflowRunsResponse> _callback)
             throws ApiException {
@@ -1357,22 +1356,117 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
+    public class APIlistWorkflowRuleRunsRequest {
+        @jakarta.annotation.Nonnull private final String ruleId;
+
+        private APIlistWorkflowRuleRunsRequest(@jakarta.annotation.Nonnull String ruleId) {
+            this.ruleId = ruleId;
+        }
+
+        /**
+         * Build call for listWorkflowRuleRuns
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow runs for the selected rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listWorkflowRuleRunsCall(ruleId, _callback);
+        }
+
+        /**
+         * Execute listWorkflowRuleRuns request
+         * @return ListWorkflowRunsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow runs for the selected rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ListWorkflowRunsResponse execute() throws ApiException {
+            ApiResponse<ListWorkflowRunsResponse> localVarResp =
+                    listWorkflowRuleRunsWithHttpInfo(ruleId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listWorkflowRuleRuns request with HTTP info returned
+         * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow runs for the selected rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<ListWorkflowRunsResponse> executeWithHttpInfo() throws ApiException {
+            return listWorkflowRuleRunsWithHttpInfo(ruleId);
+        }
+
+        /**
+         * Execute listWorkflowRuleRuns request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow runs for the selected rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<ListWorkflowRunsResponse> _callback)
+                throws ApiException {
+            return listWorkflowRuleRunsAsync(ruleId, _callback);
+        }
+    }
+
     /**
-     * Build call for listWorkflowRuns
-     * @param listWorkflowRunsPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List runs for a workflow rule
+     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow runs started from a specific workflow rule.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * @param ruleId  (required)
+     * @return APIlistWorkflowRuleRunsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run list response. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow runs for the selected rule. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
-    public okhttp3.Call listWorkflowRunsCall(
+    @Deprecated
+    public APIlistWorkflowRuleRunsRequest listWorkflowRuleRuns(
+            @jakarta.annotation.Nonnull String ruleId) {
+        return new APIlistWorkflowRuleRunsRequest(ruleId);
+    }
+
+    private okhttp3.Call listWorkflowRunsCall(
             @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1442,45 +1536,7 @@ public class WorkflowRunsApi {
         return listWorkflowRunsCall(listWorkflowRunsPayload, _callback);
     }
 
-    /**
-     * List workflow runs
-     * Lists workflow runs with filtering, pagination, and optional rule scoping.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param listWorkflowRunsPayload  (required)
-     * @return ListWorkflowRunsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run list response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ListWorkflowRunsResponse listWorkflowRuns(
-            @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload)
-            throws ApiException {
-        ApiResponse<ListWorkflowRunsResponse> localVarResp =
-                listWorkflowRunsWithHttpInfo(listWorkflowRunsPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List workflow runs
-     * Lists workflow runs with filtering, pagination, and optional rule scoping.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param listWorkflowRunsPayload  (required)
-     * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run list response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ListWorkflowRunsResponse> listWorkflowRunsWithHttpInfo(
+    private ApiResponse<ListWorkflowRunsResponse> listWorkflowRunsWithHttpInfo(
             @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1489,23 +1545,7 @@ public class WorkflowRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List workflow runs (asynchronously)
-     * Lists workflow runs with filtering, pagination, and optional rule scoping.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param listWorkflowRunsPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow run list response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listWorkflowRunsAsync(
+    private okhttp3.Call listWorkflowRunsAsync(
             @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload,
             final ApiCallback<ListWorkflowRunsResponse> _callback)
             throws ApiException {
@@ -1517,23 +1557,108 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
+    public class APIlistWorkflowRunsRequest {
+        @jakarta.annotation.Nonnull private final ListWorkflowRunsPayload listWorkflowRunsPayload;
+
+        private APIlistWorkflowRunsRequest(
+                @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload) {
+            this.listWorkflowRunsPayload = listWorkflowRunsPayload;
+        }
+
+        /**
+         * Build call for listWorkflowRuns
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run list response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listWorkflowRunsCall(listWorkflowRunsPayload, _callback);
+        }
+
+        /**
+         * Execute listWorkflowRuns request
+         * @return ListWorkflowRunsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run list response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ListWorkflowRunsResponse execute() throws ApiException {
+            ApiResponse<ListWorkflowRunsResponse> localVarResp =
+                    listWorkflowRunsWithHttpInfo(listWorkflowRunsPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listWorkflowRuns request with HTTP info returned
+         * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run list response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ListWorkflowRunsResponse> executeWithHttpInfo() throws ApiException {
+            return listWorkflowRunsWithHttpInfo(listWorkflowRunsPayload);
+        }
+
+        /**
+         * Execute listWorkflowRuns request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow run list response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ListWorkflowRunsResponse> _callback)
+                throws ApiException {
+            return listWorkflowRunsAsync(listWorkflowRunsPayload, _callback);
+        }
+    }
+
     /**
-     * Build call for postWorkflowRunUpdate
-     * @param runId  (required)
-     * @param postAgentRunUpdatePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List workflow runs
+     * Lists workflow runs with filtering, pagination, and optional rule scoping.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * @param listWorkflowRunsPayload  (required)
+     * @return APIlistWorkflowRunsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Workflow update publish status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow run list response. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call postWorkflowRunUpdateCall(
+    public APIlistWorkflowRunsRequest listWorkflowRuns(
+            @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload) {
+        return new APIlistWorkflowRunsRequest(listWorkflowRunsPayload);
+    }
+
+    private okhttp3.Call postWorkflowRunUpdateCall(
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload,
             final ApiCallback _callback)
@@ -1615,48 +1740,7 @@ public class WorkflowRunsApi {
         return postWorkflowRunUpdateCall(runId, postAgentRunUpdatePayload, _callback);
     }
 
-    /**
-     * Post a workflow run update
-     * Publishes a workflow update event into the workflow run stream.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param runId  (required)
-     * @param postAgentRunUpdatePayload  (required)
-     * @return WorkflowUpdatePublishResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Workflow update publish status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public WorkflowUpdatePublishResponse postWorkflowRunUpdate(
-            @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload)
-            throws ApiException {
-        ApiResponse<WorkflowUpdatePublishResponse> localVarResp =
-                postWorkflowRunUpdateWithHttpInfo(runId, postAgentRunUpdatePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Post a workflow run update
-     * Publishes a workflow update event into the workflow run stream.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param runId  (required)
-     * @param postAgentRunUpdatePayload  (required)
-     * @return ApiResponse&lt;WorkflowUpdatePublishResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Workflow update publish status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<WorkflowUpdatePublishResponse> postWorkflowRunUpdateWithHttpInfo(
+    private ApiResponse<WorkflowUpdatePublishResponse> postWorkflowRunUpdateWithHttpInfo(
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload)
             throws ApiException {
@@ -1666,24 +1750,7 @@ public class WorkflowRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Post a workflow run update (asynchronously)
-     * Publishes a workflow update event into the workflow run stream.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param runId  (required)
-     * @param postAgentRunUpdatePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> Workflow update publish status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call postWorkflowRunUpdateAsync(
+    private okhttp3.Call postWorkflowRunUpdateAsync(
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload,
             final ApiCallback<WorkflowUpdatePublishResponse> _callback)
@@ -1697,24 +1764,116 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
+    public class APIpostWorkflowRunUpdateRequest {
+        @jakarta.annotation.Nonnull private final String runId;
+
+        @jakarta.annotation.Nonnull
+        private final PostAgentRunUpdatePayload postAgentRunUpdatePayload;
+
+        private APIpostWorkflowRunUpdateRequest(
+                @jakarta.annotation.Nonnull String runId,
+                @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload) {
+            this.runId = runId;
+            this.postAgentRunUpdatePayload = postAgentRunUpdatePayload;
+        }
+
+        /**
+         * Build call for postWorkflowRunUpdate
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Workflow update publish status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return postWorkflowRunUpdateCall(runId, postAgentRunUpdatePayload, _callback);
+        }
+
+        /**
+         * Execute postWorkflowRunUpdate request
+         * @return WorkflowUpdatePublishResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Workflow update publish status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public WorkflowUpdatePublishResponse execute() throws ApiException {
+            ApiResponse<WorkflowUpdatePublishResponse> localVarResp =
+                    postWorkflowRunUpdateWithHttpInfo(runId, postAgentRunUpdatePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute postWorkflowRunUpdate request with HTTP info returned
+         * @return ApiResponse&lt;WorkflowUpdatePublishResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Workflow update publish status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<WorkflowUpdatePublishResponse> executeWithHttpInfo()
+                throws ApiException {
+            return postWorkflowRunUpdateWithHttpInfo(runId, postAgentRunUpdatePayload);
+        }
+
+        /**
+         * Execute postWorkflowRunUpdate request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 201 </td><td> Workflow update publish status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<WorkflowUpdatePublishResponse> _callback)
+                throws ApiException {
+            return postWorkflowRunUpdateAsync(runId, postAgentRunUpdatePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for queryWorkflowRun
-     * @param workflowId  (required)
+     * Post a workflow run update
+     * Publishes a workflow update event into the workflow run stream.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param runId  (required)
-     * @param queryName  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param postAgentRunUpdatePayload  (required)
+     * @return APIpostWorkflowRunUpdateRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow query result. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Workflow update publish status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call queryWorkflowRunCall(
+    public APIpostWorkflowRunUpdateRequest postWorkflowRunUpdate(
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload) {
+        return new APIpostWorkflowRunUpdateRequest(runId, postAgentRunUpdatePayload);
+    }
+
+    private okhttp3.Call queryWorkflowRunCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull String queryName,
@@ -1810,51 +1969,7 @@ public class WorkflowRunsApi {
         return queryWorkflowRunCall(workflowId, runId, queryName, _callback);
     }
 
-    /**
-     * Query a workflow run
-     * Executes a named query against a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param queryName  (required)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Object queryWorkflowRun(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nonnull String queryName)
-            throws ApiException {
-        ApiResponse<Object> localVarResp =
-                queryWorkflowRunWithHttpInfo(workflowId, runId, queryName);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Query a workflow run
-     * Executes a named query against a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param queryName  (required)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Object> queryWorkflowRunWithHttpInfo(
+    private ApiResponse<Object> queryWorkflowRunWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull String queryName)
@@ -1865,25 +1980,7 @@ public class WorkflowRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Query a workflow run (asynchronously)
-     * Executes a named query against a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param queryName  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call queryWorkflowRunAsync(
+    private okhttp3.Call queryWorkflowRunAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull String queryName,
@@ -1897,26 +1994,117 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
+    public class APIqueryWorkflowRunRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+        @jakarta.annotation.Nonnull private final String runId;
+        @jakarta.annotation.Nonnull private final String queryName;
+
+        private APIqueryWorkflowRunRequest(
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull String runId,
+                @jakarta.annotation.Nonnull String queryName) {
+            this.workflowId = workflowId;
+            this.runId = runId;
+            this.queryName = queryName;
+        }
+
+        /**
+         * Build call for queryWorkflowRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return queryWorkflowRunCall(workflowId, runId, queryName, _callback);
+        }
+
+        /**
+         * Execute queryWorkflowRun request
+         * @return Object
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public Object execute() throws ApiException {
+            ApiResponse<Object> localVarResp =
+                    queryWorkflowRunWithHttpInfo(workflowId, runId, queryName);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute queryWorkflowRun request with HTTP info returned
+         * @return ApiResponse&lt;Object&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
+            return queryWorkflowRunWithHttpInfo(workflowId, runId, queryName);
+        }
+
+        /**
+         * Execute queryWorkflowRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
+            return queryWorkflowRunAsync(workflowId, runId, queryName, _callback);
+        }
+    }
+
     /**
-     * Build call for signalWorkflowRun
+     * Query a workflow run
+     * Executes a named query against a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
-     * @param signalName  (required)
-     * @param requestBody  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param queryName  (required)
+     * @return APIqueryWorkflowRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal response. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow run has closed and can no longer receive signals. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow query result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call signalWorkflowRunCall(
+    public APIqueryWorkflowRunRequest queryWorkflowRun(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String queryName) {
+        return new APIqueryWorkflowRunRequest(workflowId, runId, queryName);
+    }
+
+    private okhttp3.Call signalWorkflowRunCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull String signalName,
@@ -2020,56 +2208,7 @@ public class WorkflowRunsApi {
         return signalWorkflowRunCall(workflowId, runId, signalName, requestBody, _callback);
     }
 
-    /**
-     * Signal a workflow run
-     * Sends a named signal to a running workflow.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param signalName  (required)
-     * @param requestBody  (required)
-     * @return SignalAgentResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal response. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow run has closed and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SignalAgentResponse signalWorkflowRun(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nonnull String signalName,
-            @jakarta.annotation.Nonnull Map<String, Object> requestBody)
-            throws ApiException {
-        ApiResponse<SignalAgentResponse> localVarResp =
-                signalWorkflowRunWithHttpInfo(workflowId, runId, signalName, requestBody);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Signal a workflow run
-     * Sends a named signal to a running workflow.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param signalName  (required)
-     * @param requestBody  (required)
-     * @return ApiResponse&lt;SignalAgentResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal response. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow run has closed and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SignalAgentResponse> signalWorkflowRunWithHttpInfo(
+    private ApiResponse<SignalAgentResponse> signalWorkflowRunWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull String signalName,
@@ -2082,27 +2221,7 @@ public class WorkflowRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Signal a workflow run (asynchronously)
-     * Sends a named signal to a running workflow.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param signalName  (required)
-     * @param requestBody  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow signal response. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow run has closed and can no longer receive signals. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call signalWorkflowRunAsync(
+    private okhttp3.Call signalWorkflowRunAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nonnull String signalName,
@@ -2118,25 +2237,128 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
+    public class APIsignalWorkflowRunRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+        @jakarta.annotation.Nonnull private final String runId;
+        @jakarta.annotation.Nonnull private final String signalName;
+        @jakarta.annotation.Nonnull private final Map<String, Object> requestBody;
+
+        private APIsignalWorkflowRunRequest(
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull String runId,
+                @jakarta.annotation.Nonnull String signalName,
+                @jakarta.annotation.Nonnull Map<String, Object> requestBody) {
+            this.workflowId = workflowId;
+            this.runId = runId;
+            this.signalName = signalName;
+            this.requestBody = requestBody;
+        }
+
+        /**
+         * Build call for signalWorkflowRun
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal response. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow run has closed and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return signalWorkflowRunCall(workflowId, runId, signalName, requestBody, _callback);
+        }
+
+        /**
+         * Execute signalWorkflowRun request
+         * @return SignalAgentResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal response. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow run has closed and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SignalAgentResponse execute() throws ApiException {
+            ApiResponse<SignalAgentResponse> localVarResp =
+                    signalWorkflowRunWithHttpInfo(workflowId, runId, signalName, requestBody);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute signalWorkflowRun request with HTTP info returned
+         * @return ApiResponse&lt;SignalAgentResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal response. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow run has closed and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SignalAgentResponse> executeWithHttpInfo() throws ApiException {
+            return signalWorkflowRunWithHttpInfo(workflowId, runId, signalName, requestBody);
+        }
+
+        /**
+         * Execute signalWorkflowRun request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow signal response. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow run has closed and can no longer receive signals. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SignalAgentResponse> _callback)
+                throws ApiException {
+            return signalWorkflowRunAsync(workflowId, runId, signalName, requestBody, _callback);
+        }
+    }
+
     /**
-     * Build call for streamWorkflowRunUpdates
+     * Signal a workflow run
+     * Sends a named signal to a running workflow.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
-     * @param since  (optional)
-     * @param skipHistory  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param signalName  (required)
+     * @param requestBody  (required)
+     * @return APIsignalWorkflowRunRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow update stream response. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow signal response. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The workflow run has closed and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call streamWorkflowRunUpdatesCall(
+    public APIsignalWorkflowRunRequest signalWorkflowRun(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody) {
+        return new APIsignalWorkflowRunRequest(workflowId, runId, signalName, requestBody);
+    }
+
+    private okhttp3.Call streamWorkflowRunUpdatesCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable BigDecimal since,
@@ -2234,54 +2456,7 @@ public class WorkflowRunsApi {
         return streamWorkflowRunUpdatesCall(workflowId, runId, since, skipHistory, _callback);
     }
 
-    /**
-     * Stream workflow run updates
-     * Streams workflow messages and updates for a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param since  (optional)
-     * @param skipHistory  (optional)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow update stream response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public String streamWorkflowRunUpdates(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nullable BigDecimal since,
-            @jakarta.annotation.Nullable Boolean skipHistory)
-            throws ApiException {
-        ApiResponse<String> localVarResp =
-                streamWorkflowRunUpdatesWithHttpInfo(workflowId, runId, since, skipHistory);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Stream workflow run updates
-     * Streams workflow messages and updates for a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param since  (optional)
-     * @param skipHistory  (optional)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow update stream response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<String> streamWorkflowRunUpdatesWithHttpInfo(
+    private ApiResponse<String> streamWorkflowRunUpdatesWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable BigDecimal since,
@@ -2294,26 +2469,7 @@ public class WorkflowRunsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Stream workflow run updates (asynchronously)
-     * Streams workflow messages and updates for a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param since  (optional)
-     * @param skipHistory  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow update stream response. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call streamWorkflowRunUpdatesAsync(
+    private okhttp3.Call streamWorkflowRunUpdatesAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull String runId,
             @jakarta.annotation.Nullable BigDecimal since,
@@ -2329,64 +2485,132 @@ public class WorkflowRunsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for streamWorkflowRunUpdates with every optional parameter left unset.
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call streamWorkflowRunUpdatesCall(
-            @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            final ApiCallback _callback)
-            throws ApiException {
-        return streamWorkflowRunUpdatesCall(workflowId, runId, null, null, _callback);
+    public class APIstreamWorkflowRunUpdatesRequest {
+        @jakarta.annotation.Nonnull private final String workflowId;
+        @jakarta.annotation.Nonnull private final String runId;
+        @jakarta.annotation.Nullable private BigDecimal since;
+        @jakarta.annotation.Nullable private Boolean skipHistory;
+
+        private APIstreamWorkflowRunUpdatesRequest(
+                @jakarta.annotation.Nonnull String workflowId,
+                @jakarta.annotation.Nonnull String runId) {
+            this.workflowId = workflowId;
+            this.runId = runId;
+        }
+
+        /**
+         * Set since
+         * @param since  (optional)
+         * @return APIstreamWorkflowRunUpdatesRequest
+         */
+        public APIstreamWorkflowRunUpdatesRequest since(
+                @jakarta.annotation.Nullable BigDecimal since) {
+            this.since = since;
+            return this;
+        }
+
+        /**
+         * Set skipHistory
+         * @param skipHistory  (optional)
+         * @return APIstreamWorkflowRunUpdatesRequest
+         */
+        public APIstreamWorkflowRunUpdatesRequest skipHistory(
+                @jakarta.annotation.Nullable Boolean skipHistory) {
+            this.skipHistory = skipHistory;
+            return this;
+        }
+
+        /**
+         * Build call for streamWorkflowRunUpdates
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow update stream response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return streamWorkflowRunUpdatesCall(workflowId, runId, since, skipHistory, _callback);
+        }
+
+        /**
+         * Execute streamWorkflowRunUpdates request
+         * @return String
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow update stream response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public String execute() throws ApiException {
+            ApiResponse<String> localVarResp =
+                    streamWorkflowRunUpdatesWithHttpInfo(workflowId, runId, since, skipHistory);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute streamWorkflowRunUpdates request with HTTP info returned
+         * @return ApiResponse&lt;String&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow update stream response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<String> executeWithHttpInfo() throws ApiException {
+            return streamWorkflowRunUpdatesWithHttpInfo(workflowId, runId, since, skipHistory);
+        }
+
+        /**
+         * Execute streamWorkflowRunUpdates request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow update stream response. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<String> _callback) throws ApiException {
+            return streamWorkflowRunUpdatesAsync(workflowId, runId, since, skipHistory, _callback);
+        }
     }
 
     /**
      * Stream workflow run updates
-     * Calls {@code streamWorkflowRunUpdates} with every optional parameter left unset.
+     * Streams workflow messages and updates for a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @return APIstreamWorkflowRunUpdatesRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Workflow update stream response. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
      */
-    public String streamWorkflowRunUpdates(
-            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        return streamWorkflowRunUpdates(workflowId, runId, null, null);
-    }
-
-    /**
-     * Stream workflow run updates
-     * Calls {@code streamWorkflowRunUpdatesWithHttpInfo} with every optional parameter left unset.
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> streamWorkflowRunUpdatesWithHttpInfo(
-            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        return streamWorkflowRunUpdatesWithHttpInfo(workflowId, runId, null, null);
-    }
-
-    /**
-     * Stream workflow run updates (asynchronously)
-     * Calls {@code streamWorkflowRunUpdatesAsync} with every optional parameter left unset.
-     * @param workflowId  (required)
-     * @param runId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call streamWorkflowRunUpdatesAsync(
+    public APIstreamWorkflowRunUpdatesRequest streamWorkflowRunUpdates(
             @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull String runId,
-            final ApiCallback<String> _callback)
-            throws ApiException {
-        return streamWorkflowRunUpdatesAsync(workflowId, runId, null, null, _callback);
+            @jakarta.annotation.Nonnull String runId) {
+        return new APIstreamWorkflowRunUpdatesRequest(workflowId, runId);
     }
 }

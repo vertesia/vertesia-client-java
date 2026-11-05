@@ -69,27 +69,7 @@ public class CostsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for exportCostData
-     * @param from Start time (ISO string or epoch ms) (optional)
-     * @param to End time (ISO string or epoch ms) (optional)
-     * @param scope Scope: &#39;project&#39; (default, current project) or &#39;org&#39; (all projects in account) (optional)
-     * @param projectId Filter by project ID (optional, for org scope) (optional)
-     * @param workflowId Filter by workflow / agent run ID (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> CSV export of raw billable audit events. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call exportCostDataCall(
+    private okhttp3.Call exportCostDataCall(
             @jakarta.annotation.Nullable GetModelPricesFromParameter from,
             @jakarta.annotation.Nullable GetModelPricesToParameter to,
             @jakarta.annotation.Nullable String scope,
@@ -182,59 +162,7 @@ public class CostsApi {
         return exportCostDataCall(from, to, scope, projectId, workflowId, _callback);
     }
 
-    /**
-     * Export cost data
-     * Exports raw billable audit events as CSV for the selected time range and scope.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param from Start time (ISO string or epoch ms) (optional)
-     * @param to End time (ISO string or epoch ms) (optional)
-     * @param scope Scope: &#39;project&#39; (default, current project) or &#39;org&#39; (all projects in account) (optional)
-     * @param projectId Filter by project ID (optional, for org scope) (optional)
-     * @param workflowId Filter by workflow / agent run ID (optional)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> CSV export of raw billable audit events. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public String exportCostData(
-            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
-            @jakarta.annotation.Nullable GetModelPricesToParameter to,
-            @jakarta.annotation.Nullable String scope,
-            @jakarta.annotation.Nullable String projectId,
-            @jakarta.annotation.Nullable String workflowId)
-            throws ApiException {
-        ApiResponse<String> localVarResp =
-                exportCostDataWithHttpInfo(from, to, scope, projectId, workflowId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Export cost data
-     * Exports raw billable audit events as CSV for the selected time range and scope.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param from Start time (ISO string or epoch ms) (optional)
-     * @param to End time (ISO string or epoch ms) (optional)
-     * @param scope Scope: &#39;project&#39; (default, current project) or &#39;org&#39; (all projects in account) (optional)
-     * @param projectId Filter by project ID (optional, for org scope) (optional)
-     * @param workflowId Filter by workflow / agent run ID (optional)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> CSV export of raw billable audit events. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<String> exportCostDataWithHttpInfo(
+    private ApiResponse<String> exportCostDataWithHttpInfo(
             @jakarta.annotation.Nullable GetModelPricesFromParameter from,
             @jakarta.annotation.Nullable GetModelPricesToParameter to,
             @jakarta.annotation.Nullable String scope,
@@ -247,28 +175,7 @@ public class CostsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Export cost data (asynchronously)
-     * Exports raw billable audit events as CSV for the selected time range and scope.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param from Start time (ISO string or epoch ms) (optional)
-     * @param to End time (ISO string or epoch ms) (optional)
-     * @param scope Scope: &#39;project&#39; (default, current project) or &#39;org&#39; (all projects in account) (optional)
-     * @param projectId Filter by project ID (optional, for org scope) (optional)
-     * @param workflowId Filter by workflow / agent run ID (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> CSV export of raw billable audit events. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call exportCostDataAsync(
+    private okhttp3.Call exportCostDataAsync(
             @jakarta.annotation.Nullable GetModelPricesFromParameter from,
             @jakarta.annotation.Nullable GetModelPricesToParameter to,
             @jakarta.annotation.Nullable String scope,
@@ -284,65 +191,163 @@ public class CostsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for exportCostData with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call exportCostDataCall(final ApiCallback _callback) throws ApiException {
-        return exportCostDataCall(null, null, null, null, null, _callback);
+    public class APIexportCostDataRequest {
+        @jakarta.annotation.Nullable private GetModelPricesFromParameter from;
+        @jakarta.annotation.Nullable private GetModelPricesToParameter to;
+        @jakarta.annotation.Nullable private String scope;
+        @jakarta.annotation.Nullable private String projectId;
+        @jakarta.annotation.Nullable private String workflowId;
+
+        private APIexportCostDataRequest() {}
+
+        /**
+         * Set from
+         * @param from Start time (ISO string or epoch ms) (optional)
+         * @return APIexportCostDataRequest
+         */
+        public APIexportCostDataRequest from(
+                @jakarta.annotation.Nullable GetModelPricesFromParameter from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End time (ISO string or epoch ms) (optional)
+         * @return APIexportCostDataRequest
+         */
+        public APIexportCostDataRequest to(
+                @jakarta.annotation.Nullable GetModelPricesToParameter to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set scope
+         * @param scope Scope: &#39;project&#39; (default, current project) or &#39;org&#39; (all projects in account) (optional)
+         * @return APIexportCostDataRequest
+         */
+        public APIexportCostDataRequest scope(@jakarta.annotation.Nullable String scope) {
+            this.scope = scope;
+            return this;
+        }
+
+        /**
+         * Set projectId
+         * @param projectId Filter by project ID (optional, for org scope) (optional)
+         * @return APIexportCostDataRequest
+         */
+        public APIexportCostDataRequest projectId(@jakarta.annotation.Nullable String projectId) {
+            this.projectId = projectId;
+            return this;
+        }
+
+        /**
+         * Set workflowId
+         * @param workflowId Filter by workflow / agent run ID (optional)
+         * @return APIexportCostDataRequest
+         */
+        public APIexportCostDataRequest workflowId(@jakarta.annotation.Nullable String workflowId) {
+            this.workflowId = workflowId;
+            return this;
+        }
+
+        /**
+         * Build call for exportCostData
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> CSV export of raw billable audit events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return exportCostDataCall(from, to, scope, projectId, workflowId, _callback);
+        }
+
+        /**
+         * Execute exportCostData request
+         * @return String
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> CSV export of raw billable audit events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public String execute() throws ApiException {
+            ApiResponse<String> localVarResp =
+                    exportCostDataWithHttpInfo(from, to, scope, projectId, workflowId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute exportCostData request with HTTP info returned
+         * @return ApiResponse&lt;String&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> CSV export of raw billable audit events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<String> executeWithHttpInfo() throws ApiException {
+            return exportCostDataWithHttpInfo(from, to, scope, projectId, workflowId);
+        }
+
+        /**
+         * Execute exportCostData request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> CSV export of raw billable audit events. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<String> _callback) throws ApiException {
+            return exportCostDataAsync(from, to, scope, projectId, workflowId, _callback);
+        }
     }
 
     /**
      * Export cost data
-     * Calls {@code exportCostData} with every optional parameter left unset.
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public String exportCostData() throws ApiException {
-        return exportCostData(null, null, null, null, null);
-    }
-
-    /**
-     * Export cost data
-     * Calls {@code exportCostDataWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<String> exportCostDataWithHttpInfo() throws ApiException {
-        return exportCostDataWithHttpInfo(null, null, null, null, null);
-    }
-
-    /**
-     * Export cost data (asynchronously)
-     * Calls {@code exportCostDataAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call exportCostDataAsync(final ApiCallback<String> _callback)
-            throws ApiException {
-        return exportCostDataAsync(null, null, null, null, null, _callback);
-    }
-
-    /**
-     * Build call for getCostAnalytics
-     * @param costAnalyticsQuery  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Exports raw billable audit events as CSV for the selected time range and scope.  **Required permissions:** &#x60;billing:read&#x60;
+     * @return APIexportCostDataRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Aggregated cost analytics by summary, dimension, and time series. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> CSV export of raw billable audit events. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getCostAnalyticsCall(
+    public APIexportCostDataRequest exportCostData() {
+        return new APIexportCostDataRequest();
+    }
+
+    private okhttp3.Call getCostAnalyticsCall(
             @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery,
             final ApiCallback _callback)
             throws ApiException {
@@ -412,70 +417,14 @@ public class CostsApi {
         return getCostAnalyticsCall(costAnalyticsQuery, _callback);
     }
 
-    /**
-     * Compute cost analytics
-     * Computes aggregated cost analytics for the current project or, in org scope, across the account.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param costAnalyticsQuery  (required)
-     * @return CostAnalyticsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Aggregated cost analytics by summary, dimension, and time series. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CostAnalyticsResponse getCostAnalytics(
-            @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery) throws ApiException {
-        ApiResponse<CostAnalyticsResponse> localVarResp =
-                getCostAnalyticsWithHttpInfo(costAnalyticsQuery);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Compute cost analytics
-     * Computes aggregated cost analytics for the current project or, in org scope, across the account.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param costAnalyticsQuery  (required)
-     * @return ApiResponse&lt;CostAnalyticsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Aggregated cost analytics by summary, dimension, and time series. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CostAnalyticsResponse> getCostAnalyticsWithHttpInfo(
+    private ApiResponse<CostAnalyticsResponse> getCostAnalyticsWithHttpInfo(
             @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery) throws ApiException {
         okhttp3.Call localVarCall = getCostAnalyticsValidateBeforeCall(costAnalyticsQuery, null);
         Type localVarReturnType = new TypeToken<CostAnalyticsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Compute cost analytics (asynchronously)
-     * Computes aggregated cost analytics for the current project or, in org scope, across the account.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param costAnalyticsQuery  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Aggregated cost analytics by summary, dimension, and time series. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getCostAnalyticsAsync(
+    private okhttp3.Call getCostAnalyticsAsync(
             @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery,
             final ApiCallback<CostAnalyticsResponse> _callback)
             throws ApiException {
@@ -487,24 +436,113 @@ public class CostsApi {
         return localVarCall;
     }
 
+    public class APIgetCostAnalyticsRequest {
+        @jakarta.annotation.Nonnull private final CostAnalyticsQuery costAnalyticsQuery;
+
+        private APIgetCostAnalyticsRequest(
+                @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery) {
+            this.costAnalyticsQuery = costAnalyticsQuery;
+        }
+
+        /**
+         * Build call for getCostAnalytics
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Aggregated cost analytics by summary, dimension, and time series. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCostAnalyticsCall(costAnalyticsQuery, _callback);
+        }
+
+        /**
+         * Execute getCostAnalytics request
+         * @return CostAnalyticsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Aggregated cost analytics by summary, dimension, and time series. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CostAnalyticsResponse execute() throws ApiException {
+            ApiResponse<CostAnalyticsResponse> localVarResp =
+                    getCostAnalyticsWithHttpInfo(costAnalyticsQuery);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCostAnalytics request with HTTP info returned
+         * @return ApiResponse&lt;CostAnalyticsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Aggregated cost analytics by summary, dimension, and time series. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CostAnalyticsResponse> executeWithHttpInfo() throws ApiException {
+            return getCostAnalyticsWithHttpInfo(costAnalyticsQuery);
+        }
+
+        /**
+         * Execute getCostAnalytics request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Aggregated cost analytics by summary, dimension, and time series. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CostAnalyticsResponse> _callback)
+                throws ApiException {
+            return getCostAnalyticsAsync(costAnalyticsQuery, _callback);
+        }
+    }
+
     /**
-     * Build call for getModelPrices
-     * @param from Start time (ISO string or epoch ms) (optional)
-     * @param to End time (ISO string or epoch ms) (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Compute cost analytics
+     * Computes aggregated cost analytics for the current project or, in org scope, across the account.  **Required permissions:** &#x60;billing:read&#x60;
+     * @param costAnalyticsQuery  (required)
+     * @return APIgetCostAnalyticsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Model pricing comparison for the selected period. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Aggregated cost analytics by summary, dimension, and time series. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getModelPricesCall(
+    public APIgetCostAnalyticsRequest getCostAnalytics(
+            @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery) {
+        return new APIgetCostAnalyticsRequest(costAnalyticsQuery);
+    }
+
+    private okhttp3.Call getModelPricesCall(
             @jakarta.annotation.Nullable GetModelPricesFromParameter from,
             @jakarta.annotation.Nullable GetModelPricesToParameter to,
             final ApiCallback _callback)
@@ -578,50 +616,7 @@ public class CostsApi {
         return getModelPricesCall(from, to, _callback);
     }
 
-    /**
-     * List model prices
-     * Lists model pricing for a selected time range, including list prices and the effective pricing window used for billing.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param from Start time (ISO string or epoch ms) (optional)
-     * @param to End time (ISO string or epoch ms) (optional)
-     * @return ModelPriceComparisonResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Model pricing comparison for the selected period. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ModelPriceComparisonResponse getModelPrices(
-            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
-            @jakarta.annotation.Nullable GetModelPricesToParameter to)
-            throws ApiException {
-        ApiResponse<ModelPriceComparisonResponse> localVarResp =
-                getModelPricesWithHttpInfo(from, to);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List model prices
-     * Lists model pricing for a selected time range, including list prices and the effective pricing window used for billing.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param from Start time (ISO string or epoch ms) (optional)
-     * @param to End time (ISO string or epoch ms) (optional)
-     * @return ApiResponse&lt;ModelPriceComparisonResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Model pricing comparison for the selected period. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ModelPriceComparisonResponse> getModelPricesWithHttpInfo(
+    private ApiResponse<ModelPriceComparisonResponse> getModelPricesWithHttpInfo(
             @jakarta.annotation.Nullable GetModelPricesFromParameter from,
             @jakarta.annotation.Nullable GetModelPricesToParameter to)
             throws ApiException {
@@ -630,25 +625,7 @@ public class CostsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List model prices (asynchronously)
-     * Lists model pricing for a selected time range, including list prices and the effective pricing window used for billing.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param from Start time (ISO string or epoch ms) (optional)
-     * @param to End time (ISO string or epoch ms) (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Model pricing comparison for the selected period. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getModelPricesAsync(
+    private okhttp3.Call getModelPricesAsync(
             @jakarta.annotation.Nullable GetModelPricesFromParameter from,
             @jakarta.annotation.Nullable GetModelPricesToParameter to,
             final ApiCallback<ModelPriceComparisonResponse> _callback)
@@ -660,66 +637,131 @@ public class CostsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for getModelPrices with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call getModelPricesCall(final ApiCallback _callback) throws ApiException {
-        return getModelPricesCall(null, null, _callback);
+    public class APIgetModelPricesRequest {
+        @jakarta.annotation.Nullable private GetModelPricesFromParameter from;
+        @jakarta.annotation.Nullable private GetModelPricesToParameter to;
+
+        private APIgetModelPricesRequest() {}
+
+        /**
+         * Set from
+         * @param from Start time (ISO string or epoch ms) (optional)
+         * @return APIgetModelPricesRequest
+         */
+        public APIgetModelPricesRequest from(
+                @jakarta.annotation.Nullable GetModelPricesFromParameter from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End time (ISO string or epoch ms) (optional)
+         * @return APIgetModelPricesRequest
+         */
+        public APIgetModelPricesRequest to(
+                @jakarta.annotation.Nullable GetModelPricesToParameter to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Build call for getModelPrices
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Model pricing comparison for the selected period. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getModelPricesCall(from, to, _callback);
+        }
+
+        /**
+         * Execute getModelPrices request
+         * @return ModelPriceComparisonResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Model pricing comparison for the selected period. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ModelPriceComparisonResponse execute() throws ApiException {
+            ApiResponse<ModelPriceComparisonResponse> localVarResp =
+                    getModelPricesWithHttpInfo(from, to);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getModelPrices request with HTTP info returned
+         * @return ApiResponse&lt;ModelPriceComparisonResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Model pricing comparison for the selected period. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ModelPriceComparisonResponse> executeWithHttpInfo() throws ApiException {
+            return getModelPricesWithHttpInfo(from, to);
+        }
+
+        /**
+         * Execute getModelPrices request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Model pricing comparison for the selected period. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ModelPriceComparisonResponse> _callback)
+                throws ApiException {
+            return getModelPricesAsync(from, to, _callback);
+        }
     }
 
     /**
      * List model prices
-     * Calls {@code getModelPrices} with every optional parameter left unset.
-     * @return ModelPriceComparisonResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ModelPriceComparisonResponse getModelPrices() throws ApiException {
-        return getModelPrices(null, null);
-    }
-
-    /**
-     * List model prices
-     * Calls {@code getModelPricesWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ModelPriceComparisonResponse> getModelPricesWithHttpInfo()
-            throws ApiException {
-        return getModelPricesWithHttpInfo(null, null);
-    }
-
-    /**
-     * List model prices (asynchronously)
-     * Calls {@code getModelPricesAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call getModelPricesAsync(
-            final ApiCallback<ModelPriceComparisonResponse> _callback) throws ApiException {
-        return getModelPricesAsync(null, null, _callback);
-    }
-
-    /**
-     * Build call for getRunPrice
-     * @param costRunPriceQuery  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Lists model pricing for a selected time range, including list prices and the effective pricing window used for billing.  **Required permissions:** &#x60;billing:read&#x60;
+     * @return APIgetModelPricesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pricing summary and model breakdown for the selected run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Model pricing comparison for the selected period. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getRunPriceCall(
+    public APIgetModelPricesRequest getModelPrices() {
+        return new APIgetModelPricesRequest();
+    }
+
+    private okhttp3.Call getRunPriceCall(
             @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery,
             final ApiCallback _callback)
             throws ApiException {
@@ -789,69 +831,14 @@ public class CostsApi {
         return getRunPriceCall(costRunPriceQuery, _callback);
     }
 
-    /**
-     * Price a run
-     * Computes the billed cost for a single interaction run or agent run from audit metering rows.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param costRunPriceQuery  (required)
-     * @return CostRunPriceResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pricing summary and model breakdown for the selected run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CostRunPriceResponse getRunPrice(
-            @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery) throws ApiException {
-        ApiResponse<CostRunPriceResponse> localVarResp = getRunPriceWithHttpInfo(costRunPriceQuery);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Price a run
-     * Computes the billed cost for a single interaction run or agent run from audit metering rows.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param costRunPriceQuery  (required)
-     * @return ApiResponse&lt;CostRunPriceResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pricing summary and model breakdown for the selected run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CostRunPriceResponse> getRunPriceWithHttpInfo(
+    private ApiResponse<CostRunPriceResponse> getRunPriceWithHttpInfo(
             @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery) throws ApiException {
         okhttp3.Call localVarCall = getRunPriceValidateBeforeCall(costRunPriceQuery, null);
         Type localVarReturnType = new TypeToken<CostRunPriceResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Price a run (asynchronously)
-     * Computes the billed cost for a single interaction run or agent run from audit metering rows.  **Required permissions:** &#x60;billing:read&#x60;
-     * @param costRunPriceQuery  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Pricing summary and model breakdown for the selected run. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getRunPriceAsync(
+    private okhttp3.Call getRunPriceAsync(
             @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery,
             final ApiCallback<CostRunPriceResponse> _callback)
             throws ApiException {
@@ -860,5 +847,111 @@ public class CostsApi {
         Type localVarReturnType = new TypeToken<CostRunPriceResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetRunPriceRequest {
+        @jakarta.annotation.Nonnull private final CostRunPriceQuery costRunPriceQuery;
+
+        private APIgetRunPriceRequest(
+                @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery) {
+            this.costRunPriceQuery = costRunPriceQuery;
+        }
+
+        /**
+         * Build call for getRunPrice
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pricing summary and model breakdown for the selected run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getRunPriceCall(costRunPriceQuery, _callback);
+        }
+
+        /**
+         * Execute getRunPrice request
+         * @return CostRunPriceResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pricing summary and model breakdown for the selected run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CostRunPriceResponse execute() throws ApiException {
+            ApiResponse<CostRunPriceResponse> localVarResp =
+                    getRunPriceWithHttpInfo(costRunPriceQuery);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getRunPrice request with HTTP info returned
+         * @return ApiResponse&lt;CostRunPriceResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pricing summary and model breakdown for the selected run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CostRunPriceResponse> executeWithHttpInfo() throws ApiException {
+            return getRunPriceWithHttpInfo(costRunPriceQuery);
+        }
+
+        /**
+         * Execute getRunPrice request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Pricing summary and model breakdown for the selected run. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CostRunPriceResponse> _callback)
+                throws ApiException {
+            return getRunPriceAsync(costRunPriceQuery, _callback);
+        }
+    }
+
+    /**
+     * Price a run
+     * Computes the billed cost for a single interaction run or agent run from audit metering rows.  **Required permissions:** &#x60;billing:read&#x60;
+     * @param costRunPriceQuery  (required)
+     * @return APIgetRunPriceRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pricing summary and model breakdown for the selected run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Cost analytics is not available on this deployment, or its model pricing is not synced yet. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIgetRunPriceRequest getRunPrice(
+            @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery) {
+        return new APIgetRunPriceRequest(costRunPriceQuery);
     }
 }

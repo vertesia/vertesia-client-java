@@ -66,23 +66,7 @@ public class ToolsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for inspectProjectTool
-     * @param toolName  (required)
-     * @param context  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call inspectProjectToolCall(
+    private okhttp3.Call inspectProjectToolCall(
             @jakarta.annotation.Nonnull String toolName,
             @jakarta.annotation.Nullable String context,
             final ApiCallback _callback)
@@ -162,48 +146,7 @@ public class ToolsApi {
         return inspectProjectToolCall(toolName, context, _callback);
     }
 
-    /**
-     * Inspect one project tool
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param toolName  (required)
-     * @param context  (optional)
-     * @return ToolInspection
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ToolInspection inspectProjectTool(
-            @jakarta.annotation.Nonnull String toolName,
-            @jakarta.annotation.Nullable String context)
-            throws ApiException {
-        ApiResponse<ToolInspection> localVarResp =
-                inspectProjectToolWithHttpInfo(toolName, context);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Inspect one project tool
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param toolName  (required)
-     * @param context  (optional)
-     * @return ApiResponse&lt;ToolInspection&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ToolInspection> inspectProjectToolWithHttpInfo(
+    private ApiResponse<ToolInspection> inspectProjectToolWithHttpInfo(
             @jakarta.annotation.Nonnull String toolName,
             @jakarta.annotation.Nullable String context)
             throws ApiException {
@@ -212,24 +155,7 @@ public class ToolsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Inspect one project tool (asynchronously)
-     * **Required permissions:** &#x60;account:member&#x60;
-     * @param toolName  (required)
-     * @param context  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call inspectProjectToolAsync(
+    private okhttp3.Call inspectProjectToolAsync(
             @jakarta.annotation.Nonnull String toolName,
             @jakarta.annotation.Nullable String context,
             final ApiCallback<ToolInspection> _callback)
@@ -242,76 +168,118 @@ public class ToolsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for inspectProjectTool with every optional parameter left unset.
-     * @param toolName  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call inspectProjectToolCall(
-            @jakarta.annotation.Nonnull String toolName, final ApiCallback _callback)
-            throws ApiException {
-        return inspectProjectToolCall(toolName, null, _callback);
+    public class APIinspectProjectToolRequest {
+        @jakarta.annotation.Nonnull private final String toolName;
+        @jakarta.annotation.Nullable private String context;
+
+        private APIinspectProjectToolRequest(@jakarta.annotation.Nonnull String toolName) {
+            this.toolName = toolName;
+        }
+
+        /**
+         * Set context
+         * @param context  (optional)
+         * @return APIinspectProjectToolRequest
+         */
+        public APIinspectProjectToolRequest context(@jakarta.annotation.Nullable String context) {
+            this.context = context;
+            return this;
+        }
+
+        /**
+         * Build call for inspectProjectTool
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return inspectProjectToolCall(toolName, context, _callback);
+        }
+
+        /**
+         * Execute inspectProjectTool request
+         * @return ToolInspection
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ToolInspection execute() throws ApiException {
+            ApiResponse<ToolInspection> localVarResp =
+                    inspectProjectToolWithHttpInfo(toolName, context);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute inspectProjectTool request with HTTP info returned
+         * @return ApiResponse&lt;ToolInspection&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ToolInspection> executeWithHttpInfo() throws ApiException {
+            return inspectProjectToolWithHttpInfo(toolName, context);
+        }
+
+        /**
+         * Execute inspectProjectTool request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ToolInspection> _callback)
+                throws ApiException {
+            return inspectProjectToolAsync(toolName, context, _callback);
+        }
     }
 
     /**
      * Inspect one project tool
-     * Calls {@code inspectProjectTool} with every optional parameter left unset.
+     * **Required permissions:** &#x60;account:member&#x60;
      * @param toolName  (required)
-     * @return ToolInspection
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ToolInspection inspectProjectTool(@jakarta.annotation.Nonnull String toolName)
-            throws ApiException {
-        return inspectProjectTool(toolName, null);
-    }
-
-    /**
-     * Inspect one project tool
-     * Calls {@code inspectProjectToolWithHttpInfo} with every optional parameter left unset.
-     * @param toolName  (required)
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<ToolInspection> inspectProjectToolWithHttpInfo(
-            @jakarta.annotation.Nonnull String toolName) throws ApiException {
-        return inspectProjectToolWithHttpInfo(toolName, null);
-    }
-
-    /**
-     * Inspect one project tool (asynchronously)
-     * Calls {@code inspectProjectToolAsync} with every optional parameter left unset.
-     * @param toolName  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call inspectProjectToolAsync(
-            @jakarta.annotation.Nonnull String toolName,
-            final ApiCallback<ToolInspection> _callback)
-            throws ApiException {
-        return inspectProjectToolAsync(toolName, null, _callback);
-    }
-
-    /**
-     * Build call for listAgentTools
-     * @param context  (optional)
-     * @param sources Include only these sources. (optional)
-     * @param exclude Drop these sources from the result (and skip their fetch). Applied after &#x60;sources&#x60;. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIinspectProjectToolRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Aggregated tool list. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAgentToolsCall(
+    public APIinspectProjectToolRequest inspectProjectTool(
+            @jakarta.annotation.Nonnull String toolName) {
+        return new APIinspectProjectToolRequest(toolName);
+    }
+
+    private okhttp3.Call listAgentToolsCall(
             @jakarta.annotation.Nullable String context,
             @jakarta.annotation.Nullable List<String> sources,
             @jakarta.annotation.Nullable List<String> exclude,
@@ -393,51 +361,7 @@ public class ToolsApi {
         return listAgentToolsCall(context, sources, exclude, _callback);
     }
 
-    /**
-     * List all tools available in the project
-     * Returns the unified project-scoped tool registry visible to the current principal. Sources can be filtered via the &#x60;sources&#x60; query string.  **Required permissions:** &#x60;account:member&#x60;
-     * @param context  (optional)
-     * @param sources Include only these sources. (optional)
-     * @param exclude Drop these sources from the result (and skip their fetch). Applied after &#x60;sources&#x60;. (optional)
-     * @return List&lt;AggregatedTool&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Aggregated tool list. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<AggregatedTool> listAgentTools(
-            @jakarta.annotation.Nullable String context,
-            @jakarta.annotation.Nullable List<String> sources,
-            @jakarta.annotation.Nullable List<String> exclude)
-            throws ApiException {
-        ApiResponse<List<AggregatedTool>> localVarResp =
-                listAgentToolsWithHttpInfo(context, sources, exclude);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List all tools available in the project
-     * Returns the unified project-scoped tool registry visible to the current principal. Sources can be filtered via the &#x60;sources&#x60; query string.  **Required permissions:** &#x60;account:member&#x60;
-     * @param context  (optional)
-     * @param sources Include only these sources. (optional)
-     * @param exclude Drop these sources from the result (and skip their fetch). Applied after &#x60;sources&#x60;. (optional)
-     * @return ApiResponse&lt;List&lt;AggregatedTool&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Aggregated tool list. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<AggregatedTool>> listAgentToolsWithHttpInfo(
+    private ApiResponse<List<AggregatedTool>> listAgentToolsWithHttpInfo(
             @jakarta.annotation.Nullable String context,
             @jakarta.annotation.Nullable List<String> sources,
             @jakarta.annotation.Nullable List<String> exclude)
@@ -448,25 +372,7 @@ public class ToolsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List all tools available in the project (asynchronously)
-     * Returns the unified project-scoped tool registry visible to the current principal. Sources can be filtered via the &#x60;sources&#x60; query string.  **Required permissions:** &#x60;account:member&#x60;
-     * @param context  (optional)
-     * @param sources Include only these sources. (optional)
-     * @param exclude Drop these sources from the result (and skip their fetch). Applied after &#x60;sources&#x60;. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Aggregated tool list. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAgentToolsAsync(
+    private okhttp3.Call listAgentToolsAsync(
             @jakarta.annotation.Nullable String context,
             @jakarta.annotation.Nullable List<String> sources,
             @jakarta.annotation.Nullable List<String> exclude,
@@ -480,64 +386,135 @@ public class ToolsApi {
         return localVarCall;
     }
 
-    /**
-     * Build call for listAgentTools with every optional parameter left unset.
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public okhttp3.Call listAgentToolsCall(final ApiCallback _callback) throws ApiException {
-        return listAgentToolsCall(null, null, null, _callback);
+    public class APIlistAgentToolsRequest {
+        @jakarta.annotation.Nullable private String context;
+        @jakarta.annotation.Nullable private List<String> sources;
+        @jakarta.annotation.Nullable private List<String> exclude;
+
+        private APIlistAgentToolsRequest() {}
+
+        /**
+         * Set context
+         * @param context  (optional)
+         * @return APIlistAgentToolsRequest
+         */
+        public APIlistAgentToolsRequest context(@jakarta.annotation.Nullable String context) {
+            this.context = context;
+            return this;
+        }
+
+        /**
+         * Set sources
+         * @param sources Include only these sources. (optional)
+         * @return APIlistAgentToolsRequest
+         */
+        public APIlistAgentToolsRequest sources(@jakarta.annotation.Nullable List<String> sources) {
+            this.sources = sources;
+            return this;
+        }
+
+        /**
+         * Set exclude
+         * @param exclude Drop these sources from the result (and skip their fetch). Applied after &#x60;sources&#x60;. (optional)
+         * @return APIlistAgentToolsRequest
+         */
+        public APIlistAgentToolsRequest exclude(@jakarta.annotation.Nullable List<String> exclude) {
+            this.exclude = exclude;
+            return this;
+        }
+
+        /**
+         * Build call for listAgentTools
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Aggregated tool list. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listAgentToolsCall(context, sources, exclude, _callback);
+        }
+
+        /**
+         * Execute listAgentTools request
+         * @return List&lt;AggregatedTool&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Aggregated tool list. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public List<AggregatedTool> execute() throws ApiException {
+            ApiResponse<List<AggregatedTool>> localVarResp =
+                    listAgentToolsWithHttpInfo(context, sources, exclude);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listAgentTools request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;AggregatedTool&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Aggregated tool list. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<List<AggregatedTool>> executeWithHttpInfo() throws ApiException {
+            return listAgentToolsWithHttpInfo(context, sources, exclude);
+        }
+
+        /**
+         * Execute listAgentTools request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Aggregated tool list. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<AggregatedTool>> _callback)
+                throws ApiException {
+            return listAgentToolsAsync(context, sources, exclude, _callback);
+        }
     }
 
     /**
      * List all tools available in the project
-     * Calls {@code listAgentTools} with every optional parameter left unset.
-     * @return List&lt;AggregatedTool&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public List<AggregatedTool> listAgentTools() throws ApiException {
-        return listAgentTools(null, null, null);
-    }
-
-    /**
-     * List all tools available in the project
-     * Calls {@code listAgentToolsWithHttpInfo} with every optional parameter left unset.
-     * @return the API response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<List<AggregatedTool>> listAgentToolsWithHttpInfo() throws ApiException {
-        return listAgentToolsWithHttpInfo(null, null, null);
-    }
-
-    /**
-     * List all tools available in the project (asynchronously)
-     * Calls {@code listAgentToolsAsync} with every optional parameter left unset.
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public okhttp3.Call listAgentToolsAsync(final ApiCallback<List<AggregatedTool>> _callback)
-            throws ApiException {
-        return listAgentToolsAsync(null, null, null, _callback);
-    }
-
-    /**
-     * Build call for validateAgentToolNames
-     * @param validateToolNamesPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Returns the unified project-scoped tool registry visible to the current principal. Sources can be filtered via the &#x60;sources&#x60; query string.  **Required permissions:** &#x60;account:member&#x60;
+     * @return APIlistAgentToolsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Per-name validation results. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Aggregated tool list. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call validateAgentToolNamesCall(
+    public APIlistAgentToolsRequest listAgentTools() {
+        return new APIlistAgentToolsRequest();
+    }
+
+    private okhttp3.Call validateAgentToolNamesCall(
             @jakarta.annotation.Nonnull ValidateToolNamesPayload validateToolNamesPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -607,45 +584,7 @@ public class ToolsApi {
         return validateAgentToolNamesCall(validateToolNamesPayload, _callback);
     }
 
-    /**
-     * Validate tool names against the project registry
-     * Resolves each name to its source or reports it as invalid with a suggestion.  **Required permissions:** &#x60;account:member&#x60;
-     * @param validateToolNamesPayload  (required)
-     * @return ValidateToolNamesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Per-name validation results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ValidateToolNamesResponse validateAgentToolNames(
-            @jakarta.annotation.Nonnull ValidateToolNamesPayload validateToolNamesPayload)
-            throws ApiException {
-        ApiResponse<ValidateToolNamesResponse> localVarResp =
-                validateAgentToolNamesWithHttpInfo(validateToolNamesPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Validate tool names against the project registry
-     * Resolves each name to its source or reports it as invalid with a suggestion.  **Required permissions:** &#x60;account:member&#x60;
-     * @param validateToolNamesPayload  (required)
-     * @return ApiResponse&lt;ValidateToolNamesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Per-name validation results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ValidateToolNamesResponse> validateAgentToolNamesWithHttpInfo(
+    private ApiResponse<ValidateToolNamesResponse> validateAgentToolNamesWithHttpInfo(
             @jakarta.annotation.Nonnull ValidateToolNamesPayload validateToolNamesPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -654,23 +593,7 @@ public class ToolsApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Validate tool names against the project registry (asynchronously)
-     * Resolves each name to its source or reports it as invalid with a suggestion.  **Required permissions:** &#x60;account:member&#x60;
-     * @param validateToolNamesPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Per-name validation results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call validateAgentToolNamesAsync(
+    private okhttp3.Call validateAgentToolNamesAsync(
             @jakarta.annotation.Nonnull ValidateToolNamesPayload validateToolNamesPayload,
             final ApiCallback<ValidateToolNamesResponse> _callback)
             throws ApiException {
@@ -680,5 +603,106 @@ public class ToolsApi {
         Type localVarReturnType = new TypeToken<ValidateToolNamesResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIvalidateAgentToolNamesRequest {
+        @jakarta.annotation.Nonnull private final ValidateToolNamesPayload validateToolNamesPayload;
+
+        private APIvalidateAgentToolNamesRequest(
+                @jakarta.annotation.Nonnull ValidateToolNamesPayload validateToolNamesPayload) {
+            this.validateToolNamesPayload = validateToolNamesPayload;
+        }
+
+        /**
+         * Build call for validateAgentToolNames
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Per-name validation results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return validateAgentToolNamesCall(validateToolNamesPayload, _callback);
+        }
+
+        /**
+         * Execute validateAgentToolNames request
+         * @return ValidateToolNamesResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Per-name validation results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ValidateToolNamesResponse execute() throws ApiException {
+            ApiResponse<ValidateToolNamesResponse> localVarResp =
+                    validateAgentToolNamesWithHttpInfo(validateToolNamesPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute validateAgentToolNames request with HTTP info returned
+         * @return ApiResponse&lt;ValidateToolNamesResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Per-name validation results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ValidateToolNamesResponse> executeWithHttpInfo() throws ApiException {
+            return validateAgentToolNamesWithHttpInfo(validateToolNamesPayload);
+        }
+
+        /**
+         * Execute validateAgentToolNames request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Per-name validation results. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ValidateToolNamesResponse> _callback)
+                throws ApiException {
+            return validateAgentToolNamesAsync(validateToolNamesPayload, _callback);
+        }
+    }
+
+    /**
+     * Validate tool names against the project registry
+     * Resolves each name to its source or reports it as invalid with a suggestion.  **Required permissions:** &#x60;account:member&#x60;
+     * @param validateToolNamesPayload  (required)
+     * @return APIvalidateAgentToolNamesRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Per-name validation results. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIvalidateAgentToolNamesRequest validateAgentToolNames(
+            @jakarta.annotation.Nonnull ValidateToolNamesPayload validateToolNamesPayload) {
+        return new APIvalidateAgentToolNamesRequest(validateToolNamesPayload);
     }
 }

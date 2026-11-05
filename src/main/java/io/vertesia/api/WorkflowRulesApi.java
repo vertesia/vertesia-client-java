@@ -67,24 +67,7 @@ public class WorkflowRulesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createWorkflowRule
-     * @param createWorkflowRulePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created or updated workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call createWorkflowRuleCall(
+    private okhttp3.Call createWorkflowRuleCall(
             @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -155,49 +138,7 @@ public class WorkflowRulesApi {
         return createWorkflowRuleCall(createWorkflowRulePayload, _callback);
     }
 
-    /**
-     * Create a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Creates a new workflow rule or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createWorkflowRulePayload  (required)
-     * @return WorkflowRule
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created or updated workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public WorkflowRule createWorkflowRule(
-            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
-            throws ApiException {
-        ApiResponse<WorkflowRule> localVarResp =
-                createWorkflowRuleWithHttpInfo(createWorkflowRulePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Creates a new workflow rule or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createWorkflowRulePayload  (required)
-     * @return ApiResponse&lt;WorkflowRule&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created or updated workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<WorkflowRule> createWorkflowRuleWithHttpInfo(
+    private ApiResponse<WorkflowRule> createWorkflowRuleWithHttpInfo(
             @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -206,25 +147,7 @@ public class WorkflowRulesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Create a workflow rule (asynchronously)
-     * Workflow rules are deprecated; use event subscriptions instead. Creates a new workflow rule or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param createWorkflowRulePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created or updated workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call createWorkflowRuleAsync(
+    private okhttp3.Call createWorkflowRuleAsync(
             @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
             final ApiCallback<WorkflowRule> _callback)
             throws ApiException {
@@ -236,24 +159,119 @@ public class WorkflowRulesApi {
         return localVarCall;
     }
 
+    public class APIcreateWorkflowRuleRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateWorkflowRulePayload createWorkflowRulePayload;
+
+        private APIcreateWorkflowRuleRequest(
+                @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload) {
+            this.createWorkflowRulePayload = createWorkflowRulePayload;
+        }
+
+        /**
+         * Build call for createWorkflowRule
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created or updated workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createWorkflowRuleCall(createWorkflowRulePayload, _callback);
+        }
+
+        /**
+         * Execute createWorkflowRule request
+         * @return WorkflowRule
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created or updated workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public WorkflowRule execute() throws ApiException {
+            ApiResponse<WorkflowRule> localVarResp =
+                    createWorkflowRuleWithHttpInfo(createWorkflowRulePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createWorkflowRule request with HTTP info returned
+         * @return ApiResponse&lt;WorkflowRule&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created or updated workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<WorkflowRule> executeWithHttpInfo() throws ApiException {
+            return createWorkflowRuleWithHttpInfo(createWorkflowRulePayload);
+        }
+
+        /**
+         * Execute createWorkflowRule request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The created or updated workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<WorkflowRule> _callback)
+                throws ApiException {
+            return createWorkflowRuleAsync(createWorkflowRulePayload, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteWorkflowRule
-     * @param ruleId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Create a workflow rule
+     * Workflow rules are deprecated; use event subscriptions instead. Creates a new workflow rule or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param createWorkflowRulePayload  (required)
+     * @return APIcreateWorkflowRuleRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted workflow rule status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created or updated workflow rule. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call deleteWorkflowRuleCall(
+    public APIcreateWorkflowRuleRequest createWorkflowRule(
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload) {
+        return new APIcreateWorkflowRuleRequest(createWorkflowRulePayload);
+    }
+
+    private okhttp3.Call deleteWorkflowRuleCall(
             @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -326,72 +344,14 @@ public class WorkflowRulesApi {
         return deleteWorkflowRuleCall(ruleId, _callback);
     }
 
-    /**
-     * Delete a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Deletes a workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @return DeleteCountResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted workflow rule status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public DeleteCountResult deleteWorkflowRule(@jakarta.annotation.Nonnull String ruleId)
-            throws ApiException {
-        ApiResponse<DeleteCountResult> localVarResp = deleteWorkflowRuleWithHttpInfo(ruleId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Delete a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Deletes a workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @return ApiResponse&lt;DeleteCountResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted workflow rule status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<DeleteCountResult> deleteWorkflowRuleWithHttpInfo(
+    private ApiResponse<DeleteCountResult> deleteWorkflowRuleWithHttpInfo(
             @jakarta.annotation.Nonnull String ruleId) throws ApiException {
         okhttp3.Call localVarCall = deleteWorkflowRuleValidateBeforeCall(ruleId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Delete a workflow rule (asynchronously)
-     * Workflow rules are deprecated; use event subscriptions instead. Deletes a workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Deleted workflow rule status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call deleteWorkflowRuleAsync(
+    private okhttp3.Call deleteWorkflowRuleAsync(
             @jakarta.annotation.Nonnull String ruleId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
@@ -402,24 +362,116 @@ public class WorkflowRulesApi {
         return localVarCall;
     }
 
+    public class APIdeleteWorkflowRuleRequest {
+        @jakarta.annotation.Nonnull private final String ruleId;
+
+        private APIdeleteWorkflowRuleRequest(@jakarta.annotation.Nonnull String ruleId) {
+            this.ruleId = ruleId;
+        }
+
+        /**
+         * Build call for deleteWorkflowRule
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted workflow rule status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteWorkflowRuleCall(ruleId, _callback);
+        }
+
+        /**
+         * Execute deleteWorkflowRule request
+         * @return DeleteCountResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted workflow rule status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public DeleteCountResult execute() throws ApiException {
+            ApiResponse<DeleteCountResult> localVarResp = deleteWorkflowRuleWithHttpInfo(ruleId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteWorkflowRule request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCountResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted workflow rule status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<DeleteCountResult> executeWithHttpInfo() throws ApiException {
+            return deleteWorkflowRuleWithHttpInfo(ruleId);
+        }
+
+        /**
+         * Execute deleteWorkflowRule request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Deleted workflow rule status. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCountResult> _callback)
+                throws ApiException {
+            return deleteWorkflowRuleAsync(ruleId, _callback);
+        }
+    }
+
     /**
-     * Build call for getWorkflowRule
+     * Delete a workflow rule
+     * Workflow rules are deprecated; use event subscriptions instead. Deletes a workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteWorkflowRuleRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested workflow rule. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Deleted workflow rule status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call getWorkflowRuleCall(
+    public APIdeleteWorkflowRuleRequest deleteWorkflowRule(
+            @jakarta.annotation.Nonnull String ruleId) {
+        return new APIdeleteWorkflowRuleRequest(ruleId);
+    }
+
+    private okhttp3.Call getWorkflowRuleCall(
             @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -492,72 +544,14 @@ public class WorkflowRulesApi {
         return getWorkflowRuleCall(ruleId, _callback);
     }
 
-    /**
-     * Retrieve a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @return WorkflowRule
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public WorkflowRule getWorkflowRule(@jakarta.annotation.Nonnull String ruleId)
-            throws ApiException {
-        ApiResponse<WorkflowRule> localVarResp = getWorkflowRuleWithHttpInfo(ruleId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @return ApiResponse&lt;WorkflowRule&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<WorkflowRule> getWorkflowRuleWithHttpInfo(
+    private ApiResponse<WorkflowRule> getWorkflowRuleWithHttpInfo(
             @jakarta.annotation.Nonnull String ruleId) throws ApiException {
         okhttp3.Call localVarCall = getWorkflowRuleValidateBeforeCall(ruleId, null);
         Type localVarReturnType = new TypeToken<WorkflowRule>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Retrieve a workflow rule (asynchronously)
-     * Workflow rules are deprecated; use event subscriptions instead. Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getWorkflowRuleAsync(
+    private okhttp3.Call getWorkflowRuleAsync(
             @jakarta.annotation.Nonnull String ruleId, final ApiCallback<WorkflowRule> _callback)
             throws ApiException {
 
@@ -567,23 +561,115 @@ public class WorkflowRulesApi {
         return localVarCall;
     }
 
+    public class APIgetWorkflowRuleRequest {
+        @jakarta.annotation.Nonnull private final String ruleId;
+
+        private APIgetWorkflowRuleRequest(@jakarta.annotation.Nonnull String ruleId) {
+            this.ruleId = ruleId;
+        }
+
+        /**
+         * Build call for getWorkflowRule
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getWorkflowRuleCall(ruleId, _callback);
+        }
+
+        /**
+         * Execute getWorkflowRule request
+         * @return WorkflowRule
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public WorkflowRule execute() throws ApiException {
+            ApiResponse<WorkflowRule> localVarResp = getWorkflowRuleWithHttpInfo(ruleId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getWorkflowRule request with HTTP info returned
+         * @return ApiResponse&lt;WorkflowRule&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<WorkflowRule> executeWithHttpInfo() throws ApiException {
+            return getWorkflowRuleWithHttpInfo(ruleId);
+        }
+
+        /**
+         * Execute getWorkflowRule request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The requested workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<WorkflowRule> _callback)
+                throws ApiException {
+            return getWorkflowRuleAsync(ruleId, _callback);
+        }
+    }
+
     /**
-     * Build call for listWorkflowRules
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Retrieve a workflow rule
+     * Workflow rules are deprecated; use event subscriptions instead. Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * @param ruleId  (required)
+     * @return APIgetWorkflowRuleRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow rules. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested workflow rule. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call listWorkflowRulesCall(final ApiCallback _callback) throws ApiException {
+    public APIgetWorkflowRuleRequest getWorkflowRule(@jakarta.annotation.Nonnull String ruleId) {
+        return new APIgetWorkflowRuleRequest(ruleId);
+    }
+
+    private okhttp3.Call listWorkflowRulesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -643,67 +729,14 @@ public class WorkflowRulesApi {
         return listWorkflowRulesCall(_callback);
     }
 
-    /**
-     * List workflow rules
-     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @return List&lt;WorkflowRuleItem&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow rules. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public List<WorkflowRuleItem> listWorkflowRules() throws ApiException {
-        ApiResponse<List<WorkflowRuleItem>> localVarResp = listWorkflowRulesWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * List workflow rules
-     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @return ApiResponse&lt;List&lt;WorkflowRuleItem&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow rules. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<List<WorkflowRuleItem>> listWorkflowRulesWithHttpInfo() throws ApiException {
+    private ApiResponse<List<WorkflowRuleItem>> listWorkflowRulesWithHttpInfo()
+            throws ApiException {
         okhttp3.Call localVarCall = listWorkflowRulesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<WorkflowRuleItem>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * List workflow rules (asynchronously)
-     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Workflow rules. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call listWorkflowRulesAsync(final ApiCallback<List<WorkflowRuleItem>> _callback)
+    private okhttp3.Call listWorkflowRulesAsync(final ApiCallback<List<WorkflowRuleItem>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listWorkflowRulesValidateBeforeCall(_callback);
@@ -712,26 +745,111 @@ public class WorkflowRulesApi {
         return localVarCall;
     }
 
+    public class APIlistWorkflowRulesRequest {
+
+        private APIlistWorkflowRulesRequest() {}
+
+        /**
+         * Build call for listWorkflowRules
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow rules. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listWorkflowRulesCall(_callback);
+        }
+
+        /**
+         * Execute listWorkflowRules request
+         * @return List&lt;WorkflowRuleItem&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow rules. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public List<WorkflowRuleItem> execute() throws ApiException {
+            ApiResponse<List<WorkflowRuleItem>> localVarResp = listWorkflowRulesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listWorkflowRules request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;WorkflowRuleItem&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow rules. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<List<WorkflowRuleItem>> executeWithHttpInfo() throws ApiException {
+            return listWorkflowRulesWithHttpInfo();
+        }
+
+        /**
+         * Execute listWorkflowRules request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Workflow rules. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<List<WorkflowRuleItem>> _callback)
+                throws ApiException {
+            return listWorkflowRulesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for updateWorkflowRule
-     * @param ruleId  (required)
-     * @param updateWorkflowRulePayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * List workflow rules
+     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * @return APIlistWorkflowRulesRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow rule was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Workflow rules. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call updateWorkflowRuleCall(
+    public APIlistWorkflowRulesRequest listWorkflowRules() {
+        return new APIlistWorkflowRulesRequest();
+    }
+
+    private okhttp3.Call updateWorkflowRuleCall(
             @jakarta.annotation.Nonnull String ruleId,
             @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload,
             final ApiCallback _callback)
@@ -814,54 +932,7 @@ public class WorkflowRulesApi {
         return updateWorkflowRuleCall(ruleId, updateWorkflowRulePayload, _callback);
     }
 
-    /**
-     * Update a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @param updateWorkflowRulePayload  (required)
-     * @return WorkflowRule
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow rule was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public WorkflowRule updateWorkflowRule(
-            @jakarta.annotation.Nonnull String ruleId,
-            @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload)
-            throws ApiException {
-        ApiResponse<WorkflowRule> localVarResp =
-                updateWorkflowRuleWithHttpInfo(ruleId, updateWorkflowRulePayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update a workflow rule
-     * Workflow rules are deprecated; use event subscriptions instead. Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @param updateWorkflowRulePayload  (required)
-     * @return ApiResponse&lt;WorkflowRule&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow rule was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<WorkflowRule> updateWorkflowRuleWithHttpInfo(
+    private ApiResponse<WorkflowRule> updateWorkflowRuleWithHttpInfo(
             @jakarta.annotation.Nonnull String ruleId,
             @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload)
             throws ApiException {
@@ -871,27 +942,7 @@ public class WorkflowRulesApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Update a workflow rule (asynchronously)
-     * Workflow rules are deprecated; use event subscriptions instead. Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param ruleId  (required)
-     * @param updateWorkflowRulePayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated workflow rule. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The workflow rule was changed after the caller read it. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call updateWorkflowRuleAsync(
+    private okhttp3.Call updateWorkflowRuleAsync(
             @jakarta.annotation.Nonnull String ruleId,
             @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload,
             final ApiCallback<WorkflowRule> _callback)
@@ -902,5 +953,128 @@ public class WorkflowRulesApi {
         Type localVarReturnType = new TypeToken<WorkflowRule>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIupdateWorkflowRuleRequest {
+        @jakarta.annotation.Nonnull private final String ruleId;
+
+        @jakarta.annotation.Nonnull
+        private final UpdateWorkflowRulePayload updateWorkflowRulePayload;
+
+        private APIupdateWorkflowRuleRequest(
+                @jakarta.annotation.Nonnull String ruleId,
+                @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload) {
+            this.ruleId = ruleId;
+            this.updateWorkflowRulePayload = updateWorkflowRulePayload;
+        }
+
+        /**
+         * Build call for updateWorkflowRule
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow rule was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateWorkflowRuleCall(ruleId, updateWorkflowRulePayload, _callback);
+        }
+
+        /**
+         * Execute updateWorkflowRule request
+         * @return WorkflowRule
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow rule was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public WorkflowRule execute() throws ApiException {
+            ApiResponse<WorkflowRule> localVarResp =
+                    updateWorkflowRuleWithHttpInfo(ruleId, updateWorkflowRulePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateWorkflowRule request with HTTP info returned
+         * @return ApiResponse&lt;WorkflowRule&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow rule was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public ApiResponse<WorkflowRule> executeWithHttpInfo() throws ApiException {
+            return updateWorkflowRuleWithHttpInfo(ruleId, updateWorkflowRulePayload);
+        }
+
+        /**
+         * Execute updateWorkflowRule request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated workflow rule. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The workflow rule was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         * @deprecated
+         */
+        @Deprecated
+        public okhttp3.Call executeAsync(final ApiCallback<WorkflowRule> _callback)
+                throws ApiException {
+            return updateWorkflowRuleAsync(ruleId, updateWorkflowRulePayload, _callback);
+        }
+    }
+
+    /**
+     * Update a workflow rule
+     * Workflow rules are deprecated; use event subscriptions instead. Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param ruleId  (required)
+     * @param updateWorkflowRulePayload  (required)
+     * @return APIupdateWorkflowRuleRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated workflow rule. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The workflow rule was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     * @deprecated
+     */
+    @Deprecated
+    public APIupdateWorkflowRuleRequest updateWorkflowRule(
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload) {
+        return new APIupdateWorkflowRuleRequest(ruleId, updateWorkflowRulePayload);
     }
 }

@@ -64,22 +64,7 @@ public class ContentQueryApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for executeContentQuery
-     * @param contentQueryPayload  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call executeContentQueryCall(
+    private okhttp3.Call executeContentQueryCall(
             @jakarta.annotation.Nonnull ContentQueryPayload contentQueryPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -149,45 +134,7 @@ public class ContentQueryApi {
         return executeContentQueryCall(contentQueryPayload, _callback);
     }
 
-    /**
-     * Execute a SQL, ES|QL, or Elasticsearch DSL content query
-     * Execute a query against the project&#39;s Elasticsearch index  Security filtering is automatically applied based on the authenticated user&#39;s principals. SQL and ES|QL may only read the project index (&#x60;FROM content&#x60;). For DSL, a filter clause is added.  **Required permissions:** &#x60;content:read&#x60;
-     * @param contentQueryPayload  (required)
-     * @return ContentQueryResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ContentQueryResult executeContentQuery(
-            @jakarta.annotation.Nonnull ContentQueryPayload contentQueryPayload)
-            throws ApiException {
-        ApiResponse<ContentQueryResult> localVarResp =
-                executeContentQueryWithHttpInfo(contentQueryPayload);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Execute a SQL, ES|QL, or Elasticsearch DSL content query
-     * Execute a query against the project&#39;s Elasticsearch index  Security filtering is automatically applied based on the authenticated user&#39;s principals. SQL and ES|QL may only read the project index (&#x60;FROM content&#x60;). For DSL, a filter clause is added.  **Required permissions:** &#x60;content:read&#x60;
-     * @param contentQueryPayload  (required)
-     * @return ApiResponse&lt;ContentQueryResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ContentQueryResult> executeContentQueryWithHttpInfo(
+    private ApiResponse<ContentQueryResult> executeContentQueryWithHttpInfo(
             @jakarta.annotation.Nonnull ContentQueryPayload contentQueryPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -196,23 +143,7 @@ public class ContentQueryApi {
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Execute a SQL, ES|QL, or Elasticsearch DSL content query (asynchronously)
-     * Execute a query against the project&#39;s Elasticsearch index  Security filtering is automatically applied based on the authenticated user&#39;s principals. SQL and ES|QL may only read the project index (&#x60;FROM content&#x60;). For DSL, a filter clause is added.  **Required permissions:** &#x60;content:read&#x60;
-     * @param contentQueryPayload  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call executeContentQueryAsync(
+    private okhttp3.Call executeContentQueryAsync(
             @jakarta.annotation.Nonnull ContentQueryPayload contentQueryPayload,
             final ApiCallback<ContentQueryResult> _callback)
             throws ApiException {
@@ -222,5 +153,106 @@ public class ContentQueryApi {
         Type localVarReturnType = new TypeToken<ContentQueryResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIexecuteContentQueryRequest {
+        @jakarta.annotation.Nonnull private final ContentQueryPayload contentQueryPayload;
+
+        private APIexecuteContentQueryRequest(
+                @jakarta.annotation.Nonnull ContentQueryPayload contentQueryPayload) {
+            this.contentQueryPayload = contentQueryPayload;
+        }
+
+        /**
+         * Build call for executeContentQuery
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return executeContentQueryCall(contentQueryPayload, _callback);
+        }
+
+        /**
+         * Execute executeContentQuery request
+         * @return ContentQueryResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentQueryResult execute() throws ApiException {
+            ApiResponse<ContentQueryResult> localVarResp =
+                    executeContentQueryWithHttpInfo(contentQueryPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute executeContentQuery request with HTTP info returned
+         * @return ApiResponse&lt;ContentQueryResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentQueryResult> executeWithHttpInfo() throws ApiException {
+            return executeContentQueryWithHttpInfo(contentQueryPayload);
+        }
+
+        /**
+         * Execute executeContentQuery request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentQueryResult> _callback)
+                throws ApiException {
+            return executeContentQueryAsync(contentQueryPayload, _callback);
+        }
+    }
+
+    /**
+     * Execute a SQL, ES|QL, or Elasticsearch DSL content query
+     * Execute a query against the project&#39;s Elasticsearch index  Security filtering is automatically applied based on the authenticated user&#39;s principals. SQL and ES|QL may only read the project index (&#x60;FROM content&#x60;). For DSL, a filter clause is added.  **Required permissions:** &#x60;content:read&#x60;
+     * @param contentQueryPayload  (required)
+     * @return APIexecuteContentQueryRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Query result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIexecuteContentQueryRequest executeContentQuery(
+            @jakarta.annotation.Nonnull ContentQueryPayload contentQueryPayload) {
+        return new APIexecuteContentQueryRequest(contentQueryPayload);
     }
 }
