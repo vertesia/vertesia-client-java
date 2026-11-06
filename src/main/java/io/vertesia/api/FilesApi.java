@@ -19,10 +19,15 @@ import io.vertesia.ApiException;
 import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
+import io.vertesia.model.AbortUploadSessionPayload;
+import io.vertesia.model.AbortUploadSessionResponse;
 import io.vertesia.model.BulkUploadUrlsPayload;
 import io.vertesia.model.BulkUploadUrlsResponse;
+import io.vertesia.model.CompleteUploadSessionPayload;
+import io.vertesia.model.CompleteUploadSessionResponse;
 import io.vertesia.model.CopyFilePayload;
 import io.vertesia.model.CopyFileResponse;
+import io.vertesia.model.CreateUploadSessionPayload;
 import io.vertesia.model.DeleteFileResult;
 import io.vertesia.model.FileBucketResponse;
 import io.vertesia.model.FileListResponse;
@@ -30,8 +35,11 @@ import io.vertesia.model.FileMetadataResponse;
 import io.vertesia.model.FileMetadataUpdateResult;
 import io.vertesia.model.GetFileUrlPayload;
 import io.vertesia.model.GetFileUrlResponse;
+import io.vertesia.model.GetUploadPartUrlsPayload;
 import io.vertesia.model.GetUploadUrlPayload;
 import io.vertesia.model.SetFileMetadataPayload;
+import io.vertesia.model.UploadPartUrlsResponse;
+import io.vertesia.model.UploadSession;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -73,6 +81,395 @@ public class FilesApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    private okhttp3.Call abortFileUploadSessionCall(
+            @jakarta.annotation.Nonnull AbortUploadSessionPayload abortUploadSessionPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = abortUploadSessionPayload;
+
+        // create path and map variables
+        String localVarPath = "/files/upload-sessions/abort";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call abortFileUploadSessionValidateBeforeCall(
+            @jakarta.annotation.Nonnull AbortUploadSessionPayload abortUploadSessionPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'abortUploadSessionPayload' is set
+        if (abortUploadSessionPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'abortUploadSessionPayload' when calling abortFileUploadSession(Async)");
+        }
+
+        return abortFileUploadSessionCall(abortUploadSessionPayload, _callback);
+    }
+
+    private ApiResponse<AbortUploadSessionResponse> abortFileUploadSessionWithHttpInfo(
+            @jakarta.annotation.Nonnull AbortUploadSessionPayload abortUploadSessionPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                abortFileUploadSessionValidateBeforeCall(abortUploadSessionPayload, null);
+        Type localVarReturnType = new TypeToken<AbortUploadSessionResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call abortFileUploadSessionAsync(
+            @jakarta.annotation.Nonnull AbortUploadSessionPayload abortUploadSessionPayload,
+            final ApiCallback<AbortUploadSessionResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                abortFileUploadSessionValidateBeforeCall(abortUploadSessionPayload, _callback);
+        Type localVarReturnType = new TypeToken<AbortUploadSessionResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIabortFileUploadSessionRequest {
+        @jakarta.annotation.Nonnull
+        private final AbortUploadSessionPayload abortUploadSessionPayload;
+
+        private APIabortFileUploadSessionRequest(
+                @jakarta.annotation.Nonnull AbortUploadSessionPayload abortUploadSessionPayload) {
+            this.abortUploadSessionPayload = abortUploadSessionPayload;
+        }
+
+        /**
+         * Build call for abortFileUploadSession
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The upload was discarded. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return abortFileUploadSessionCall(abortUploadSessionPayload, _callback);
+        }
+
+        /**
+         * Execute abortFileUploadSession request
+         * @return AbortUploadSessionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The upload was discarded. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public AbortUploadSessionResponse execute() throws ApiException {
+            ApiResponse<AbortUploadSessionResponse> localVarResp =
+                    abortFileUploadSessionWithHttpInfo(abortUploadSessionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute abortFileUploadSession request with HTTP info returned
+         * @return ApiResponse&lt;AbortUploadSessionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The upload was discarded. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<AbortUploadSessionResponse> executeWithHttpInfo() throws ApiException {
+            return abortFileUploadSessionWithHttpInfo(abortUploadSessionPayload);
+        }
+
+        /**
+         * Execute abortFileUploadSession request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The upload was discarded. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AbortUploadSessionResponse> _callback)
+                throws ApiException {
+            return abortFileUploadSessionAsync(abortUploadSessionPayload, _callback);
+        }
+    }
+
+    /**
+     * Abort an S3 multipart upload
+     * Discards an unfinished &#x60;s3_multipart&#x60; upload session and the parts it holds.  **Required permissions:** &#x60;content:write&#x60;
+     * @param abortUploadSessionPayload  (required)
+     * @return APIabortFileUploadSessionRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The upload was discarded. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIabortFileUploadSessionRequest abortFileUploadSession(
+            @jakarta.annotation.Nonnull AbortUploadSessionPayload abortUploadSessionPayload) {
+        return new APIabortFileUploadSessionRequest(abortUploadSessionPayload);
+    }
+
+    private okhttp3.Call completeFileUploadSessionCall(
+            @jakarta.annotation.Nonnull CompleteUploadSessionPayload completeUploadSessionPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = completeUploadSessionPayload;
+
+        // create path and map variables
+        String localVarPath = "/files/upload-sessions/complete";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call completeFileUploadSessionValidateBeforeCall(
+            @jakarta.annotation.Nonnull CompleteUploadSessionPayload completeUploadSessionPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'completeUploadSessionPayload' is set
+        if (completeUploadSessionPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'completeUploadSessionPayload' when calling completeFileUploadSession(Async)");
+        }
+
+        return completeFileUploadSessionCall(completeUploadSessionPayload, _callback);
+    }
+
+    private ApiResponse<CompleteUploadSessionResponse> completeFileUploadSessionWithHttpInfo(
+            @jakarta.annotation.Nonnull CompleteUploadSessionPayload completeUploadSessionPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                completeFileUploadSessionValidateBeforeCall(completeUploadSessionPayload, null);
+        Type localVarReturnType = new TypeToken<CompleteUploadSessionResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call completeFileUploadSessionAsync(
+            @jakarta.annotation.Nonnull CompleteUploadSessionPayload completeUploadSessionPayload,
+            final ApiCallback<CompleteUploadSessionResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                completeFileUploadSessionValidateBeforeCall(
+                        completeUploadSessionPayload, _callback);
+        Type localVarReturnType = new TypeToken<CompleteUploadSessionResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIcompleteFileUploadSessionRequest {
+        @jakarta.annotation.Nonnull
+        private final CompleteUploadSessionPayload completeUploadSessionPayload;
+
+        private APIcompleteFileUploadSessionRequest(
+                @jakarta.annotation.Nonnull
+                        CompleteUploadSessionPayload completeUploadSessionPayload) {
+            this.completeUploadSessionPayload = completeUploadSessionPayload;
+        }
+
+        /**
+         * Build call for completeFileUploadSession
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The completed file. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return completeFileUploadSessionCall(completeUploadSessionPayload, _callback);
+        }
+
+        /**
+         * Execute completeFileUploadSession request
+         * @return CompleteUploadSessionResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The completed file. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CompleteUploadSessionResponse execute() throws ApiException {
+            ApiResponse<CompleteUploadSessionResponse> localVarResp =
+                    completeFileUploadSessionWithHttpInfo(completeUploadSessionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute completeFileUploadSession request with HTTP info returned
+         * @return ApiResponse&lt;CompleteUploadSessionResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The completed file. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CompleteUploadSessionResponse> executeWithHttpInfo()
+                throws ApiException {
+            return completeFileUploadSessionWithHttpInfo(completeUploadSessionPayload);
+        }
+
+        /**
+         * Execute completeFileUploadSession request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The completed file. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CompleteUploadSessionResponse> _callback)
+                throws ApiException {
+            return completeFileUploadSessionAsync(completeUploadSessionPayload, _callback);
+        }
+    }
+
+    /**
+     * Complete an S3 multipart upload
+     * Assembles the uploaded parts of an &#x60;s3_multipart&#x60; upload session into the file.  **Required permissions:** &#x60;content:write&#x60;
+     * @param completeUploadSessionPayload  (required)
+     * @return APIcompleteFileUploadSessionRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The completed file. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIcompleteFileUploadSessionRequest completeFileUploadSession(
+            @jakarta.annotation.Nonnull CompleteUploadSessionPayload completeUploadSessionPayload) {
+        return new APIcompleteFileUploadSessionRequest(completeUploadSessionPayload);
     }
 
     private okhttp3.Call copyProjectFileCall(
@@ -262,6 +659,199 @@ public class FilesApi {
     public APIcopyProjectFileRequest copyProjectFile(
             @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload) {
         return new APIcopyProjectFileRequest(copyFilePayload);
+    }
+
+    private okhttp3.Call createFileUploadSessionCall(
+            @jakarta.annotation.Nonnull CreateUploadSessionPayload createUploadSessionPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createUploadSessionPayload;
+
+        // create path and map variables
+        String localVarPath = "/files/upload-sessions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createFileUploadSessionValidateBeforeCall(
+            @jakarta.annotation.Nonnull CreateUploadSessionPayload createUploadSessionPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'createUploadSessionPayload' is set
+        if (createUploadSessionPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'createUploadSessionPayload' when calling createFileUploadSession(Async)");
+        }
+
+        return createFileUploadSessionCall(createUploadSessionPayload, _callback);
+    }
+
+    private ApiResponse<UploadSession> createFileUploadSessionWithHttpInfo(
+            @jakarta.annotation.Nonnull CreateUploadSessionPayload createUploadSessionPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                createFileUploadSessionValidateBeforeCall(createUploadSessionPayload, null);
+        Type localVarReturnType = new TypeToken<UploadSession>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call createFileUploadSessionAsync(
+            @jakarta.annotation.Nonnull CreateUploadSessionPayload createUploadSessionPayload,
+            final ApiCallback<UploadSession> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                createFileUploadSessionValidateBeforeCall(createUploadSessionPayload, _callback);
+        Type localVarReturnType = new TypeToken<UploadSession>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIcreateFileUploadSessionRequest {
+        @jakarta.annotation.Nonnull
+        private final CreateUploadSessionPayload createUploadSessionPayload;
+
+        private APIcreateFileUploadSessionRequest(
+                @jakarta.annotation.Nonnull CreateUploadSessionPayload createUploadSessionPayload) {
+            this.createUploadSessionPayload = createUploadSessionPayload;
+        }
+
+        /**
+         * Build call for createFileUploadSession
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> How to send the file in parts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createFileUploadSessionCall(createUploadSessionPayload, _callback);
+        }
+
+        /**
+         * Execute createFileUploadSession request
+         * @return UploadSession
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> How to send the file in parts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public UploadSession execute() throws ApiException {
+            ApiResponse<UploadSession> localVarResp =
+                    createFileUploadSessionWithHttpInfo(createUploadSessionPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createFileUploadSession request with HTTP info returned
+         * @return ApiResponse&lt;UploadSession&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> How to send the file in parts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<UploadSession> executeWithHttpInfo() throws ApiException {
+            return createFileUploadSessionWithHttpInfo(createUploadSessionPayload);
+        }
+
+        /**
+         * Execute createFileUploadSession request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> How to send the file in parts. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UploadSession> _callback)
+                throws ApiException {
+            return createFileUploadSessionAsync(createUploadSessionPayload, _callback);
+        }
+    }
+
+    /**
+     * Start an upload in parts
+     * Starts an upload of a file too large for a single signed PUT, using the storage provider&#39;s own resumable or multipart protocol. The response names the protocol and how to send the parts.  **Required permissions:** &#x60;content:write&#x60;
+     * @param createUploadSessionPayload  (required)
+     * @return APIcreateFileUploadSessionRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> How to send the file in parts. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIcreateFileUploadSessionRequest createFileUploadSession(
+            @jakarta.annotation.Nonnull CreateUploadSessionPayload createUploadSessionPayload) {
+        return new APIcreateFileUploadSessionRequest(createUploadSessionPayload);
     }
 
     private okhttp3.Call deleteProjectFileCall(
@@ -1217,6 +1807,198 @@ public class FilesApi {
      */
     public APIgetFileMetadataRequest getFileMetadata(@jakarta.annotation.Nonnull String _file) {
         return new APIgetFileMetadataRequest(_file);
+    }
+
+    private okhttp3.Call getFileUploadPartUrlsCall(
+            @jakarta.annotation.Nonnull GetUploadPartUrlsPayload getUploadPartUrlsPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = getUploadPartUrlsPayload;
+
+        // create path and map variables
+        String localVarPath = "/files/upload-sessions/parts";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFileUploadPartUrlsValidateBeforeCall(
+            @jakarta.annotation.Nonnull GetUploadPartUrlsPayload getUploadPartUrlsPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'getUploadPartUrlsPayload' is set
+        if (getUploadPartUrlsPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'getUploadPartUrlsPayload' when calling getFileUploadPartUrls(Async)");
+        }
+
+        return getFileUploadPartUrlsCall(getUploadPartUrlsPayload, _callback);
+    }
+
+    private ApiResponse<UploadPartUrlsResponse> getFileUploadPartUrlsWithHttpInfo(
+            @jakarta.annotation.Nonnull GetUploadPartUrlsPayload getUploadPartUrlsPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                getFileUploadPartUrlsValidateBeforeCall(getUploadPartUrlsPayload, null);
+        Type localVarReturnType = new TypeToken<UploadPartUrlsResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getFileUploadPartUrlsAsync(
+            @jakarta.annotation.Nonnull GetUploadPartUrlsPayload getUploadPartUrlsPayload,
+            final ApiCallback<UploadPartUrlsResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getFileUploadPartUrlsValidateBeforeCall(getUploadPartUrlsPayload, _callback);
+        Type localVarReturnType = new TypeToken<UploadPartUrlsResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetFileUploadPartUrlsRequest {
+        @jakarta.annotation.Nonnull private final GetUploadPartUrlsPayload getUploadPartUrlsPayload;
+
+        private APIgetFileUploadPartUrlsRequest(
+                @jakarta.annotation.Nonnull GetUploadPartUrlsPayload getUploadPartUrlsPayload) {
+            this.getUploadPartUrlsPayload = getUploadPartUrlsPayload;
+        }
+
+        /**
+         * Build call for getFileUploadPartUrls
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> A signed URL for each requested part. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getFileUploadPartUrlsCall(getUploadPartUrlsPayload, _callback);
+        }
+
+        /**
+         * Execute getFileUploadPartUrls request
+         * @return UploadPartUrlsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> A signed URL for each requested part. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public UploadPartUrlsResponse execute() throws ApiException {
+            ApiResponse<UploadPartUrlsResponse> localVarResp =
+                    getFileUploadPartUrlsWithHttpInfo(getUploadPartUrlsPayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getFileUploadPartUrls request with HTTP info returned
+         * @return ApiResponse&lt;UploadPartUrlsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> A signed URL for each requested part. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<UploadPartUrlsResponse> executeWithHttpInfo() throws ApiException {
+            return getFileUploadPartUrlsWithHttpInfo(getUploadPartUrlsPayload);
+        }
+
+        /**
+         * Execute getFileUploadPartUrls request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> A signed URL for each requested part. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UploadPartUrlsResponse> _callback)
+                throws ApiException {
+            return getFileUploadPartUrlsAsync(getUploadPartUrlsPayload, _callback);
+        }
+    }
+
+    /**
+     * Sign part URLs for an S3 multipart upload
+     * Returns a signed PUT URL for each requested part of an &#x60;s3_multipart&#x60; upload session. Each response carries the ETag that completing the upload needs.  **Required permissions:** &#x60;content:write&#x60;
+     * @param getUploadPartUrlsPayload  (required)
+     * @return APIgetFileUploadPartUrlsRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> A signed URL for each requested part. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIgetFileUploadPartUrlsRequest getFileUploadPartUrls(
+            @jakarta.annotation.Nonnull GetUploadPartUrlsPayload getUploadPartUrlsPayload) {
+        return new APIgetFileUploadPartUrlsRequest(getUploadPartUrlsPayload);
     }
 
     private okhttp3.Call getFileUploadUrlCall(

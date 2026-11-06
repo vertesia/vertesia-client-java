@@ -72,6 +72,8 @@ src/main/java/io/vertesia/model/ACEUpdatePayload.java
 src/main/java/io/vertesia/model/AIModel.java
 src/main/java/io/vertesia/model/AIModelStatus.java
 src/main/java/io/vertesia/model/AbacScope.java
+src/main/java/io/vertesia/model/AbortUploadSessionPayload.java
+src/main/java/io/vertesia/model/AbortUploadSessionResponse.java
 src/main/java/io/vertesia/model/AbstractOpenApiSchema.java
 src/main/java/io/vertesia/model/AccessControlEntry.java
 src/main/java/io/vertesia/model/AccessControlPrincipalType.java
@@ -272,6 +274,7 @@ src/main/java/io/vertesia/model/AuditUsageResponse.java
 src/main/java/io/vertesia/model/AuthTokenResponse.java
 src/main/java/io/vertesia/model/AutonomousRunResponse.java
 src/main/java/io/vertesia/model/AwsConfiguration.java
+src/main/java/io/vertesia/model/AzureBlockBlobUploadSession.java
 src/main/java/io/vertesia/model/AzureFoundryChatOptions.java
 src/main/java/io/vertesia/model/BatchQueryPayload.java
 src/main/java/io/vertesia/model/BatchQueryPayloadQueriesInner.java
@@ -323,6 +326,9 @@ src/main/java/io/vertesia/model/CollectionStatus.java
 src/main/java/io/vertesia/model/ColumnLayout.java
 src/main/java/io/vertesia/model/CompactMessage.java
 src/main/java/io/vertesia/model/CompleteTaskPayload.java
+src/main/java/io/vertesia/model/CompleteUploadSessionPayload.java
+src/main/java/io/vertesia/model/CompleteUploadSessionResponse.java
+src/main/java/io/vertesia/model/CompletedUploadPart.java
 src/main/java/io/vertesia/model/CompletionResult.java
 src/main/java/io/vertesia/model/ComplexCollectionSearchQuery.java
 src/main/java/io/vertesia/model/ComplexSearchPayload.java
@@ -442,6 +448,7 @@ src/main/java/io/vertesia/model/CreateSnapshotPayload.java
 src/main/java/io/vertesia/model/CreateTablePayload.java
 src/main/java/io/vertesia/model/CreateTablesPayload.java
 src/main/java/io/vertesia/model/CreateTaskPayload.java
+src/main/java/io/vertesia/model/CreateUploadSessionPayload.java
 src/main/java/io/vertesia/model/CreateUserGroupPayload.java
 src/main/java/io/vertesia/model/CreateUserPayload.java
 src/main/java/io/vertesia/model/CreateViewExperienceRequest.java
@@ -630,6 +637,7 @@ src/main/java/io/vertesia/model/ForwardEmailRequest.java
 src/main/java/io/vertesia/model/ForwardEmailRequestAttachmentsInner.java
 src/main/java/io/vertesia/model/ForwardEmailRequestEmail.java
 src/main/java/io/vertesia/model/ForwardEmailResponse.java
+src/main/java/io/vertesia/model/GcsResumableUploadSession.java
 src/main/java/io/vertesia/model/GenerateTestDataPayload.java
 src/main/java/io/vertesia/model/GenerationRunMetadata.java
 src/main/java/io/vertesia/model/GenericCommandResponse.java
@@ -638,6 +646,7 @@ src/main/java/io/vertesia/model/GetFileUrlResponse.java
 src/main/java/io/vertesia/model/GetModelPricesFromParameter.java
 src/main/java/io/vertesia/model/GetModelPricesToParameter.java
 src/main/java/io/vertesia/model/GetRenditionResponse.java
+src/main/java/io/vertesia/model/GetUploadPartUrlsPayload.java
 src/main/java/io/vertesia/model/GetUploadUrlPayload.java
 src/main/java/io/vertesia/model/GithubConfiguration.java
 src/main/java/io/vertesia/model/GithubConfigurationInput.java
@@ -1001,6 +1010,7 @@ src/main/java/io/vertesia/model/RunSearchQuery.java
 src/main/java/io/vertesia/model/RunSource.java
 src/main/java/io/vertesia/model/RunSourceTypes.java
 src/main/java/io/vertesia/model/RunType.java
+src/main/java/io/vertesia/model/S3MultipartUploadSession.java
 src/main/java/io/vertesia/model/SchemaRef.java
 src/main/java/io/vertesia/model/ScoreAggregationTypes.java
 src/main/java/io/vertesia/model/SearchAgentRunsResponse.java
@@ -1145,6 +1155,9 @@ src/main/java/io/vertesia/model/UpdateWorkflowDefinitionPayload.java
 src/main/java/io/vertesia/model/UpdateWorkflowDefinitionPayloadWithActivities.java
 src/main/java/io/vertesia/model/UpdateWorkflowDefinitionPayloadWithSteps.java
 src/main/java/io/vertesia/model/UpdateWorkflowRulePayload.java
+src/main/java/io/vertesia/model/UploadPartUrl.java
+src/main/java/io/vertesia/model/UploadPartUrlsResponse.java
+src/main/java/io/vertesia/model/UploadSession.java
 src/main/java/io/vertesia/model/UpsertAppVersionRequest.java
 src/main/java/io/vertesia/model/UsedSkill.java
 src/main/java/io/vertesia/model/User.java
