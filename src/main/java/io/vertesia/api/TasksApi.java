@@ -762,6 +762,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> An answer is being delivered, or a running process is waiting on the task. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -779,6 +780,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> An answer is being delivered, or a running process is waiting on the task. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -797,6 +799,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> An answer is being delivered, or a running process is waiting on the task. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -815,6 +818,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> An answer is being delivered, or a running process is waiting on the task. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -827,7 +831,7 @@ public class TasksApi {
 
     /**
      * Delete a task
-     * Deletes a durable task by id.  **Required permissions:** &#x60;task:manage&#x60;
+     * Deletes a durable task by id. Answers 409 while the answer to an agent question is being delivered, or while a running process is waiting on it: answer the task, or cancel the run first.  **Required permissions:** &#x60;task:manage&#x60;
      * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @return APIdeleteTaskRequest
      * @http.response.details
@@ -835,6 +839,7 @@ public class TasksApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Task deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> An answer is being delivered, or a running process is waiting on the task. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
