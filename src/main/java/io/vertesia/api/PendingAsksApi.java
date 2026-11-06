@@ -742,6 +742,7 @@ public class PendingAsksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> With &#x60;delivery: deliver&#x60;, the question is closed or its run has ended. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -759,6 +760,7 @@ public class PendingAsksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> With &#x60;delivery: deliver&#x60;, the question is closed or its run has ended. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -778,6 +780,7 @@ public class PendingAsksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> With &#x60;delivery: deliver&#x60;, the question is closed or its run has ended. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -796,6 +799,7 @@ public class PendingAsksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> With &#x60;delivery: deliver&#x60;, the question is closed or its run has ended. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -817,6 +821,7 @@ public class PendingAsksApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Resolution result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> With &#x60;delivery: deliver&#x60;, the question is closed or its run has ended. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>

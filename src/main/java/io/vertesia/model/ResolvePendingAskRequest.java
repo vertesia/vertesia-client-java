@@ -40,6 +40,11 @@ public class ResolvePendingAskRequest {
     @jakarta.annotation.Nonnull
     private String response;
 
+    public static final String SERIALIZED_NAME_DELIVERY = "delivery";
+
+    @SerializedName(SERIALIZED_NAME_DELIVERY)
+    @jakarta.annotation.Nullable private PendingAskDelivery delivery;
+
     public ResolvePendingAskRequest() {}
 
     public ResolvePendingAskRequest response(@jakarta.annotation.Nonnull String response) {
@@ -60,6 +65,24 @@ public class ResolvePendingAskRequest {
         this.response = response;
     }
 
+    public ResolvePendingAskRequest delivery(
+            @jakarta.annotation.Nullable PendingAskDelivery delivery) {
+        this.delivery = delivery;
+        return this;
+    }
+
+    /**
+     * Get delivery
+     * @return delivery
+     */
+    @jakarta.annotation.Nullable public PendingAskDelivery getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(@jakarta.annotation.Nullable PendingAskDelivery delivery) {
+        this.delivery = delivery;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -69,12 +92,13 @@ public class ResolvePendingAskRequest {
             return false;
         }
         ResolvePendingAskRequest resolvePendingAskRequest = (ResolvePendingAskRequest) o;
-        return Objects.equals(this.response, resolvePendingAskRequest.response);
+        return Objects.equals(this.response, resolvePendingAskRequest.response)
+                && Objects.equals(this.delivery, resolvePendingAskRequest.delivery);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(response);
+        return Objects.hash(response, delivery);
     }
 
     @Override
@@ -82,6 +106,7 @@ public class ResolvePendingAskRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class ResolvePendingAskRequest {\n");
         sb.append("    response: ").append(toIndentedString(response)).append("\n");
+        sb.append("    delivery: ").append(toIndentedString(delivery)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,7 +124,7 @@ public class ResolvePendingAskRequest {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("response"));
+        openapiFields = new HashSet<String>(Arrays.asList("response", "delivery"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("response"));
@@ -141,6 +166,10 @@ public class ResolvePendingAskRequest {
                             java.util.Locale.ROOT,
                             "Expected the field `response` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("response").toString()));
+        }
+        // validate the optional field `delivery`
+        if (jsonObj.get("delivery") != null && !jsonObj.get("delivery").isJsonNull()) {
+            PendingAskDelivery.validateJsonElement(jsonObj.get("delivery"));
         }
     }
 

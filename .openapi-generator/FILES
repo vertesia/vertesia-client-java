@@ -822,6 +822,7 @@ src/main/java/io/vertesia/model/ParallelFailurePolicy.java
 src/main/java/io/vertesia/model/PdfRenderingMetadata.java
 src/main/java/io/vertesia/model/PendingActivity.java
 src/main/java/io/vertesia/model/PendingAskData.java
+src/main/java/io/vertesia/model/PendingAskDelivery.java
 src/main/java/io/vertesia/model/PendingAskStatus.java
 src/main/java/io/vertesia/model/PendingMcpConnection.java
 src/main/java/io/vertesia/model/PendingToolApprovalResults.java
