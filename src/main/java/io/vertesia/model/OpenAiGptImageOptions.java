@@ -250,6 +250,10 @@ public class OpenAiGptImageOptions {
 
         JPEG("jpeg"),
 
+        GIF("gif"),
+
+        SVG("svg"),
+
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
@@ -435,6 +439,83 @@ public class OpenAiGptImageOptions {
 
     @SerializedName(SERIALIZED_NAME_PARTIAL_IMAGES)
     @jakarta.annotation.Nullable private BigDecimal partialImages;
+
+    /**
+     * Gets or Sets complexity
+     */
+    @JsonAdapter(ComplexityEnum.Adapter.class)
+    public enum ComplexityEnum {
+        LOW("low"),
+
+        MEDIUM("medium"),
+
+        HIGH("high"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ComplexityEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ComplexityEnum fromValue(String value) {
+            for (ComplexityEnum b : ComplexityEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ComplexityEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ComplexityEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ComplexityEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ComplexityEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ComplexityEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_COMPLEXITY = "complexity";
+
+    @SerializedName(SERIALIZED_NAME_COMPLEXITY)
+    @jakarta.annotation.Nullable private ComplexityEnum complexity;
+
+    public static final String SERIALIZED_NAME_FRAME_COUNT = "frame_count";
+
+    @SerializedName(SERIALIZED_NAME_FRAME_COUNT)
+    @jakarta.annotation.Nullable private Integer frameCount;
+
+    public static final String SERIALIZED_NAME_FRAME_DURATION_MS = "frame_duration_ms";
+
+    @SerializedName(SERIALIZED_NAME_FRAME_DURATION_MS)
+    @jakarta.annotation.Nullable private Integer frameDurationMs;
+
+    public static final String SERIALIZED_NAME_SVG = "svg";
+
+    @SerializedName(SERIALIZED_NAME_SVG)
+    @jakarta.annotation.Nullable private OpenAiImageSvgOptions svg;
 
     public OpenAiGptImageOptions() {}
 
@@ -651,6 +732,80 @@ public class OpenAiGptImageOptions {
         this.partialImages = partialImages;
     }
 
+    public OpenAiGptImageOptions complexity(
+            @jakarta.annotation.Nullable ComplexityEnum complexity) {
+        this.complexity = complexity;
+        return this;
+    }
+
+    /**
+     * Get complexity
+     * @return complexity
+     */
+    @jakarta.annotation.Nullable public ComplexityEnum getComplexity() {
+        return complexity;
+    }
+
+    public void setComplexity(@jakarta.annotation.Nullable ComplexityEnum complexity) {
+        this.complexity = complexity;
+    }
+
+    public OpenAiGptImageOptions frameCount(@jakarta.annotation.Nullable Integer frameCount) {
+        this.frameCount = frameCount;
+        return this;
+    }
+
+    /**
+     * Get frameCount
+     * minimum: -9007199254740991
+     * maximum: 9007199254740991
+     * @return frameCount
+     */
+    @jakarta.annotation.Nullable public Integer getFrameCount() {
+        return frameCount;
+    }
+
+    public void setFrameCount(@jakarta.annotation.Nullable Integer frameCount) {
+        this.frameCount = frameCount;
+    }
+
+    public OpenAiGptImageOptions frameDurationMs(
+            @jakarta.annotation.Nullable Integer frameDurationMs) {
+        this.frameDurationMs = frameDurationMs;
+        return this;
+    }
+
+    /**
+     * Get frameDurationMs
+     * minimum: -9007199254740991
+     * maximum: 9007199254740991
+     * @return frameDurationMs
+     */
+    @jakarta.annotation.Nullable public Integer getFrameDurationMs() {
+        return frameDurationMs;
+    }
+
+    public void setFrameDurationMs(@jakarta.annotation.Nullable Integer frameDurationMs) {
+        this.frameDurationMs = frameDurationMs;
+    }
+
+    public OpenAiGptImageOptions svg(@jakarta.annotation.Nullable OpenAiImageSvgOptions svg) {
+        this.svg = svg;
+        return this;
+    }
+
+    /**
+     * Get svg
+     * @return svg
+     */
+    @jakarta.annotation.Nullable public OpenAiImageSvgOptions getSvg() {
+        return svg;
+    }
+
+    public void setSvg(@jakarta.annotation.Nullable OpenAiImageSvgOptions svg) {
+        this.svg = svg;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -671,7 +826,11 @@ public class OpenAiGptImageOptions {
                 && Objects.equals(this.outputCompression, openAiGptImageOptions.outputCompression)
                 && Objects.equals(this.moderation, openAiGptImageOptions.moderation)
                 && Objects.equals(this.inputFidelity, openAiGptImageOptions.inputFidelity)
-                && Objects.equals(this.partialImages, openAiGptImageOptions.partialImages);
+                && Objects.equals(this.partialImages, openAiGptImageOptions.partialImages)
+                && Objects.equals(this.complexity, openAiGptImageOptions.complexity)
+                && Objects.equals(this.frameCount, openAiGptImageOptions.frameCount)
+                && Objects.equals(this.frameDurationMs, openAiGptImageOptions.frameDurationMs)
+                && Objects.equals(this.svg, openAiGptImageOptions.svg);
     }
 
     @Override
@@ -688,7 +847,11 @@ public class OpenAiGptImageOptions {
                 outputCompression,
                 moderation,
                 inputFidelity,
-                partialImages);
+                partialImages,
+                complexity,
+                frameCount,
+                frameDurationMs,
+                svg);
     }
 
     @Override
@@ -709,6 +872,10 @@ public class OpenAiGptImageOptions {
         sb.append("    moderation: ").append(toIndentedString(moderation)).append("\n");
         sb.append("    inputFidelity: ").append(toIndentedString(inputFidelity)).append("\n");
         sb.append("    partialImages: ").append(toIndentedString(partialImages)).append("\n");
+        sb.append("    complexity: ").append(toIndentedString(complexity)).append("\n");
+        sb.append("    frameCount: ").append(toIndentedString(frameCount)).append("\n");
+        sb.append("    frameDurationMs: ").append(toIndentedString(frameDurationMs)).append("\n");
+        sb.append("    svg: ").append(toIndentedString(svg)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -740,7 +907,11 @@ public class OpenAiGptImageOptions {
                                 "output_compression",
                                 "moderation",
                                 "input_fidelity",
-                                "partial_images"));
+                                "partial_images",
+                                "complexity",
+                                "frame_count",
+                                "frame_duration_ms",
+                                "svg"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -843,6 +1014,22 @@ public class OpenAiGptImageOptions {
         // validate the optional field `input_fidelity`
         if (jsonObj.get("input_fidelity") != null && !jsonObj.get("input_fidelity").isJsonNull()) {
             InputFidelityEnum.validateJsonElement(jsonObj.get("input_fidelity"));
+        }
+        if ((jsonObj.get("complexity") != null && !jsonObj.get("complexity").isJsonNull())
+                && !jsonObj.get("complexity").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `complexity` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("complexity").toString()));
+        }
+        // validate the optional field `complexity`
+        if (jsonObj.get("complexity") != null && !jsonObj.get("complexity").isJsonNull()) {
+            ComplexityEnum.validateJsonElement(jsonObj.get("complexity"));
+        }
+        // validate the optional field `svg`
+        if (jsonObj.get("svg") != null && !jsonObj.get("svg").isJsonNull()) {
+            OpenAiImageSvgOptions.validateJsonElement(jsonObj.get("svg"));
         }
     }
 

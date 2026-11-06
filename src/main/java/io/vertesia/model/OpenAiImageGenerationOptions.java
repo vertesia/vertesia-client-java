@@ -255,6 +255,10 @@ public class OpenAiImageGenerationOptions {
 
         WEBP("webp"),
 
+        GIF("gif"),
+
+        SVG("svg"),
+
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
@@ -435,6 +439,78 @@ public class OpenAiImageGenerationOptions {
 
     @SerializedName(SERIALIZED_NAME_PARTIAL_IMAGES)
     @jakarta.annotation.Nullable private BigDecimal partialImages;
+
+    /**
+     * Gets or Sets complexity
+     */
+    @JsonAdapter(ComplexityEnum.Adapter.class)
+    public enum ComplexityEnum {
+        LOW("low"),
+
+        MEDIUM("medium"),
+
+        HIGH("high"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ComplexityEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ComplexityEnum fromValue(String value) {
+            for (ComplexityEnum b : ComplexityEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ComplexityEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ComplexityEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ComplexityEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ComplexityEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ComplexityEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_COMPLEXITY = "complexity";
+
+    @SerializedName(SERIALIZED_NAME_COMPLEXITY)
+    @jakarta.annotation.Nullable private ComplexityEnum complexity;
+
+    public static final String SERIALIZED_NAME_FRAME_COUNT = "frame_count";
+
+    @SerializedName(SERIALIZED_NAME_FRAME_COUNT)
+    @jakarta.annotation.Nullable private Integer frameCount;
+
+    public static final String SERIALIZED_NAME_FRAME_DURATION_MS = "frame_duration_ms";
+
+    @SerializedName(SERIALIZED_NAME_FRAME_DURATION_MS)
+    @jakarta.annotation.Nullable private Integer frameDurationMs;
 
     public static final String SERIALIZED_NAME_INPUT_IMAGE_MASK = "input_image_mask";
 
@@ -639,6 +715,64 @@ public class OpenAiImageGenerationOptions {
         this.partialImages = partialImages;
     }
 
+    public OpenAiImageGenerationOptions complexity(
+            @jakarta.annotation.Nullable ComplexityEnum complexity) {
+        this.complexity = complexity;
+        return this;
+    }
+
+    /**
+     * Get complexity
+     * @return complexity
+     */
+    @jakarta.annotation.Nullable public ComplexityEnum getComplexity() {
+        return complexity;
+    }
+
+    public void setComplexity(@jakarta.annotation.Nullable ComplexityEnum complexity) {
+        this.complexity = complexity;
+    }
+
+    public OpenAiImageGenerationOptions frameCount(
+            @jakarta.annotation.Nullable Integer frameCount) {
+        this.frameCount = frameCount;
+        return this;
+    }
+
+    /**
+     * Get frameCount
+     * minimum: -9007199254740991
+     * maximum: 9007199254740991
+     * @return frameCount
+     */
+    @jakarta.annotation.Nullable public Integer getFrameCount() {
+        return frameCount;
+    }
+
+    public void setFrameCount(@jakarta.annotation.Nullable Integer frameCount) {
+        this.frameCount = frameCount;
+    }
+
+    public OpenAiImageGenerationOptions frameDurationMs(
+            @jakarta.annotation.Nullable Integer frameDurationMs) {
+        this.frameDurationMs = frameDurationMs;
+        return this;
+    }
+
+    /**
+     * Get frameDurationMs
+     * minimum: -9007199254740991
+     * maximum: 9007199254740991
+     * @return frameDurationMs
+     */
+    @jakarta.annotation.Nullable public Integer getFrameDurationMs() {
+        return frameDurationMs;
+    }
+
+    public void setFrameDurationMs(@jakarta.annotation.Nullable Integer frameDurationMs) {
+        this.frameDurationMs = frameDurationMs;
+    }
+
     public OpenAiImageGenerationOptions inputImageMask(
             @jakarta.annotation.Nullable OpenAiImageGenerationMask inputImageMask) {
         this.inputImageMask = inputImageMask;
@@ -680,6 +814,10 @@ public class OpenAiImageGenerationOptions {
                 && Objects.equals(this.moderation, openAiImageGenerationOptions.moderation)
                 && Objects.equals(this.inputFidelity, openAiImageGenerationOptions.inputFidelity)
                 && Objects.equals(this.partialImages, openAiImageGenerationOptions.partialImages)
+                && Objects.equals(this.complexity, openAiImageGenerationOptions.complexity)
+                && Objects.equals(this.frameCount, openAiImageGenerationOptions.frameCount)
+                && Objects.equals(
+                        this.frameDurationMs, openAiImageGenerationOptions.frameDurationMs)
                 && Objects.equals(this.inputImageMask, openAiImageGenerationOptions.inputImageMask);
     }
 
@@ -697,6 +835,9 @@ public class OpenAiImageGenerationOptions {
                 moderation,
                 inputFidelity,
                 partialImages,
+                complexity,
+                frameCount,
+                frameDurationMs,
                 inputImageMask);
     }
 
@@ -717,6 +858,9 @@ public class OpenAiImageGenerationOptions {
         sb.append("    moderation: ").append(toIndentedString(moderation)).append("\n");
         sb.append("    inputFidelity: ").append(toIndentedString(inputFidelity)).append("\n");
         sb.append("    partialImages: ").append(toIndentedString(partialImages)).append("\n");
+        sb.append("    complexity: ").append(toIndentedString(complexity)).append("\n");
+        sb.append("    frameCount: ").append(toIndentedString(frameCount)).append("\n");
+        sb.append("    frameDurationMs: ").append(toIndentedString(frameDurationMs)).append("\n");
         sb.append("    inputImageMask: ").append(toIndentedString(inputImageMask)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -749,6 +893,9 @@ public class OpenAiImageGenerationOptions {
                                 "moderation",
                                 "input_fidelity",
                                 "partial_images",
+                                "complexity",
+                                "frame_count",
+                                "frame_duration_ms",
                                 "input_image_mask"));
 
         // a set of required properties/fields (JSON key names)
@@ -871,6 +1018,18 @@ public class OpenAiImageGenerationOptions {
         // validate the optional field `input_fidelity`
         if (jsonObj.get("input_fidelity") != null && !jsonObj.get("input_fidelity").isJsonNull()) {
             InputFidelityEnum.validateJsonElement(jsonObj.get("input_fidelity"));
+        }
+        if ((jsonObj.get("complexity") != null && !jsonObj.get("complexity").isJsonNull())
+                && !jsonObj.get("complexity").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `complexity` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("complexity").toString()));
+        }
+        // validate the optional field `complexity`
+        if (jsonObj.get("complexity") != null && !jsonObj.get("complexity").isJsonNull()) {
+            ComplexityEnum.validateJsonElement(jsonObj.get("complexity"));
         }
         // validate the optional field `input_image_mask`
         if (jsonObj.get("input_image_mask") != null

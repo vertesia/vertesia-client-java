@@ -810,6 +810,8 @@ src/main/java/io/vertesia/model/OpenAiDalleOptions.java
 src/main/java/io/vertesia/model/OpenAiGptImageOptions.java
 src/main/java/io/vertesia/model/OpenAiImageGenerationMask.java
 src/main/java/io/vertesia/model/OpenAiImageGenerationOptions.java
+src/main/java/io/vertesia/model/OpenAiImageSvgOptions.java
+src/main/java/io/vertesia/model/OpenAiImageSvgOptionsReasoning.java
 src/main/java/io/vertesia/model/OpenAiSpeechOptions.java
 src/main/java/io/vertesia/model/OpenAiTextOptions.java
 src/main/java/io/vertesia/model/OpenAiThinkingOptions.java
