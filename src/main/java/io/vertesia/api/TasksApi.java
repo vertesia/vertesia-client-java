@@ -238,7 +238,7 @@ public class TasksApi {
 
     /**
      * Cancel a task
-     * Cancels a pending or in-progress durable task.  **Required permissions:** &#x60;task:manage&#x60;
+     * Cancels a pending or in-progress durable task. Answers 409 while a running process is waiting on the task: answer the task, advance the run, or cancel the run instead.  **Required permissions:** &#x60;task:manage&#x60;
      * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @return APIcancelTaskRequest
      * @http.response.details
@@ -380,6 +380,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The task was already completed or given a different answer, or its run has ended. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -397,6 +398,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The task was already completed or given a different answer, or its run has ended. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -415,6 +417,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The task was already completed or given a different answer, or its run has ended. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -433,6 +436,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The task was already completed or given a different answer, or its run has ended. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -444,7 +448,7 @@ public class TasksApi {
 
     /**
      * Complete a task
-     * Completes a durable task and, for agent ask tasks, signals the backing workflow with the submitted result. Process &#x60;human_task&#x60; nodes should be resumed through &#x60;POST /agents/{agentRunId}/answer-task&#x60; instead of this endpoint.
+     * Completes a durable task and signals the backing agent or process workflow with the submitted result. Answers 409 when the task was already given a different answer or its run has ended.
      * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param completeTaskPayload  (required)
      * @return APIcompleteTaskRequest
@@ -453,6 +457,7 @@ public class TasksApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The completed task. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The task was already completed or given a different answer, or its run has ended. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1443,6 +1448,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The update closes a task that a running process is waiting on. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -1460,6 +1466,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The update closes a task that a running process is waiting on. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -1478,6 +1485,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The update closes a task that a running process is waiting on. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -1496,6 +1504,7 @@ public class TasksApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The update closes a task that a running process is waiting on. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -1516,6 +1525,7 @@ public class TasksApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated task. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The update closes a task that a running process is waiting on. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
