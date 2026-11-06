@@ -61,6 +61,11 @@ public class ForwardEmailRequestEmail {
     @SerializedName(SERIALIZED_NAME_MESSAGE_ID)
     @jakarta.annotation.Nullable private String messageId;
 
+    public static final String SERIALIZED_NAME_IN_REPLY_TO = "in_reply_to";
+
+    @SerializedName(SERIALIZED_NAME_IN_REPLY_TO)
+    @jakarta.annotation.Nullable private String inReplyTo;
+
     public ForwardEmailRequestEmail() {}
 
     public ForwardEmailRequestEmail from(@jakarta.annotation.Nonnull String from) {
@@ -150,6 +155,23 @@ public class ForwardEmailRequestEmail {
         this.messageId = messageId;
     }
 
+    public ForwardEmailRequestEmail inReplyTo(@jakarta.annotation.Nullable String inReplyTo) {
+        this.inReplyTo = inReplyTo;
+        return this;
+    }
+
+    /**
+     * The email&#39;s In-Reply-To header. When it names an email that asked an agent prompt, the reply answers only that prompt.
+     * @return inReplyTo
+     */
+    @jakarta.annotation.Nullable public String getInReplyTo() {
+        return inReplyTo;
+    }
+
+    public void setInReplyTo(@jakarta.annotation.Nullable String inReplyTo) {
+        this.inReplyTo = inReplyTo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -163,12 +185,13 @@ public class ForwardEmailRequestEmail {
                 && Objects.equals(this.subject, forwardEmailRequestEmail.subject)
                 && Objects.equals(this.text, forwardEmailRequestEmail.text)
                 && Objects.equals(this.html, forwardEmailRequestEmail.html)
-                && Objects.equals(this.messageId, forwardEmailRequestEmail.messageId);
+                && Objects.equals(this.messageId, forwardEmailRequestEmail.messageId)
+                && Objects.equals(this.inReplyTo, forwardEmailRequestEmail.inReplyTo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(from, subject, text, html, messageId);
+        return Objects.hash(from, subject, text, html, messageId, inReplyTo);
     }
 
     @Override
@@ -180,6 +203,7 @@ public class ForwardEmailRequestEmail {
         sb.append("    text: ").append(toIndentedString(text)).append("\n");
         sb.append("    html: ").append(toIndentedString(html)).append("\n");
         sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
+        sb.append("    inReplyTo: ").append(toIndentedString(inReplyTo)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -198,7 +222,9 @@ public class ForwardEmailRequestEmail {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields =
-                new HashSet<String>(Arrays.asList("from", "subject", "text", "html", "message_id"));
+                new HashSet<String>(
+                        Arrays.asList(
+                                "from", "subject", "text", "html", "message_id", "in_reply_to"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("from", "text"));
@@ -271,6 +297,14 @@ public class ForwardEmailRequestEmail {
                             java.util.Locale.ROOT,
                             "Expected the field `message_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("message_id").toString()));
+        }
+        if ((jsonObj.get("in_reply_to") != null && !jsonObj.get("in_reply_to").isJsonNull())
+                && !jsonObj.get("in_reply_to").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `in_reply_to` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("in_reply_to").toString()));
         }
     }
 

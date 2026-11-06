@@ -86,6 +86,11 @@ public class SendEmailRequest {
     @SerializedName(SERIALIZED_NAME_REFERENCES)
     @jakarta.annotation.Nullable private List<String> references = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+
+    @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+    @jakarta.annotation.Nullable private String requestId;
+
     public SendEmailRequest() {}
 
     public SendEmailRequest toEmail(@jakarta.annotation.Nonnull String toEmail) {
@@ -254,6 +259,23 @@ public class SendEmailRequest {
         this.references = references;
     }
 
+    public SendEmailRequest requestId(@jakarta.annotation.Nullable String requestId) {
+        this.requestId = requestId;
+        return this;
+    }
+
+    /**
+     * The agent prompt this email asks. A reply to the email then answers only that prompt, not a newer one.
+     * @return requestId
+     */
+    @jakarta.annotation.Nullable public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(@jakarta.annotation.Nullable String requestId) {
+        this.requestId = requestId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -271,7 +293,8 @@ public class SendEmailRequest {
                 && Objects.equals(this.runId, sendEmailRequest.runId)
                 && Objects.equals(this.routeKey, sendEmailRequest.routeKey)
                 && Objects.equals(this.inReplyTo, sendEmailRequest.inReplyTo)
-                && Objects.equals(this.references, sendEmailRequest.references);
+                && Objects.equals(this.references, sendEmailRequest.references)
+                && Objects.equals(this.requestId, sendEmailRequest.requestId);
     }
 
     @Override
@@ -285,7 +308,8 @@ public class SendEmailRequest {
                 runId,
                 routeKey,
                 inReplyTo,
-                references);
+                references,
+                requestId);
     }
 
     @Override
@@ -301,6 +325,7 @@ public class SendEmailRequest {
         sb.append("    routeKey: ").append(toIndentedString(routeKey)).append("\n");
         sb.append("    inReplyTo: ").append(toIndentedString(inReplyTo)).append("\n");
         sb.append("    references: ").append(toIndentedString(references)).append("\n");
+        sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -329,7 +354,8 @@ public class SendEmailRequest {
                                 "run_id",
                                 "route_key",
                                 "in_reply_to",
-                                "references"));
+                                "references",
+                                "request_id"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -435,6 +461,14 @@ public class SendEmailRequest {
                             java.util.Locale.ROOT,
                             "Expected the field `references` to be an array in the JSON string but got `%s`",
                             jsonObj.get("references").toString()));
+        }
+        if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull())
+                && !jsonObj.get("request_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `request_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("request_id").toString()));
         }
     }
 
