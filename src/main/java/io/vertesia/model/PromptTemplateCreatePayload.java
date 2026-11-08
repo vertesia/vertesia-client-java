@@ -124,7 +124,7 @@ public class PromptTemplateCreatePayload {
     }
 
     /**
-     * Get parent
+     * The ID of the prompt this one derives from, as 24 hexadecimal characters.
      * @return parent
      */
     @jakarta.annotation.Nullable public String getParent() {

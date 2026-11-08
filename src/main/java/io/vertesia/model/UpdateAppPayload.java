@@ -436,7 +436,7 @@ public class UpdateAppPayload {
     }
 
     /**
-     * Get publisher
+     * The publisher of the app. Must not be empty.
      * @return publisher
      */
     @jakarta.annotation.Nonnull

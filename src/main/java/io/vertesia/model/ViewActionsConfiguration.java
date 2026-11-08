@@ -28,8 +28,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * ViewActionsConfiguration
@@ -101,7 +103,7 @@ public class ViewActionsConfiguration {
     public static final String SERIALIZED_NAME_EXCLUDE_DEFAULTS = "exclude_defaults";
 
     @SerializedName(SERIALIZED_NAME_EXCLUDE_DEFAULTS)
-    @jakarta.annotation.Nullable private List<ExcludeDefaultsEnum> excludeDefaults = new ArrayList<>();
+    @jakarta.annotation.Nullable private Set<ExcludeDefaultsEnum> excludeDefaults = new LinkedHashSet<>();
 
     public static final String SERIALIZED_NAME_ITEMS = "items";
 
@@ -129,7 +131,7 @@ public class ViewActionsConfiguration {
     }
 
     public ViewActionsConfiguration excludeDefaults(
-            @jakarta.annotation.Nullable List<ExcludeDefaultsEnum> excludeDefaults) {
+            @jakarta.annotation.Nullable Set<ExcludeDefaultsEnum> excludeDefaults) {
         this.excludeDefaults = excludeDefaults;
         return this;
     }
@@ -137,7 +139,7 @@ public class ViewActionsConfiguration {
     public ViewActionsConfiguration addExcludeDefaultsItem(
             ExcludeDefaultsEnum excludeDefaultsItem) {
         if (this.excludeDefaults == null) {
-            this.excludeDefaults = new ArrayList<>();
+            this.excludeDefaults = new LinkedHashSet<>();
         }
         this.excludeDefaults.add(excludeDefaultsItem);
         return this;
@@ -147,12 +149,12 @@ public class ViewActionsConfiguration {
      * Hide individual standard actions while keeping the remaining defaults.
      * @return excludeDefaults
      */
-    @jakarta.annotation.Nullable public List<ExcludeDefaultsEnum> getExcludeDefaults() {
+    @jakarta.annotation.Nullable public Set<ExcludeDefaultsEnum> getExcludeDefaults() {
         return excludeDefaults;
     }
 
     public void setExcludeDefaults(
-            @jakarta.annotation.Nullable List<ExcludeDefaultsEnum> excludeDefaults) {
+            @jakarta.annotation.Nullable Set<ExcludeDefaultsEnum> excludeDefaults) {
         this.excludeDefaults = excludeDefaults;
     }
 

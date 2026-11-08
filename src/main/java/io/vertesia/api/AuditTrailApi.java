@@ -1169,7 +1169,7 @@ public class AuditTrailApi {
 
         /**
          * Set from
-         * @param from Start time (ISO string) (optional)
+         * @param from Start time: an ISO 8601 date or date-time, such as 2026-01-31 or 2026-01-31T12:00:00Z. Empty means no bound. (optional)
          * @return APIlistAuditTrailEventsRequest
          */
         public APIlistAuditTrailEventsRequest from(@jakarta.annotation.Nullable String from) {
@@ -1179,7 +1179,7 @@ public class AuditTrailApi {
 
         /**
          * Set to
-         * @param to End time (ISO string) (optional)
+         * @param to End time: an ISO 8601 date or date-time, such as 2026-01-31 or 2026-01-31T12:00:00Z. Empty means no bound. (optional)
          * @return APIlistAuditTrailEventsRequest
          */
         public APIlistAuditTrailEventsRequest to(@jakarta.annotation.Nullable String to) {

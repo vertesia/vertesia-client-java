@@ -926,7 +926,7 @@ public class InteractionRunsApi {
 
         /**
          * Set environment
-         * @param environment Environment ids to filter by, as 24 hexadecimal characters. (optional)
+         * @param environment Environment ids to filter by, as 24 hexadecimal characters; each value may list several, separated by commas. (optional)
          * @return APIlistRunsRequest
          */
         public APIlistRunsRequest environment(
@@ -957,7 +957,7 @@ public class InteractionRunsApi {
 
         /**
          * Set parent
-         * @param parent Parent run ids to filter by. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
+         * @param parent Parent run ids to filter by, as 24 hexadecimal characters; each value may list several, separated by commas. The legacy value &#x60;false&#x60; selects root runs. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
          * @return APIlistRunsRequest
          */
         public APIlistRunsRequest parent(@jakarta.annotation.Nullable List<String> parent) {

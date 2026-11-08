@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
@@ -54,7 +53,7 @@ public class GetUploadUrlPayload {
     public static final String SERIALIZED_NAME_TTL = "ttl";
 
     @SerializedName(SERIALIZED_NAME_TTL)
-    @jakarta.annotation.Nullable private BigDecimal ttl;
+    @jakarta.annotation.Nullable private Integer ttl;
 
     public GetUploadUrlPayload() {}
 
@@ -82,7 +81,7 @@ public class GetUploadUrlPayload {
     }
 
     /**
-     * Get id
+     * The object name to upload to. A random name is chosen when omitted. It must not be empty, start with &#x60;/&#x60; or &#x60;\\&#x60;, or contain a &#x60;..&#x60; segment.
      * @return id
      */
     @jakarta.annotation.Nullable public String getId() {
@@ -110,20 +109,22 @@ public class GetUploadUrlPayload {
         this.mimeType = mimeType;
     }
 
-    public GetUploadUrlPayload ttl(@jakarta.annotation.Nullable BigDecimal ttl) {
+    public GetUploadUrlPayload ttl(@jakarta.annotation.Nullable Integer ttl) {
         this.ttl = ttl;
         return this;
     }
 
     /**
-     * Get ttl
+     * Lifetime of the signed URL in seconds, at most seven days.
+     * minimum: 1
+     * maximum: 604800
      * @return ttl
      */
-    @jakarta.annotation.Nullable public BigDecimal getTtl() {
+    @jakarta.annotation.Nullable public Integer getTtl() {
         return ttl;
     }
 
-    public void setTtl(@jakarta.annotation.Nullable BigDecimal ttl) {
+    public void setTtl(@jakarta.annotation.Nullable Integer ttl) {
         this.ttl = ttl;
     }
 

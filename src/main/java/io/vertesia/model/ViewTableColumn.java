@@ -149,6 +149,8 @@ public class ViewTableColumn {
 
     /**
      * Get width
+     * minimum: 40
+     * maximum: 2000
      * @return width
      */
     @jakarta.annotation.Nullable public BigDecimal getWidth() {

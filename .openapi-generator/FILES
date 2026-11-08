@@ -304,6 +304,7 @@ src/main/java/io/vertesia/model/BulkObjectCreateResultObjectsInner.java
 src/main/java/io/vertesia/model/BulkObjectDeleteResult.java
 src/main/java/io/vertesia/model/BulkObjectUpdateResult.java
 src/main/java/io/vertesia/model/BulkOperationPayload.java
+src/main/java/io/vertesia/model/BulkOperationPayloadParams.java
 src/main/java/io/vertesia/model/BulkOperationResponse.java
 src/main/java/io/vertesia/model/BulkOperationResult.java
 src/main/java/io/vertesia/model/BulkRevokeOAuthGrantsPayload.java
@@ -419,6 +420,7 @@ src/main/java/io/vertesia/model/CostTimeSeriesPoint.java
 src/main/java/io/vertesia/model/CountResult.java
 src/main/java/io/vertesia/model/CreateAccountApiKeyPayload.java
 src/main/java/io/vertesia/model/CreateAgentRunPayload.java
+src/main/java/io/vertesia/model/CreateAgentRunPayloadAllOfContentType.java
 src/main/java/io/vertesia/model/CreateApiKeyPayload.java
 src/main/java/io/vertesia/model/CreateAppRepoBranchRequest.java
 src/main/java/io/vertesia/model/CreateAppVersionLaunchRequest.java
@@ -697,6 +699,7 @@ src/main/java/io/vertesia/model/Interaction.java
 src/main/java/io/vertesia/model/InteractionConfigurationRecord.java
 src/main/java/io/vertesia/model/InteractionConfigurationResult.java
 src/main/java/io/vertesia/model/InteractionCreatePayload.java
+src/main/java/io/vertesia/model/InteractionCreatePayloadEnvironment.java
 src/main/java/io/vertesia/model/InteractionEndpoint.java
 src/main/java/io/vertesia/model/InteractionEndpointQuery.java
 src/main/java/io/vertesia/model/InteractionEnvironment.java

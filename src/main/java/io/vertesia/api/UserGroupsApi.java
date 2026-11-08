@@ -260,8 +260,8 @@ public class UserGroupsApi {
     /**
      * Add a user to a group
      * Adds a user to a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param userId  (required)
+     * @param groupId The user group ID, as 24 hexadecimal characters. (required)
+     * @param userId The user ID, as 24 hexadecimal characters. (required)
      * @return APIaddUserGroupMemberRequest
      * @http.response.details
      * <table border="1">
@@ -1309,8 +1309,8 @@ public class UserGroupsApi {
     /**
      * Remove a user from a group
      * Removes a user from a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
-     * @param userId  (required)
+     * @param groupId The user group ID, as 24 hexadecimal characters. (required)
+     * @param userId The user ID, as 24 hexadecimal characters. (required)
      * @return APIremoveUserGroupMemberRequest
      * @http.response.details
      * <table border="1">
@@ -1687,7 +1687,7 @@ public class UserGroupsApi {
     /**
      * Update a user group
      * Updates a user group by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
-     * @param groupId  (required)
+     * @param groupId The user group ID, as 24 hexadecimal characters. (required)
      * @param updateUserGroupPayload  (required)
      * @return APIupdateUserGroupRequest
      * @http.response.details

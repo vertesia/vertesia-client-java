@@ -113,7 +113,7 @@ public class InteractionForkPayload {
     }
 
     /**
-     * Get targetProject
+     * The project to fork into, as its 24-hexadecimal-character ID. Defaults to the current one.
      * @return targetProject
      */
     @jakarta.annotation.Nullable public String getTargetProject() {

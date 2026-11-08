@@ -97,7 +97,7 @@ public class InteractionCreatePayload {
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @jakarta.annotation.Nullable private InteractionEnvironment environment;
+    @jakarta.annotation.Nullable private InteractionCreatePayloadEnvironment environment;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
@@ -342,7 +342,7 @@ public class InteractionCreatePayload {
     }
 
     public InteractionCreatePayload environment(
-            @jakarta.annotation.Nullable InteractionEnvironment environment) {
+            @jakarta.annotation.Nullable InteractionCreatePayloadEnvironment environment) {
         this.environment = environment;
         return this;
     }
@@ -351,11 +351,12 @@ public class InteractionCreatePayload {
      * Get environment
      * @return environment
      */
-    @jakarta.annotation.Nullable public InteractionEnvironment getEnvironment() {
+    @jakarta.annotation.Nullable public InteractionCreatePayloadEnvironment getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@jakarta.annotation.Nullable InteractionEnvironment environment) {
+    public void setEnvironment(
+            @jakarta.annotation.Nullable InteractionCreatePayloadEnvironment environment) {
         this.environment = environment;
     }
 
@@ -740,7 +741,7 @@ public class InteractionCreatePayload {
         }
         // validate the optional field `environment`
         if (jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull()) {
-            InteractionEnvironment.validateJsonElement(jsonObj.get("environment"));
+            InteractionCreatePayloadEnvironment.validateJsonElement(jsonObj.get("environment"));
         }
         if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull())
                 && !jsonObj.get("model").isJsonPrimitive()) {

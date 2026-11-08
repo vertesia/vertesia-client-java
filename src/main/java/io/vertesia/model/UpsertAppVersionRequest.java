@@ -186,7 +186,7 @@ public class UpsertAppVersionRequest {
     }
 
     /**
-     * Existing version record to update in place, used by reproducible rebuilds.
+     * Existing version record to update in place, used by reproducible rebuilds, as 24 hexadecimal characters.
      * @return recordId
      */
     @jakarta.annotation.Nullable public String getRecordId() {

@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * ExecuteViewRequest
+ * The keys of &#x60;key_terms&#x60;, &#x60;navigation&#x60; and &#x60;navigation_queries&#x60; are group ids: a lowercase letter, then lowercase letters, digits, &#x60;_&#x60; or &#x60;-&#x60;. &#x60;key_terms&#x60; holds at most 50 groups and &#x60;navigation&#x60; at most 20, each of at most 100 values of at most 1,000 characters, and the two hold at most 1,000 values in total. &#x60;navigation_queries&#x60; holds at most 20 queries of at most 200 characters.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

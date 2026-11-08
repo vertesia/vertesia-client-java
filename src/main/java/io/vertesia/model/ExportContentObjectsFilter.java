@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Bounded filters supported by the bulk content object export API.
+ * Bounded filters supported by the bulk content object export API. The date bounds are ISO date-times or &#x60;YYYY-MM-DD&#x60; dates.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -77,7 +77,7 @@ public class ExportContentObjectsFilter {
     }
 
     /**
-     * Get types
+     * Content types to export: &#x60;Document&#x60; for untyped objects, a stored type ID (24 hexadecimal characters), or an in-code type ID such as &#x60;sys:Document&#x60;.
      * @return types
      */
     @jakarta.annotation.Nullable public List<String> getTypes() {

@@ -338,7 +338,7 @@ public class ViewLocationNavigation {
     }
 
     /**
-     * Get roots
+     * Absolute location roots shown by the hierarchy.
      * @return roots
      */
     @jakarta.annotation.Nullable public List<String> getRoots() {
@@ -356,6 +356,8 @@ public class ViewLocationNavigation {
 
     /**
      * Get depth
+     * minimum: 1
+     * maximum: 20
      * @return depth
      */
     @jakarta.annotation.Nullable public BigDecimal getDepth() {

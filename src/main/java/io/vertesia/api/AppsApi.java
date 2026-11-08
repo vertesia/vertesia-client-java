@@ -306,7 +306,7 @@ public class AppsApi {
      * Assign a deployment alias to an app version
      * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param alias  (required)
+     * @param alias The deployment alias: 1-63 lowercase letters, numbers, or inner hyphens. (required)
      * @return APIassignAppVersionAliasRequest
      * @http.response.details
      * <table border="1">
@@ -3604,7 +3604,7 @@ public class AppsApi {
     /**
      * Get an app installation package
      * Returns package capabilities exposed by an installed app, including UI, tools, types, processes, dashboards, templates, widgets, settings, and activities.  **Required permissions:** &#x60;account:member&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @return APIgetAppInstallationPackageRequest
      * @http.response.details
      * <table border="1">
@@ -8986,7 +8986,7 @@ public class AppsApi {
      * Remove a deployment alias from an app version
      * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id The app version ID, as 24 hexadecimal characters. (required)
-     * @param alias  (required)
+     * @param alias The deployment alias: 1-63 lowercase letters, numbers, or inner hyphens. (required)
      * @return APIremoveAppVersionAliasRequest
      * @http.response.details
      * <table border="1">
@@ -11108,7 +11108,7 @@ public class AppsApi {
     /**
      * Update app installation settings
      * Updates settings for an installed app.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param appId  (required)
+     * @param appId The app installation ID, as 24 hexadecimal characters. (required)
      * @param appInstallationPayload  (required)
      * @return APIupdateAppInstallationSettingsRequest
      * @http.response.details

@@ -82,7 +82,7 @@ public class CreateTablePayload {
     }
 
     /**
-     * Table name
+     * Table name: a SQL identifier of letters, digits and underscores, starting with a letter or underscore, at most 64 characters, and not a reserved SQL keyword.
      * @return name
      */
     @jakarta.annotation.Nonnull

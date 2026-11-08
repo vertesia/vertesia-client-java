@@ -221,7 +221,7 @@ public class UpdateUserGroupPayload {
     }
 
     /**
-     * Projects this group is allowed to be used in. When empty or absent the group is org-wide (usable in any project). When set, the group may only be used to grant permissions in the listed projects.
+     * Projects this group is allowed to be used in, as project IDs. When empty or absent the group is org-wide.
      * @return allowedProjects
      */
     @jakarta.annotation.Nullable public List<String> getAllowedProjects() {

@@ -1355,6 +1355,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.BulkOperationPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.BulkOperationPayloadParams.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.BulkOperationResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.BulkOperationResult.CustomTypeAdapterFactory());
@@ -1577,6 +1579,9 @@ public class JSON {
                 new io.vertesia.model.CreateAccountApiKeyPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateAgentRunPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.CreateAgentRunPayloadAllOfContentType
+                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateApiKeyPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -2079,6 +2084,9 @@ public class JSON {
                 new io.vertesia.model.InteractionConfigurationResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.InteractionCreatePayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.InteractionCreatePayloadEnvironment
+                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.InteractionEndpoint.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

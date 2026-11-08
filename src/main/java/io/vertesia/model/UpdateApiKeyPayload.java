@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * UpdateApiKeyPayload
+ * No key of &#x60;properties&#x60;, at any depth, may contain a NUL character.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -134,7 +134,7 @@ public class UpdateApiKeyPayload {
     }
 
     /**
-     * Organization-wide SCIM provisioning credential. Only account administrators may create or manage these keys. May be enabled by account administrators on existing keys; disable or delete to revoke access.
+     * Enables SCIM provisioning on an existing admin key. Only &#x60;true&#x60; is accepted: disable or delete the key to revoke it.
      * @return scimProvisioning
      */
     @jakarta.annotation.Nullable public Boolean getScimProvisioning() {

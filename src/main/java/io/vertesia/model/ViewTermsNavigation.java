@@ -408,6 +408,8 @@ public class ViewTermsNavigation {
 
     /**
      * Get size
+     * minimum: 1
+     * maximum: 500
      * @return size
      */
     @jakarta.annotation.Nullable public BigDecimal getSize() {

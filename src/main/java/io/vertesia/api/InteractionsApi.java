@@ -885,7 +885,7 @@ public class InteractionsApi {
     /**
      * Remove code interaction configuration
      * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param interactionId  (required)
+     * @param interactionId The code interaction, as &#x60;sys:&lt;name&gt;&#x60; or &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;, at most 300 characters. (required)
      * @return APIdeleteInteractionConfigurationRequest
      * @http.response.details
      * <table border="1">
@@ -2841,7 +2841,7 @@ public class InteractionsApi {
     /**
      * Get saved code interaction configuration
      *
-     * @param interactionId  (required)
+     * @param interactionId The code interaction, as &#x60;sys:&lt;name&gt;&#x60; or &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;, at most 300 characters. (required)
      * @return APIgetInteractionConfigurationRequest
      * @http.response.details
      * <table border="1">
@@ -4082,7 +4082,7 @@ public class InteractionsApi {
 
         /**
          * Set status
-         * @param status  (optional)
+         * @param status Filter by status: draft, published, archived, code, unknown. Each value may list several, separated by commas. (optional)
          * @return APIlistInteractionTagsRequest
          */
         public APIlistInteractionTagsRequest status(
@@ -4134,7 +4134,7 @@ public class InteractionsApi {
 
         /**
          * Set version
-         * @param version  (optional)
+         * @param version Filter by version number. Must start with an integer. (optional)
          * @return APIlistInteractionTagsRequest
          */
         public APIlistInteractionTagsRequest version(@jakarta.annotation.Nullable String version) {
@@ -5018,7 +5018,7 @@ public class InteractionsApi {
 
         /**
          * Set status
-         * @param status  (optional)
+         * @param status Filter by status: draft, published, archived, code, unknown. Each value may list several, separated by commas. (optional)
          * @return APIlistInteractionsRequest
          */
         public APIlistInteractionsRequest status(@jakarta.annotation.Nullable List<String> status) {
@@ -5068,7 +5068,7 @@ public class InteractionsApi {
 
         /**
          * Set version
-         * @param version  (optional)
+         * @param version Filter by version number. Must start with an integer. (optional)
          * @return APIlistInteractionsRequest
          */
         public APIlistInteractionsRequest version(@jakarta.annotation.Nullable String version) {
@@ -5853,7 +5853,7 @@ public class InteractionsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction is not a draft, or the interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -5871,7 +5871,7 @@ public class InteractionsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction is not a draft, or the interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -5891,7 +5891,7 @@ public class InteractionsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction is not a draft, or the interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -5910,7 +5910,7 @@ public class InteractionsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction is not a draft, or the interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -5932,7 +5932,7 @@ public class InteractionsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published interaction version. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The interaction is not a draft, or the interaction or one of its prompts changed while publishing. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -6829,7 +6829,7 @@ public class InteractionsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
          * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, or the endpoint of a published interaction would change. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -6848,7 +6848,7 @@ public class InteractionsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
          * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, or the endpoint of a published interaction would change. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -6869,7 +6869,7 @@ public class InteractionsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
          * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, or the endpoint of a published interaction would change. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -6889,7 +6889,7 @@ public class InteractionsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
          * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, or the endpoint of a published interaction would change. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -6912,7 +6912,7 @@ public class InteractionsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
      * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, or the endpoint of a published interaction would change. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -7132,7 +7132,7 @@ public class InteractionsApi {
     /**
      * Create or update code interaction configuration
      * **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param interactionId  (required)
+     * @param interactionId The code interaction, as &#x60;sys:&lt;name&gt;&#x60; or &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;, at most 300 characters. (required)
      * @param updateInteractionConfigurationPayload  (required)
      * @return APIupdateInteractionConfigurationRequest
      * @http.response.details

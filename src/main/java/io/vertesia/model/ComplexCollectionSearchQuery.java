@@ -93,7 +93,7 @@ public class ComplexCollectionSearchQuery {
     }
 
     /**
-     * Get parent
+     * Restrict the search to the children of this collection ID (24 hexadecimal characters). Empty or null searches every collection; a child search takes the parent from its path instead.
      * @return parent
      */
     @jakarta.annotation.Nullable public String getParent() {

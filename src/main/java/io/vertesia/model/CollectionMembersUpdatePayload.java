@@ -139,7 +139,7 @@ public class CollectionMembersUpdatePayload {
     }
 
     /**
-     * Get members
+     * IDs of the content objects to add or remove, as 24 hexadecimal characters.
      * @return members
      */
     @jakarta.annotation.Nonnull

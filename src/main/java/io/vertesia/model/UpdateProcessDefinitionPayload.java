@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -31,7 +30,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * UpdateProcessDefinitionPayload
+ * A draft edit. &#x60;status&#x60; and &#x60;version&#x60; are server-owned: use the publish, archive and revert endpoints.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -51,18 +50,6 @@ public class UpdateProcessDefinitionPayload {
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
     @jakarta.annotation.Nullable private String description;
-
-    public static final String SERIALIZED_NAME_STATUS = "status";
-
-    @Deprecated
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    @jakarta.annotation.Nullable private ProcessDefinitionStatus status;
-
-    public static final String SERIALIZED_NAME_VERSION = "version";
-
-    @Deprecated
-    @SerializedName(SERIALIZED_NAME_VERSION)
-    @jakarta.annotation.Nullable private BigDecimal version;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
@@ -131,49 +118,6 @@ public class UpdateProcessDefinitionPayload {
         this.description = description;
     }
 
-    @Deprecated
-    public UpdateProcessDefinitionPayload status(
-            @jakarta.annotation.Nullable ProcessDefinitionStatus status) {
-        this.status = status;
-        return this;
-    }
-
-    /**
-     * Deprecated: Status is server-owned. Use publish/archive endpoints instead of updating it directly.
-     * @return status
-     * @deprecated
-     */
-    @Deprecated
-    @jakarta.annotation.Nullable public ProcessDefinitionStatus getStatus() {
-        return status;
-    }
-
-    @Deprecated
-    public void setStatus(@jakarta.annotation.Nullable ProcessDefinitionStatus status) {
-        this.status = status;
-    }
-
-    @Deprecated
-    public UpdateProcessDefinitionPayload version(@jakarta.annotation.Nullable BigDecimal version) {
-        this.version = version;
-        return this;
-    }
-
-    /**
-     * Deprecated: Version is server-owned. Use the publish endpoint to create the next version.
-     * @return version
-     * @deprecated
-     */
-    @Deprecated
-    @jakarta.annotation.Nullable public BigDecimal getVersion() {
-        return version;
-    }
-
-    @Deprecated
-    public void setVersion(@jakarta.annotation.Nullable BigDecimal version) {
-        this.version = version;
-    }
-
     public UpdateProcessDefinitionPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
@@ -232,16 +176,13 @@ public class UpdateProcessDefinitionPayload {
                         updateProcessDefinitionPayload.expectedEditRevision)
                 && Objects.equals(this.name, updateProcessDefinitionPayload.name)
                 && Objects.equals(this.description, updateProcessDefinitionPayload.description)
-                && Objects.equals(this.status, updateProcessDefinitionPayload.status)
-                && Objects.equals(this.version, updateProcessDefinitionPayload.version)
                 && Objects.equals(this.tags, updateProcessDefinitionPayload.tags)
                 && Objects.equals(this.definition, updateProcessDefinitionPayload.definition);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                expectedEditRevision, name, description, status, version, tags, definition);
+        return Objects.hash(expectedEditRevision, name, description, tags, definition);
     }
 
     @Override
@@ -253,8 +194,6 @@ public class UpdateProcessDefinitionPayload {
                 .append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
         sb.append("}");
@@ -280,8 +219,6 @@ public class UpdateProcessDefinitionPayload {
                                 "expected_edit_revision",
                                 "name",
                                 "description",
-                                "status",
-                                "version",
                                 "tags",
                                 "definition"));
 
@@ -322,10 +259,6 @@ public class UpdateProcessDefinitionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("description").toString()));
-        }
-        // validate the optional field `status`
-        if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-            ProcessDefinitionStatus.validateJsonElement(jsonObj.get("status"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("tags") != null

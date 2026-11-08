@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * Identifies the run to price by at least one of &#x60;run_id&#x60;, &#x60;agent_run_id&#x60;, &#x60;workflow_id&#x60; or &#x60;workflow_run_id&#x60;. An empty identifier counts as absent.
+ * Identifies the run to price by at least one of &#x60;run_id&#x60;, &#x60;agent_run_id&#x60;, &#x60;workflow_id&#x60; or &#x60;workflow_run_id&#x60;. An empty identifier counts as absent. &#x60;from&#x60; and &#x60;to&#x60; are ISO 8601 date-times or epoch milliseconds, within years 1 to 9999. The window from &#x60;from&#x60; to &#x60;to&#x60; (now when absent) may span at most 366 days.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

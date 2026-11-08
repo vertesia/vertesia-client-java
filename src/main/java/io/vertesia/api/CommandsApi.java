@@ -360,6 +360,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are already disabled for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -377,6 +378,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are already disabled for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -396,6 +398,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are already disabled for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -414,6 +417,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are already disabled for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -427,13 +431,14 @@ public class CommandsApi {
     /**
      * Disable embeddings
      * Disables embeddings for the selected embedding type in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
+     * @param type The embedding type: &#x60;text&#x60;, &#x60;image&#x60; or &#x60;properties&#x60;. (required)
      * @return APIdisableProjectEmbeddingsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Embedding disablement status. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Embeddings of this type are already disabled for the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -936,6 +941,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are already enabled for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -954,6 +960,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are already enabled for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -974,6 +981,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are already enabled for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -993,6 +1001,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are already enabled for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -1007,7 +1016,7 @@ public class CommandsApi {
     /**
      * Enable embeddings
      * Validates and enables embeddings for the selected embedding type using the provided environment and model configuration.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
+     * @param type The embedding type: &#x60;text&#x60;, &#x60;image&#x60; or &#x60;properties&#x60;. (required)
      * @param projectConfigurationEmbeddingEnablePayload  (required)
      * @return APIenableProjectEmbeddingsRequest
      * @http.response.details
@@ -1015,6 +1024,7 @@ public class CommandsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Embedding enablement status. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Embeddings of this type are already enabled for the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1372,7 +1382,7 @@ public class CommandsApi {
     /**
      * Get embedding status
      * Returns embedding configuration and indexing status for the selected embedding type in the current project.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param type  (required)
+     * @param type The embedding type: &#x60;text&#x60;, &#x60;image&#x60; or &#x60;properties&#x60;. (required)
      * @return APIgetEmbeddingCommandStatusRequest
      * @http.response.details
      * <table border="1">
@@ -2049,6 +2059,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are not enabled with a model for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -2066,6 +2077,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are not enabled with a model for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -2085,6 +2097,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are not enabled with a model for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -2103,6 +2116,7 @@ public class CommandsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> Embeddings of this type are not enabled with a model for the project. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -2116,13 +2130,14 @@ public class CommandsApi {
     /**
      * Recalculate embeddings
      * Queues recalculation for missing or outdated embeddings, or all eligible objects with force&#x3D;true. Uses batch inference when supported unless mode&#x3D;sync is specified. Token limits still apply and existing renditions are reused.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param type  (required)
+     * @param type The embedding type: &#x60;text&#x60;, &#x60;image&#x60; or &#x60;properties&#x60;. (required)
      * @return APIrecalculateProjectEmbeddingsRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Embedding recalculation status. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Embeddings of this type are not enabled with a model for the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>

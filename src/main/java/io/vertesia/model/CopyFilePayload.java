@@ -54,7 +54,7 @@ public class CopyFilePayload {
     }
 
     /**
-     * Get source
+     * The file to copy: a path relative to the bucket or a full URI. It must not be blank or contain control characters.
      * @return source
      */
     @jakarta.annotation.Nonnull
@@ -72,7 +72,7 @@ public class CopyFilePayload {
     }
 
     /**
-     * Get dest
+     * The object name to copy to, in the source file&#39;s bucket. It must not be empty, start with &#x60;/&#x60; or &#x60;\\&#x60;, or contain a &#x60;..&#x60; segment.
      * @return dest
      */
     @jakarta.annotation.Nonnull

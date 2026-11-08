@@ -152,6 +152,8 @@ public class AgenticViewSearchConfiguration {
 
     /**
      * Get timeoutMs
+     * minimum: 1000
+     * maximum: 60000
      * @return timeoutMs
      */
     @jakarta.annotation.Nullable public BigDecimal getTimeoutMs() {
@@ -170,6 +172,8 @@ public class AgenticViewSearchConfiguration {
 
     /**
      * Get minimumConfidence
+     * minimum: 0
+     * maximum: 1
      * @return minimumConfidence
      */
     @jakarta.annotation.Nullable public BigDecimal getMinimumConfidence() {

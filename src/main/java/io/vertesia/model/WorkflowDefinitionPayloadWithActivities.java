@@ -313,7 +313,7 @@ public class WorkflowDefinitionPayloadWithActivities {
     }
 
     /**
-     * Legacy upsert: update this definition instead of creating a new one.
+     * Legacy upsert: update this definition instead of creating a new one, as 24 hexadecimal characters.
      * @return id
      */
     @jakarta.annotation.Nullable public String getId() {

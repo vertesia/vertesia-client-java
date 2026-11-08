@@ -240,7 +240,7 @@ public class RunSearchQuery {
     }
 
     /**
-     * Get environment
+     * Environment id, as 24 hexadecimal characters. An empty string applies no filter.
      * @return environment
      */
     @jakarta.annotation.Nullable public String getEnvironment() {
@@ -366,7 +366,7 @@ public class RunSearchQuery {
     }
 
     /**
-     * Get parent
+     * Parent run ids, as 24 hexadecimal characters. The legacy value &#x60;false&#x60; selects root runs, like &#x60;is_root&#x60;; it cannot be combined with a parent id.
      * @return parent
      */
     @jakarta.annotation.Nullable public List<String> getParent() {
@@ -543,7 +543,7 @@ public class RunSearchQuery {
     }
 
     /**
-     * Get runIds
+     * Run ids, as 24 hexadecimal characters.
      * @return runIds
      */
     @jakarta.annotation.Nullable public List<String> getRunIds() {

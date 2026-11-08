@@ -174,7 +174,7 @@ public class ListWorkflowRunsPayload {
     }
 
     /**
-     * The start time for filtering workflow runs.
+     * The start time for filtering workflow runs: a date such as 2026-10-01T00:00:00.000Z. An empty or blank string sets no bound; any other value that is not a date is refused.
      * @return start
      */
     @jakarta.annotation.Nullable public String getStart() {
@@ -191,7 +191,7 @@ public class ListWorkflowRunsPayload {
     }
 
     /**
-     * The end time for filtering workflow runs.
+     * The end time for filtering workflow runs: a date such as 2026-10-01T00:00:00.000Z. An empty or blank string sets no bound; any other value that is not a date is refused.
      * @return end
      */
     @jakarta.annotation.Nullable public String getEnd() {

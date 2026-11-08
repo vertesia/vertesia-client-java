@@ -53,7 +53,7 @@ public class ProcessTestTargetById {
     }
 
     /**
-     * Get id
+     * An in-code process id, &#x60;app:&lt;app&gt;:&lt;process&gt;&#x60; or &#x60;sys:&lt;process&gt;&#x60;. A stored process definition is tested through &#x60;POST /processes/{processId}/test-runs&#x60;.
      * @return id
      */
     @jakarta.annotation.Nonnull
@@ -71,7 +71,7 @@ public class ProcessTestTargetById {
     }
 
     /**
-     * Get appVersion
+     * Only for an &#x60;app:&#x60; id.
      * @return appVersion
      */
     @jakarta.annotation.Nullable public String getAppVersion() {

@@ -116,7 +116,7 @@ public class BulkOperationPayload {
 
     @SerializedName(SERIALIZED_NAME_PARAMS)
     @jakarta.annotation.Nonnull
-    private Map<String, Object> params = new HashMap<>();
+    private BulkOperationPayloadParams params;
 
     public BulkOperationPayload() {}
 
@@ -152,7 +152,7 @@ public class BulkOperationPayload {
     }
 
     /**
-     * The IDs of the objects to operate on
+     * The IDs of the objects to operate on, each an object ID. &#x60;create&#x60; ignores them: it makes new objects.
      * @return ids
      */
     @jakarta.annotation.Nonnull
@@ -164,29 +164,22 @@ public class BulkOperationPayload {
         this.ids = ids;
     }
 
-    public BulkOperationPayload params(@jakarta.annotation.Nonnull Map<String, Object> params) {
+    public BulkOperationPayload params(
+            @jakarta.annotation.Nonnull BulkOperationPayloadParams params) {
         this.params = params;
         return this;
     }
 
-    public BulkOperationPayload putParamsItem(String key, Object paramsItem) {
-        if (this.params == null) {
-            this.params = new HashMap<>();
-        }
-        this.params.put(key, paramsItem);
-        return this;
-    }
-
     /**
-     * The operation parameters. &#x60;create&#x60; takes the objects to create as &#x60;objects&#x60;, 1 to 10000.
+     * Get params
      * @return params
      */
     @jakarta.annotation.Nonnull
-    public Map<String, Object> getParams() {
+    public BulkOperationPayloadParams getParams() {
         return params;
     }
 
-    public void setParams(@jakarta.annotation.Nonnull Map<String, Object> params) {
+    public void setParams(@jakarta.annotation.Nonnull BulkOperationPayloadParams params) {
         this.params = params;
     }
 

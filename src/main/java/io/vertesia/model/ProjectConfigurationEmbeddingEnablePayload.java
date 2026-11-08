@@ -60,7 +60,7 @@ public class ProjectConfigurationEmbeddingEnablePayload {
     }
 
     /**
-     * Get environment
+     * The environment that runs the embedding model.
      * @return environment
      */
     @jakarta.annotation.Nonnull

@@ -17,6 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -48,17 +49,123 @@ public class CreateProcessDefinitionPayload {
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
     @jakarta.annotation.Nullable private String description;
 
+    /**
+     * Deprecated: Process definitions are created as drafts, so only &#x60;draft&#x60; is accepted. Use the publish endpoint to create immutable published versions.
+     */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        DRAFT("draft"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        StatusEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(String value) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StatusEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            StatusEnum.fromValue(value);
+        }
+    }
+
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @jakarta.annotation.Nullable private ProcessDefinitionStatus status;
+    @jakarta.annotation.Nullable private StatusEnum status;
+
+    /**
+     * Deprecated: Version is server-owned, so only &#x60;1&#x60; is accepted. Use the publish endpoint to create the next version.
+     */
+    @JsonAdapter(VersionEnum.Adapter.class)
+    public enum VersionEnum {
+        NUMBER_1(new BigDecimal("1")),
+
+        NUMBER_unknown_default_open_api(new BigDecimal("11184809"));
+
+        private BigDecimal value;
+
+        VersionEnum(BigDecimal value) {
+            this.value = value;
+        }
+
+        public BigDecimal getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static VersionEnum fromValue(BigDecimal value) {
+            for (VersionEnum b : VersionEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return NUMBER_unknown_default_open_api;
+        }
+
+        public static class Adapter extends TypeAdapter<VersionEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final VersionEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public VersionEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return VersionEnum.fromValue(new BigDecimal(value));
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            VersionEnum.fromValue(new BigDecimal(value));
+        }
+    }
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @jakarta.annotation.Nullable private BigDecimal version;
+    @jakarta.annotation.Nullable private VersionEnum version;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
@@ -110,45 +217,45 @@ public class CreateProcessDefinitionPayload {
     }
 
     @Deprecated
-    public CreateProcessDefinitionPayload status(
-            @jakarta.annotation.Nullable ProcessDefinitionStatus status) {
+    public CreateProcessDefinitionPayload status(@jakarta.annotation.Nullable StatusEnum status) {
         this.status = status;
         return this;
     }
 
     /**
-     * Deprecated: Process definitions are created as drafts. Use the publish endpoint to create immutable published versions.
+     * Deprecated: Process definitions are created as drafts, so only &#x60;draft&#x60; is accepted. Use the publish endpoint to create immutable published versions.
      * @return status
      * @deprecated
      */
     @Deprecated
-    @jakarta.annotation.Nullable public ProcessDefinitionStatus getStatus() {
+    @jakarta.annotation.Nullable public StatusEnum getStatus() {
         return status;
     }
 
     @Deprecated
-    public void setStatus(@jakarta.annotation.Nullable ProcessDefinitionStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable StatusEnum status) {
         this.status = status;
     }
 
     @Deprecated
-    public CreateProcessDefinitionPayload version(@jakarta.annotation.Nullable BigDecimal version) {
+    public CreateProcessDefinitionPayload version(
+            @jakarta.annotation.Nullable VersionEnum version) {
         this.version = version;
         return this;
     }
 
     /**
-     * Deprecated: Version is server-owned. Use the publish endpoint to create the next version.
+     * Deprecated: Version is server-owned, so only &#x60;1&#x60; is accepted. Use the publish endpoint to create the next version.
      * @return version
      * @deprecated
      */
     @Deprecated
-    @jakarta.annotation.Nullable public BigDecimal getVersion() {
+    @jakarta.annotation.Nullable public VersionEnum getVersion() {
         return version;
     }
 
     @Deprecated
-    public void setVersion(@jakarta.annotation.Nullable BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nullable VersionEnum version) {
         this.version = version;
     }
 
@@ -300,9 +407,21 @@ public class CreateProcessDefinitionPayload {
                             "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("description").toString()));
         }
+        if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
+                && !jsonObj.get("status").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `status` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("status").toString()));
+        }
         // validate the optional field `status`
         if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-            ProcessDefinitionStatus.validateJsonElement(jsonObj.get("status"));
+            StatusEnum.validateJsonElement(jsonObj.get("status"));
+        }
+        // validate the optional field `version`
+        if (jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) {
+            VersionEnum.validateJsonElement(jsonObj.get("version"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("tags") != null

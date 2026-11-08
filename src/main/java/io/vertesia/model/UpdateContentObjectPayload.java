@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * When creating from an uploaded file the content should be an URL to the uploaded file
+ * When creating from an uploaded file the content should be an URL to the uploaded file. &#x60;content.type&#x60;, the MIME type of the file, is required with a non-empty &#x60;content.source&#x60;.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -435,7 +435,7 @@ public class UpdateContentObjectPayload {
     }
 
     /**
-     * Get parent
+     * ID of the parent object (container or folder), as 24 hexadecimal characters.
      * @return parent
      */
     @jakarta.annotation.Nullable public String getParent() {
@@ -487,7 +487,7 @@ public class UpdateContentObjectPayload {
     }
 
     /**
-     * Content source information, typically a link to an object store
+     * Content source information. A non-empty &#x60;source&#x60; is a &#x60;gs://&#x60;, &#x60;s3://&#x60; or &#x60;az://&#x60; URI of the file (a bucket then a non-empty object path), and &#x60;type&#x60;, its MIME type, is then required.
      * @return content
      */
     @jakarta.annotation.Nullable public ContentSource getContent() {

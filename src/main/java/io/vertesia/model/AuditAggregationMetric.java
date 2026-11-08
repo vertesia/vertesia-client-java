@@ -69,7 +69,7 @@ public class AuditAggregationMetric {
     }
 
     /**
-     * Stable key used in response rows. Must contain only letters, numbers, underscores, or hyphens.
+     * Stable key used in response rows: 1 to 64 letters, numbers, underscores, or hyphens, unique within the query.
      * @return id
      */
     @jakarta.annotation.Nonnull
@@ -124,7 +124,7 @@ public class AuditAggregationMetric {
     }
 
     /**
-     * Required for meter operations.
+     * Required for sum_meter and average_meter, as 1 to 128 characters.
      * @return meterCategory
      */
     @jakarta.annotation.Nullable public String getMeterCategory() {
@@ -141,7 +141,7 @@ public class AuditAggregationMetric {
     }
 
     /**
-     * Required for meter operations.
+     * Required for sum_meter and average_meter, as 1 to 128 characters.
      * @return meterType
      */
     @jakarta.annotation.Nullable public String getMeterType() {

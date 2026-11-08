@@ -82,7 +82,7 @@ public class ICreateProjectPayload {
     }
 
     /**
-     * Get namespace
+     * Letters, digits, &#x60;-&#x60;, &#x60;_&#x60;, &#x60;[&#x60; and &#x60;]&#x60;. Must not be the namespace of another project, which the server answers with a 409.
      * @return namespace
      */
     @jakarta.annotation.Nonnull

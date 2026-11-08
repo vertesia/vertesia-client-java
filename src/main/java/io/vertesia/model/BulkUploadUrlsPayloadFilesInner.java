@@ -93,7 +93,7 @@ public class BulkUploadUrlsPayloadFilesInner {
     }
 
     /**
-     * Get id
+     * The object name to upload to. A random name is chosen when omitted. It must not be empty, start with &#x60;/&#x60; or &#x60;\\&#x60;, or contain a &#x60;..&#x60; segment.
      * @return id
      */
     @jakarta.annotation.Nullable public String getId() {

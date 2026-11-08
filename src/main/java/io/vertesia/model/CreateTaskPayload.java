@@ -27,8 +27,10 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -38,6 +40,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateTaskPayload {
+    public static final String SERIALIZED_NAME_FIELDS = "fields";
+
+    @SerializedName(SERIALIZED_NAME_FIELDS)
+    @jakarta.annotation.Nullable private List<TaskField> fields = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
@@ -54,11 +61,6 @@ public class CreateTaskPayload {
     @SerializedName(SERIALIZED_NAME_ASSIGNEE)
     @jakarta.annotation.Nullable private String assignee;
 
-    public static final String SERIALIZED_NAME_FIELDS = "fields";
-
-    @SerializedName(SERIALIZED_NAME_FIELDS)
-    @jakarta.annotation.Nullable private List<TaskField> fields = new ArrayList<>();
-
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -71,6 +73,31 @@ public class CreateTaskPayload {
     @jakarta.annotation.Nullable private OffsetDateTime dueAt;
 
     public CreateTaskPayload() {}
+
+    public CreateTaskPayload fields(@jakarta.annotation.Nullable List<TaskField> fields) {
+        this.fields = fields;
+        return this;
+    }
+
+    public CreateTaskPayload addFieldsItem(TaskField fieldsItem) {
+        if (this.fields == null) {
+            this.fields = new ArrayList<>();
+        }
+        this.fields.add(fieldsItem);
+        return this;
+    }
+
+    /**
+     * Get fields
+     * @return fields
+     */
+    @jakarta.annotation.Nullable public List<TaskField> getFields() {
+        return fields;
+    }
+
+    public void setFields(@jakarta.annotation.Nullable List<TaskField> fields) {
+        this.fields = fields;
+    }
 
     public CreateTaskPayload title(@jakarta.annotation.Nonnull String title) {
         this.title = title;
@@ -124,31 +151,6 @@ public class CreateTaskPayload {
         this.assignee = assignee;
     }
 
-    public CreateTaskPayload fields(@jakarta.annotation.Nullable List<TaskField> fields) {
-        this.fields = fields;
-        return this;
-    }
-
-    public CreateTaskPayload addFieldsItem(TaskField fieldsItem) {
-        if (this.fields == null) {
-            this.fields = new ArrayList<>();
-        }
-        this.fields.add(fieldsItem);
-        return this;
-    }
-
-    /**
-     * Get fields
-     * @return fields
-     */
-    @jakarta.annotation.Nullable public List<TaskField> getFields() {
-        return fields;
-    }
-
-    public void setFields(@jakarta.annotation.Nullable List<TaskField> fields) {
-        this.fields = fields;
-    }
-
     public CreateTaskPayload source(@jakarta.annotation.Nonnull TaskSource source) {
         this.source = source;
         return this;
@@ -184,6 +186,51 @@ public class CreateTaskPayload {
         this.dueAt = dueAt;
     }
 
+    /**
+     * A container for additional, undeclared properties.
+     * This is a holder for any undeclared properties as specified with
+     * the 'additionalProperties' keyword in the OAS document.
+     */
+    private Map<String, Object> additionalProperties;
+
+    /**
+     * Set the additional (undeclared) property with the specified name and value.
+     * If the property does not already exist, create it otherwise replace it.
+     *
+     * @param key name of the property
+     * @param value value of the property
+     * @return the CreateTaskPayload instance itself
+     */
+    public CreateTaskPayload putAdditionalProperty(String key, Object value) {
+        if (this.additionalProperties == null) {
+            this.additionalProperties = new HashMap<String, Object>();
+        }
+        this.additionalProperties.put(key, value);
+        return this;
+    }
+
+    /**
+     * Return the additional (undeclared) property.
+     *
+     * @return a map of objects
+     */
+    public Map<String, Object> getAdditionalProperties() {
+        return additionalProperties;
+    }
+
+    /**
+     * Return the additional (undeclared) property with the specified name.
+     *
+     * @param key name of the property
+     * @return an object
+     */
+    public Object getAdditionalProperty(String key) {
+        if (this.additionalProperties == null) {
+            return null;
+        }
+        return this.additionalProperties.get(key);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -193,29 +240,35 @@ public class CreateTaskPayload {
             return false;
         }
         CreateTaskPayload createTaskPayload = (CreateTaskPayload) o;
-        return Objects.equals(this.title, createTaskPayload.title)
+        return Objects.equals(this.fields, createTaskPayload.fields)
+                && Objects.equals(this.title, createTaskPayload.title)
                 && Objects.equals(this.description, createTaskPayload.description)
                 && Objects.equals(this.assignee, createTaskPayload.assignee)
-                && Objects.equals(this.fields, createTaskPayload.fields)
                 && Objects.equals(this.source, createTaskPayload.source)
-                && Objects.equals(this.dueAt, createTaskPayload.dueAt);
+                && Objects.equals(this.dueAt, createTaskPayload.dueAt)
+                && Objects.equals(
+                        this.additionalProperties, createTaskPayload.additionalProperties);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, description, assignee, fields, source, dueAt);
+        return Objects.hash(
+                fields, title, description, assignee, source, dueAt, additionalProperties);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateTaskPayload {\n");
+        sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    assignee: ").append(toIndentedString(assignee)).append("\n");
-        sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
         sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    dueAt: ").append(toIndentedString(dueAt)).append("\n");
+        sb.append("    additionalProperties: ")
+                .append(toIndentedString(additionalProperties))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -236,7 +289,7 @@ public class CreateTaskPayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "title", "description", "assignee", "fields", "source", "due_at"));
+                                "fields", "title", "description", "assignee", "source", "due_at"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("title", "source"));
@@ -272,6 +325,25 @@ public class CreateTaskPayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if (jsonObj.get("fields") != null && !jsonObj.get("fields").isJsonNull()) {
+            JsonArray jsonArrayfields = jsonObj.getAsJsonArray("fields");
+            if (jsonArrayfields != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("fields").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `fields` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("fields").toString()));
+                }
+
+                // validate the optional field `fields` (array)
+                for (int i = 0; i < jsonArrayfields.size(); i++) {
+                    TaskField.validateJsonElement(jsonArrayfields.get(i));
+                }
+                ;
+            }
+        }
         if (!jsonObj.get("title").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -295,25 +367,6 @@ public class CreateTaskPayload {
                             "Expected the field `assignee` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("assignee").toString()));
         }
-        if (jsonObj.get("fields") != null && !jsonObj.get("fields").isJsonNull()) {
-            JsonArray jsonArrayfields = jsonObj.getAsJsonArray("fields");
-            if (jsonArrayfields != null) {
-                // ensure the json data is an array
-                if (!jsonObj.get("fields").isJsonArray()) {
-                    throw new IllegalArgumentException(
-                            String.format(
-                                    java.util.Locale.ROOT,
-                                    "Expected the field `fields` to be an array in the JSON string but got `%s`",
-                                    jsonObj.get("fields").toString()));
-                }
-
-                // validate the optional field `fields` (array)
-                for (int i = 0; i < jsonArrayfields.size(); i++) {
-                    TaskField.validateJsonElement(jsonArrayfields.get(i));
-                }
-                ;
-            }
-        }
         // validate the required field `source`
         TaskSource.validateJsonElement(jsonObj.get("source"));
     }
@@ -335,6 +388,30 @@ public class CreateTaskPayload {
                         public void write(JsonWriter out, CreateTaskPayload value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+                            obj.remove("additionalProperties");
+                            // serialize additional properties
+                            if (value.getAdditionalProperties() != null) {
+                                for (Map.Entry<String, Object> entry :
+                                        value.getAdditionalProperties().entrySet()) {
+                                    if (entry.getValue() instanceof String)
+                                        obj.addProperty(entry.getKey(), (String) entry.getValue());
+                                    else if (entry.getValue() instanceof Number)
+                                        obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                                    else if (entry.getValue() instanceof Boolean)
+                                        obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                                    else if (entry.getValue() instanceof Character)
+                                        obj.addProperty(
+                                                entry.getKey(), (Character) entry.getValue());
+                                    else {
+                                        JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                                        if (jsonElement.isJsonArray()) {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                                        } else {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                                        }
+                                    }
+                                }
+                            }
                             elementAdapter.write(out, obj);
                         }
 
@@ -342,7 +419,41 @@ public class CreateTaskPayload {
                         public CreateTaskPayload read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = jsonElement.getAsJsonObject();
+                            // store additional fields in the deserialized instance
+                            CreateTaskPayload instance = thisAdapter.fromJsonTree(jsonObj);
+                            for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+                                if (!openapiFields.contains(entry.getKey())) {
+                                    if (entry.getValue().isJsonPrimitive()) { // primitive type
+                                        if (entry.getValue().getAsJsonPrimitive().isString())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsString());
+                                        else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsNumber());
+                                        else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(),
+                                                    entry.getValue().getAsBoolean());
+                                        else
+                                            throw new IllegalArgumentException(
+                                                    String.format(
+                                                            java.util.Locale.ROOT,
+                                                            "The field `%s` has unknown primitive type. Value: %s",
+                                                            entry.getKey(),
+                                                            entry.getValue().toString()));
+                                    } else if (entry.getValue().isJsonArray()) {
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), List.class));
+                                    } else { // JSON object
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), HashMap.class));
+                                    }
+                                }
+                            }
+                            return instance;
                         }
                     }.nullSafe();
         }

@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * CostAnalyticsQuery
+ * &#x60;from&#x60; and &#x60;to&#x60; are ISO 8601 date-times or epoch milliseconds, within years 1 to 9999. The window from &#x60;from&#x60; to &#x60;to&#x60; (now when absent) may span at most 366 days.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

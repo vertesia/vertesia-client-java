@@ -5042,6 +5042,7 @@ public class AgentRunsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The run is still executing, or its previous execution has not closed yet. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -5059,6 +5060,7 @@ public class AgentRunsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The run is still executing, or its previous execution has not closed yet. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -5078,6 +5080,7 @@ public class AgentRunsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The run is still executing, or its previous execution has not closed yet. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -5096,6 +5099,7 @@ public class AgentRunsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The run is still executing, or its previous execution has not closed yet. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -5116,6 +5120,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The restarted agent run. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The run is still executing, or its previous execution has not closed yet. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -5708,7 +5713,7 @@ public class AgentRunsApi {
 
         /**
          * Set offset
-         * @param offset Offset for pagination (optional)
+         * @param offset Offset for pagination. &#x60;offset&#x60; plus &#x60;limit&#x60; (capped at 200, 50 when omitted) must be at most 10000. (optional)
          * @return APIsearchAgentRunsRequest
          */
         public APIsearchAgentRunsRequest offset(@jakarta.annotation.Nullable BigDecimal offset) {

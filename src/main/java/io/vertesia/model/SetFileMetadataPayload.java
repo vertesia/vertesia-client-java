@@ -56,7 +56,7 @@ public class SetFileMetadataPayload {
     }
 
     /**
-     * The file path (relative to bucket) or full URI
+     * The file path (relative to bucket) or full URI. It must not be blank or contain control characters.
      * @return _file
      */
     @jakarta.annotation.Nonnull

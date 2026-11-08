@@ -1219,7 +1219,7 @@ public class CollectionsApi {
 
         /**
          * Set type
-         * @param type  (optional)
+         * @param type Only list members of this stored content type, by its ID (24 hexadecimal characters). (optional)
          * @return APIlistCollectionMembersRequest
          */
         public APIlistCollectionMembersRequest type(@jakarta.annotation.Nullable String type) {

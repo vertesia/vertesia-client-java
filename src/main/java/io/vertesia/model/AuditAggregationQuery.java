@@ -160,7 +160,7 @@ public class AuditAggregationQuery {
     }
 
     /**
-     * Get groupBy
+     * At most two dimensions, each named once.
      * @return groupBy
      */
     @jakarta.annotation.Nullable public List<AuditAggregationGroup> getGroupBy() {
@@ -186,7 +186,7 @@ public class AuditAggregationQuery {
     }
 
     /**
-     * Get metrics
+     * One to twelve metrics, each with a distinct id.
      * @return metrics
      */
     @jakarta.annotation.Nonnull
@@ -204,7 +204,9 @@ public class AuditAggregationQuery {
     }
 
     /**
-     * Maximum groups returned (default 50, max 200).
+     * Maximum groups returned (default 50). A limit above 200 is capped at 200.
+     * minimum: 1
+     * maximum: 9007199254740991
      * @return limit
      */
     @jakarta.annotation.Nullable public BigDecimal getLimit() {

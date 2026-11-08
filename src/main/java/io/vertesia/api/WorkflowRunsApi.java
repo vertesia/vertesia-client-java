@@ -287,7 +287,7 @@ public class WorkflowRunsApi {
      * Applies a runtime action such as cancellation to a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
-     * @param action  (required)
+     * @param action The action to apply: &#x60;cancel&#x60; asks the run to stop, &#x60;terminate&#x60; stops it at once. (required)
      * @return APIapplyWorkflowRunActionRequest
      * @http.response.details
      * <table border="1">

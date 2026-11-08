@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * ACECreatePayload
+ * On a &#x60;project&#x60; entry, &#x60;resource&#x60; is the project ID, as 24 hexadecimal characters. &#x60;role&#x60; is a built-in role name or the &#x60;c:&lt;name&gt;&#x60; reference of a custom role defined in the account.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

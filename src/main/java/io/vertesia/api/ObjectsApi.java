@@ -2381,7 +2381,7 @@ public class ObjectsApi {
      * Get content object export status
      * **Required permissions:** &#x60;content:superadmin&#x60;
      * @param workflowId  (required)
-     * @param runId  (required)
+     * @param runId The run ID of the export workflow, a UUID. (required)
      * @return APIgetContentObjectsExportStatusRequest
      * @http.response.details
      * <table border="1">

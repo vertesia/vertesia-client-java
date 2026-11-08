@@ -114,7 +114,7 @@ public class GetFileUrlPayload {
     }
 
     /**
-     * Get _file
+     * The file path (relative to bucket) or full URI. It must not be blank or contain control characters.
      * @return _file
      */
     @jakarta.annotation.Nonnull

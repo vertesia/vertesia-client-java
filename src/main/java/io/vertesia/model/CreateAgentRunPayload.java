@@ -34,12 +34,17 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Payload to create and start a new agent run.
+ * CreateAgentRunPayload
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateAgentRunPayload {
+    public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
+
+    @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
+    @jakarta.annotation.Nullable private ContentObjectTypeRef contentType;
+
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
@@ -121,11 +126,6 @@ public class CreateAgentRunPayload {
 
     @SerializedName(SERIALIZED_NAME_DISABLED_MCP_COLLECTIONS)
     @jakarta.annotation.Nullable private List<String> disabledMcpCollections = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
-
-    @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @jakarta.annotation.Nullable private ContentObjectTypeRef contentType;
 
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
@@ -224,6 +224,24 @@ public class CreateAgentRunPayload {
     @jakarta.annotation.Nullable private String idempotencyKey;
 
     public CreateAgentRunPayload() {}
+
+    public CreateAgentRunPayload contentType(
+            @jakarta.annotation.Nullable ContentObjectTypeRef contentType) {
+        this.contentType = contentType;
+        return this;
+    }
+
+    /**
+     * Content type linked to this run — defines the schema for &#x60;properties&#x60;
+     * @return contentType
+     */
+    @jakarta.annotation.Nullable public ContentObjectTypeRef getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(@jakarta.annotation.Nullable ContentObjectTypeRef contentType) {
+        this.contentType = contentType;
+    }
 
     public CreateAgentRunPayload interaction(@jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
@@ -554,24 +572,6 @@ public class CreateAgentRunPayload {
     public void setDisabledMcpCollections(
             @jakarta.annotation.Nullable List<String> disabledMcpCollections) {
         this.disabledMcpCollections = disabledMcpCollections;
-    }
-
-    public CreateAgentRunPayload contentType(
-            @jakarta.annotation.Nullable ContentObjectTypeRef contentType) {
-        this.contentType = contentType;
-        return this;
-    }
-
-    /**
-     * Content type linked to this run — defines the schema for &#x60;properties&#x60;
-     * @return contentType
-     */
-    @jakarta.annotation.Nullable public ContentObjectTypeRef getContentType() {
-        return contentType;
-    }
-
-    public void setContentType(@jakarta.annotation.Nullable ContentObjectTypeRef contentType) {
-        this.contentType = contentType;
     }
 
     public CreateAgentRunPayload visibility(
@@ -1007,7 +1007,8 @@ public class CreateAgentRunPayload {
             return false;
         }
         CreateAgentRunPayload createAgentRunPayload = (CreateAgentRunPayload) o;
-        return Objects.equals(this.interaction, createAgentRunPayload.interaction)
+        return Objects.equals(this.contentType, createAgentRunPayload.contentType)
+                && Objects.equals(this.interaction, createAgentRunPayload.interaction)
                 && Objects.equals(this.title, createAgentRunPayload.title)
                 && Objects.equals(this.topic, createAgentRunPayload.topic)
                 && Objects.equals(this.generateTopic, createAgentRunPayload.generateTopic)
@@ -1024,7 +1025,6 @@ public class CreateAgentRunPayload {
                 && Objects.equals(this.collectionId, createAgentRunPayload.collectionId)
                 && Objects.equals(
                         this.disabledMcpCollections, createAgentRunPayload.disabledMcpCollections)
-                && Objects.equals(this.contentType, createAgentRunPayload.contentType)
                 && Objects.equals(this.visibility, createAgentRunPayload.visibility)
                 && Objects.equals(this.tags, createAgentRunPayload.tags)
                 && Objects.equals(this.categories, createAgentRunPayload.categories)
@@ -1051,6 +1051,7 @@ public class CreateAgentRunPayload {
     @Override
     public int hashCode() {
         return Objects.hash(
+                contentType,
                 interaction,
                 title,
                 topic,
@@ -1067,7 +1068,6 @@ public class CreateAgentRunPayload {
                 excludedTools,
                 collectionId,
                 disabledMcpCollections,
-                contentType,
                 visibility,
                 tags,
                 categories,
@@ -1094,6 +1094,7 @@ public class CreateAgentRunPayload {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateAgentRunPayload {\n");
+        sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
         sb.append("    interaction: ").append(toIndentedString(interaction)).append("\n");
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
@@ -1112,7 +1113,6 @@ public class CreateAgentRunPayload {
         sb.append("    disabledMcpCollections: ")
                 .append(toIndentedString(disabledMcpCollections))
                 .append("\n");
-        sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
         sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
@@ -1157,6 +1157,7 @@ public class CreateAgentRunPayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "content_type",
                                 "interaction",
                                 "title",
                                 "topic",
@@ -1173,7 +1174,6 @@ public class CreateAgentRunPayload {
                                 "excluded_tools",
                                 "collection_id",
                                 "disabled_mcp_collections",
-                                "content_type",
                                 "visibility",
                                 "tags",
                                 "categories",
@@ -1228,6 +1228,10 @@ public class CreateAgentRunPayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `content_type`
+        if (jsonObj.get("content_type") != null && !jsonObj.get("content_type").isJsonNull()) {
+            ContentObjectTypeRef.validateJsonElement(jsonObj.get("content_type"));
+        }
         if (!jsonObj.get("interaction").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -1327,10 +1331,6 @@ public class CreateAgentRunPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `disabled_mcp_collections` to be an array in the JSON string but got `%s`",
                             jsonObj.get("disabled_mcp_collections").toString()));
-        }
-        // validate the optional field `content_type`
-        if (jsonObj.get("content_type") != null && !jsonObj.get("content_type").isJsonNull()) {
-            ContentObjectTypeRef.validateJsonElement(jsonObj.get("content_type"));
         }
         // validate the optional field `visibility`
         if (jsonObj.get("visibility") != null && !jsonObj.get("visibility").isJsonNull()) {

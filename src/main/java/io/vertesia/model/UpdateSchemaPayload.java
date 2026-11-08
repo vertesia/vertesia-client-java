@@ -26,17 +26,24 @@ import io.vertesia.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
- * Payload for AI-driven bulk schema updates.
+ * UpdateSchemaPayload
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateSchemaPayload {
+    public static final String SERIALIZED_NAME_RELATIONSHIPS = "relationships";
+
+    @SerializedName(SERIALIZED_NAME_RELATIONSHIPS)
+    @jakarta.annotation.Nullable private List<DataRelationship> relationships = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -46,11 +53,6 @@ public class UpdateSchemaPayload {
 
     @SerializedName(SERIALIZED_NAME_TABLES)
     @jakarta.annotation.Nullable private List<CreateTablePayload> tables = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_RELATIONSHIPS = "relationships";
-
-    @SerializedName(SERIALIZED_NAME_RELATIONSHIPS)
-    @jakarta.annotation.Nullable private List<DataRelationship> relationships = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DROP_TABLES = "drop_tables";
 
@@ -64,6 +66,33 @@ public class UpdateSchemaPayload {
     private String message;
 
     public UpdateSchemaPayload() {}
+
+    public UpdateSchemaPayload relationships(
+            @jakarta.annotation.Nullable List<DataRelationship> relationships) {
+        this.relationships = relationships;
+        return this;
+    }
+
+    public UpdateSchemaPayload addRelationshipsItem(DataRelationship relationshipsItem) {
+        if (this.relationships == null) {
+            this.relationships = new ArrayList<>();
+        }
+        this.relationships.add(relationshipsItem);
+        return this;
+    }
+
+    /**
+     * Relationships to set
+     * @return relationships
+     */
+    @jakarta.annotation.Nullable public List<DataRelationship> getRelationships() {
+        return relationships;
+    }
+
+    public void setRelationships(
+            @jakarta.annotation.Nullable List<DataRelationship> relationships) {
+        this.relationships = relationships;
+    }
 
     public UpdateSchemaPayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
@@ -108,33 +137,6 @@ public class UpdateSchemaPayload {
         this.tables = tables;
     }
 
-    public UpdateSchemaPayload relationships(
-            @jakarta.annotation.Nullable List<DataRelationship> relationships) {
-        this.relationships = relationships;
-        return this;
-    }
-
-    public UpdateSchemaPayload addRelationshipsItem(DataRelationship relationshipsItem) {
-        if (this.relationships == null) {
-            this.relationships = new ArrayList<>();
-        }
-        this.relationships.add(relationshipsItem);
-        return this;
-    }
-
-    /**
-     * Relationships to set
-     * @return relationships
-     */
-    @jakarta.annotation.Nullable public List<DataRelationship> getRelationships() {
-        return relationships;
-    }
-
-    public void setRelationships(
-            @jakarta.annotation.Nullable List<DataRelationship> relationships) {
-        this.relationships = relationships;
-    }
-
     public UpdateSchemaPayload dropTables(@jakarta.annotation.Nullable List<String> dropTables) {
         this.dropTables = dropTables;
         return this;
@@ -149,7 +151,7 @@ public class UpdateSchemaPayload {
     }
 
     /**
-     * Tables to drop
+     * Tables to drop. A name that matches no table is ignored.
      * @return dropTables
      */
     @jakarta.annotation.Nullable public List<String> getDropTables() {
@@ -178,6 +180,51 @@ public class UpdateSchemaPayload {
         this.message = message;
     }
 
+    /**
+     * A container for additional, undeclared properties.
+     * This is a holder for any undeclared properties as specified with
+     * the 'additionalProperties' keyword in the OAS document.
+     */
+    private Map<String, Object> additionalProperties;
+
+    /**
+     * Set the additional (undeclared) property with the specified name and value.
+     * If the property does not already exist, create it otherwise replace it.
+     *
+     * @param key name of the property
+     * @param value value of the property
+     * @return the UpdateSchemaPayload instance itself
+     */
+    public UpdateSchemaPayload putAdditionalProperty(String key, Object value) {
+        if (this.additionalProperties == null) {
+            this.additionalProperties = new HashMap<String, Object>();
+        }
+        this.additionalProperties.put(key, value);
+        return this;
+    }
+
+    /**
+     * Return the additional (undeclared) property.
+     *
+     * @return a map of objects
+     */
+    public Map<String, Object> getAdditionalProperties() {
+        return additionalProperties;
+    }
+
+    /**
+     * Return the additional (undeclared) property with the specified name.
+     *
+     * @param key name of the property
+     * @return an object
+     */
+    public Object getAdditionalProperty(String key) {
+        if (this.additionalProperties == null) {
+            return null;
+        }
+        return this.additionalProperties.get(key);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -187,27 +234,33 @@ public class UpdateSchemaPayload {
             return false;
         }
         UpdateSchemaPayload updateSchemaPayload = (UpdateSchemaPayload) o;
-        return Objects.equals(this.description, updateSchemaPayload.description)
+        return Objects.equals(this.relationships, updateSchemaPayload.relationships)
+                && Objects.equals(this.description, updateSchemaPayload.description)
                 && Objects.equals(this.tables, updateSchemaPayload.tables)
-                && Objects.equals(this.relationships, updateSchemaPayload.relationships)
                 && Objects.equals(this.dropTables, updateSchemaPayload.dropTables)
-                && Objects.equals(this.message, updateSchemaPayload.message);
+                && Objects.equals(this.message, updateSchemaPayload.message)
+                && Objects.equals(
+                        this.additionalProperties, updateSchemaPayload.additionalProperties);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(description, tables, relationships, dropTables, message);
+        return Objects.hash(
+                relationships, description, tables, dropTables, message, additionalProperties);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateSchemaPayload {\n");
+        sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    tables: ").append(toIndentedString(tables)).append("\n");
-        sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
         sb.append("    dropTables: ").append(toIndentedString(dropTables)).append("\n");
         sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    additionalProperties: ")
+                .append(toIndentedString(additionalProperties))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -228,9 +281,9 @@ public class UpdateSchemaPayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "relationships",
                                 "description",
                                 "tables",
-                                "relationships",
                                 "drop_tables",
                                 "message"));
 
@@ -268,6 +321,25 @@ public class UpdateSchemaPayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if (jsonObj.get("relationships") != null && !jsonObj.get("relationships").isJsonNull()) {
+            JsonArray jsonArrayrelationships = jsonObj.getAsJsonArray("relationships");
+            if (jsonArrayrelationships != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("relationships").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `relationships` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("relationships").toString()));
+                }
+
+                // validate the optional field `relationships` (array)
+                for (int i = 0; i < jsonArrayrelationships.size(); i++) {
+                    DataRelationship.validateJsonElement(jsonArrayrelationships.get(i));
+                }
+                ;
+            }
+        }
         if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
                 && !jsonObj.get("description").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -291,25 +363,6 @@ public class UpdateSchemaPayload {
                 // validate the optional field `tables` (array)
                 for (int i = 0; i < jsonArraytables.size(); i++) {
                     CreateTablePayload.validateJsonElement(jsonArraytables.get(i));
-                }
-                ;
-            }
-        }
-        if (jsonObj.get("relationships") != null && !jsonObj.get("relationships").isJsonNull()) {
-            JsonArray jsonArrayrelationships = jsonObj.getAsJsonArray("relationships");
-            if (jsonArrayrelationships != null) {
-                // ensure the json data is an array
-                if (!jsonObj.get("relationships").isJsonArray()) {
-                    throw new IllegalArgumentException(
-                            String.format(
-                                    java.util.Locale.ROOT,
-                                    "Expected the field `relationships` to be an array in the JSON string but got `%s`",
-                                    jsonObj.get("relationships").toString()));
-                }
-
-                // validate the optional field `relationships` (array)
-                for (int i = 0; i < jsonArrayrelationships.size(); i++) {
-                    DataRelationship.validateJsonElement(jsonArrayrelationships.get(i));
                 }
                 ;
             }
@@ -350,6 +403,30 @@ public class UpdateSchemaPayload {
                         public void write(JsonWriter out, UpdateSchemaPayload value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+                            obj.remove("additionalProperties");
+                            // serialize additional properties
+                            if (value.getAdditionalProperties() != null) {
+                                for (Map.Entry<String, Object> entry :
+                                        value.getAdditionalProperties().entrySet()) {
+                                    if (entry.getValue() instanceof String)
+                                        obj.addProperty(entry.getKey(), (String) entry.getValue());
+                                    else if (entry.getValue() instanceof Number)
+                                        obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                                    else if (entry.getValue() instanceof Boolean)
+                                        obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                                    else if (entry.getValue() instanceof Character)
+                                        obj.addProperty(
+                                                entry.getKey(), (Character) entry.getValue());
+                                    else {
+                                        JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                                        if (jsonElement.isJsonArray()) {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                                        } else {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                                        }
+                                    }
+                                }
+                            }
                             elementAdapter.write(out, obj);
                         }
 
@@ -357,7 +434,41 @@ public class UpdateSchemaPayload {
                         public UpdateSchemaPayload read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = jsonElement.getAsJsonObject();
+                            // store additional fields in the deserialized instance
+                            UpdateSchemaPayload instance = thisAdapter.fromJsonTree(jsonObj);
+                            for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+                                if (!openapiFields.contains(entry.getKey())) {
+                                    if (entry.getValue().isJsonPrimitive()) { // primitive type
+                                        if (entry.getValue().getAsJsonPrimitive().isString())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsString());
+                                        else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsNumber());
+                                        else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(),
+                                                    entry.getValue().getAsBoolean());
+                                        else
+                                            throw new IllegalArgumentException(
+                                                    String.format(
+                                                            java.util.Locale.ROOT,
+                                                            "The field `%s` has unknown primitive type. Value: %s",
+                                                            entry.getKey(),
+                                                            entry.getValue().toString()));
+                                    } else if (entry.getValue().isJsonArray()) {
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), List.class));
+                                    } else { // JSON object
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), HashMap.class));
+                                    }
+                                }
+                            }
+                            return instance;
                         }
                     }.nullSafe();
         }

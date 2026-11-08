@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Execute an unsaved (draft) View configuration without persisting it. Combines the inline configuration with the same execution inputs as  {@link  ExecuteViewRequest }  so authors can validate and preview results before calling create/update.
+ * Execute an unsaved (draft) View configuration without persisting it. Combines the inline configuration with the same execution inputs as  {@link  ExecuteViewRequest }  so authors can validate and preview results before calling create/update. The keys of &#x60;key_terms&#x60;, &#x60;navigation&#x60; and &#x60;navigation_queries&#x60; are group ids: a lowercase letter, then lowercase letters, digits, &#x60;_&#x60; or &#x60;-&#x60;. &#x60;key_terms&#x60; holds at most 50 groups and &#x60;navigation&#x60; at most 20, each of at most 100 values of at most 1,000 characters, and the two hold at most 1,000 values in total. &#x60;navigation_queries&#x60; holds at most 20 queries of at most 200 characters. Without &#x60;configuration.search&#x60;, &#x60;query&#x60; must be blank and every &#x60;key_terms&#x60; value empty.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -56,7 +56,7 @@ public class PreviewViewExperienceRequest {
     public static final String SERIALIZED_NAME_NAVIGATION_QUERIES = "navigation_queries";
 
     @SerializedName(SERIALIZED_NAME_NAVIGATION_QUERIES)
-    @jakarta.annotation.Nullable private Map<String, String> navigationQueries;
+    @jakarta.annotation.Nullable private Map<String, String> navigationQueries = new HashMap<>();
 
     public static final String SERIALIZED_NAME_DISPLAY = "display";
 
@@ -171,7 +171,7 @@ public class PreviewViewExperienceRequest {
     }
 
     /**
-     * Server-side text filters for large navigation sources, keyed by navigation id.
+     * Get navigationQueries
      * @return navigationQueries
      */
     @jakarta.annotation.Nullable public Map<String, String> getNavigationQueries() {

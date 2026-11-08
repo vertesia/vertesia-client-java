@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * CreateApiKeyPayload
+ * A SCIM provisioning key (&#x60;scim_provisioning: true&#x60;) takes the &#x60;admin&#x60; role. A custom &#x60;c:&lt;name&gt;&#x60; role must be defined in the account. No key of &#x60;properties&#x60;, at any depth, may contain a NUL character.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

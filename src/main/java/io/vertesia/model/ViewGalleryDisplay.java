@@ -266,6 +266,8 @@ public class ViewGalleryDisplay {
 
     /**
      * Get pageSize
+     * minimum: 1
+     * maximum: 200
      * @return pageSize
      */
     @jakarta.annotation.Nullable public BigDecimal getPageSize() {

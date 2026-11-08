@@ -60,7 +60,7 @@ public class WebsiteCredentialWebsite {
     }
 
     /**
-     * Hostname this credential is allowed on. Subdomains match.
+     * Hostname this credential is allowed on, or a URL to take it from. Subdomains match. A value no hostname can be read from is refused.
      * @return host
      */
     @jakarta.annotation.Nonnull

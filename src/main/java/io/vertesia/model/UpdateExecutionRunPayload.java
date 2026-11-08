@@ -50,7 +50,7 @@ public class UpdateExecutionRunPayload {
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @jakarta.annotation.Nullable private ExecutionRunParent parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_EVALUATION = "evaluation";
 
@@ -65,7 +65,7 @@ public class UpdateExecutionRunPayload {
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @jakarta.annotation.Nullable private ExecutionEnvironmentRef environment;
+    @jakarta.annotation.Nullable private String environment;
 
     public static final String SERIALIZED_NAME_MODEL_ID = "modelId";
 
@@ -177,7 +177,7 @@ public class UpdateExecutionRunPayload {
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @jakarta.annotation.Nullable private InteractionRef interaction;
+    @jakarta.annotation.Nullable private String interaction;
 
     public UpdateExecutionRunPayload() {}
 
@@ -198,21 +198,20 @@ public class UpdateExecutionRunPayload {
         this.id = id;
     }
 
-    public UpdateExecutionRunPayload parent(
-            @jakarta.annotation.Nullable ExecutionRunParent parent) {
+    public UpdateExecutionRunPayload parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
 
     /**
-     * Get parent
+     * Only used by runs that were created by a virtual run to point toward the virtual run parent. The parent run ID, as 24 hexadecimal characters.
      * @return parent
      */
-    @jakarta.annotation.Nullable public ExecutionRunParent getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@jakarta.annotation.Nullable ExecutionRunParent parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
@@ -259,21 +258,20 @@ public class UpdateExecutionRunPayload {
         this.tags = tags;
     }
 
-    public UpdateExecutionRunPayload environment(
-            @jakarta.annotation.Nullable ExecutionEnvironmentRef environment) {
+    public UpdateExecutionRunPayload environment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
         return this;
     }
 
     /**
-     * Environment reference - populated with full object in API responses
+     * The environment ID, as 24 hexadecimal characters.
      * @return environment
      */
-    @jakarta.annotation.Nullable public ExecutionEnvironmentRef getEnvironment() {
+    @jakarta.annotation.Nullable public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@jakarta.annotation.Nullable ExecutionEnvironmentRef environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
     }
 
@@ -660,21 +658,20 @@ public class UpdateExecutionRunPayload {
         this.workflow = workflow;
     }
 
-    public UpdateExecutionRunPayload interaction(
-            @jakarta.annotation.Nullable InteractionRef interaction) {
+    public UpdateExecutionRunPayload interaction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
         return this;
     }
 
     /**
-     * Get interaction
+     * The interaction ID, as 24 hexadecimal characters.
      * @return interaction
      */
-    @jakarta.annotation.Nullable public InteractionRef getInteraction() {
+    @jakarta.annotation.Nullable public String getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@jakarta.annotation.Nullable InteractionRef interaction) {
+    public void setInteraction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
     }
 
@@ -928,9 +925,13 @@ public class UpdateExecutionRunPayload {
                             "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("id").toString()));
         }
-        // validate the optional field `parent`
-        if (jsonObj.get("parent") != null && !jsonObj.get("parent").isJsonNull()) {
-            ExecutionRunParent.validateJsonElement(jsonObj.get("parent"));
+        if ((jsonObj.get("parent") != null && !jsonObj.get("parent").isJsonNull())
+                && !jsonObj.get("parent").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `parent` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("parent").toString()));
         }
         // validate the optional field `evaluation`
         if (jsonObj.get("evaluation") != null && !jsonObj.get("evaluation").isJsonNull()) {
@@ -946,9 +947,13 @@ public class UpdateExecutionRunPayload {
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
         }
-        // validate the optional field `environment`
-        if (jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull()) {
-            ExecutionEnvironmentRef.validateJsonElement(jsonObj.get("environment"));
+        if ((jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull())
+                && !jsonObj.get("environment").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `environment` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("environment").toString()));
         }
         if ((jsonObj.get("modelId") != null && !jsonObj.get("modelId").isJsonNull())
                 && !jsonObj.get("modelId").isJsonPrimitive()) {
@@ -1045,9 +1050,13 @@ public class UpdateExecutionRunPayload {
         if (jsonObj.get("workflow") != null && !jsonObj.get("workflow").isJsonNull()) {
             ExecutionRunWorkflow.validateJsonElement(jsonObj.get("workflow"));
         }
-        // validate the optional field `interaction`
-        if (jsonObj.get("interaction") != null && !jsonObj.get("interaction").isJsonNull()) {
-            InteractionRef.validateJsonElement(jsonObj.get("interaction"));
+        if ((jsonObj.get("interaction") != null && !jsonObj.get("interaction").isJsonNull())
+                && !jsonObj.get("interaction").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `interaction` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("interaction").toString()));
         }
     }
 

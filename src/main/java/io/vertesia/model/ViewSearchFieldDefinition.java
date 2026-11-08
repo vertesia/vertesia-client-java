@@ -197,6 +197,8 @@ public class ViewSearchFieldDefinition {
 
     /**
      * Relative boost when this field participates in multi-field text search.
+     * minimum: 0.1
+     * maximum: 20
      * @return boost
      */
     @jakarta.annotation.Nullable public BigDecimal getBoost() {

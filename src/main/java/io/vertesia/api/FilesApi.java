@@ -1793,7 +1793,7 @@ public class FilesApi {
     /**
      * Get file metadata
      * Retrieves metadata for a file by relative project path or fully qualified storage URI.  **Required permissions:** &#x60;content:read&#x60;
-     * @param _file  (required)
+     * @param _file The file path (relative to bucket) or full URI. It must not be blank or contain control characters. (required)
      * @return APIgetFileMetadataRequest
      * @http.response.details
      * <table border="1">

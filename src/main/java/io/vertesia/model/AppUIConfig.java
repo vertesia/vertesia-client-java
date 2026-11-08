@@ -129,7 +129,7 @@ public class AppUIConfig {
     }
 
     /**
-     * The source URL of the app. The src can be a template which contain a variable named &#x60;buildId&#x60; which will be replaced with the current build id. For example: &#x60;/plugins/vertesia-review-center-${buildId}&#x60;
+     * The source URL of the app. Must not be empty. The src can be a template which contain a variable named &#x60;buildId&#x60; which will be replaced with the current build id. For example: &#x60;/plugins/vertesia-review-center-${buildId}&#x60;
      * @return src
      */
     @jakarta.annotation.Nonnull

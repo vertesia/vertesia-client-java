@@ -73,7 +73,7 @@ public class UpdateAgentArtifactContentPayload {
     }
 
     /**
-     * Get generation
+     * The blob generation the content was read at, as returned by the read.
      * @return generation
      */
     @jakarta.annotation.Nonnull

@@ -53,7 +53,7 @@ public class RevertProcessDefinitionPayload {
     }
 
     /**
-     * Required explicit confirmation from the caller.
+     * Required explicit confirmation from the caller: only &#x60;true&#x60; is accepted.
      * @return confirmed
      */
     @jakarta.annotation.Nonnull

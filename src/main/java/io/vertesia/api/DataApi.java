@@ -683,6 +683,7 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard already has a snapshot with this name. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -701,6 +702,7 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard already has a snapshot with this name. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -721,6 +723,7 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard already has a snapshot with this name. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -740,6 +743,7 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard already has a snapshot with this name. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -763,6 +767,7 @@ public class DataApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 201 </td><td> Created dashboard snapshot. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The dashboard already has a snapshot with this name. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2576,7 +2581,7 @@ public class DataApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
          * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
-         * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -2596,7 +2601,7 @@ public class DataApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
          * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
-         * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -2618,7 +2623,7 @@ public class DataApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
          * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
-         * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -2639,7 +2644,7 @@ public class DataApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
          * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
-         * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -2664,7 +2669,7 @@ public class DataApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -6294,6 +6299,7 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store, the dashboard, or the version does not exist. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -6312,6 +6318,7 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store, the dashboard, or the version does not exist. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -6332,6 +6339,7 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store, the dashboard, or the version does not exist. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -6351,6 +6359,7 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store, the dashboard, or the version does not exist. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -6375,6 +6384,7 @@ public class DataApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Promoted dashboard. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The data store, the dashboard, or the version does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -7639,7 +7649,8 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it, or another dashboard of the project has the name. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -7657,7 +7668,8 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it, or another dashboard of the project has the name. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -7677,7 +7689,8 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it, or another dashboard of the project has the name. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -7696,7 +7709,8 @@ public class DataApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The dashboard was changed after the caller read it, or another dashboard of the project has the name. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -7719,7 +7733,8 @@ public class DataApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated dashboard. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The dashboard was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The dashboard was changed after the caller read it, or another dashboard of the project has the name. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>

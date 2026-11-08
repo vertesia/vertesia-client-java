@@ -83,6 +83,8 @@ public class AgenticViewRerankConfiguration {
 
     /**
      * Maximum candidates from the current result page sent to the model.
+     * minimum: 2
+     * maximum: 50
      * @return maxCandidates
      */
     @jakarta.annotation.Nullable public BigDecimal getMaxCandidates() {
@@ -119,6 +121,8 @@ public class AgenticViewRerankConfiguration {
 
     /**
      * Reranking-stage timeout.
+     * minimum: 1000
+     * maximum: 60000
      * @return timeoutMs
      */
     @jakarta.annotation.Nullable public BigDecimal getTimeoutMs() {

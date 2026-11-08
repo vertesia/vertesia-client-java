@@ -130,7 +130,7 @@ public class WebsiteCredentialSecretInputTotp {
     }
 
     /**
-     * Get seed
+     * The base32 TOTP seed (&#x60;A&#x60;-&#x60;Z&#x60;, &#x60;2&#x60;-&#x60;7&#x60;, any case). Whitespace, &#x60;&#x3D;&#x60; and &#x60;-&#x60; are ignored.
      * @return seed
      */
     @jakarta.annotation.Nonnull

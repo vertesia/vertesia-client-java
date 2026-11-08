@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * ExportPropertiesPayload
+ * Each &#x60;table_layout&#x60; column reads its &#x60;field&#x60; as a dotted path of non-empty field names, none starting with &#x60;$&#x60;, except an &#x60;objectLink&#x60; column, which exports the object title.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -93,7 +93,7 @@ public class ExportPropertiesPayload {
     }
 
     /**
-     * Get type
+     * The export format: &#x60;JSON&#x60; or &#x60;CSV&#x60;.
      * @return type
      */
     @jakarta.annotation.Nonnull

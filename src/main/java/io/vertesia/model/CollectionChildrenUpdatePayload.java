@@ -139,7 +139,7 @@ public class CollectionChildrenUpdatePayload {
     }
 
     /**
-     * Get children
+     * IDs of the child collections to add or remove, as 24 hexadecimal characters.
      * @return children
      */
     @jakarta.annotation.Nonnull

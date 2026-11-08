@@ -263,7 +263,7 @@ public class ToolsApi {
     /**
      * Inspect one project tool
      * **Required permissions:** &#x60;account:member&#x60;
-     * @param toolName  (required)
+     * @param toolName The tool name; it must not be blank. (required)
      * @return APIinspectProjectToolRequest
      * @http.response.details
      * <table border="1">
