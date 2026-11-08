@@ -28,6 +28,7 @@ import io.vertesia.model.PromptTemplateCreatePayload;
 import io.vertesia.model.TemplateType;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -287,16 +288,15 @@ class VertesiaClientLiveTest {
     }
 
     @Test
-    void requestShapes() throws ApiException {
+    void requestShapes() throws ApiException, IOException {
+        // Temporary: decoded from JSON so the test compiles whether `params` is the
+        // free-form map or the typed BulkOperationPayloadParams. Go back to the builder
+        // once the sync has published the typed model.
+        BulkOperationPayload payload =
+                BulkOperationPayload.fromJson("{\"name\":\"update\",\"ids\":[],\"params\":{}}");
         try {
             var response =
-                    client.bulkOperations
-                            .runBulkContentOperation(
-                                    new BulkOperationPayload()
-                                            .name(BulkOperationPayload.NameEnum.UPDATE)
-                                            .ids(List.of())
-                                            .params(Map.of()))
-                            .executeWithHttpInfo();
+                    client.bulkOperations.runBulkContentOperation(payload).executeWithHttpInfo();
             assertEquals(200, response.getStatusCode());
         } catch (ApiException e) {
             assertTrue(
