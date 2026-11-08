@@ -127,6 +127,9 @@ Run offline tests:
 mvn -B test
 ```
 
+SDK sync supplies shared API response fixtures. To run the fixture-backed checks locally,
+set `VERTESIA_STUDIO_OPENAPI_FIXTURES` to the absolute path of the fixture directory.
+
 ## Code Quality
 
 Run the local quality gate:

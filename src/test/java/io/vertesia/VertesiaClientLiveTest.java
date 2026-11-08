@@ -31,7 +31,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -51,16 +50,17 @@ import org.junit.jupiter.api.function.Executable;
 /** Live scenarios shared with the Go and Python SDK suites. */
 @Timeout(value = 15, unit = TimeUnit.MINUTES)
 class VertesiaClientLiveTest {
-    private static final Map<String, String> DOTENV = new HashMap<>();
+    private static final Dotenv DOTENV =
+            Dotenv.configure().ignoreIfMissing().ignoreIfMalformed().load();
     private static VertesiaClient client;
     private final List<Executable> cleanup = new ArrayList<>();
 
     @BeforeAll
     static void configureClient() {
-        var dotenv = Dotenv.configure().ignoreIfMissing().ignoreIfMalformed().load();
-        for (var entry : dotenv.entries()) {
-            DOTENV.put(entry.getKey(), entry.getValue());
-        }
+        client = newLiveClient(null);
+    }
+
+    static VertesiaClient newLiveClient(OkHttpClient httpClient) {
         assumeTrue(
                 "1".equals(env("VERTESIA_LIVE_TESTS", "0")),
                 "live SDK tests are disabled; set VERTESIA_LIVE_TESTS=1 to run them");
@@ -68,15 +68,13 @@ class VertesiaClientLiveTest {
         assertTrue(
                 apiKey.startsWith("sk-") && apiKey.length() > 3,
                 "VERTESIA_LIVE_TESTS=1 requires VERTESIA_API_KEY to be an sk- secret key");
-        client =
-                new VertesiaClient(
-                        new ClientOptions()
-                                .setServerUrl(
-                                        env("VERTESIA_STUDIO_URL", "http://localhost:8091/api/v1"))
-                                .setStoreUrl(
-                                        env("VERTESIA_ZENO_URL", "http://localhost:8092/api/v1"))
-                                .setTokenServerUrl(env("VERTESIA_STS_URL", "http://localhost:8093"))
-                                .setApiKey(apiKey));
+        return new VertesiaClient(
+                new ClientOptions()
+                        .setServerUrl(env("VERTESIA_STUDIO_URL", "http://localhost:8091/api/v1"))
+                        .setStoreUrl(env("VERTESIA_ZENO_URL", "http://localhost:8092/api/v1"))
+                        .setTokenServerUrl(env("VERTESIA_STS_URL", "http://localhost:8093"))
+                        .setApiKey(apiKey)
+                        .setHttpClient(httpClient));
     }
 
     @AfterEach
@@ -309,7 +307,7 @@ class VertesiaClientLiveTest {
         return prefix + "-" + UUID.randomUUID();
     }
 
-    private static String env(String name, String fallback) {
+    static String env(String name, String fallback) {
         String value = System.getenv(name);
         if (value == null || value.trim().isEmpty()) {
             value = DOTENV.get(name);
