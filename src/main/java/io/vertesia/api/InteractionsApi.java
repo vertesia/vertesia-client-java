@@ -22,6 +22,7 @@ import io.vertesia.Pair;
 import io.vertesia.model.AsyncExecutionPayload;
 import io.vertesia.model.AsyncExecutionResult;
 import io.vertesia.model.CatalogInteractionRef;
+import io.vertesia.model.CatalogSearchResult;
 import io.vertesia.model.ComputeInteractionFacetPayload;
 import io.vertesia.model.ComputedFacetResponse;
 import io.vertesia.model.DeleteByIdResult;
@@ -3256,6 +3257,1838 @@ public class InteractionsApi {
     public APIlistAppInteractionsRequest listAppInteractions(
             @jakarta.annotation.Nonnull String appName) {
         return new APIlistAppInteractionsRequest(appName);
+    }
+
+    private okhttp3.Call listCatalogAppAgentsCall(
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/interactions/catalog/agents/apps/{appName}"
+                        .replace(
+                                "{" + "appName" + "}",
+                                localVarApiClient.escapeString(appName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
+        }
+
+        if (tags != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "tags", tags));
+        }
+
+        if (model != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model", model));
+        }
+
+        if (prompt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prompt", prompt));
+        }
+
+        if (isSubAgent != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("is_sub_agent", isSubAgent));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCatalogAppAgentsValidateBeforeCall(
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'appName' is set
+        if (appName == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'appName' when calling listCatalogAppAgents(Async)");
+        }
+
+        return listCatalogAppAgentsCall(appName, name, tags, model, prompt, isSubAgent, _callback);
+    }
+
+    private ApiResponse<CatalogSearchResult> listCatalogAppAgentsWithHttpInfo(
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listCatalogAppAgentsValidateBeforeCall(
+                        appName, name, tags, model, prompt, isSubAgent, null);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCatalogAppAgentsAsync(
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
+            final ApiCallback<CatalogSearchResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listCatalogAppAgentsValidateBeforeCall(
+                        appName, name, tags, model, prompt, isSubAgent, _callback);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCatalogAppAgentsRequest {
+        @jakarta.annotation.Nonnull private final String appName;
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private String model;
+        @jakarta.annotation.Nullable private String prompt;
+        @jakarta.annotation.Nullable private Boolean isSubAgent;
+
+        private APIlistCatalogAppAgentsRequest(@jakarta.annotation.Nonnull String appName) {
+            this.appName = appName;
+        }
+
+        /**
+         * Set name
+         * @param name  (optional)
+         * @return APIlistCatalogAppAgentsRequest
+         */
+        public APIlistCatalogAppAgentsRequest name(@jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags  (optional)
+         * @return APIlistCatalogAppAgentsRequest
+         */
+        public APIlistCatalogAppAgentsRequest tags(@jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set model
+         * @param model  (optional)
+         * @return APIlistCatalogAppAgentsRequest
+         */
+        public APIlistCatalogAppAgentsRequest model(@jakarta.annotation.Nullable String model) {
+            this.model = model;
+            return this;
+        }
+
+        /**
+         * Set prompt
+         * @param prompt  (optional)
+         * @return APIlistCatalogAppAgentsRequest
+         */
+        public APIlistCatalogAppAgentsRequest prompt(@jakarta.annotation.Nullable String prompt) {
+            this.prompt = prompt;
+            return this;
+        }
+
+        /**
+         * Set isSubAgent
+         * @param isSubAgent  (optional)
+         * @return APIlistCatalogAppAgentsRequest
+         */
+        public APIlistCatalogAppAgentsRequest isSubAgent(
+                @jakarta.annotation.Nullable Boolean isSubAgent) {
+            this.isSubAgent = isSubAgent;
+            return this;
+        }
+
+        /**
+         * Build call for listCatalogAppAgents
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching agents of the app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCatalogAppAgentsCall(
+                    appName, name, tags, model, prompt, isSubAgent, _callback);
+        }
+
+        /**
+         * Execute listCatalogAppAgents request
+         * @return CatalogSearchResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching agents of the app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CatalogSearchResult execute() throws ApiException {
+            ApiResponse<CatalogSearchResult> localVarResp =
+                    listCatalogAppAgentsWithHttpInfo(
+                            appName, name, tags, model, prompt, isSubAgent);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCatalogAppAgents request with HTTP info returned
+         * @return ApiResponse&lt;CatalogSearchResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching agents of the app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CatalogSearchResult> executeWithHttpInfo() throws ApiException {
+            return listCatalogAppAgentsWithHttpInfo(appName, name, tags, model, prompt, isSubAgent);
+        }
+
+        /**
+         * Execute listCatalogAppAgents request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching agents of the app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CatalogSearchResult> _callback)
+                throws ApiException {
+            return listCatalogAppAgentsAsync(
+                    appName, name, tags, model, prompt, isSubAgent, _callback);
+        }
+    }
+
+    /**
+     * List app catalog agents
+     * Searches the agents provided by an app, which is asked for its interactions. Agents are the interactions configured with &#x60;agent_runner_options.is_agent&#x60;. Returns the matching agents with their tag counts and total. &#x60;model&#x60; and &#x60;prompt&#x60; only match stored agents.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param appName  (required)
+     * @return APIlistCatalogAppAgentsRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching agents of the app. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIlistCatalogAppAgentsRequest listCatalogAppAgents(
+            @jakarta.annotation.Nonnull String appName) {
+        return new APIlistCatalogAppAgentsRequest(appName);
+    }
+
+    private okhttp3.Call listCatalogAppCallsCall(
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/interactions/catalog/calls/apps/{appName}"
+                        .replace(
+                                "{" + "appName" + "}",
+                                localVarApiClient.escapeString(appName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
+        }
+
+        if (tags != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "tags", tags));
+        }
+
+        if (model != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model", model));
+        }
+
+        if (prompt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prompt", prompt));
+        }
+
+        if (isBasic != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_basic", isBasic));
+        }
+
+        if (isTool != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_tool", isTool));
+        }
+
+        if (isSkill != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_skill", isSkill));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCatalogAppCallsValidateBeforeCall(
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'appName' is set
+        if (appName == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'appName' when calling listCatalogAppCalls(Async)");
+        }
+
+        return listCatalogAppCallsCall(
+                appName, name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+    }
+
+    private ApiResponse<CatalogSearchResult> listCatalogAppCallsWithHttpInfo(
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listCatalogAppCallsValidateBeforeCall(
+                        appName, name, tags, model, prompt, isBasic, isTool, isSkill, null);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCatalogAppCallsAsync(
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            final ApiCallback<CatalogSearchResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listCatalogAppCallsValidateBeforeCall(
+                        appName, name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCatalogAppCallsRequest {
+        @jakarta.annotation.Nonnull private final String appName;
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private String model;
+        @jakarta.annotation.Nullable private String prompt;
+        @jakarta.annotation.Nullable private Boolean isBasic;
+        @jakarta.annotation.Nullable private Boolean isTool;
+        @jakarta.annotation.Nullable private Boolean isSkill;
+
+        private APIlistCatalogAppCallsRequest(@jakarta.annotation.Nonnull String appName) {
+            this.appName = appName;
+        }
+
+        /**
+         * Set name
+         * @param name  (optional)
+         * @return APIlistCatalogAppCallsRequest
+         */
+        public APIlistCatalogAppCallsRequest name(@jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags  (optional)
+         * @return APIlistCatalogAppCallsRequest
+         */
+        public APIlistCatalogAppCallsRequest tags(@jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set model
+         * @param model  (optional)
+         * @return APIlistCatalogAppCallsRequest
+         */
+        public APIlistCatalogAppCallsRequest model(@jakarta.annotation.Nullable String model) {
+            this.model = model;
+            return this;
+        }
+
+        /**
+         * Set prompt
+         * @param prompt  (optional)
+         * @return APIlistCatalogAppCallsRequest
+         */
+        public APIlistCatalogAppCallsRequest prompt(@jakarta.annotation.Nullable String prompt) {
+            this.prompt = prompt;
+            return this;
+        }
+
+        /**
+         * Set isBasic
+         * @param isBasic  (optional)
+         * @return APIlistCatalogAppCallsRequest
+         */
+        public APIlistCatalogAppCallsRequest isBasic(@jakarta.annotation.Nullable Boolean isBasic) {
+            this.isBasic = isBasic;
+            return this;
+        }
+
+        /**
+         * Set isTool
+         * @param isTool  (optional)
+         * @return APIlistCatalogAppCallsRequest
+         */
+        public APIlistCatalogAppCallsRequest isTool(@jakarta.annotation.Nullable Boolean isTool) {
+            this.isTool = isTool;
+            return this;
+        }
+
+        /**
+         * Set isSkill
+         * @param isSkill  (optional)
+         * @return APIlistCatalogAppCallsRequest
+         */
+        public APIlistCatalogAppCallsRequest isSkill(@jakarta.annotation.Nullable Boolean isSkill) {
+            this.isSkill = isSkill;
+            return this;
+        }
+
+        /**
+         * Build call for listCatalogAppCalls
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching calls of the app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCatalogAppCallsCall(
+                    appName, name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+        }
+
+        /**
+         * Execute listCatalogAppCalls request
+         * @return CatalogSearchResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching calls of the app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CatalogSearchResult execute() throws ApiException {
+            ApiResponse<CatalogSearchResult> localVarResp =
+                    listCatalogAppCallsWithHttpInfo(
+                            appName, name, tags, model, prompt, isBasic, isTool, isSkill);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCatalogAppCalls request with HTTP info returned
+         * @return ApiResponse&lt;CatalogSearchResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching calls of the app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CatalogSearchResult> executeWithHttpInfo() throws ApiException {
+            return listCatalogAppCallsWithHttpInfo(
+                    appName, name, tags, model, prompt, isBasic, isTool, isSkill);
+        }
+
+        /**
+         * Execute listCatalogAppCalls request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching calls of the app. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CatalogSearchResult> _callback)
+                throws ApiException {
+            return listCatalogAppCallsAsync(
+                    appName, name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+        }
+    }
+
+    /**
+     * List app catalog calls
+     * Searches the calls provided by an app, which is asked for its interactions. Calls are the interactions that are not agents: basic, tool and skill calls. Returns the matching calls with their tag counts and total. &#x60;model&#x60; and &#x60;prompt&#x60; only match stored calls.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @param appName  (required)
+     * @return APIlistCatalogAppCallsRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching calls of the app. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIlistCatalogAppCallsRequest listCatalogAppCalls(
+            @jakarta.annotation.Nonnull String appName) {
+        return new APIlistCatalogAppCallsRequest(appName);
+    }
+
+    private okhttp3.Call listCatalogStoredAgentsCall(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/interactions/catalog/agents/stored";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
+        }
+
+        if (tags != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "tags", tags));
+        }
+
+        if (model != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model", model));
+        }
+
+        if (prompt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prompt", prompt));
+        }
+
+        if (isSubAgent != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("is_sub_agent", isSubAgent));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCatalogStoredAgentsValidateBeforeCall(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
+            final ApiCallback _callback)
+            throws ApiException {
+        return listCatalogStoredAgentsCall(name, tags, model, prompt, isSubAgent, _callback);
+    }
+
+    private ApiResponse<CatalogSearchResult> listCatalogStoredAgentsWithHttpInfo(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listCatalogStoredAgentsValidateBeforeCall(
+                        name, tags, model, prompt, isSubAgent, null);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCatalogStoredAgentsAsync(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
+            final ApiCallback<CatalogSearchResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listCatalogStoredAgentsValidateBeforeCall(
+                        name, tags, model, prompt, isSubAgent, _callback);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCatalogStoredAgentsRequest {
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private String model;
+        @jakarta.annotation.Nullable private String prompt;
+        @jakarta.annotation.Nullable private Boolean isSubAgent;
+
+        private APIlistCatalogStoredAgentsRequest() {}
+
+        /**
+         * Set name
+         * @param name  (optional)
+         * @return APIlistCatalogStoredAgentsRequest
+         */
+        public APIlistCatalogStoredAgentsRequest name(@jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags  (optional)
+         * @return APIlistCatalogStoredAgentsRequest
+         */
+        public APIlistCatalogStoredAgentsRequest tags(
+                @jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set model
+         * @param model  (optional)
+         * @return APIlistCatalogStoredAgentsRequest
+         */
+        public APIlistCatalogStoredAgentsRequest model(@jakarta.annotation.Nullable String model) {
+            this.model = model;
+            return this;
+        }
+
+        /**
+         * Set prompt
+         * @param prompt  (optional)
+         * @return APIlistCatalogStoredAgentsRequest
+         */
+        public APIlistCatalogStoredAgentsRequest prompt(
+                @jakarta.annotation.Nullable String prompt) {
+            this.prompt = prompt;
+            return this;
+        }
+
+        /**
+         * Set isSubAgent
+         * @param isSubAgent  (optional)
+         * @return APIlistCatalogStoredAgentsRequest
+         */
+        public APIlistCatalogStoredAgentsRequest isSubAgent(
+                @jakarta.annotation.Nullable Boolean isSubAgent) {
+            this.isSubAgent = isSubAgent;
+            return this;
+        }
+
+        /**
+         * Build call for listCatalogStoredAgents
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching stored agents. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCatalogStoredAgentsCall(name, tags, model, prompt, isSubAgent, _callback);
+        }
+
+        /**
+         * Execute listCatalogStoredAgents request
+         * @return CatalogSearchResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching stored agents. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CatalogSearchResult execute() throws ApiException {
+            ApiResponse<CatalogSearchResult> localVarResp =
+                    listCatalogStoredAgentsWithHttpInfo(name, tags, model, prompt, isSubAgent);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCatalogStoredAgents request with HTTP info returned
+         * @return ApiResponse&lt;CatalogSearchResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching stored agents. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CatalogSearchResult> executeWithHttpInfo() throws ApiException {
+            return listCatalogStoredAgentsWithHttpInfo(name, tags, model, prompt, isSubAgent);
+        }
+
+        /**
+         * Execute listCatalogStoredAgents request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching stored agents. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CatalogSearchResult> _callback)
+                throws ApiException {
+            return listCatalogStoredAgentsAsync(name, tags, model, prompt, isSubAgent, _callback);
+        }
+    }
+
+    /**
+     * List stored catalog agents
+     * Searches the stored agents of the project, in their draft version. Agents are the interactions configured with &#x60;agent_runner_options.is_agent&#x60;. Returns the matching agents with their tag counts and total.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistCatalogStoredAgentsRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching stored agents. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIlistCatalogStoredAgentsRequest listCatalogStoredAgents() {
+        return new APIlistCatalogStoredAgentsRequest();
+    }
+
+    private okhttp3.Call listCatalogStoredCallsCall(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/interactions/catalog/calls/stored";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
+        }
+
+        if (tags != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "tags", tags));
+        }
+
+        if (model != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model", model));
+        }
+
+        if (prompt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prompt", prompt));
+        }
+
+        if (isBasic != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_basic", isBasic));
+        }
+
+        if (isTool != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_tool", isTool));
+        }
+
+        if (isSkill != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_skill", isSkill));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCatalogStoredCallsValidateBeforeCall(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            final ApiCallback _callback)
+            throws ApiException {
+        return listCatalogStoredCallsCall(
+                name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+    }
+
+    private ApiResponse<CatalogSearchResult> listCatalogStoredCallsWithHttpInfo(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listCatalogStoredCallsValidateBeforeCall(
+                        name, tags, model, prompt, isBasic, isTool, isSkill, null);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCatalogStoredCallsAsync(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            final ApiCallback<CatalogSearchResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listCatalogStoredCallsValidateBeforeCall(
+                        name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCatalogStoredCallsRequest {
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private String model;
+        @jakarta.annotation.Nullable private String prompt;
+        @jakarta.annotation.Nullable private Boolean isBasic;
+        @jakarta.annotation.Nullable private Boolean isTool;
+        @jakarta.annotation.Nullable private Boolean isSkill;
+
+        private APIlistCatalogStoredCallsRequest() {}
+
+        /**
+         * Set name
+         * @param name  (optional)
+         * @return APIlistCatalogStoredCallsRequest
+         */
+        public APIlistCatalogStoredCallsRequest name(@jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags  (optional)
+         * @return APIlistCatalogStoredCallsRequest
+         */
+        public APIlistCatalogStoredCallsRequest tags(
+                @jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set model
+         * @param model  (optional)
+         * @return APIlistCatalogStoredCallsRequest
+         */
+        public APIlistCatalogStoredCallsRequest model(@jakarta.annotation.Nullable String model) {
+            this.model = model;
+            return this;
+        }
+
+        /**
+         * Set prompt
+         * @param prompt  (optional)
+         * @return APIlistCatalogStoredCallsRequest
+         */
+        public APIlistCatalogStoredCallsRequest prompt(@jakarta.annotation.Nullable String prompt) {
+            this.prompt = prompt;
+            return this;
+        }
+
+        /**
+         * Set isBasic
+         * @param isBasic  (optional)
+         * @return APIlistCatalogStoredCallsRequest
+         */
+        public APIlistCatalogStoredCallsRequest isBasic(
+                @jakarta.annotation.Nullable Boolean isBasic) {
+            this.isBasic = isBasic;
+            return this;
+        }
+
+        /**
+         * Set isTool
+         * @param isTool  (optional)
+         * @return APIlistCatalogStoredCallsRequest
+         */
+        public APIlistCatalogStoredCallsRequest isTool(
+                @jakarta.annotation.Nullable Boolean isTool) {
+            this.isTool = isTool;
+            return this;
+        }
+
+        /**
+         * Set isSkill
+         * @param isSkill  (optional)
+         * @return APIlistCatalogStoredCallsRequest
+         */
+        public APIlistCatalogStoredCallsRequest isSkill(
+                @jakarta.annotation.Nullable Boolean isSkill) {
+            this.isSkill = isSkill;
+            return this;
+        }
+
+        /**
+         * Build call for listCatalogStoredCalls
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching stored calls. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCatalogStoredCallsCall(
+                    name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+        }
+
+        /**
+         * Execute listCatalogStoredCalls request
+         * @return CatalogSearchResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching stored calls. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CatalogSearchResult execute() throws ApiException {
+            ApiResponse<CatalogSearchResult> localVarResp =
+                    listCatalogStoredCallsWithHttpInfo(
+                            name, tags, model, prompt, isBasic, isTool, isSkill);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCatalogStoredCalls request with HTTP info returned
+         * @return ApiResponse&lt;CatalogSearchResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching stored calls. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CatalogSearchResult> executeWithHttpInfo() throws ApiException {
+            return listCatalogStoredCallsWithHttpInfo(
+                    name, tags, model, prompt, isBasic, isTool, isSkill);
+        }
+
+        /**
+         * Execute listCatalogStoredCalls request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching stored calls. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CatalogSearchResult> _callback)
+                throws ApiException {
+            return listCatalogStoredCallsAsync(
+                    name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+        }
+    }
+
+    /**
+     * List stored catalog calls
+     * Searches the stored calls of the project, in their draft version. Calls are the interactions that are not agents: basic, tool and skill calls. Returns the matching calls with their tag counts and total.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistCatalogStoredCallsRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching stored calls. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIlistCatalogStoredCallsRequest listCatalogStoredCalls() {
+        return new APIlistCatalogStoredCallsRequest();
+    }
+
+    private okhttp3.Call listCatalogSystemAgentsCall(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/interactions/catalog/agents/system";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
+        }
+
+        if (tags != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "tags", tags));
+        }
+
+        if (model != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model", model));
+        }
+
+        if (prompt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prompt", prompt));
+        }
+
+        if (isSubAgent != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("is_sub_agent", isSubAgent));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCatalogSystemAgentsValidateBeforeCall(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
+            final ApiCallback _callback)
+            throws ApiException {
+        return listCatalogSystemAgentsCall(name, tags, model, prompt, isSubAgent, _callback);
+    }
+
+    private ApiResponse<CatalogSearchResult> listCatalogSystemAgentsWithHttpInfo(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listCatalogSystemAgentsValidateBeforeCall(
+                        name, tags, model, prompt, isSubAgent, null);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCatalogSystemAgentsAsync(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
+            final ApiCallback<CatalogSearchResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listCatalogSystemAgentsValidateBeforeCall(
+                        name, tags, model, prompt, isSubAgent, _callback);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCatalogSystemAgentsRequest {
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private String model;
+        @jakarta.annotation.Nullable private String prompt;
+        @jakarta.annotation.Nullable private Boolean isSubAgent;
+
+        private APIlistCatalogSystemAgentsRequest() {}
+
+        /**
+         * Set name
+         * @param name  (optional)
+         * @return APIlistCatalogSystemAgentsRequest
+         */
+        public APIlistCatalogSystemAgentsRequest name(@jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags  (optional)
+         * @return APIlistCatalogSystemAgentsRequest
+         */
+        public APIlistCatalogSystemAgentsRequest tags(
+                @jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set model
+         * @param model  (optional)
+         * @return APIlistCatalogSystemAgentsRequest
+         */
+        public APIlistCatalogSystemAgentsRequest model(@jakarta.annotation.Nullable String model) {
+            this.model = model;
+            return this;
+        }
+
+        /**
+         * Set prompt
+         * @param prompt  (optional)
+         * @return APIlistCatalogSystemAgentsRequest
+         */
+        public APIlistCatalogSystemAgentsRequest prompt(
+                @jakarta.annotation.Nullable String prompt) {
+            this.prompt = prompt;
+            return this;
+        }
+
+        /**
+         * Set isSubAgent
+         * @param isSubAgent  (optional)
+         * @return APIlistCatalogSystemAgentsRequest
+         */
+        public APIlistCatalogSystemAgentsRequest isSubAgent(
+                @jakarta.annotation.Nullable Boolean isSubAgent) {
+            this.isSubAgent = isSubAgent;
+            return this;
+        }
+
+        /**
+         * Build call for listCatalogSystemAgents
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching system agents. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCatalogSystemAgentsCall(name, tags, model, prompt, isSubAgent, _callback);
+        }
+
+        /**
+         * Execute listCatalogSystemAgents request
+         * @return CatalogSearchResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching system agents. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CatalogSearchResult execute() throws ApiException {
+            ApiResponse<CatalogSearchResult> localVarResp =
+                    listCatalogSystemAgentsWithHttpInfo(name, tags, model, prompt, isSubAgent);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCatalogSystemAgents request with HTTP info returned
+         * @return ApiResponse&lt;CatalogSearchResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching system agents. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CatalogSearchResult> executeWithHttpInfo() throws ApiException {
+            return listCatalogSystemAgentsWithHttpInfo(name, tags, model, prompt, isSubAgent);
+        }
+
+        /**
+         * Execute listCatalogSystemAgents request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching system agents. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CatalogSearchResult> _callback)
+                throws ApiException {
+            return listCatalogSystemAgentsAsync(name, tags, model, prompt, isSubAgent, _callback);
+        }
+    }
+
+    /**
+     * List system catalog agents
+     * Searches the system agents, which are defined in code by the platform. Agents are the interactions configured with &#x60;agent_runner_options.is_agent&#x60;. Returns the matching agents with their tag counts and total. &#x60;model&#x60; and &#x60;prompt&#x60; only match stored agents.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistCatalogSystemAgentsRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching system agents. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIlistCatalogSystemAgentsRequest listCatalogSystemAgents() {
+        return new APIlistCatalogSystemAgentsRequest();
+    }
+
+    private okhttp3.Call listCatalogSystemCallsCall(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/interactions/catalog/calls/system";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (name != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
+        }
+
+        if (tags != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "tags", tags));
+        }
+
+        if (model != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model", model));
+        }
+
+        if (prompt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prompt", prompt));
+        }
+
+        if (isBasic != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_basic", isBasic));
+        }
+
+        if (isTool != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_tool", isTool));
+        }
+
+        if (isSkill != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_skill", isSkill));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCatalogSystemCallsValidateBeforeCall(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            final ApiCallback _callback)
+            throws ApiException {
+        return listCatalogSystemCallsCall(
+                name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+    }
+
+    private ApiResponse<CatalogSearchResult> listCatalogSystemCallsWithHttpInfo(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listCatalogSystemCallsValidateBeforeCall(
+                        name, tags, model, prompt, isBasic, isTool, isSkill, null);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listCatalogSystemCallsAsync(
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            final ApiCallback<CatalogSearchResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listCatalogSystemCallsValidateBeforeCall(
+                        name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+        Type localVarReturnType = new TypeToken<CatalogSearchResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistCatalogSystemCallsRequest {
+        @jakarta.annotation.Nullable private String name;
+        @jakarta.annotation.Nullable private List<String> tags;
+        @jakarta.annotation.Nullable private String model;
+        @jakarta.annotation.Nullable private String prompt;
+        @jakarta.annotation.Nullable private Boolean isBasic;
+        @jakarta.annotation.Nullable private Boolean isTool;
+        @jakarta.annotation.Nullable private Boolean isSkill;
+
+        private APIlistCatalogSystemCallsRequest() {}
+
+        /**
+         * Set name
+         * @param name  (optional)
+         * @return APIlistCatalogSystemCallsRequest
+         */
+        public APIlistCatalogSystemCallsRequest name(@jakarta.annotation.Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set tags
+         * @param tags  (optional)
+         * @return APIlistCatalogSystemCallsRequest
+         */
+        public APIlistCatalogSystemCallsRequest tags(
+                @jakarta.annotation.Nullable List<String> tags) {
+            this.tags = tags;
+            return this;
+        }
+
+        /**
+         * Set model
+         * @param model  (optional)
+         * @return APIlistCatalogSystemCallsRequest
+         */
+        public APIlistCatalogSystemCallsRequest model(@jakarta.annotation.Nullable String model) {
+            this.model = model;
+            return this;
+        }
+
+        /**
+         * Set prompt
+         * @param prompt  (optional)
+         * @return APIlistCatalogSystemCallsRequest
+         */
+        public APIlistCatalogSystemCallsRequest prompt(@jakarta.annotation.Nullable String prompt) {
+            this.prompt = prompt;
+            return this;
+        }
+
+        /**
+         * Set isBasic
+         * @param isBasic  (optional)
+         * @return APIlistCatalogSystemCallsRequest
+         */
+        public APIlistCatalogSystemCallsRequest isBasic(
+                @jakarta.annotation.Nullable Boolean isBasic) {
+            this.isBasic = isBasic;
+            return this;
+        }
+
+        /**
+         * Set isTool
+         * @param isTool  (optional)
+         * @return APIlistCatalogSystemCallsRequest
+         */
+        public APIlistCatalogSystemCallsRequest isTool(
+                @jakarta.annotation.Nullable Boolean isTool) {
+            this.isTool = isTool;
+            return this;
+        }
+
+        /**
+         * Set isSkill
+         * @param isSkill  (optional)
+         * @return APIlistCatalogSystemCallsRequest
+         */
+        public APIlistCatalogSystemCallsRequest isSkill(
+                @jakarta.annotation.Nullable Boolean isSkill) {
+            this.isSkill = isSkill;
+            return this;
+        }
+
+        /**
+         * Build call for listCatalogSystemCalls
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching system calls. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listCatalogSystemCallsCall(
+                    name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+        }
+
+        /**
+         * Execute listCatalogSystemCalls request
+         * @return CatalogSearchResult
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching system calls. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public CatalogSearchResult execute() throws ApiException {
+            ApiResponse<CatalogSearchResult> localVarResp =
+                    listCatalogSystemCallsWithHttpInfo(
+                            name, tags, model, prompt, isBasic, isTool, isSkill);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listCatalogSystemCalls request with HTTP info returned
+         * @return ApiResponse&lt;CatalogSearchResult&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching system calls. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<CatalogSearchResult> executeWithHttpInfo() throws ApiException {
+            return listCatalogSystemCallsWithHttpInfo(
+                    name, tags, model, prompt, isBasic, isTool, isSkill);
+        }
+
+        /**
+         * Execute listCatalogSystemCalls request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Matching system calls. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CatalogSearchResult> _callback)
+                throws ApiException {
+            return listCatalogSystemCallsAsync(
+                    name, tags, model, prompt, isBasic, isTool, isSkill, _callback);
+        }
+    }
+
+    /**
+     * List system catalog calls
+     * Searches the system calls, which are defined in code by the platform. Calls are the interactions that are not agents: basic, tool and skill calls. Returns the matching calls with their tag counts and total. &#x60;model&#x60; and &#x60;prompt&#x60; only match stored calls.  **Required permissions:** &#x60;interaction:read&#x60;
+     * @return APIlistCatalogSystemCallsRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching system calls. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIlistCatalogSystemCallsRequest listCatalogSystemCalls() {
+        return new APIlistCatalogSystemCallsRequest();
     }
 
     private okhttp3.Call listInteractionEndpointsCall(
