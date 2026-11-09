@@ -41,12 +41,12 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'WorkflowHistory' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<WorkflowHistoryOneOf> adapterWorkflowHistoryOneOf =
-                    gson.getDelegateAdapter(this, TypeToken.get(WorkflowHistoryOneOf.class));
-            final TypeAdapter<WorkflowHistoryOneOf1> adapterWorkflowHistoryOneOf1 =
-                    gson.getDelegateAdapter(this, TypeToken.get(WorkflowHistoryOneOf1.class));
-            final TypeAdapter<WorkflowHistoryOneOf2> adapterWorkflowHistoryOneOf2 =
-                    gson.getDelegateAdapter(this, TypeToken.get(WorkflowHistoryOneOf2.class));
+            final TypeAdapter<WorkflowEventsHistory> adapterWorkflowEventsHistory =
+                    gson.getDelegateAdapter(this, TypeToken.get(WorkflowEventsHistory.class));
+            final TypeAdapter<WorkflowTasksHistory> adapterWorkflowTasksHistory =
+                    gson.getDelegateAdapter(this, TypeToken.get(WorkflowTasksHistory.class));
+            final TypeAdapter<WorkflowAgentHistory> adapterWorkflowAgentHistory =
+                    gson.getDelegateAdapter(this, TypeToken.get(WorkflowAgentHistory.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<WorkflowHistory>() {
@@ -58,32 +58,32 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                                 return;
                             }
 
-                            // check if the actual instance is of the type `WorkflowHistoryOneOf`
-                            if (value.getActualInstance() instanceof WorkflowHistoryOneOf) {
+                            // check if the actual instance is of the type `WorkflowEventsHistory`
+                            if (value.getActualInstance() instanceof WorkflowEventsHistory) {
                                 JsonElement element =
-                                        adapterWorkflowHistoryOneOf.toJsonTree(
-                                                (WorkflowHistoryOneOf) value.getActualInstance());
+                                        adapterWorkflowEventsHistory.toJsonTree(
+                                                (WorkflowEventsHistory) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `WorkflowHistoryOneOf1`
-                            if (value.getActualInstance() instanceof WorkflowHistoryOneOf1) {
+                            // check if the actual instance is of the type `WorkflowTasksHistory`
+                            if (value.getActualInstance() instanceof WorkflowTasksHistory) {
                                 JsonElement element =
-                                        adapterWorkflowHistoryOneOf1.toJsonTree(
-                                                (WorkflowHistoryOneOf1) value.getActualInstance());
+                                        adapterWorkflowTasksHistory.toJsonTree(
+                                                (WorkflowTasksHistory) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `WorkflowHistoryOneOf2`
-                            if (value.getActualInstance() instanceof WorkflowHistoryOneOf2) {
+                            // check if the actual instance is of the type `WorkflowAgentHistory`
+                            if (value.getActualInstance() instanceof WorkflowAgentHistory) {
                                 JsonElement element =
-                                        adapterWorkflowHistoryOneOf2.toJsonTree(
-                                                (WorkflowHistoryOneOf2) value.getActualInstance());
+                                        adapterWorkflowAgentHistory.toJsonTree(
+                                                (WorkflowAgentHistory) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: WorkflowHistoryOneOf, WorkflowHistoryOneOf1, WorkflowHistoryOneOf2");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: WorkflowAgentHistory, WorkflowEventsHistory, WorkflowTasksHistory");
                         }
 
                         @Override
@@ -95,67 +95,67 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                             ArrayList<String> errorMessages = new ArrayList<>();
                             TypeAdapter actualAdapter = elementAdapter;
 
-                            // deserialize WorkflowHistoryOneOf
+                            // deserialize WorkflowEventsHistory
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                WorkflowHistoryOneOf.validateJsonElement(jsonElement);
-                                actualAdapter = adapterWorkflowHistoryOneOf;
+                                WorkflowEventsHistory.validateJsonElement(jsonElement);
+                                actualAdapter = adapterWorkflowEventsHistory;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'WorkflowHistoryOneOf'");
+                                        "Input data matches schema 'WorkflowEventsHistory'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for WorkflowHistoryOneOf failed with `%s`.",
+                                                "Deserialization for WorkflowEventsHistory failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'WorkflowHistoryOneOf'",
+                                        "Input data does not match schema 'WorkflowEventsHistory'",
                                         e);
                             }
-                            // deserialize WorkflowHistoryOneOf1
+                            // deserialize WorkflowTasksHistory
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                WorkflowHistoryOneOf1.validateJsonElement(jsonElement);
-                                actualAdapter = adapterWorkflowHistoryOneOf1;
+                                WorkflowTasksHistory.validateJsonElement(jsonElement);
+                                actualAdapter = adapterWorkflowTasksHistory;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'WorkflowHistoryOneOf1'");
+                                        "Input data matches schema 'WorkflowTasksHistory'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for WorkflowHistoryOneOf1 failed with `%s`.",
+                                                "Deserialization for WorkflowTasksHistory failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'WorkflowHistoryOneOf1'",
+                                        "Input data does not match schema 'WorkflowTasksHistory'",
                                         e);
                             }
-                            // deserialize WorkflowHistoryOneOf2
+                            // deserialize WorkflowAgentHistory
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                WorkflowHistoryOneOf2.validateJsonElement(jsonElement);
-                                actualAdapter = adapterWorkflowHistoryOneOf2;
+                                WorkflowAgentHistory.validateJsonElement(jsonElement);
+                                actualAdapter = adapterWorkflowAgentHistory;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'WorkflowHistoryOneOf2'");
+                                        "Input data matches schema 'WorkflowAgentHistory'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for WorkflowHistoryOneOf2 failed with `%s`.",
+                                                "Deserialization for WorkflowAgentHistory failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'WorkflowHistoryOneOf2'",
+                                        "Input data does not match schema 'WorkflowAgentHistory'",
                                         e);
                             }
 
@@ -190,9 +190,9 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("WorkflowHistoryOneOf", WorkflowHistoryOneOf.class);
-        schemas.put("WorkflowHistoryOneOf1", WorkflowHistoryOneOf1.class);
-        schemas.put("WorkflowHistoryOneOf2", WorkflowHistoryOneOf2.class);
+        schemas.put("WorkflowEventsHistory", WorkflowEventsHistory.class);
+        schemas.put("WorkflowTasksHistory", WorkflowTasksHistory.class);
+        schemas.put("WorkflowAgentHistory", WorkflowAgentHistory.class);
     }
 
     @Override
@@ -203,36 +203,36 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * WorkflowHistoryOneOf, WorkflowHistoryOneOf1, WorkflowHistoryOneOf2
+     * WorkflowAgentHistory, WorkflowEventsHistory, WorkflowTasksHistory
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof WorkflowHistoryOneOf) {
+        if (instance instanceof WorkflowEventsHistory) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof WorkflowHistoryOneOf1) {
+        if (instance instanceof WorkflowTasksHistory) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof WorkflowHistoryOneOf2) {
+        if (instance instanceof WorkflowAgentHistory) {
             super.setActualInstance(instance);
             return;
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be WorkflowHistoryOneOf, WorkflowHistoryOneOf1, WorkflowHistoryOneOf2");
+                "Invalid instance type. Must be WorkflowAgentHistory, WorkflowEventsHistory, WorkflowTasksHistory");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * WorkflowHistoryOneOf, WorkflowHistoryOneOf1, WorkflowHistoryOneOf2
+     * WorkflowAgentHistory, WorkflowEventsHistory, WorkflowTasksHistory
      *
-     * @return The actual instance (WorkflowHistoryOneOf, WorkflowHistoryOneOf1, WorkflowHistoryOneOf2)
+     * @return The actual instance (WorkflowAgentHistory, WorkflowEventsHistory, WorkflowTasksHistory)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -241,39 +241,39 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `WorkflowHistoryOneOf`. If the actual instance is not `WorkflowHistoryOneOf`,
+     * Get the actual instance of `WorkflowEventsHistory`. If the actual instance is not `WorkflowEventsHistory`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `WorkflowHistoryOneOf`
-     * @throws ClassCastException if the instance is not `WorkflowHistoryOneOf`
+     * @return The actual instance of `WorkflowEventsHistory`
+     * @throws ClassCastException if the instance is not `WorkflowEventsHistory`
      */
     @SuppressWarnings("unchecked")
-    public WorkflowHistoryOneOf getWorkflowHistoryOneOf() throws ClassCastException {
-        return (WorkflowHistoryOneOf) super.getActualInstance();
+    public WorkflowEventsHistory getWorkflowEventsHistory() throws ClassCastException {
+        return (WorkflowEventsHistory) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `WorkflowHistoryOneOf1`. If the actual instance is not `WorkflowHistoryOneOf1`,
+     * Get the actual instance of `WorkflowTasksHistory`. If the actual instance is not `WorkflowTasksHistory`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `WorkflowHistoryOneOf1`
-     * @throws ClassCastException if the instance is not `WorkflowHistoryOneOf1`
+     * @return The actual instance of `WorkflowTasksHistory`
+     * @throws ClassCastException if the instance is not `WorkflowTasksHistory`
      */
     @SuppressWarnings("unchecked")
-    public WorkflowHistoryOneOf1 getWorkflowHistoryOneOf1() throws ClassCastException {
-        return (WorkflowHistoryOneOf1) super.getActualInstance();
+    public WorkflowTasksHistory getWorkflowTasksHistory() throws ClassCastException {
+        return (WorkflowTasksHistory) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `WorkflowHistoryOneOf2`. If the actual instance is not `WorkflowHistoryOneOf2`,
+     * Get the actual instance of `WorkflowAgentHistory`. If the actual instance is not `WorkflowAgentHistory`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `WorkflowHistoryOneOf2`
-     * @throws ClassCastException if the instance is not `WorkflowHistoryOneOf2`
+     * @return The actual instance of `WorkflowAgentHistory`
+     * @throws ClassCastException if the instance is not `WorkflowAgentHistory`
      */
     @SuppressWarnings("unchecked")
-    public WorkflowHistoryOneOf2 getWorkflowHistoryOneOf2() throws ClassCastException {
-        return (WorkflowHistoryOneOf2) super.getActualInstance();
+    public WorkflowAgentHistory getWorkflowAgentHistory() throws ClassCastException {
+        return (WorkflowAgentHistory) super.getActualInstance();
     }
 
     /**
@@ -286,39 +286,39 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with WorkflowHistoryOneOf
+        // validate the json string with WorkflowEventsHistory
         try {
-            WorkflowHistoryOneOf.validateJsonElement(jsonElement);
+            WorkflowEventsHistory.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for WorkflowHistoryOneOf failed with `%s`.",
+                            "Deserialization for WorkflowEventsHistory failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with WorkflowHistoryOneOf1
+        // validate the json string with WorkflowTasksHistory
         try {
-            WorkflowHistoryOneOf1.validateJsonElement(jsonElement);
+            WorkflowTasksHistory.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for WorkflowHistoryOneOf1 failed with `%s`.",
+                            "Deserialization for WorkflowTasksHistory failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with WorkflowHistoryOneOf2
+        // validate the json string with WorkflowAgentHistory
         try {
-            WorkflowHistoryOneOf2.validateJsonElement(jsonElement);
+            WorkflowAgentHistory.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for WorkflowHistoryOneOf2 failed with `%s`.",
+                            "Deserialization for WorkflowAgentHistory failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
@@ -326,7 +326,7 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for WorkflowHistory with oneOf schemas: WorkflowHistoryOneOf, WorkflowHistoryOneOf1, WorkflowHistoryOneOf2. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for WorkflowHistory with oneOf schemas: WorkflowAgentHistory, WorkflowEventsHistory, WorkflowTasksHistory. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));

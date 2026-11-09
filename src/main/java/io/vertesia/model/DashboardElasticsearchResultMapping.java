@@ -43,16 +43,16 @@ public class DashboardElasticsearchResultMapping extends AbstractOpenApiSchema {
                 // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DashboardElasticsearchResultMappingOneOf>
-                    adapterDashboardElasticsearchResultMappingOneOf =
+            final TypeAdapter<DashboardElasticsearchHitsMapping>
+                    adapterDashboardElasticsearchHitsMapping =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(DashboardElasticsearchHitsMapping.class));
+            final TypeAdapter<DashboardElasticsearchAggregationBucketsMapping>
+                    adapterDashboardElasticsearchAggregationBucketsMapping =
                             gson.getDelegateAdapter(
                                     this,
-                                    TypeToken.get(DashboardElasticsearchResultMappingOneOf.class));
-            final TypeAdapter<DashboardElasticsearchResultMappingOneOf1>
-                    adapterDashboardElasticsearchResultMappingOneOf1 =
-                            gson.getDelegateAdapter(
-                                    this,
-                                    TypeToken.get(DashboardElasticsearchResultMappingOneOf1.class));
+                                    TypeToken.get(
+                                            DashboardElasticsearchAggregationBucketsMapping.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<DashboardElasticsearchResultMapping>() {
@@ -65,29 +65,30 @@ public class DashboardElasticsearchResultMapping extends AbstractOpenApiSchema {
                             }
 
                             // check if the actual instance is of the type
-                            // `DashboardElasticsearchResultMappingOneOf`
+                            // `DashboardElasticsearchHitsMapping`
                             if (value.getActualInstance()
-                                    instanceof DashboardElasticsearchResultMappingOneOf) {
+                                    instanceof DashboardElasticsearchHitsMapping) {
                                 JsonElement element =
-                                        adapterDashboardElasticsearchResultMappingOneOf.toJsonTree(
-                                                (DashboardElasticsearchResultMappingOneOf)
+                                        adapterDashboardElasticsearchHitsMapping.toJsonTree(
+                                                (DashboardElasticsearchHitsMapping)
                                                         value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             // check if the actual instance is of the type
-                            // `DashboardElasticsearchResultMappingOneOf1`
+                            // `DashboardElasticsearchAggregationBucketsMapping`
                             if (value.getActualInstance()
-                                    instanceof DashboardElasticsearchResultMappingOneOf1) {
+                                    instanceof DashboardElasticsearchAggregationBucketsMapping) {
                                 JsonElement element =
-                                        adapterDashboardElasticsearchResultMappingOneOf1.toJsonTree(
-                                                (DashboardElasticsearchResultMappingOneOf1)
-                                                        value.getActualInstance());
+                                        adapterDashboardElasticsearchAggregationBucketsMapping
+                                                .toJsonTree(
+                                                        (DashboardElasticsearchAggregationBucketsMapping)
+                                                                value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: DashboardElasticsearchResultMappingOneOf, DashboardElasticsearchResultMappingOneOf1");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: DashboardElasticsearchAggregationBucketsMapping, DashboardElasticsearchHitsMapping");
                         }
 
                         @Override
@@ -100,48 +101,48 @@ public class DashboardElasticsearchResultMapping extends AbstractOpenApiSchema {
                             ArrayList<String> errorMessages = new ArrayList<>();
                             TypeAdapter actualAdapter = elementAdapter;
 
-                            // deserialize DashboardElasticsearchResultMappingOneOf
+                            // deserialize DashboardElasticsearchHitsMapping
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                DashboardElasticsearchResultMappingOneOf.validateJsonElement(
-                                        jsonElement);
-                                actualAdapter = adapterDashboardElasticsearchResultMappingOneOf;
+                                DashboardElasticsearchHitsMapping.validateJsonElement(jsonElement);
+                                actualAdapter = adapterDashboardElasticsearchHitsMapping;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'DashboardElasticsearchResultMappingOneOf'");
+                                        "Input data matches schema 'DashboardElasticsearchHitsMapping'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for DashboardElasticsearchResultMappingOneOf failed with `%s`.",
+                                                "Deserialization for DashboardElasticsearchHitsMapping failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'DashboardElasticsearchResultMappingOneOf'",
+                                        "Input data does not match schema 'DashboardElasticsearchHitsMapping'",
                                         e);
                             }
-                            // deserialize DashboardElasticsearchResultMappingOneOf1
+                            // deserialize DashboardElasticsearchAggregationBucketsMapping
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                DashboardElasticsearchResultMappingOneOf1.validateJsonElement(
+                                DashboardElasticsearchAggregationBucketsMapping.validateJsonElement(
                                         jsonElement);
-                                actualAdapter = adapterDashboardElasticsearchResultMappingOneOf1;
+                                actualAdapter =
+                                        adapterDashboardElasticsearchAggregationBucketsMapping;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'DashboardElasticsearchResultMappingOneOf1'");
+                                        "Input data matches schema 'DashboardElasticsearchAggregationBucketsMapping'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for DashboardElasticsearchResultMappingOneOf1 failed with `%s`.",
+                                                "Deserialization for DashboardElasticsearchAggregationBucketsMapping failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'DashboardElasticsearchResultMappingOneOf1'",
+                                        "Input data does not match schema 'DashboardElasticsearchAggregationBucketsMapping'",
                                         e);
                             }
 
@@ -177,12 +178,10 @@ public class DashboardElasticsearchResultMapping extends AbstractOpenApiSchema {
     }
 
     static {
+        schemas.put("DashboardElasticsearchHitsMapping", DashboardElasticsearchHitsMapping.class);
         schemas.put(
-                "DashboardElasticsearchResultMappingOneOf",
-                DashboardElasticsearchResultMappingOneOf.class);
-        schemas.put(
-                "DashboardElasticsearchResultMappingOneOf1",
-                DashboardElasticsearchResultMappingOneOf1.class);
+                "DashboardElasticsearchAggregationBucketsMapping",
+                DashboardElasticsearchAggregationBucketsMapping.class);
     }
 
     @Override
@@ -193,31 +192,31 @@ public class DashboardElasticsearchResultMapping extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * DashboardElasticsearchResultMappingOneOf, DashboardElasticsearchResultMappingOneOf1
+     * DashboardElasticsearchAggregationBucketsMapping, DashboardElasticsearchHitsMapping
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof DashboardElasticsearchResultMappingOneOf) {
+        if (instance instanceof DashboardElasticsearchHitsMapping) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof DashboardElasticsearchResultMappingOneOf1) {
+        if (instance instanceof DashboardElasticsearchAggregationBucketsMapping) {
             super.setActualInstance(instance);
             return;
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be DashboardElasticsearchResultMappingOneOf, DashboardElasticsearchResultMappingOneOf1");
+                "Invalid instance type. Must be DashboardElasticsearchAggregationBucketsMapping, DashboardElasticsearchHitsMapping");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * DashboardElasticsearchResultMappingOneOf, DashboardElasticsearchResultMappingOneOf1
+     * DashboardElasticsearchAggregationBucketsMapping, DashboardElasticsearchHitsMapping
      *
-     * @return The actual instance (DashboardElasticsearchResultMappingOneOf, DashboardElasticsearchResultMappingOneOf1)
+     * @return The actual instance (DashboardElasticsearchAggregationBucketsMapping, DashboardElasticsearchHitsMapping)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -226,29 +225,29 @@ public class DashboardElasticsearchResultMapping extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `DashboardElasticsearchResultMappingOneOf`. If the actual instance is not `DashboardElasticsearchResultMappingOneOf`,
+     * Get the actual instance of `DashboardElasticsearchHitsMapping`. If the actual instance is not `DashboardElasticsearchHitsMapping`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `DashboardElasticsearchResultMappingOneOf`
-     * @throws ClassCastException if the instance is not `DashboardElasticsearchResultMappingOneOf`
+     * @return The actual instance of `DashboardElasticsearchHitsMapping`
+     * @throws ClassCastException if the instance is not `DashboardElasticsearchHitsMapping`
      */
     @SuppressWarnings("unchecked")
-    public DashboardElasticsearchResultMappingOneOf getDashboardElasticsearchResultMappingOneOf()
+    public DashboardElasticsearchHitsMapping getDashboardElasticsearchHitsMapping()
             throws ClassCastException {
-        return (DashboardElasticsearchResultMappingOneOf) super.getActualInstance();
+        return (DashboardElasticsearchHitsMapping) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `DashboardElasticsearchResultMappingOneOf1`. If the actual instance is not `DashboardElasticsearchResultMappingOneOf1`,
+     * Get the actual instance of `DashboardElasticsearchAggregationBucketsMapping`. If the actual instance is not `DashboardElasticsearchAggregationBucketsMapping`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `DashboardElasticsearchResultMappingOneOf1`
-     * @throws ClassCastException if the instance is not `DashboardElasticsearchResultMappingOneOf1`
+     * @return The actual instance of `DashboardElasticsearchAggregationBucketsMapping`
+     * @throws ClassCastException if the instance is not `DashboardElasticsearchAggregationBucketsMapping`
      */
     @SuppressWarnings("unchecked")
-    public DashboardElasticsearchResultMappingOneOf1 getDashboardElasticsearchResultMappingOneOf1()
-            throws ClassCastException {
-        return (DashboardElasticsearchResultMappingOneOf1) super.getActualInstance();
+    public DashboardElasticsearchAggregationBucketsMapping
+            getDashboardElasticsearchAggregationBucketsMapping() throws ClassCastException {
+        return (DashboardElasticsearchAggregationBucketsMapping) super.getActualInstance();
     }
 
     /**
@@ -261,27 +260,27 @@ public class DashboardElasticsearchResultMapping extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with DashboardElasticsearchResultMappingOneOf
+        // validate the json string with DashboardElasticsearchHitsMapping
         try {
-            DashboardElasticsearchResultMappingOneOf.validateJsonElement(jsonElement);
+            DashboardElasticsearchHitsMapping.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for DashboardElasticsearchResultMappingOneOf failed with `%s`.",
+                            "Deserialization for DashboardElasticsearchHitsMapping failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with DashboardElasticsearchResultMappingOneOf1
+        // validate the json string with DashboardElasticsearchAggregationBucketsMapping
         try {
-            DashboardElasticsearchResultMappingOneOf1.validateJsonElement(jsonElement);
+            DashboardElasticsearchAggregationBucketsMapping.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for DashboardElasticsearchResultMappingOneOf1 failed with `%s`.",
+                            "Deserialization for DashboardElasticsearchAggregationBucketsMapping failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
@@ -289,7 +288,7 @@ public class DashboardElasticsearchResultMapping extends AbstractOpenApiSchema {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for DashboardElasticsearchResultMapping with oneOf schemas: DashboardElasticsearchResultMappingOneOf, DashboardElasticsearchResultMappingOneOf1. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for DashboardElasticsearchResultMapping with oneOf schemas: DashboardElasticsearchAggregationBucketsMapping, DashboardElasticsearchHitsMapping. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));

@@ -41,10 +41,10 @@ public class WorkflowInput extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'WorkflowInput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<WorkflowInputOneOf> adapterWorkflowInputOneOf =
-                    gson.getDelegateAdapter(this, TypeToken.get(WorkflowInputOneOf.class));
-            final TypeAdapter<WorkflowInputOneOf1> adapterWorkflowInputOneOf1 =
-                    gson.getDelegateAdapter(this, TypeToken.get(WorkflowInputOneOf1.class));
+            final TypeAdapter<WorkflowObjectIdsInput> adapterWorkflowObjectIdsInput =
+                    gson.getDelegateAdapter(this, TypeToken.get(WorkflowObjectIdsInput.class));
+            final TypeAdapter<WorkflowFilesInput> adapterWorkflowFilesInput =
+                    gson.getDelegateAdapter(this, TypeToken.get(WorkflowFilesInput.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<WorkflowInput>() {
@@ -55,24 +55,24 @@ public class WorkflowInput extends AbstractOpenApiSchema {
                                 return;
                             }
 
-                            // check if the actual instance is of the type `WorkflowInputOneOf`
-                            if (value.getActualInstance() instanceof WorkflowInputOneOf) {
+                            // check if the actual instance is of the type `WorkflowObjectIdsInput`
+                            if (value.getActualInstance() instanceof WorkflowObjectIdsInput) {
                                 JsonElement element =
-                                        adapterWorkflowInputOneOf.toJsonTree(
-                                                (WorkflowInputOneOf) value.getActualInstance());
+                                        adapterWorkflowObjectIdsInput.toJsonTree(
+                                                (WorkflowObjectIdsInput) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `WorkflowInputOneOf1`
-                            if (value.getActualInstance() instanceof WorkflowInputOneOf1) {
+                            // check if the actual instance is of the type `WorkflowFilesInput`
+                            if (value.getActualInstance() instanceof WorkflowFilesInput) {
                                 JsonElement element =
-                                        adapterWorkflowInputOneOf1.toJsonTree(
-                                                (WorkflowInputOneOf1) value.getActualInstance());
+                                        adapterWorkflowFilesInput.toJsonTree(
+                                                (WorkflowFilesInput) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: WorkflowInputOneOf, WorkflowInputOneOf1");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: WorkflowFilesInput, WorkflowObjectIdsInput");
                         }
 
                         @Override
@@ -84,46 +84,46 @@ public class WorkflowInput extends AbstractOpenApiSchema {
                             ArrayList<String> errorMessages = new ArrayList<>();
                             TypeAdapter actualAdapter = elementAdapter;
 
-                            // deserialize WorkflowInputOneOf
+                            // deserialize WorkflowObjectIdsInput
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                WorkflowInputOneOf.validateJsonElement(jsonElement);
-                                actualAdapter = adapterWorkflowInputOneOf;
+                                WorkflowObjectIdsInput.validateJsonElement(jsonElement);
+                                actualAdapter = adapterWorkflowObjectIdsInput;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'WorkflowInputOneOf'");
+                                        "Input data matches schema 'WorkflowObjectIdsInput'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for WorkflowInputOneOf failed with `%s`.",
+                                                "Deserialization for WorkflowObjectIdsInput failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'WorkflowInputOneOf'",
+                                        "Input data does not match schema 'WorkflowObjectIdsInput'",
                                         e);
                             }
-                            // deserialize WorkflowInputOneOf1
+                            // deserialize WorkflowFilesInput
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                WorkflowInputOneOf1.validateJsonElement(jsonElement);
-                                actualAdapter = adapterWorkflowInputOneOf1;
+                                WorkflowFilesInput.validateJsonElement(jsonElement);
+                                actualAdapter = adapterWorkflowFilesInput;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'WorkflowInputOneOf1'");
+                                        "Input data matches schema 'WorkflowFilesInput'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for WorkflowInputOneOf1 failed with `%s`.",
+                                                "Deserialization for WorkflowFilesInput failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'WorkflowInputOneOf1'",
+                                        "Input data does not match schema 'WorkflowFilesInput'",
                                         e);
                             }
 
@@ -158,8 +158,8 @@ public class WorkflowInput extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("WorkflowInputOneOf", WorkflowInputOneOf.class);
-        schemas.put("WorkflowInputOneOf1", WorkflowInputOneOf1.class);
+        schemas.put("WorkflowObjectIdsInput", WorkflowObjectIdsInput.class);
+        schemas.put("WorkflowFilesInput", WorkflowFilesInput.class);
     }
 
     @Override
@@ -170,31 +170,31 @@ public class WorkflowInput extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * WorkflowInputOneOf, WorkflowInputOneOf1
+     * WorkflowFilesInput, WorkflowObjectIdsInput
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof WorkflowInputOneOf) {
+        if (instance instanceof WorkflowObjectIdsInput) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof WorkflowInputOneOf1) {
+        if (instance instanceof WorkflowFilesInput) {
             super.setActualInstance(instance);
             return;
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be WorkflowInputOneOf, WorkflowInputOneOf1");
+                "Invalid instance type. Must be WorkflowFilesInput, WorkflowObjectIdsInput");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * WorkflowInputOneOf, WorkflowInputOneOf1
+     * WorkflowFilesInput, WorkflowObjectIdsInput
      *
-     * @return The actual instance (WorkflowInputOneOf, WorkflowInputOneOf1)
+     * @return The actual instance (WorkflowFilesInput, WorkflowObjectIdsInput)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -203,27 +203,27 @@ public class WorkflowInput extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `WorkflowInputOneOf`. If the actual instance is not `WorkflowInputOneOf`,
+     * Get the actual instance of `WorkflowObjectIdsInput`. If the actual instance is not `WorkflowObjectIdsInput`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `WorkflowInputOneOf`
-     * @throws ClassCastException if the instance is not `WorkflowInputOneOf`
+     * @return The actual instance of `WorkflowObjectIdsInput`
+     * @throws ClassCastException if the instance is not `WorkflowObjectIdsInput`
      */
     @SuppressWarnings("unchecked")
-    public WorkflowInputOneOf getWorkflowInputOneOf() throws ClassCastException {
-        return (WorkflowInputOneOf) super.getActualInstance();
+    public WorkflowObjectIdsInput getWorkflowObjectIdsInput() throws ClassCastException {
+        return (WorkflowObjectIdsInput) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `WorkflowInputOneOf1`. If the actual instance is not `WorkflowInputOneOf1`,
+     * Get the actual instance of `WorkflowFilesInput`. If the actual instance is not `WorkflowFilesInput`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `WorkflowInputOneOf1`
-     * @throws ClassCastException if the instance is not `WorkflowInputOneOf1`
+     * @return The actual instance of `WorkflowFilesInput`
+     * @throws ClassCastException if the instance is not `WorkflowFilesInput`
      */
     @SuppressWarnings("unchecked")
-    public WorkflowInputOneOf1 getWorkflowInputOneOf1() throws ClassCastException {
-        return (WorkflowInputOneOf1) super.getActualInstance();
+    public WorkflowFilesInput getWorkflowFilesInput() throws ClassCastException {
+        return (WorkflowFilesInput) super.getActualInstance();
     }
 
     /**
@@ -236,27 +236,27 @@ public class WorkflowInput extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with WorkflowInputOneOf
+        // validate the json string with WorkflowObjectIdsInput
         try {
-            WorkflowInputOneOf.validateJsonElement(jsonElement);
+            WorkflowObjectIdsInput.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for WorkflowInputOneOf failed with `%s`.",
+                            "Deserialization for WorkflowObjectIdsInput failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with WorkflowInputOneOf1
+        // validate the json string with WorkflowFilesInput
         try {
-            WorkflowInputOneOf1.validateJsonElement(jsonElement);
+            WorkflowFilesInput.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for WorkflowInputOneOf1 failed with `%s`.",
+                            "Deserialization for WorkflowFilesInput failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
@@ -264,7 +264,7 @@ public class WorkflowInput extends AbstractOpenApiSchema {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for WorkflowInput with oneOf schemas: WorkflowInputOneOf, WorkflowInputOneOf1. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for WorkflowInput with oneOf schemas: WorkflowFilesInput, WorkflowObjectIdsInput. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));

@@ -41,18 +41,28 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'AlterTableOperation' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AlterTableOperationOneOf> adapterAlterTableOperationOneOf =
-                    gson.getDelegateAdapter(this, TypeToken.get(AlterTableOperationOneOf.class));
-            final TypeAdapter<AlterTableOperationOneOf1> adapterAlterTableOperationOneOf1 =
-                    gson.getDelegateAdapter(this, TypeToken.get(AlterTableOperationOneOf1.class));
-            final TypeAdapter<AlterTableOperationOneOf2> adapterAlterTableOperationOneOf2 =
-                    gson.getDelegateAdapter(this, TypeToken.get(AlterTableOperationOneOf2.class));
-            final TypeAdapter<AlterTableOperationOneOf3> adapterAlterTableOperationOneOf3 =
-                    gson.getDelegateAdapter(this, TypeToken.get(AlterTableOperationOneOf3.class));
-            final TypeAdapter<AlterTableOperationOneOf4> adapterAlterTableOperationOneOf4 =
-                    gson.getDelegateAdapter(this, TypeToken.get(AlterTableOperationOneOf4.class));
-            final TypeAdapter<AlterTableOperationOneOf5> adapterAlterTableOperationOneOf5 =
-                    gson.getDelegateAdapter(this, TypeToken.get(AlterTableOperationOneOf5.class));
+            final TypeAdapter<AlterTableAddColumnOperation> adapterAlterTableAddColumnOperation =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(AlterTableAddColumnOperation.class));
+            final TypeAdapter<AlterTableDropColumnOperation> adapterAlterTableDropColumnOperation =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(AlterTableDropColumnOperation.class));
+            final TypeAdapter<AlterTableRenameColumnOperation>
+                    adapterAlterTableRenameColumnOperation =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(AlterTableRenameColumnOperation.class));
+            final TypeAdapter<AlterTableModifyColumnOperation>
+                    adapterAlterTableModifyColumnOperation =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(AlterTableModifyColumnOperation.class));
+            final TypeAdapter<AlterTableAddForeignKeyOperation>
+                    adapterAlterTableAddForeignKeyOperation =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(AlterTableAddForeignKeyOperation.class));
+            final TypeAdapter<AlterTableDropForeignKeyOperation>
+                    adapterAlterTableDropForeignKeyOperation =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(AlterTableDropForeignKeyOperation.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<AlterTableOperation>() {
@@ -65,67 +75,72 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                             }
 
                             // check if the actual instance is of the type
-                            // `AlterTableOperationOneOf`
-                            if (value.getActualInstance() instanceof AlterTableOperationOneOf) {
+                            // `AlterTableAddColumnOperation`
+                            if (value.getActualInstance() instanceof AlterTableAddColumnOperation) {
                                 JsonElement element =
-                                        adapterAlterTableOperationOneOf.toJsonTree(
-                                                (AlterTableOperationOneOf)
+                                        adapterAlterTableAddColumnOperation.toJsonTree(
+                                                (AlterTableAddColumnOperation)
                                                         value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             // check if the actual instance is of the type
-                            // `AlterTableOperationOneOf1`
-                            if (value.getActualInstance() instanceof AlterTableOperationOneOf1) {
+                            // `AlterTableDropColumnOperation`
+                            if (value.getActualInstance()
+                                    instanceof AlterTableDropColumnOperation) {
                                 JsonElement element =
-                                        adapterAlterTableOperationOneOf1.toJsonTree(
-                                                (AlterTableOperationOneOf1)
+                                        adapterAlterTableDropColumnOperation.toJsonTree(
+                                                (AlterTableDropColumnOperation)
                                                         value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             // check if the actual instance is of the type
-                            // `AlterTableOperationOneOf2`
-                            if (value.getActualInstance() instanceof AlterTableOperationOneOf2) {
+                            // `AlterTableRenameColumnOperation`
+                            if (value.getActualInstance()
+                                    instanceof AlterTableRenameColumnOperation) {
                                 JsonElement element =
-                                        adapterAlterTableOperationOneOf2.toJsonTree(
-                                                (AlterTableOperationOneOf2)
+                                        adapterAlterTableRenameColumnOperation.toJsonTree(
+                                                (AlterTableRenameColumnOperation)
                                                         value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             // check if the actual instance is of the type
-                            // `AlterTableOperationOneOf3`
-                            if (value.getActualInstance() instanceof AlterTableOperationOneOf3) {
+                            // `AlterTableModifyColumnOperation`
+                            if (value.getActualInstance()
+                                    instanceof AlterTableModifyColumnOperation) {
                                 JsonElement element =
-                                        adapterAlterTableOperationOneOf3.toJsonTree(
-                                                (AlterTableOperationOneOf3)
+                                        adapterAlterTableModifyColumnOperation.toJsonTree(
+                                                (AlterTableModifyColumnOperation)
                                                         value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             // check if the actual instance is of the type
-                            // `AlterTableOperationOneOf4`
-                            if (value.getActualInstance() instanceof AlterTableOperationOneOf4) {
+                            // `AlterTableAddForeignKeyOperation`
+                            if (value.getActualInstance()
+                                    instanceof AlterTableAddForeignKeyOperation) {
                                 JsonElement element =
-                                        adapterAlterTableOperationOneOf4.toJsonTree(
-                                                (AlterTableOperationOneOf4)
+                                        adapterAlterTableAddForeignKeyOperation.toJsonTree(
+                                                (AlterTableAddForeignKeyOperation)
                                                         value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             // check if the actual instance is of the type
-                            // `AlterTableOperationOneOf5`
-                            if (value.getActualInstance() instanceof AlterTableOperationOneOf5) {
+                            // `AlterTableDropForeignKeyOperation`
+                            if (value.getActualInstance()
+                                    instanceof AlterTableDropForeignKeyOperation) {
                                 JsonElement element =
-                                        adapterAlterTableOperationOneOf5.toJsonTree(
-                                                (AlterTableOperationOneOf5)
+                                        adapterAlterTableDropForeignKeyOperation.toJsonTree(
+                                                (AlterTableDropForeignKeyOperation)
                                                         value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: AlterTableAddColumnOperation, AlterTableAddForeignKeyOperation, AlterTableDropColumnOperation, AlterTableDropForeignKeyOperation, AlterTableModifyColumnOperation, AlterTableRenameColumnOperation");
                         }
 
                         @Override
@@ -137,130 +152,130 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                             ArrayList<String> errorMessages = new ArrayList<>();
                             TypeAdapter actualAdapter = elementAdapter;
 
-                            // deserialize AlterTableOperationOneOf
+                            // deserialize AlterTableAddColumnOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                AlterTableOperationOneOf.validateJsonElement(jsonElement);
-                                actualAdapter = adapterAlterTableOperationOneOf;
+                                AlterTableAddColumnOperation.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAlterTableAddColumnOperation;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'AlterTableOperationOneOf'");
+                                        "Input data matches schema 'AlterTableAddColumnOperation'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for AlterTableOperationOneOf failed with `%s`.",
+                                                "Deserialization for AlterTableAddColumnOperation failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'AlterTableOperationOneOf'",
+                                        "Input data does not match schema 'AlterTableAddColumnOperation'",
                                         e);
                             }
-                            // deserialize AlterTableOperationOneOf1
+                            // deserialize AlterTableDropColumnOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                AlterTableOperationOneOf1.validateJsonElement(jsonElement);
-                                actualAdapter = adapterAlterTableOperationOneOf1;
+                                AlterTableDropColumnOperation.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAlterTableDropColumnOperation;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'AlterTableOperationOneOf1'");
+                                        "Input data matches schema 'AlterTableDropColumnOperation'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for AlterTableOperationOneOf1 failed with `%s`.",
+                                                "Deserialization for AlterTableDropColumnOperation failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'AlterTableOperationOneOf1'",
+                                        "Input data does not match schema 'AlterTableDropColumnOperation'",
                                         e);
                             }
-                            // deserialize AlterTableOperationOneOf2
+                            // deserialize AlterTableRenameColumnOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                AlterTableOperationOneOf2.validateJsonElement(jsonElement);
-                                actualAdapter = adapterAlterTableOperationOneOf2;
+                                AlterTableRenameColumnOperation.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAlterTableRenameColumnOperation;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'AlterTableOperationOneOf2'");
+                                        "Input data matches schema 'AlterTableRenameColumnOperation'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for AlterTableOperationOneOf2 failed with `%s`.",
+                                                "Deserialization for AlterTableRenameColumnOperation failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'AlterTableOperationOneOf2'",
+                                        "Input data does not match schema 'AlterTableRenameColumnOperation'",
                                         e);
                             }
-                            // deserialize AlterTableOperationOneOf3
+                            // deserialize AlterTableModifyColumnOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                AlterTableOperationOneOf3.validateJsonElement(jsonElement);
-                                actualAdapter = adapterAlterTableOperationOneOf3;
+                                AlterTableModifyColumnOperation.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAlterTableModifyColumnOperation;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'AlterTableOperationOneOf3'");
+                                        "Input data matches schema 'AlterTableModifyColumnOperation'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for AlterTableOperationOneOf3 failed with `%s`.",
+                                                "Deserialization for AlterTableModifyColumnOperation failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'AlterTableOperationOneOf3'",
+                                        "Input data does not match schema 'AlterTableModifyColumnOperation'",
                                         e);
                             }
-                            // deserialize AlterTableOperationOneOf4
+                            // deserialize AlterTableAddForeignKeyOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                AlterTableOperationOneOf4.validateJsonElement(jsonElement);
-                                actualAdapter = adapterAlterTableOperationOneOf4;
+                                AlterTableAddForeignKeyOperation.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAlterTableAddForeignKeyOperation;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'AlterTableOperationOneOf4'");
+                                        "Input data matches schema 'AlterTableAddForeignKeyOperation'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for AlterTableOperationOneOf4 failed with `%s`.",
+                                                "Deserialization for AlterTableAddForeignKeyOperation failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'AlterTableOperationOneOf4'",
+                                        "Input data does not match schema 'AlterTableAddForeignKeyOperation'",
                                         e);
                             }
-                            // deserialize AlterTableOperationOneOf5
+                            // deserialize AlterTableDropForeignKeyOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                AlterTableOperationOneOf5.validateJsonElement(jsonElement);
-                                actualAdapter = adapterAlterTableOperationOneOf5;
+                                AlterTableDropForeignKeyOperation.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAlterTableDropForeignKeyOperation;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'AlterTableOperationOneOf5'");
+                                        "Input data matches schema 'AlterTableDropForeignKeyOperation'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for AlterTableOperationOneOf5 failed with `%s`.",
+                                                "Deserialization for AlterTableDropForeignKeyOperation failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'AlterTableOperationOneOf5'",
+                                        "Input data does not match schema 'AlterTableDropForeignKeyOperation'",
                                         e);
                             }
 
@@ -295,12 +310,12 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("AlterTableOperationOneOf", AlterTableOperationOneOf.class);
-        schemas.put("AlterTableOperationOneOf1", AlterTableOperationOneOf1.class);
-        schemas.put("AlterTableOperationOneOf2", AlterTableOperationOneOf2.class);
-        schemas.put("AlterTableOperationOneOf3", AlterTableOperationOneOf3.class);
-        schemas.put("AlterTableOperationOneOf4", AlterTableOperationOneOf4.class);
-        schemas.put("AlterTableOperationOneOf5", AlterTableOperationOneOf5.class);
+        schemas.put("AlterTableAddColumnOperation", AlterTableAddColumnOperation.class);
+        schemas.put("AlterTableDropColumnOperation", AlterTableDropColumnOperation.class);
+        schemas.put("AlterTableRenameColumnOperation", AlterTableRenameColumnOperation.class);
+        schemas.put("AlterTableModifyColumnOperation", AlterTableModifyColumnOperation.class);
+        schemas.put("AlterTableAddForeignKeyOperation", AlterTableAddForeignKeyOperation.class);
+        schemas.put("AlterTableDropForeignKeyOperation", AlterTableDropForeignKeyOperation.class);
     }
 
     @Override
@@ -311,51 +326,51 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5
+     * AlterTableAddColumnOperation, AlterTableAddForeignKeyOperation, AlterTableDropColumnOperation, AlterTableDropForeignKeyOperation, AlterTableModifyColumnOperation, AlterTableRenameColumnOperation
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof AlterTableOperationOneOf) {
+        if (instance instanceof AlterTableAddColumnOperation) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AlterTableOperationOneOf1) {
+        if (instance instanceof AlterTableDropColumnOperation) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AlterTableOperationOneOf2) {
+        if (instance instanceof AlterTableRenameColumnOperation) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AlterTableOperationOneOf3) {
+        if (instance instanceof AlterTableModifyColumnOperation) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AlterTableOperationOneOf4) {
+        if (instance instanceof AlterTableAddForeignKeyOperation) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AlterTableOperationOneOf5) {
+        if (instance instanceof AlterTableDropForeignKeyOperation) {
             super.setActualInstance(instance);
             return;
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5");
+                "Invalid instance type. Must be AlterTableAddColumnOperation, AlterTableAddForeignKeyOperation, AlterTableDropColumnOperation, AlterTableDropForeignKeyOperation, AlterTableModifyColumnOperation, AlterTableRenameColumnOperation");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5
+     * AlterTableAddColumnOperation, AlterTableAddForeignKeyOperation, AlterTableDropColumnOperation, AlterTableDropForeignKeyOperation, AlterTableModifyColumnOperation, AlterTableRenameColumnOperation
      *
-     * @return The actual instance (AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5)
+     * @return The actual instance (AlterTableAddColumnOperation, AlterTableAddForeignKeyOperation, AlterTableDropColumnOperation, AlterTableDropForeignKeyOperation, AlterTableModifyColumnOperation, AlterTableRenameColumnOperation)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -364,75 +379,81 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `AlterTableOperationOneOf`. If the actual instance is not `AlterTableOperationOneOf`,
+     * Get the actual instance of `AlterTableAddColumnOperation`. If the actual instance is not `AlterTableAddColumnOperation`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `AlterTableOperationOneOf`
-     * @throws ClassCastException if the instance is not `AlterTableOperationOneOf`
+     * @return The actual instance of `AlterTableAddColumnOperation`
+     * @throws ClassCastException if the instance is not `AlterTableAddColumnOperation`
      */
     @SuppressWarnings("unchecked")
-    public AlterTableOperationOneOf getAlterTableOperationOneOf() throws ClassCastException {
-        return (AlterTableOperationOneOf) super.getActualInstance();
+    public AlterTableAddColumnOperation getAlterTableAddColumnOperation()
+            throws ClassCastException {
+        return (AlterTableAddColumnOperation) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `AlterTableOperationOneOf1`. If the actual instance is not `AlterTableOperationOneOf1`,
+     * Get the actual instance of `AlterTableDropColumnOperation`. If the actual instance is not `AlterTableDropColumnOperation`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `AlterTableOperationOneOf1`
-     * @throws ClassCastException if the instance is not `AlterTableOperationOneOf1`
+     * @return The actual instance of `AlterTableDropColumnOperation`
+     * @throws ClassCastException if the instance is not `AlterTableDropColumnOperation`
      */
     @SuppressWarnings("unchecked")
-    public AlterTableOperationOneOf1 getAlterTableOperationOneOf1() throws ClassCastException {
-        return (AlterTableOperationOneOf1) super.getActualInstance();
+    public AlterTableDropColumnOperation getAlterTableDropColumnOperation()
+            throws ClassCastException {
+        return (AlterTableDropColumnOperation) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `AlterTableOperationOneOf2`. If the actual instance is not `AlterTableOperationOneOf2`,
+     * Get the actual instance of `AlterTableRenameColumnOperation`. If the actual instance is not `AlterTableRenameColumnOperation`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `AlterTableOperationOneOf2`
-     * @throws ClassCastException if the instance is not `AlterTableOperationOneOf2`
+     * @return The actual instance of `AlterTableRenameColumnOperation`
+     * @throws ClassCastException if the instance is not `AlterTableRenameColumnOperation`
      */
     @SuppressWarnings("unchecked")
-    public AlterTableOperationOneOf2 getAlterTableOperationOneOf2() throws ClassCastException {
-        return (AlterTableOperationOneOf2) super.getActualInstance();
+    public AlterTableRenameColumnOperation getAlterTableRenameColumnOperation()
+            throws ClassCastException {
+        return (AlterTableRenameColumnOperation) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `AlterTableOperationOneOf3`. If the actual instance is not `AlterTableOperationOneOf3`,
+     * Get the actual instance of `AlterTableModifyColumnOperation`. If the actual instance is not `AlterTableModifyColumnOperation`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `AlterTableOperationOneOf3`
-     * @throws ClassCastException if the instance is not `AlterTableOperationOneOf3`
+     * @return The actual instance of `AlterTableModifyColumnOperation`
+     * @throws ClassCastException if the instance is not `AlterTableModifyColumnOperation`
      */
     @SuppressWarnings("unchecked")
-    public AlterTableOperationOneOf3 getAlterTableOperationOneOf3() throws ClassCastException {
-        return (AlterTableOperationOneOf3) super.getActualInstance();
+    public AlterTableModifyColumnOperation getAlterTableModifyColumnOperation()
+            throws ClassCastException {
+        return (AlterTableModifyColumnOperation) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `AlterTableOperationOneOf4`. If the actual instance is not `AlterTableOperationOneOf4`,
+     * Get the actual instance of `AlterTableAddForeignKeyOperation`. If the actual instance is not `AlterTableAddForeignKeyOperation`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `AlterTableOperationOneOf4`
-     * @throws ClassCastException if the instance is not `AlterTableOperationOneOf4`
+     * @return The actual instance of `AlterTableAddForeignKeyOperation`
+     * @throws ClassCastException if the instance is not `AlterTableAddForeignKeyOperation`
      */
     @SuppressWarnings("unchecked")
-    public AlterTableOperationOneOf4 getAlterTableOperationOneOf4() throws ClassCastException {
-        return (AlterTableOperationOneOf4) super.getActualInstance();
+    public AlterTableAddForeignKeyOperation getAlterTableAddForeignKeyOperation()
+            throws ClassCastException {
+        return (AlterTableAddForeignKeyOperation) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `AlterTableOperationOneOf5`. If the actual instance is not `AlterTableOperationOneOf5`,
+     * Get the actual instance of `AlterTableDropForeignKeyOperation`. If the actual instance is not `AlterTableDropForeignKeyOperation`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `AlterTableOperationOneOf5`
-     * @throws ClassCastException if the instance is not `AlterTableOperationOneOf5`
+     * @return The actual instance of `AlterTableDropForeignKeyOperation`
+     * @throws ClassCastException if the instance is not `AlterTableDropForeignKeyOperation`
      */
     @SuppressWarnings("unchecked")
-    public AlterTableOperationOneOf5 getAlterTableOperationOneOf5() throws ClassCastException {
-        return (AlterTableOperationOneOf5) super.getActualInstance();
+    public AlterTableDropForeignKeyOperation getAlterTableDropForeignKeyOperation()
+            throws ClassCastException {
+        return (AlterTableDropForeignKeyOperation) super.getActualInstance();
     }
 
     /**
@@ -445,75 +466,75 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with AlterTableOperationOneOf
+        // validate the json string with AlterTableAddColumnOperation
         try {
-            AlterTableOperationOneOf.validateJsonElement(jsonElement);
+            AlterTableAddColumnOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for AlterTableOperationOneOf failed with `%s`.",
+                            "Deserialization for AlterTableAddColumnOperation failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with AlterTableOperationOneOf1
+        // validate the json string with AlterTableDropColumnOperation
         try {
-            AlterTableOperationOneOf1.validateJsonElement(jsonElement);
+            AlterTableDropColumnOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for AlterTableOperationOneOf1 failed with `%s`.",
+                            "Deserialization for AlterTableDropColumnOperation failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with AlterTableOperationOneOf2
+        // validate the json string with AlterTableRenameColumnOperation
         try {
-            AlterTableOperationOneOf2.validateJsonElement(jsonElement);
+            AlterTableRenameColumnOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for AlterTableOperationOneOf2 failed with `%s`.",
+                            "Deserialization for AlterTableRenameColumnOperation failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with AlterTableOperationOneOf3
+        // validate the json string with AlterTableModifyColumnOperation
         try {
-            AlterTableOperationOneOf3.validateJsonElement(jsonElement);
+            AlterTableModifyColumnOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for AlterTableOperationOneOf3 failed with `%s`.",
+                            "Deserialization for AlterTableModifyColumnOperation failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with AlterTableOperationOneOf4
+        // validate the json string with AlterTableAddForeignKeyOperation
         try {
-            AlterTableOperationOneOf4.validateJsonElement(jsonElement);
+            AlterTableAddForeignKeyOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for AlterTableOperationOneOf4 failed with `%s`.",
+                            "Deserialization for AlterTableAddForeignKeyOperation failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with AlterTableOperationOneOf5
+        // validate the json string with AlterTableDropForeignKeyOperation
         try {
-            AlterTableOperationOneOf5.validateJsonElement(jsonElement);
+            AlterTableDropForeignKeyOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for AlterTableOperationOneOf5 failed with `%s`.",
+                            "Deserialization for AlterTableDropForeignKeyOperation failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
@@ -521,7 +542,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for AlterTableOperation with oneOf schemas: AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for AlterTableOperation with oneOf schemas: AlterTableAddColumnOperation, AlterTableAddForeignKeyOperation, AlterTableDropColumnOperation, AlterTableDropForeignKeyOperation, AlterTableModifyColumnOperation, AlterTableRenameColumnOperation. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));

@@ -93,23 +93,29 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "AlterTableOperation_oneOf",
-                                                io.vertesia.model.AlterTableOperationOneOf.class);
+                                                "add_column",
+                                                io.vertesia.model.AlterTableAddColumnOperation
+                                                        .class);
                                         classByDiscriminatorValue.put(
-                                                "AlterTableOperation_oneOf_1",
-                                                io.vertesia.model.AlterTableOperationOneOf1.class);
+                                                "add_foreign_key",
+                                                io.vertesia.model.AlterTableAddForeignKeyOperation
+                                                        .class);
                                         classByDiscriminatorValue.put(
-                                                "AlterTableOperation_oneOf_2",
-                                                io.vertesia.model.AlterTableOperationOneOf2.class);
+                                                "drop_column",
+                                                io.vertesia.model.AlterTableDropColumnOperation
+                                                        .class);
                                         classByDiscriminatorValue.put(
-                                                "AlterTableOperation_oneOf_3",
-                                                io.vertesia.model.AlterTableOperationOneOf3.class);
+                                                "drop_foreign_key",
+                                                io.vertesia.model.AlterTableDropForeignKeyOperation
+                                                        .class);
                                         classByDiscriminatorValue.put(
-                                                "AlterTableOperation_oneOf_4",
-                                                io.vertesia.model.AlterTableOperationOneOf4.class);
+                                                "modify_column",
+                                                io.vertesia.model.AlterTableModifyColumnOperation
+                                                        .class);
                                         classByDiscriminatorValue.put(
-                                                "AlterTableOperation_oneOf_5",
-                                                io.vertesia.model.AlterTableOperationOneOf5.class);
+                                                "rename_column",
+                                                io.vertesia.model.AlterTableRenameColumnOperation
+                                                        .class);
                                         classByDiscriminatorValue.put(
                                                 "AlterTableOperation",
                                                 io.vertesia.model.AlterTableOperation.class);
@@ -300,14 +306,13 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "DashboardElasticsearchResultMapping_oneOf",
+                                                "aggregation_buckets",
                                                 io.vertesia.model
-                                                        .DashboardElasticsearchResultMappingOneOf
+                                                        .DashboardElasticsearchAggregationBucketsMapping
                                                         .class);
                                         classByDiscriminatorValue.put(
-                                                "DashboardElasticsearchResultMapping_oneOf_1",
-                                                io.vertesia.model
-                                                        .DashboardElasticsearchResultMappingOneOf1
+                                                "hits",
+                                                io.vertesia.model.DashboardElasticsearchHitsMapping
                                                         .class);
                                         classByDiscriminatorValue.put(
                                                 "DashboardElasticsearchResultMapping",
@@ -865,14 +870,14 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "WorkflowHistory_oneOf",
-                                                io.vertesia.model.WorkflowHistoryOneOf.class);
+                                                "agent",
+                                                io.vertesia.model.WorkflowAgentHistory.class);
                                         classByDiscriminatorValue.put(
-                                                "WorkflowHistory_oneOf_1",
-                                                io.vertesia.model.WorkflowHistoryOneOf1.class);
+                                                "events",
+                                                io.vertesia.model.WorkflowEventsHistory.class);
                                         classByDiscriminatorValue.put(
-                                                "WorkflowHistory_oneOf_2",
-                                                io.vertesia.model.WorkflowHistoryOneOf2.class);
+                                                "tasks",
+                                                io.vertesia.model.WorkflowTasksHistory.class);
                                         classByDiscriminatorValue.put(
                                                 "WorkflowHistory",
                                                 io.vertesia.model.WorkflowHistory.class);
@@ -890,11 +895,11 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "WorkflowInput_oneOf",
-                                                io.vertesia.model.WorkflowInputOneOf.class);
+                                                "files",
+                                                io.vertesia.model.WorkflowFilesInput.class);
                                         classByDiscriminatorValue.put(
-                                                "WorkflowInput_oneOf_1",
-                                                io.vertesia.model.WorkflowInputOneOf1.class);
+                                                "objectIds",
+                                                io.vertesia.model.WorkflowObjectIdsInput.class);
                                         classByDiscriminatorValue.put(
                                                 "WorkflowInput",
                                                 io.vertesia.model.WorkflowInput.class);
@@ -1069,21 +1074,21 @@ public class JSON {
                 new io.vertesia.model.AllocateAgentRunBudgetPayloadAnyOf1
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AlterTableAddColumnOperation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AlterTableAddForeignKeyOperation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AlterTableDropColumnOperation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AlterTableDropForeignKeyOperation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AlterTableModifyColumnOperation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AlterTableOperation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.AlterTableOperationOneOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.AlterTableOperationOneOf1.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.AlterTableOperationOneOf2.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.AlterTableOperationOneOf3.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.AlterTableOperationOneOf4.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.AlterTableOperationOneOf5.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AlterTablePayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AlterTableRenameColumnOperation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AnalyticsAxis.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1692,15 +1697,14 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DashboardDataSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.DashboardElasticsearchAggregationBucketsMapping
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DashboardElasticsearchDsl.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.DashboardElasticsearchHitsMapping.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DashboardElasticsearchResultMapping
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.DashboardElasticsearchResultMappingOneOf
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.DashboardElasticsearchResultMappingOneOf1
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DashboardExport.CustomTypeAdapterFactory());
@@ -3028,6 +3032,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowActionResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.WorkflowAgentHistory.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowAncestor.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowDefinitionPayload.CustomTypeAdapterFactory());
@@ -3044,23 +3050,19 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowEventDeliveryTargetInput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.WorkflowEventsHistory.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowExecutionStartResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.WorkflowFilesInput.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowHistory.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.WorkflowHistoryOneOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.WorkflowHistoryOneOf1.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.WorkflowHistoryOneOf2.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowInput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowInputFile.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.WorkflowInputOneOf.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.WorkflowInputOneOf1.CustomTypeAdapterFactory());
+                new io.vertesia.model.WorkflowObjectIdsInput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowRule.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -3085,6 +3087,8 @@ public class JSON {
                 new io.vertesia.model.WorkflowSearchAttributeValueInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowTask.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.WorkflowTasksHistory.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowUpdatePublishResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
