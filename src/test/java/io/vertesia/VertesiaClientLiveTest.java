@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import io.vertesia.model.BulkOperationPayload;
+import io.vertesia.model.BulkOperationPayloadParams;
 import io.vertesia.model.ComplexSearchPayload;
 import io.vertesia.model.ContentObjectStatus;
 import io.vertesia.model.ContentSource;
@@ -28,7 +29,6 @@ import io.vertesia.model.PromptTemplateCreatePayload;
 import io.vertesia.model.TemplateType;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -286,15 +286,16 @@ class VertesiaClientLiveTest {
     }
 
     @Test
-    void requestShapes() throws ApiException, IOException {
-        // Temporary: decoded from JSON so the test compiles whether `params` is the
-        // free-form map or the typed BulkOperationPayloadParams. Go back to the builder
-        // once the sync has published the typed model.
-        BulkOperationPayload payload =
-                BulkOperationPayload.fromJson("{\"name\":\"update\",\"ids\":[],\"params\":{}}");
+    void requestShapes() throws ApiException {
         try {
             var response =
-                    client.bulkOperations.runBulkContentOperation(payload).executeWithHttpInfo();
+                    client.bulkOperations
+                            .runBulkContentOperation(
+                                    new BulkOperationPayload()
+                                            .name(BulkOperationPayload.NameEnum.UPDATE)
+                                            .ids(List.of())
+                                            .params(new BulkOperationPayloadParams()))
+                            .executeWithHttpInfo();
             assertEquals(200, response.getStatusCode());
         } catch (ApiException e) {
             assertTrue(
