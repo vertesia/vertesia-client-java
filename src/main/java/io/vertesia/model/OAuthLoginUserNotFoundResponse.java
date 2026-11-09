@@ -83,8 +83,9 @@ public class OAuthLoginUserNotFoundResponse {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            ErrorEnum.fromValue(value);
+            if (!"user_not_found".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected error to be user_not_found");
+            }
         }
     }
 

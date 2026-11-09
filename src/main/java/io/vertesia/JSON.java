@@ -479,6 +479,33 @@ public class JSON {
                                     }
                                 })
                         .registerTypeSelector(
+                                io.vertesia.model.OAuthLoginNotFoundResponse.class,
+                                new TypeSelector<io.vertesia.model.OAuthLoginNotFoundResponse>() {
+                                    @Override
+                                    public Class<
+                                                    ? extends
+                                                            io.vertesia.model
+                                                                    .OAuthLoginNotFoundResponse>
+                                            getClassForElement(JsonElement readElement) {
+                                        Map<String, Class> classByDiscriminatorValue =
+                                                new HashMap<String, Class>();
+                                        classByDiscriminatorValue.put(
+                                                "not_found",
+                                                io.vertesia.model.OAuthLoginRequestNotFoundResponse
+                                                        .class);
+                                        classByDiscriminatorValue.put(
+                                                "user_not_found",
+                                                io.vertesia.model.OAuthLoginUserNotFoundResponse
+                                                        .class);
+                                        classByDiscriminatorValue.put(
+                                                "OAuthLoginNotFoundResponse",
+                                                io.vertesia.model.OAuthLoginNotFoundResponse.class);
+                                        return getClassByDiscriminator(
+                                                classByDiscriminatorValue,
+                                                getDiscriminatorValue(readElement, "error"));
+                                    }
+                                })
+                        .registerTypeSelector(
                                 io.vertesia.model.ProcessTestFixtureResponse.class,
                                 new TypeSelector<io.vertesia.model.ProcessTestFixtureResponse>() {
                                     @Override
@@ -2275,7 +2302,11 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OAuthLoginDecisionResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.OAuthLoginNotFoundResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OAuthLoginPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.OAuthLoginRequestNotFoundResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OAuthLoginUserNotFoundResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

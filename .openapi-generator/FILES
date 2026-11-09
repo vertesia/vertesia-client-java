@@ -804,7 +804,9 @@ src/main/java/io/vertesia/model/OAuthGrantSortOrder.java
 src/main/java/io/vertesia/model/OAuthGrantStatus.java
 src/main/java/io/vertesia/model/OAuthGrantType.java
 src/main/java/io/vertesia/model/OAuthLoginDecisionResponse.java
+src/main/java/io/vertesia/model/OAuthLoginNotFoundResponse.java
 src/main/java/io/vertesia/model/OAuthLoginPayload.java
+src/main/java/io/vertesia/model/OAuthLoginRequestNotFoundResponse.java
 src/main/java/io/vertesia/model/OAuthLoginUserNotFoundResponse.java
 src/main/java/io/vertesia/model/OAuthMetadataResponse.java
 src/main/java/io/vertesia/model/OAuthProjectBindingMode.java

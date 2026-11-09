@@ -384,7 +384,7 @@ public class OAuthApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
-         * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The user must be provisioned before retrying login, or the authorization request cannot be completed. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -402,7 +402,7 @@ public class OAuthApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
-         * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The user must be provisioned before retrying login, or the authorization request cannot be completed. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -422,7 +422,7 @@ public class OAuthApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
-         * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The user must be provisioned before retrying login, or the authorization request cannot be completed. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -441,7 +441,7 @@ public class OAuthApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
-         * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The user must be provisioned before retrying login, or the authorization request cannot be completed. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -463,7 +463,7 @@ public class OAuthApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The validated authorization or consent destination. </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> The user must be provisioned before retrying login. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The user must be provisioned before retrying login, or the authorization request cannot be completed. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
