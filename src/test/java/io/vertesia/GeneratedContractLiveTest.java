@@ -912,8 +912,15 @@ class GeneratedContractLiveTest {
                                             .name(promptName)
                                             .role(PromptRole.USER)
                                             .contentType(TemplateType.JST)
+                                            .inputSchema(
+                                                    new JSONSchema()
+                                                            .type("object")
+                                                            .putPropertiesItem(
+                                                                    "name",
+                                                                    new JSONSchema().type("string"))
+                                                            .required(List.of("name")))
                                             .content(
-                                                    "Answer with a short greeting for <%= name %>."))
+                                                    "return `Answer with a short greeting for ${name}.`;"))
                             .execute();
         } catch (ApiException e) {
             if (e.getCode() == 403) {
@@ -946,7 +953,7 @@ class GeneratedContractLiveTest {
                         .renderPrompt(prompt.getId(), Collections.singletonMap("name", "Vertesia"))
                         .execute();
         assertNotNull(rendered, "renderPrompt returned null");
-        assertNotNull(rendered.getRendered(), "renderPrompt returned no rendered output");
+        assertEquals("Answer with a short greeting for Vertesia.", rendered.getRendered());
 
         InteractionPromptSegmentInput segment =
                 new InteractionPromptSegmentInput()
@@ -1431,11 +1438,7 @@ class GeneratedContractLiveTest {
                 "searchRuns returned null");
     }
 
-    @Test
-    void processDefinitionCrudLifecycle() throws ApiException {
-        ProcessesApi processesApi = new ProcessesApi(zenoClient);
-        String processName = uniqueName("java_openapi_process").replace("-", "_");
-
+    static CreateProcessDefinitionPayload finalProcessDefinition(String processName) {
         JSONSchema contextSchema =
                 new JSONSchema()
                         .type("object")
@@ -1444,7 +1447,14 @@ class GeneratedContractLiveTest {
         ProcessContextDefinition context =
                 new ProcessContextDefinition().schema(contextSchema).initial(new HashMap<>());
         Map<String, NodeDefinition> nodes = new HashMap<>();
-        nodes.put("done", new NodeDefinition().type(ProcessNodeType.FINAL).title("Done"));
+        // Generated lists default to empty arrays. These two fields apply only to agent nodes.
+        nodes.put(
+                "done",
+                new NodeDefinition()
+                        .type(ProcessNodeType.FINAL)
+                        .title("Done")
+                        .initialSkills(null)
+                        .excludedTools(null));
         ProcessDefinitionBody definition =
                 new ProcessDefinitionBody()
                         .formatVersion(ProcessDefinitionFormatVersion.NUMBER_1)
@@ -1452,18 +1462,23 @@ class GeneratedContractLiveTest {
                         .initial("done")
                         .context(context)
                         .nodes(nodes);
+        return new CreateProcessDefinitionPayload()
+                .name(processName)
+                .description("Created by Java OpenAPI integration tests")
+                .tags(List.of("integration-test", "openapi-java"))
+                .definition(definition);
+    }
+
+    @Test
+    void processDefinitionCrudLifecycle() throws ApiException {
+        ProcessesApi processesApi = new ProcessesApi(zenoClient);
+        String processName = uniqueName("java_openapi_process").replace("-", "_");
 
         ProcessDefinition created;
         try {
             created =
                     processesApi
-                            .createProcessDefinition(
-                                    new CreateProcessDefinitionPayload()
-                                            .name(processName)
-                                            .description(
-                                                    "Created by Java OpenAPI integration tests")
-                                            .tags(Arrays.asList("integration-test", "openapi-java"))
-                                            .definition(definition))
+                            .createProcessDefinition(finalProcessDefinition(processName))
                             .execute();
         } catch (ApiException e) {
             if (e.getCode() == 403) {
