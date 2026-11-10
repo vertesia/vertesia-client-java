@@ -1254,6 +1254,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AppWidgetInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ArchiveNotificationsPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AskUserWebhookConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AskUserWebhookConfigurationInput.CustomTypeAdapterFactory());
@@ -2209,6 +2211,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ListEventDeliveriesResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ListNotificationsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ListPendingAsksResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ListSecretsResponse.CustomTypeAdapterFactory());
@@ -2230,6 +2234,10 @@ public class JSON {
                 new io.vertesia.model.MCPToolCollectionObject.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.MagicPdfConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.MarkAllNotificationsReadPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.MarkNotificationsReadPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.McpApiKeyCredential.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -2279,6 +2287,22 @@ public class JSON {
                 new io.vertesia.model.NodeDefinitionCollect.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.NodeHistoryEntry.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.Notification.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.NotificationChannelPreferences.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.NotificationCounts.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.NotificationOccurrenceAck.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.NotificationPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.NotificationPreferences.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.NotificationRef.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.NotificationUpdateResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.NovaCanvasOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

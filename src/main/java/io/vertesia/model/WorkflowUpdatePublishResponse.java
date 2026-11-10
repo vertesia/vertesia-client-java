@@ -40,6 +40,11 @@ public class WorkflowUpdatePublishResponse {
     @jakarta.annotation.Nonnull
     private Boolean success;
 
+    public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
+
+    @SerializedName(SERIALIZED_NAME_TIMESTAMP)
+    @jakarta.annotation.Nullable private Integer timestamp;
+
     public WorkflowUpdatePublishResponse() {}
 
     public WorkflowUpdatePublishResponse success(@jakarta.annotation.Nonnull Boolean success) {
@@ -60,6 +65,25 @@ public class WorkflowUpdatePublishResponse {
         this.success = success;
     }
 
+    public WorkflowUpdatePublishResponse timestamp(@jakarta.annotation.Nullable Integer timestamp) {
+        this.timestamp = timestamp;
+        return this;
+    }
+
+    /**
+     * The &#x60;timestamp&#x60; the published update carries in the run stream, in epoch milliseconds. Absent from servers that predate it.
+     * minimum: -9007199254740991
+     * maximum: 9007199254740991
+     * @return timestamp
+     */
+    @jakarta.annotation.Nullable public Integer getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(@jakarta.annotation.Nullable Integer timestamp) {
+        this.timestamp = timestamp;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -70,12 +94,13 @@ public class WorkflowUpdatePublishResponse {
         }
         WorkflowUpdatePublishResponse workflowUpdatePublishResponse =
                 (WorkflowUpdatePublishResponse) o;
-        return Objects.equals(this.success, workflowUpdatePublishResponse.success);
+        return Objects.equals(this.success, workflowUpdatePublishResponse.success)
+                && Objects.equals(this.timestamp, workflowUpdatePublishResponse.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(success);
+        return Objects.hash(success, timestamp);
     }
 
     @Override
@@ -83,6 +108,7 @@ public class WorkflowUpdatePublishResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class WorkflowUpdatePublishResponse {\n");
         sb.append("    success: ").append(toIndentedString(success)).append("\n");
+        sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,7 +126,7 @@ public class WorkflowUpdatePublishResponse {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("success"));
+        openapiFields = new HashSet<String>(Arrays.asList("success", "timestamp"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("success"));

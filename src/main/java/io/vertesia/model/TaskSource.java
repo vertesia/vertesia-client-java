@@ -112,6 +112,21 @@ public class TaskSource {
     @SerializedName(SERIALIZED_NAME_ASK_ID)
     @jakarta.annotation.Nullable private String askId;
 
+    public static final String SERIALIZED_NAME_REQUEST_KEY = "request_key";
+
+    @SerializedName(SERIALIZED_NAME_REQUEST_KEY)
+    @jakarta.annotation.Nullable private String requestKey;
+
+    public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+
+    @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+    @jakarta.annotation.Nullable private String requestId;
+
+    public static final String SERIALIZED_NAME_APPROVAL_KEY = "approval_key";
+
+    @SerializedName(SERIALIZED_NAME_APPROVAL_KEY)
+    @jakarta.annotation.Nullable private String approvalKey;
+
     public TaskSource() {}
 
     public TaskSource type(@jakarta.annotation.Nonnull TypeEnum type) {
@@ -184,6 +199,57 @@ public class TaskSource {
         this.askId = askId;
     }
 
+    public TaskSource requestKey(@jakarta.annotation.Nullable String requestKey) {
+        this.requestKey = requestKey;
+        return this;
+    }
+
+    /**
+     * Stable key of the agent request this task answers (&#x60;&lt;run_id&gt;:&lt;tool_use_id&gt;&#x60;). Unique in the project: creating a task whose source repeats an existing request key returns that task instead of creating a second one.
+     * @return requestKey
+     */
+    @jakarta.annotation.Nullable public String getRequestKey() {
+        return requestKey;
+    }
+
+    public void setRequestKey(@jakarta.annotation.Nullable String requestKey) {
+        this.requestKey = requestKey;
+    }
+
+    public TaskSource requestId(@jakarta.annotation.Nullable String requestId) {
+        this.requestId = requestId;
+        return this;
+    }
+
+    /**
+     * Tool-use id of the agent request (the REQUEST_INPUT message) this task answers.
+     * @return requestId
+     */
+    @jakarta.annotation.Nullable public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(@jakarta.annotation.Nullable String requestId) {
+        this.requestId = requestId;
+    }
+
+    public TaskSource approvalKey(@jakarta.annotation.Nullable String approvalKey) {
+        this.approvalKey = approvalKey;
+        return this;
+    }
+
+    /**
+     * For a tool approval task, the approval key (&#x60;tool_name:target&#x60;) the decision applies to.
+     * @return approvalKey
+     */
+    @jakarta.annotation.Nullable public String getApprovalKey() {
+        return approvalKey;
+    }
+
+    public void setApprovalKey(@jakarta.annotation.Nullable String approvalKey) {
+        this.approvalKey = approvalKey;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -196,12 +262,15 @@ public class TaskSource {
         return Objects.equals(this.type, taskSource.type)
                 && Objects.equals(this.runId, taskSource.runId)
                 && Objects.equals(this.node, taskSource.node)
-                && Objects.equals(this.askId, taskSource.askId);
+                && Objects.equals(this.askId, taskSource.askId)
+                && Objects.equals(this.requestKey, taskSource.requestKey)
+                && Objects.equals(this.requestId, taskSource.requestId)
+                && Objects.equals(this.approvalKey, taskSource.approvalKey);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, runId, node, askId);
+        return Objects.hash(type, runId, node, askId, requestKey, requestId, approvalKey);
     }
 
     @Override
@@ -212,6 +281,9 @@ public class TaskSource {
         sb.append("    runId: ").append(toIndentedString(runId)).append("\n");
         sb.append("    node: ").append(toIndentedString(node)).append("\n");
         sb.append("    askId: ").append(toIndentedString(askId)).append("\n");
+        sb.append("    requestKey: ").append(toIndentedString(requestKey)).append("\n");
+        sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+        sb.append("    approvalKey: ").append(toIndentedString(approvalKey)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -229,7 +301,16 @@ public class TaskSource {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("type", "run_id", "node", "ask_id"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList(
+                                "type",
+                                "run_id",
+                                "node",
+                                "ask_id",
+                                "request_key",
+                                "request_id",
+                                "approval_key"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "run_id"));
@@ -296,6 +377,30 @@ public class TaskSource {
                             java.util.Locale.ROOT,
                             "Expected the field `ask_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("ask_id").toString()));
+        }
+        if ((jsonObj.get("request_key") != null && !jsonObj.get("request_key").isJsonNull())
+                && !jsonObj.get("request_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `request_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("request_key").toString()));
+        }
+        if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull())
+                && !jsonObj.get("request_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `request_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("request_id").toString()));
+        }
+        if ((jsonObj.get("approval_key") != null && !jsonObj.get("approval_key").isJsonNull())
+                && !jsonObj.get("approval_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `approval_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("approval_key").toString()));
         }
     }
 

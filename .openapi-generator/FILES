@@ -35,6 +35,7 @@ src/main/java/io/vertesia/api/FilesApi.java
 src/main/java/io/vertesia/api/InferenceProfilesApi.java
 src/main/java/io/vertesia/api/InteractionRunsApi.java
 src/main/java/io/vertesia/api/InteractionsApi.java
+src/main/java/io/vertesia/api/NotificationsApi.java
 src/main/java/io/vertesia/api/OAuthApi.java
 src/main/java/io/vertesia/api/OAuthClientsApi.java
 src/main/java/io/vertesia/api/OAuthGrantsApi.java
@@ -229,6 +230,7 @@ src/main/java/io/vertesia/model/AppVersionStorage.java
 src/main/java/io/vertesia/model/AppVersionTarget.java
 src/main/java/io/vertesia/model/AppVersionUrls.java
 src/main/java/io/vertesia/model/AppWidgetInfo.java
+src/main/java/io/vertesia/model/ArchiveNotificationsPayload.java
 src/main/java/io/vertesia/model/AskUserWebhookConfiguration.java
 src/main/java/io/vertesia/model/AskUserWebhookConfigurationInput.java
 src/main/java/io/vertesia/model/AssignableRoleName.java
@@ -747,6 +749,7 @@ src/main/java/io/vertesia/model/ListAgentRunsResponse.java
 src/main/java/io/vertesia/model/ListContentObjectExportsResponse.java
 src/main/java/io/vertesia/model/ListEventDeliveriesPayload.java
 src/main/java/io/vertesia/model/ListEventDeliveriesResponse.java
+src/main/java/io/vertesia/model/ListNotificationsResponse.java
 src/main/java/io/vertesia/model/ListPendingAsksResponse.java
 src/main/java/io/vertesia/model/ListSecretsResponse.java
 src/main/java/io/vertesia/model/ListWorkflowRunsPayload.java
@@ -759,6 +762,8 @@ src/main/java/io/vertesia/model/MCPOAuthConfig.java
 src/main/java/io/vertesia/model/MCPToolAnnotations.java
 src/main/java/io/vertesia/model/MCPToolCollectionObject.java
 src/main/java/io/vertesia/model/MagicPdfConfiguration.java
+src/main/java/io/vertesia/model/MarkAllNotificationsReadPayload.java
+src/main/java/io/vertesia/model/MarkNotificationsReadPayload.java
 src/main/java/io/vertesia/model/MarkdownRenditionFormat.java
 src/main/java/io/vertesia/model/McpApiKeyCredential.java
 src/main/java/io/vertesia/model/McpApiKeyStatus.java
@@ -787,6 +792,16 @@ src/main/java/io/vertesia/model/NodeDefinition.java
 src/main/java/io/vertesia/model/NodeDefinitionBranchesInner.java
 src/main/java/io/vertesia/model/NodeDefinitionCollect.java
 src/main/java/io/vertesia/model/NodeHistoryEntry.java
+src/main/java/io/vertesia/model/Notification.java
+src/main/java/io/vertesia/model/NotificationCategory.java
+src/main/java/io/vertesia/model/NotificationChannelPreferences.java
+src/main/java/io/vertesia/model/NotificationCounts.java
+src/main/java/io/vertesia/model/NotificationKind.java
+src/main/java/io/vertesia/model/NotificationOccurrenceAck.java
+src/main/java/io/vertesia/model/NotificationPayload.java
+src/main/java/io/vertesia/model/NotificationPreferences.java
+src/main/java/io/vertesia/model/NotificationRef.java
+src/main/java/io/vertesia/model/NotificationUpdateResult.java
 src/main/java/io/vertesia/model/NovaCanvasOptions.java
 src/main/java/io/vertesia/model/OAuthAuthStatus.java
 src/main/java/io/vertesia/model/OAuthAuthorizeResponse.java
