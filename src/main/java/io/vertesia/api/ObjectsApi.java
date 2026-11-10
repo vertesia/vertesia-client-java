@@ -48,6 +48,7 @@ import io.vertesia.model.GroundedExtractionRequest;
 import io.vertesia.model.GroundedExtractionResultResponse;
 import io.vertesia.model.ListContentObjectExportsResponse;
 import io.vertesia.model.ListWorkflowRunsResponse;
+import io.vertesia.model.ObjectIntakeCostResponse;
 import io.vertesia.model.ObjectSearchResponse;
 import io.vertesia.model.ProjectedContentObjectApiResponse;
 import io.vertesia.model.SetObjectEmbeddingsResponse;
@@ -3373,6 +3374,218 @@ public class ObjectsApi {
     public APIgetObjectEmbeddingsRequest getObjectEmbeddings(
             @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String type) {
         return new APIgetObjectEmbeddingsRequest(objectId, type);
+    }
+
+    private okhttp3.Call getObjectIntakeCostCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nullable Integer limit,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/objects/{objectId}/intake-cost"
+                        .replace(
+                                "{" + "objectId" + "}",
+                                localVarApiClient.escapeString(objectId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getObjectIntakeCostValidateBeforeCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nullable Integer limit,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'objectId' is set
+        if (objectId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'objectId' when calling getObjectIntakeCost(Async)");
+        }
+
+        return getObjectIntakeCostCall(objectId, limit, _callback);
+    }
+
+    private ApiResponse<ObjectIntakeCostResponse> getObjectIntakeCostWithHttpInfo(
+            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nullable Integer limit)
+            throws ApiException {
+        okhttp3.Call localVarCall = getObjectIntakeCostValidateBeforeCall(objectId, limit, null);
+        Type localVarReturnType = new TypeToken<ObjectIntakeCostResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getObjectIntakeCostAsync(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nullable Integer limit,
+            final ApiCallback<ObjectIntakeCostResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getObjectIntakeCostValidateBeforeCall(objectId, limit, _callback);
+        Type localVarReturnType = new TypeToken<ObjectIntakeCostResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetObjectIntakeCostRequest {
+        @jakarta.annotation.Nonnull private final String objectId;
+        @jakarta.annotation.Nullable private Integer limit;
+
+        private APIgetObjectIntakeCostRequest(@jakarta.annotation.Nonnull String objectId) {
+            this.objectId = objectId;
+        }
+
+        /**
+         * Set limit
+         * @param limit Most recent intake runs to list (default 50). Totals always cover every run. (optional)
+         * @return APIgetObjectIntakeCostRequest
+         */
+        public APIgetObjectIntakeCostRequest limit(@jakarta.annotation.Nullable Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for getObjectIntakeCost
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Intake cost of the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getObjectIntakeCostCall(objectId, limit, _callback);
+        }
+
+        /**
+         * Execute getObjectIntakeCost request
+         * @return ObjectIntakeCostResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Intake cost of the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ObjectIntakeCostResponse execute() throws ApiException {
+            ApiResponse<ObjectIntakeCostResponse> localVarResp =
+                    getObjectIntakeCostWithHttpInfo(objectId, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getObjectIntakeCost request with HTTP info returned
+         * @return ApiResponse&lt;ObjectIntakeCostResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Intake cost of the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ObjectIntakeCostResponse> executeWithHttpInfo() throws ApiException {
+            return getObjectIntakeCostWithHttpInfo(objectId, limit);
+        }
+
+        /**
+         * Execute getObjectIntakeCost request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Intake cost of the content object. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ObjectIntakeCostResponse> _callback)
+                throws ApiException {
+            return getObjectIntakeCostAsync(objectId, limit, _callback);
+        }
+    }
+
+    /**
+     * Get content object intake cost
+     * Returns the LLM and embedding cost of the intake workflows that processed a content object, per run and in total. For the latest version of a document it covers every version the caller can read; for an earlier version, that version alone. Costs are what the provider billed when it reported an amount, else list-price estimates.  **Required permissions:** &#x60;content:read&#x60;, and any of &#x60;billing:read&#x60;, &#x60;account:billing&#x60;
+     * @param objectId  (required)
+     * @return APIgetObjectIntakeCostRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Intake cost of the content object. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIgetObjectIntakeCostRequest getObjectIntakeCost(
+            @jakarta.annotation.Nonnull String objectId) {
+        return new APIgetObjectIntakeCostRequest(objectId);
     }
 
     private okhttp3.Call getObjectRenditionCall(

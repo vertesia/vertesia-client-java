@@ -46,7 +46,7 @@ public class CostAnalyticsQuery {
     @jakarta.annotation.Nullable private GetModelPricesToParameter to;
 
     /**
-     * Group results by this dimension. &#x60;agent_run&#x60; groups by root agent run, including the calls of its sub-agents; &#x60;workflow_run&#x60; groups by Temporal workflow run, which separates each sub-agent.
+     * Group results by this dimension. &#x60;agent_run&#x60; groups by root agent run, including the calls of its sub-agents; &#x60;workflow_run&#x60; groups by Temporal workflow run, which separates each sub-agent. &#x60;source&#x60; groups by what the calls were spent on: &#x60;agent&#x60;, &#x60;process&#x60; (with its agents), &#x60;intake&#x60;, &#x60;workflow&#x60; (any other workflow), &#x60;search&#x60; (query embeddings) or &#x60;interaction&#x60; (calls outside a workflow). Calls recorded before source tracking can also read &#x60;agent_or_process&#x60; or &#x60;embedding&#x60; (an embedding of unknown purpose).
      */
     @JsonAdapter(GroupByEnum.Adapter.class)
     public enum GroupByEnum {
@@ -71,6 +71,8 @@ public class CostAnalyticsQuery {
         AGENT_RUN("agent_run"),
 
         WORKFLOW_RUN("workflow_run"),
+
+        SOURCE("source"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -419,7 +421,7 @@ public class CostAnalyticsQuery {
     }
 
     /**
-     * Group results by this dimension. &#x60;agent_run&#x60; groups by root agent run, including the calls of its sub-agents; &#x60;workflow_run&#x60; groups by Temporal workflow run, which separates each sub-agent.
+     * Group results by this dimension. &#x60;agent_run&#x60; groups by root agent run, including the calls of its sub-agents; &#x60;workflow_run&#x60; groups by Temporal workflow run, which separates each sub-agent. &#x60;source&#x60; groups by what the calls were spent on: &#x60;agent&#x60;, &#x60;process&#x60; (with its agents), &#x60;intake&#x60;, &#x60;workflow&#x60; (any other workflow), &#x60;search&#x60; (query embeddings) or &#x60;interaction&#x60; (calls outside a workflow). Calls recorded before source tracking can also read &#x60;agent_or_process&#x60; or &#x60;embedding&#x60; (an embedding of unknown purpose).
      * @return groupBy
      */
     @jakarta.annotation.Nullable public GroupByEnum getGroupBy() {
