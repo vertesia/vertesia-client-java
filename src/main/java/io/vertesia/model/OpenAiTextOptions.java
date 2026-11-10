@@ -346,6 +346,70 @@ public class OpenAiTextOptions {
     @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
     @jakarta.annotation.Nullable private String serviceTier;
 
+    /**
+     * Gets or Sets cacheTtl
+     */
+    @JsonAdapter(CacheTtlEnum.Adapter.class)
+    public enum CacheTtlEnum {
+        _30M("30m"),
+
+        _12H("12h"),
+
+        IN_MEMORY("in_memory"),
+
+        _24H("24h"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        CacheTtlEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CacheTtlEnum fromValue(String value) {
+            for (CacheTtlEnum b : CacheTtlEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<CacheTtlEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CacheTtlEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CacheTtlEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return CacheTtlEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            CacheTtlEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_CACHE_TTL = "cache_ttl";
+
+    @SerializedName(SERIALIZED_NAME_CACHE_TTL)
+    @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
+
     public static final String SERIALIZED_NAME_EXTRA_BODY = "extra_body";
 
     @SerializedName(SERIALIZED_NAME_EXTRA_BODY)
@@ -638,6 +702,23 @@ public class OpenAiTextOptions {
         this.serviceTier = serviceTier;
     }
 
+    public OpenAiTextOptions cacheTtl(@jakarta.annotation.Nullable CacheTtlEnum cacheTtl) {
+        this.cacheTtl = cacheTtl;
+        return this;
+    }
+
+    /**
+     * Get cacheTtl
+     * @return cacheTtl
+     */
+    @jakarta.annotation.Nullable public CacheTtlEnum getCacheTtl() {
+        return cacheTtl;
+    }
+
+    public void setCacheTtl(@jakarta.annotation.Nullable CacheTtlEnum cacheTtl) {
+        this.cacheTtl = cacheTtl;
+    }
+
     public OpenAiTextOptions extraBody(@jakarta.annotation.Nullable Map<String, Object> extraBody) {
         this.extraBody = extraBody;
         return this;
@@ -688,6 +769,7 @@ public class OpenAiTextOptions {
                 && Objects.equals(this.imageDetail, openAiTextOptions.imageDetail)
                 && Objects.equals(this.includeThoughts, openAiTextOptions.includeThoughts)
                 && Objects.equals(this.serviceTier, openAiTextOptions.serviceTier)
+                && Objects.equals(this.cacheTtl, openAiTextOptions.cacheTtl)
                 && Objects.equals(this.extraBody, openAiTextOptions.extraBody);
     }
 
@@ -710,6 +792,7 @@ public class OpenAiTextOptions {
                 imageDetail,
                 includeThoughts,
                 serviceTier,
+                cacheTtl,
                 extraBody);
     }
 
@@ -733,6 +816,7 @@ public class OpenAiTextOptions {
         sb.append("    imageDetail: ").append(toIndentedString(imageDetail)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
+        sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
         sb.append("    extraBody: ").append(toIndentedString(extraBody)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -770,6 +854,7 @@ public class OpenAiTextOptions {
                                 "image_detail",
                                 "include_thoughts",
                                 "service_tier",
+                                "cache_ttl",
                                 "extra_body"));
 
         // a set of required properties/fields (JSON key names)
@@ -873,6 +958,18 @@ public class OpenAiTextOptions {
                             java.util.Locale.ROOT,
                             "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("service_tier").toString()));
+        }
+        if ((jsonObj.get("cache_ttl") != null && !jsonObj.get("cache_ttl").isJsonNull())
+                && !jsonObj.get("cache_ttl").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `cache_ttl` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("cache_ttl").toString()));
+        }
+        // validate the optional field `cache_ttl`
+        if (jsonObj.get("cache_ttl") != null && !jsonObj.get("cache_ttl").isJsonNull()) {
+            CacheTtlEnum.validateJsonElement(jsonObj.get("cache_ttl"));
         }
     }
 
