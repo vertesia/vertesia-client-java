@@ -1100,7 +1100,7 @@ public class UserGroupsApi {
 
     /**
      * List user groups
-     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
+     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it). A caller whose &#x60;account:read&#x60; or &#x60;account:group:read&#x60; comes from a project role only gets the groups usable in its selected project.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @return APIlistUserGroupsRequest
      * @http.response.details
      * <table border="1">
