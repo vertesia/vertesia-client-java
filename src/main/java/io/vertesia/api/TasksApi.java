@@ -238,7 +238,7 @@ public class TasksApi {
 
     /**
      * Cancel a task
-     * Cancels a pending or in-progress durable task. Answers 409 while a running process is waiting on the task: answer the task, advance the run, or cancel the run instead.  **Required permissions:** &#x60;task:manage&#x60;
+     * Cancels a pending or in-progress durable task. Answers 409 while a running process is waiting on the task: answer the task, advance the run, or cancel the run instead. Needs &#x60;task:manage&#x60;, except for a tool approval task (&#x60;source.node: tool_approval&#x60;), which a caller with &#x60;workflow:run&#x60; that may control the task&#39;s agent run can cancel: the run does so when it stops waiting on the prompt.
      * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @return APIcancelTaskRequest
      * @http.response.details
@@ -448,7 +448,7 @@ public class TasksApi {
 
     /**
      * Complete a task
-     * Completes a durable task and signals the backing agent or process workflow with the submitted result. Answers 409 when the task was already given a different answer or its run has ended.
+     * Completes a durable task and signals the backing agent or process workflow with the submitted result. Answers 409 when the task was already given a different answer or its run has ended. A tool approval task (&#x60;source.node: tool_approval&#x60;) takes &#x60;{ decision, feedback? }&#x60; where decision is &#x60;allow_once&#x60;, &#x60;allow_for_run&#x60;, &#x60;deny&#x60; or &#x60;deny_with_feedback&#x60; (which needs feedback); completing it again with the same decision returns the task without signalling the run twice.
      * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param completeTaskPayload  (required)
      * @return APIcompleteTaskRequest
@@ -573,6 +573,7 @@ public class TasksApi {
          * <table border="1">
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The existing task created earlier for the same &#x60;source.request_key&#x60;. </td><td>  -  </td></tr>
          * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -590,6 +591,7 @@ public class TasksApi {
          * <table border="1">
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The existing task created earlier for the same &#x60;source.request_key&#x60;. </td><td>  -  </td></tr>
          * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -608,6 +610,7 @@ public class TasksApi {
          * <table border="1">
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The existing task created earlier for the same &#x60;source.request_key&#x60;. </td><td>  -  </td></tr>
          * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -626,6 +629,7 @@ public class TasksApi {
          * <table border="1">
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The existing task created earlier for the same &#x60;source.request_key&#x60;. </td><td>  -  </td></tr>
          * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -638,13 +642,14 @@ public class TasksApi {
 
     /**
      * Create a task
-     * Creates a durable human task for a process or agent run. Callers must have &#x60;workflow:run&#x60; or &#x60;task:manage&#x60;.
+     * Creates a durable human task for a process or agent run. Callers must have &#x60;workflow:run&#x60; or &#x60;task:manage&#x60;. A &#x60;source.request_key&#x60; makes the call idempotent: when a task with that key already exists in the project it is returned with status 200 instead of creating another.
      * @param createTaskPayload  (required)
      * @return APIcreateTaskRequest
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The existing task created earlier for the same &#x60;source.request_key&#x60;. </td><td>  -  </td></tr>
      * <tr><td> 201 </td><td> The created task. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>

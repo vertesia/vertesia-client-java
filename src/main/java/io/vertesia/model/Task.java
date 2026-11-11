@@ -103,6 +103,16 @@ public class Task {
     @SerializedName(SERIALIZED_NAME_DUE_AT)
     @jakarta.annotation.Nullable private OffsetDateTime dueAt;
 
+    public static final String SERIALIZED_NAME_ASSIGNMENT_REV = "assignment_rev";
+
+    @SerializedName(SERIALIZED_NAME_ASSIGNMENT_REV)
+    @jakarta.annotation.Nullable private Integer assignmentRev;
+
+    public static final String SERIALIZED_NAME_ASSIGNED_AT = "assigned_at";
+
+    @SerializedName(SERIALIZED_NAME_ASSIGNED_AT)
+    @jakarta.annotation.Nullable private OffsetDateTime assignedAt;
+
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -331,6 +341,42 @@ public class Task {
         this.dueAt = dueAt;
     }
 
+    public Task assignmentRev(@jakarta.annotation.Nullable Integer assignmentRev) {
+        this.assignmentRev = assignmentRev;
+        return this;
+    }
+
+    /**
+     * Assignment revision: 1 at creation, incremented every time the assignee changes.
+     * minimum: -9007199254740991
+     * maximum: 9007199254740991
+     * @return assignmentRev
+     */
+    @jakarta.annotation.Nullable public Integer getAssignmentRev() {
+        return assignmentRev;
+    }
+
+    public void setAssignmentRev(@jakarta.annotation.Nullable Integer assignmentRev) {
+        this.assignmentRev = assignmentRev;
+    }
+
+    public Task assignedAt(@jakarta.annotation.Nullable OffsetDateTime assignedAt) {
+        this.assignedAt = assignedAt;
+        return this;
+    }
+
+    /**
+     * When the current assignment revision started.
+     * @return assignedAt
+     */
+    @jakarta.annotation.Nullable public OffsetDateTime getAssignedAt() {
+        return assignedAt;
+    }
+
+    public void setAssignedAt(@jakarta.annotation.Nullable OffsetDateTime assignedAt) {
+        this.assignedAt = assignedAt;
+    }
+
     public Task createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -448,6 +494,8 @@ public class Task {
                 && Objects.equals(this.result, task.result)
                 && Objects.equals(this.source, task.source)
                 && Objects.equals(this.dueAt, task.dueAt)
+                && Objects.equals(this.assignmentRev, task.assignmentRev)
+                && Objects.equals(this.assignedAt, task.assignedAt)
                 && Objects.equals(this.createdAt, task.createdAt)
                 && Objects.equals(this.completedAt, task.completedAt)
                 && Objects.equals(this.updatedAt, task.updatedAt)
@@ -477,6 +525,8 @@ public class Task {
                 result,
                 source,
                 dueAt,
+                assignmentRev,
+                assignedAt,
                 createdAt,
                 completedAt,
                 updatedAt,
@@ -505,6 +555,8 @@ public class Task {
         sb.append("    result: ").append(toIndentedString(result)).append("\n");
         sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    dueAt: ").append(toIndentedString(dueAt)).append("\n");
+        sb.append("    assignmentRev: ").append(toIndentedString(assignmentRev)).append("\n");
+        sb.append("    assignedAt: ").append(toIndentedString(assignedAt)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    completedAt: ").append(toIndentedString(completedAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -542,6 +594,8 @@ public class Task {
                                 "result",
                                 "source",
                                 "due_at",
+                                "assignment_rev",
+                                "assigned_at",
                                 "created_at",
                                 "completed_at",
                                 "updated_at"));

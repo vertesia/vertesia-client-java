@@ -82,7 +82,7 @@ public class ProcessRunConfig {
     }
 
     /**
-     * Run-level inference profile ID for process LLM nodes and the supervisor. Explicit model settings retain precedence.
+     * Run-level inference profile ID for process LLM nodes and the supervisor. Do not combine with &#x60;environment&#x60;, &#x60;model&#x60; or &#x60;model_options&#x60;. A node selection takes precedence; this run selection takes precedence over the process definition.
      * @return inferenceProfile
      */
     @jakarta.annotation.Nullable public String getInferenceProfile() {
@@ -99,7 +99,7 @@ public class ProcessRunConfig {
     }
 
     /**
-     * Execution environment id used by Process LLM nodes and the supervisor.
+     * Run-level environment id for process LLM nodes and the supervisor, set with &#x60;model&#x60; or alone. A node selection takes precedence; this run selection takes precedence over the process definition.
      * @return environment
      */
     @jakarta.annotation.Nullable public String getEnvironment() {
@@ -116,7 +116,7 @@ public class ProcessRunConfig {
     }
 
     /**
-     * Get model
+     * Run-level model id, in &#x60;environment&#x60;.
      * @return model
      */
     @jakarta.annotation.Nullable public String getModel() {
@@ -133,7 +133,7 @@ public class ProcessRunConfig {
     }
 
     /**
-     * Validated model options applied to Process LLM nodes and the supervisor.
+     * Run-level model options for &#x60;environment&#x60; and &#x60;model&#x60;.
      * @return modelOptions
      */
     @jakarta.annotation.Nullable public ModelOptions getModelOptions() {

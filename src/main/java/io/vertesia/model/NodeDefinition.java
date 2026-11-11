@@ -172,10 +172,25 @@ public class NodeDefinition {
     @SerializedName(SERIALIZED_NAME_AGENT_POLICY)
     @jakarta.annotation.Nullable private ProcessAgentExecutionPolicy agentPolicy;
 
+    public static final String SERIALIZED_NAME_INFERENCE_PROFILE = "inference_profile";
+
+    @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
+    @jakarta.annotation.Nullable private String inferenceProfile;
+
+    public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
+
+    @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
+    @jakarta.annotation.Nullable private String environment;
+
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
     @jakarta.annotation.Nullable private String model;
+
+    public static final String SERIALIZED_NAME_MODEL_OPTIONS = "model_options";
+
+    @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
+    @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
     public static final String SERIALIZED_NAME_TASK = "task";
 
@@ -740,13 +755,47 @@ public class NodeDefinition {
         this.agentPolicy = agentPolicy;
     }
 
+    public NodeDefinition inferenceProfile(@jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+        return this;
+    }
+
+    /**
+     * Inference profile for this node, which supplies its environment, model and model options. Do not combine with &#x60;environment&#x60;, &#x60;model&#x60; or &#x60;model_options&#x60;. A node that selects nothing uses the process run config, then the process definition, then the interaction or agent defaults.
+     * @return inferenceProfile
+     */
+    @jakarta.annotation.Nullable public String getInferenceProfile() {
+        return inferenceProfile;
+    }
+
+    public void setInferenceProfile(@jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+    }
+
+    public NodeDefinition environment(@jakarta.annotation.Nullable String environment) {
+        this.environment = environment;
+        return this;
+    }
+
+    /**
+     * Environment id for this node. Set it together with &#x60;model&#x60;, or alone to use the environment default model. Useful when one node needs heavier reasoning (e.g. Opus for legal flagging) while the rest of the process uses a cheaper default.
+     * @return environment
+     */
+    @jakarta.annotation.Nullable public String getEnvironment() {
+        return environment;
+    }
+
+    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
+        this.environment = environment;
+    }
+
     public NodeDefinition model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
 
     /**
-     * Model id override for this node. If unset, falls back to the process run&#39;s &#x60;config.model&#x60;, then to the project&#39;s default. Useful when a specific node needs heavier reasoning (e.g. Opus for legal flagging) while the rest of the process uses a cheaper default.
+     * Model id for this node, in &#x60;environment&#x60;. A model without an environment is accepted only in definitions saved before environments were required; saving one is rejected.
      * @return model
      */
     @jakarta.annotation.Nullable public String getModel() {
@@ -755,6 +804,23 @@ public class NodeDefinition {
 
     public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
+    }
+
+    public NodeDefinition modelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
+        this.modelOptions = modelOptions;
+        return this;
+    }
+
+    /**
+     * Model options for this node&#39;s &#x60;environment&#x60; and &#x60;model&#x60;.
+     * @return modelOptions
+     */
+    @jakarta.annotation.Nullable public ModelOptions getModelOptions() {
+        return modelOptions;
+    }
+
+    public void setModelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
+        this.modelOptions = modelOptions;
     }
 
     public NodeDefinition task(@jakarta.annotation.Nullable HumanTaskDefinition task) {
@@ -1035,7 +1101,10 @@ public class NodeDefinition {
                 && Objects.equals(this.initialSkills, nodeDefinition.initialSkills)
                 && Objects.equals(this.excludedTools, nodeDefinition.excludedTools)
                 && Objects.equals(this.agentPolicy, nodeDefinition.agentPolicy)
+                && Objects.equals(this.inferenceProfile, nodeDefinition.inferenceProfile)
+                && Objects.equals(this.environment, nodeDefinition.environment)
                 && Objects.equals(this.model, nodeDefinition.model)
+                && Objects.equals(this.modelOptions, nodeDefinition.modelOptions)
                 && Objects.equals(this.task, nodeDefinition.task)
                 && Objects.equals(this.foreach, nodeDefinition.foreach)
                 && Objects.equals(this.as, nodeDefinition.as)
@@ -1088,7 +1157,10 @@ public class NodeDefinition {
                 initialSkills,
                 excludedTools,
                 agentPolicy,
+                inferenceProfile,
+                environment,
                 model,
+                modelOptions,
                 task,
                 foreach,
                 as,
@@ -1142,7 +1214,10 @@ public class NodeDefinition {
         sb.append("    initialSkills: ").append(toIndentedString(initialSkills)).append("\n");
         sb.append("    excludedTools: ").append(toIndentedString(excludedTools)).append("\n");
         sb.append("    agentPolicy: ").append(toIndentedString(agentPolicy)).append("\n");
+        sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
+        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
+        sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
         sb.append("    task: ").append(toIndentedString(task)).append("\n");
         sb.append("    foreach: ").append(toIndentedString(foreach)).append("\n");
         sb.append("    as: ").append(toIndentedString(as)).append("\n");
@@ -1203,7 +1278,10 @@ public class NodeDefinition {
                                 "initial_skills",
                                 "excluded_tools",
                                 "agent_policy",
+                                "inference_profile",
+                                "environment",
                                 "model",
+                                "model_options",
                                 "task",
                                 "foreach",
                                 "as",
@@ -1397,6 +1475,23 @@ public class NodeDefinition {
         if (jsonObj.get("agent_policy") != null && !jsonObj.get("agent_policy").isJsonNull()) {
             ProcessAgentExecutionPolicy.validateJsonElement(jsonObj.get("agent_policy"));
         }
+        if ((jsonObj.get("inference_profile") != null
+                        && !jsonObj.get("inference_profile").isJsonNull())
+                && !jsonObj.get("inference_profile").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `inference_profile` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("inference_profile").toString()));
+        }
+        if ((jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull())
+                && !jsonObj.get("environment").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `environment` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("environment").toString()));
+        }
         if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull())
                 && !jsonObj.get("model").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -1404,6 +1499,10 @@ public class NodeDefinition {
                             java.util.Locale.ROOT,
                             "Expected the field `model` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("model").toString()));
+        }
+        // validate the optional field `model_options`
+        if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
+            ModelOptions.validateJsonElement(jsonObj.get("model_options"));
         }
         // validate the optional field `task`
         if (jsonObj.get("task") != null && !jsonObj.get("task").isJsonNull()) {

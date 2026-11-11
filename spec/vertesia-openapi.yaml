@@ -5053,6 +5053,18 @@ components:
       type: object
       additionalProperties:
         $ref: "#/components/schemas/AppWidgetInfo"
+    ArchiveNotificationsPayload:
+      type: object
+      properties:
+        ids:
+          minItems: 1
+          maxItems: 200
+          type: array
+          items:
+            type: string
+      required:
+        - ids
+      additionalProperties: false
     AskUserWebhookConfiguration:
       type: object
       properties:
@@ -10632,9 +10644,15 @@ components:
             - workflow
             - agent_run
             - workflow_run
-          description: Group results by this dimension. `agent_run` groups by root agent
+            - source
+          description: "Group results by this dimension. `agent_run` groups by root agent
             run, including the calls of its sub-agents; `workflow_run` groups by
-            Temporal workflow run, which separates each sub-agent.
+            Temporal workflow run, which separates each sub-agent. `source`
+            groups by what the calls were spent on: `agent`, `process` (with its
+            agents), `intake`, `workflow` (any other workflow), `search` (query
+            embeddings) or `interaction` (calls outside a workflow). Calls
+            recorded before source tracking can also read `agent_or_process` or
+            `embedding` (an embedding of unknown purpose)."
         resolution:
           type: string
           enum:
@@ -18699,6 +18717,297 @@ components:
       description: A tool invocation executed before the first model turn of a
         conversation. Results are injected into the initial context so the agent
         starts with them in hand.
+    IntakeCostByContentNature:
+      type: object
+      properties:
+        content_nature:
+          type: string
+          description: "The kind of content: `document`, `image`, `audio`, `video`, `code`
+            or `other`. Absent for runs that never reported one."
+        run_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        document_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        cost_usd:
+          type: number
+        page_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: Pages of the runs that reported a page count.
+        duration_seconds:
+          type: number
+          description: Length of the audio and video of the runs that reported one, in
+            seconds.
+        cost_per_minute_usd:
+          type: number
+          description: The cost of the runs that reported a length over their minutes.
+            Absent when none reported one.
+      required:
+        - run_count
+        - document_count
+        - cost_usd
+        - page_count
+        - duration_seconds
+      description: Intake runs of one kind of content.
+    IntakeCostByContentType:
+      type: object
+      properties:
+        content_type_id:
+          type: string
+          description: Absent for runs that ended without a content type, or never
+            reported one.
+        content_type_name:
+          type: string
+        run_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        document_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        cost_usd:
+          type: number
+        page_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+      required:
+        - run_count
+        - document_count
+        - cost_usd
+        - page_count
+      description: Intake runs of one content type.
+    IntakeCostByOutcome:
+      type: object
+      properties:
+        outcome:
+          type: string
+          enum:
+            - completed
+            - skipped
+            - failed
+            - not_reported
+          description: "`not_reported` covers runs still going and runs that closed
+            without reporting."
+        run_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        cost_usd:
+          type: number
+      required:
+        - outcome
+        - run_count
+        - cost_usd
+      description: Intake runs that ended one way.
+    IntakeCostDocument:
+      type: object
+      properties:
+        object_id:
+          type: string
+          description: The latest version of the document the caller can read, else the
+            first version of the document.
+        name:
+          type: string
+          description: Absent when the caller cannot read the document.
+        content_type_name:
+          type: string
+        run_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        cost_usd:
+          type: number
+      required:
+        - object_id
+        - run_count
+        - cost_usd
+      description: The intake cost of one document over a window, all its versions included.
+    IntakeCostPerPage:
+      type: object
+      properties:
+        run_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: Runs that reported a page count.
+        page_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        cost_usd:
+          type: number
+          description: What these runs cost.
+        average_usd:
+          type: number
+          description: Their cost over their pages.
+        median_usd:
+          type: number
+          description: The median of the cost per page of each run.
+        p95_usd:
+          type: number
+          description: The 95th percentile of the cost per page of each run.
+      required:
+        - run_count
+        - page_count
+        - cost_usd
+        - average_usd
+        - median_usd
+        - p95_usd
+      description: The cost per page of the intake runs that reported a page count.
+    IntakeCostSummaryResponse:
+      type: object
+      properties:
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+        resolution:
+          type: string
+          enum:
+            - hour
+            - day
+            - week
+            - month
+        totals:
+          $ref: "#/components/schemas/IntakeCostTotals"
+        time_series:
+          type: array
+          items:
+            $ref: "#/components/schemas/IntakeCostTimePoint"
+          description: Periods that had runs, oldest first.
+        per_page:
+          $ref: "#/components/schemas/IntakeCostPerPage"
+          description: Absent when no run reported a page count.
+        by_content_type:
+          type: array
+          items:
+            $ref: "#/components/schemas/IntakeCostByContentType"
+          description: Most expensive first.
+        by_content_nature:
+          type: array
+          items:
+            $ref: "#/components/schemas/IntakeCostByContentNature"
+          description: Most expensive first.
+        by_outcome:
+          type: array
+          items:
+            $ref: "#/components/schemas/IntakeCostByOutcome"
+          description: Most expensive first.
+        top_documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/IntakeCostDocument"
+          description: The 10 most expensive documents of the window, most expensive first.
+      required:
+        - from
+        - to
+        - resolution
+        - totals
+        - time_series
+        - by_content_type
+        - by_content_nature
+        - by_outcome
+        - top_documents
+      description: The LLM and embedding cost of the intake runs of the current
+        project that started in a window, recorded since intake cost tracking
+        was deployed.
+    IntakeCostTimePoint:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          description: Start of the period, in UTC.
+        run_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        cost_usd:
+          type: number
+      required:
+        - timestamp
+        - run_count
+        - cost_usd
+      description: Intake runs that started in one period.
+    IntakeCostTotals:
+      type: object
+      properties:
+        run_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        document_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: Distinct documents the runs processed; the versions of a document
+            count once.
+        cost_usd:
+          type: number
+          description: "What the priced calls cost: the amount the provider billed when it
+            reported one, else the list-price estimate."
+        priced_calls:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        unpriced_calls:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: Calls with no price, left out of `cost_usd`; their tokens are still
+            counted.
+        failed_calls:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        page_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: Pages of the runs that reported a page count.
+        tokens:
+          type: object
+          additionalProperties:
+            type: number
+          description: Tokens by meter type (`input`, `output`, ...).
+      required:
+        - run_count
+        - document_count
+        - cost_usd
+        - priced_calls
+        - unpriced_calls
+        - failed_calls
+        - page_count
+        - tokens
+      description: Totals over the intake runs of a window.
+    IntakeCostVersion:
+      type: object
+      properties:
+        object_id:
+          type: string
+        label:
+          type: string
+          description: The label given to the version, if any.
+        created_at:
+          type: string
+          format: date-time
+        head:
+          type: boolean
+          description: Whether this is the latest version of the document.
+      required:
+        - object_id
+        - created_at
+        - head
+      description: A version of a document whose intake runs a cost covers.
     IntakeMediaAnalysisOverride:
       type: object
       properties:
@@ -18756,6 +19065,89 @@ components:
         the locate-pass result. Static page ranges live in the sibling
         `page_ranges` field (which wins when set) — kept as a SEPARATE field
         because scalar-or-collection unions generate unstable API clients."
+    IntakeRunCost:
+      type: object
+      properties:
+        root_run_id:
+          type: string
+          description: First run ID of the intake workflow, shared by its continued runs
+            and child workflows.
+        object_id:
+          type: string
+          description: The version of the document the run processed.
+        workflow_id:
+          type: string
+        workflow_type:
+          type: string
+        outcome:
+          type: string
+          enum:
+            - completed
+            - skipped
+            - failed
+          description: How the run ended. Absent while it runs, or when it closed without
+            reporting.
+        content_type_id:
+          type: string
+          description: Content type of the document when the run ended.
+        content_type_name:
+          type: string
+        content_nature:
+          type: string
+        page_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        started_at:
+          type: string
+          format: date-time
+          description: First billable call or closing event.
+        last_event_at:
+          type: string
+          format: date-time
+        closed_at:
+          type: string
+          format: date-time
+        cost_usd:
+          type: number
+          description: "What the priced calls cost: the amount the provider billed when it
+            reported one, else the list-price estimate recorded with the call."
+        priced_calls:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        unpriced_calls:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: Calls with no price, left out of `cost_usd`; their tokens are still
+            counted.
+        failed_calls:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        calls:
+          type: object
+          additionalProperties:
+            type: number
+          description: Billable calls by audit action (`inference`, `embedding`).
+        tokens:
+          type: object
+          additionalProperties:
+            type: number
+          description: Tokens by meter type (`input`, `output`, ...).
+      required:
+        - root_run_id
+        - object_id
+        - started_at
+        - last_event_at
+        - cost_usd
+        - priced_calls
+        - unpriced_calls
+        - failed_calls
+        - calls
+        - tokens
+      description: The cost of one intake run of a content object.
     IntakeVisionDetail:
       type: string
       enum:
@@ -20074,6 +20466,25 @@ components:
       required:
         - deliveries
       additionalProperties: false
+    ListNotificationsResponse:
+      type: object
+      properties:
+        notifications:
+          type: array
+          items:
+            $ref: "#/components/schemas/Notification"
+        next_cursor:
+          type: string
+        read_all_before:
+          type: string
+          format: date-time
+          description: Server time when this page was read. Pass it to `POST
+            /notifications/read-all` so notifications written afterwards stay
+            unread.
+      required:
+        - notifications
+        - read_all_before
+      additionalProperties: false
     ListPendingAsksResponse:
       type: object
       properties:
@@ -20395,6 +20806,33 @@ components:
       required:
         - integration
         - enabled
+      additionalProperties: false
+    MarkAllNotificationsReadPayload:
+      type: object
+      properties:
+        before:
+          type: string
+          format: date-time
+          description: The `read_all_before` of the list the user saw.
+      required:
+        - before
+      additionalProperties: false
+    MarkNotificationsReadPayload:
+      type: object
+      properties:
+        ids:
+          maxItems: 200
+          type: array
+          items:
+            type: string
+        occurrences:
+          maxItems: 200
+          type: array
+          items:
+            $ref: "#/components/schemas/NotificationOccurrenceAck"
+          description: Occurrences the client rendered. An occurrence with no notification
+            yet is remembered for a day and applied when its notification is
+            written.
       additionalProperties: false
     MarkdownRenditionFormat:
       type: string
@@ -20928,12 +21366,27 @@ components:
           description: Declarative successful-tool phases and completion behavior for this
             agent node. The Process owns this policy; the child conversation
             enforces it generically.
+        inference_profile:
+          $ref: "#/components/schemas/InferenceProfileId"
+          description: Inference profile for this node, which supplies its environment,
+            model and model options. Do not combine with `environment`, `model`
+            or `model_options`. A node that selects nothing uses the process run
+            config, then the process definition, then the interaction or agent
+            defaults.
+        environment:
+          type: string
+          description: Environment id for this node. Set it together with `model`, or
+            alone to use the environment default model. Useful when one node
+            needs heavier reasoning (e.g. Opus for legal flagging) while the
+            rest of the process uses a cheaper default.
         model:
           type: string
-          description: Model id override for this node. If unset, falls back to the
-            process run's `config.model`, then to the project's default. Useful
-            when a specific node needs heavier reasoning (e.g. Opus for legal
-            flagging) while the rest of the process uses a cheaper default.
+          description: Model id for this node, in `environment`. A model without an
+            environment is accepted only in definitions saved before
+            environments were required; saving one is rejected.
+        model_options:
+          $ref: "#/components/schemas/ModelOptions"
+          description: Model options for this node's `environment` and `model`.
         task:
           $ref: "#/components/schemas/HumanTaskDefinition"
         foreach:
@@ -21015,6 +21468,195 @@ components:
         - node
         - entered_at
         - status
+      additionalProperties: false
+    Notification:
+      type: object
+      properties:
+        id:
+          type: string
+        kind:
+          $ref: "#/components/schemas/NotificationKind"
+        category:
+          $ref: "#/components/schemas/NotificationCategory"
+        occurrence:
+          $ref: "#/components/schemas/NotificationRef"
+          description: The exact occurrence acknowledged by `POST /notifications/read`
+            with `occurrences`.
+        subject:
+          $ref: "#/components/schemas/NotificationRef"
+          description: Where the notification links to.
+        parent:
+          $ref: "#/components/schemas/NotificationRef"
+          description: Lifecycle parent, usually the agent run.
+        actor:
+          type: string
+          description: Principal that caused the notification, when a person.
+        payload:
+          $ref: "#/components/schemas/NotificationPayload"
+        payload_version:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        occurred_at:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        read_at:
+          type: string
+          format: date-time
+        archived_at:
+          type: string
+          format: date-time
+        resolved_at:
+          type: string
+          format: date-time
+          description: When the item stopped needing attention (task closed or reassigned,
+            run ended).
+      required:
+        - id
+        - kind
+        - category
+        - occurrence
+        - subject
+        - payload
+        - payload_version
+        - occurred_at
+        - created_at
+      additionalProperties: false
+      description: One notification in the current user’s project inbox.
+    NotificationCategory:
+      type: string
+      enum:
+        - actions
+        - failures
+        - results
+      description: "Preference group of a notification: `actions` need the user
+        (questions, approvals, tasks), `failures` report failed runs or intakes,
+        `results` report successful ones."
+    NotificationChannelPreferences:
+      type: object
+      properties:
+        in_app:
+          type: boolean
+      additionalProperties: false
+    NotificationCounts:
+      type: object
+      properties:
+        unread:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: Inbox notifications not read, archived or resolved. Counted up to
+            100.
+        needs_action:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: Open tasks assigned to the user. Counted up to 100.
+      required:
+        - unread
+        - needs_action
+      additionalProperties: false
+    NotificationKind:
+      type: string
+      enum:
+        - agent.question
+        - agent.approval
+        - agent.finished
+        - agent.turn_finished
+        - task.assigned
+        - intake.finished
+      description: What a notification is about. Each kind belongs to one category.
+    NotificationOccurrenceAck:
+      type: object
+      properties:
+        type:
+          type: string
+          minLength: 1
+        id:
+          type: string
+          minLength: 1
+        as_of:
+          type: string
+          format: date-time
+          description: "For an occurrence that happens again (`agent_turn`, `object`): the
+            version the client displayed. Only notifications that occurred by
+            then are read, now or when written later. Defaults to now."
+      required:
+        - type
+        - id
+      additionalProperties: false
+      description: An occurrence the client rendered.
+    NotificationPayload:
+      type: object
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        status:
+          type: string
+          description: Outcome of the item, for example `completed` or `failed`.
+        agent_name:
+          type: string
+        object_name:
+          type: string
+      required:
+        - title
+      additionalProperties: false
+      description: Display fields of a notification, copied from the item when the
+        notification was written.
+    NotificationPreferences:
+      type: object
+      properties:
+        categories:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/NotificationChannelPreferences"
+          description: Per category (`actions`, `failures`, `results`), the channels it is
+            delivered to.
+        kinds:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/NotificationChannelPreferences"
+          description: Per kind, an override of its category. Today only
+            `agent.turn_finished` is offered.
+      required:
+        - categories
+        - kinds
+      additionalProperties: false
+      description: The user’s notification preferences in the project. Unset channels
+        are on.
+    NotificationRef:
+      type: object
+      properties:
+        type:
+          type: string
+          minLength: 1
+        id:
+          type: string
+          minLength: 1
+      required:
+        - type
+        - id
+      additionalProperties: false
+      description: A typed reference to the item a notification is about.
+    NotificationUpdateResult:
+      type: object
+      properties:
+        updated:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        held:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: Occurrences acknowledged before their notification existed.
+      required:
+        - updated
       additionalProperties: false
     NovaCanvasOptions:
       type: object
@@ -21430,6 +22072,21 @@ components:
         consent_url:
           type: string
       additionalProperties: false
+    OAuthLoginNotFoundResponse:
+      oneOf:
+        - $ref: "#/components/schemas/OAuthLoginUserNotFoundResponse"
+        - $ref: "#/components/schemas/OAuthLoginRequestNotFoundResponse"
+      discriminator:
+        propertyName: error
+        mapping:
+          user_not_found: "#/components/schemas/OAuthLoginUserNotFoundResponse"
+          not_found: "#/components/schemas/OAuthLoginRequestNotFoundResponse"
+      type: object
+      required:
+        - error
+      description: "Why a login could not complete: `user_not_found` when the user
+        must be provisioned before retrying, `not_found` when the authorization
+        request cannot be completed."
     OAuthLoginPayload:
       type: object
       properties:
@@ -21443,6 +22100,20 @@ components:
       required:
         - id_token
       additionalProperties: false
+    OAuthLoginRequestNotFoundResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          const: not_found
+        message:
+          type: string
+      required:
+        - error
+        - message
+      additionalProperties: false
+      description: The authorization request, or the client it was issued for, does
+        not exist or is no longer available.
     OAuthLoginUserNotFoundResponse:
       type: object
       properties:
@@ -21620,6 +22291,50 @@ components:
         - client_secret_post
         - client_secret_basic
         - private_key_jwt
+    ObjectIntakeCostResponse:
+      type: object
+      properties:
+        object_id:
+          type: string
+        versions:
+          type: array
+          items:
+            $ref: "#/components/schemas/IntakeCostVersion"
+          description: "The versions the cost covers, newest first. For the latest version
+            of a document: every version the caller can read. For an earlier
+            version: that version alone."
+        run_count:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: Intake runs recorded for the versions covered.
+        cost_usd:
+          type: number
+          description: Sum of `cost_usd` over every run of the versions covered.
+        priced_calls:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        unpriced_calls:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+        runs:
+          type: array
+          items:
+            $ref: "#/components/schemas/IntakeRunCost"
+          description: The most recent runs, newest first.
+      required:
+        - object_id
+        - versions
+        - run_count
+        - cost_usd
+        - priced_calls
+        - unpriced_calls
+        - runs
+      description: The LLM and embedding cost of the intake workflows that processed a
+        content object, recorded since intake cost tracking was deployed. The
+        latest version of a document covers all its versions.
     ObjectSearchResponse:
       type: object
       properties:
@@ -22169,6 +22884,13 @@ components:
           minLength: 1
           description: Provider-defined processing tier. Unknown non-empty values are
             preserved for forward compatibility.
+        cache_ttl:
+          type: string
+          enum:
+            - 30m
+            - 12h
+            - in_memory
+            - 24h
         extra_body:
           type: object
           additionalProperties: true
@@ -22225,6 +22947,13 @@ components:
           minLength: 1
           description: Provider-defined processing tier. Unknown non-empty values are
             preserved for forward compatibility.
+        cache_ttl:
+          type: string
+          enum:
+            - 30m
+            - 12h
+            - in_memory
+            - 24h
         extra_body:
           type: object
           additionalProperties: true
@@ -23157,8 +23886,24 @@ components:
           type: string
         initial:
           type: string
+        inference_profile:
+          $ref: "#/components/schemas/InferenceProfileId"
+          description: Default inference profile for the LLM nodes and supervisor of this
+            process. Do not combine with `environment`, `model` or
+            `model_options`. A process run config selection and a node selection
+            take precedence.
+        environment:
+          type: string
+          description: Default environment id for the LLM nodes and supervisor of this
+            process, set with `model` or alone.
         model:
           type: string
+          description: Default model id, in `environment`. A model without an environment
+            is accepted only in definitions saved before environments were
+            required; saving one is rejected.
+        model_options:
+          $ref: "#/components/schemas/ModelOptions"
+          description: Default model options for `environment` and `model`.
         resources:
           $ref: "#/components/schemas/ProcessResourcesDefinition"
         context:
@@ -23337,17 +24082,20 @@ components:
             - $ref: "#/components/schemas/InferenceProfileId"
             - type: "null"
           description: Run-level inference profile ID for process LLM nodes and the
-            supervisor. Explicit model settings retain precedence.
+            supervisor. Do not combine with `environment`, `model` or
+            `model_options`. A node selection takes precedence; this run
+            selection takes precedence over the process definition.
         environment:
           type: string
-          description: Execution environment id used by Process LLM nodes and the
-            supervisor.
+          description: Run-level environment id for process LLM nodes and the supervisor,
+            set with `model` or alone. A node selection takes precedence; this
+            run selection takes precedence over the process definition.
         model:
           type: string
+          description: Run-level model id, in `environment`.
         model_options:
           $ref: "#/components/schemas/ModelOptions"
-          description: Validated model options applied to Process LLM nodes and the
-            supervisor.
+          description: Run-level model options for `environment` and `model`.
         user_message:
           type: string
           description: Free-form message from the user when starting a run. Passed to the
@@ -28004,6 +28752,16 @@ components:
         due_at:
           type: string
           format: date-time
+        assignment_rev:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: "Assignment revision: 1 at creation, incremented every time the
+            assignee changes."
+        assigned_at:
+          type: string
+          format: date-time
+          description: When the current assignment revision started.
         created_at:
           type: string
           format: date-time
@@ -28070,6 +28828,22 @@ components:
           type: string
         ask_id:
           type: string
+        request_key:
+          type: string
+          minLength: 1
+          maxLength: 512
+          description: "Stable key of the agent request this task answers
+            (`<run_id>:<tool_use_id>`). Unique in the project: creating a task
+            whose source repeats an existing request key returns that task
+            instead of creating a second one."
+        request_id:
+          type: string
+          description: Tool-use id of the agent request (the REQUEST_INPUT message) this
+            task answers.
+        approval_key:
+          type: string
+          description: For a tool approval task, the approval key (`tool_name:target`) the
+            decision applies to.
       required:
         - type
         - run_id
@@ -33531,6 +34305,12 @@ components:
       properties:
         success:
           type: boolean
+        timestamp:
+          type: integer
+          minimum: -9007199254740991
+          maximum: 9007199254740991
+          description: The `timestamp` the published update carries in the run stream, in
+            epoch milliseconds. Absent from servers that predate it.
       required:
         - success
       additionalProperties: false
@@ -38824,7 +39604,13 @@ paths:
         Without `newName`, a fork into another project keeps the source name;
         otherwise, or when that endpoint is taken, it gets the first of `<name>
         (fork)`, `<name> (fork 2)`, ... whose endpoint is free in the target
-        project.
+        project. A copy keeps its environment and model when the target project
+        can use that environment. Otherwise it keeps the model in another
+        environment of the target project that enables it, or takes the target
+        project's default model: its agent default for an agent, then its base
+        default. A copy into another project gets the environment, model and
+        options of its source's inference profile, because profiles belong to
+        their project.
 
 
         **Required permissions:** `interaction:write`
@@ -38845,6 +39631,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Interaction"
+        "400":
+          description: The copy needs a default environment, and the target project has
+            none.
         "409":
           description: The endpoint derived from `newName` is already used in the target
             project.
@@ -45076,11 +45865,12 @@ paths:
       tags:
         - Apps
       summary: Check whether additional MCP app instances are enabled for this project
-      description: "**Required permissions:** `account:member`"
+      description: "**Required permissions:** `account:member`, and `app:manage`"
       security:
         - bearerAuth: []
         - OAuth2:
             - account:member
+            - app:manage
       parameters: []
       responses:
         "200":
@@ -45111,6 +45901,9 @@ paths:
                 message: Request validation failed.
       x-vertesia-permissions:
         - account:member
+      x-vertesia-permission-groups:
+        - - account:member
+        - - app:manage
       x-vertesia-source:
         file: ../../apps/studio-server/src/api/apps.ts
         className: AppsResource
@@ -54735,6 +55528,116 @@ paths:
         description: Required Vertesia API version header. Use `20260803` for the
           current stable API shape.
         x-vertesia-global-header: true
+  /cost/intake:
+    get:
+      operationId: GetIntakeCostSummary
+      tags:
+        - Costs
+      summary: Summarize intake cost
+      description: >-
+        Summarizes the LLM and embedding cost of the intake workflows that
+        processed the current project's documents: totals, a time series, and
+        breakdowns by content type, outcome and document. A run belongs to the
+        window it started in.
+
+
+        **Required permissions:** Any of `billing:read`, `account:billing`
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: from
+          in: query
+          required: false
+          schema:
+            type:
+              - string
+              - number
+            minimum: -62135596800000
+            maximum: 253402300799999
+            description: "Start of the window, on the start of each run. Default: 30 days
+              before `to`."
+          description: "Start of the window, on the start of each run. Default: 30 days
+            before `to`."
+        - name: to
+          in: query
+          required: false
+          schema:
+            type:
+              - string
+              - number
+            minimum: -62135596800000
+            maximum: 253402300799999
+            description: "End of the window, exclusive. Default: now."
+          description: "End of the window, exclusive. Default: now."
+        - name: resolution
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - hour
+              - day
+              - week
+              - month
+            description: "Period of the time series, in UTC; weeks start on Monday. Default:
+              `day`."
+          description: "Period of the time series, in UTC; weeks start on Monday. Default:
+            `day`."
+        - name: content_type_id
+          in: query
+          required: false
+          schema:
+            type: string
+            description: Only the runs that ended on this content type.
+          description: Only the runs that ended on this content type.
+      responses:
+        "200":
+          description: Intake cost of the project over the window.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IntakeCostSummaryResponse"
+        "400":
+          description: The time range cannot be read, or is longer than the maximum window.
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions:
+        - billing:read
+        - account:billing
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/cost.ts
+        className: CostResource
+        methodName: getIntakeCostSummary
+    parameters:
+      - name: x-api-version
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          pattern: \S
+          example: "20260803"
+        description: Required Vertesia API version header. Use `20260803` for the
+          current stable API shape.
+        x-vertesia-global-header: true
   /cost/run-price:
     post:
       operationId: GetRunPrice
@@ -57393,13 +58296,21 @@ paths:
       tags:
         - Tasks
       summary: Create a task
-      description: Creates a durable human task for a process or agent run. Callers
-        must have `workflow:run` or `task:manage`.
+      description: "Creates a durable human task for a process or agent run. Callers
+        must have `workflow:run` or `task:manage`. A `source.request_key` makes
+        the call idempotent: when a task with that key already exists in the
+        project it is returned with status 200 instead of creating another."
       security:
         - bearerAuth: []
         - OAuth2: []
       parameters: []
       responses:
+        "200":
+          description: The existing task created earlier for the same `source.request_key`.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
         "201":
           description: The created task.
           content:
@@ -57644,9 +58555,13 @@ paths:
       tags:
         - Tasks
       summary: Complete a task
-      description: Completes a durable task and signals the backing agent or process
+      description: "Completes a durable task and signals the backing agent or process
         workflow with the submitted result. Answers 409 when the task was
-        already given a different answer or its run has ended.
+        already given a different answer or its run has ended. A tool approval
+        task (`source.node: tool_approval`) takes `{ decision, feedback? }`
+        where decision is `allow_once`, `allow_for_run`, `deny` or
+        `deny_with_feedback` (which needs feedback); completing it again with
+        the same decision returns the task without signalling the run twice."
       security:
         - bearerAuth: []
         - OAuth2: []
@@ -57718,17 +58633,15 @@ paths:
       tags:
         - Tasks
       summary: Cancel a task
-      description: >-
-        Cancels a pending or in-progress durable task. Answers 409 while a
+      description: "Cancels a pending or in-progress durable task. Answers 409 while a
         running process is waiting on the task: answer the task, advance the
-        run, or cancel the run instead.
-
-
-        **Required permissions:** `task:manage`
+        run, or cancel the run instead. Needs `task:manage`, except for a tool
+        approval task (`source.node: tool_approval`), which a caller with
+        `workflow:run` that may control the task's agent run can cancel: the run
+        does so when it stops waiting on the prompt."
       security:
         - bearerAuth: []
-        - OAuth2:
-            - task:manage
+        - OAuth2: []
       parameters:
         - name: taskId
           in: path
@@ -57765,8 +58678,7 @@ paths:
                 error: Bad Request
                 status: 400
                 message: Request validation failed.
-      x-vertesia-permissions:
-        - task:manage
+      x-vertesia-permissions: []
       x-vertesia-source:
         file: ../../apps/zeno-server/src/api/tasks.ts
         className: TaskResource
@@ -59205,6 +60117,90 @@ paths:
         file: ../../apps/zeno-server/src/api/objects.ts
         className: ContentObjectResource
         methodName: listRuns
+    parameters:
+      - name: x-api-version
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          pattern: \S
+          example: "20260803"
+        description: Required Vertesia API version header. Use `20260803` for the
+          current stable API shape.
+        x-vertesia-global-header: true
+  /objects/{objectId}/intake-cost:
+    get:
+      operationId: GetObjectIntakeCost
+      tags:
+        - Objects
+      summary: Get content object intake cost
+      description: >-
+        Returns the LLM and embedding cost of the intake workflows that
+        processed a content object, per run and in total. For the latest version
+        of a document it covers every version the caller can read; for an
+        earlier version, that version alone. Costs are what the provider billed
+        when it reported an amount, else list-price estimates.
+
+
+        **Required permissions:** `content:read`, and any of `billing:read`,
+        `account:billing`
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: objectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+            description: Most recent intake runs to list (default 50). Totals always cover
+              every run.
+          description: Most recent intake runs to list (default 50). Totals always cover
+            every run.
+      responses:
+        "200":
+          description: Intake cost of the content object.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ObjectIntakeCostResponse"
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions:
+        - content:read
+      x-vertesia-permission-groups:
+        - - content:read
+        - - billing:read
+          - account:billing
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/objects.ts
+        className: ContentObjectResource
+        methodName: getIntakeCost
     parameters:
       - name: x-api-version
         in: header
@@ -64668,6 +65664,572 @@ paths:
         description: Required Vertesia API version header. Use `20260803` for the
           current stable API shape.
         x-vertesia-global-header: true
+  /notifications:
+    get:
+      operationId: ListNotifications
+      tags:
+        - Notifications
+      summary: List notifications
+      description: Lists the current user’s notifications, newest first. Notifications
+        whose item the user can no longer read are left out, so a page can hold
+        fewer than `limit`; keep paging while `next_cursor` is set.
+      security:
+        - bearerAuth: []
+        - OAuth2: []
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: number
+            minimum: 0
+            maximum: 9007199254740991
+            multipleOf: 1
+        - name: cursor
+          in: query
+          required: false
+          schema:
+            type: string
+            description: The `next_cursor` of the previous page.
+          description: The `next_cursor` of the previous page.
+        - name: unread
+          in: query
+          required: false
+          schema:
+            type: boolean
+            description: Only notifications that were not read.
+          description: Only notifications that were not read.
+        - name: archived
+          in: query
+          required: false
+          schema:
+            type: boolean
+            description: Archived notifications instead of the inbox.
+          description: Archived notifications instead of the inbox.
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - actions
+              - failures
+              - results
+            description: "Preference group of a notification: `actions` need the user
+              (questions, approvals, tasks), `failures` report failed runs or
+              intakes, `results` report successful ones."
+          style: form
+      responses:
+        "200":
+          description: A page of notifications.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListNotificationsResponse"
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions: []
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/notifications.ts
+        className: NotificationsResource
+        methodName: list
+    parameters:
+      - name: x-api-version
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          pattern: \S
+          example: "20260803"
+        description: Required Vertesia API version header. Use `20260803` for the
+          current stable API shape.
+        x-vertesia-global-header: true
+  /notifications/counts:
+    get:
+      operationId: GetNotificationCounts
+      tags:
+        - Notifications
+      summary: Count notifications
+      description: Counts the current user’s unread notifications and the open tasks
+        assigned to them, each up to 100.
+      security:
+        - bearerAuth: []
+        - OAuth2: []
+      parameters: []
+      responses:
+        "200":
+          description: The badge counts.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationCounts"
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions: []
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/notifications.ts
+        className: NotificationsResource
+        methodName: counts
+    parameters:
+      - name: x-api-version
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          pattern: \S
+          example: "20260803"
+        description: Required Vertesia API version header. Use `20260803` for the
+          current stable API shape.
+        x-vertesia-global-header: true
+  /notifications/read:
+    post:
+      operationId: MarkNotificationsRead
+      tags:
+        - Notifications
+      summary: Mark notifications read
+      description: Marks notifications read, by id or by the occurrence the client
+        displayed. An occurrence that has no notification yet is remembered for
+        a day and applied when its notification is written.
+      security:
+        - bearerAuth: []
+        - OAuth2: []
+      parameters: []
+      responses:
+        "200":
+          description: How many notifications changed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationUpdateResult"
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions: []
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/notifications.ts
+        className: NotificationsResource
+        methodName: markRead
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MarkNotificationsReadPayload"
+    parameters:
+      - name: x-api-version
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          pattern: \S
+          example: "20260803"
+        description: Required Vertesia API version header. Use `20260803` for the
+          current stable API shape.
+        x-vertesia-global-header: true
+  /notifications/read-all:
+    post:
+      operationId: MarkAllNotificationsRead
+      tags:
+        - Notifications
+      summary: Mark all notifications read
+      description: Marks read every inbox notification written up to `before`, the
+        `read_all_before` of the list the user saw, so a notification that
+        arrived since stays unread.
+      security:
+        - bearerAuth: []
+        - OAuth2: []
+      parameters: []
+      responses:
+        "200":
+          description: How many notifications changed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationUpdateResult"
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions: []
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/notifications.ts
+        className: NotificationsResource
+        methodName: markAllRead
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MarkAllNotificationsReadPayload"
+    parameters:
+      - name: x-api-version
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          pattern: \S
+          example: "20260803"
+        description: Required Vertesia API version header. Use `20260803` for the
+          current stable API shape.
+        x-vertesia-global-header: true
+  /notifications/archive:
+    post:
+      operationId: ArchiveNotifications
+      tags:
+        - Notifications
+      summary: Archive notifications
+      description: Moves notifications out of the inbox. Archived notifications are
+        listed with `archived=true`.
+      security:
+        - bearerAuth: []
+        - OAuth2: []
+      parameters: []
+      responses:
+        "200":
+          description: How many notifications changed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationUpdateResult"
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions: []
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/notifications.ts
+        className: NotificationsResource
+        methodName: archive
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ArchiveNotificationsPayload"
+    parameters:
+      - name: x-api-version
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          pattern: \S
+          example: "20260803"
+        description: Required Vertesia API version header. Use `20260803` for the
+          current stable API shape.
+        x-vertesia-global-header: true
+  /notifications/preferences:
+    get:
+      operationId: GetNotificationPreferences
+      tags:
+        - Notifications
+      summary: Get notification preferences
+      description: Returns the current user’s notification preferences in the project.
+        Unset channels are on.
+      security:
+        - bearerAuth: []
+        - OAuth2: []
+      parameters: []
+      responses:
+        "200":
+          description: The preferences.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationPreferences"
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions: []
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/notifications.ts
+        className: NotificationsResource
+        methodName: getPreferences
+    put:
+      operationId: UpdateNotificationPreferences
+      tags:
+        - Notifications
+      summary: Replace notification preferences
+      description: Replaces the current user’s notification preferences in the
+        project. They apply to notifications written from now on.
+      security:
+        - bearerAuth: []
+        - OAuth2: []
+      parameters: []
+      responses:
+        "200":
+          description: The stored preferences.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationPreferences"
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions: []
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/notifications.ts
+        className: NotificationsResource
+        methodName: updatePreferences
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NotificationPreferences"
+    parameters:
+      - name: x-api-version
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          pattern: \S
+          example: "20260803"
+        description: Required Vertesia API version header. Use `20260803` for the
+          current stable API shape.
+        x-vertesia-global-header: true
+  /notifications/stream:
+    get:
+      operationId: StreamNotificationChanges
+      tags:
+        - Notifications
+      summary: Stream inbox changes
+      description: Opens a Server-Sent Events stream. A `ready` event follows the
+        connection; each `changed` event (a `NotificationStreamEvent`) says the
+        inbox changed and the counts and newest page should be fetched again.
+        The events carry no notification content.
+      security:
+        - bearerAuth: []
+        - OAuth2: []
+      parameters: []
+      responses:
+        "200":
+          description: Server-sent change events.
+          content:
+            text/event-stream:
+              schema:
+                $ref: "#/components/schemas/ServerSentEventsResponse"
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions: []
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/notifications.ts
+        className: NotificationsResource
+        methodName: stream
+    parameters:
+      - name: x-api-version
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          pattern: \S
+          example: "20260803"
+        description: Required Vertesia API version header. Use `20260803` for the
+          current stable API shape.
+        x-vertesia-global-header: true
+  /notifications/{notificationId}:
+    get:
+      operationId: GetNotification
+      tags:
+        - Notifications
+      summary: Get a notification
+      description: Returns one of the current user’s notifications.
+      security:
+        - bearerAuth: []
+        - OAuth2: []
+      parameters:
+        - name: notificationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The notification.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Notification"
+        "500":
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Internal Server Error
+                status: 500
+                message: Internal server error.
+        4XX:
+          description: Client error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: Bad Request
+                status: 400
+                message: Request validation failed.
+      x-vertesia-permissions: []
+      x-vertesia-source:
+        file: ../../apps/zeno-server/src/api/notifications.ts
+        className: NotificationsResource
+        methodName: retrieve
+    parameters:
+      - name: x-api-version
+        in: header
+        required: true
+        schema:
+          type: string
+          minLength: 1
+          pattern: \S
+          example: "20260803"
+        description: Required Vertesia API version header. Use `20260803` for the
+          current stable API shape.
+        x-vertesia-global-header: true
   /commands/migrations:
     get:
       operationId: ListZenoMigrations
@@ -68909,11 +70471,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/OAuthLoginDecisionResponse"
         "404":
-          description: The user must be provisioned before retrying login.
+          description: The user must be provisioned before retrying login, or the
+            authorization request cannot be completed.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/OAuthLoginUserNotFoundResponse"
+                $ref: "#/components/schemas/OAuthLoginNotFoundResponse"
         "500":
           description: Internal server error.
           content:

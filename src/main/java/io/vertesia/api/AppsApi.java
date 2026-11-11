@@ -3776,7 +3776,7 @@ public class AppsApi {
 
     /**
      * Check whether additional MCP app instances are enabled for this project
-     * **Required permissions:** &#x60;account:member&#x60;
+     * **Required permissions:** &#x60;account:member&#x60;, and &#x60;app:manage&#x60;
      * @return APIgetAppInstanceAvailabilityRequest
      * @http.response.details
      * <table border="1">

@@ -23,8 +23,11 @@ import io.vertesia.model.CostAnalyticsQuery;
 import io.vertesia.model.CostAnalyticsResponse;
 import io.vertesia.model.CostRunPriceQuery;
 import io.vertesia.model.CostRunPriceResponse;
+import io.vertesia.model.GetIntakeCostSummaryFromParameter;
+import io.vertesia.model.GetIntakeCostSummaryToParameter;
 import io.vertesia.model.GetModelPricesFromParameter;
 import io.vertesia.model.GetModelPricesToParameter;
+import io.vertesia.model.IntakeCostSummaryResponse;
 import io.vertesia.model.ModelPriceComparisonResponse;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -540,6 +543,269 @@ public class CostsApi {
     public APIgetCostAnalyticsRequest getCostAnalytics(
             @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery) {
         return new APIgetCostAnalyticsRequest(costAnalyticsQuery);
+    }
+
+    private okhttp3.Call getIntakeCostSummaryCall(
+            @jakarta.annotation.Nullable GetIntakeCostSummaryFromParameter from,
+            @jakarta.annotation.Nullable GetIntakeCostSummaryToParameter to,
+            @jakarta.annotation.Nullable String resolution,
+            @jakarta.annotation.Nullable String contentTypeId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/cost/intake";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (to != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to", to));
+        }
+
+        if (resolution != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("resolution", resolution));
+        }
+
+        if (contentTypeId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("content_type_id", contentTypeId));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getIntakeCostSummaryValidateBeforeCall(
+            @jakarta.annotation.Nullable GetIntakeCostSummaryFromParameter from,
+            @jakarta.annotation.Nullable GetIntakeCostSummaryToParameter to,
+            @jakarta.annotation.Nullable String resolution,
+            @jakarta.annotation.Nullable String contentTypeId,
+            final ApiCallback _callback)
+            throws ApiException {
+        return getIntakeCostSummaryCall(from, to, resolution, contentTypeId, _callback);
+    }
+
+    private ApiResponse<IntakeCostSummaryResponse> getIntakeCostSummaryWithHttpInfo(
+            @jakarta.annotation.Nullable GetIntakeCostSummaryFromParameter from,
+            @jakarta.annotation.Nullable GetIntakeCostSummaryToParameter to,
+            @jakarta.annotation.Nullable String resolution,
+            @jakarta.annotation.Nullable String contentTypeId)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                getIntakeCostSummaryValidateBeforeCall(from, to, resolution, contentTypeId, null);
+        Type localVarReturnType = new TypeToken<IntakeCostSummaryResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getIntakeCostSummaryAsync(
+            @jakarta.annotation.Nullable GetIntakeCostSummaryFromParameter from,
+            @jakarta.annotation.Nullable GetIntakeCostSummaryToParameter to,
+            @jakarta.annotation.Nullable String resolution,
+            @jakarta.annotation.Nullable String contentTypeId,
+            final ApiCallback<IntakeCostSummaryResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getIntakeCostSummaryValidateBeforeCall(
+                        from, to, resolution, contentTypeId, _callback);
+        Type localVarReturnType = new TypeToken<IntakeCostSummaryResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetIntakeCostSummaryRequest {
+        @jakarta.annotation.Nullable private GetIntakeCostSummaryFromParameter from;
+        @jakarta.annotation.Nullable private GetIntakeCostSummaryToParameter to;
+        @jakarta.annotation.Nullable private String resolution;
+        @jakarta.annotation.Nullable private String contentTypeId;
+
+        private APIgetIntakeCostSummaryRequest() {}
+
+        /**
+         * Set from
+         * @param from Start of the window, on the start of each run. Default: 30 days before &#x60;to&#x60;. (optional)
+         * @return APIgetIntakeCostSummaryRequest
+         */
+        public APIgetIntakeCostSummaryRequest from(
+                @jakarta.annotation.Nullable GetIntakeCostSummaryFromParameter from) {
+            this.from = from;
+            return this;
+        }
+
+        /**
+         * Set to
+         * @param to End of the window, exclusive. Default: now. (optional)
+         * @return APIgetIntakeCostSummaryRequest
+         */
+        public APIgetIntakeCostSummaryRequest to(
+                @jakarta.annotation.Nullable GetIntakeCostSummaryToParameter to) {
+            this.to = to;
+            return this;
+        }
+
+        /**
+         * Set resolution
+         * @param resolution Period of the time series, in UTC; weeks start on Monday. Default: &#x60;day&#x60;. (optional)
+         * @return APIgetIntakeCostSummaryRequest
+         */
+        public APIgetIntakeCostSummaryRequest resolution(
+                @jakarta.annotation.Nullable String resolution) {
+            this.resolution = resolution;
+            return this;
+        }
+
+        /**
+         * Set contentTypeId
+         * @param contentTypeId Only the runs that ended on this content type. (optional)
+         * @return APIgetIntakeCostSummaryRequest
+         */
+        public APIgetIntakeCostSummaryRequest contentTypeId(
+                @jakarta.annotation.Nullable String contentTypeId) {
+            this.contentTypeId = contentTypeId;
+            return this;
+        }
+
+        /**
+         * Build call for getIntakeCostSummary
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Intake cost of the project over the window. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> The time range cannot be read, or is longer than the maximum window. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getIntakeCostSummaryCall(from, to, resolution, contentTypeId, _callback);
+        }
+
+        /**
+         * Execute getIntakeCostSummary request
+         * @return IntakeCostSummaryResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Intake cost of the project over the window. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> The time range cannot be read, or is longer than the maximum window. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public IntakeCostSummaryResponse execute() throws ApiException {
+            ApiResponse<IntakeCostSummaryResponse> localVarResp =
+                    getIntakeCostSummaryWithHttpInfo(from, to, resolution, contentTypeId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getIntakeCostSummary request with HTTP info returned
+         * @return ApiResponse&lt;IntakeCostSummaryResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Intake cost of the project over the window. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> The time range cannot be read, or is longer than the maximum window. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<IntakeCostSummaryResponse> executeWithHttpInfo() throws ApiException {
+            return getIntakeCostSummaryWithHttpInfo(from, to, resolution, contentTypeId);
+        }
+
+        /**
+         * Execute getIntakeCostSummary request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Intake cost of the project over the window. </td><td>  -  </td></tr>
+         * <tr><td> 400 </td><td> The time range cannot be read, or is longer than the maximum window. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<IntakeCostSummaryResponse> _callback)
+                throws ApiException {
+            return getIntakeCostSummaryAsync(from, to, resolution, contentTypeId, _callback);
+        }
+    }
+
+    /**
+     * Summarize intake cost
+     * Summarizes the LLM and embedding cost of the intake workflows that processed the current project&#39;s documents: totals, a time series, and breakdowns by content type, outcome and document. A run belongs to the window it started in.  **Required permissions:** Any of &#x60;billing:read&#x60;, &#x60;account:billing&#x60;
+     * @return APIgetIntakeCostSummaryRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Intake cost of the project over the window. </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> The time range cannot be read, or is longer than the maximum window. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIgetIntakeCostSummaryRequest getIntakeCostSummary() {
+        return new APIgetIntakeCostSummaryRequest();
     }
 
     private okhttp3.Call getModelPricesCall(

@@ -59,10 +59,25 @@ public class ProcessDefinitionBody {
     @jakarta.annotation.Nonnull
     private String initial;
 
+    public static final String SERIALIZED_NAME_INFERENCE_PROFILE = "inference_profile";
+
+    @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
+    @jakarta.annotation.Nullable private String inferenceProfile;
+
+    public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
+
+    @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
+    @jakarta.annotation.Nullable private String environment;
+
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
     @jakarta.annotation.Nullable private String model;
+
+    public static final String SERIALIZED_NAME_MODEL_OPTIONS = "model_options";
+
+    @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
+    @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
     public static final String SERIALIZED_NAME_RESOURCES = "resources";
 
@@ -161,13 +176,48 @@ public class ProcessDefinitionBody {
         this.initial = initial;
     }
 
+    public ProcessDefinitionBody inferenceProfile(
+            @jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+        return this;
+    }
+
+    /**
+     * Default inference profile for the LLM nodes and supervisor of this process. Do not combine with &#x60;environment&#x60;, &#x60;model&#x60; or &#x60;model_options&#x60;. A process run config selection and a node selection take precedence.
+     * @return inferenceProfile
+     */
+    @jakarta.annotation.Nullable public String getInferenceProfile() {
+        return inferenceProfile;
+    }
+
+    public void setInferenceProfile(@jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+    }
+
+    public ProcessDefinitionBody environment(@jakarta.annotation.Nullable String environment) {
+        this.environment = environment;
+        return this;
+    }
+
+    /**
+     * Default environment id for the LLM nodes and supervisor of this process, set with &#x60;model&#x60; or alone.
+     * @return environment
+     */
+    @jakarta.annotation.Nullable public String getEnvironment() {
+        return environment;
+    }
+
+    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
+        this.environment = environment;
+    }
+
     public ProcessDefinitionBody model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
 
     /**
-     * Get model
+     * Default model id, in &#x60;environment&#x60;. A model without an environment is accepted only in definitions saved before environments were required; saving one is rejected.
      * @return model
      */
     @jakarta.annotation.Nullable public String getModel() {
@@ -176,6 +226,24 @@ public class ProcessDefinitionBody {
 
     public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
+    }
+
+    public ProcessDefinitionBody modelOptions(
+            @jakarta.annotation.Nullable ModelOptions modelOptions) {
+        this.modelOptions = modelOptions;
+        return this;
+    }
+
+    /**
+     * Default model options for &#x60;environment&#x60; and &#x60;model&#x60;.
+     * @return modelOptions
+     */
+    @jakarta.annotation.Nullable public ModelOptions getModelOptions() {
+        return modelOptions;
+    }
+
+    public void setModelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
+        this.modelOptions = modelOptions;
     }
 
     public ProcessDefinitionBody resources(
@@ -272,7 +340,10 @@ public class ProcessDefinitionBody {
                 && Objects.equals(this.process, processDefinitionBody.process)
                 && Objects.equals(this.description, processDefinitionBody.description)
                 && Objects.equals(this.initial, processDefinitionBody.initial)
+                && Objects.equals(this.inferenceProfile, processDefinitionBody.inferenceProfile)
+                && Objects.equals(this.environment, processDefinitionBody.environment)
                 && Objects.equals(this.model, processDefinitionBody.model)
+                && Objects.equals(this.modelOptions, processDefinitionBody.modelOptions)
                 && Objects.equals(this.resources, processDefinitionBody.resources)
                 && Objects.equals(this.context, processDefinitionBody.context)
                 && Objects.equals(this.nodes, processDefinitionBody.nodes)
@@ -286,7 +357,10 @@ public class ProcessDefinitionBody {
                 process,
                 description,
                 initial,
+                inferenceProfile,
+                environment,
                 model,
+                modelOptions,
                 resources,
                 context,
                 nodes,
@@ -301,7 +375,10 @@ public class ProcessDefinitionBody {
         sb.append("    process: ").append(toIndentedString(process)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    initial: ").append(toIndentedString(initial)).append("\n");
+        sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
+        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
+        sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
         sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
         sb.append("    context: ").append(toIndentedString(context)).append("\n");
         sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
@@ -330,7 +407,10 @@ public class ProcessDefinitionBody {
                                 "process",
                                 "description",
                                 "initial",
+                                "inference_profile",
+                                "environment",
                                 "model",
+                                "model_options",
                                 "resources",
                                 "context",
                                 "nodes",
@@ -396,6 +476,23 @@ public class ProcessDefinitionBody {
                             "Expected the field `initial` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("initial").toString()));
         }
+        if ((jsonObj.get("inference_profile") != null
+                        && !jsonObj.get("inference_profile").isJsonNull())
+                && !jsonObj.get("inference_profile").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `inference_profile` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("inference_profile").toString()));
+        }
+        if ((jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull())
+                && !jsonObj.get("environment").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `environment` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("environment").toString()));
+        }
         if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull())
                 && !jsonObj.get("model").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -403,6 +500,10 @@ public class ProcessDefinitionBody {
                             java.util.Locale.ROOT,
                             "Expected the field `model` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("model").toString()));
+        }
+        // validate the optional field `model_options`
+        if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
+            ModelOptions.validateJsonElement(jsonObj.get("model_options"));
         }
         // validate the optional field `resources`
         if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull()) {
