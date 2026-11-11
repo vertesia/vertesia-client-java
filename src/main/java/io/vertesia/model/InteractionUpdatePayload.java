@@ -24,8 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -47,25 +45,10 @@ public class InteractionUpdatePayload {
     @SerializedName(SERIALIZED_NAME_EXPECTED_EDIT_REVISION)
     @jakarta.annotation.Nullable private Integer expectedEditRevision;
 
-    public static final String SERIALIZED_NAME_STATUS = "status";
-
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    @jakarta.annotation.Nullable private InteractionStatus status;
-
-    public static final String SERIALIZED_NAME_PARENT = "parent";
-
-    @SerializedName(SERIALIZED_NAME_PARENT)
-    @jakarta.annotation.Nullable private String parent;
-
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
     @jakarta.annotation.Nullable private InteractionVisibility visibility;
-
-    public static final String SERIALIZED_NAME_VERSION = "version";
-
-    @SerializedName(SERIALIZED_NAME_VERSION)
-    @jakarta.annotation.Nullable private BigDecimal version;
 
     public static final String SERIALIZED_NAME_TEST_DATA = "test_data";
 
@@ -86,11 +69,6 @@ public class InteractionUpdatePayload {
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
     @jakarta.annotation.Nullable private List<InteractionPromptSegmentInput> prompts = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_LAST_PUBLISHED_AT = "last_published_at";
-
-    @SerializedName(SERIALIZED_NAME_LAST_PUBLISHED_AT)
-    @jakarta.annotation.Nullable private OffsetDateTime lastPublishedAt;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -180,40 +158,6 @@ public class InteractionUpdatePayload {
         this.expectedEditRevision = expectedEditRevision;
     }
 
-    public InteractionUpdatePayload status(@jakarta.annotation.Nullable InteractionStatus status) {
-        this.status = status;
-        return this;
-    }
-
-    /**
-     * Get status
-     * @return status
-     */
-    @jakarta.annotation.Nullable public InteractionStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(@jakarta.annotation.Nullable InteractionStatus status) {
-        this.status = status;
-    }
-
-    public InteractionUpdatePayload parent(@jakarta.annotation.Nullable String parent) {
-        this.parent = parent;
-        return this;
-    }
-
-    /**
-     * Get parent
-     * @return parent
-     */
-    @jakarta.annotation.Nullable public String getParent() {
-        return parent;
-    }
-
-    public void setParent(@jakarta.annotation.Nullable String parent) {
-        this.parent = parent;
-    }
-
     public InteractionUpdatePayload visibility(
             @jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
@@ -230,23 +174,6 @@ public class InteractionUpdatePayload {
 
     public void setVisibility(@jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
-    }
-
-    public InteractionUpdatePayload version(@jakarta.annotation.Nullable BigDecimal version) {
-        this.version = version;
-        return this;
-    }
-
-    /**
-     * Get version
-     * @return version
-     */
-    @jakarta.annotation.Nullable public BigDecimal getVersion() {
-        return version;
-    }
-
-    public void setVersion(@jakarta.annotation.Nullable BigDecimal version) {
-        this.version = version;
     }
 
     public InteractionUpdatePayload testData(
@@ -337,24 +264,6 @@ public class InteractionUpdatePayload {
     public void setPrompts(
             @jakarta.annotation.Nullable List<InteractionPromptSegmentInput> prompts) {
         this.prompts = prompts;
-    }
-
-    public InteractionUpdatePayload lastPublishedAt(
-            @jakarta.annotation.Nullable OffsetDateTime lastPublishedAt) {
-        this.lastPublishedAt = lastPublishedAt;
-        return this;
-    }
-
-    /**
-     * Get lastPublishedAt
-     * @return lastPublishedAt
-     */
-    @jakarta.annotation.Nullable public OffsetDateTime getLastPublishedAt() {
-        return lastPublishedAt;
-    }
-
-    public void setLastPublishedAt(@jakarta.annotation.Nullable OffsetDateTime lastPublishedAt) {
-        this.lastPublishedAt = lastPublishedAt;
     }
 
     public InteractionUpdatePayload name(@jakarta.annotation.Nullable String name) {
@@ -611,16 +520,12 @@ public class InteractionUpdatePayload {
         InteractionUpdatePayload interactionUpdatePayload = (InteractionUpdatePayload) o;
         return Objects.equals(
                         this.expectedEditRevision, interactionUpdatePayload.expectedEditRevision)
-                && Objects.equals(this.status, interactionUpdatePayload.status)
-                && Objects.equals(this.parent, interactionUpdatePayload.parent)
                 && Objects.equals(this.visibility, interactionUpdatePayload.visibility)
-                && Objects.equals(this.version, interactionUpdatePayload.version)
                 && Objects.equals(this.testData, interactionUpdatePayload.testData)
                 && Objects.equals(
                         this.interactionSchema, interactionUpdatePayload.interactionSchema)
                 && Objects.equals(this.cachePolicy, interactionUpdatePayload.cachePolicy)
                 && Objects.equals(this.prompts, interactionUpdatePayload.prompts)
-                && Objects.equals(this.lastPublishedAt, interactionUpdatePayload.lastPublishedAt)
                 && Objects.equals(this.name, interactionUpdatePayload.name)
                 && Objects.equals(this.endpoint, interactionUpdatePayload.endpoint)
                 && Objects.equals(this.description, interactionUpdatePayload.description)
@@ -651,15 +556,11 @@ public class InteractionUpdatePayload {
     public int hashCode() {
         return Objects.hash(
                 expectedEditRevision,
-                status,
-                parent,
                 visibility,
-                version,
                 testData,
                 interactionSchema,
                 cachePolicy,
                 prompts,
-                lastPublishedAt,
                 name,
                 endpoint,
                 description,
@@ -689,17 +590,13 @@ public class InteractionUpdatePayload {
         sb.append("    expectedEditRevision: ")
                 .append(toIndentedString(expectedEditRevision))
                 .append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
         sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
         sb.append("    testData: ").append(toIndentedString(testData)).append("\n");
         sb.append("    interactionSchema: ")
                 .append(toIndentedString(interactionSchema))
                 .append("\n");
         sb.append("    cachePolicy: ").append(toIndentedString(cachePolicy)).append("\n");
         sb.append("    prompts: ").append(toIndentedString(prompts)).append("\n");
-        sb.append("    lastPublishedAt: ").append(toIndentedString(lastPublishedAt)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -738,15 +635,11 @@ public class InteractionUpdatePayload {
                 new HashSet<String>(
                         Arrays.asList(
                                 "expected_edit_revision",
-                                "status",
-                                "parent",
                                 "visibility",
-                                "version",
                                 "test_data",
                                 "interaction_schema",
                                 "cache_policy",
                                 "prompts",
-                                "last_published_at",
                                 "name",
                                 "endpoint",
                                 "description",
@@ -783,18 +676,6 @@ public class InteractionUpdatePayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `status`
-        if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-            InteractionStatus.validateJsonElement(jsonObj.get("status"));
-        }
-        if ((jsonObj.get("parent") != null && !jsonObj.get("parent").isJsonNull())
-                && !jsonObj.get("parent").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `parent` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("parent").toString()));
-        }
         // validate the optional field `visibility`
         if (jsonObj.get("visibility") != null && !jsonObj.get("visibility").isJsonNull()) {
             InteractionVisibility.validateJsonElement(jsonObj.get("visibility"));

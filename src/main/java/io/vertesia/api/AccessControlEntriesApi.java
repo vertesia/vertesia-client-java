@@ -240,7 +240,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Create an access control entry
-     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
+     * Creates an access control entry for an account, project, or application resource. If the principal already has an entry on that resource, it is replaced, including its role and expiry. Without &#x60;expires_at&#x60; the entry does not expire, even if the one it replaces did; an empty string means the same. To change only some fields of an existing entry, use &#x60;PUT /iam/aces/{aceId}&#x60;.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param acECreatePayload  (required)
      * @return APIcreateAccessControlEntryRequest
      * @http.response.details

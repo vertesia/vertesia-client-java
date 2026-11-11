@@ -8667,7 +8667,7 @@ public class InteractionsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
          * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, or the endpoint of a published interaction would change. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, the endpoint of a published interaction would change, or the payload changes a field other than &#x60;description&#x60; or &#x60;tags&#x60;, or adds or removes an &#x60;agent&#x60;, &#x60;tool&#x60; or &#x60;skill&#x60; tag, on a published or archived version. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -8686,7 +8686,7 @@ public class InteractionsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
          * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, or the endpoint of a published interaction would change. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, the endpoint of a published interaction would change, or the payload changes a field other than &#x60;description&#x60; or &#x60;tags&#x60;, or adds or removes an &#x60;agent&#x60;, &#x60;tool&#x60; or &#x60;skill&#x60; tag, on a published or archived version. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -8707,7 +8707,7 @@ public class InteractionsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
          * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, or the endpoint of a published interaction would change. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, the endpoint of a published interaction would change, or the payload changes a field other than &#x60;description&#x60; or &#x60;tags&#x60;, or adds or removes an &#x60;agent&#x60;, &#x60;tool&#x60; or &#x60;skill&#x60; tag, on a published or archived version. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -8727,7 +8727,7 @@ public class InteractionsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
          * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, or the endpoint of a published interaction would change. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, the endpoint of a published interaction would change, or the payload changes a field other than &#x60;description&#x60; or &#x60;tags&#x60;, or adds or removes an &#x60;agent&#x60;, &#x60;tool&#x60; or &#x60;skill&#x60; tag, on a published or archived version. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -8740,7 +8740,7 @@ public class InteractionsApi {
 
     /**
      * Update an interaction
-     * Updates mutable fields on a draft interaction, such as prompts, model configuration, tags, schemas, and agent runner options.  **Required permissions:** &#x60;interaction:write&#x60;
+     * Updates mutable fields on a draft interaction, such as prompts, model configuration, tags, schemas, and agent runner options. A published or archived version accepts only &#x60;description&#x60; and &#x60;tags&#x60;, and its tags cannot gain or lose &#x60;agent&#x60;, &#x60;tool&#x60; or &#x60;skill&#x60;: its behaviour is fixed once published, so publish a new version from the draft instead.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param interactionId  (required)
      * @param interactionUpdatePayload  (required)
      * @return APIupdateInteractionRequest
@@ -8750,7 +8750,7 @@ public class InteractionsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
      * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, or the endpoint of a published interaction would change. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, the requested endpoint is already used by another interaction in the project, the endpoint of a published interaction would change, or the payload changes a field other than &#x60;description&#x60; or &#x60;tags&#x60;, or adds or removes an &#x60;agent&#x60;, &#x60;tool&#x60; or &#x60;skill&#x60; tag, on a published or archived version. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
