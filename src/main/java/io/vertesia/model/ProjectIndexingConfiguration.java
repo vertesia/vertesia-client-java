@@ -82,7 +82,7 @@ public class ProjectIndexingConfiguration {
     }
 
     /**
-     * Search tier for this project. standard uses the regional hosted Elasticsearch deployment. performance uses the regional serverless Elasticsearch project. Defaults to standard when omitted.
+     * Search tier for this project. standard uses the region&#39;s default Elasticsearch backend. performance uses the regional serverless Elasticsearch project. Defaults to standard when omitted.
      * @return searchTier
      */
     @jakarta.annotation.Nullable public ProjectSearchTier getSearchTier() {
@@ -100,7 +100,7 @@ public class ProjectIndexingConfiguration {
     }
 
     /**
-     * Elasticsearch backend override for this project. Prefer search_tier for project configuration unless an explicit backend override is needed.
+     * Elasticsearch backend override for this project. serverless moves the project to the regional serverless Elasticsearch project; hosted is ignored and the project keeps the region&#39;s default backend. Prefer search_tier for project configuration unless an explicit backend override is needed.
      * @return backend
      */
     @jakarta.annotation.Nullable public ElasticsearchBackend getBackend() {
