@@ -73,6 +73,7 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Queue;
 import java.util.Set;
 import java.util.UUID;
@@ -339,6 +340,28 @@ class GeneratedContractLiveTest {
 
     private static <T> T optionalApiCall(ApiCall<T> call) throws ApiException {
         return optionalApiCall(call, 400, 403, 404, 409, 501);
+    }
+
+    private interface ReadById<T> {
+        T read(String id) throws ApiException;
+    }
+
+    /**
+     * Reads the first listed item that still exists. The live project is shared with other test
+     * runs that delete their own groups and access control entries, so a listed item can be gone
+     * by the time it is read. Groups are listed newest first, which makes the first one the most
+     * likely to be another run's fixture. Only a 404 moves on to the next item; any other error
+     * still fails the test.
+     */
+    private static <T> T readFirstStillPresent(List<String> ids, ReadById<T> reader)
+            throws ApiException {
+        for (String id : ids) {
+            T value = optionalApiCall(() -> reader.read(id), 404);
+            if (value != null) {
+                return value;
+            }
+        }
+        return null;
     }
 
     private static String agentRunId(AgentRunResponse run) {
@@ -1193,25 +1216,34 @@ class GeneratedContractLiveTest {
         List<AccessControlEntry> entries =
                 optionalApiCall(() -> acesApi.listAccessControlEntries().execute());
         assertNotNull(entries, "listAccessControlEntries returned null");
-        if (!entries.isEmpty() && entries.get(0).getId() != null) {
+        List<String> entryIds =
+                entries.stream().map(AccessControlEntry::getId).filter(Objects::nonNull).toList();
+        if (!entryIds.isEmpty()) {
             AccessControlEntry retrieved =
-                    optionalApiCall(
-                            () -> acesApi.getAccessControlEntry(entries.get(0).getId()).execute());
-            assertNotNull(retrieved, "getAccessControlEntry returned null");
+                    readFirstStillPresent(
+                            entryIds, id -> acesApi.getAccessControlEntry(id).execute());
+            assertNotNull(retrieved, "every listed access control entry was gone when it was read");
         }
         assertNotNull(new RolesApi(studioClient).listRoles().execute(), "listRoles returned null");
 
         UserGroupsApi groupsApi = new UserGroupsApi(studioClient);
         List<UserGroup> groups = optionalApiCall(() -> groupsApi.listUserGroups().execute());
         assertNotNull(groups, "listUserGroups returned null");
-        if (!groups.isEmpty() && groups.get(0).getId() != null) {
+        List<String> groupIds =
+                groups.stream().map(UserGroup::getId).filter(Objects::nonNull).toList();
+        if (!groupIds.isEmpty()) {
             UserGroup group =
-                    optionalApiCall(() -> groupsApi.getUserGroup(groups.get(0).getId()).execute());
-            assertNotNull(group, "getUserGroup returned null");
-            assertNotNull(
-                    optionalApiCall(
-                            () -> groupsApi.listUserGroupMembers(groups.get(0).getId()).execute()),
-                    "listUserGroupMembers returned null");
+                    readFirstStillPresent(
+                            groupIds,
+                            id -> {
+                                UserGroup read = groupsApi.getUserGroup(id).execute();
+                                assertNotNull(read, "getUserGroup returned null");
+                                assertNotNull(
+                                        groupsApi.listUserGroupMembers(id).execute(),
+                                        "listUserGroupMembers returned null");
+                                return read;
+                            });
+            assertNotNull(group, "every listed group was gone when it was read");
         }
     }
 
