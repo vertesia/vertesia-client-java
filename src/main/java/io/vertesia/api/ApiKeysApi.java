@@ -993,7 +993,7 @@ public class ApiKeysApi {
 
     /**
      * List API keys
-     * Lists API keys for the current project or, for account administrators, across accessible projects in the account.  **Required permissions:** &#x60;api_key:read&#x60;
+     * Lists API keys for the current project or, for account administrators, across all projects in the account.  **Required permissions:** &#x60;api_key:read&#x60;
      * @return APIlistApiKeysRequest
      * @http.response.details
      * <table border="1">
