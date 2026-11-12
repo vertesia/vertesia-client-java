@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Payload for updating an OAuth Provider. All fields are optional — only provided fields are updated. To clear the client_secret, set it to an empty string.
+ * Payload for updating an OAuth Provider. All fields are optional — only provided fields are updated. To clear the client_secret, private_key or certificate, set it to an empty string.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -126,6 +126,144 @@ public class UpdateOAuthProviderPayload {
 
     @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
     @jakarta.annotation.Nullable private String clientSecret;
+
+    /**
+     * How Vertesia authenticates to the token endpoint (RFC 7591 names). - &#39;client_secret_post&#39;: the client_secret in the request body (default). - &#39;private_key_jwt&#39;: a JWT client assertion signed with the private key (RFC 7523). client_credentials grant only.
+     */
+    @JsonAdapter(TokenEndpointAuthMethodEnum.Adapter.class)
+    public enum TokenEndpointAuthMethodEnum {
+        CLIENT_SECRET_POST("client_secret_post"),
+
+        PRIVATE_KEY_JWT("private_key_jwt"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        TokenEndpointAuthMethodEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TokenEndpointAuthMethodEnum fromValue(String value) {
+            for (TokenEndpointAuthMethodEnum b : TokenEndpointAuthMethodEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<TokenEndpointAuthMethodEnum> {
+            @Override
+            public void write(
+                    final JsonWriter jsonWriter, final TokenEndpointAuthMethodEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TokenEndpointAuthMethodEnum read(final JsonReader jsonReader)
+                    throws IOException {
+                String value = jsonReader.nextString();
+                return TokenEndpointAuthMethodEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            TokenEndpointAuthMethodEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHOD =
+            "token_endpoint_auth_method";
+
+    @SerializedName(SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHOD)
+    @jakarta.annotation.Nullable private TokenEndpointAuthMethodEnum tokenEndpointAuthMethod;
+
+    /**
+     * The JWS algorithm that signs the client assertion of private_key_jwt. Defaults to RS256 for an RSA key and ES256 for a P-256 key. Microsoft Entra ID recommends PS256.
+     */
+    @JsonAdapter(TokenEndpointAuthSigningAlgEnum.Adapter.class)
+    public enum TokenEndpointAuthSigningAlgEnum {
+        RS256("RS256"),
+
+        PS256("PS256"),
+
+        ES256("ES256"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        TokenEndpointAuthSigningAlgEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TokenEndpointAuthSigningAlgEnum fromValue(String value) {
+            for (TokenEndpointAuthSigningAlgEnum b : TokenEndpointAuthSigningAlgEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<TokenEndpointAuthSigningAlgEnum> {
+            @Override
+            public void write(
+                    final JsonWriter jsonWriter, final TokenEndpointAuthSigningAlgEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TokenEndpointAuthSigningAlgEnum read(final JsonReader jsonReader)
+                    throws IOException {
+                String value = jsonReader.nextString();
+                return TokenEndpointAuthSigningAlgEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            TokenEndpointAuthSigningAlgEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_SIGNING_ALG =
+            "token_endpoint_auth_signing_alg";
+
+    @SerializedName(SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_SIGNING_ALG)
+    @jakarta.annotation.Nullable private TokenEndpointAuthSigningAlgEnum tokenEndpointAuthSigningAlg;
+
+    public static final String SERIALIZED_NAME_PRIVATE_KEY = "private_key";
+
+    @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
+    @jakarta.annotation.Nullable private String privateKey;
+
+    public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
+
+    @SerializedName(SERIALIZED_NAME_CERTIFICATE)
+    @jakarta.annotation.Nullable private String certificate;
 
     public static final String SERIALIZED_NAME_DEFAULT_SCOPES = "default_scopes";
 
@@ -268,6 +406,78 @@ public class UpdateOAuthProviderPayload {
         this.clientSecret = clientSecret;
     }
 
+    public UpdateOAuthProviderPayload tokenEndpointAuthMethod(
+            @jakarta.annotation.Nullable TokenEndpointAuthMethodEnum tokenEndpointAuthMethod) {
+        this.tokenEndpointAuthMethod = tokenEndpointAuthMethod;
+        return this;
+    }
+
+    /**
+     * How Vertesia authenticates to the token endpoint (RFC 7591 names). - &#39;client_secret_post&#39;: the client_secret in the request body (default). - &#39;private_key_jwt&#39;: a JWT client assertion signed with the private key (RFC 7523). client_credentials grant only.
+     * @return tokenEndpointAuthMethod
+     */
+    @jakarta.annotation.Nullable public TokenEndpointAuthMethodEnum getTokenEndpointAuthMethod() {
+        return tokenEndpointAuthMethod;
+    }
+
+    public void setTokenEndpointAuthMethod(
+            @jakarta.annotation.Nullable TokenEndpointAuthMethodEnum tokenEndpointAuthMethod) {
+        this.tokenEndpointAuthMethod = tokenEndpointAuthMethod;
+    }
+
+    public UpdateOAuthProviderPayload tokenEndpointAuthSigningAlg(
+            @jakarta.annotation.Nullable TokenEndpointAuthSigningAlgEnum tokenEndpointAuthSigningAlg) {
+        this.tokenEndpointAuthSigningAlg = tokenEndpointAuthSigningAlg;
+        return this;
+    }
+
+    /**
+     * The JWS algorithm that signs the client assertion of private_key_jwt. Defaults to RS256 for an RSA key and ES256 for a P-256 key. Microsoft Entra ID recommends PS256.
+     * @return tokenEndpointAuthSigningAlg
+     */
+    @jakarta.annotation.Nullable public TokenEndpointAuthSigningAlgEnum getTokenEndpointAuthSigningAlg() {
+        return tokenEndpointAuthSigningAlg;
+    }
+
+    public void setTokenEndpointAuthSigningAlg(
+            @jakarta.annotation.Nullable TokenEndpointAuthSigningAlgEnum tokenEndpointAuthSigningAlg) {
+        this.tokenEndpointAuthSigningAlg = tokenEndpointAuthSigningAlg;
+    }
+
+    public UpdateOAuthProviderPayload privateKey(@jakarta.annotation.Nullable String privateKey) {
+        this.privateKey = privateKey;
+        return this;
+    }
+
+    /**
+     * PEM private key (PKCS#8 or PKCS#1) that signs the client assertion of private_key_jwt: RSA of 2048 bits or more, or EC P-256. Encrypted at rest and never returned in API responses.
+     * @return privateKey
+     */
+    @jakarta.annotation.Nullable public String getPrivateKey() {
+        return privateKey;
+    }
+
+    public void setPrivateKey(@jakarta.annotation.Nullable String privateKey) {
+        this.privateKey = privateKey;
+    }
+
+    public UpdateOAuthProviderPayload certificate(@jakarta.annotation.Nullable String certificate) {
+        this.certificate = certificate;
+        return this;
+    }
+
+    /**
+     * PEM X.509 certificate of the private key, as uploaded to the provider (for example a Microsoft Entra app registration). Its public key must match the private key.
+     * @return certificate
+     */
+    @jakarta.annotation.Nullable public String getCertificate() {
+        return certificate;
+    }
+
+    public void setCertificate(@jakarta.annotation.Nullable String certificate) {
+        this.certificate = certificate;
+    }
+
     public UpdateOAuthProviderPayload defaultScopes(
             @jakarta.annotation.Nullable List<String> defaultScopes) {
         this.defaultScopes = defaultScopes;
@@ -347,6 +557,14 @@ public class UpdateOAuthProviderPayload {
                 && Objects.equals(this.tokenEndpoint, updateOAuthProviderPayload.tokenEndpoint)
                 && Objects.equals(this.clientId, updateOAuthProviderPayload.clientId)
                 && Objects.equals(this.clientSecret, updateOAuthProviderPayload.clientSecret)
+                && Objects.equals(
+                        this.tokenEndpointAuthMethod,
+                        updateOAuthProviderPayload.tokenEndpointAuthMethod)
+                && Objects.equals(
+                        this.tokenEndpointAuthSigningAlg,
+                        updateOAuthProviderPayload.tokenEndpointAuthSigningAlg)
+                && Objects.equals(this.privateKey, updateOAuthProviderPayload.privateKey)
+                && Objects.equals(this.certificate, updateOAuthProviderPayload.certificate)
                 && Objects.equals(this.defaultScopes, updateOAuthProviderPayload.defaultScopes)
                 && Objects.equals(this.usePkce, updateOAuthProviderPayload.usePkce)
                 && Objects.equals(
@@ -363,6 +581,10 @@ public class UpdateOAuthProviderPayload {
                 tokenEndpoint,
                 clientId,
                 clientSecret,
+                tokenEndpointAuthMethod,
+                tokenEndpointAuthSigningAlg,
+                privateKey,
+                certificate,
                 defaultScopes,
                 usePkce,
                 revocationEndpoint);
@@ -381,6 +603,14 @@ public class UpdateOAuthProviderPayload {
         sb.append("    tokenEndpoint: ").append(toIndentedString(tokenEndpoint)).append("\n");
         sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
         sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+        sb.append("    tokenEndpointAuthMethod: ")
+                .append(toIndentedString(tokenEndpointAuthMethod))
+                .append("\n");
+        sb.append("    tokenEndpointAuthSigningAlg: ")
+                .append(toIndentedString(tokenEndpointAuthSigningAlg))
+                .append("\n");
+        sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
+        sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
         sb.append("    defaultScopes: ").append(toIndentedString(defaultScopes)).append("\n");
         sb.append("    usePkce: ").append(toIndentedString(usePkce)).append("\n");
         sb.append("    revocationEndpoint: ")
@@ -413,6 +643,10 @@ public class UpdateOAuthProviderPayload {
                                 "token_endpoint",
                                 "client_id",
                                 "client_secret",
+                                "token_endpoint_auth_method",
+                                "token_endpoint_auth_signing_alg",
+                                "private_key",
+                                "certificate",
                                 "default_scopes",
                                 "use_pkce",
                                 "revocation_endpoint"));
@@ -499,6 +733,52 @@ public class UpdateOAuthProviderPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `client_secret` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("client_secret").toString()));
+        }
+        if ((jsonObj.get("token_endpoint_auth_method") != null
+                        && !jsonObj.get("token_endpoint_auth_method").isJsonNull())
+                && !jsonObj.get("token_endpoint_auth_method").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `token_endpoint_auth_method` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("token_endpoint_auth_method").toString()));
+        }
+        // validate the optional field `token_endpoint_auth_method`
+        if (jsonObj.get("token_endpoint_auth_method") != null
+                && !jsonObj.get("token_endpoint_auth_method").isJsonNull()) {
+            TokenEndpointAuthMethodEnum.validateJsonElement(
+                    jsonObj.get("token_endpoint_auth_method"));
+        }
+        if ((jsonObj.get("token_endpoint_auth_signing_alg") != null
+                        && !jsonObj.get("token_endpoint_auth_signing_alg").isJsonNull())
+                && !jsonObj.get("token_endpoint_auth_signing_alg").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `token_endpoint_auth_signing_alg` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("token_endpoint_auth_signing_alg").toString()));
+        }
+        // validate the optional field `token_endpoint_auth_signing_alg`
+        if (jsonObj.get("token_endpoint_auth_signing_alg") != null
+                && !jsonObj.get("token_endpoint_auth_signing_alg").isJsonNull()) {
+            TokenEndpointAuthSigningAlgEnum.validateJsonElement(
+                    jsonObj.get("token_endpoint_auth_signing_alg"));
+        }
+        if ((jsonObj.get("private_key") != null && !jsonObj.get("private_key").isJsonNull())
+                && !jsonObj.get("private_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `private_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("private_key").toString()));
+        }
+        if ((jsonObj.get("certificate") != null && !jsonObj.get("certificate").isJsonNull())
+                && !jsonObj.get("certificate").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `certificate` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("certificate").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("default_scopes") != null
