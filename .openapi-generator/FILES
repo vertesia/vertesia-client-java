@@ -22,6 +22,7 @@ src/main/java/io/vertesia/api/CollectionsApi.java
 src/main/java/io/vertesia/api/CommandsApi.java
 src/main/java/io/vertesia/api/ContentObjectTypesApi.java
 src/main/java/io/vertesia/api/ContentQueryApi.java
+src/main/java/io/vertesia/api/ContentSourcesApi.java
 src/main/java/io/vertesia/api/CostsApi.java
 src/main/java/io/vertesia/api/DataApi.java
 src/main/java/io/vertesia/api/DefaultApi.java
@@ -294,6 +295,7 @@ src/main/java/io/vertesia/model/BedrockMistralOptions.java
 src/main/java/io/vertesia/model/BedrockNovaOptions.java
 src/main/java/io/vertesia/model/BedrockPalmyraOptions.java
 src/main/java/io/vertesia/model/BillingMethod.java
+src/main/java/io/vertesia/model/BoxContentSource.java
 src/main/java/io/vertesia/model/BranchDefinition.java
 src/main/java/io/vertesia/model/BranchJoinPolicy.java
 src/main/java/io/vertesia/model/BranchNodeBranchDefinition.java
@@ -390,6 +392,13 @@ src/main/java/io/vertesia/model/ContentQueryResult.java
 src/main/java/io/vertesia/model/ContentQueryResultColumnsInner.java
 src/main/java/io/vertesia/model/ContentQueryResultHitsInner.java
 src/main/java/io/vertesia/model/ContentSource.java
+src/main/java/io/vertesia/model/ContentSourceReport.java
+src/main/java/io/vertesia/model/ContentSourceReportAction.java
+src/main/java/io/vertesia/model/ContentSourceReportEntry.java
+src/main/java/io/vertesia/model/ContentSourceStatus.java
+src/main/java/io/vertesia/model/ContentSourceSyncCounts.java
+src/main/java/io/vertesia/model/ContentSourceSyncRound.java
+src/main/java/io/vertesia/model/ContentSourceSyncSettings.java
 src/main/java/io/vertesia/model/ContentTypeEditingPolicy.java
 src/main/java/io/vertesia/model/ContentTypeExtractionGroundingPolicy.java
 src/main/java/io/vertesia/model/ContentTypeExtractionGroundingReviewPolicy.java
@@ -430,10 +439,12 @@ src/main/java/io/vertesia/model/CreateApiKeyPayload.java
 src/main/java/io/vertesia/model/CreateAppRepoBranchRequest.java
 src/main/java/io/vertesia/model/CreateAppVersionLaunchRequest.java
 src/main/java/io/vertesia/model/CreateAppVersionLaunchResponse.java
+src/main/java/io/vertesia/model/CreateBoxContentSourcePayload.java
 src/main/java/io/vertesia/model/CreateCollectionPayload.java
 src/main/java/io/vertesia/model/CreateContentObjectPayload.java
 src/main/java/io/vertesia/model/CreateContentObjectPayloadTokens.java
 src/main/java/io/vertesia/model/CreateContentObjectTypePayload.java
+src/main/java/io/vertesia/model/CreateContentSourcePayload.java
 src/main/java/io/vertesia/model/CreateDashboardPayload.java
 src/main/java/io/vertesia/model/CreateDashboardSnapshotPayload.java
 src/main/java/io/vertesia/model/CreateDataStorePayload.java
@@ -451,6 +462,7 @@ src/main/java/io/vertesia/model/CreateProcessRunWithDefinitionPayload.java
 src/main/java/io/vertesia/model/CreateProcessTestSuitePayload.java
 src/main/java/io/vertesia/model/CreateRunPayload.java
 src/main/java/io/vertesia/model/CreateSecretRequest.java
+src/main/java/io/vertesia/model/CreateSharePointContentSourcePayload.java
 src/main/java/io/vertesia/model/CreateSnapshotPayload.java
 src/main/java/io/vertesia/model/CreateTablePayload.java
 src/main/java/io/vertesia/model/CreateTablesPayload.java
@@ -631,6 +643,7 @@ src/main/java/io/vertesia/model/ExportDashboardPreviewPayload.java
 src/main/java/io/vertesia/model/ExportPropertiesPayload.java
 src/main/java/io/vertesia/model/ExportPropertiesResponse.java
 src/main/java/io/vertesia/model/ExportedPromptTemplateRef.java
+src/main/java/io/vertesia/model/ExternalContentSource.java
 src/main/java/io/vertesia/model/ExternalizedToolInputRef.java
 src/main/java/io/vertesia/model/ExtractAppVersionGitRefTypeBranchTagCommit.java
 src/main/java/io/vertesia/model/FacetSpec.java
@@ -1067,6 +1080,7 @@ src/main/java/io/vertesia/model/SetFileMetadataPayload.java
 src/main/java/io/vertesia/model/SetMcpApiKeyRequest.java
 src/main/java/io/vertesia/model/SetObjectEmbeddingsResponse.java
 src/main/java/io/vertesia/model/SetObjectTextPayload.java
+src/main/java/io/vertesia/model/SharePointContentSource.java
 src/main/java/io/vertesia/model/SignalAgentResponse.java
 src/main/java/io/vertesia/model/SignalEventProperties.java
 src/main/java/io/vertesia/model/SignalEventPropertiesSender.java
@@ -1111,6 +1125,7 @@ src/main/java/io/vertesia/model/SupportedIntegrationsMagicPdf.java
 src/main/java/io/vertesia/model/SupportedIntegrationsResend.java
 src/main/java/io/vertesia/model/SupportedIntegrationsSerper.java
 src/main/java/io/vertesia/model/SupportedProviders.java
+src/main/java/io/vertesia/model/SyncContentSourcePayload.java
 src/main/java/io/vertesia/model/SystemDefaults.java
 src/main/java/io/vertesia/model/SystemRoleDefinition.java
 src/main/java/io/vertesia/model/SystemRoles.java
@@ -1165,6 +1180,7 @@ src/main/java/io/vertesia/model/UpdateAppPayload.java
 src/main/java/io/vertesia/model/UpdateCollectionPayload.java
 src/main/java/io/vertesia/model/UpdateContentObjectPayload.java
 src/main/java/io/vertesia/model/UpdateContentObjectTypePayload.java
+src/main/java/io/vertesia/model/UpdateContentSourcePayload.java
 src/main/java/io/vertesia/model/UpdateCustomRolePayload.java
 src/main/java/io/vertesia/model/UpdateDashboardPayload.java
 src/main/java/io/vertesia/model/UpdateEmailRouteRequest.java

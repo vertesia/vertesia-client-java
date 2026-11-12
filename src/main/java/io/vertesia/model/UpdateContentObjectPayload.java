@@ -487,7 +487,7 @@ public class UpdateContentObjectPayload {
     }
 
     /**
-     * Content source information. A non-empty &#x60;source&#x60; is a &#x60;gs://&#x60;, &#x60;s3://&#x60; or &#x60;az://&#x60; URI of the file (a bucket then a non-empty object path), and &#x60;type&#x60;, its MIME type, is then required.
+     * Content source information. A non-empty &#x60;source&#x60; is a &#x60;gs://&#x60;, &#x60;s3://&#x60; or &#x60;az://&#x60; URI of the file (a bucket then a non-empty object path), or a &#x60;sharepoint://&#x60; or &#x60;box://&#x60; &#x60;&lt;source_id&gt;/&lt;item_id&gt;&#x60; URI of a file in a registered content source, and &#x60;type&#x60;, its MIME type, is then required.
      * @return content
      */
     @jakarta.annotation.Nullable public ContentSource getContent() {
