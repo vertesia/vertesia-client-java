@@ -26,8 +26,10 @@ import io.vertesia.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -141,6 +143,11 @@ public class UpdateOAuthProviderPayload {
 
     @SerializedName(SERIALIZED_NAME_REVOCATION_ENDPOINT)
     @jakarta.annotation.Nullable private String revocationEndpoint;
+
+    public static final String SERIALIZED_NAME_TOKEN_PARAMS = "token_params";
+
+    @SerializedName(SERIALIZED_NAME_TOKEN_PARAMS)
+    @jakarta.annotation.Nullable private Map<String, String> tokenParams = new HashMap<>();
 
     public UpdateOAuthProviderPayload() {}
 
@@ -329,6 +336,32 @@ public class UpdateOAuthProviderPayload {
         this.revocationEndpoint = revocationEndpoint;
     }
 
+    public UpdateOAuthProviderPayload tokenParams(
+            @jakarta.annotation.Nullable Map<String, String> tokenParams) {
+        this.tokenParams = tokenParams;
+        return this;
+    }
+
+    public UpdateOAuthProviderPayload putTokenParamsItem(String key, String tokenParamsItem) {
+        if (this.tokenParams == null) {
+            this.tokenParams = new HashMap<>();
+        }
+        this.tokenParams.put(key, tokenParamsItem);
+        return this;
+    }
+
+    /**
+     * Extra parameters added to the URL-encoded body of every client_credentials token request for this provider, after the standard ones (e.g. Box&#39;s box_subject_type and box_subject_id). Only used for the client_credentials grant. At most 10 entries; keys match ^[A-Za-z][A-Za-z0-9_.-]{0,63}$; values are at most 512 characters; grant_type, client_id, client_secret, scope, client_assertion and client_assertion_type are reserved. Not secret: returned as stored. On update, an empty object clears them.
+     * @return tokenParams
+     */
+    @jakarta.annotation.Nullable public Map<String, String> getTokenParams() {
+        return tokenParams;
+    }
+
+    public void setTokenParams(@jakarta.annotation.Nullable Map<String, String> tokenParams) {
+        this.tokenParams = tokenParams;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -350,7 +383,8 @@ public class UpdateOAuthProviderPayload {
                 && Objects.equals(this.defaultScopes, updateOAuthProviderPayload.defaultScopes)
                 && Objects.equals(this.usePkce, updateOAuthProviderPayload.usePkce)
                 && Objects.equals(
-                        this.revocationEndpoint, updateOAuthProviderPayload.revocationEndpoint);
+                        this.revocationEndpoint, updateOAuthProviderPayload.revocationEndpoint)
+                && Objects.equals(this.tokenParams, updateOAuthProviderPayload.tokenParams);
     }
 
     @Override
@@ -365,7 +399,8 @@ public class UpdateOAuthProviderPayload {
                 clientSecret,
                 defaultScopes,
                 usePkce,
-                revocationEndpoint);
+                revocationEndpoint,
+                tokenParams);
     }
 
     @Override
@@ -386,6 +421,7 @@ public class UpdateOAuthProviderPayload {
         sb.append("    revocationEndpoint: ")
                 .append(toIndentedString(revocationEndpoint))
                 .append("\n");
+        sb.append("    tokenParams: ").append(toIndentedString(tokenParams)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -415,7 +451,8 @@ public class UpdateOAuthProviderPayload {
                                 "client_secret",
                                 "default_scopes",
                                 "use_pkce",
-                                "revocation_endpoint"));
+                                "revocation_endpoint",
+                                "token_params"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
