@@ -322,6 +322,11 @@ public class BedrockMantleClaudeOptions {
     @SerializedName(SERIALIZED_NAME_CACHE_TTL)
     @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
 
+    public static final String SERIALIZED_NAME_NATIVE_COMPACTION = "native_compaction";
+
+    @SerializedName(SERIALIZED_NAME_NATIVE_COMPACTION)
+    @jakarta.annotation.Nullable private Boolean nativeCompaction;
+
     public BedrockMantleClaudeOptions() {}
 
     public BedrockMantleClaudeOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
@@ -543,6 +548,24 @@ public class BedrockMantleClaudeOptions {
         this.cacheTtl = cacheTtl;
     }
 
+    public BedrockMantleClaudeOptions nativeCompaction(
+            @jakarta.annotation.Nullable Boolean nativeCompaction) {
+        this.nativeCompaction = nativeCompaction;
+        return this;
+    }
+
+    /**
+     * Get nativeCompaction
+     * @return nativeCompaction
+     */
+    @jakarta.annotation.Nullable public Boolean getNativeCompaction() {
+        return nativeCompaction;
+    }
+
+    public void setNativeCompaction(@jakarta.annotation.Nullable Boolean nativeCompaction) {
+        this.nativeCompaction = nativeCompaction;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -564,7 +587,9 @@ public class BedrockMantleClaudeOptions {
                         this.thinkingBudgetTokens, bedrockMantleClaudeOptions.thinkingBudgetTokens)
                 && Objects.equals(this.includeThoughts, bedrockMantleClaudeOptions.includeThoughts)
                 && Objects.equals(this.cacheEnabled, bedrockMantleClaudeOptions.cacheEnabled)
-                && Objects.equals(this.cacheTtl, bedrockMantleClaudeOptions.cacheTtl);
+                && Objects.equals(this.cacheTtl, bedrockMantleClaudeOptions.cacheTtl)
+                && Objects.equals(
+                        this.nativeCompaction, bedrockMantleClaudeOptions.nativeCompaction);
     }
 
     @Override
@@ -581,7 +606,8 @@ public class BedrockMantleClaudeOptions {
                 thinkingBudgetTokens,
                 includeThoughts,
                 cacheEnabled,
-                cacheTtl);
+                cacheTtl,
+                nativeCompaction);
     }
 
     @Override
@@ -602,6 +628,7 @@ public class BedrockMantleClaudeOptions {
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    cacheEnabled: ").append(toIndentedString(cacheEnabled)).append("\n");
         sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
+        sb.append("    nativeCompaction: ").append(toIndentedString(nativeCompaction)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -633,7 +660,8 @@ public class BedrockMantleClaudeOptions {
                                 "thinking_budget_tokens",
                                 "include_thoughts",
                                 "cache_enabled",
-                                "cache_ttl"));
+                                "cache_ttl",
+                                "native_compaction"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);

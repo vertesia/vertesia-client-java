@@ -322,6 +322,11 @@ public class AnthropicClaudeOptions {
     @SerializedName(SERIALIZED_NAME_CACHE_TTL)
     @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
 
+    public static final String SERIALIZED_NAME_NATIVE_COMPACTION = "native_compaction";
+
+    @SerializedName(SERIALIZED_NAME_NATIVE_COMPACTION)
+    @jakarta.annotation.Nullable private Boolean nativeCompaction;
+
     /**
      * Gets or Sets speed
      */
@@ -601,6 +606,24 @@ public class AnthropicClaudeOptions {
         this.cacheTtl = cacheTtl;
     }
 
+    public AnthropicClaudeOptions nativeCompaction(
+            @jakarta.annotation.Nullable Boolean nativeCompaction) {
+        this.nativeCompaction = nativeCompaction;
+        return this;
+    }
+
+    /**
+     * Get nativeCompaction
+     * @return nativeCompaction
+     */
+    @jakarta.annotation.Nullable public Boolean getNativeCompaction() {
+        return nativeCompaction;
+    }
+
+    public void setNativeCompaction(@jakarta.annotation.Nullable Boolean nativeCompaction) {
+        this.nativeCompaction = nativeCompaction;
+    }
+
     public AnthropicClaudeOptions speed(@jakarta.annotation.Nullable SpeedEnum speed) {
         this.speed = speed;
         return this;
@@ -640,6 +663,7 @@ public class AnthropicClaudeOptions {
                 && Objects.equals(this.includeThoughts, anthropicClaudeOptions.includeThoughts)
                 && Objects.equals(this.cacheEnabled, anthropicClaudeOptions.cacheEnabled)
                 && Objects.equals(this.cacheTtl, anthropicClaudeOptions.cacheTtl)
+                && Objects.equals(this.nativeCompaction, anthropicClaudeOptions.nativeCompaction)
                 && Objects.equals(this.speed, anthropicClaudeOptions.speed);
     }
 
@@ -658,6 +682,7 @@ public class AnthropicClaudeOptions {
                 includeThoughts,
                 cacheEnabled,
                 cacheTtl,
+                nativeCompaction,
                 speed);
     }
 
@@ -679,6 +704,7 @@ public class AnthropicClaudeOptions {
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    cacheEnabled: ").append(toIndentedString(cacheEnabled)).append("\n");
         sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
+        sb.append("    nativeCompaction: ").append(toIndentedString(nativeCompaction)).append("\n");
         sb.append("    speed: ").append(toIndentedString(speed)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -712,6 +738,7 @@ public class AnthropicClaudeOptions {
                                 "include_thoughts",
                                 "cache_enabled",
                                 "cache_ttl",
+                                "native_compaction",
                                 "speed"));
 
         // a set of required properties/fields (JSON key names)

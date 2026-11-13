@@ -322,6 +322,11 @@ public class BedrockClaudeOptions {
     @SerializedName(SERIALIZED_NAME_CACHE_TTL)
     @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
 
+    public static final String SERIALIZED_NAME_NATIVE_COMPACTION = "native_compaction";
+
+    @SerializedName(SERIALIZED_NAME_NATIVE_COMPACTION)
+    @jakarta.annotation.Nullable private Boolean nativeCompaction;
+
     public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
 
     @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
@@ -546,6 +551,24 @@ public class BedrockClaudeOptions {
         this.cacheTtl = cacheTtl;
     }
 
+    public BedrockClaudeOptions nativeCompaction(
+            @jakarta.annotation.Nullable Boolean nativeCompaction) {
+        this.nativeCompaction = nativeCompaction;
+        return this;
+    }
+
+    /**
+     * Get nativeCompaction
+     * @return nativeCompaction
+     */
+    @jakarta.annotation.Nullable public Boolean getNativeCompaction() {
+        return nativeCompaction;
+    }
+
+    public void setNativeCompaction(@jakarta.annotation.Nullable Boolean nativeCompaction) {
+        this.nativeCompaction = nativeCompaction;
+    }
+
     public BedrockClaudeOptions serviceTier(@jakarta.annotation.Nullable String serviceTier) {
         this.serviceTier = serviceTier;
         return this;
@@ -585,6 +608,7 @@ public class BedrockClaudeOptions {
                 && Objects.equals(this.effort, bedrockClaudeOptions.effort)
                 && Objects.equals(this.cacheEnabled, bedrockClaudeOptions.cacheEnabled)
                 && Objects.equals(this.cacheTtl, bedrockClaudeOptions.cacheTtl)
+                && Objects.equals(this.nativeCompaction, bedrockClaudeOptions.nativeCompaction)
                 && Objects.equals(this.serviceTier, bedrockClaudeOptions.serviceTier);
     }
 
@@ -603,6 +627,7 @@ public class BedrockClaudeOptions {
                 effort,
                 cacheEnabled,
                 cacheTtl,
+                nativeCompaction,
                 serviceTier);
     }
 
@@ -624,6 +649,7 @@ public class BedrockClaudeOptions {
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
         sb.append("    cacheEnabled: ").append(toIndentedString(cacheEnabled)).append("\n");
         sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
+        sb.append("    nativeCompaction: ").append(toIndentedString(nativeCompaction)).append("\n");
         sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -657,6 +683,7 @@ public class BedrockClaudeOptions {
                                 "effort",
                                 "cache_enabled",
                                 "cache_ttl",
+                                "native_compaction",
                                 "service_tier"));
 
         // a set of required properties/fields (JSON key names)

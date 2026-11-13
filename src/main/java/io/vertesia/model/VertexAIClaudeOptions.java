@@ -322,6 +322,11 @@ public class VertexAIClaudeOptions {
     @SerializedName(SERIALIZED_NAME_CACHE_TTL)
     @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
 
+    public static final String SERIALIZED_NAME_NATIVE_COMPACTION = "native_compaction";
+
+    @SerializedName(SERIALIZED_NAME_NATIVE_COMPACTION)
+    @jakarta.annotation.Nullable private Boolean nativeCompaction;
+
     public VertexAIClaudeOptions() {}
 
     public VertexAIClaudeOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
@@ -541,6 +546,24 @@ public class VertexAIClaudeOptions {
         this.cacheTtl = cacheTtl;
     }
 
+    public VertexAIClaudeOptions nativeCompaction(
+            @jakarta.annotation.Nullable Boolean nativeCompaction) {
+        this.nativeCompaction = nativeCompaction;
+        return this;
+    }
+
+    /**
+     * Get nativeCompaction
+     * @return nativeCompaction
+     */
+    @jakarta.annotation.Nullable public Boolean getNativeCompaction() {
+        return nativeCompaction;
+    }
+
+    public void setNativeCompaction(@jakarta.annotation.Nullable Boolean nativeCompaction) {
+        this.nativeCompaction = nativeCompaction;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -562,7 +585,8 @@ public class VertexAIClaudeOptions {
                         this.thinkingBudgetTokens, vertexAIClaudeOptions.thinkingBudgetTokens)
                 && Objects.equals(this.includeThoughts, vertexAIClaudeOptions.includeThoughts)
                 && Objects.equals(this.cacheEnabled, vertexAIClaudeOptions.cacheEnabled)
-                && Objects.equals(this.cacheTtl, vertexAIClaudeOptions.cacheTtl);
+                && Objects.equals(this.cacheTtl, vertexAIClaudeOptions.cacheTtl)
+                && Objects.equals(this.nativeCompaction, vertexAIClaudeOptions.nativeCompaction);
     }
 
     @Override
@@ -579,7 +603,8 @@ public class VertexAIClaudeOptions {
                 thinkingBudgetTokens,
                 includeThoughts,
                 cacheEnabled,
-                cacheTtl);
+                cacheTtl,
+                nativeCompaction);
     }
 
     @Override
@@ -600,6 +625,7 @@ public class VertexAIClaudeOptions {
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    cacheEnabled: ").append(toIndentedString(cacheEnabled)).append("\n");
         sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
+        sb.append("    nativeCompaction: ").append(toIndentedString(nativeCompaction)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -631,7 +657,8 @@ public class VertexAIClaudeOptions {
                                 "thinking_budget_tokens",
                                 "include_thoughts",
                                 "cache_enabled",
-                                "cache_ttl"));
+                                "cache_ttl",
+                                "native_compaction"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);

@@ -410,6 +410,11 @@ public class OpenAiTextOptions {
     @SerializedName(SERIALIZED_NAME_CACHE_TTL)
     @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
 
+    public static final String SERIALIZED_NAME_NATIVE_COMPACTION = "native_compaction";
+
+    @SerializedName(SERIALIZED_NAME_NATIVE_COMPACTION)
+    @jakarta.annotation.Nullable private Boolean nativeCompaction;
+
     public static final String SERIALIZED_NAME_EXTRA_BODY = "extra_body";
 
     @SerializedName(SERIALIZED_NAME_EXTRA_BODY)
@@ -719,6 +724,24 @@ public class OpenAiTextOptions {
         this.cacheTtl = cacheTtl;
     }
 
+    public OpenAiTextOptions nativeCompaction(
+            @jakarta.annotation.Nullable Boolean nativeCompaction) {
+        this.nativeCompaction = nativeCompaction;
+        return this;
+    }
+
+    /**
+     * Get nativeCompaction
+     * @return nativeCompaction
+     */
+    @jakarta.annotation.Nullable public Boolean getNativeCompaction() {
+        return nativeCompaction;
+    }
+
+    public void setNativeCompaction(@jakarta.annotation.Nullable Boolean nativeCompaction) {
+        this.nativeCompaction = nativeCompaction;
+    }
+
     public OpenAiTextOptions extraBody(@jakarta.annotation.Nullable Map<String, Object> extraBody) {
         this.extraBody = extraBody;
         return this;
@@ -770,6 +793,7 @@ public class OpenAiTextOptions {
                 && Objects.equals(this.includeThoughts, openAiTextOptions.includeThoughts)
                 && Objects.equals(this.serviceTier, openAiTextOptions.serviceTier)
                 && Objects.equals(this.cacheTtl, openAiTextOptions.cacheTtl)
+                && Objects.equals(this.nativeCompaction, openAiTextOptions.nativeCompaction)
                 && Objects.equals(this.extraBody, openAiTextOptions.extraBody);
     }
 
@@ -793,6 +817,7 @@ public class OpenAiTextOptions {
                 includeThoughts,
                 serviceTier,
                 cacheTtl,
+                nativeCompaction,
                 extraBody);
     }
 
@@ -817,6 +842,7 @@ public class OpenAiTextOptions {
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
+        sb.append("    nativeCompaction: ").append(toIndentedString(nativeCompaction)).append("\n");
         sb.append("    extraBody: ").append(toIndentedString(extraBody)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -855,6 +881,7 @@ public class OpenAiTextOptions {
                                 "include_thoughts",
                                 "service_tier",
                                 "cache_ttl",
+                                "native_compaction",
                                 "extra_body"));
 
         // a set of required properties/fields (JSON key names)
