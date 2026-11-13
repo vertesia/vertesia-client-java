@@ -32,6 +32,8 @@ public enum ThinkingLevel {
 
     MINIMAL("MINIMAL"),
 
+    XHIGH("XHIGH"),
+
     THINKING_LEVEL_UNSPECIFIED("THINKING_LEVEL_UNSPECIFIED"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");

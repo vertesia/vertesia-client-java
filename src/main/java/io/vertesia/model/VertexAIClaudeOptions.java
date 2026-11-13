@@ -322,6 +322,66 @@ public class VertexAIClaudeOptions {
     @SerializedName(SERIALIZED_NAME_CACHE_TTL)
     @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
 
+    /**
+     * Gets or Sets speed
+     */
+    @JsonAdapter(SpeedEnum.Adapter.class)
+    public enum SpeedEnum {
+        STANDARD("standard"),
+
+        FAST("fast"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        SpeedEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static SpeedEnum fromValue(String value) {
+            for (SpeedEnum b : SpeedEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<SpeedEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final SpeedEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public SpeedEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return SpeedEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            SpeedEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_SPEED = "speed";
+
+    @SerializedName(SERIALIZED_NAME_SPEED)
+    @jakarta.annotation.Nullable private SpeedEnum speed;
+
     public static final String SERIALIZED_NAME_NATIVE_COMPACTION = "native_compaction";
 
     @SerializedName(SERIALIZED_NAME_NATIVE_COMPACTION)
@@ -546,6 +606,23 @@ public class VertexAIClaudeOptions {
         this.cacheTtl = cacheTtl;
     }
 
+    public VertexAIClaudeOptions speed(@jakarta.annotation.Nullable SpeedEnum speed) {
+        this.speed = speed;
+        return this;
+    }
+
+    /**
+     * Get speed
+     * @return speed
+     */
+    @jakarta.annotation.Nullable public SpeedEnum getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(@jakarta.annotation.Nullable SpeedEnum speed) {
+        this.speed = speed;
+    }
+
     public VertexAIClaudeOptions nativeCompaction(
             @jakarta.annotation.Nullable Boolean nativeCompaction) {
         this.nativeCompaction = nativeCompaction;
@@ -586,6 +663,7 @@ public class VertexAIClaudeOptions {
                 && Objects.equals(this.includeThoughts, vertexAIClaudeOptions.includeThoughts)
                 && Objects.equals(this.cacheEnabled, vertexAIClaudeOptions.cacheEnabled)
                 && Objects.equals(this.cacheTtl, vertexAIClaudeOptions.cacheTtl)
+                && Objects.equals(this.speed, vertexAIClaudeOptions.speed)
                 && Objects.equals(this.nativeCompaction, vertexAIClaudeOptions.nativeCompaction);
     }
 
@@ -604,6 +682,7 @@ public class VertexAIClaudeOptions {
                 includeThoughts,
                 cacheEnabled,
                 cacheTtl,
+                speed,
                 nativeCompaction);
     }
 
@@ -625,6 +704,7 @@ public class VertexAIClaudeOptions {
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    cacheEnabled: ").append(toIndentedString(cacheEnabled)).append("\n");
         sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
+        sb.append("    speed: ").append(toIndentedString(speed)).append("\n");
         sb.append("    nativeCompaction: ").append(toIndentedString(nativeCompaction)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -658,6 +738,7 @@ public class VertexAIClaudeOptions {
                                 "include_thoughts",
                                 "cache_enabled",
                                 "cache_ttl",
+                                "speed",
                                 "native_compaction"));
 
         // a set of required properties/fields (JSON key names)
@@ -739,6 +820,18 @@ public class VertexAIClaudeOptions {
         // validate the optional field `cache_ttl`
         if (jsonObj.get("cache_ttl") != null && !jsonObj.get("cache_ttl").isJsonNull()) {
             CacheTtlEnum.validateJsonElement(jsonObj.get("cache_ttl"));
+        }
+        if ((jsonObj.get("speed") != null && !jsonObj.get("speed").isJsonNull())
+                && !jsonObj.get("speed").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `speed` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("speed").toString()));
+        }
+        // validate the optional field `speed`
+        if (jsonObj.get("speed") != null && !jsonObj.get("speed").isJsonNull()) {
+            SpeedEnum.validateJsonElement(jsonObj.get("speed"));
         }
     }
 

@@ -108,6 +108,8 @@ public class VertexAIGeminiOmniVideoOptions {
 
         EXTEND("extend"),
 
+        UPSCALE("upscale"),
+
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
@@ -288,6 +290,11 @@ public class VertexAIGeminiOmniVideoOptions {
     @SerializedName(SERIALIZED_NAME_RESOLUTION)
     @jakarta.annotation.Nullable private ResolutionEnum resolution;
 
+    public static final String SERIALIZED_NAME_SEED = "seed";
+
+    @SerializedName(SERIALIZED_NAME_SEED)
+    @jakarta.annotation.Nullable private Integer seed;
+
     public VertexAIGeminiOmniVideoOptions() {}
 
     public VertexAIGeminiOmniVideoOptions optionId(
@@ -352,7 +359,7 @@ public class VertexAIGeminiOmniVideoOptions {
     /**
      * Get durationSeconds
      * minimum: 3
-     * maximum: 10
+     * maximum: 15
      * @return durationSeconds
      */
     @jakarta.annotation.Nullable public Integer getDurationSeconds() {
@@ -381,6 +388,25 @@ public class VertexAIGeminiOmniVideoOptions {
         this.resolution = resolution;
     }
 
+    public VertexAIGeminiOmniVideoOptions seed(@jakarta.annotation.Nullable Integer seed) {
+        this.seed = seed;
+        return this;
+    }
+
+    /**
+     * Get seed
+     * minimum: -9007199254740991
+     * maximum: 9007199254740991
+     * @return seed
+     */
+    @jakarta.annotation.Nullable public Integer getSeed() {
+        return seed;
+    }
+
+    public void setSeed(@jakarta.annotation.Nullable Integer seed) {
+        this.seed = seed;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -396,12 +422,13 @@ public class VertexAIGeminiOmniVideoOptions {
                 && Objects.equals(this.aspectRatio, vertexAIGeminiOmniVideoOptions.aspectRatio)
                 && Objects.equals(
                         this.durationSeconds, vertexAIGeminiOmniVideoOptions.durationSeconds)
-                && Objects.equals(this.resolution, vertexAIGeminiOmniVideoOptions.resolution);
+                && Objects.equals(this.resolution, vertexAIGeminiOmniVideoOptions.resolution)
+                && Objects.equals(this.seed, vertexAIGeminiOmniVideoOptions.seed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(optionId, task, aspectRatio, durationSeconds, resolution);
+        return Objects.hash(optionId, task, aspectRatio, durationSeconds, resolution, seed);
     }
 
     @Override
@@ -413,6 +440,7 @@ public class VertexAIGeminiOmniVideoOptions {
         sb.append("    aspectRatio: ").append(toIndentedString(aspectRatio)).append("\n");
         sb.append("    durationSeconds: ").append(toIndentedString(durationSeconds)).append("\n");
         sb.append("    resolution: ").append(toIndentedString(resolution)).append("\n");
+        sb.append("    seed: ").append(toIndentedString(seed)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -437,7 +465,8 @@ public class VertexAIGeminiOmniVideoOptions {
                                 "task",
                                 "aspect_ratio",
                                 "duration_seconds",
-                                "resolution"));
+                                "resolution",
+                                "seed"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);

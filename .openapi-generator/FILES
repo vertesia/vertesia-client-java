@@ -1157,6 +1157,8 @@ src/main/java/io/vertesia/model/ToolReference.java
 src/main/java/io/vertesia/model/ToolResult.java
 src/main/java/io/vertesia/model/ToolResultMeta.java
 src/main/java/io/vertesia/model/ToolSource.java
+src/main/java/io/vertesia/model/ToolTokenUsage.java
+src/main/java/io/vertesia/model/ToolUsage.java
 src/main/java/io/vertesia/model/ToolUse.java
 src/main/java/io/vertesia/model/ToolValidationResult.java
 src/main/java/io/vertesia/model/ToolValidationResultCollisionsInner.java

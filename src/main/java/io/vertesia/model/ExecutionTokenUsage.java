@@ -65,6 +65,11 @@ public class ExecutionTokenUsage {
     @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_WRITE1H)
     @jakarta.annotation.Nullable private BigDecimal promptCacheWrite1h;
 
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_WRITE12H = "prompt_cache_write_12h";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_WRITE12H)
+    @jakarta.annotation.Nullable private BigDecimal promptCacheWrite12h;
+
     public static final String SERIALIZED_NAME_PROMPT_NEW = "prompt_new";
 
     @SerializedName(SERIALIZED_NAME_PROMPT_NEW)
@@ -79,6 +84,11 @@ public class ExecutionTokenUsage {
 
     @SerializedName(SERIALIZED_NAME_PROVIDER_COST_USD)
     @jakarta.annotation.Nullable private BigDecimal providerCostUsd;
+
+    public static final String SERIALIZED_NAME_TOOL_USAGE = "tool_usage";
+
+    @SerializedName(SERIALIZED_NAME_TOOL_USAGE)
+    @jakarta.annotation.Nullable private ToolUsage toolUsage;
 
     public ExecutionTokenUsage() {}
 
@@ -186,6 +196,25 @@ public class ExecutionTokenUsage {
         this.promptCacheWrite1h = promptCacheWrite1h;
     }
 
+    public ExecutionTokenUsage promptCacheWrite12h(
+            @jakarta.annotation.Nullable BigDecimal promptCacheWrite12h) {
+        this.promptCacheWrite12h = promptCacheWrite12h;
+        return this;
+    }
+
+    /**
+     * Of &#x60;prompt_cache_write&#x60;, the tokens written with a 12-hour cache retention, when the provider reports it (OpenAI). The remainder used the default (30-minute) retention.
+     * @return promptCacheWrite12h
+     */
+    @jakarta.annotation.Nullable public BigDecimal getPromptCacheWrite12h() {
+        return promptCacheWrite12h;
+    }
+
+    public void setPromptCacheWrite12h(
+            @jakarta.annotation.Nullable BigDecimal promptCacheWrite12h) {
+        this.promptCacheWrite12h = promptCacheWrite12h;
+    }
+
     public ExecutionTokenUsage promptNew(@jakarta.annotation.Nullable BigDecimal promptNew) {
         this.promptNew = promptNew;
         return this;
@@ -238,6 +267,23 @@ public class ExecutionTokenUsage {
         this.providerCostUsd = providerCostUsd;
     }
 
+    public ExecutionTokenUsage toolUsage(@jakarta.annotation.Nullable ToolUsage toolUsage) {
+        this.toolUsage = toolUsage;
+        return this;
+    }
+
+    /**
+     * Get toolUsage
+     * @return toolUsage
+     */
+    @jakarta.annotation.Nullable public ToolUsage getToolUsage() {
+        return toolUsage;
+    }
+
+    public void setToolUsage(@jakarta.annotation.Nullable ToolUsage toolUsage) {
+        this.toolUsage = toolUsage;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -253,9 +299,11 @@ public class ExecutionTokenUsage {
                 && Objects.equals(this.promptCached, executionTokenUsage.promptCached)
                 && Objects.equals(this.promptCacheWrite, executionTokenUsage.promptCacheWrite)
                 && Objects.equals(this.promptCacheWrite1h, executionTokenUsage.promptCacheWrite1h)
+                && Objects.equals(this.promptCacheWrite12h, executionTokenUsage.promptCacheWrite12h)
                 && Objects.equals(this.promptNew, executionTokenUsage.promptNew)
                 && Objects.equals(this.resultImage, executionTokenUsage.resultImage)
-                && Objects.equals(this.providerCostUsd, executionTokenUsage.providerCostUsd);
+                && Objects.equals(this.providerCostUsd, executionTokenUsage.providerCostUsd)
+                && Objects.equals(this.toolUsage, executionTokenUsage.toolUsage);
     }
 
     @Override
@@ -267,9 +315,11 @@ public class ExecutionTokenUsage {
                 promptCached,
                 promptCacheWrite,
                 promptCacheWrite1h,
+                promptCacheWrite12h,
                 promptNew,
                 resultImage,
-                providerCostUsd);
+                providerCostUsd,
+                toolUsage);
     }
 
     @Override
@@ -284,9 +334,13 @@ public class ExecutionTokenUsage {
         sb.append("    promptCacheWrite1h: ")
                 .append(toIndentedString(promptCacheWrite1h))
                 .append("\n");
+        sb.append("    promptCacheWrite12h: ")
+                .append(toIndentedString(promptCacheWrite12h))
+                .append("\n");
         sb.append("    promptNew: ").append(toIndentedString(promptNew)).append("\n");
         sb.append("    resultImage: ").append(toIndentedString(resultImage)).append("\n");
         sb.append("    providerCostUsd: ").append(toIndentedString(providerCostUsd)).append("\n");
+        sb.append("    toolUsage: ").append(toIndentedString(toolUsage)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -313,9 +367,11 @@ public class ExecutionTokenUsage {
                                 "prompt_cached",
                                 "prompt_cache_write",
                                 "prompt_cache_write_1h",
+                                "prompt_cache_write_12h",
                                 "prompt_new",
                                 "result_image",
-                                "provider_cost_usd"));
+                                "provider_cost_usd",
+                                "tool_usage"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -339,6 +395,10 @@ public class ExecutionTokenUsage {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `tool_usage`
+        if (jsonObj.get("tool_usage") != null && !jsonObj.get("tool_usage").isJsonNull()) {
+            ToolUsage.validateJsonElement(jsonObj.get("tool_usage"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

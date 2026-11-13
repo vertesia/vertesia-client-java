@@ -149,6 +149,8 @@ public class VertexAIGeminiOptions {
 
         HIGH("high"),
 
+        XHIGH("xhigh"),
+
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
