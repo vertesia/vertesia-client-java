@@ -245,6 +245,11 @@ public class ConversationState {
     @SerializedName(SERIALIZED_NAME_FINISH_REASON)
     @jakarta.annotation.Nullable private String finishReason;
 
+    public static final String SERIALIZED_NAME_LLM_ATTEMPT = "llm_attempt";
+
+    @SerializedName(SERIALIZED_NAME_LLM_ATTEMPT)
+    @jakarta.annotation.Nullable private Integer llmAttempt;
+
     public static final String SERIALIZED_NAME_AGENT_RUN_ID = "agent_run_id";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUN_ID)
@@ -1088,6 +1093,25 @@ public class ConversationState {
         this.finishReason = finishReason;
     }
 
+    public ConversationState llmAttempt(@jakarta.annotation.Nullable Integer llmAttempt) {
+        this.llmAttempt = llmAttempt;
+        return this;
+    }
+
+    /**
+     * Attempt number of the activity that made the latest LLM call. Above 1, the call was retried after a failed attempt.
+     * minimum: -9007199254740991
+     * maximum: 9007199254740991
+     * @return llmAttempt
+     */
+    @jakarta.annotation.Nullable public Integer getLlmAttempt() {
+        return llmAttempt;
+    }
+
+    public void setLlmAttempt(@jakarta.annotation.Nullable Integer llmAttempt) {
+        this.llmAttempt = llmAttempt;
+    }
+
     public ConversationState agentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
         return this;
@@ -1242,6 +1266,7 @@ public class ConversationState {
                 && Objects.equals(
                         this.activeActivityGroupId, conversationState.activeActivityGroupId)
                 && Objects.equals(this.finishReason, conversationState.finishReason)
+                && Objects.equals(this.llmAttempt, conversationState.llmAttempt)
                 && Objects.equals(this.agentRunId, conversationState.agentRunId)
                 && Objects.equals(this.launchId, conversationState.launchId)
                 && Objects.equals(this.appVersion, conversationState.appVersion)
@@ -1291,6 +1316,7 @@ public class ConversationState {
                 pendingMcpConnections,
                 activeActivityGroupId,
                 finishReason,
+                llmAttempt,
                 agentRunId,
                 launchId,
                 appVersion,
@@ -1366,6 +1392,7 @@ public class ConversationState {
                 .append(toIndentedString(activeActivityGroupId))
                 .append("\n");
         sb.append("    finishReason: ").append(toIndentedString(finishReason)).append("\n");
+        sb.append("    llmAttempt: ").append(toIndentedString(llmAttempt)).append("\n");
         sb.append("    agentRunId: ").append(toIndentedString(agentRunId)).append("\n");
         sb.append("    launchId: ").append(toIndentedString(launchId)).append("\n");
         sb.append("    appVersion: ").append(toIndentedString(appVersion)).append("\n");
@@ -1431,6 +1458,7 @@ public class ConversationState {
                                 "pending_mcp_connections",
                                 "active_activity_group_id",
                                 "finish_reason",
+                                "llm_attempt",
                                 "agent_run_id",
                                 "launch_id",
                                 "app_version"));

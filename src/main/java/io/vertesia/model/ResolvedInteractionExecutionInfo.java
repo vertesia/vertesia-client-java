@@ -78,6 +78,11 @@ public class ResolvedInteractionExecutionInfo {
     @jakarta.annotation.Nonnull
     private ResolvedRuntimeConfig resolved;
 
+    public static final String SERIALIZED_NAME_PROMPT_HASH = "prompt_hash";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_HASH)
+    @jakarta.annotation.Nullable private String promptHash;
+
     public ResolvedInteractionExecutionInfo() {}
 
     public ResolvedInteractionExecutionInfo id(@jakarta.annotation.Nonnull String id) {
@@ -218,6 +223,24 @@ public class ResolvedInteractionExecutionInfo {
         this.resolved = resolved;
     }
 
+    public ResolvedInteractionExecutionInfo promptHash(
+            @jakarta.annotation.Nullable String promptHash) {
+        this.promptHash = promptHash;
+        return this;
+    }
+
+    /**
+     * Digest of the interaction&#39;s prompt segments and their template content. It changes whenever what the model is told changes, including on a draft whose version number stays the same.
+     * @return promptHash
+     */
+    @jakarta.annotation.Nullable public String getPromptHash() {
+        return promptHash;
+    }
+
+    public void setPromptHash(@jakarta.annotation.Nullable String promptHash) {
+        this.promptHash = promptHash;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -236,12 +259,14 @@ public class ResolvedInteractionExecutionInfo {
                 && Objects.equals(
                         this.agentRunnerOptions,
                         resolvedInteractionExecutionInfo.agentRunnerOptions)
-                && Objects.equals(this.resolved, resolvedInteractionExecutionInfo.resolved);
+                && Objects.equals(this.resolved, resolvedInteractionExecutionInfo.resolved)
+                && Objects.equals(this.promptHash, resolvedInteractionExecutionInfo.promptHash);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, version, status, tags, agentRunnerOptions, resolved);
+        return Objects.hash(
+                id, name, version, status, tags, agentRunnerOptions, resolved, promptHash);
     }
 
     @Override
@@ -257,6 +282,7 @@ public class ResolvedInteractionExecutionInfo {
                 .append(toIndentedString(agentRunnerOptions))
                 .append("\n");
         sb.append("    resolved: ").append(toIndentedString(resolved)).append("\n");
+        sb.append("    promptHash: ").append(toIndentedString(promptHash)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -283,7 +309,8 @@ public class ResolvedInteractionExecutionInfo {
                                 "status",
                                 "tags",
                                 "agent_runner_options",
-                                "resolved"));
+                                "resolved",
+                                "prompt_hash"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -355,6 +382,14 @@ public class ResolvedInteractionExecutionInfo {
         }
         // validate the required field `resolved`
         ResolvedRuntimeConfig.validateJsonElement(jsonObj.get("resolved"));
+        if ((jsonObj.get("prompt_hash") != null && !jsonObj.get("prompt_hash").isJsonNull())
+                && !jsonObj.get("prompt_hash").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `prompt_hash` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("prompt_hash").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

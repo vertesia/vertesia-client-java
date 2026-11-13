@@ -63,6 +63,11 @@ public class UsedSkill {
     @SerializedName(SERIALIZED_NAME_SYSTEM_PACKAGES)
     @jakarta.annotation.Nullable private List<String> systemPackages = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_CONTENT_DIGEST = "content_digest";
+
+    @SerializedName(SERIALIZED_NAME_CONTENT_DIGEST)
+    @jakarta.annotation.Nullable private String contentDigest;
+
     public UsedSkill() {}
 
     public UsedSkill name(@jakarta.annotation.Nonnull String name) {
@@ -168,6 +173,23 @@ public class UsedSkill {
         this.systemPackages = systemPackages;
     }
 
+    public UsedSkill contentDigest(@jakarta.annotation.Nullable String contentDigest) {
+        this.contentDigest = contentDigest;
+        return this;
+    }
+
+    /**
+     * Digest of the instructions the skill returned when it was first loaded in the run, to tell skill versions apart. Absent on skills tracked before the digest existed.
+     * @return contentDigest
+     */
+    @jakarta.annotation.Nullable public String getContentDigest() {
+        return contentDigest;
+    }
+
+    public void setContentDigest(@jakarta.annotation.Nullable String contentDigest) {
+        this.contentDigest = contentDigest;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -181,12 +203,13 @@ public class UsedSkill {
                 && Objects.equals(this.src, usedSkill.src)
                 && Objects.equals(this.language, usedSkill.language)
                 && Objects.equals(this.packages, usedSkill.packages)
-                && Objects.equals(this.systemPackages, usedSkill.systemPackages);
+                && Objects.equals(this.systemPackages, usedSkill.systemPackages)
+                && Objects.equals(this.contentDigest, usedSkill.contentDigest);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, src, language, packages, systemPackages);
+        return Objects.hash(name, src, language, packages, systemPackages, contentDigest);
     }
 
     @Override
@@ -198,6 +221,7 @@ public class UsedSkill {
         sb.append("    language: ").append(toIndentedString(language)).append("\n");
         sb.append("    packages: ").append(toIndentedString(packages)).append("\n");
         sb.append("    systemPackages: ").append(toIndentedString(systemPackages)).append("\n");
+        sb.append("    contentDigest: ").append(toIndentedString(contentDigest)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -217,7 +241,13 @@ public class UsedSkill {
         // a set of all properties/fields (JSON key names)
         openapiFields =
                 new HashSet<String>(
-                        Arrays.asList("name", "src", "language", "packages", "system_packages"));
+                        Arrays.asList(
+                                "name",
+                                "src",
+                                "language",
+                                "packages",
+                                "system_packages",
+                                "content_digest"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "src"));
@@ -294,6 +324,14 @@ public class UsedSkill {
                             java.util.Locale.ROOT,
                             "Expected the field `system_packages` to be an array in the JSON string but got `%s`",
                             jsonObj.get("system_packages").toString()));
+        }
+        if ((jsonObj.get("content_digest") != null && !jsonObj.get("content_digest").isJsonNull())
+                && !jsonObj.get("content_digest").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `content_digest` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("content_digest").toString()));
         }
     }
 

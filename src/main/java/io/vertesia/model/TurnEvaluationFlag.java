@@ -52,6 +52,18 @@ public enum TurnEvaluationFlag {
 
     ANSWER_IN_TOOL_PREAMBLE("answer_in_tool_preamble"),
 
+    RESPONSE_CUT_OFF("response_cut_off"),
+
+    LLM_RETRIED("llm_retried"),
+
+    UNKNOWN_TOOL("unknown_tool"),
+
+    INVALID_TOOL_ARGUMENTS("invalid_tool_arguments"),
+
+    CONTEXT_NEAR_FULL("context_near_full"),
+
+    CHECKPOINT_FORCED("checkpoint_forced"),
+
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
