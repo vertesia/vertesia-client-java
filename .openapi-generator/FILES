@@ -855,6 +855,7 @@ src/main/java/io/vertesia/model/OAuthProviderAccessTokenResponse.java
 src/main/java/io/vertesia/model/OAuthProviderAuthStatus.java
 src/main/java/io/vertesia/model/OAuthProviderAuthorizeResponse.java
 src/main/java/io/vertesia/model/OAuthProviderExchangePayload.java
+src/main/java/io/vertesia/model/OAuthProviderTokenRequest.java
 src/main/java/io/vertesia/model/OAuthRegistrationSource.java
 src/main/java/io/vertesia/model/OAuthResponseType.java
 src/main/java/io/vertesia/model/OAuthTokenEndpointAuthMethod.java

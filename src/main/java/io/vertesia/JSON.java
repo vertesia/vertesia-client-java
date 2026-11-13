@@ -2442,6 +2442,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OAuthProviderExchangePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.OAuthProviderTokenRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ObjectIntakeCostResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ObjectSearchResponse.CustomTypeAdapterFactory());

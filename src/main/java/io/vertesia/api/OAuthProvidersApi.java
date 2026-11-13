@@ -25,6 +25,7 @@ import io.vertesia.model.OAuthProviderAccessTokenResponse;
 import io.vertesia.model.OAuthProviderAuthStatus;
 import io.vertesia.model.OAuthProviderAuthorizeResponse;
 import io.vertesia.model.OAuthProviderExchangePayload;
+import io.vertesia.model.OAuthProviderTokenRequest;
 import io.vertesia.model.SuccessResponse;
 import io.vertesia.model.UpdateOAuthProviderPayload;
 import java.lang.reflect.Type;
@@ -1579,7 +1580,9 @@ public class OAuthProvidersApi {
     }
 
     private okhttp3.Call getOAuthProviderTokenCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable OAuthProviderTokenRequest oauthProviderTokenRequest,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1594,7 +1597,7 @@ public class OAuthProvidersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = oauthProviderTokenRequest;
 
         // create path and map variables
         String localVarPath =
@@ -1613,7 +1616,7 @@ public class OAuthProvidersApi {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        final String[] localVarContentTypes = {};
+        final String[] localVarContentTypes = {"application/json"};
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1637,7 +1640,9 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOAuthProviderTokenValidateBeforeCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable OAuthProviderTokenRequest oauthProviderTokenRequest,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1645,22 +1650,27 @@ public class OAuthProvidersApi {
                     "Missing the required parameter 'id' when calling getOAuthProviderToken(Async)");
         }
 
-        return getOAuthProviderTokenCall(id, _callback);
+        return getOAuthProviderTokenCall(id, oauthProviderTokenRequest, _callback);
     }
 
     private ApiResponse<OAuthProviderAccessTokenResponse> getOAuthProviderTokenWithHttpInfo(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        okhttp3.Call localVarCall = getOAuthProviderTokenValidateBeforeCall(id, null);
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable OAuthProviderTokenRequest oauthProviderTokenRequest)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                getOAuthProviderTokenValidateBeforeCall(id, oauthProviderTokenRequest, null);
         Type localVarReturnType = new TypeToken<OAuthProviderAccessTokenResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     private okhttp3.Call getOAuthProviderTokenAsync(
             @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable OAuthProviderTokenRequest oauthProviderTokenRequest,
             final ApiCallback<OAuthProviderAccessTokenResponse> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getOAuthProviderTokenValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall =
+                getOAuthProviderTokenValidateBeforeCall(id, oauthProviderTokenRequest, _callback);
         Type localVarReturnType = new TypeToken<OAuthProviderAccessTokenResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1668,9 +1678,21 @@ public class OAuthProvidersApi {
 
     public class APIgetOAuthProviderTokenRequest {
         @jakarta.annotation.Nonnull private final String id;
+        @jakarta.annotation.Nullable private OAuthProviderTokenRequest oauthProviderTokenRequest;
 
         private APIgetOAuthProviderTokenRequest(@jakarta.annotation.Nonnull String id) {
             this.id = id;
+        }
+
+        /**
+         * Set oauthProviderTokenRequest
+         * @param oauthProviderTokenRequest  (optional)
+         * @return APIgetOAuthProviderTokenRequest
+         */
+        public APIgetOAuthProviderTokenRequest oauthProviderTokenRequest(
+                @jakarta.annotation.Nullable OAuthProviderTokenRequest oauthProviderTokenRequest) {
+            this.oauthProviderTokenRequest = oauthProviderTokenRequest;
+            return this;
         }
 
         /**
@@ -1688,7 +1710,7 @@ public class OAuthProvidersApi {
          * </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getOAuthProviderTokenCall(id, _callback);
+            return getOAuthProviderTokenCall(id, oauthProviderTokenRequest, _callback);
         }
 
         /**
@@ -1706,7 +1728,7 @@ public class OAuthProvidersApi {
          */
         public OAuthProviderAccessTokenResponse execute() throws ApiException {
             ApiResponse<OAuthProviderAccessTokenResponse> localVarResp =
-                    getOAuthProviderTokenWithHttpInfo(id);
+                    getOAuthProviderTokenWithHttpInfo(id, oauthProviderTokenRequest);
             return localVarResp.getData();
         }
 
@@ -1725,7 +1747,7 @@ public class OAuthProvidersApi {
          */
         public ApiResponse<OAuthProviderAccessTokenResponse> executeWithHttpInfo()
                 throws ApiException {
-            return getOAuthProviderTokenWithHttpInfo(id);
+            return getOAuthProviderTokenWithHttpInfo(id, oauthProviderTokenRequest);
         }
 
         /**
@@ -1744,13 +1766,13 @@ public class OAuthProvidersApi {
          */
         public okhttp3.Call executeAsync(
                 final ApiCallback<OAuthProviderAccessTokenResponse> _callback) throws ApiException {
-            return getOAuthProviderTokenAsync(id, _callback);
+            return getOAuthProviderTokenAsync(id, oauthProviderTokenRequest, _callback);
         }
     }
 
     /**
      * Get an OAuth provider token
-     * Returns an access token for the configured OAuth provider.
+     * Returns an access token for the configured OAuth provider. A client_credentials provider can be asked for a scope other than its default_scopes, from its allowed_scopes; the token of each scope set is cached apart.
      * @param id  (required)
      * @return APIgetOAuthProviderTokenRequest
      * @http.response.details

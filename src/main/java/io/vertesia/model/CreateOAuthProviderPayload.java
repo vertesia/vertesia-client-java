@@ -275,6 +275,11 @@ public class CreateOAuthProviderPayload {
     @SerializedName(SERIALIZED_NAME_DEFAULT_SCOPES)
     @jakarta.annotation.Nullable private List<String> defaultScopes = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ALLOWED_SCOPES = "allowed_scopes";
+
+    @SerializedName(SERIALIZED_NAME_ALLOWED_SCOPES)
+    @jakarta.annotation.Nullable private List<String> allowedScopes = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_USE_PKCE = "use_pkce";
 
     @SerializedName(SERIALIZED_NAME_USE_PKCE)
@@ -517,6 +522,32 @@ public class CreateOAuthProviderPayload {
         this.defaultScopes = defaultScopes;
     }
 
+    public CreateOAuthProviderPayload allowedScopes(
+            @jakarta.annotation.Nullable List<String> allowedScopes) {
+        this.allowedScopes = allowedScopes;
+        return this;
+    }
+
+    public CreateOAuthProviderPayload addAllowedScopesItem(String allowedScopesItem) {
+        if (this.allowedScopes == null) {
+            this.allowedScopes = new ArrayList<>();
+        }
+        this.allowedScopes.add(allowedScopesItem);
+        return this;
+    }
+
+    /**
+     * Scopes a token request may ask for instead of default_scopes (POST /oauth-providers/{id}/token with a scope), in addition to default_scopes, which are always allowed. Only used for the client_credentials grant. Set by the provider admin: a caller cannot request a scope outside this list and default_scopes. On update, an empty array clears it.
+     * @return allowedScopes
+     */
+    @jakarta.annotation.Nullable public List<String> getAllowedScopes() {
+        return allowedScopes;
+    }
+
+    public void setAllowedScopes(@jakarta.annotation.Nullable List<String> allowedScopes) {
+        this.allowedScopes = allowedScopes;
+    }
+
     public CreateOAuthProviderPayload usePkce(@jakarta.annotation.Nullable Boolean usePkce) {
         this.usePkce = usePkce;
         return this;
@@ -605,6 +636,7 @@ public class CreateOAuthProviderPayload {
                 && Objects.equals(this.privateKey, createOAuthProviderPayload.privateKey)
                 && Objects.equals(this.certificate, createOAuthProviderPayload.certificate)
                 && Objects.equals(this.defaultScopes, createOAuthProviderPayload.defaultScopes)
+                && Objects.equals(this.allowedScopes, createOAuthProviderPayload.allowedScopes)
                 && Objects.equals(this.usePkce, createOAuthProviderPayload.usePkce)
                 && Objects.equals(
                         this.revocationEndpoint, createOAuthProviderPayload.revocationEndpoint)
@@ -626,6 +658,7 @@ public class CreateOAuthProviderPayload {
                 privateKey,
                 certificate,
                 defaultScopes,
+                allowedScopes,
                 usePkce,
                 revocationEndpoint,
                 tokenParams);
@@ -653,6 +686,7 @@ public class CreateOAuthProviderPayload {
         sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
         sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
         sb.append("    defaultScopes: ").append(toIndentedString(defaultScopes)).append("\n");
+        sb.append("    allowedScopes: ").append(toIndentedString(allowedScopes)).append("\n");
         sb.append("    usePkce: ").append(toIndentedString(usePkce)).append("\n");
         sb.append("    revocationEndpoint: ")
                 .append(toIndentedString(revocationEndpoint))
@@ -690,6 +724,7 @@ public class CreateOAuthProviderPayload {
                                 "private_key",
                                 "certificate",
                                 "default_scopes",
+                                "allowed_scopes",
                                 "use_pkce",
                                 "revocation_endpoint",
                                 "token_params"));
@@ -842,6 +877,16 @@ public class CreateOAuthProviderPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `default_scopes` to be an array in the JSON string but got `%s`",
                             jsonObj.get("default_scopes").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("allowed_scopes") != null
+                && !jsonObj.get("allowed_scopes").isJsonNull()
+                && !jsonObj.get("allowed_scopes").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `allowed_scopes` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("allowed_scopes").toString()));
         }
         if ((jsonObj.get("revocation_endpoint") != null
                         && !jsonObj.get("revocation_endpoint").isJsonNull())
