@@ -12,7 +12,13 @@ import unittest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from patch_forward_compat_validation import patch_schema_constants  # noqa: E402
+import json  # noqa: E402
+
+from patch_forward_compat_validation import (  # noqa: E402
+    patch_schema_constants,
+    patch_union_fallback,
+    union_discriminators,
+)
 
 SCHEMA = {"properties": {"type": {"type": "string", "const": "thoughts"}}}
 
@@ -99,6 +105,35 @@ class PatchSchemaConstantsTest(unittest.TestCase):
 
     def test_enum_without_const_is_left_unchanged(self) -> None:
         self.assertEqual(patch_schema_constants(RAW, {"properties": {"type": {"type": "string"}}}), RAW)
+
+
+class PatchUnionFallbackTest(unittest.TestCase):
+    ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+    def patch(self, name: str) -> tuple[str, str]:
+        source = (self.ROOT / "src/main/java/io/vertesia/model" / f"{name}.java").read_text()
+        spec = json.loads((self.ROOT / "spec/vertesia-openapi.json").read_text())
+        discriminator = union_discriminators(spec["components"]["schemas"]).get(name)
+        patched = patch_union_fallback(source, name, discriminator)
+        # The Test workflow re-runs the script on already patched sources.
+        self.assertEqual(patch_union_fallback(patched, name, discriminator), patched)
+        self.assertEqual(patched.count("{"), patched.count("}"))
+        return source, patched
+
+    def test_discriminated_union_dispatches_and_keeps_unknown_values(self) -> None:
+        _, patched = self.patch("CompletionResult")
+        self.assertIn('case "text":', patched)
+        self.assertEqual(patched.count('checkDiscriminator(jsonElement, "text");'), 2)
+        self.assertIn("public JsonElement getRaw() {", patched)
+
+    def test_undiscriminated_union_falls_back_after_trial(self) -> None:
+        _, patched = self.patch("NodeDefinitionBranchesInner")
+        self.assertIn("if (validCount != 1 && isUnknownVariant(jsonElement)) {", patched)
+        self.assertNotIn("checkDiscriminator", patched)
+
+    def test_other_models_are_left_unchanged(self) -> None:
+        source = (self.ROOT / "src/main/java/io/vertesia/model/TextResult.java").read_text()
+        self.assertEqual(patch_union_fallback(source, "TextResult", None), source)
 
 
 if __name__ == "__main__":
