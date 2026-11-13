@@ -413,10 +413,6 @@ public class StatelessExecutionOptions {
                             "Expected the field `model` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("model").toString()));
         }
-        // validate the optional field `result_schema`
-        if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("result_schema"));
-        }
         // validate the optional field `model_options`
         if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
             ModelOptions.validateJsonElement(jsonObj.get("model_options"));

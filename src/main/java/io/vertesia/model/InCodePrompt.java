@@ -274,10 +274,6 @@ public class InCodePrompt {
         }
         // validate the required field `content_type`
         TemplateType.validateJsonElement(jsonObj.get("content_type"));
-        // validate the optional field `schema`
-        if (jsonObj.get("schema") != null && !jsonObj.get("schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("schema"));
-        }
         if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
                 && !jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(

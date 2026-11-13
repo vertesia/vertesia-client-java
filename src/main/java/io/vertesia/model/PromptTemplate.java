@@ -708,10 +708,6 @@ public class PromptTemplate {
         }
         // validate the required field `content_type`
         TemplateType.validateJsonElement(jsonObj.get("content_type"));
-        // validate the optional field `inputSchema`
-        if (jsonObj.get("inputSchema") != null && !jsonObj.get("inputSchema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("inputSchema"));
-        }
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

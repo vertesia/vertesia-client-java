@@ -515,14 +515,6 @@ public class InteractionEndpoint {
                 && !jsonObj.get("output_modality").isJsonNull()) {
             Modalities.validateJsonElement(jsonObj.get("output_modality"));
         }
-        // validate the optional field `result_schema`
-        if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("result_schema"));
-        }
-        // validate the optional field `params_schema`
-        if (jsonObj.get("params_schema") != null && !jsonObj.get("params_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("params_schema"));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

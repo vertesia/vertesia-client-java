@@ -547,14 +547,6 @@ public class ToolInspection {
                             "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("title").toString()));
         }
-        // validate the optional field `input_schema`
-        if (jsonObj.get("input_schema") != null && !jsonObj.get("input_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("input_schema"));
-        }
-        // validate the optional field `output_schema`
-        if (jsonObj.get("output_schema") != null && !jsonObj.get("output_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("output_schema"));
-        }
         if ((jsonObj.get("output_contract_status") != null
                         && !jsonObj.get("output_contract_status").isJsonNull())
                 && !jsonObj.get("output_contract_status").isJsonPrimitive()) {

@@ -167,10 +167,6 @@ public class ExportedPromptTemplateRef {
                             "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("id").toString()));
         }
-        // validate the optional field `inputSchema`
-        if (jsonObj.get("inputSchema") != null && !jsonObj.get("inputSchema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("inputSchema"));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

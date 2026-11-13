@@ -365,10 +365,6 @@ public class ToolResult {
                             "Expected the field `display_message` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("display_message").toString()));
         }
-        // validate the optional field `meta`
-        if (jsonObj.get("meta") != null && !jsonObj.get("meta").isJsonNull()) {
-            ToolResultMeta.validateJsonElement(jsonObj.get("meta"));
-        }
         if (!jsonObj.get("tool_use_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

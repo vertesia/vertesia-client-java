@@ -434,10 +434,6 @@ public class JSONSchema {
                             "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("description").toString()));
         }
-        // validate the optional field `items`
-        if (jsonObj.get("items") != null && !jsonObj.get("items").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("items"));
-        }
         if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull())
                 && !jsonObj.get("format").isJsonPrimitive()) {
             throw new IllegalArgumentException(

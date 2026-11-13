@@ -484,10 +484,6 @@ public class PromptTemplateCreatePayload {
         }
         // validate the required field `content_type`
         TemplateType.validateJsonElement(jsonObj.get("content_type"));
-        // validate the optional field `inputSchema`
-        if (jsonObj.get("inputSchema") != null && !jsonObj.get("inputSchema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("inputSchema"));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

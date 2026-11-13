@@ -513,10 +513,6 @@ public class PromptTemplateUpdatePayload {
         if (jsonObj.get("content_type") != null && !jsonObj.get("content_type").isJsonNull()) {
             TemplateType.validateJsonElement(jsonObj.get("content_type"));
         }
-        // validate the optional field `inputSchema`
-        if (jsonObj.get("inputSchema") != null && !jsonObj.get("inputSchema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("inputSchema"));
-        }
         if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
                 && !jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(

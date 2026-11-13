@@ -273,10 +273,6 @@ public class PostAgentRunUpdatePayload {
                             "Expected the field `message` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("message").toString()));
         }
-        // validate the optional field `details`
-        if (jsonObj.get("details") != null && !jsonObj.get("details").isJsonNull()) {
-            AgentMessageDetails.validateJsonElement(jsonObj.get("details"));
-        }
         if ((jsonObj.get("workstream_id") != null && !jsonObj.get("workstream_id").isJsonNull())
                 && !jsonObj.get("workstream_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(

@@ -816,11 +816,6 @@ public class AppPackage {
                 ;
             }
         }
-        // validate the optional field `settings_schema`
-        if (jsonObj.get("settings_schema") != null
-                && !jsonObj.get("settings_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("settings_schema"));
-        }
         // validate the optional field `hooks`
         if (jsonObj.get("hooks") != null && !jsonObj.get("hooks").isJsonNull()) {
             AppPackageHooks.validateJsonElement(jsonObj.get("hooks"));

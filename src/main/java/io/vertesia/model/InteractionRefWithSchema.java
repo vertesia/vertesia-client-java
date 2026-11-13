@@ -617,10 +617,6 @@ public class InteractionRefWithSchema {
                 ;
             }
         }
-        // validate the optional field `result_schema`
-        if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("result_schema"));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

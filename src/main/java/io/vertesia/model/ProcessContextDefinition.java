@@ -221,8 +221,6 @@ public class ProcessContextDefinition {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `schema`
-        JSONSchema.validateJsonElement(jsonObj.get("schema"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -963,10 +963,6 @@ public class UpdateExecutionRunPayload {
                             "Expected the field `modelId` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("modelId").toString()));
         }
-        // validate the optional field `result_schema`
-        if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("result_schema"));
-        }
         // validate the optional field `status`
         if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
             ExecutionRunStatus.validateJsonElement(jsonObj.get("status"));

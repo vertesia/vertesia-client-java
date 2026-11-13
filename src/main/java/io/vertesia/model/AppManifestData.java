@@ -1116,11 +1116,6 @@ public class AppManifestData {
                             "Expected the field `interactions` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("interactions").toString()));
         }
-        // validate the optional field `settings_schema`
-        if (jsonObj.get("settings_schema") != null
-                && !jsonObj.get("settings_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("settings_schema"));
-        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("capabilities") != null
                 && !jsonObj.get("capabilities").isJsonNull()

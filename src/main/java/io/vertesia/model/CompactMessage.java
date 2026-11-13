@@ -371,10 +371,6 @@ public class CompactMessage {
                             "Expected the field `w` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("w").toString()));
         }
-        // validate the optional field `d`
-        if (jsonObj.get("d") != null && !jsonObj.get("d").isJsonNull()) {
-            AgentMessageDetails.validateJsonElement(jsonObj.get("d"));
-        }
         // validate the optional field `f`
         if (jsonObj.get("f") != null && !jsonObj.get("f").isJsonNull()) {
             FEnum.validateJsonElement(jsonObj.get("f"));

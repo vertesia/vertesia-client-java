@@ -1211,10 +1211,6 @@ public class InteractionExecutionResult {
                             "Expected the field `modelId` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("modelId").toString()));
         }
-        // validate the optional field `result_schema`
-        if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("result_schema"));
-        }
         // validate the required field `status`
         ExecutionRunStatus.validateJsonElement(jsonObj.get("status"));
         if ((jsonObj.get("finish_reason") != null && !jsonObj.get("finish_reason").isJsonNull())

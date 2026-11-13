@@ -1375,10 +1375,6 @@ public class NodeDefinition {
         if (jsonObj.get("returns") != null && !jsonObj.get("returns").isJsonNull()) {
             ProcessNodeReturnsDefinition.validateJsonElement(jsonObj.get("returns"));
         }
-        // validate the optional field `result_schema`
-        if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("result_schema"));
-        }
         if ((jsonObj.get("prompt") != null && !jsonObj.get("prompt").isJsonNull())
                 && !jsonObj.get("prompt").isJsonPrimitive()) {
             throw new IllegalArgumentException(

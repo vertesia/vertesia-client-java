@@ -429,8 +429,6 @@ public class SubscriptionWorkflowDefinition {
                             "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("description").toString()));
         }
-        // validate the required field `variables_schema`
-        JSONSchema.validateJsonElement(jsonObj.get("variables_schema"));
         if (jsonObj.get("templates") != null && !jsonObj.get("templates").isJsonNull()) {
             JsonArray jsonArraytemplates = jsonObj.getAsJsonArray("templates");
             if (jsonArraytemplates != null) {
