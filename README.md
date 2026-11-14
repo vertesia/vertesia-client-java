@@ -115,8 +115,10 @@ and a released client keeps decoding its responses:
   `getRaw()` return it, and serialization writes it back unchanged. `getRaw()` is `null` for a known
   variant. A union with a published discriminator does this only for a discriminator value it does
   not know; a known value must match its branch, and a missing one is an error. The raw value keeps
-  its `null` members: models leave out the properties they do not set, and `JsonOutput` writes the
-  rest of the tree as it is, so `null` values inside free-form maps and objects are written too.
+  its `null` members: models leave out the properties they do not set and the `null` entries of
+  their typed maps (`putMetadataItem("owner", null)` still sends no `owner`), and `JsonOutput`
+  writes the rest of the tree as it is, so `null` values inside free-form maps and objects
+  (`Object`, `Map<String, Object>`) are written too.
 - `ModelOptions` and `McpConnectionParameter` are `anyOf` unions whose branches carry a literal tag
   (`_option_id`, `type`), optional in `ModelOptions`. A branch is used only when it writes every
   received property back with the same value. Options merged from several model families, or with

@@ -12,6 +12,8 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import io.vertesia.model.AgentRunResponse;
 import io.vertesia.model.AgentRunStatus;
+import io.vertesia.model.AskUserWebhookConfiguration;
+import io.vertesia.model.CompleteTaskPayload;
 import io.vertesia.model.CompletionResult;
 import io.vertesia.model.EventDeliveryTarget;
 import io.vertesia.model.McpConnectionParameter;
@@ -19,7 +21,10 @@ import io.vertesia.model.McpSecretParameter;
 import io.vertesia.model.ModelOptions;
 import io.vertesia.model.NodeDefinition;
 import io.vertesia.model.NodeDefinitionBranchesInner;
+import io.vertesia.model.ProjectIntegrationConfigResponse;
+import io.vertesia.model.SetFileMetadataPayload;
 import io.vertesia.model.StatelessExecutionOptions;
+import io.vertesia.model.SupportedIntegrationsAskUserWebhook;
 import io.vertesia.model.TextResult;
 import io.vertesia.model.TimerTask;
 import io.vertesia.model.VertexAIClaudeOptions;
@@ -160,6 +165,36 @@ class ForwardCompatibilityTest {
                         "{\"type\":\"timer\",\"activityId\":\"a\",\"status\":\"completed\",\"attempts\":1}"),
                 written.getAsJsonArray("tasks").get(0));
         assertEquals("{}", JSON.serialize(new TimerTask()));
+    }
+
+    @Test
+    void typedMapsLeaveOutNullEntriesAndFreeFormValuesKeepThem() {
+        SetFileMetadataPayload metadata =
+                new SetFileMetadataPayload()
+                        .putMetadataItem("owner", null)
+                        .putMetadataItem("team", "a");
+        assertEquals(
+                JsonParser.parseString("{\"metadata\":{\"team\":\"a\"}}"),
+                JsonParser.parseString(JSON.serialize(metadata)));
+
+        CompleteTaskPayload task = new CompleteTaskPayload().putResultItem("approved", null);
+        assertEquals(
+                JsonParser.parseString("{\"result\":{\"approved\":null}}"),
+                JsonParser.parseString(JSON.serialize(task)));
+
+        // This variant sorts before its union, so Gson writes it with its reflective adapter.
+        AskUserWebhookConfiguration webhook =
+                new AskUserWebhookConfiguration()
+                        .integration(SupportedIntegrationsAskUserWebhook.ASK_USER_WEBHOOK)
+                        .enabled(true)
+                        .putCustomHeadersItem("X-Owner", null)
+                        .putCustomHeadersItem("X-Team", "a");
+        JsonObject written =
+                JsonParser.parseString(
+                                JSON.serialize(new ProjectIntegrationConfigResponse(webhook)))
+                        .getAsJsonObject();
+        assertEquals(JsonParser.parseString("{\"X-Team\":\"a\"}"), written.get("custom_headers"));
+        assertNull(written.get("webhook_url"));
     }
 
     private static JsonObject modelOptionsOf(String options) {

@@ -145,13 +145,21 @@ class PatchModelWritesTest(unittest.TestCase):
         "    JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();\n"
         "    elementAdapter.write(out, obj);\n"
         "    elementAdapter.write(out, null);\n"
+        "                                JsonElement element = adapterTimerTask.toJsonTree(value);\n"
+        "                                elementAdapter.write(out, element);\n"
         "}\n"
     )
 
     def test_model_writes_go_through_json_output(self) -> None:
         patched = patch_model_writes(self.SOURCE)
         self.assertIn("import io.vertesia.JSON;\nimport io.vertesia.JsonOutput;\n", patched)
-        self.assertIn("    JsonOutput.writeModel(out, elementAdapter, obj);\n", patched)
+        self.assertIn("    JsonOutput.writeModel(out, elementAdapter, obj, value);\n", patched)
+        # Too long for one formatted line, so wrapped as google-java-format wraps it.
+        self.assertIn(
+            "                                JsonOutput.writeModel(\n"
+            "                                        out, elementAdapter, element, value.getActualInstance());\n",
+            patched,
+        )
         self.assertIn("    elementAdapter.write(out, null);\n", patched)
         self.assertEqual(patch_model_writes(patched), patched)
 

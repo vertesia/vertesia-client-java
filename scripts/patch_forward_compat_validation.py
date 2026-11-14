@@ -309,17 +309,30 @@ def patch_union_fallback(
     ], unit, deeper=True)
 
 
+MODEL_WRITE = re.compile(r"^(?P<indent>[ \t]*)elementAdapter\.write\(out, (?P<tree>obj|element)\);$", re.M)
+# The model whose tree each write holds: the adapter's own value, or a union's typed variant.
+WRITTEN_MODEL = {"obj": "value", "element": "value.getActualInstance()"}
+
+
+def _model_write(match: re.Match[str]) -> str:
+    indent, tree = match["indent"], match["tree"]
+    args = f"out, elementAdapter, {tree}, {WRITTEN_MODEL[tree]});"
+    line = f"{indent}JsonOutput.writeModel({args}"
+    if len(line.expandtabs(4)) <= 100:
+        return line
+    # Wrapped as google-java-format wraps it, so that the formatted sources still pass Spotless.
+    return f"{indent}JsonOutput.writeModel(\n{indent}        {args}"
+
+
 def patch_model_writes(text: str) -> str:
-    """Write model trees through JsonOutput, so that a raw union variant keeps its null members.
+    """Write model trees through JsonOutput, so that only typed values lose their null members.
 
     A model's tree holds a null member for each unset property, and the client's writer drops every
-    null member, those of a raw variant included. JsonOutput.writeModel leaves out the model's own
-    unset properties instead, then writes the tree with its null members.
+    null member, those of a raw union variant and of free-form values included. JsonOutput.writeModel
+    leaves out the model's own unset properties and the null entries of its typed maps instead, then
+    writes the tree with its other null members.
     """
-    for tree in ("obj", "element"):
-        text = text.replace(
-            f"elementAdapter.write(out, {tree});", f"JsonOutput.writeModel(out, elementAdapter, {tree});"
-        )
+    text = MODEL_WRITE.sub(_model_write, text)
     if "JsonOutput." in text and "import io.vertesia.JsonOutput;" not in text:
         if "import io.vertesia.JSON;\n" not in text:
             raise SystemExit("A generated model that writes JSON does not import io.vertesia.JSON")
