@@ -293,7 +293,8 @@ def patch_union_fallback(
     write = _throw_before(text, "\"Failed to serialize as the type doesn't match")
     text = _insert_before_line(text, write, [
         "if (value.getActualInstance() instanceof JsonElement) {",
-        "\telementAdapter.write(out, (JsonElement) value.getActualInstance());",
+        "\tJsonElement raw = (JsonElement) value.getActualInstance();",
+        "\tJsonOutput.writeKeepingNulls(out, elementAdapter, raw);",
         "\treturn;",
         "}",
     ], unit)
@@ -306,6 +307,24 @@ def patch_union_fallback(
         "}",
         "",
     ], unit, deeper=True)
+
+
+def patch_model_writes(text: str) -> str:
+    """Write model trees through JsonOutput, so that a raw union variant keeps its null members.
+
+    A model's tree holds a null member for each unset property, and the client's writer drops every
+    null member, those of a raw variant included. JsonOutput.writeModel leaves out the model's own
+    unset properties instead, then writes the tree with its null members.
+    """
+    for tree in ("obj", "element"):
+        text = text.replace(
+            f"elementAdapter.write(out, {tree});", f"JsonOutput.writeModel(out, elementAdapter, {tree});"
+        )
+    if "JsonOutput." in text and "import io.vertesia.JsonOutput;" not in text:
+        if "import io.vertesia.JSON;\n" not in text:
+            raise SystemExit("A generated model that writes JSON does not import io.vertesia.JSON")
+        text = text.replace("import io.vertesia.JSON;\n", "import io.vertesia.JSON;\nimport io.vertesia.JsonOutput;\n", 1)
+    return text
 
 
 def main() -> None:
@@ -323,6 +342,7 @@ def main() -> None:
         patched = patch_union_fallback(
             patched, path.stem, discriminators.get(path.stem), lossless=path.stem in lossless
         )
+        patched = patch_model_writes(patched)
         if patched != text:
             path.write_text(patched)
             changed += 1

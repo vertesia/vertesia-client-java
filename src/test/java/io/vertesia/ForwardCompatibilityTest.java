@@ -135,6 +135,33 @@ class ForwardCompatibilityTest {
         }
     }
 
+    @Test
+    void rawVariantKeepsItsNullMembers() {
+        String body = "{\"type\":\"speech\",\"value\":null,\"voice\":\"alloy\"}";
+        CompletionResult result = JSON.deserialize(body, CompletionResult.class);
+        assertKeptRaw(body, result.getActualInstance(), result.getRaw(), result.toJson());
+        assertEquals(JsonParser.parseString(body), JsonParser.parseString(JSON.serialize(result)));
+
+        // Nested, the raw variant is written through its parent's tree.
+        String update = "{\"type\":\"update\",\"activityId\":\"b\",\"result\":null}";
+        String timer =
+                "{\"type\":\"timer\",\"activityId\":\"a\",\"scheduled\":null,\"status\":\"completed\","
+                        + "\"attempts\":1,\"started\":null,\"completed\":null,\"error\":null,\"result\":null}";
+        WorkflowTasksHistory history =
+                JSON.deserialize(
+                        "{\"type\":\"tasks\",\"tasks\":[" + timer + "," + update + "]}",
+                        WorkflowTasksHistory.class);
+        JsonObject written = JsonParser.parseString(history.toJson()).getAsJsonObject();
+        assertEquals(JsonParser.parseString(update), written.getAsJsonArray("tasks").get(1));
+
+        // Typed models still leave out the properties they do not set.
+        assertEquals(
+                JsonParser.parseString(
+                        "{\"type\":\"timer\",\"activityId\":\"a\",\"status\":\"completed\",\"attempts\":1}"),
+                written.getAsJsonArray("tasks").get(0));
+        assertEquals("{}", JSON.serialize(new TimerTask()));
+    }
+
     private static JsonObject modelOptionsOf(String options) {
         StatelessExecutionOptions execution =
                 JSON.deserialize(

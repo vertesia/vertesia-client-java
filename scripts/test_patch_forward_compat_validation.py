@@ -15,6 +15,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import json  # noqa: E402
 
 from patch_forward_compat_validation import (  # noqa: E402
+    patch_model_writes,
     patch_schema_constants,
     patch_union_fallback,
     union_discriminators,
@@ -134,6 +135,29 @@ class PatchUnionFallbackTest(unittest.TestCase):
     def test_other_models_are_left_unchanged(self) -> None:
         source = (self.ROOT / "src/main/java/io/vertesia/model/TextResult.java").read_text()
         self.assertEqual(patch_union_fallback(source, "TextResult", None), source)
+
+
+
+class PatchModelWritesTest(unittest.TestCase):
+    SOURCE = (
+        "import io.vertesia.JSON;\n"
+        "class TimerTask {\n"
+        "    JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();\n"
+        "    elementAdapter.write(out, obj);\n"
+        "    elementAdapter.write(out, null);\n"
+        "}\n"
+    )
+
+    def test_model_writes_go_through_json_output(self) -> None:
+        patched = patch_model_writes(self.SOURCE)
+        self.assertIn("import io.vertesia.JSON;\nimport io.vertesia.JsonOutput;\n", patched)
+        self.assertIn("    JsonOutput.writeModel(out, elementAdapter, obj);\n", patched)
+        self.assertIn("    elementAdapter.write(out, null);\n", patched)
+        self.assertEqual(patch_model_writes(patched), patched)
+
+    def test_source_without_json_writes_is_left_unchanged(self) -> None:
+        source = "package io.vertesia.model;\nenum AgentRunStatus {}\n"
+        self.assertEqual(patch_model_writes(source), source)
 
 
 if __name__ == "__main__":
