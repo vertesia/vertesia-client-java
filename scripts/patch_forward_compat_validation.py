@@ -396,7 +396,8 @@ def patch_unknown_enum_values(text: str, name: str, enums: set[str]) -> str:
     """Keep the enum values a model receives that this client version does not know.
 
     UnknownEnumValues.keep records, in a transient field, the JSON of each enum property that decoded
-    to the placeholder, and JsonOutput.writeModel writes it back while the property is unchanged.
+    to the placeholder and the lists and maps it decoded into, and JsonOutput.writeModel writes the
+    unknown values back into those lists and maps.
     """
     if UNKNOWN_ENUM_FIELD in text or "public static HashSet<String> openapiFields;" not in text:
         return text
@@ -406,8 +407,8 @@ def patch_unknown_enum_values(text: str, name: str, enums: set[str]) -> str:
 
     fields = text.index("public static HashSet<String> openapiFields;")
     text = _insert_before_line(text, fields, [
-        "// The JSON received for the enum properties whose value this client version does not know.",
-        f"private transient JsonObject {UNKNOWN_ENUM_FIELD};",
+        "// The values received for the enum properties that this client version does not know.",
+        f"private transient Object {UNKNOWN_ENUM_FIELD};",
         "",
     ], unit)
 

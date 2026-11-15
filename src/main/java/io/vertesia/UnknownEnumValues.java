@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -28,13 +29,14 @@ import java.util.concurrent.ConcurrentHashMap;
  * a Java enum constant cannot hold the value it was decoded from. So a model keeps the JSON it
  * received for each enum property that decoded to that placeholder, in a field named {@value
  * #FIELD}, and writing the model back writes each unknown value again in place of {@code
- * unknown_default_open_api}. A value the caller set is written as it was set, and the unknown
- * values of a list or a map are kept when the caller edits its other elements, see {@link
+ * unknown_default_open_api}. The values belong to the lists and maps they were decoded into: a
+ * value the caller sets, or a list or map the caller puts in place of a decoded one, is written as
+ * it now is, and a decoded list or map the caller edits keeps its unknown values, see {@link
  * #restored}. scripts/patch_forward_compat_validation.py adds the field and routes the generated
  * adapters through this class; {@link JsonOutput#writeModel} restores the values.
  */
 public final class UnknownEnumValues {
-    /** The transient field in which a generated model keeps the JSON of its unknown enum values. */
+    /** The transient field in which a generated model keeps its unknown enum values. */
     public static final String FIELD = "receivedEnumValues";
 
     /** What enum placeholders serialize to: string enums and numeric enums. */
@@ -58,22 +60,46 @@ public final class UnknownEnumValues {
     }
 
     /**
+     * What a model keeps for each enum property that decoded to a placeholder: the JSON received,
+     * and what it decoded to.
+     */
+    private static final class Kept {
+        final Map<String, JsonElement> received = new LinkedHashMap<>();
+        final Map<String, Object> decoded = new LinkedHashMap<>();
+    }
+
+    /** A list or a map as it was decoded: the instance, and what it held then. */
+    private static final class Decoded {
+        final Object container;
+        final List<Object> items;
+        final Map<String, Object> entries;
+
+        Decoded(Object container, List<Object> items, Map<String, Object> entries) {
+            this.container = container;
+            this.items = items;
+            this.entries = entries;
+        }
+    }
+
+    /**
      * Records, in a decoded model, the JSON received for each enum property that decoded to the
-     * placeholder. Returns the model.
+     * placeholder, and what it decoded to. Returns the model.
      */
     public static <T> T keep(JsonElement received, T model) {
         Model type = model(model);
         if (type == null || received == null || !received.isJsonObject()) {
             return model;
         }
-        JsonObject kept = null;
+        Kept kept = null;
         for (Field property : type.properties) {
             JsonElement value = received.getAsJsonObject().get(name(property));
-            if (value != null && holdsPlaceholder(get(property, model))) {
+            Object decoded = get(property, model);
+            if (value != null && holdsPlaceholder(decoded)) {
                 if (kept == null) {
-                    kept = new JsonObject();
+                    kept = new Kept();
                 }
-                kept.add(name(property), value.deepCopy());
+                kept.received.put(name(property), value.deepCopy());
+                kept.decoded.put(name(property), snapshot(decoded));
             }
         }
         set(type.store, model, kept);
@@ -86,24 +112,44 @@ public final class UnknownEnumValues {
         if (type == null || tree == null || !tree.isJsonObject()) {
             return;
         }
-        JsonObject kept = (JsonObject) get(type.store, model);
-        if (kept == null) {
+        Object stored = get(type.store, model);
+        if (!(stored instanceof Kept)) {
             return;
         }
+        Kept kept = (Kept) stored;
         JsonObject written = tree.getAsJsonObject();
         for (Field property : type.properties) {
-            JsonElement received = kept.get(name(property));
+            JsonElement received = kept.received.get(name(property));
             JsonElement value = written.get(name(property));
             if (received != null && value != null) {
-                // What the received value decoded to tells its unknown values apart.
-                JsonElement decoded =
-                        JSON.getGson()
-                                .toJsonTree(
-                                        JSON.getGson()
-                                                .fromJson(received, property.getGenericType()));
-                written.add(name(property), restored(received, decoded, value).deepCopy());
+                JsonElement restored =
+                        restored(
+                                received,
+                                kept.decoded.get(name(property)),
+                                value,
+                                get(property, model));
+                written.add(name(property), restored.deepCopy());
             }
         }
+    }
+
+    /** Returns a decoded value with, for a list or a map, the instance and what it holds now. */
+    private static Object snapshot(Object value) {
+        if (value instanceof Map) {
+            Map<String, Object> entries = new LinkedHashMap<>();
+            for (Map.Entry<?, ?> entry : ((Map<?, ?>) value).entrySet()) {
+                entries.put(String.valueOf(entry.getKey()), snapshot(entry.getValue()));
+            }
+            return new Decoded(value, null, entries);
+        }
+        if (value instanceof Collection) {
+            List<Object> items = new ArrayList<>();
+            for (Object item : (Collection<?>) value) {
+                items.add(snapshot(item));
+            }
+            return new Decoded(value, items, null);
+        }
+        return value;
     }
 
     /**
@@ -150,34 +196,46 @@ public final class UnknownEnumValues {
      * Returns what to write for a property: its written value, with the placeholders that stand
      * for a received unknown value replaced by that value.
      *
-     * <p>A placeholder written where an unknown value was received is that value. A list of values
+     * <p>A placeholder written where an unknown value was received is that value. A list or a map
+     * the caller put in place of the decoded one is written as it now is. A decoded list of values
      * gets its unknown values back in their order, whatever known values the caller replaced,
      * added, removed or moved, while it holds as many placeholders as it received unknown values;
      * otherwise, such as after the caller removed an unknown value or added a placeholder, the
-     * placeholders cannot be told apart and are written as such. A map keeps its entries by key.
+     * placeholders cannot be told apart and are written as such. A decoded map keeps its entries
+     * by key, and a decoded list of lists or maps its elements by position.
      *
      * @param received the JSON the property was decoded from
-     * @param decoded what {@code received} decoded to, written as JSON
+     * @param decoded what {@code received} decoded to, from {@link #snapshot}
      * @param written the property's value now, written as JSON
+     * @param current the property's value now
      */
-    static JsonElement restored(JsonElement received, JsonElement decoded, JsonElement written) {
-        if (writesPlaceholder(written)) {
-            return writesPlaceholder(decoded) ? received : written;
+    static JsonElement restored(
+            JsonElement received, Object decoded, JsonElement written, Object current) {
+        if (!(decoded instanceof Decoded)) {
+            return writesPlaceholder(written) && isPlaceholder(decoded) ? received : written;
         }
-        if (received.isJsonArray() && decoded.isJsonArray() && written.isJsonArray()) {
+        Decoded container = (Decoded) decoded;
+        if (current != container.container) {
+            return written;
+        }
+        if (container.items != null && received.isJsonArray() && written.isJsonArray()) {
             return restoredList(
-                    received.getAsJsonArray(), decoded.getAsJsonArray(), written.getAsJsonArray());
+                    received.getAsJsonArray(), container, written.getAsJsonArray(), current);
         }
-        if (received.isJsonObject() && decoded.isJsonObject() && written.isJsonObject()) {
+        if (container.entries != null && received.isJsonObject() && written.isJsonObject()) {
+            Map<?, ?> map = (Map<?, ?>) current;
             JsonObject entries = new JsonObject();
             for (Map.Entry<String, JsonElement> entry : written.getAsJsonObject().entrySet()) {
                 JsonElement value = received.getAsJsonObject().get(entry.getKey());
-                JsonElement before = decoded.getAsJsonObject().get(entry.getKey());
                 entries.add(
                         entry.getKey(),
-                        value == null || before == null
+                        value == null || !container.entries.containsKey(entry.getKey())
                                 ? entry.getValue()
-                                : restored(value, before, entry.getValue()));
+                                : restored(
+                                        value,
+                                        container.entries.get(entry.getKey()),
+                                        entry.getValue(),
+                                        map.get(entry.getKey())));
             }
             return entries;
         }
@@ -185,17 +243,17 @@ public final class UnknownEnumValues {
     }
 
     private static JsonElement restoredList(
-            JsonArray received, JsonArray decoded, JsonArray written) {
-        if (received.size() != decoded.size()) {
+            JsonArray received, Decoded decoded, JsonArray written, Object current) {
+        if (received.size() != decoded.items.size()) {
             return written;
         }
         List<JsonElement> unknown = new ArrayList<>();
         boolean flat = true;
-        for (int i = 0; i < decoded.size(); i++) {
-            JsonElement item = decoded.get(i);
-            if (writesPlaceholder(item)) {
+        for (int i = 0; i < decoded.items.size(); i++) {
+            Object item = decoded.items.get(i);
+            if (isPlaceholder(item)) {
                 unknown.add(received.get(i));
-            } else if (!item.isJsonPrimitive() && !item.isJsonNull()) {
+            } else if (item instanceof Decoded) {
                 flat = false;
             }
         }
@@ -214,12 +272,12 @@ public final class UnknownEnumValues {
             }
             return items;
         }
-        // A list of lists or maps keeps its elements by position while its size is unchanged.
-        if (written.size() != received.size()) {
+        List<?> now = new ArrayList<>((Collection<?>) current);
+        if (written.size() != received.size() || now.size() != written.size()) {
             return written;
         }
         for (int i = 0; i < written.size(); i++) {
-            items.add(restored(received.get(i), decoded.get(i), written.get(i)));
+            items.add(restored(received.get(i), decoded.items.get(i), written.get(i), now.get(i)));
         }
         return items;
     }

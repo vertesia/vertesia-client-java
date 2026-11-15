@@ -112,10 +112,11 @@ and a released client keeps decoding its responses:
 - An unknown enum value decodes as `UNKNOWN_DEFAULT_OPEN_API`, and writing the model back sends the
   value received, so a read-modify-write does not change it. A Java enum cannot hold that value, so
   the model keeps the JSON it received for the property, in a transient field, and writes each
-  unknown value again in place of the placeholder. A value you set is written as you set it, and a
-  list or a map you edit keeps its unknown values: a list gets them back in order while it holds as
-  many `UNKNOWN_DEFAULT_OPEN_API` elements as it received unknown values (removing one of them, or
-  adding a placeholder yourself, writes the placeholders as such), and a map by key. This covers
+  unknown value again in place of the placeholder. A value you set, or a list or a map you put in
+  place of a decoded one, is written as it now is. A decoded list or map you edit keeps its unknown
+  values: a list gets them back in order while it holds as many `UNKNOWN_DEFAULT_OPEN_API` elements
+  as it received unknown values (removing one of them, or adding a placeholder yourself, writes the
+  placeholders as such), and a map by key. This covers
   enum properties, enums in lists and maps, and models decoded as union variants. A union whose
   branch is an enum, such as `AuditAction` (`KnownAuditAction` or a string), decodes a value the
   enum does not declare with its next branch: `"c:reviewer"` is an `AssignableRoleName` holding a

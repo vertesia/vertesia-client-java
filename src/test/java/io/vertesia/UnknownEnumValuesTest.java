@@ -213,6 +213,26 @@ class UnknownEnumValuesTest {
     }
 
     @Test
+    void aReplacedListWritesWhatItHolds() {
+        // The kept values belong to the list that was decoded, not to a list the caller sets.
+        AgentEventDeliveryTarget target =
+                JSON.deserialize(AGENT_TARGET, AgentEventDeliveryTarget.class);
+        target.setStatuses(new ArrayList<>(List.of(AgentRunStatus.UNKNOWN_DEFAULT_OPEN_API)));
+        assertEquals(
+                JsonParser.parseString("[\"unknown_default_open_api\"]"),
+                object(target.toJson()).get("statuses"));
+        target.setStatuses(
+                new ArrayList<>(
+                        List.of(
+                                AgentRunStatus.COMPLETED,
+                                AgentRunStatus.UNKNOWN_DEFAULT_OPEN_API,
+                                AgentRunStatus.FAILED)));
+        assertEquals(
+                JsonParser.parseString("[\"completed\",\"unknown_default_open_api\",\"failed\"]"),
+                object(target.toJson()).get("statuses"));
+    }
+
+    @Test
     void unionWithAnEnumBranchTakesTheNextBranchForAnUnknownValue() {
         AuditAction known = JSON.deserialize("\"create\"", AuditAction.class);
         assertEquals(KnownAuditAction.CREATE, known.getActualInstance());
@@ -231,7 +251,7 @@ class UnknownEnumValuesTest {
         @SerializedName("by_team")
         Map<String, List<AgentRunStatus>> byTeam;
 
-        transient JsonObject receivedEnumValues;
+        transient Object receivedEnumValues;
     }
 
     @Test
@@ -257,6 +277,31 @@ class UnknownEnumValuesTest {
                 JsonParser.parseString(
                         "{\"by_team\":{\"b\":[\"hibernating\",\"failed\"],"
                                 + "\"c\":[\"unknown_default_open_api\"]}}"),
+                tree);
+
+        // A list or a map the caller puts in place of a decoded one writes what it holds.
+        model.byTeam.put(
+                "b",
+                new ArrayList<>(
+                        List.of(AgentRunStatus.UNKNOWN_DEFAULT_OPEN_API, AgentRunStatus.FAILED)));
+        tree = JSON.getGson().toJsonTree(model);
+        UnknownEnumValues.restore(tree, model);
+        assertEquals(
+                JsonParser.parseString(
+                        "{\"by_team\":{\"b\":[\"unknown_default_open_api\",\"failed\"],"
+                                + "\"c\":[\"unknown_default_open_api\"]}}"),
+                tree);
+        model =
+                UnknownEnumValues.keep(
+                        JsonParser.parseString(body),
+                        JSON.getGson().fromJson(body, EnumMapModel.class));
+        model.byTeam = new java.util.LinkedHashMap<>(model.byTeam);
+        tree = JSON.getGson().toJsonTree(model);
+        UnknownEnumValues.restore(tree, model);
+        assertEquals(
+                JsonParser.parseString(
+                        "{\"by_team\":{\"a\":[\"completed\"],"
+                                + "\"b\":[\"unknown_default_open_api\",\"failed\"]}}"),
                 tree);
     }
 
@@ -295,7 +340,7 @@ class UnknownEnumValuesTest {
                 try {
                     Field store = type.getDeclaredField(UnknownEnumValues.FIELD);
                     assertTrue(Modifier.isTransient(store.getModifiers()), type.getName());
-                    assertEquals(JsonObject.class, store.getType(), type.getName());
+                    assertEquals(Object.class, store.getType(), type.getName());
                 } catch (NoSuchFieldException e) {
                     missing.add(type.getSimpleName());
                 }

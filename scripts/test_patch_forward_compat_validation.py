@@ -280,8 +280,8 @@ class PatchUnknownEnumValuesTest(unittest.TestCase):
     def test_raw_generator_output(self) -> None:
         patched = self.patch(CLOSED_RAW, "AgentRunSummary")
         self.assertIn(
-            "  // The JSON received for the enum properties whose value this client version does not know.\n"
-            "  private transient JsonObject receivedEnumValues;\n\n"
+            "  // The values received for the enum properties that this client version does not know.\n"
+            "  private transient Object receivedEnumValues;\n\n"
             "  public static HashSet<String> openapiFields;\n",
             patched,
         )
@@ -294,8 +294,8 @@ class PatchUnknownEnumValuesTest(unittest.TestCase):
     def test_spotless_formatted_source(self) -> None:
         patched = self.patch(CLOSED_FORMATTED, "AgentRunSummary")
         self.assertIn(
-            "    // The JSON received for the enum properties whose value this client version does not know.\n"
-            "    private transient JsonObject receivedEnumValues;\n\n"
+            "    // The values received for the enum properties that this client version does not know.\n"
+            "    private transient Object receivedEnumValues;\n\n"
             "    public static HashSet<String> openapiFields;\n",
             patched,
         )
