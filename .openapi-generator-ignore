@@ -23,6 +23,7 @@ api/
 src/test/
 src/main/AndroidManifest.xml
 src/main/java/io/vertesia/ClientOptions.java
+src/main/java/io/vertesia/JsonOutput.java
 src/main/java/io/vertesia/TokenSource.java
 src/main/java/io/vertesia/VertesiaClient.java
 src/main/java/io/vertesia/VertesiaClientException.java
