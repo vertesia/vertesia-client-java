@@ -24,6 +24,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -925,7 +926,7 @@ public class DSLWorkflowDefinitionResponse {
                                     }
                                 }
                             }
-                            elementAdapter.write(out, obj);
+                            JsonOutput.writeModel(out, elementAdapter, obj, value);
                         }
 
                         @Override

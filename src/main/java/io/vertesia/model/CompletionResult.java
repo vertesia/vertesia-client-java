@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,7 +70,8 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterTextResult.toJsonTree(
                                                 (TextResult) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ThoughtsResult`
@@ -77,7 +79,8 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterThoughtsResult.toJsonTree(
                                                 (ThoughtsResult) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `JsonResult`
@@ -85,7 +88,8 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterJsonResult.toJsonTree(
                                                 (JsonResult) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ImageResult`
@@ -93,7 +97,8 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterImageResult.toJsonTree(
                                                 (ImageResult) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `VideoResult`
@@ -101,7 +106,8 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterVideoResult.toJsonTree(
                                                 (VideoResult) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `AudioResult`
@@ -109,7 +115,13 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterAudioResult.toJsonTree(
                                                 (AudioResult) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -120,6 +132,11 @@ public class CompletionResult extends AbstractOpenApiSchema {
                         public CompletionResult read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                CompletionResult ret = new CompletionResult();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -128,6 +145,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
                             // deserialize TextResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "text");
                                 TextResult.validateJsonElement(jsonElement);
                                 actualAdapter = adapterTextResult;
                                 match++;
@@ -147,6 +165,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
                             // deserialize ThoughtsResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "thoughts");
                                 ThoughtsResult.validateJsonElement(jsonElement);
                                 actualAdapter = adapterThoughtsResult;
                                 match++;
@@ -166,6 +185,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
                             // deserialize JsonResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "json");
                                 JsonResult.validateJsonElement(jsonElement);
                                 actualAdapter = adapterJsonResult;
                                 match++;
@@ -185,6 +205,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
                             // deserialize ImageResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "image");
                                 ImageResult.validateJsonElement(jsonElement);
                                 actualAdapter = adapterImageResult;
                                 match++;
@@ -204,6 +225,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
                             // deserialize VideoResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "video");
                                 VideoResult.validateJsonElement(jsonElement);
                                 actualAdapter = adapterVideoResult;
                                 match++;
@@ -223,6 +245,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
                             // deserialize AudioResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "audio");
                                 AudioResult.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAudioResult;
                                 match++;
@@ -293,6 +316,11 @@ public class CompletionResult extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof TextResult) {
             super.setActualInstance(instance);
             return;
@@ -418,11 +446,15 @@ public class CompletionResult extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to CompletionResult
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with TextResult
         try {
+            checkDiscriminator(jsonElement, "text");
             TextResult.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -435,6 +467,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
         }
         // validate the json string with ThoughtsResult
         try {
+            checkDiscriminator(jsonElement, "thoughts");
             ThoughtsResult.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -447,6 +480,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
         }
         // validate the json string with JsonResult
         try {
+            checkDiscriminator(jsonElement, "json");
             JsonResult.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -459,6 +493,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
         }
         // validate the json string with ImageResult
         try {
+            checkDiscriminator(jsonElement, "image");
             ImageResult.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -471,6 +506,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
         }
         // validate the json string with VideoResult
         try {
+            checkDiscriminator(jsonElement, "video");
             VideoResult.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -483,6 +519,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
         }
         // validate the json string with AudioResult
         try {
+            checkDiscriminator(jsonElement, "audio");
             AudioResult.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -501,6 +538,48 @@ public class CompletionResult extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "audio":
+            case "image":
+            case "json":
+            case "text":
+            case "thoughts":
+            case "video":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected type to be " + value);
         }
     }
 

@@ -23,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -84,8 +85,9 @@ public class OpenAiSpeechOptions {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            OptionIdEnum.fromValue(value);
+            if (!"openai-speech".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected _option_id to be openai-speech");
+            }
         }
     }
 
@@ -401,7 +403,7 @@ public class OpenAiSpeechOptions {
                         public void write(JsonWriter out, OpenAiSpeechOptions value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-                            elementAdapter.write(out, obj);
+                            JsonOutput.writeModel(out, elementAdapter, obj, value);
                         }
 
                         @Override

@@ -23,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -86,8 +87,9 @@ public class VertexAIGrokOptions {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            OptionIdEnum.fromValue(value);
+            if (!"vertexai-grok".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected _option_id to be vertexai-grok");
+            }
         }
     }
 
@@ -331,7 +333,7 @@ public class VertexAIGrokOptions {
                         public void write(JsonWriter out, VertexAIGrokOptions value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-                            elementAdapter.write(out, obj);
+                            JsonOutput.writeModel(out, elementAdapter, obj, value);
                         }
 
                         @Override

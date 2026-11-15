@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -125,7 +126,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterTextFallbackOptions.toJsonTree(
                                                 (TextFallbackOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `AzureFoundryChatOptions`
@@ -134,7 +136,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         adapterAzureFoundryChatOptions.toJsonTree(
                                                 (AzureFoundryChatOptions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ImagenOptions`
@@ -142,7 +145,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterImagenOptions.toJsonTree(
                                                 (ImagenOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `VertexAIClaudeOptions`
@@ -150,7 +154,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterVertexAIClaudeOptions.toJsonTree(
                                                 (VertexAIClaudeOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `VertexAIGeminiOptions`
@@ -158,7 +163,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterVertexAIGeminiOptions.toJsonTree(
                                                 (VertexAIGeminiOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -169,7 +175,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         adapterVertexAIGeminiOmniVideoOptions.toJsonTree(
                                                 (VertexAIGeminiOmniVideoOptions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `VertexAIGrokOptions`
@@ -177,7 +184,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterVertexAIGrokOptions.toJsonTree(
                                                 (VertexAIGrokOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `NovaCanvasOptions`
@@ -185,7 +193,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterNovaCanvasOptions.toJsonTree(
                                                 (NovaCanvasOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockConverseOptions`
@@ -193,7 +202,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockConverseOptions.toJsonTree(
                                                 (BedrockConverseOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockNovaOptions`
@@ -201,7 +211,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockNovaOptions.toJsonTree(
                                                 (BedrockNovaOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockMistralOptions`
@@ -209,7 +220,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockMistralOptions.toJsonTree(
                                                 (BedrockMistralOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockAI21Options`
@@ -217,7 +229,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockAI21Options.toJsonTree(
                                                 (BedrockAI21Options) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -227,7 +240,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         adapterBedrockCohereCommandOptions.toJsonTree(
                                                 (BedrockCohereCommandOptions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockClaudeOptions`
@@ -235,7 +249,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockClaudeOptions.toJsonTree(
                                                 (BedrockClaudeOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockPalmyraOptions`
@@ -243,7 +258,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockPalmyraOptions.toJsonTree(
                                                 (BedrockPalmyraOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockGptOssOptions`
@@ -251,7 +267,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockGptOssOptions.toJsonTree(
                                                 (BedrockGptOssOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -261,7 +278,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         adapterTwelvelabsPegasusOptions.toJsonTree(
                                                 (TwelvelabsPegasusOptions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -272,7 +290,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         adapterBedrockMantleResponsesOptions.toJsonTree(
                                                 (BedrockMantleResponsesOptions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -283,7 +302,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         adapterBedrockMantleChatCompletionsOptions.toJsonTree(
                                                 (BedrockMantleChatCompletionsOptions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -293,7 +313,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         adapterBedrockMantleClaudeOptions.toJsonTree(
                                                 (BedrockMantleClaudeOptions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `OpenAiThinkingOptions`
@@ -301,7 +322,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterOpenAiThinkingOptions.toJsonTree(
                                                 (OpenAiThinkingOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `OpenAiTextOptions`
@@ -309,7 +331,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterOpenAiTextOptions.toJsonTree(
                                                 (OpenAiTextOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `OpenRouterTextOptions`
@@ -317,7 +340,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterOpenRouterTextOptions.toJsonTree(
                                                 (OpenRouterTextOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `OpenAiDalleOptions`
@@ -325,7 +349,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterOpenAiDalleOptions.toJsonTree(
                                                 (OpenAiDalleOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `OpenAiGptImageOptions`
@@ -333,7 +358,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterOpenAiGptImageOptions.toJsonTree(
                                                 (OpenAiGptImageOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -343,7 +369,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         adapterOpenAiTranscriptionOptions.toJsonTree(
                                                 (OpenAiTranscriptionOptions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `OpenAiSpeechOptions`
@@ -351,7 +378,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterOpenAiSpeechOptions.toJsonTree(
                                                 (OpenAiSpeechOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `OpenAiAudioOptions`
@@ -359,7 +387,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterOpenAiAudioOptions.toJsonTree(
                                                 (OpenAiAudioOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `XAIGrokImageOptions`
@@ -367,7 +396,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterXAIGrokImageOptions.toJsonTree(
                                                 (XAIGrokImageOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `GroqOptions`
@@ -375,7 +405,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterGroqOptions.toJsonTree(
                                                 (GroqOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `MistralTextOptions`
@@ -383,7 +414,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterMistralTextOptions.toJsonTree(
                                                 (MistralTextOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `AnthropicClaudeOptions`
@@ -391,7 +423,13 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterAnthropicClaudeOptions.toJsonTree(
                                                 (AnthropicClaudeOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -413,6 +451,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterTextFallbackOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -433,6 +472,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterAzureFoundryChatOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -453,6 +493,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterImagenOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -473,6 +514,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterVertexAIClaudeOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -493,6 +535,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterVertexAIGeminiOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -513,6 +556,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterVertexAIGeminiOmniVideoOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -533,6 +577,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterVertexAIGrokOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -553,6 +598,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterNovaCanvasOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -573,6 +619,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockConverseOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -593,6 +640,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockNovaOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -613,6 +661,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockMistralOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -633,6 +682,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockAI21Options;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -653,6 +703,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockCohereCommandOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -673,6 +724,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockClaudeOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -693,6 +745,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockPalmyraOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -713,6 +766,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockGptOssOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -733,6 +787,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterTwelvelabsPegasusOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -753,6 +808,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockMantleResponsesOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -774,6 +830,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockMantleChatCompletionsOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -794,6 +851,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockMantleClaudeOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -814,6 +872,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiThinkingOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -834,6 +893,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiTextOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -854,6 +914,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenRouterTextOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -874,6 +935,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiDalleOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -894,6 +956,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiGptImageOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -914,6 +977,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiTranscriptionOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -934,6 +998,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiSpeechOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -954,6 +1019,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiAudioOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -974,6 +1040,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterXAIGrokImageOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -994,6 +1061,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterGroqOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -1014,6 +1082,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterMistralTextOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -1034,6 +1103,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterAnthropicClaudeOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -1048,6 +1118,11 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         e);
                             }
 
+                            if (isUnknownVariant(jsonElement)) {
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
                             throw new IOException(
                                     String.format(
                                             java.util.Locale.ROOT,
@@ -1121,6 +1196,11 @@ public class ModelOptions extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof TextFallbackOptions) {
             super.setActualInstance(instance);
             return;
@@ -2045,12 +2125,41 @@ public class ModelOptions extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         throw new IOException(
                 String.format(
                         java.util.Locale.ROOT,
                         "The JSON string is invalid for ModelOptions with anyOf schemas: AnthropicClaudeOptions, AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiAudioOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiSpeechOptions, OpenAiTextOptions, OpenAiThinkingOptions, OpenAiTranscriptionOptions, OpenRouterTextOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
                         errorMessages,
                         jsonElement.toString()));
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: no known variant decodes it.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        return !jsonElement.isJsonNull();
+    }
+
+    // The first branch that validates can drop or rewrite received properties, for example options
+    // merged from several families: then the next branch is tried, and the payload is kept raw if
+    // no branch writes back every received property unchanged.
+    private static void checkLossless(JsonElement received, Object variant) throws IOException {
+        JsonElement written = JSON.getGson().toJsonTree(variant);
+        for (Map.Entry<String, JsonElement> entry : received.getAsJsonObject().entrySet()) {
+            if (!entry.getValue().equals(written.getAsJsonObject().get(entry.getKey()))) {
+                throw new IOException("The variant would not keep " + entry.getKey());
+            }
+        }
     }
 
     /**

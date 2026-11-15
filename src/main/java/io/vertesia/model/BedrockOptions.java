@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -76,7 +77,8 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterNovaCanvasOptions.toJsonTree(
                                                 (NovaCanvasOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockConverseOptions`
@@ -84,7 +86,8 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockConverseOptions.toJsonTree(
                                                 (BedrockConverseOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockNovaOptions`
@@ -92,7 +95,8 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockNovaOptions.toJsonTree(
                                                 (BedrockNovaOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockMistralOptions`
@@ -100,7 +104,8 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockMistralOptions.toJsonTree(
                                                 (BedrockMistralOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockAI21Options`
@@ -108,7 +113,8 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockAI21Options.toJsonTree(
                                                 (BedrockAI21Options) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -118,7 +124,8 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                         adapterBedrockCohereCommandOptions.toJsonTree(
                                                 (BedrockCohereCommandOptions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockClaudeOptions`
@@ -126,7 +133,8 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockClaudeOptions.toJsonTree(
                                                 (BedrockClaudeOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockPalmyraOptions`
@@ -134,7 +142,8 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockPalmyraOptions.toJsonTree(
                                                 (BedrockPalmyraOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BedrockGptOssOptions`
@@ -142,7 +151,8 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBedrockGptOssOptions.toJsonTree(
                                                 (BedrockGptOssOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -152,7 +162,13 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                         adapterTwelvelabsPegasusOptions.toJsonTree(
                                                 (TwelvelabsPegasusOptions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -385,6 +401,11 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                                 return ret;
                             }
 
+                            if (isUnknownVariant(jsonElement)) {
+                                BedrockOptions ret = new BedrockOptions();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
                             throw new IOException(
                                     String.format(
                                             java.util.Locale.ROOT,
@@ -436,6 +457,11 @@ public class BedrockOptions extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof NovaCanvasOptions) {
             super.setActualInstance(instance);
             return;
@@ -752,6 +778,9 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        if (validCount != 1 && isUnknownVariant(jsonElement)) {
+            return;
+        }
         if (validCount != 1) {
             throw new IOException(
                     String.format(
@@ -761,6 +790,20 @@ public class BedrockOptions extends AbstractOpenApiSchema {
                             errorMessages,
                             jsonElement.toString()));
         }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: no known variant decodes it.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        return !jsonElement.isJsonNull();
     }
 
     /**

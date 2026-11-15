@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,7 +65,8 @@ public class SemanticEvaluator extends AbstractOpenApiSchema {
                                         adapterInteractionSemanticEvaluator.toJsonTree(
                                                 (InteractionSemanticEvaluator)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `AgentSemanticEvaluator`
@@ -72,7 +74,13 @@ public class SemanticEvaluator extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterAgentSemanticEvaluator.toJsonTree(
                                                 (AgentSemanticEvaluator) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -83,6 +91,11 @@ public class SemanticEvaluator extends AbstractOpenApiSchema {
                         public SemanticEvaluator read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                SemanticEvaluator ret = new SemanticEvaluator();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -91,6 +104,7 @@ public class SemanticEvaluator extends AbstractOpenApiSchema {
                             // deserialize InteractionSemanticEvaluator
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "interaction");
                                 InteractionSemanticEvaluator.validateJsonElement(jsonElement);
                                 actualAdapter = adapterInteractionSemanticEvaluator;
                                 match++;
@@ -112,6 +126,7 @@ public class SemanticEvaluator extends AbstractOpenApiSchema {
                             // deserialize AgentSemanticEvaluator
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "agent");
                                 AgentSemanticEvaluator.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAgentSemanticEvaluator;
                                 match++;
@@ -180,6 +195,11 @@ public class SemanticEvaluator extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof InteractionSemanticEvaluator) {
             super.setActualInstance(instance);
             return;
@@ -238,11 +258,15 @@ public class SemanticEvaluator extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to SemanticEvaluator
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with InteractionSemanticEvaluator
         try {
+            checkDiscriminator(jsonElement, "interaction");
             InteractionSemanticEvaluator.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -255,6 +279,7 @@ public class SemanticEvaluator extends AbstractOpenApiSchema {
         }
         // validate the json string with AgentSemanticEvaluator
         try {
+            checkDiscriminator(jsonElement, "agent");
             AgentSemanticEvaluator.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -273,6 +298,44 @@ public class SemanticEvaluator extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "agent":
+            case "interaction":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected type to be " + value);
         }
     }
 

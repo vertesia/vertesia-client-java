@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,7 +66,8 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterEmbeddingsApiTextInput.toJsonTree(
                                                 (EmbeddingsApiTextInput) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `EmbeddingsApiImageInput`
@@ -74,7 +76,8 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
                                         adapterEmbeddingsApiImageInput.toJsonTree(
                                                 (EmbeddingsApiImageInput)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `EmbeddingsApiVideoInput`
@@ -83,7 +86,8 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
                                         adapterEmbeddingsApiVideoInput.toJsonTree(
                                                 (EmbeddingsApiVideoInput)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `EmbeddingsApiAudioInput`
@@ -92,7 +96,13 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
                                         adapterEmbeddingsApiAudioInput.toJsonTree(
                                                 (EmbeddingsApiAudioInput)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -103,6 +113,11 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
                         public EmbeddingsApiInput read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                EmbeddingsApiInput ret = new EmbeddingsApiInput();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -111,6 +126,7 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
                             // deserialize EmbeddingsApiTextInput
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "text");
                                 EmbeddingsApiTextInput.validateJsonElement(jsonElement);
                                 actualAdapter = adapterEmbeddingsApiTextInput;
                                 match++;
@@ -132,6 +148,7 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
                             // deserialize EmbeddingsApiImageInput
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "image");
                                 EmbeddingsApiImageInput.validateJsonElement(jsonElement);
                                 actualAdapter = adapterEmbeddingsApiImageInput;
                                 match++;
@@ -153,6 +170,7 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
                             // deserialize EmbeddingsApiVideoInput
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "video");
                                 EmbeddingsApiVideoInput.validateJsonElement(jsonElement);
                                 actualAdapter = adapterEmbeddingsApiVideoInput;
                                 match++;
@@ -174,6 +192,7 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
                             // deserialize EmbeddingsApiAudioInput
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "audio");
                                 EmbeddingsApiAudioInput.validateJsonElement(jsonElement);
                                 actualAdapter = adapterEmbeddingsApiAudioInput;
                                 match++;
@@ -244,6 +263,11 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof EmbeddingsApiTextInput) {
             super.setActualInstance(instance);
             return;
@@ -335,11 +359,15 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to EmbeddingsApiInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with EmbeddingsApiTextInput
         try {
+            checkDiscriminator(jsonElement, "text");
             EmbeddingsApiTextInput.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -352,6 +380,7 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
         }
         // validate the json string with EmbeddingsApiImageInput
         try {
+            checkDiscriminator(jsonElement, "image");
             EmbeddingsApiImageInput.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -364,6 +393,7 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
         }
         // validate the json string with EmbeddingsApiVideoInput
         try {
+            checkDiscriminator(jsonElement, "video");
             EmbeddingsApiVideoInput.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -376,6 +406,7 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
         }
         // validate the json string with EmbeddingsApiAudioInput
         try {
+            checkDiscriminator(jsonElement, "audio");
             EmbeddingsApiAudioInput.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -394,6 +425,46 @@ public class EmbeddingsApiInput extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "audio":
+            case "image":
+            case "text":
+            case "video":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected type to be " + value);
         }
     }
 

@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,7 +64,8 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterAutonomousRunResponse.toJsonTree(
                                                 (AutonomousRunResponse) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `SupervisedRunResponse`
@@ -71,7 +73,8 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterSupervisedRunResponse.toJsonTree(
                                                 (SupervisedRunResponse) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ProgrammaticRunResponse`
@@ -80,7 +83,13 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
                                         adapterProgrammaticRunResponse.toJsonTree(
                                                 (ProgrammaticRunResponse)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -91,6 +100,11 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
                         public AgentRunResponse read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                AgentRunResponse ret = new AgentRunResponse();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -99,6 +113,7 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
                             // deserialize AutonomousRunResponse
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "autonomous");
                                 AutonomousRunResponse.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAutonomousRunResponse;
                                 match++;
@@ -120,6 +135,7 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
                             // deserialize SupervisedRunResponse
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "supervised");
                                 SupervisedRunResponse.validateJsonElement(jsonElement);
                                 actualAdapter = adapterSupervisedRunResponse;
                                 match++;
@@ -141,6 +157,7 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
                             // deserialize ProgrammaticRunResponse
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "programmatic");
                                 ProgrammaticRunResponse.validateJsonElement(jsonElement);
                                 actualAdapter = adapterProgrammaticRunResponse;
                                 match++;
@@ -210,6 +227,11 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof AutonomousRunResponse) {
             super.setActualInstance(instance);
             return;
@@ -284,11 +306,15 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to AgentRunResponse
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with AutonomousRunResponse
         try {
+            checkDiscriminator(jsonElement, "autonomous");
             AutonomousRunResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -301,6 +327,7 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with SupervisedRunResponse
         try {
+            checkDiscriminator(jsonElement, "supervised");
             SupervisedRunResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -313,6 +340,7 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with ProgrammaticRunResponse
         try {
+            checkDiscriminator(jsonElement, "programmatic");
             ProgrammaticRunResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -331,6 +359,45 @@ public class AgentRunResponse extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("run_type");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "autonomous":
+            case "programmatic":
+            case "supervised":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("run_type");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected run_type to be " + value);
         }
     }
 

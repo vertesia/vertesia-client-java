@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,7 +76,8 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                                         adapterWorkflowEventDeliveryTargetInput.toJsonTree(
                                                 (WorkflowEventDeliveryTargetInput)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -86,7 +88,8 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                                         adapterWebhookEventDeliveryTargetInput.toJsonTree(
                                                 (WebhookEventDeliveryTargetInput)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -96,7 +99,8 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                                         adapterAppEventDeliveryTargetInput.toJsonTree(
                                                 (AppEventDeliveryTargetInput)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -106,7 +110,8 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                                         adapterAgentEventDeliveryTarget.toJsonTree(
                                                 (AgentEventDeliveryTarget)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -116,7 +121,13 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                                         adapterProcessEventDeliveryTarget.toJsonTree(
                                                 (ProcessEventDeliveryTarget)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -127,6 +138,11 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                         public EventDeliveryTargetInput read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                EventDeliveryTargetInput ret = new EventDeliveryTargetInput();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -135,6 +151,7 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                             // deserialize WorkflowEventDeliveryTargetInput
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "workflow");
                                 WorkflowEventDeliveryTargetInput.validateJsonElement(jsonElement);
                                 actualAdapter = adapterWorkflowEventDeliveryTargetInput;
                                 match++;
@@ -156,6 +173,7 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                             // deserialize WebhookEventDeliveryTargetInput
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "webhook");
                                 WebhookEventDeliveryTargetInput.validateJsonElement(jsonElement);
                                 actualAdapter = adapterWebhookEventDeliveryTargetInput;
                                 match++;
@@ -177,6 +195,7 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                             // deserialize AppEventDeliveryTargetInput
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "app");
                                 AppEventDeliveryTargetInput.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAppEventDeliveryTargetInput;
                                 match++;
@@ -198,6 +217,7 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                             // deserialize AgentEventDeliveryTarget
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "agent");
                                 AgentEventDeliveryTarget.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAgentEventDeliveryTarget;
                                 match++;
@@ -219,6 +239,7 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                             // deserialize ProcessEventDeliveryTarget
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "process");
                                 ProcessEventDeliveryTarget.validateJsonElement(jsonElement);
                                 actualAdapter = adapterProcessEventDeliveryTarget;
                                 match++;
@@ -290,6 +311,11 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof WorkflowEventDeliveryTargetInput) {
             super.setActualInstance(instance);
             return;
@@ -400,11 +426,15 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to EventDeliveryTargetInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with WorkflowEventDeliveryTargetInput
         try {
+            checkDiscriminator(jsonElement, "workflow");
             WorkflowEventDeliveryTargetInput.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -417,6 +447,7 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
         }
         // validate the json string with WebhookEventDeliveryTargetInput
         try {
+            checkDiscriminator(jsonElement, "webhook");
             WebhookEventDeliveryTargetInput.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -429,6 +460,7 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
         }
         // validate the json string with AppEventDeliveryTargetInput
         try {
+            checkDiscriminator(jsonElement, "app");
             AppEventDeliveryTargetInput.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -441,6 +473,7 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
         }
         // validate the json string with AgentEventDeliveryTarget
         try {
+            checkDiscriminator(jsonElement, "agent");
             AgentEventDeliveryTarget.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -453,6 +486,7 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
         }
         // validate the json string with ProcessEventDeliveryTarget
         try {
+            checkDiscriminator(jsonElement, "process");
             ProcessEventDeliveryTarget.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -471,6 +505,47 @@ public class EventDeliveryTargetInput extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "agent":
+            case "app":
+            case "process":
+            case "webhook":
+            case "workflow":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected type to be " + value);
         }
     }
 

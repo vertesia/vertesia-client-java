@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -81,7 +82,8 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                                         adapterAlterTableAddColumnOperation.toJsonTree(
                                                 (AlterTableAddColumnOperation)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -92,7 +94,8 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                                         adapterAlterTableDropColumnOperation.toJsonTree(
                                                 (AlterTableDropColumnOperation)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -103,7 +106,8 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                                         adapterAlterTableRenameColumnOperation.toJsonTree(
                                                 (AlterTableRenameColumnOperation)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -114,7 +118,8 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                                         adapterAlterTableModifyColumnOperation.toJsonTree(
                                                 (AlterTableModifyColumnOperation)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -125,7 +130,8 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                                         adapterAlterTableAddForeignKeyOperation.toJsonTree(
                                                 (AlterTableAddForeignKeyOperation)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -136,7 +142,13 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                                         adapterAlterTableDropForeignKeyOperation.toJsonTree(
                                                 (AlterTableDropForeignKeyOperation)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -147,6 +159,11 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                         public AlterTableOperation read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                AlterTableOperation ret = new AlterTableOperation();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -155,6 +172,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                             // deserialize AlterTableAddColumnOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "add_column");
                                 AlterTableAddColumnOperation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAlterTableAddColumnOperation;
                                 match++;
@@ -176,6 +194,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                             // deserialize AlterTableDropColumnOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "drop_column");
                                 AlterTableDropColumnOperation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAlterTableDropColumnOperation;
                                 match++;
@@ -197,6 +216,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                             // deserialize AlterTableRenameColumnOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "rename_column");
                                 AlterTableRenameColumnOperation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAlterTableRenameColumnOperation;
                                 match++;
@@ -218,6 +238,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                             // deserialize AlterTableModifyColumnOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "modify_column");
                                 AlterTableModifyColumnOperation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAlterTableModifyColumnOperation;
                                 match++;
@@ -239,6 +260,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                             // deserialize AlterTableAddForeignKeyOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "add_foreign_key");
                                 AlterTableAddForeignKeyOperation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAlterTableAddForeignKeyOperation;
                                 match++;
@@ -260,6 +282,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                             // deserialize AlterTableDropForeignKeyOperation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "drop_foreign_key");
                                 AlterTableDropForeignKeyOperation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAlterTableDropForeignKeyOperation;
                                 match++;
@@ -332,6 +355,11 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof AlterTableAddColumnOperation) {
             super.setActualInstance(instance);
             return;
@@ -463,11 +491,15 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to AlterTableOperation
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with AlterTableAddColumnOperation
         try {
+            checkDiscriminator(jsonElement, "add_column");
             AlterTableAddColumnOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -480,6 +512,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
         }
         // validate the json string with AlterTableDropColumnOperation
         try {
+            checkDiscriminator(jsonElement, "drop_column");
             AlterTableDropColumnOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -492,6 +525,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
         }
         // validate the json string with AlterTableRenameColumnOperation
         try {
+            checkDiscriminator(jsonElement, "rename_column");
             AlterTableRenameColumnOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -504,6 +538,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
         }
         // validate the json string with AlterTableModifyColumnOperation
         try {
+            checkDiscriminator(jsonElement, "modify_column");
             AlterTableModifyColumnOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -516,6 +551,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
         }
         // validate the json string with AlterTableAddForeignKeyOperation
         try {
+            checkDiscriminator(jsonElement, "add_foreign_key");
             AlterTableAddForeignKeyOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -528,6 +564,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
         }
         // validate the json string with AlterTableDropForeignKeyOperation
         try {
+            checkDiscriminator(jsonElement, "drop_foreign_key");
             AlterTableDropForeignKeyOperation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -546,6 +583,48 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("op");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "add_column":
+            case "add_foreign_key":
+            case "drop_column":
+            case "drop_foreign_key":
+            case "modify_column":
+            case "rename_column":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("op");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected op to be " + value);
         }
     }
 

@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,7 +63,8 @@ public class StripeBillingStatusResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterStripeBillingEnabled.toJsonTree(
                                                 (StripeBillingEnabled) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `StripeBillingDisabled`
@@ -70,7 +72,13 @@ public class StripeBillingStatusResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterStripeBillingDisabled.toJsonTree(
                                                 (StripeBillingDisabled) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -81,6 +89,11 @@ public class StripeBillingStatusResponse extends AbstractOpenApiSchema {
                         public StripeBillingStatusResponse read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                StripeBillingStatusResponse ret = new StripeBillingStatusResponse();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -89,6 +102,7 @@ public class StripeBillingStatusResponse extends AbstractOpenApiSchema {
                             // deserialize StripeBillingEnabled
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "enabled");
                                 StripeBillingEnabled.validateJsonElement(jsonElement);
                                 actualAdapter = adapterStripeBillingEnabled;
                                 match++;
@@ -110,6 +124,7 @@ public class StripeBillingStatusResponse extends AbstractOpenApiSchema {
                             // deserialize StripeBillingDisabled
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "disabled");
                                 StripeBillingDisabled.validateJsonElement(jsonElement);
                                 actualAdapter = adapterStripeBillingDisabled;
                                 match++;
@@ -178,6 +193,11 @@ public class StripeBillingStatusResponse extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof StripeBillingEnabled) {
             super.setActualInstance(instance);
             return;
@@ -235,11 +255,15 @@ public class StripeBillingStatusResponse extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to StripeBillingStatusResponse
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with StripeBillingEnabled
         try {
+            checkDiscriminator(jsonElement, "enabled");
             StripeBillingEnabled.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -252,6 +276,7 @@ public class StripeBillingStatusResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with StripeBillingDisabled
         try {
+            checkDiscriminator(jsonElement, "disabled");
             StripeBillingDisabled.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -270,6 +295,44 @@ public class StripeBillingStatusResponse extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("status");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "disabled":
+            case "enabled":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("status");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected status to be " + value);
         }
     }
 

@@ -21,6 +21,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,6 +70,11 @@ public class AppInstallationPayloadMcpSharedParametersValue extends AbstractOpen
                                 elementAdapter.write(out, primitive);
                                 return;
                             }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
+                                return;
+                            }
                             throw new IOException(
                                     "Failed to serialize as the type doesn't match anyOf schemas: String");
                         }
@@ -110,6 +116,12 @@ public class AppInstallationPayloadMcpSharedParametersValue extends AbstractOpen
                                         e);
                             }
 
+                            if (isUnknownVariant(jsonElement)) {
+                                AppInstallationPayloadMcpSharedParametersValue ret =
+                                        new AppInstallationPayloadMcpSharedParametersValue();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
                             throw new IOException(
                                     String.format(
                                             java.util.Locale.ROOT,
@@ -151,6 +163,11 @@ public class AppInstallationPayloadMcpSharedParametersValue extends AbstractOpen
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance == null) {
             super.setActualInstance(instance);
             return;
@@ -214,12 +231,29 @@ public class AppInstallationPayloadMcpSharedParametersValue extends AbstractOpen
                             e.getMessage()));
             // continue to the next one
         }
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         throw new IOException(
                 String.format(
                         java.util.Locale.ROOT,
                         "The JSON string is invalid for AppInstallationPayloadMcpSharedParametersValue with anyOf schemas: String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
                         errorMessages,
                         jsonElement.toString()));
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: no known variant decodes it.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        return !jsonElement.isJsonNull();
     }
 
     /**
