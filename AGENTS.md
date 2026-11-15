@@ -151,7 +151,8 @@ environment.
 - The default `x-api-version` header is part of the client contract; update it
   deliberately and test header behavior.
 - Generated models are patched for forward compatibility: unknown response
-  fields are ignored and unknown enum values should not break consumers.
+  fields are ignored, and unknown enum values decode to `UNKNOWN_DEFAULT_OPEN_API`
+  and are written back as received (`UnknownEnumValues`).
 - TLS verification cannot be disabled. Use `ApiClient.setSslCaCert(...)` to
   trust a private certificate authority.
 

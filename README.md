@@ -109,8 +109,14 @@ A newer server can add a property, an enum value, or a union variant without a b
 and a released client keeps decoding its responses:
 
 - Unknown properties are ignored (open models keep them in `getAdditionalProperties()`).
-- An unknown enum value decodes as `UNKNOWN_DEFAULT_OPEN_API`. A Java enum cannot hold the received
-  value, so writing the model back sends `unknown_default_open_api`.
+- An unknown enum value decodes as `UNKNOWN_DEFAULT_OPEN_API`, and writing the model back sends the
+  value received, so a read-modify-write does not change it. A Java enum cannot hold that value, so
+  the model keeps the JSON it received for the property, in a transient field, and writes it again
+  while the property is unchanged: a property, a list or a map element that you set is written as
+  you set it. This covers enum properties, enums in lists and maps, and models decoded as union
+  variants. A union whose branch is an enum, such as `AuditAction` (`KnownAuditAction` or a
+  string), decodes a value the enum does not declare with its next branch: `"c:reviewer"` is an
+  `AssignableRoleName` holding a `String`, not `SystemRoles.UNKNOWN_DEFAULT_OPEN_API`.
 - An unknown union variant is kept as the `JsonElement` it was received as: `getActualInstance()` and
   `getRaw()` return it, and serialization writes it back unchanged. `getRaw()` is `null` for a known
   variant. A union with a published discriminator does this only for a discriminator value it does
@@ -121,10 +127,11 @@ and a released client keeps decoding its responses:
   (`Object`, `Map<String, Object>`) are written too.
 - `ModelOptions` and `McpConnectionParameter` are `anyOf` unions whose branches carry a literal tag
   (`_option_id`, `type`), optional in `ModelOptions`. A branch is used only when it writes every
-  received property back with the same value. Options merged from several model families, or with
-  an enum value the branch does not know, are kept raw instead of losing those properties.
+  received property back with the same value. Options merged from several model families are kept
+  raw instead of losing those properties.
 
-`scripts/patch_forward_compat_validation.py` applies these rules after generation.
+`scripts/patch_forward_compat_validation.py` applies these rules after generation, with
+`JsonOutput` and `UnknownEnumValues`.
 
 ## Regeneration
 

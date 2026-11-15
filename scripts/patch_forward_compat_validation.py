@@ -17,6 +17,13 @@ response. The patch keeps such a variant as the JsonElement it was received as:
 getActualInstance() and getRaw() return it, and serialization writes it back.
 A union with a published discriminator does this only for an unknown
 discriminator value; a known value still has to match its branch.
+
+An enum value this client does not know decodes to UNKNOWN_DEFAULT_OPEN_API,
+which a Java enum cannot pair with the value received. A model with enum
+properties keeps the JSON received for those that decoded to it, in a transient
+field, and io.vertesia.UnknownEnumValues writes that JSON back while the property
+is unchanged. A union whose branch is an enum takes that branch only for a value
+the enum declares, so that an unknown value reaches a plain string branch.
 """
 
 from __future__ import annotations
@@ -340,14 +347,128 @@ def patch_model_writes(text: str) -> str:
     return text
 
 
+UNKNOWN_ENUM_FIELD = "receivedEnumValues"
+UNKNOWN_ENUM_IMPORT = "import io.vertesia.UnknownEnumValues;\n"
+
+# A model's instance fields, as raw generator output and google-java-format write them: the type may
+# follow annotations on the same line, and an initializer may continue on the next line.
+FIELD_DECLARATION = re.compile(
+    r"^[ \t]+(?:@[\w.]+\s+)*private (?!static\b)(?!transient\b)(?!final\b)"
+    r"(?P<type>[\w.<>?,\[\] ]+?)\s+(?P<name>\w+)\s*(?:=|;)",
+    re.M,
+)
+
+
+def standalone_enums(paths) -> set[str]:
+    """Names of the generated enum models, such as AgentRunStatus."""
+    return {path.stem for path in paths if re.search(r"(?m)^public enum \w+ \{", path.read_text())}
+
+
+def enum_properties(text: str, enums: set[str]) -> list[str]:
+    """The Java fields of a model whose type is, or holds, a generated enum."""
+    known = enums | set(re.findall(r"(?m)^[ \t]+public enum (\w+) \{", text))
+    return [
+        match["name"]
+        for match in FIELD_DECLARATION.finditer(text)
+        if known & set(re.findall(r"\w+", match["type"]))
+    ]
+
+
+def _add_import(text: str) -> str:
+    if UNKNOWN_ENUM_IMPORT in text:
+        return text
+    # In the position google-java-format sorts it to, after the other io.vertesia invoker imports.
+    for anchor in ("import io.vertesia.JsonOutput;\n", "import io.vertesia.JSON;\n"):
+        if anchor in text:
+            return text.replace(anchor, anchor + UNKNOWN_ENUM_IMPORT, 1)
+    raise SystemExit("A generated model does not import io.vertesia.JSON")
+
+
+def _call(indent: str, unit: str, call: str, args: str) -> str:
+    """A call statement, wrapped as google-java-format wraps one longer than 100 columns."""
+    line = f"{indent}{call}({args});"
+    if len(line) <= 100:
+        return line + "\n"
+    return f"{indent}{call}(\n{indent}{unit * 2}{args});\n"
+
+
+def patch_unknown_enum_values(text: str, name: str, enums: set[str]) -> str:
+    """Keep the enum values a model receives that this client version does not know.
+
+    UnknownEnumValues.keep records, in a transient field, the JSON of each enum property that decoded
+    to the placeholder, and JsonOutput.writeModel writes it back while the property is unchanged.
+    """
+    if UNKNOWN_ENUM_FIELD in text or "public static HashSet<String> openapiFields;" not in text:
+        return text
+    if not enum_properties(text, enums):
+        return text
+    unit = "    " if re.search(r"\n    public static HashSet<String> openapiFields;", text) else "  "
+
+    fields = text.index("public static HashSet<String> openapiFields;")
+    text = _insert_before_line(text, fields, [
+        "// The JSON received for the enum properties whose value this client version does not know.",
+        f"private transient JsonObject {UNKNOWN_ENUM_FIELD};",
+        "",
+    ], unit)
+
+    closed = "return thisAdapter.fromJsonTree(jsonElement);"
+    if closed in text:
+        position = text.index(closed)
+        start = _line_start(text, position)
+        end = text.index("\n", position) + 1
+        keep = _call(
+            _indent(text, position), unit, "return UnknownEnumValues.keep", "jsonElement, thisAdapter.fromJsonTree(jsonElement)"
+        )
+        text = text[:start] + keep + text[end:]
+    else:
+        # Open models read their additional properties into the instance before returning it. A long
+        # model name puts the declaration on two lines.
+        statement = re.search(re.escape(name) + r"\s+instance\s*=\s*thisAdapter\.fromJsonTree\(jsonObj\);\n", text)
+        if statement is None:
+            raise SystemExit(f"{name}: cannot find where the generated adapter decodes the model")
+        line = _call(_indent(text, statement.start()), unit, "UnknownEnumValues.keep", "jsonObj, instance")
+        text = text[: statement.end()] + line + text[statement.end() :]
+    return _add_import(text)
+
+
+def patch_union_enum_values(text: str, enums: set[str]) -> str:
+    """Route the variants a union decodes through UnknownEnumValues.
+
+    A union decodes a variant with the adapter Gson delegates to, which can be the variant's
+    reflective adapter rather than its generated one, so the union records the variant's unknown enum
+    values itself. An enum branch accepts only a value the enum declares.
+    """
+    if not re.search(r"\bclass \w+ extends AbstractOpenApiSchema\b", text) or "UnknownEnumValues." in text:
+        return text
+    unit = "    " if re.search(r"\n    private static final Logger log\b", text) else "  "
+    patched = text
+    call = "ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));"
+    position = 0
+    while (position := patched.find(call, position)) != -1:
+        patched = _insert_after_line(patched, position, ["UnknownEnumValues.keep(jsonElement, ret.getActualInstance());"], unit, False)
+        position = patched.index(call, position) + len(call)
+    branches = set(re.findall(r"TypeToken\.get\((\w+)\.class\)", patched)) & enums
+    for branch in sorted(branches):
+        validate = f"{branch}.validateJsonElement(jsonElement);"
+        position = 0
+        while (position := patched.find(validate, position)) != -1:
+            end = patched.index("\n", position) + 1
+            line = _call(_indent(patched, position), unit, "UnknownEnumValues.requireKnown", f"jsonElement, {branch}.class")
+            patched = patched[:end] + line + patched[end:]
+            position = end + len(line)
+    return _add_import(patched) if patched != text else text
+
+
 def main() -> None:
     spec_schemas = json.loads(pathlib.Path("spec/vertesia-openapi.json").read_text())["components"]["schemas"]
     schemas = union_literal_schemas(spec_schemas)
     discriminators = union_discriminators(spec_schemas)
     # anyOf unions whose branches carry a literal tag: a payload no single branch keeps whole is kept raw.
     lossless = {name for name in union_literal_tags(spec_schemas) if "anyOf" in spec_schemas[name]}
+    paths = sorted(ROOT.glob("*.java"))
+    enums = standalone_enums(paths)
     changed = 0
-    for path in ROOT.glob("*.java"):
+    for path in paths:
         text = path.read_text()
         patched = UNKNOWN_FIELD_BLOCK.sub("\n", text)
         patched = patch_schema_constants(patched, schemas.get(path.stem, {}))
@@ -356,6 +477,8 @@ def main() -> None:
             patched, path.stem, discriminators.get(path.stem), lossless=path.stem in lossless
         )
         patched = patch_model_writes(patched)
+        patched = patch_unknown_enum_values(patched, path.stem, enums)
+        patched = patch_union_enum_values(patched, enums)
         if patched != text:
             path.write_text(patched)
             changed += 1
