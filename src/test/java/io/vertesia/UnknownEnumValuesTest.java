@@ -1,7 +1,6 @@
 package io.vertesia;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -26,8 +25,10 @@ import java.lang.reflect.Modifier;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 
@@ -155,13 +156,7 @@ class UnknownEnumValuesTest {
         AgentEventDeliveryTarget target =
                 JSON.deserialize(AGENT_TARGET, AgentEventDeliveryTarget.class);
         target.missingThread(AgentEventDeliveryTarget.MissingThreadEnum.SKIP);
-        target.getStatuses().set(0, AgentRunStatus.RUNNING);
-        JsonObject written = object(target.toJson());
-        assertEquals("skip", written.get("missing_thread").getAsString());
-        // The list changed: its unknown element can no longer be told apart from the others.
-        assertEquals(
-                JsonParser.parseString("[\"running\",\"unknown_default_open_api\",\"failed\"]"),
-                written.get("statuses"));
+        assertEquals("skip", object(target.toJson()).get("missing_thread").getAsString());
 
         // An unchanged list keeps its unknown element beside a changed property.
         AgentEventDeliveryTarget other =
@@ -180,6 +175,41 @@ class UnknownEnumValuesTest {
                                         .toJson())
                         .get("missing_thread")
                         .getAsString());
+    }
+
+    private static void assertStatusesAfter(Consumer<List<AgentRunStatus>> edit, String expected) {
+        AgentEventDeliveryTarget target =
+                JSON.deserialize(AGENT_TARGET, AgentEventDeliveryTarget.class);
+        edit.accept(target.getStatuses());
+        assertEquals(JsonParser.parseString(expected), object(target.toJson()).get("statuses"));
+    }
+
+    @Test
+    void anEditedListKeepsItsUnknownValues() {
+        // The list is ["completed","hibernating","failed"].
+        assertStatusesAfter(
+                statuses -> statuses.set(0, AgentRunStatus.RUNNING),
+                "[\"running\",\"hibernating\",\"failed\"]");
+        assertStatusesAfter(
+                statuses -> statuses.add(AgentRunStatus.RUNNING),
+                "[\"completed\",\"hibernating\",\"failed\",\"running\"]");
+        assertStatusesAfter(statuses -> statuses.remove(0), "[\"hibernating\",\"failed\"]");
+        assertStatusesAfter(
+                statuses -> {
+                    statuses.remove(0);
+                    statuses.add(AgentRunStatus.RUNNING);
+                },
+                "[\"hibernating\",\"failed\",\"running\"]");
+        assertStatusesAfter(Collections::reverse, "[\"failed\",\"hibernating\",\"completed\"]");
+        assertStatusesAfter(statuses -> statuses.remove(1), "[\"completed\",\"failed\"]");
+        // A placeholder the caller adds cannot be told apart from the received one.
+        assertStatusesAfter(
+                statuses -> statuses.add(AgentRunStatus.UNKNOWN_DEFAULT_OPEN_API),
+                "[\"completed\",\"unknown_default_open_api\",\"failed\","
+                        + "\"unknown_default_open_api\"]");
+        assertStatusesAfter(
+                statuses -> statuses.set(0, AgentRunStatus.UNKNOWN_DEFAULT_OPEN_API),
+                "[\"unknown_default_open_api\",\"unknown_default_open_api\",\"failed\"]");
     }
 
     @Test
@@ -218,12 +248,15 @@ class UnknownEnumValuesTest {
         UnknownEnumValues.restore(tree, model);
         assertEquals(JsonParser.parseString(body), tree);
 
+        // Entries are kept by key.
         model.byTeam.remove("a");
+        model.byTeam.put("c", List.of(AgentRunStatus.UNKNOWN_DEFAULT_OPEN_API));
         tree = JSON.getGson().toJsonTree(model);
         UnknownEnumValues.restore(tree, model);
         assertEquals(
                 JsonParser.parseString(
-                        "{\"by_team\":{\"b\":[\"unknown_default_open_api\",\"failed\"]}}"),
+                        "{\"by_team\":{\"b\":[\"hibernating\",\"failed\"],"
+                                + "\"c\":[\"unknown_default_open_api\"]}}"),
                 tree);
     }
 
@@ -270,28 +303,5 @@ class UnknownEnumValuesTest {
         }
         assertTrue(checked > 100, "only " + checked + " models hold enums");
         assertEquals(List.of(), missing);
-    }
-
-    @Test
-    void decodesToAllowsOnlyThePlaceholderToDiffer() {
-        assertTrue(
-                UnknownEnumValues.decodesTo(
-                        JsonParser.parseString("[\"a\",\"x\"]"),
-                        JsonParser.parseString("[\"a\",\"unknown_default_open_api\"]")));
-        assertTrue(
-                UnknownEnumValues.decodesTo(
-                        JsonParser.parseString("12"), JsonParser.parseString("11184809")));
-        assertFalse(
-                UnknownEnumValues.decodesTo(
-                        JsonParser.parseString("[\"b\",\"x\"]"),
-                        JsonParser.parseString("[\"a\",\"unknown_default_open_api\"]")));
-        assertFalse(
-                UnknownEnumValues.decodesTo(
-                        JsonParser.parseString("[\"x\"]"),
-                        JsonParser.parseString("[\"unknown_default_open_api\",\"a\"]")));
-        assertFalse(
-                UnknownEnumValues.decodesTo(
-                        JsonParser.parseString("null"),
-                        JsonParser.parseString("\"unknown_default_open_api\"")));
     }
 }

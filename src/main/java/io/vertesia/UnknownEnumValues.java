@@ -27,9 +27,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * <p>A generated enum decodes a value it does not declare as {@code UNKNOWN_DEFAULT_OPEN_API}, and
  * a Java enum constant cannot hold the value it was decoded from. So a model keeps the JSON it
  * received for each enum property that decoded to that placeholder, in a field named {@value
- * #FIELD}, and writing the model back writes that JSON again instead of {@code
- * unknown_default_open_api}. A property the caller changed since it was decoded is written as it
- * now is. scripts/patch_forward_compat_validation.py adds the field and routes the generated
+ * #FIELD}, and writing the model back writes each unknown value again in place of {@code
+ * unknown_default_open_api}. A value the caller set is written as it was set, and the unknown
+ * values of a list or a map are kept when the caller edits its other elements, see {@link
+ * #restored}. scripts/patch_forward_compat_validation.py adds the field and routes the generated
  * adapters through this class; {@link JsonOutput#writeModel} restores the values.
  */
 public final class UnknownEnumValues {
@@ -79,10 +80,7 @@ public final class UnknownEnumValues {
         return model;
     }
 
-    /**
-     * Writes back, into a model's JSON tree, the enum values it was decoded from, for each
-     * property whose value has not changed since.
-     */
+    /** Writes back, into a model's JSON tree, the unknown enum values it was decoded from. */
     public static void restore(JsonElement tree, Object model) {
         Model type = model(model);
         if (type == null || tree == null || !tree.isJsonObject()) {
@@ -93,10 +91,17 @@ public final class UnknownEnumValues {
             return;
         }
         JsonObject written = tree.getAsJsonObject();
-        for (Map.Entry<String, JsonElement> property : kept.entrySet()) {
-            JsonElement value = written.get(property.getKey());
-            if (value != null && decodesTo(property.getValue(), value)) {
-                written.add(property.getKey(), property.getValue().deepCopy());
+        for (Field property : type.properties) {
+            JsonElement received = kept.get(name(property));
+            JsonElement value = written.get(name(property));
+            if (received != null && value != null) {
+                // What the received value decoded to tells its unknown values apart.
+                JsonElement decoded =
+                        JSON.getGson()
+                                .toJsonTree(
+                                        JSON.getGson()
+                                                .fromJson(received, property.getGenericType()));
+                written.add(name(property), restored(received, decoded, value).deepCopy());
             }
         }
     }
@@ -142,47 +147,93 @@ public final class UnknownEnumValues {
     }
 
     /**
-     * Returns whether a received value decodes to the written one: the same JSON, except where the
-     * written value is the placeholder an unknown received value decodes to.
+     * Returns what to write for a property: its written value, with the placeholders that stand
+     * for a received unknown value replaced by that value.
+     *
+     * <p>A placeholder written where an unknown value was received is that value. A list of values
+     * gets its unknown values back in their order, whatever known values the caller replaced,
+     * added, removed or moved, while it holds as many placeholders as it received unknown values;
+     * otherwise, such as after the caller removed an unknown value or added a placeholder, the
+     * placeholders cannot be told apart and are written as such. A map keeps its entries by key.
+     *
+     * @param received the JSON the property was decoded from
+     * @param decoded what {@code received} decoded to, written as JSON
+     * @param written the property's value now, written as JSON
      */
-    static boolean decodesTo(JsonElement received, JsonElement written) {
-        if (received.equals(written)) {
-            return true;
+    static JsonElement restored(JsonElement received, JsonElement decoded, JsonElement written) {
+        if (writesPlaceholder(written)) {
+            return writesPlaceholder(decoded) ? received : written;
         }
-        if (written.isJsonPrimitive() && received.isJsonPrimitive()) {
-            JsonPrimitive placeholder = written.getAsJsonPrimitive();
-            return placeholder.isString()
-                    ? PLACEHOLDER.equals(placeholder.getAsString())
-                    : placeholder.isNumber()
-                            && NUMERIC_PLACEHOLDER.compareTo(placeholder.getAsBigDecimal()) == 0;
+        if (received.isJsonArray() && decoded.isJsonArray() && written.isJsonArray()) {
+            return restoredList(
+                    received.getAsJsonArray(), decoded.getAsJsonArray(), written.getAsJsonArray());
         }
-        if (written.isJsonArray() && received.isJsonArray()) {
-            JsonArray items = received.getAsJsonArray();
-            if (items.size() != written.getAsJsonArray().size()) {
-                return false;
+        if (received.isJsonObject() && decoded.isJsonObject() && written.isJsonObject()) {
+            JsonObject entries = new JsonObject();
+            for (Map.Entry<String, JsonElement> entry : written.getAsJsonObject().entrySet()) {
+                JsonElement value = received.getAsJsonObject().get(entry.getKey());
+                JsonElement before = decoded.getAsJsonObject().get(entry.getKey());
+                entries.add(
+                        entry.getKey(),
+                        value == null || before == null
+                                ? entry.getValue()
+                                : restored(value, before, entry.getValue()));
             }
-            Iterator<JsonElement> writtenItems = written.getAsJsonArray().iterator();
-            for (JsonElement item : items) {
-                if (!decodesTo(item, writtenItems.next())) {
-                    return false;
-                }
-            }
-            return true;
+            return entries;
         }
-        if (written.isJsonObject() && received.isJsonObject()) {
-            JsonObject entries = received.getAsJsonObject();
-            if (!entries.keySet().equals(written.getAsJsonObject().keySet())) {
-                return false;
-            }
-            for (Map.Entry<String, JsonElement> entry : entries.entrySet()) {
-                JsonElement value = written.getAsJsonObject().get(entry.getKey());
-                if (!decodesTo(entry.getValue(), value)) {
-                    return false;
-                }
-            }
-            return true;
+        return written;
+    }
+
+    private static JsonElement restoredList(
+            JsonArray received, JsonArray decoded, JsonArray written) {
+        if (received.size() != decoded.size()) {
+            return written;
         }
-        return false;
+        List<JsonElement> unknown = new ArrayList<>();
+        boolean flat = true;
+        for (int i = 0; i < decoded.size(); i++) {
+            JsonElement item = decoded.get(i);
+            if (writesPlaceholder(item)) {
+                unknown.add(received.get(i));
+            } else if (!item.isJsonPrimitive() && !item.isJsonNull()) {
+                flat = false;
+            }
+        }
+        JsonArray items = new JsonArray(written.size());
+        if (flat) {
+            int placeholders = 0;
+            for (JsonElement item : written) {
+                placeholders += writesPlaceholder(item) ? 1 : 0;
+            }
+            if (placeholders != unknown.size()) {
+                return written;
+            }
+            Iterator<JsonElement> next = unknown.iterator();
+            for (JsonElement item : written) {
+                items.add(writesPlaceholder(item) ? next.next() : item);
+            }
+            return items;
+        }
+        // A list of lists or maps keeps its elements by position while its size is unchanged.
+        if (written.size() != received.size()) {
+            return written;
+        }
+        for (int i = 0; i < written.size(); i++) {
+            items.add(restored(received.get(i), decoded.get(i), written.get(i)));
+        }
+        return items;
+    }
+
+    /** Returns whether a JSON value is what an enum placeholder serializes to. */
+    private static boolean writesPlaceholder(JsonElement value) {
+        if (value == null || !value.isJsonPrimitive()) {
+            return false;
+        }
+        JsonPrimitive primitive = value.getAsJsonPrimitive();
+        return primitive.isString()
+                ? PLACEHOLDER.equals(primitive.getAsString())
+                : primitive.isNumber()
+                        && NUMERIC_PLACEHOLDER.compareTo(primitive.getAsBigDecimal()) == 0;
     }
 
     /** Returns the class declaring the field that keeps a model's unknown enum values, or null. */
