@@ -40,8 +40,9 @@ public final class JsonOutput {
         if (tree.isJsonObject()) {
             JsonObject object = tree.getAsJsonObject();
             object.entrySet().removeIf(member -> member.getValue().isJsonNull());
-            if (model != null && model.getClass().getName().startsWith(MODELS)) {
-                for (Map.Entry<String, Type> map : typedMaps(model.getClass()).entrySet()) {
+            Class<?> generated = generatedModel(model);
+            if (generated != null) {
+                for (Map.Entry<String, Type> map : typedMaps(generated).entrySet()) {
                     dropNullEntries(object.get(map.getKey()), map.getValue());
                 }
             }
@@ -59,6 +60,21 @@ public final class JsonOutput {
         } finally {
             out.setSerializeNulls(serializeNulls);
         }
+    }
+
+    /**
+     * Returns the generated model class of a value, which can be a caller's subclass of it, or null.
+     * The generated adapter writes the properties of the generated class.
+     */
+    private static Class<?> generatedModel(Object model) {
+        for (Class<?> c = model == null ? null : model.getClass();
+                c != null;
+                c = c.getSuperclass()) {
+            if (c.getName().startsWith(MODELS)) {
+                return c;
+            }
+        }
+        return null;
     }
 
     /** Returns the JSON names of a model's typed map properties, with the type of their values. */

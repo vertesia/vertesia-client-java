@@ -167,6 +167,8 @@ class ForwardCompatibilityTest {
         assertEquals("{}", JSON.serialize(new TimerTask()));
     }
 
+    static class CallerMetadataPayload extends SetFileMetadataPayload {}
+
     @Test
     void typedMapsLeaveOutNullEntriesAndFreeFormValuesKeepThem() {
         SetFileMetadataPayload metadata =
@@ -176,6 +178,14 @@ class ForwardCompatibilityTest {
         assertEquals(
                 JsonParser.parseString("{\"metadata\":{\"team\":\"a\"}}"),
                 JsonParser.parseString(JSON.serialize(metadata)));
+        // The generated adapter also writes a caller's subclass, with the generated class's rules.
+        SetFileMetadataPayload subclass =
+                new CallerMetadataPayload()
+                        .putMetadataItem("owner", null)
+                        .putMetadataItem("team", "a");
+        assertEquals(
+                JsonParser.parseString("{\"metadata\":{\"team\":\"a\"}}"),
+                JsonParser.parseString(JSON.serialize(subclass)));
 
         CompleteTaskPayload task = new CompleteTaskPayload().putResultItem("approved", null);
         assertEquals(
