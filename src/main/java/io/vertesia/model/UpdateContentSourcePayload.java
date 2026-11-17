@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * Changes the name, description or sync settings. Saving sync settings also hands the sync your credentials, which restarts a sync stopped because its previous credentials were refused.
+ * Changes the name, description or sync settings, and, before the first sync, the root and folder to sync. Saving sync settings also hands the sync your credentials, which restarts a sync stopped because its previous credentials were refused.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -49,6 +49,21 @@ public class UpdateContentSourcePayload {
 
     @SerializedName(SERIALIZED_NAME_SYNC)
     @jakarta.annotation.Nullable private ContentSourceSyncSettings sync;
+
+    public static final String SERIALIZED_NAME_ROOT_ID = "root_id";
+
+    @SerializedName(SERIALIZED_NAME_ROOT_ID)
+    @jakarta.annotation.Nullable private String rootId;
+
+    public static final String SERIALIZED_NAME_FOLDER_ID = "folder_id";
+
+    @SerializedName(SERIALIZED_NAME_FOLDER_ID)
+    @jakarta.annotation.Nullable private String folderId;
+
+    public static final String SERIALIZED_NAME_FOLDER_PATH = "folder_path";
+
+    @SerializedName(SERIALIZED_NAME_FOLDER_PATH)
+    @jakarta.annotation.Nullable private String folderPath;
 
     public UpdateContentSourcePayload() {}
 
@@ -104,6 +119,57 @@ public class UpdateContentSourcePayload {
         this.sync = sync;
     }
 
+    public UpdateContentSourcePayload rootId(@jakarta.annotation.Nullable String rootId) {
+        this.rootId = rootId;
+        return this;
+    }
+
+    /**
+     * Only before the first sync: the root to sync, as &#x60;discover/roots&#x60; returned it (a SharePoint document library; for Box, a folder shared with the app). Answers 409 once the source has synced.
+     * @return rootId
+     */
+    @jakarta.annotation.Nullable public String getRootId() {
+        return rootId;
+    }
+
+    public void setRootId(@jakarta.annotation.Nullable String rootId) {
+        this.rootId = rootId;
+    }
+
+    public UpdateContentSourcePayload folderId(@jakarta.annotation.Nullable String folderId) {
+        this.folderId = folderId;
+        return this;
+    }
+
+    /**
+     * Only before the first sync: the folder to sync, as a folder listing returned its &#x60;id&#x60;. Answers 409 once the source has synced.
+     * @return folderId
+     */
+    @jakarta.annotation.Nullable public String getFolderId() {
+        return folderId;
+    }
+
+    public void setFolderId(@jakarta.annotation.Nullable String folderId) {
+        this.folderId = folderId;
+    }
+
+    public UpdateContentSourcePayload folderPath(@jakarta.annotation.Nullable String folderPath) {
+        this.folderPath = folderPath;
+        return this;
+    }
+
+    /**
+     * SharePoint only, and only before the first sync: the folder to sync inside the library, e.g. &#x60;Contracts/2026&#x60;; empty for the whole library. Answers 409 once the source has synced.
+     * @return folderPath
+     */
+    @jakarta.annotation.Nullable public String getFolderPath() {
+        return folderPath;
+    }
+
+    public void setFolderPath(@jakarta.annotation.Nullable String folderPath) {
+        this.folderPath = folderPath;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -115,12 +181,15 @@ public class UpdateContentSourcePayload {
         UpdateContentSourcePayload updateContentSourcePayload = (UpdateContentSourcePayload) o;
         return Objects.equals(this.name, updateContentSourcePayload.name)
                 && Objects.equals(this.description, updateContentSourcePayload.description)
-                && Objects.equals(this.sync, updateContentSourcePayload.sync);
+                && Objects.equals(this.sync, updateContentSourcePayload.sync)
+                && Objects.equals(this.rootId, updateContentSourcePayload.rootId)
+                && Objects.equals(this.folderId, updateContentSourcePayload.folderId)
+                && Objects.equals(this.folderPath, updateContentSourcePayload.folderPath);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, sync);
+        return Objects.hash(name, description, sync, rootId, folderId, folderPath);
     }
 
     @Override
@@ -130,6 +199,9 @@ public class UpdateContentSourcePayload {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
+        sb.append("    rootId: ").append(toIndentedString(rootId)).append("\n");
+        sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
+        sb.append("    folderPath: ").append(toIndentedString(folderPath)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -147,7 +219,15 @@ public class UpdateContentSourcePayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("name", "description", "sync"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList(
+                                "name",
+                                "description",
+                                "sync",
+                                "root_id",
+                                "folder_id",
+                                "folder_path"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -190,6 +270,30 @@ public class UpdateContentSourcePayload {
         // validate the optional field `sync`
         if (jsonObj.get("sync") != null && !jsonObj.get("sync").isJsonNull()) {
             ContentSourceSyncSettings.validateJsonElement(jsonObj.get("sync"));
+        }
+        if ((jsonObj.get("root_id") != null && !jsonObj.get("root_id").isJsonNull())
+                && !jsonObj.get("root_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `root_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("root_id").toString()));
+        }
+        if ((jsonObj.get("folder_id") != null && !jsonObj.get("folder_id").isJsonNull())
+                && !jsonObj.get("folder_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `folder_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("folder_id").toString()));
+        }
+        if ((jsonObj.get("folder_path") != null && !jsonObj.get("folder_path").isJsonNull())
+                && !jsonObj.get("folder_path").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `folder_path` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("folder_path").toString()));
         }
     }
 
