@@ -24,6 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -62,6 +63,21 @@ public class InferenceProfileRecord {
 
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
+
+    public static final String SERIALIZED_NAME_INVOCATION = "invocation";
+
+    @SerializedName(SERIALIZED_NAME_INVOCATION)
+    @jakarta.annotation.Nullable private InferenceProfileInvocation invocation;
+
+    public static final String SERIALIZED_NAME_DECISION_THRESHOLD = "decision_threshold";
+
+    @SerializedName(SERIALIZED_NAME_DECISION_THRESHOLD)
+    @jakarta.annotation.Nullable private BigDecimal decisionThreshold;
+
+    public static final String SERIALIZED_NAME_AUDIT_SAMPLE_RATE = "audit_sample_rate";
+
+    @SerializedName(SERIALIZED_NAME_AUDIT_SAMPLE_RATE)
+    @jakarta.annotation.Nullable private BigDecimal auditSampleRate;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -177,6 +193,64 @@ public class InferenceProfileRecord {
         this.modelOptions = modelOptions;
     }
 
+    public InferenceProfileRecord invocation(
+            @jakarta.annotation.Nullable InferenceProfileInvocation invocation) {
+        this.invocation = invocation;
+        return this;
+    }
+
+    /**
+     * Get invocation
+     * @return invocation
+     */
+    @jakarta.annotation.Nullable public InferenceProfileInvocation getInvocation() {
+        return invocation;
+    }
+
+    public void setInvocation(@jakarta.annotation.Nullable InferenceProfileInvocation invocation) {
+        this.invocation = invocation;
+    }
+
+    public InferenceProfileRecord decisionThreshold(
+            @jakarta.annotation.Nullable BigDecimal decisionThreshold) {
+        this.decisionThreshold = decisionThreshold;
+        return this;
+    }
+
+    /**
+     * Minimum confidence a decision answer needs to be used, overriding the interaction&#39;s own threshold. Confidence means different things per provider, so set it per profile.
+     * minimum: 0
+     * maximum: 1
+     * @return decisionThreshold
+     */
+    @jakarta.annotation.Nullable public BigDecimal getDecisionThreshold() {
+        return decisionThreshold;
+    }
+
+    public void setDecisionThreshold(@jakarta.annotation.Nullable BigDecimal decisionThreshold) {
+        this.decisionThreshold = decisionThreshold;
+    }
+
+    public InferenceProfileRecord auditSampleRate(
+            @jakarta.annotation.Nullable BigDecimal auditSampleRate) {
+        this.auditSampleRate = auditSampleRate;
+        return this;
+    }
+
+    /**
+     * With invocation &#x60;decide&#x60;: the share of runs that also run regular inference, to compare the two after the switch. Absent means none.
+     * minimum: 0
+     * maximum: 1
+     * @return auditSampleRate
+     */
+    @jakarta.annotation.Nullable public BigDecimal getAuditSampleRate() {
+        return auditSampleRate;
+    }
+
+    public void setAuditSampleRate(@jakarta.annotation.Nullable BigDecimal auditSampleRate) {
+        this.auditSampleRate = auditSampleRate;
+    }
+
     public InferenceProfileRecord id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
@@ -263,6 +337,9 @@ public class InferenceProfileRecord {
                 && Objects.equals(this.environment, inferenceProfileRecord.environment)
                 && Objects.equals(this.model, inferenceProfileRecord.model)
                 && Objects.equals(this.modelOptions, inferenceProfileRecord.modelOptions)
+                && Objects.equals(this.invocation, inferenceProfileRecord.invocation)
+                && Objects.equals(this.decisionThreshold, inferenceProfileRecord.decisionThreshold)
+                && Objects.equals(this.auditSampleRate, inferenceProfileRecord.auditSampleRate)
                 && Objects.equals(this.id, inferenceProfileRecord.id)
                 && Objects.equals(this.project, inferenceProfileRecord.project)
                 && Objects.equals(this.createdAt, inferenceProfileRecord.createdAt)
@@ -277,6 +354,9 @@ public class InferenceProfileRecord {
                 environment,
                 model,
                 modelOptions,
+                invocation,
+                decisionThreshold,
+                auditSampleRate,
                 id,
                 project,
                 createdAt,
@@ -292,6 +372,11 @@ public class InferenceProfileRecord {
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
+        sb.append("    invocation: ").append(toIndentedString(invocation)).append("\n");
+        sb.append("    decisionThreshold: ")
+                .append(toIndentedString(decisionThreshold))
+                .append("\n");
+        sb.append("    auditSampleRate: ").append(toIndentedString(auditSampleRate)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    project: ").append(toIndentedString(project)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -321,6 +406,9 @@ public class InferenceProfileRecord {
                                 "environment",
                                 "model",
                                 "model_options",
+                                "invocation",
+                                "decision_threshold",
+                                "audit_sample_rate",
                                 "id",
                                 "project",
                                 "created_at",
@@ -401,6 +489,10 @@ public class InferenceProfileRecord {
         // validate the optional field `model_options`
         if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
             ModelOptions.validateJsonElement(jsonObj.get("model_options"));
+        }
+        // validate the optional field `invocation`
+        if (jsonObj.get("invocation") != null && !jsonObj.get("invocation").isJsonNull()) {
+            InferenceProfileInvocation.validateJsonElement(jsonObj.get("invocation"));
         }
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
