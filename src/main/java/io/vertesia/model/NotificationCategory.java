@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Preference group of a notification: &#x60;actions&#x60; need the user (questions, approvals, tasks), &#x60;failures&#x60; report failed runs or intakes, &#x60;results&#x60; report successful ones.
+ * Preference group of a notification: &#x60;actions&#x60; need the user (questions, approvals, tasks), &#x60;failures&#x60; report failed runs or intakes, &#x60;results&#x60; report successful ones, and &#x60;billing&#x60; reports budget alerts.
  */
 @JsonAdapter(NotificationCategory.Adapter.class)
 public enum NotificationCategory {
@@ -29,6 +29,8 @@ public enum NotificationCategory {
     FAILURES("failures"),
 
     RESULTS("results"),
+
+    BILLING("billing"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 

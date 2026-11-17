@@ -49,6 +49,11 @@ public class NotificationPreferences {
     @jakarta.annotation.Nonnull
     private Map<String, NotificationChannelPreferences> kinds = new HashMap<>();
 
+    public static final String SERIALIZED_NAME_BUDGET_ALERTS_ENABLED = "budget_alerts_enabled";
+
+    @SerializedName(SERIALIZED_NAME_BUDGET_ALERTS_ENABLED)
+    @jakarta.annotation.Nullable private Boolean budgetAlertsEnabled;
+
     public NotificationPreferences() {}
 
     public NotificationPreferences categories(
@@ -67,7 +72,7 @@ public class NotificationPreferences {
     }
 
     /**
-     * Per category (&#x60;actions&#x60;, &#x60;failures&#x60;, &#x60;results&#x60;), the channels it is delivered to.
+     * Per-category inbox preferences for &#x60;actions&#x60;, &#x60;failures&#x60;, &#x60;results&#x60;, and &#x60;billing&#x60;.
      * @return categories
      */
     @jakarta.annotation.Nonnull
@@ -109,6 +114,24 @@ public class NotificationPreferences {
         this.kinds = kinds;
     }
 
+    public NotificationPreferences budgetAlertsEnabled(
+            @jakarta.annotation.Nullable Boolean budgetAlertsEnabled) {
+        this.budgetAlertsEnabled = budgetAlertsEnabled;
+        return this;
+    }
+
+    /**
+     * Master switch for inference budget alerts in the inbox and by email. Omit when updating to keep the saved choice.
+     * @return budgetAlertsEnabled
+     */
+    @jakarta.annotation.Nullable public Boolean getBudgetAlertsEnabled() {
+        return budgetAlertsEnabled;
+    }
+
+    public void setBudgetAlertsEnabled(@jakarta.annotation.Nullable Boolean budgetAlertsEnabled) {
+        this.budgetAlertsEnabled = budgetAlertsEnabled;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -119,12 +142,14 @@ public class NotificationPreferences {
         }
         NotificationPreferences notificationPreferences = (NotificationPreferences) o;
         return Objects.equals(this.categories, notificationPreferences.categories)
-                && Objects.equals(this.kinds, notificationPreferences.kinds);
+                && Objects.equals(this.kinds, notificationPreferences.kinds)
+                && Objects.equals(
+                        this.budgetAlertsEnabled, notificationPreferences.budgetAlertsEnabled);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(categories, kinds);
+        return Objects.hash(categories, kinds, budgetAlertsEnabled);
     }
 
     @Override
@@ -133,6 +158,9 @@ public class NotificationPreferences {
         sb.append("class NotificationPreferences {\n");
         sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
         sb.append("    kinds: ").append(toIndentedString(kinds)).append("\n");
+        sb.append("    budgetAlertsEnabled: ")
+                .append(toIndentedString(budgetAlertsEnabled))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -150,7 +178,8 @@ public class NotificationPreferences {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("categories", "kinds"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("categories", "kinds", "budget_alerts_enabled"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("categories", "kinds"));

@@ -1805,7 +1805,7 @@ public class NotificationsApi {
 
     /**
      * Replace notification preferences
-     * Replaces the current user’s notification preferences in the project. They apply to notifications written from now on.
+     * Replaces the current user’s notification preferences in the project. They apply to notifications written from now on. The budget_alerts_enabled switch controls both inbox and email budget alerts. Omitting it preserves the saved switch.
      * @param notificationPreferences  (required)
      * @return APIupdateNotificationPreferencesRequest
      * @http.response.details

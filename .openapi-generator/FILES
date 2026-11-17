@@ -702,6 +702,7 @@ src/main/java/io/vertesia/model/InCodeViewDefinition.java
 src/main/java/io/vertesia/model/IndexingStatusResponse.java
 src/main/java/io/vertesia/model/IndexingStatusResponseIndex.java
 src/main/java/io/vertesia/model/IndexingStatusResponseReindexProgress.java
+src/main/java/io/vertesia/model/InferenceBudgetSettings.java
 src/main/java/io/vertesia/model/InferenceProfile.java
 src/main/java/io/vertesia/model/InferenceProfileInvocation.java
 src/main/java/io/vertesia/model/InferenceProfileRecord.java
@@ -1192,6 +1193,7 @@ src/main/java/io/vertesia/model/UpdateEmailRouteResponse.java
 src/main/java/io/vertesia/model/UpdateEventIngestChannelPayload.java
 src/main/java/io/vertesia/model/UpdateEventSubscriptionPayload.java
 src/main/java/io/vertesia/model/UpdateExecutionRunPayload.java
+src/main/java/io/vertesia/model/UpdateInferenceBudget.java
 src/main/java/io/vertesia/model/UpdateInferenceProfilePayload.java
 src/main/java/io/vertesia/model/UpdateInteractionConfigurationPayload.java
 src/main/java/io/vertesia/model/UpdateOAuthClientPayload.java

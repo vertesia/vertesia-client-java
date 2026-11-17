@@ -2170,6 +2170,8 @@ public class JSON {
                 new io.vertesia.model.IndexingStatusResponseReindexProgress
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.InferenceBudgetSettings.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.InferenceProfile.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.InferenceProfileRecord.CustomTypeAdapterFactory());
@@ -2988,6 +2990,8 @@ public class JSON {
                 new io.vertesia.model.UpdateEventSubscriptionPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateExecutionRunPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.UpdateInferenceBudget.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateInferenceProfilePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
