@@ -80,6 +80,11 @@ public class CompositeAppMenuNavItem {
     @SerializedName(SERIALIZED_NAME_HIDE_FROM_DASHBOARD)
     @jakarta.annotation.Nullable private Boolean hideFromDashboard;
 
+    public static final String SERIALIZED_NAME_OPEN_IN_APP_PORTAL = "openInAppPortal";
+
+    @SerializedName(SERIALIZED_NAME_OPEN_IN_APP_PORTAL)
+    @jakarta.annotation.Nullable private Boolean openInAppPortal;
+
     public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
 
     @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -231,6 +236,24 @@ public class CompositeAppMenuNavItem {
         this.hideFromDashboard = hideFromDashboard;
     }
 
+    public CompositeAppMenuNavItem openInAppPortal(
+            @jakarta.annotation.Nullable Boolean openInAppPortal) {
+        this.openInAppPortal = openInAppPortal;
+        return this;
+    }
+
+    /**
+     * When true, this item navigates to the App Portal form of the URL (&#x60;/apps/&lt;appName&gt;&lt;route&gt;&#x60;) instead of the Composite App form (&#x60;/app/&lt;appName&gt;&lt;route&gt;&#x60;), so the app is opened standalone rather than inside the Composite App shell.
+     * @return openInAppPortal
+     */
+    @jakarta.annotation.Nullable public Boolean getOpenInAppPortal() {
+        return openInAppPortal;
+    }
+
+    public void setOpenInAppPortal(@jakarta.annotation.Nullable Boolean openInAppPortal) {
+        this.openInAppPortal = openInAppPortal;
+    }
+
     public CompositeAppMenuNavItem permissions(
             @jakarta.annotation.Nullable CompositeAppNavItemPermissions permissions) {
         this.permissions = permissions;
@@ -293,6 +316,7 @@ public class CompositeAppMenuNavItem {
                 && Objects.equals(this.hidden, compositeAppMenuNavItem.hidden)
                 && Objects.equals(this.description, compositeAppMenuNavItem.description)
                 && Objects.equals(this.hideFromDashboard, compositeAppMenuNavItem.hideFromDashboard)
+                && Objects.equals(this.openInAppPortal, compositeAppMenuNavItem.openInAppPortal)
                 && Objects.equals(this.permissions, compositeAppMenuNavItem.permissions)
                 && Objects.equals(this.children, compositeAppMenuNavItem.children);
     }
@@ -317,6 +341,7 @@ public class CompositeAppMenuNavItem {
                 hidden,
                 description,
                 hideFromDashboard,
+                openInAppPortal,
                 permissions,
                 children);
     }
@@ -342,6 +367,7 @@ public class CompositeAppMenuNavItem {
         sb.append("    hideFromDashboard: ")
                 .append(toIndentedString(hideFromDashboard))
                 .append("\n");
+        sb.append("    openInAppPortal: ").append(toIndentedString(openInAppPortal)).append("\n");
         sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
         sb.append("    children: ").append(toIndentedString(children)).append("\n");
         sb.append("}");
@@ -372,6 +398,7 @@ public class CompositeAppMenuNavItem {
                                 "hidden",
                                 "description",
                                 "hideFromDashboard",
+                                "openInAppPortal",
                                 "permissions",
                                 "children"));
 
