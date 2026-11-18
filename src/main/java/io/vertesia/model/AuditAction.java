@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,9 +97,11 @@ public class AuditAction extends AbstractOpenApiSchema {
                             try {
                                 // validate the JSON object to see if any exception is thrown
                                 KnownAuditAction.validateJsonElement(jsonElement);
+                                UnknownEnumValues.requireKnown(jsonElement, KnownAuditAction.class);
                                 actualAdapter = adapterKnownAuditAction;
                                 AuditAction ret = new AuditAction();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -125,6 +128,7 @@ public class AuditAction extends AbstractOpenApiSchema {
                                 actualAdapter = adapterString;
                                 AuditAction ret = new AuditAction();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -250,6 +254,7 @@ public class AuditAction extends AbstractOpenApiSchema {
         // validate the json string with KnownAuditAction
         try {
             KnownAuditAction.validateJsonElement(jsonElement);
+            UnknownEnumValues.requireKnown(jsonElement, KnownAuditAction.class);
             return;
         } catch (Exception e) {
             errorMessages.add(

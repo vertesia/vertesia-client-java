@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -152,6 +153,7 @@ public class ToolCollectionObject extends AbstractOpenApiSchema {
                             if (match == 1) {
                                 ToolCollectionObject ret = new ToolCollectionObject();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 

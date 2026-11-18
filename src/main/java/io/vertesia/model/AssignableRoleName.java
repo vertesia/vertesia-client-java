@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -97,9 +98,11 @@ public class AssignableRoleName extends AbstractOpenApiSchema {
                             try {
                                 // validate the JSON object to see if any exception is thrown
                                 SystemRoles.validateJsonElement(jsonElement);
+                                UnknownEnumValues.requireKnown(jsonElement, SystemRoles.class);
                                 actualAdapter = adapterSystemRoles;
                                 AssignableRoleName ret = new AssignableRoleName();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -126,6 +129,7 @@ public class AssignableRoleName extends AbstractOpenApiSchema {
                                 actualAdapter = adapterString;
                                 AssignableRoleName ret = new AssignableRoleName();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -251,6 +255,7 @@ public class AssignableRoleName extends AbstractOpenApiSchema {
         // validate the json string with SystemRoles
         try {
             SystemRoles.validateJsonElement(jsonElement);
+            UnknownEnumValues.requireKnown(jsonElement, SystemRoles.class);
             return;
         } catch (Exception e) {
             errorMessages.add(

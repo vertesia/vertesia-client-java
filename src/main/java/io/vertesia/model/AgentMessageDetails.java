@@ -25,6 +25,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -1228,6 +1229,9 @@ public class AgentMessageDetails {
         return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
+    // The values received for the enum properties that this client version does not know.
+    private transient Object receivedEnumValues;
+
     public static HashSet<String> openapiFields;
     public static HashSet<String> openapiRequiredFields;
 
@@ -1582,6 +1586,7 @@ public class AgentMessageDetails {
                             JsonObject jsonObj = jsonElement.getAsJsonObject();
                             // store additional fields in the deserialized instance
                             AgentMessageDetails instance = thisAdapter.fromJsonTree(jsonObj);
+                            UnknownEnumValues.keep(jsonObj, instance);
                             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                                 if (!openapiFields.contains(entry.getKey())) {
                                     if (entry.getValue().isJsonPrimitive()) { // primitive type

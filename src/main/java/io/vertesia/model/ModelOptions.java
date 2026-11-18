@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -451,6 +452,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterTextFallbackOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -472,6 +474,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterAzureFoundryChatOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -493,6 +496,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterImagenOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -514,6 +518,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterVertexAIClaudeOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -535,6 +540,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterVertexAIGeminiOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -556,6 +562,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterVertexAIGeminiOmniVideoOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -577,6 +584,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterVertexAIGrokOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -598,6 +606,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterNovaCanvasOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -619,6 +628,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockConverseOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -640,6 +650,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockNovaOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -661,6 +672,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockMistralOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -682,6 +694,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockAI21Options;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -703,6 +716,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockCohereCommandOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -724,6 +738,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockClaudeOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -745,6 +760,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockPalmyraOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -766,6 +782,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockGptOssOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -787,6 +804,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterTwelvelabsPegasusOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -808,6 +826,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockMantleResponsesOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -830,6 +849,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockMantleChatCompletionsOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -851,6 +871,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBedrockMantleClaudeOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -872,6 +893,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiThinkingOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -893,6 +915,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiTextOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -914,6 +937,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenRouterTextOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -935,6 +959,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiDalleOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -956,6 +981,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiGptImageOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -977,6 +1003,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiTranscriptionOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -998,6 +1025,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiSpeechOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -1019,6 +1047,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterOpenAiAudioOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -1040,6 +1069,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterXAIGrokImageOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -1061,6 +1091,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterGroqOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -1082,6 +1113,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterMistralTextOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
@@ -1103,6 +1135,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 actualAdapter = adapterAnthropicClaudeOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 checkLossless(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {

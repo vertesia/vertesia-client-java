@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -111,6 +112,7 @@ public class InteractionCreatePayloadEnvironment extends AbstractOpenApiSchema {
                                 InteractionCreatePayloadEnvironment ret =
                                         new InteractionCreatePayloadEnvironment();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -132,6 +134,7 @@ public class InteractionCreatePayloadEnvironment extends AbstractOpenApiSchema {
                                 InteractionCreatePayloadEnvironment ret =
                                         new InteractionCreatePayloadEnvironment();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue

@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -100,10 +101,13 @@ public class WorkflowRunWithDetailsStatus extends AbstractOpenApiSchema {
                             try {
                                 // validate the JSON object to see if any exception is thrown
                                 WorkflowExecutionStatus.validateJsonElement(jsonElement);
+                                UnknownEnumValues.requireKnown(
+                                        jsonElement, WorkflowExecutionStatus.class);
                                 actualAdapter = adapterWorkflowExecutionStatus;
                                 WorkflowRunWithDetailsStatus ret =
                                         new WorkflowRunWithDetailsStatus();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -131,6 +135,7 @@ public class WorkflowRunWithDetailsStatus extends AbstractOpenApiSchema {
                                 WorkflowRunWithDetailsStatus ret =
                                         new WorkflowRunWithDetailsStatus();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -258,6 +263,7 @@ public class WorkflowRunWithDetailsStatus extends AbstractOpenApiSchema {
         // validate the json string with WorkflowExecutionStatus
         try {
             WorkflowExecutionStatus.validateJsonElement(jsonElement);
+            UnknownEnumValues.requireKnown(jsonElement, WorkflowExecutionStatus.class);
             return;
         } catch (Exception e) {
             errorMessages.add(

@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -108,6 +109,7 @@ public class GetModelPricesToParameter extends AbstractOpenApiSchema {
                                 actualAdapter = adapterString;
                                 GetModelPricesToParameter ret = new GetModelPricesToParameter();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -134,6 +136,7 @@ public class GetModelPricesToParameter extends AbstractOpenApiSchema {
                                 actualAdapter = adapterBigDecimal;
                                 GetModelPricesToParameter ret = new GetModelPricesToParameter();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
