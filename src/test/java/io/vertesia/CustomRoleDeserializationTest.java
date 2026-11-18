@@ -24,6 +24,17 @@ class CustomRoleDeserializationTest {
     }
 
     @Test
+    void readsCustomRoleReferencesAsStrings() throws Exception {
+        // SystemRoles does not declare a custom role: the string branch decodes it, and keeps it.
+        AssignableRoleName custom = AssignableRoleName.fromJson("\"c:reviewer\"");
+        assertEquals("c:reviewer", custom.getActualInstance());
+        assertEquals("\"c:reviewer\"", custom.toJson());
+        assertEquals(
+                SystemRoles.AUDITOR,
+                AssignableRoleName.fromJson("\"auditor\"").getActualInstance());
+    }
+
+    @Test
     void writesCustomRoleReferencesInApiKeyRequests() throws Exception {
         AssignableRoleName reference = new AssignableRoleName("c:document_reviewer");
         assertEquals("\"c:document_reviewer\"", reference.toJson());

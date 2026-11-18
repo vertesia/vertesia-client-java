@@ -11,7 +11,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import io.vertesia.model.AgentRunResponse;
-import io.vertesia.model.AgentRunStatus;
 import io.vertesia.model.AskUserWebhookConfiguration;
 import io.vertesia.model.CompleteTaskPayload;
 import io.vertesia.model.CompletionResult;
@@ -28,6 +27,7 @@ import io.vertesia.model.SupportedIntegrationsAskUserWebhook;
 import io.vertesia.model.TextResult;
 import io.vertesia.model.TimerTask;
 import io.vertesia.model.VertexAIClaudeOptions;
+import io.vertesia.model.VertexAIGeminiOptions;
 import io.vertesia.model.WorkflowTasksHistory;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -74,20 +74,6 @@ class ForwardCompatibilityTest {
                         "{\"type\":\"text\",\"value\":\"hello\",\"future\":{\"a\":1}}",
                         CompletionResult.class);
         assertEquals("hello", result.getTextResult().getValue());
-    }
-
-    @Test
-    void unknownEnumValueBecomesThePlaceholder() {
-        // Known limitation: a Java enum cannot hold a value it does not declare, so a
-        // read-modify-write sends the placeholder back instead of the server's value.
-        AgentRunResponse run =
-                JSON.deserialize(run("autonomous", "hibernating"), AgentRunResponse.class);
-        assertEquals(
-                AgentRunStatus.UNKNOWN_DEFAULT_OPEN_API,
-                run.getAutonomousRunResponse().getStatus());
-        assertEquals(
-                "unknown_default_open_api",
-                JsonParser.parseString(run.toJson()).getAsJsonObject().get("status").getAsString());
     }
 
     @Test
@@ -220,8 +206,8 @@ class ForwardCompatibilityTest {
     @Test
     void modelOptionsKeepEveryReceivedOption() {
         // Stored options are often merged from several families (a run's over its interaction's).
-        // Only VertexAIGeminiOptions declares all these keys, but its person_generation enum lacks
-        // allow_adult, which the typed model would rewrite: the set is kept raw.
+        // Only VertexAIGeminiOptions declares all these keys. Its person_generation enum lacks
+        // allow_adult, which the typed model keeps and writes back.
         String gemini =
                 "{\"temperature\":0.2,\"thinking_budget_tokens\":2048,\"effort\":\"high\","
                         + "\"person_generation\":\"allow_adult\"}";
@@ -236,7 +222,14 @@ class ForwardCompatibilityTest {
                 assertEquals(received.get(key), written.get(key), options);
             }
             ModelOptions decoded = JSON.deserialize(options, ModelOptions.class);
-            assertEquals(received, decoded.getRaw());
+            if (options.contains("cache_ttl")) {
+                assertEquals(received, decoded.getRaw());
+            } else {
+                assertEquals(
+                        VertexAIGeminiOptions.PersonGenerationEnum.UNKNOWN_DEFAULT_OPEN_API,
+                        assertInstanceOf(VertexAIGeminiOptions.class, decoded.getActualInstance())
+                                .getPersonGeneration());
+            }
         }
 
         // A single family stays typed, selected by its _option_id rather than by branch order.

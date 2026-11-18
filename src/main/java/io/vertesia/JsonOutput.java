@@ -21,8 +21,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * the {@code null} members of a union variant kept as the JSON it was received as, and those of
  * free-form values ({@code Object}, {@code Map<String, Object>}). So each model leaves out its own
  * unset properties and the {@code null} entries of its typed maps, such as {@code Map<String,
- * String>}, and the rest of the tree is written with its {@code null} members.
- * scripts/patch_forward_compat_validation.py routes the generated writes through this class.
+ * String>}, and the rest of the tree is written with its {@code null} members. Enum properties
+ * that decoded a value this client does not know are written with that value, see {@link
+ * UnknownEnumValues}. scripts/patch_forward_compat_validation.py routes the generated writes
+ * through this class.
  */
 public final class JsonOutput {
     private static final String MODELS = "io.vertesia.model.";
@@ -37,6 +39,7 @@ public final class JsonOutput {
     public static void writeModel(
             JsonWriter out, TypeAdapter<JsonElement> adapter, JsonElement tree, Object model)
             throws IOException {
+        UnknownEnumValues.restore(tree, model);
         if (tree.isJsonObject()) {
             JsonObject object = tree.getAsJsonObject();
             object.entrySet().removeIf(member -> member.getValue().isJsonNull());
