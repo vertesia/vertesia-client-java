@@ -277,6 +277,7 @@ src/main/java/io/vertesia/model/AuditUsageQuery.java
 src/main/java/io/vertesia/model/AuditUsageResponse.java
 src/main/java/io/vertesia/model/AuthTokenResponse.java
 src/main/java/io/vertesia/model/AutonomousRunResponse.java
+src/main/java/io/vertesia/model/AvailableAIModel.java
 src/main/java/io/vertesia/model/AwsConfiguration.java
 src/main/java/io/vertesia/model/AzureBlockBlobUploadSession.java
 src/main/java/io/vertesia/model/AzureFoundryChatOptions.java

@@ -20,6 +20,7 @@ import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.AIModel;
+import io.vertesia.model.AvailableAIModel;
 import io.vertesia.model.DeleteByIdResult;
 import io.vertesia.model.EmbeddingsApiRequest;
 import io.vertesia.model.EmbeddingsResult;
@@ -1855,7 +1856,7 @@ public class EnvironmentsApi {
         return listEnvironmentModelsCall(envId, text, type, tags, owner, _callback);
     }
 
-    private ApiResponse<List<AIModel>> listEnvironmentModelsWithHttpInfo(
+    private ApiResponse<List<AvailableAIModel>> listEnvironmentModelsWithHttpInfo(
             @jakarta.annotation.Nonnull String envId,
             @jakarta.annotation.Nullable String text,
             @jakarta.annotation.Nullable String type,
@@ -1864,7 +1865,7 @@ public class EnvironmentsApi {
             throws ApiException {
         okhttp3.Call localVarCall =
                 listEnvironmentModelsValidateBeforeCall(envId, text, type, tags, owner, null);
-        Type localVarReturnType = new TypeToken<List<AIModel>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<AvailableAIModel>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1874,12 +1875,12 @@ public class EnvironmentsApi {
             @jakarta.annotation.Nullable String type,
             @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable String owner,
-            final ApiCallback<List<AIModel>> _callback)
+            final ApiCallback<List<AvailableAIModel>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listEnvironmentModelsValidateBeforeCall(envId, text, type, tags, owner, _callback);
-        Type localVarReturnType = new TypeToken<List<AIModel>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<AvailableAIModel>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1956,7 +1957,7 @@ public class EnvironmentsApi {
 
         /**
          * Execute listEnvironmentModels request
-         * @return List&lt;AIModel&gt;
+         * @return List&lt;AvailableAIModel&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          * <table border="1">
@@ -1967,15 +1968,15 @@ public class EnvironmentsApi {
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
          */
-        public List<AIModel> execute() throws ApiException {
-            ApiResponse<List<AIModel>> localVarResp =
+        public List<AvailableAIModel> execute() throws ApiException {
+            ApiResponse<List<AvailableAIModel>> localVarResp =
                     listEnvironmentModelsWithHttpInfo(envId, text, type, tags, owner);
             return localVarResp.getData();
         }
 
         /**
          * Execute listEnvironmentModels request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;AIModel&gt;&gt;
+         * @return ApiResponse&lt;List&lt;AvailableAIModel&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          * <table border="1">
@@ -1986,7 +1987,7 @@ public class EnvironmentsApi {
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
          */
-        public ApiResponse<List<AIModel>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<AvailableAIModel>> executeWithHttpInfo() throws ApiException {
             return listEnvironmentModelsWithHttpInfo(envId, text, type, tags, owner);
         }
 
@@ -2004,7 +2005,7 @@ public class EnvironmentsApi {
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<AIModel>> _callback)
+        public okhttp3.Call executeAsync(final ApiCallback<List<AvailableAIModel>> _callback)
                 throws ApiException {
             return listEnvironmentModelsAsync(envId, text, type, tags, owner, _callback);
         }
