@@ -115,6 +115,16 @@ public class AIModel {
     @SerializedName(SERIALIZED_NAME_TOOL_SUPPORT)
     @jakarta.annotation.Nullable private Boolean toolSupport;
 
+    public static final String SERIALIZED_NAME_DEPRECATION_DATE = "deprecation_date";
+
+    @SerializedName(SERIALIZED_NAME_DEPRECATION_DATE)
+    @jakarta.annotation.Nullable private String deprecationDate;
+
+    public static final String SERIALIZED_NAME_RETIREMENT_DATE = "retirement_date";
+
+    @SerializedName(SERIALIZED_NAME_RETIREMENT_DATE)
+    @jakarta.annotation.Nullable private String retirementDate;
+
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
@@ -404,6 +414,40 @@ public class AIModel {
         this.toolSupport = toolSupport;
     }
 
+    public AIModel deprecationDate(@jakarta.annotation.Nullable String deprecationDate) {
+        this.deprecationDate = deprecationDate;
+        return this;
+    }
+
+    /**
+     * Get deprecationDate
+     * @return deprecationDate
+     */
+    @jakarta.annotation.Nullable public String getDeprecationDate() {
+        return deprecationDate;
+    }
+
+    public void setDeprecationDate(@jakarta.annotation.Nullable String deprecationDate) {
+        this.deprecationDate = deprecationDate;
+    }
+
+    public AIModel retirementDate(@jakarta.annotation.Nullable String retirementDate) {
+        this.retirementDate = retirementDate;
+        return this;
+    }
+
+    /**
+     * Get retirementDate
+     * @return retirementDate
+     */
+    @jakarta.annotation.Nullable public String getRetirementDate() {
+        return retirementDate;
+    }
+
+    public void setRetirementDate(@jakarta.annotation.Nullable String retirementDate) {
+        this.retirementDate = retirementDate;
+    }
+
     public AIModel environment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
         return this;
@@ -445,6 +489,8 @@ public class AIModel {
                 && Objects.equals(this.inputModalities, aiModel.inputModalities)
                 && Objects.equals(this.outputModalities, aiModel.outputModalities)
                 && Objects.equals(this.toolSupport, aiModel.toolSupport)
+                && Objects.equals(this.deprecationDate, aiModel.deprecationDate)
+                && Objects.equals(this.retirementDate, aiModel.retirementDate)
                 && Objects.equals(this.environment, aiModel.environment);
     }
 
@@ -466,6 +512,8 @@ public class AIModel {
                 inputModalities,
                 outputModalities,
                 toolSupport,
+                deprecationDate,
+                retirementDate,
                 environment);
     }
 
@@ -488,6 +536,8 @@ public class AIModel {
         sb.append("    inputModalities: ").append(toIndentedString(inputModalities)).append("\n");
         sb.append("    outputModalities: ").append(toIndentedString(outputModalities)).append("\n");
         sb.append("    toolSupport: ").append(toIndentedString(toolSupport)).append("\n");
+        sb.append("    deprecationDate: ").append(toIndentedString(deprecationDate)).append("\n");
+        sb.append("    retirementDate: ").append(toIndentedString(retirementDate)).append("\n");
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -524,6 +574,8 @@ public class AIModel {
                                 "input_modalities",
                                 "output_modalities",
                                 "tool_support",
+                                "deprecation_date",
+                                "retirement_date",
                                 "environment"));
 
         // a set of required properties/fields (JSON key names)
@@ -642,6 +694,23 @@ public class AIModel {
                             java.util.Locale.ROOT,
                             "Expected the field `output_modalities` to be an array in the JSON string but got `%s`",
                             jsonObj.get("output_modalities").toString()));
+        }
+        if ((jsonObj.get("deprecation_date") != null
+                        && !jsonObj.get("deprecation_date").isJsonNull())
+                && !jsonObj.get("deprecation_date").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `deprecation_date` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("deprecation_date").toString()));
+        }
+        if ((jsonObj.get("retirement_date") != null && !jsonObj.get("retirement_date").isJsonNull())
+                && !jsonObj.get("retirement_date").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `retirement_date` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("retirement_date").toString()));
         }
         if ((jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull())
                 && !jsonObj.get("environment").isJsonPrimitive()) {

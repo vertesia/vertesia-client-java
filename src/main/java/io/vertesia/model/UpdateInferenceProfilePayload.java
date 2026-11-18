@@ -24,6 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
@@ -61,6 +62,21 @@ public class UpdateInferenceProfilePayload {
 
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
+
+    public static final String SERIALIZED_NAME_INVOCATION = "invocation";
+
+    @SerializedName(SERIALIZED_NAME_INVOCATION)
+    @jakarta.annotation.Nullable private InferenceProfileInvocation invocation;
+
+    public static final String SERIALIZED_NAME_DECISION_THRESHOLD = "decision_threshold";
+
+    @SerializedName(SERIALIZED_NAME_DECISION_THRESHOLD)
+    @jakarta.annotation.Nullable private BigDecimal decisionThreshold;
+
+    public static final String SERIALIZED_NAME_AUDIT_SAMPLE_RATE = "audit_sample_rate";
+
+    @SerializedName(SERIALIZED_NAME_AUDIT_SAMPLE_RATE)
+    @jakarta.annotation.Nullable private BigDecimal auditSampleRate;
 
     public UpdateInferenceProfilePayload() {}
 
@@ -154,6 +170,64 @@ public class UpdateInferenceProfilePayload {
         this.modelOptions = modelOptions;
     }
 
+    public UpdateInferenceProfilePayload invocation(
+            @jakarta.annotation.Nullable InferenceProfileInvocation invocation) {
+        this.invocation = invocation;
+        return this;
+    }
+
+    /**
+     * Get invocation
+     * @return invocation
+     */
+    @jakarta.annotation.Nullable public InferenceProfileInvocation getInvocation() {
+        return invocation;
+    }
+
+    public void setInvocation(@jakarta.annotation.Nullable InferenceProfileInvocation invocation) {
+        this.invocation = invocation;
+    }
+
+    public UpdateInferenceProfilePayload decisionThreshold(
+            @jakarta.annotation.Nullable BigDecimal decisionThreshold) {
+        this.decisionThreshold = decisionThreshold;
+        return this;
+    }
+
+    /**
+     * Minimum confidence a decision answer needs to be used, overriding the interaction&#39;s own threshold. Confidence means different things per provider, so set it per profile.
+     * minimum: 0
+     * maximum: 1
+     * @return decisionThreshold
+     */
+    @jakarta.annotation.Nullable public BigDecimal getDecisionThreshold() {
+        return decisionThreshold;
+    }
+
+    public void setDecisionThreshold(@jakarta.annotation.Nullable BigDecimal decisionThreshold) {
+        this.decisionThreshold = decisionThreshold;
+    }
+
+    public UpdateInferenceProfilePayload auditSampleRate(
+            @jakarta.annotation.Nullable BigDecimal auditSampleRate) {
+        this.auditSampleRate = auditSampleRate;
+        return this;
+    }
+
+    /**
+     * With invocation &#x60;decide&#x60;: the share of runs that also run regular inference, to compare the two after the switch. Absent means none.
+     * minimum: 0
+     * maximum: 1
+     * @return auditSampleRate
+     */
+    @jakarta.annotation.Nullable public BigDecimal getAuditSampleRate() {
+        return auditSampleRate;
+    }
+
+    public void setAuditSampleRate(@jakarta.annotation.Nullable BigDecimal auditSampleRate) {
+        this.auditSampleRate = auditSampleRate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -168,12 +242,25 @@ public class UpdateInferenceProfilePayload {
                 && Objects.equals(this.description, updateInferenceProfilePayload.description)
                 && Objects.equals(this.environment, updateInferenceProfilePayload.environment)
                 && Objects.equals(this.model, updateInferenceProfilePayload.model)
-                && Objects.equals(this.modelOptions, updateInferenceProfilePayload.modelOptions);
+                && Objects.equals(this.modelOptions, updateInferenceProfilePayload.modelOptions)
+                && Objects.equals(this.invocation, updateInferenceProfilePayload.invocation)
+                && Objects.equals(
+                        this.decisionThreshold, updateInferenceProfilePayload.decisionThreshold)
+                && Objects.equals(
+                        this.auditSampleRate, updateInferenceProfilePayload.auditSampleRate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, environment, model, modelOptions);
+        return Objects.hash(
+                name,
+                description,
+                environment,
+                model,
+                modelOptions,
+                invocation,
+                decisionThreshold,
+                auditSampleRate);
     }
 
     @Override
@@ -185,6 +272,11 @@ public class UpdateInferenceProfilePayload {
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
+        sb.append("    invocation: ").append(toIndentedString(invocation)).append("\n");
+        sb.append("    decisionThreshold: ")
+                .append(toIndentedString(decisionThreshold))
+                .append("\n");
+        sb.append("    auditSampleRate: ").append(toIndentedString(auditSampleRate)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -205,7 +297,14 @@ public class UpdateInferenceProfilePayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "name", "description", "environment", "model", "model_options"));
+                                "name",
+                                "description",
+                                "environment",
+                                "model",
+                                "model_options",
+                                "invocation",
+                                "decision_threshold",
+                                "audit_sample_rate"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "environment"));
@@ -274,6 +373,10 @@ public class UpdateInferenceProfilePayload {
         // validate the optional field `model_options`
         if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
             ModelOptions.validateJsonElement(jsonObj.get("model_options"));
+        }
+        // validate the optional field `invocation`
+        if (jsonObj.get("invocation") != null && !jsonObj.get("invocation").isJsonNull()) {
+            InferenceProfileInvocation.validateJsonElement(jsonObj.get("invocation"));
         }
     }
 

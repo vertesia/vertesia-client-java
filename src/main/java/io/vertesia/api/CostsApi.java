@@ -27,8 +27,10 @@ import io.vertesia.model.GetIntakeCostSummaryFromParameter;
 import io.vertesia.model.GetIntakeCostSummaryToParameter;
 import io.vertesia.model.GetModelPricesFromParameter;
 import io.vertesia.model.GetModelPricesToParameter;
+import io.vertesia.model.InferenceBudgetSettings;
 import io.vertesia.model.IntakeCostSummaryResponse;
 import io.vertesia.model.ModelPriceComparisonResponse;
+import io.vertesia.model.UpdateInferenceBudget;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,6 +72,182 @@ public class CostsApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    private okhttp3.Call disableProjectInferenceBudgetCall(final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/cost/budget";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call disableProjectInferenceBudgetValidateBeforeCall(
+            final ApiCallback _callback) throws ApiException {
+        return disableProjectInferenceBudgetCall(_callback);
+    }
+
+    private ApiResponse<InferenceBudgetSettings> disableProjectInferenceBudgetWithHttpInfo()
+            throws ApiException {
+        okhttp3.Call localVarCall = disableProjectInferenceBudgetValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<InferenceBudgetSettings>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call disableProjectInferenceBudgetAsync(
+            final ApiCallback<InferenceBudgetSettings> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = disableProjectInferenceBudgetValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<InferenceBudgetSettings>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdisableProjectInferenceBudgetRequest {
+
+        private APIdisableProjectInferenceBudgetRequest() {}
+
+        /**
+         * Build call for disableProjectInferenceBudget
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The project inference budget is managed by another deployment </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return disableProjectInferenceBudgetCall(_callback);
+        }
+
+        /**
+         * Execute disableProjectInferenceBudget request
+         * @return InferenceBudgetSettings
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The project inference budget is managed by another deployment </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InferenceBudgetSettings execute() throws ApiException {
+            ApiResponse<InferenceBudgetSettings> localVarResp =
+                    disableProjectInferenceBudgetWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute disableProjectInferenceBudget request with HTTP info returned
+         * @return ApiResponse&lt;InferenceBudgetSettings&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The project inference budget is managed by another deployment </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InferenceBudgetSettings> executeWithHttpInfo() throws ApiException {
+            return disableProjectInferenceBudgetWithHttpInfo();
+        }
+
+        /**
+         * Execute disableProjectInferenceBudget request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The project inference budget is managed by another deployment </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InferenceBudgetSettings> _callback)
+                throws ApiException {
+            return disableProjectInferenceBudgetAsync(_callback);
+        }
+    }
+
+    /**
+     * Disable the daily inference budget alert for the current project
+     * Requires a signed-in project administrator with billing read and project settings write access. Disabling releases the budget so another deployment can set the threshold.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @return APIdisableProjectInferenceBudgetRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated project inference budget settings. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The project inference budget is managed by another deployment </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIdisableProjectInferenceBudgetRequest disableProjectInferenceBudget() {
+        return new APIdisableProjectInferenceBudgetRequest();
     }
 
     private okhttp3.Call exportCostDataCall(
@@ -1027,6 +1205,177 @@ public class CostsApi {
         return new APIgetModelPricesRequest();
     }
 
+    private okhttp3.Call getProjectInferenceBudgetCall(final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/cost/budget";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getProjectInferenceBudgetValidateBeforeCall(final ApiCallback _callback)
+            throws ApiException {
+        return getProjectInferenceBudgetCall(_callback);
+    }
+
+    private ApiResponse<InferenceBudgetSettings> getProjectInferenceBudgetWithHttpInfo()
+            throws ApiException {
+        okhttp3.Call localVarCall = getProjectInferenceBudgetValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<InferenceBudgetSettings>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getProjectInferenceBudgetAsync(
+            final ApiCallback<InferenceBudgetSettings> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getProjectInferenceBudgetValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<InferenceBudgetSettings>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetProjectInferenceBudgetRequest {
+
+        private APIgetProjectInferenceBudgetRequest() {}
+
+        /**
+         * Build call for getProjectInferenceBudget
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProjectInferenceBudgetCall(_callback);
+        }
+
+        /**
+         * Execute getProjectInferenceBudget request
+         * @return InferenceBudgetSettings
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InferenceBudgetSettings execute() throws ApiException {
+            ApiResponse<InferenceBudgetSettings> localVarResp =
+                    getProjectInferenceBudgetWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProjectInferenceBudget request with HTTP info returned
+         * @return ApiResponse&lt;InferenceBudgetSettings&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InferenceBudgetSettings> executeWithHttpInfo() throws ApiException {
+            return getProjectInferenceBudgetWithHttpInfo();
+        }
+
+        /**
+         * Execute getProjectInferenceBudget request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InferenceBudgetSettings> _callback)
+                throws ApiException {
+            return getProjectInferenceBudgetAsync(_callback);
+        }
+    }
+
+    /**
+     * Read the daily inference budget alert for the current project
+     * Projects without a saved budget or explicit opt-out have a daily alert threshold of $150 USD.  **Required permissions:** &#x60;billing:read&#x60;
+     * @return APIgetProjectInferenceBudgetRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The project inference budget settings. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIgetProjectInferenceBudgetRequest getProjectInferenceBudget() {
+        return new APIgetProjectInferenceBudgetRequest();
+    }
+
     private okhttp3.Call getRunPriceCall(
             @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery,
             final ApiCallback _callback)
@@ -1219,5 +1568,202 @@ public class CostsApi {
     public APIgetRunPriceRequest getRunPrice(
             @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery) {
         return new APIgetRunPriceRequest(costRunPriceQuery);
+    }
+
+    private okhttp3.Call updateProjectInferenceBudgetCall(
+            @jakarta.annotation.Nonnull UpdateInferenceBudget updateInferenceBudget,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateInferenceBudget;
+
+        // create path and map variables
+        String localVarPath = "/cost/budget";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PUT",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateProjectInferenceBudgetValidateBeforeCall(
+            @jakarta.annotation.Nonnull UpdateInferenceBudget updateInferenceBudget,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'updateInferenceBudget' is set
+        if (updateInferenceBudget == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'updateInferenceBudget' when calling updateProjectInferenceBudget(Async)");
+        }
+
+        return updateProjectInferenceBudgetCall(updateInferenceBudget, _callback);
+    }
+
+    private ApiResponse<InferenceBudgetSettings> updateProjectInferenceBudgetWithHttpInfo(
+            @jakarta.annotation.Nonnull UpdateInferenceBudget updateInferenceBudget)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                updateProjectInferenceBudgetValidateBeforeCall(updateInferenceBudget, null);
+        Type localVarReturnType = new TypeToken<InferenceBudgetSettings>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call updateProjectInferenceBudgetAsync(
+            @jakarta.annotation.Nonnull UpdateInferenceBudget updateInferenceBudget,
+            final ApiCallback<InferenceBudgetSettings> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                updateProjectInferenceBudgetValidateBeforeCall(updateInferenceBudget, _callback);
+        Type localVarReturnType = new TypeToken<InferenceBudgetSettings>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIupdateProjectInferenceBudgetRequest {
+        @jakarta.annotation.Nonnull private final UpdateInferenceBudget updateInferenceBudget;
+
+        private APIupdateProjectInferenceBudgetRequest(
+                @jakarta.annotation.Nonnull UpdateInferenceBudget updateInferenceBudget) {
+            this.updateInferenceBudget = updateInferenceBudget;
+        }
+
+        /**
+         * Build call for updateProjectInferenceBudget
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The project inference budget is managed by another deployment </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateProjectInferenceBudgetCall(updateInferenceBudget, _callback);
+        }
+
+        /**
+         * Execute updateProjectInferenceBudget request
+         * @return InferenceBudgetSettings
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The project inference budget is managed by another deployment </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public InferenceBudgetSettings execute() throws ApiException {
+            ApiResponse<InferenceBudgetSettings> localVarResp =
+                    updateProjectInferenceBudgetWithHttpInfo(updateInferenceBudget);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateProjectInferenceBudget request with HTTP info returned
+         * @return ApiResponse&lt;InferenceBudgetSettings&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The project inference budget is managed by another deployment </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<InferenceBudgetSettings> executeWithHttpInfo() throws ApiException {
+            return updateProjectInferenceBudgetWithHttpInfo(updateInferenceBudget);
+        }
+
+        /**
+         * Execute updateProjectInferenceBudget request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The updated project inference budget settings. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The project inference budget is managed by another deployment </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<InferenceBudgetSettings> _callback)
+                throws ApiException {
+            return updateProjectInferenceBudgetAsync(updateInferenceBudget, _callback);
+        }
+    }
+
+    /**
+     * Set the daily inference budget alert for the current project
+     * Requires a signed-in project administrator with billing read and project settings write access.  **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param updateInferenceBudget  (required)
+     * @return APIupdateProjectInferenceBudgetRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The updated project inference budget settings. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The project inference budget is managed by another deployment </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIupdateProjectInferenceBudgetRequest updateProjectInferenceBudget(
+            @jakarta.annotation.Nonnull UpdateInferenceBudget updateInferenceBudget) {
+        return new APIupdateProjectInferenceBudgetRequest(updateInferenceBudget);
     }
 }
