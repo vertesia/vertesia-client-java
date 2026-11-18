@@ -129,6 +129,11 @@ public class CreateSharePointContentSourcePayload {
     @jakarta.annotation.Nonnull
     private TypeEnum type;
 
+    public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
+
+    @SerializedName(SERIALIZED_NAME_PERMISSIONS)
+    @jakarta.annotation.Nullable private ContentSourcePermissionSettings permissions;
+
     public static final String SERIALIZED_NAME_SITE_URL = "site_url";
 
     @SerializedName(SERIALIZED_NAME_SITE_URL)
@@ -274,6 +279,25 @@ public class CreateSharePointContentSourcePayload {
         this.type = type;
     }
 
+    public CreateSharePointContentSourcePayload permissions(
+            @jakarta.annotation.Nullable ContentSourcePermissionSettings permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Get permissions
+     * @return permissions
+     */
+    @jakarta.annotation.Nullable public ContentSourcePermissionSettings getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(
+            @jakarta.annotation.Nullable ContentSourcePermissionSettings permissions) {
+        this.permissions = permissions;
+    }
+
     public CreateSharePointContentSourcePayload siteUrl(
             @jakarta.annotation.Nonnull String siteUrl) {
         this.siteUrl = siteUrl;
@@ -350,6 +374,8 @@ public class CreateSharePointContentSourcePayload {
                         this.collectionId, createSharePointContentSourcePayload.collectionId)
                 && Objects.equals(this.sync, createSharePointContentSourcePayload.sync)
                 && Objects.equals(this.type, createSharePointContentSourcePayload.type)
+                && Objects.equals(
+                        this.permissions, createSharePointContentSourcePayload.permissions)
                 && Objects.equals(this.siteUrl, createSharePointContentSourcePayload.siteUrl)
                 && Objects.equals(
                         this.libraryName, createSharePointContentSourcePayload.libraryName)
@@ -366,6 +392,7 @@ public class CreateSharePointContentSourcePayload {
                 collectionId,
                 sync,
                 type,
+                permissions,
                 siteUrl,
                 libraryName,
                 folderPath);
@@ -382,6 +409,7 @@ public class CreateSharePointContentSourcePayload {
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
         sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
         sb.append("    siteUrl: ").append(toIndentedString(siteUrl)).append("\n");
         sb.append("    libraryName: ").append(toIndentedString(libraryName)).append("\n");
         sb.append("    folderPath: ").append(toIndentedString(folderPath)).append("\n");
@@ -415,6 +443,7 @@ public class CreateSharePointContentSourcePayload {
                                 "collection_id",
                                 "sync",
                                 "type",
+                                "permissions",
                                 "site_url",
                                 "library_name",
                                 "folder_path"));
@@ -506,6 +535,10 @@ public class CreateSharePointContentSourcePayload {
         }
         // validate the required field `type`
         TypeEnum.validateJsonElement(jsonObj.get("type"));
+        // validate the optional field `permissions`
+        if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
+            ContentSourcePermissionSettings.validateJsonElement(jsonObj.get("permissions"));
+        }
         if (!jsonObj.get("site_url").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

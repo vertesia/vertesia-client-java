@@ -158,6 +158,11 @@ public class SharePointContentSource {
     @jakarta.annotation.Nonnull
     private TypeEnum type;
 
+    public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
+
+    @SerializedName(SERIALIZED_NAME_PERMISSIONS)
+    @jakarta.annotation.Nullable private ContentSourcePermissionSettings permissions;
+
     public static final String SERIALIZED_NAME_SITE_URL = "site_url";
 
     @SerializedName(SERIALIZED_NAME_SITE_URL)
@@ -410,6 +415,25 @@ public class SharePointContentSource {
         this.type = type;
     }
 
+    public SharePointContentSource permissions(
+            @jakarta.annotation.Nullable ContentSourcePermissionSettings permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Get permissions
+     * @return permissions
+     */
+    @jakarta.annotation.Nullable public ContentSourcePermissionSettings getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(
+            @jakarta.annotation.Nullable ContentSourcePermissionSettings permissions) {
+        this.permissions = permissions;
+    }
+
     public SharePointContentSource siteUrl(@jakarta.annotation.Nonnull String siteUrl) {
         this.siteUrl = siteUrl;
         return this;
@@ -539,6 +563,7 @@ public class SharePointContentSource {
                 && Objects.equals(this.createdAt, sharePointContentSource.createdAt)
                 && Objects.equals(this.updatedAt, sharePointContentSource.updatedAt)
                 && Objects.equals(this.type, sharePointContentSource.type)
+                && Objects.equals(this.permissions, sharePointContentSource.permissions)
                 && Objects.equals(this.siteUrl, sharePointContentSource.siteUrl)
                 && Objects.equals(this.siteId, sharePointContentSource.siteId)
                 && Objects.equals(this.driveId, sharePointContentSource.driveId)
@@ -562,6 +587,7 @@ public class SharePointContentSource {
                 createdAt,
                 updatedAt,
                 type,
+                permissions,
                 siteUrl,
                 siteId,
                 driveId,
@@ -586,6 +612,7 @@ public class SharePointContentSource {
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
         sb.append("    siteUrl: ").append(toIndentedString(siteUrl)).append("\n");
         sb.append("    siteId: ").append(toIndentedString(siteId)).append("\n");
         sb.append("    driveId: ").append(toIndentedString(driveId)).append("\n");
@@ -627,6 +654,7 @@ public class SharePointContentSource {
                                 "created_at",
                                 "updated_at",
                                 "type",
+                                "permissions",
                                 "site_url",
                                 "site_id",
                                 "drive_id",
@@ -753,6 +781,10 @@ public class SharePointContentSource {
         }
         // validate the required field `type`
         TypeEnum.validateJsonElement(jsonObj.get("type"));
+        // validate the optional field `permissions`
+        if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
+            ContentSourcePermissionSettings.validateJsonElement(jsonObj.get("permissions"));
+        }
         if (!jsonObj.get("site_url").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

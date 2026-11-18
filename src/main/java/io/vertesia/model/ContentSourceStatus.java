@@ -106,6 +106,11 @@ public class ContentSourceStatus {
     @jakarta.annotation.Nonnull
     private StateEnum state;
 
+    public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
+
+    @SerializedName(SERIALIZED_NAME_PERMISSIONS)
+    @jakarta.annotation.Nullable private ContentSourcePermissionStatus permissions;
+
     public static final String SERIALIZED_NAME_CURRENT_ROUND = "current_round";
 
     @SerializedName(SERIALIZED_NAME_CURRENT_ROUND)
@@ -154,6 +159,25 @@ public class ContentSourceStatus {
 
     public void setState(@jakarta.annotation.Nonnull StateEnum state) {
         this.state = state;
+    }
+
+    public ContentSourceStatus permissions(
+            @jakarta.annotation.Nullable ContentSourcePermissionStatus permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Get permissions
+     * @return permissions
+     */
+    @jakarta.annotation.Nullable public ContentSourcePermissionStatus getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(
+            @jakarta.annotation.Nullable ContentSourcePermissionStatus permissions) {
+        this.permissions = permissions;
     }
 
     public ContentSourceStatus currentRound(
@@ -281,6 +305,7 @@ public class ContentSourceStatus {
         }
         ContentSourceStatus contentSourceStatus = (ContentSourceStatus) o;
         return Objects.equals(this.state, contentSourceStatus.state)
+                && Objects.equals(this.permissions, contentSourceStatus.permissions)
                 && Objects.equals(this.currentRound, contentSourceStatus.currentRound)
                 && Objects.equals(this.lastRound, contentSourceStatus.lastRound)
                 && Objects.equals(this.recentRounds, contentSourceStatus.recentRounds)
@@ -292,7 +317,14 @@ public class ContentSourceStatus {
     @Override
     public int hashCode() {
         return Objects.hash(
-                state, currentRound, lastRound, recentRounds, cursorTakenAt, nextSyncAt, error);
+                state,
+                permissions,
+                currentRound,
+                lastRound,
+                recentRounds,
+                cursorTakenAt,
+                nextSyncAt,
+                error);
     }
 
     @Override
@@ -300,6 +332,7 @@ public class ContentSourceStatus {
         StringBuilder sb = new StringBuilder();
         sb.append("class ContentSourceStatus {\n");
         sb.append("    state: ").append(toIndentedString(state)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
         sb.append("    currentRound: ").append(toIndentedString(currentRound)).append("\n");
         sb.append("    lastRound: ").append(toIndentedString(lastRound)).append("\n");
         sb.append("    recentRounds: ").append(toIndentedString(recentRounds)).append("\n");
@@ -330,6 +363,7 @@ public class ContentSourceStatus {
                 new HashSet<String>(
                         Arrays.asList(
                                 "state",
+                                "permissions",
                                 "current_round",
                                 "last_round",
                                 "recent_rounds",
@@ -380,6 +414,10 @@ public class ContentSourceStatus {
         }
         // validate the required field `state`
         StateEnum.validateJsonElement(jsonObj.get("state"));
+        // validate the optional field `permissions`
+        if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
+            ContentSourcePermissionStatus.validateJsonElement(jsonObj.get("permissions"));
+        }
         // validate the optional field `current_round`
         if (jsonObj.get("current_round") != null && !jsonObj.get("current_round").isJsonNull()) {
             ContentSourceSyncRound.validateJsonElement(jsonObj.get("current_round"));

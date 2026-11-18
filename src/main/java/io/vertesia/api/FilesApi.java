@@ -40,6 +40,7 @@ import io.vertesia.model.GetUploadUrlPayload;
 import io.vertesia.model.SetFileMetadataPayload;
 import io.vertesia.model.UploadPartUrlsResponse;
 import io.vertesia.model.UploadSession;
+import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -2378,6 +2379,199 @@ public class FilesApi {
      */
     public APIlistProjectFilesRequest listProjectFiles(@jakarta.annotation.Nonnull String prefix) {
         return new APIlistProjectFilesRequest(prefix);
+    }
+
+    private okhttp3.Call redeemContentSourceDownloadCall(
+            @jakarta.annotation.Nonnull String ticket, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/files/source-download/{ticket}"
+                        .replace(
+                                "{" + "ticket" + "}",
+                                localVarApiClient.escapeString(ticket.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/octet-stream", "application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call redeemContentSourceDownloadValidateBeforeCall(
+            @jakarta.annotation.Nonnull String ticket, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'ticket' is set
+        if (ticket == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'ticket' when calling redeemContentSourceDownload(Async)");
+        }
+
+        return redeemContentSourceDownloadCall(ticket, _callback);
+    }
+
+    private ApiResponse<File> redeemContentSourceDownloadWithHttpInfo(
+            @jakarta.annotation.Nonnull String ticket) throws ApiException {
+        okhttp3.Call localVarCall = redeemContentSourceDownloadValidateBeforeCall(ticket, null);
+        Type localVarReturnType = new TypeToken<File>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call redeemContentSourceDownloadAsync(
+            @jakarta.annotation.Nonnull String ticket, final ApiCallback<File> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                redeemContentSourceDownloadValidateBeforeCall(ticket, _callback);
+        Type localVarReturnType = new TypeToken<File>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIredeemContentSourceDownloadRequest {
+        @jakarta.annotation.Nonnull private final String ticket;
+
+        private APIredeemContentSourceDownloadRequest(@jakarta.annotation.Nonnull String ticket) {
+            this.ticket = ticket;
+        }
+
+        /**
+         * Build call for redeemContentSourceDownload
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> File bytes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The ticket or file is unavailable to the authenticated principal. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return redeemContentSourceDownloadCall(ticket, _callback);
+        }
+
+        /**
+         * Execute redeemContentSourceDownload request
+         * @return File
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> File bytes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The ticket or file is unavailable to the authenticated principal. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public File execute() throws ApiException {
+            ApiResponse<File> localVarResp = redeemContentSourceDownloadWithHttpInfo(ticket);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute redeemContentSourceDownload request with HTTP info returned
+         * @return ApiResponse&lt;File&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> File bytes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The ticket or file is unavailable to the authenticated principal. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<File> executeWithHttpInfo() throws ApiException {
+            return redeemContentSourceDownloadWithHttpInfo(ticket);
+        }
+
+        /**
+         * Execute redeemContentSourceDownload request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> File bytes. </td><td>  -  </td></tr>
+         * <tr><td> 404 </td><td> The ticket or file is unavailable to the authenticated principal. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<File> _callback) throws ApiException {
+            return redeemContentSourceDownloadAsync(ticket, _callback);
+        }
+    }
+
+    /**
+     * Redeem a permission-checked download ticket
+     * Send the issuing principal’s bearer credential. Each redemption rechecks current file permissions.  **Required permissions:** &#x60;content:read&#x60;
+     * @param ticket  (required)
+     * @return APIredeemContentSourceDownloadRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> File bytes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The ticket or file is unavailable to the authenticated principal. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIredeemContentSourceDownloadRequest redeemContentSourceDownload(
+            @jakarta.annotation.Nonnull String ticket) {
+        return new APIredeemContentSourceDownloadRequest(ticket);
     }
 
     private okhttp3.Call setFileMetadataCall(

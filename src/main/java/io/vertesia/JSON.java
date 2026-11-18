@@ -225,6 +225,35 @@ public class JSON {
                                     }
                                 })
                         .registerTypeSelector(
+                                io.vertesia.model.ContentSourcePermissionSettings.class,
+                                new TypeSelector<
+                                        io.vertesia.model.ContentSourcePermissionSettings>() {
+                                    @Override
+                                    public Class<
+                                                    ? extends
+                                                            io.vertesia.model
+                                                                    .ContentSourcePermissionSettings>
+                                            getClassForElement(JsonElement readElement) {
+                                        Map<String, Class> classByDiscriminatorValue =
+                                                new HashMap<String, Class>();
+                                        classByDiscriminatorValue.put(
+                                                "project",
+                                                io.vertesia.model.ProjectContentSourcePermissions
+                                                        .class);
+                                        classByDiscriminatorValue.put(
+                                                "source",
+                                                io.vertesia.model.SharePointContentSourcePermissions
+                                                        .class);
+                                        classByDiscriminatorValue.put(
+                                                "ContentSourcePermissionSettings",
+                                                io.vertesia.model.ContentSourcePermissionSettings
+                                                        .class);
+                                        return getClassByDiscriminator(
+                                                classByDiscriminatorValue,
+                                                getDiscriminatorValue(readElement, "mode"));
+                                    }
+                                })
+                        .registerTypeSelector(
                                 io.vertesia.model.CreateContentSourcePayload.class,
                                 new TypeSelector<io.vertesia.model.CreateContentSourcePayload>() {
                                     @Override
@@ -1611,6 +1640,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ContentSourceLibrary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ContentSourcePermissionSettings.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ContentSourcePermissionStatus.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ContentSourceReport.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ContentSourceReportEntry.CustomTypeAdapterFactory());
@@ -2657,6 +2690,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProjectConfigurationOauthClients.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProjectContentSourcePermissions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProjectIndexingConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProjectInferenceProfiles.CustomTypeAdapterFactory());
@@ -2870,6 +2905,9 @@ public class JSON {
                 new io.vertesia.model.SetObjectTextPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.SharePointContentSource.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.SharePointContentSourcePermissions
+                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.SignalAgentResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

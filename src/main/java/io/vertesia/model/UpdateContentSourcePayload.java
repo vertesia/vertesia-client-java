@@ -50,6 +50,11 @@ public class UpdateContentSourcePayload {
     @SerializedName(SERIALIZED_NAME_SYNC)
     @jakarta.annotation.Nullable private ContentSourceSyncSettings sync;
 
+    public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
+
+    @SerializedName(SERIALIZED_NAME_PERMISSIONS)
+    @jakarta.annotation.Nullable private ContentSourcePermissionSettings permissions;
+
     public static final String SERIALIZED_NAME_ROOT_ID = "root_id";
 
     @SerializedName(SERIALIZED_NAME_ROOT_ID)
@@ -119,6 +124,25 @@ public class UpdateContentSourcePayload {
         this.sync = sync;
     }
 
+    public UpdateContentSourcePayload permissions(
+            @jakarta.annotation.Nullable ContentSourcePermissionSettings permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Get permissions
+     * @return permissions
+     */
+    @jakarta.annotation.Nullable public ContentSourcePermissionSettings getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(
+            @jakarta.annotation.Nullable ContentSourcePermissionSettings permissions) {
+        this.permissions = permissions;
+    }
+
     public UpdateContentSourcePayload rootId(@jakarta.annotation.Nullable String rootId) {
         this.rootId = rootId;
         return this;
@@ -182,6 +206,7 @@ public class UpdateContentSourcePayload {
         return Objects.equals(this.name, updateContentSourcePayload.name)
                 && Objects.equals(this.description, updateContentSourcePayload.description)
                 && Objects.equals(this.sync, updateContentSourcePayload.sync)
+                && Objects.equals(this.permissions, updateContentSourcePayload.permissions)
                 && Objects.equals(this.rootId, updateContentSourcePayload.rootId)
                 && Objects.equals(this.folderId, updateContentSourcePayload.folderId)
                 && Objects.equals(this.folderPath, updateContentSourcePayload.folderPath);
@@ -189,7 +214,7 @@ public class UpdateContentSourcePayload {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, sync, rootId, folderId, folderPath);
+        return Objects.hash(name, description, sync, permissions, rootId, folderId, folderPath);
     }
 
     @Override
@@ -199,6 +224,7 @@ public class UpdateContentSourcePayload {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
         sb.append("    rootId: ").append(toIndentedString(rootId)).append("\n");
         sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
         sb.append("    folderPath: ").append(toIndentedString(folderPath)).append("\n");
@@ -225,6 +251,7 @@ public class UpdateContentSourcePayload {
                                 "name",
                                 "description",
                                 "sync",
+                                "permissions",
                                 "root_id",
                                 "folder_id",
                                 "folder_path"));
@@ -270,6 +297,10 @@ public class UpdateContentSourcePayload {
         // validate the optional field `sync`
         if (jsonObj.get("sync") != null && !jsonObj.get("sync").isJsonNull()) {
             ContentSourceSyncSettings.validateJsonElement(jsonObj.get("sync"));
+        }
+        // validate the optional field `permissions`
+        if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
+            ContentSourcePermissionSettings.validateJsonElement(jsonObj.get("permissions"));
         }
         if ((jsonObj.get("root_id") != null && !jsonObj.get("root_id").isJsonNull())
                 && !jsonObj.get("root_id").isJsonPrimitive()) {
