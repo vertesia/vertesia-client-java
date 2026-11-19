@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
@@ -158,6 +159,16 @@ class VertesiaClientTest {
     }
 
     @Test
+    void userAgentNamesSdkVersionAndRuntime() {
+        // A real version, not "unknown", shows Maven filtered vertesia-client.properties.
+        String runtime = java.util.regex.Pattern.quote(System.getProperty("java.version"));
+        assertTrue(
+                VertesiaClient.USER_AGENT.matches(
+                        "vertesia-client-java/\\d+\\.\\d+\\.\\d+\\S* java/" + runtime),
+                VertesiaClient.USER_AGENT);
+    }
+
+    @Test
     void exchangesSecretKeyForGeneratedClients() throws Exception {
         final String issuedToken = jwt(System.currentTimeMillis() / 1000L + 3600L);
         TestServer sts =
@@ -173,6 +184,9 @@ class VertesiaClientTest {
                                 assertEquals(
                                         "20260101",
                                         exchange.getRequestHeaders().getFirst("x-api-version"));
+                                assertEquals(
+                                        VertesiaClient.USER_AGENT,
+                                        exchange.getRequestHeaders().getFirst("User-Agent"));
                                 String body = readString(exchange.getRequestBody());
                                 assertEquals("{\"type\":\"apikey\",\"key\":\"sk-test\"}", body);
                                 writeToken(exchange, issuedToken);
@@ -186,6 +200,9 @@ class VertesiaClientTest {
                                 assertEquals(
                                         "Bearer " + issuedToken,
                                         exchange.getRequestHeaders().getFirst("Authorization"));
+                                assertEquals(
+                                        VertesiaClient.USER_AGENT,
+                                        exchange.getRequestHeaders().getFirst("User-Agent"));
                                 writeJson(exchange, 200, "[]");
                             }
                         });

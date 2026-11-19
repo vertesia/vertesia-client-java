@@ -40,12 +40,14 @@ import io.vertesia.api.WorkflowRunsApi;
 import io.vertesia.auth.Authentication;
 import io.vertesia.model.IssueTokenResponse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -66,6 +68,14 @@ public class VertesiaClient {
     public static final String DEFAULT_SITE = "api.vertesia.io";
     public static final String DEFAULT_TOKEN_URL = "https://sts.vertesia.io";
     public static final String DEFAULT_API_VERSION = "20260803";
+
+    /**
+     * The User-Agent header every request sends, identifying this SDK, its version and the Java
+     * runtime, for example {@code vertesia-client-java/1.7.0 java/17.0.12}.
+     */
+    public static final String USER_AGENT =
+            "vertesia-client-java/" + sdkVersion() + " java/" + System.getProperty("java.version");
+
     private static final long TOKEN_REFRESH_WINDOW_SECONDS = 60L;
     private static final MediaType JSON_MEDIA_TYPE = MediaType.parse("application/json");
 
@@ -305,8 +315,23 @@ public class VertesiaClient {
                 };
         client.setBasePath(baseUrl);
         client.setBearerToken(tokenSource);
+        client.setUserAgent(USER_AGENT);
         client.addDefaultHeader("x-api-version", apiVersion);
         return client;
+    }
+
+    /** The Maven project version this jar was built from, or {@code unknown}. */
+    private static String sdkVersion() {
+        try (InputStream in =
+                VertesiaClient.class.getResourceAsStream("vertesia-client.properties")) {
+            if (in == null) return "unknown";
+            Properties properties = new Properties();
+            properties.load(in);
+            String version = trim(properties.getProperty("version"));
+            return version.isEmpty() || version.startsWith("${") ? "unknown" : version;
+        } catch (IOException e) {
+            return "unknown";
+        }
     }
 
     /** Exchange one IdP assertion without caching or changing a client's authentication. */
@@ -430,6 +455,7 @@ public class VertesiaClient {
                             .header("Accept", "application/json")
                             .header("Content-Type", "application/json")
                             .header("x-api-version", apiVersion)
+                            .header("User-Agent", USER_AGENT)
                             .build();
             try (Response response = httpClient.newCall(request).execute()) {
                 String responseBody = response.body() == null ? "" : response.body().string();
