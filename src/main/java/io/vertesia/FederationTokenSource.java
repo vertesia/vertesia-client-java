@@ -120,7 +120,8 @@ final class FederationTokenSource implements TokenSource {
                 new Request.Builder()
                         .url(endpoint)
                         .post(form.build())
-                        .header("Accept", "application/json");
+                        .header("Accept", "application/json")
+                        .header("User-Agent", VertesiaClient.USER_AGENT);
         if (f.clientSecretBasic()) {
             String credential =
                     java.net.URLEncoder.encode(
