@@ -615,7 +615,7 @@ public class UsersApi {
 
     /**
      * Update a user
-     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments).  **Required permissions:** &#x60;account:member&#x60;
+     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments). The username of a SCIM-provisioned user is its sign-in identifier and is managed by SCIM provisioning: changing it here returns 403, while sending its current value is accepted.  **Required permissions:** &#x60;account:member&#x60;
      * @param userId  (required)
      * @param updateUserPayload  (required)
      * @return User
@@ -639,7 +639,7 @@ public class UsersApi {
 
     /**
      * Update a user
-     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments).  **Required permissions:** &#x60;account:member&#x60;
+     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments). The username of a SCIM-provisioned user is its sign-in identifier and is managed by SCIM provisioning: changing it here returns 403, while sending its current value is accepted.  **Required permissions:** &#x60;account:member&#x60;
      * @param userId  (required)
      * @param updateUserPayload  (required)
      * @return ApiResponse&lt;User&gt;
@@ -664,7 +664,7 @@ public class UsersApi {
 
     /**
      * Update a user (asynchronously)
-     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments).  **Required permissions:** &#x60;account:member&#x60;
+     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments). The username of a SCIM-provisioned user is its sign-in identifier and is managed by SCIM provisioning: changing it here returns 403, while sending its current value is accepted.  **Required permissions:** &#x60;account:member&#x60;
      * @param userId  (required)
      * @param updateUserPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
