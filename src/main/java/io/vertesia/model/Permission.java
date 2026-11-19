@@ -104,6 +104,8 @@ public enum Permission {
 
     CONTENT_SUPERADMIN("content:superadmin"),
 
+    CONTENT_SOURCE_MANAGE("content_source:manage"),
+
     WORKFLOW_READ("workflow:read"),
 
     WORKFLOW_RUN("workflow:run"),

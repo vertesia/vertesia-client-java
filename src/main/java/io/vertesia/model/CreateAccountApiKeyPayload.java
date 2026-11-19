@@ -27,6 +27,7 @@ import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * CreateAccountApiKeyPayload
@@ -45,6 +46,17 @@ public class CreateAccountApiKeyPayload {
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
     @jakarta.annotation.Nullable private OffsetDateTime expiresAt;
+
+    public static final String SERIALIZED_NAME_SCIM_ENTRA_TENANT_ID = "scim_entra_tenant_id";
+
+    @SerializedName(SERIALIZED_NAME_SCIM_ENTRA_TENANT_ID)
+    @jakarta.annotation.Nullable private UUID scimEntraTenantId;
+
+    public static final String SERIALIZED_NAME_SCIM_ENTRA_MEMBERS_GROUP_ID =
+            "scim_entra_members_group_id";
+
+    @SerializedName(SERIALIZED_NAME_SCIM_ENTRA_MEMBERS_GROUP_ID)
+    @jakarta.annotation.Nullable private UUID scimEntraMembersGroupId;
 
     public CreateAccountApiKeyPayload() {}
 
@@ -84,6 +96,43 @@ public class CreateAccountApiKeyPayload {
         this.expiresAt = expiresAt;
     }
 
+    public CreateAccountApiKeyPayload scimEntraTenantId(
+            @jakarta.annotation.Nullable UUID scimEntraTenantId) {
+        this.scimEntraTenantId = scimEntraTenantId;
+        return this;
+    }
+
+    /**
+     * Get scimEntraTenantId
+     * @return scimEntraTenantId
+     */
+    @jakarta.annotation.Nullable public UUID getScimEntraTenantId() {
+        return scimEntraTenantId;
+    }
+
+    public void setScimEntraTenantId(@jakarta.annotation.Nullable UUID scimEntraTenantId) {
+        this.scimEntraTenantId = scimEntraTenantId;
+    }
+
+    public CreateAccountApiKeyPayload scimEntraMembersGroupId(
+            @jakarta.annotation.Nullable UUID scimEntraMembersGroupId) {
+        this.scimEntraMembersGroupId = scimEntraMembersGroupId;
+        return this;
+    }
+
+    /**
+     * Get scimEntraMembersGroupId
+     * @return scimEntraMembersGroupId
+     */
+    @jakarta.annotation.Nullable public UUID getScimEntraMembersGroupId() {
+        return scimEntraMembersGroupId;
+    }
+
+    public void setScimEntraMembersGroupId(
+            @jakarta.annotation.Nullable UUID scimEntraMembersGroupId) {
+        this.scimEntraMembersGroupId = scimEntraMembersGroupId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -94,12 +143,17 @@ public class CreateAccountApiKeyPayload {
         }
         CreateAccountApiKeyPayload createAccountApiKeyPayload = (CreateAccountApiKeyPayload) o;
         return Objects.equals(this.name, createAccountApiKeyPayload.name)
-                && Objects.equals(this.expiresAt, createAccountApiKeyPayload.expiresAt);
+                && Objects.equals(this.expiresAt, createAccountApiKeyPayload.expiresAt)
+                && Objects.equals(
+                        this.scimEntraTenantId, createAccountApiKeyPayload.scimEntraTenantId)
+                && Objects.equals(
+                        this.scimEntraMembersGroupId,
+                        createAccountApiKeyPayload.scimEntraMembersGroupId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, expiresAt);
+        return Objects.hash(name, expiresAt, scimEntraTenantId, scimEntraMembersGroupId);
     }
 
     @Override
@@ -108,6 +162,12 @@ public class CreateAccountApiKeyPayload {
         sb.append("class CreateAccountApiKeyPayload {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+        sb.append("    scimEntraTenantId: ")
+                .append(toIndentedString(scimEntraTenantId))
+                .append("\n");
+        sb.append("    scimEntraMembersGroupId: ")
+                .append(toIndentedString(scimEntraMembersGroupId))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -125,7 +185,13 @@ public class CreateAccountApiKeyPayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("name", "expires_at"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList(
+                                "name",
+                                "expires_at",
+                                "scim_entra_tenant_id",
+                                "scim_entra_members_group_id"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -167,6 +233,24 @@ public class CreateAccountApiKeyPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("name").toString()));
+        }
+        if ((jsonObj.get("scim_entra_tenant_id") != null
+                        && !jsonObj.get("scim_entra_tenant_id").isJsonNull())
+                && !jsonObj.get("scim_entra_tenant_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `scim_entra_tenant_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("scim_entra_tenant_id").toString()));
+        }
+        if ((jsonObj.get("scim_entra_members_group_id") != null
+                        && !jsonObj.get("scim_entra_members_group_id").isJsonNull())
+                && !jsonObj.get("scim_entra_members_group_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `scim_entra_members_group_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("scim_entra_members_group_id").toString()));
         }
     }
 

@@ -225,6 +225,11 @@ public class UpdateAppPayload {
     @SerializedName(SERIALIZED_NAME_UI)
     @jakarta.annotation.Nullable private AppUIConfig ui;
 
+    public static final String SERIALIZED_NAME_MCP_PROFILE = "mcp_profile";
+
+    @SerializedName(SERIALIZED_NAME_MCP_PROFILE)
+    @jakarta.annotation.Nullable private AppMcpProfile mcpProfile;
+
     public static final String SERIALIZED_NAME_TOOL_COLLECTIONS = "tool_collections";
 
     @SerializedName(SERIALIZED_NAME_TOOL_COLLECTIONS)
@@ -534,6 +539,23 @@ public class UpdateAppPayload {
 
     public void setUi(@jakarta.annotation.Nullable AppUIConfig ui) {
         this.ui = ui;
+    }
+
+    public UpdateAppPayload mcpProfile(@jakarta.annotation.Nullable AppMcpProfile mcpProfile) {
+        this.mcpProfile = mcpProfile;
+        return this;
+    }
+
+    /**
+     * Get mcpProfile
+     * @return mcpProfile
+     */
+    @jakarta.annotation.Nullable public AppMcpProfile getMcpProfile() {
+        return mcpProfile;
+    }
+
+    public void setMcpProfile(@jakarta.annotation.Nullable AppMcpProfile mcpProfile) {
+        this.mcpProfile = mcpProfile;
     }
 
     public UpdateAppPayload toolCollections(
@@ -862,6 +884,7 @@ public class UpdateAppPayload {
                 && Objects.equals(this.previewScreenshot, updateAppPayload.previewScreenshot)
                 && Objects.equals(this.status, updateAppPayload.status)
                 && Objects.equals(this.ui, updateAppPayload.ui)
+                && Objects.equals(this.mcpProfile, updateAppPayload.mcpProfile)
                 && Objects.equals(this.toolCollections, updateAppPayload.toolCollections)
                 && Objects.equals(this.oauthProviders, updateAppPayload.oauthProviders)
                 && Objects.equals(this.interactions, updateAppPayload.interactions)
@@ -893,6 +916,7 @@ public class UpdateAppPayload {
                 previewScreenshot,
                 status,
                 ui,
+                mcpProfile,
                 toolCollections,
                 oauthProviders,
                 interactions,
@@ -927,6 +951,7 @@ public class UpdateAppPayload {
                 .append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    ui: ").append(toIndentedString(ui)).append("\n");
+        sb.append("    mcpProfile: ").append(toIndentedString(mcpProfile)).append("\n");
         sb.append("    toolCollections: ").append(toIndentedString(toolCollections)).append("\n");
         sb.append("    oauthProviders: ").append(toIndentedString(oauthProviders)).append("\n");
         sb.append("    interactions: ").append(toIndentedString(interactions)).append("\n");
@@ -979,6 +1004,7 @@ public class UpdateAppPayload {
                                 "preview_screenshot",
                                 "status",
                                 "ui",
+                                "mcp_profile",
                                 "tool_collections",
                                 "oauth_providers",
                                 "interactions",
@@ -1118,6 +1144,10 @@ public class UpdateAppPayload {
         // validate the optional field `ui`
         if (jsonObj.get("ui") != null && !jsonObj.get("ui").isJsonNull()) {
             AppUIConfig.validateJsonElement(jsonObj.get("ui"));
+        }
+        // validate the optional field `mcp_profile`
+        if (jsonObj.get("mcp_profile") != null && !jsonObj.get("mcp_profile").isJsonNull()) {
+            AppMcpProfile.validateJsonElement(jsonObj.get("mcp_profile"));
         }
         if (jsonObj.get("tool_collections") != null
                 && !jsonObj.get("tool_collections").isJsonNull()) {

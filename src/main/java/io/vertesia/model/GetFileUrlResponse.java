@@ -57,6 +57,11 @@ public class GetFileUrlResponse {
     @jakarta.annotation.Nonnull
     private String path;
 
+    public static final String SERIALIZED_NAME_AUTHENTICATION_REQUIRED = "authentication_required";
+
+    @SerializedName(SERIALIZED_NAME_AUTHENTICATION_REQUIRED)
+    @jakarta.annotation.Nullable private Boolean authenticationRequired;
+
     public GetFileUrlResponse() {}
 
     public GetFileUrlResponse url(@jakarta.annotation.Nonnull String url) {
@@ -130,6 +135,25 @@ public class GetFileUrlResponse {
         this.path = path;
     }
 
+    public GetFileUrlResponse authenticationRequired(
+            @jakarta.annotation.Nullable Boolean authenticationRequired) {
+        this.authenticationRequired = authenticationRequired;
+        return this;
+    }
+
+    /**
+     * Get authenticationRequired
+     * @return authenticationRequired
+     */
+    @jakarta.annotation.Nullable public Boolean getAuthenticationRequired() {
+        return authenticationRequired;
+    }
+
+    public void setAuthenticationRequired(
+            @jakarta.annotation.Nullable Boolean authenticationRequired) {
+        this.authenticationRequired = authenticationRequired;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -142,12 +166,14 @@ public class GetFileUrlResponse {
         return Objects.equals(this.url, getFileUrlResponse.url)
                 && Objects.equals(this.id, getFileUrlResponse.id)
                 && Objects.equals(this.mimeType, getFileUrlResponse.mimeType)
-                && Objects.equals(this.path, getFileUrlResponse.path);
+                && Objects.equals(this.path, getFileUrlResponse.path)
+                && Objects.equals(
+                        this.authenticationRequired, getFileUrlResponse.authenticationRequired);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(url, id, mimeType, path);
+        return Objects.hash(url, id, mimeType, path, authenticationRequired);
     }
 
     @Override
@@ -158,6 +184,9 @@ public class GetFileUrlResponse {
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
         sb.append("    path: ").append(toIndentedString(path)).append("\n");
+        sb.append("    authenticationRequired: ")
+                .append(toIndentedString(authenticationRequired))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -175,7 +204,9 @@ public class GetFileUrlResponse {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("url", "id", "mime_type", "path"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList("url", "id", "mime_type", "path", "authentication_required"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("url", "id", "path"));

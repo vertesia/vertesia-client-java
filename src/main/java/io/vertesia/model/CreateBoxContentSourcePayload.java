@@ -130,8 +130,7 @@ public class CreateBoxContentSourcePayload {
     public static final String SERIALIZED_NAME_FOLDER_ID = "folder_id";
 
     @SerializedName(SERIALIZED_NAME_FOLDER_ID)
-    @jakarta.annotation.Nonnull
-    private String folderId;
+    @jakarta.annotation.Nullable private String folderId;
 
     public CreateBoxContentSourcePayload() {}
 
@@ -262,21 +261,20 @@ public class CreateBoxContentSourcePayload {
         this.type = type;
     }
 
-    public CreateBoxContentSourcePayload folderId(@jakarta.annotation.Nonnull String folderId) {
+    public CreateBoxContentSourcePayload folderId(@jakarta.annotation.Nullable String folderId) {
         this.folderId = folderId;
         return this;
     }
 
     /**
-     * The Box folder ID, shared with the Box app&#39;s service account.
+     * The Box folder ID, shared with the Box app&#39;s service account. Defaults to &#x60;0&#x60;, every folder shared with the app, to narrow before the first sync with an update.
      * @return folderId
      */
-    @jakarta.annotation.Nonnull
-    public String getFolderId() {
+    @jakarta.annotation.Nullable public String getFolderId() {
         return folderId;
     }
 
-    public void setFolderId(@jakarta.annotation.Nonnull String folderId) {
+    public void setFolderId(@jakarta.annotation.Nullable String folderId) {
         this.folderId = folderId;
     }
 
@@ -357,8 +355,7 @@ public class CreateBoxContentSourcePayload {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
-                new HashSet<String>(
-                        Arrays.asList("name", "oauth_provider_id", "type", "folder_id"));
+                new HashSet<String>(Arrays.asList("name", "oauth_provider_id", "type"));
     }
 
     /**
@@ -442,7 +439,8 @@ public class CreateBoxContentSourcePayload {
         }
         // validate the required field `type`
         TypeEnum.validateJsonElement(jsonObj.get("type"));
-        if (!jsonObj.get("folder_id").isJsonPrimitive()) {
+        if ((jsonObj.get("folder_id") != null && !jsonObj.get("folder_id").isJsonNull())
+                && !jsonObj.get("folder_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
