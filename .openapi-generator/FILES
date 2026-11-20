@@ -408,11 +408,13 @@ src/main/java/io/vertesia/model/ContentSourceReportAction.java
 src/main/java/io/vertesia/model/ContentSourceReportEntry.java
 src/main/java/io/vertesia/model/ContentSourceRoot.java
 src/main/java/io/vertesia/model/ContentSourceRootsDiscovery.java
+src/main/java/io/vertesia/model/ContentSourceRoundSummary.java
 src/main/java/io/vertesia/model/ContentSourceSampleDiscovery.java
 src/main/java/io/vertesia/model/ContentSourceSampleFile.java
 src/main/java/io/vertesia/model/ContentSourceSchemaDiscovery.java
 src/main/java/io/vertesia/model/ContentSourceSiteDiscovery.java
 src/main/java/io/vertesia/model/ContentSourceStatus.java
+src/main/java/io/vertesia/model/ContentSourceSummary.java
 src/main/java/io/vertesia/model/ContentSourceSyncCounts.java
 src/main/java/io/vertesia/model/ContentSourceSyncRound.java
 src/main/java/io/vertesia/model/ContentSourceSyncSettings.java

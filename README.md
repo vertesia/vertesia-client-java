@@ -14,7 +14,7 @@ The package coordinates are:
 <dependency>
     <groupId>io.vertesia</groupId>
     <artifactId>vertesia-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.7.0-alpha.20261120.100641Z</version>
 </dependency>
 ```
 
