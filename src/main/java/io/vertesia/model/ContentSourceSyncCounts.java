@@ -185,7 +185,7 @@ public class ContentSourceSyncCounts {
     }
 
     /**
-     * Files that are not synced (unsupported types, packages).
+     * Files that are not synced (unsupported types, packages, files outside the sample).
      * minimum: -9007199254740991
      * maximum: 9007199254740991
      * @return skipped

@@ -245,7 +245,7 @@ public class ContentSourceSyncRound {
     }
 
     /**
-     * The skipped files by reason: &#x60;package&#x60;, &#x60;not_a_file&#x60;, &#x60;too_large&#x60;, &#x60;unsupported_type&#x60;, or another reason a system reports.
+     * The skipped files by reason: &#x60;package&#x60;, &#x60;not_a_file&#x60;, &#x60;too_large&#x60;, &#x60;unsupported_type&#x60;, &#x60;not_sampled&#x60; (outside the source&#39;s &#x60;sample_percent&#x60;; counted only, not listed in the report), or another reason a system reports.
      * @return skippedByReason
      */
     @jakarta.annotation.Nullable public Map<String, Integer> getSkippedByReason() {

@@ -341,7 +341,7 @@ public class ContentSourceReportEntry {
     }
 
     /**
-     * &#x60;skipped&#x60;: why the file is not synced (&#x60;package&#x60;, &#x60;not_a_file&#x60;, &#x60;too_large&#x60;, &#x60;unsupported_type&#x60;). &#x60;deleted&#x60;: &#x60;file_deleted&#x60; (deleted, moved out or no longer synced) or &#x60;duplicate&#x60;.
+     * &#x60;skipped&#x60;: why the file is not synced (&#x60;package&#x60;, &#x60;not_a_file&#x60;, &#x60;too_large&#x60;, &#x60;unsupported_type&#x60;). &#x60;deleted&#x60;: &#x60;file_deleted&#x60; (deleted, moved out or no longer synced), &#x60;duplicate&#x60;, or &#x60;not_sampled&#x60; (outside the source&#39;s &#x60;sample_percent&#x60;).
      * @return reason
      */
     @jakarta.annotation.Nullable public String getReason() {

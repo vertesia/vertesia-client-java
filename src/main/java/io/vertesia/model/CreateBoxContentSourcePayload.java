@@ -69,6 +69,11 @@ public class CreateBoxContentSourcePayload {
     @SerializedName(SERIALIZED_NAME_SYNC)
     @jakarta.annotation.Nullable private ContentSourceSyncSettings sync;
 
+    public static final String SERIALIZED_NAME_SAMPLE_PERCENT = "sample_percent";
+
+    @SerializedName(SERIALIZED_NAME_SAMPLE_PERCENT)
+    @jakarta.annotation.Nullable private Integer samplePercent;
+
     /**
      * Gets or Sets type
      */
@@ -245,6 +250,26 @@ public class CreateBoxContentSourcePayload {
         this.sync = sync;
     }
 
+    public CreateBoxContentSourcePayload samplePercent(
+            @jakarta.annotation.Nullable Integer samplePercent) {
+        this.samplePercent = samplePercent;
+        return this;
+    }
+
+    /**
+     * Sample mode: syncs only about this percentage of the files, to look at real documents before importing them all. A file is in the sample by a hash of its ID, so the same files stay in it from one sync to the next, spread over every folder. A file outside the sample is not imported, and its document is deleted if it has one. Leave out to sync every file.
+     * minimum: 1
+     * maximum: 99
+     * @return samplePercent
+     */
+    @jakarta.annotation.Nullable public Integer getSamplePercent() {
+        return samplePercent;
+    }
+
+    public void setSamplePercent(@jakarta.annotation.Nullable Integer samplePercent) {
+        this.samplePercent = samplePercent;
+    }
+
     public CreateBoxContentSourcePayload type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
@@ -297,6 +322,7 @@ public class CreateBoxContentSourcePayload {
                 && Objects.equals(this.locationRoot, createBoxContentSourcePayload.locationRoot)
                 && Objects.equals(this.collectionId, createBoxContentSourcePayload.collectionId)
                 && Objects.equals(this.sync, createBoxContentSourcePayload.sync)
+                && Objects.equals(this.samplePercent, createBoxContentSourcePayload.samplePercent)
                 && Objects.equals(this.type, createBoxContentSourcePayload.type)
                 && Objects.equals(this.folderId, createBoxContentSourcePayload.folderId);
     }
@@ -310,6 +336,7 @@ public class CreateBoxContentSourcePayload {
                 locationRoot,
                 collectionId,
                 sync,
+                samplePercent,
                 type,
                 folderId);
     }
@@ -324,6 +351,7 @@ public class CreateBoxContentSourcePayload {
         sb.append("    locationRoot: ").append(toIndentedString(locationRoot)).append("\n");
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
         sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
+        sb.append("    samplePercent: ").append(toIndentedString(samplePercent)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
         sb.append("}");
@@ -355,6 +383,7 @@ public class CreateBoxContentSourcePayload {
                                 "location_root",
                                 "collection_id",
                                 "sync",
+                                "sample_percent",
                                 "type",
                                 "folder_id"));
 

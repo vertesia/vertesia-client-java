@@ -27,9 +27,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * Changes the name, description or sync settings, and, before the first sync, the root and folder to sync. Saving sync settings also hands the sync your credentials, which restarts a sync stopped because its previous credentials were refused.
+ * Changes the name, description, sync settings or sample, and, before the first sync, the root and folder to sync. Saving sync settings also hands the sync your credentials, which restarts a sync stopped because its previous credentials were refused.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -49,6 +50,11 @@ public class UpdateContentSourcePayload {
 
     @SerializedName(SERIALIZED_NAME_SYNC)
     @jakarta.annotation.Nullable private ContentSourceSyncSettings sync;
+
+    public static final String SERIALIZED_NAME_SAMPLE_PERCENT = "sample_percent";
+
+    @SerializedName(SERIALIZED_NAME_SAMPLE_PERCENT)
+    @jakarta.annotation.Nullable private Integer samplePercent;
 
     public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
 
@@ -122,6 +128,26 @@ public class UpdateContentSourcePayload {
 
     public void setSync(@jakarta.annotation.Nullable ContentSourceSyncSettings sync) {
         this.sync = sync;
+    }
+
+    public UpdateContentSourcePayload samplePercent(
+            @jakarta.annotation.Nullable Integer samplePercent) {
+        this.samplePercent = samplePercent;
+        return this;
+    }
+
+    /**
+     * Sample mode: syncs only about this percentage of the files, to look at real documents before importing them all. A file is in the sample by a hash of its ID, so the same files stay in it from one sync to the next, spread over every folder. A file outside the sample is not imported, and its document is deleted if it has one. &#x60;null&#x60; removes the sample, so that every file is synced. A change, before or after the first sync, makes the next sync an import that lists the whole folder: it imports the files that entered the sample and deletes the documents of those that left it.
+     * minimum: 1
+     * maximum: 99
+     * @return samplePercent
+     */
+    @jakarta.annotation.Nullable public Integer getSamplePercent() {
+        return samplePercent;
+    }
+
+    public void setSamplePercent(@jakarta.annotation.Nullable Integer samplePercent) {
+        this.samplePercent = samplePercent;
     }
 
     public UpdateContentSourcePayload permissions(
@@ -206,15 +232,33 @@ public class UpdateContentSourcePayload {
         return Objects.equals(this.name, updateContentSourcePayload.name)
                 && Objects.equals(this.description, updateContentSourcePayload.description)
                 && Objects.equals(this.sync, updateContentSourcePayload.sync)
+                && Objects.equals(this.samplePercent, updateContentSourcePayload.samplePercent)
                 && Objects.equals(this.permissions, updateContentSourcePayload.permissions)
                 && Objects.equals(this.rootId, updateContentSourcePayload.rootId)
                 && Objects.equals(this.folderId, updateContentSourcePayload.folderId)
                 && Objects.equals(this.folderPath, updateContentSourcePayload.folderPath);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, sync, permissions, rootId, folderId, folderPath);
+        return Objects.hash(
+                name, description, sync, samplePercent, permissions, rootId, folderId, folderPath);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -224,6 +268,7 @@ public class UpdateContentSourcePayload {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
+        sb.append("    samplePercent: ").append(toIndentedString(samplePercent)).append("\n");
         sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
         sb.append("    rootId: ").append(toIndentedString(rootId)).append("\n");
         sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
@@ -251,6 +296,7 @@ public class UpdateContentSourcePayload {
                                 "name",
                                 "description",
                                 "sync",
+                                "sample_percent",
                                 "permissions",
                                 "root_id",
                                 "folder_id",

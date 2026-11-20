@@ -3353,7 +3353,7 @@ public class ContentSourcesApi {
 
     /**
      * Update a content source
-     * Changes the name, description or sync settings, and, before the first sync, the library and folder to sync (409 afterwards). Saving sync settings also hands the sync your credentials, which restarts a sync stopped because its previous credentials were refused.  **Required permissions:** Any of &#x60;content_source:manage&#x60;, &#x60;project:settings_write&#x60;
+     * Changes the name, description, sync settings or sample, and, before the first sync, the library and folder to sync (409 afterwards). Saving sync settings also hands the sync your credentials, which restarts a sync stopped because its previous credentials were refused. Changing &#x60;sample_percent&#x60; makes the next sync an import.  **Required permissions:** Any of &#x60;content_source:manage&#x60;, &#x60;project:settings_write&#x60;
      * @param sourceId  (required)
      * @param updateContentSourcePayload  (required)
      * @return APIupdateContentSourceRequest
