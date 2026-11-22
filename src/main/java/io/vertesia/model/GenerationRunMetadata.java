@@ -63,6 +63,11 @@ public class GenerationRunMetadata {
     @SerializedName(SERIALIZED_NAME_EXTRACTION_FINGERPRINT)
     @jakarta.annotation.Nullable private String extractionFingerprint;
 
+    public static final String SERIALIZED_NAME_EXTRACTION_REPORT = "extraction_report";
+
+    @SerializedName(SERIALIZED_NAME_EXTRACTION_REPORT)
+    @jakarta.annotation.Nullable private ExtractionReport extractionReport;
+
     public GenerationRunMetadata() {}
 
     public GenerationRunMetadata id(@jakarta.annotation.Nonnull String id) {
@@ -155,6 +160,25 @@ public class GenerationRunMetadata {
         this.extractionFingerprint = extractionFingerprint;
     }
 
+    public GenerationRunMetadata extractionReport(
+            @jakarta.annotation.Nullable ExtractionReport extractionReport) {
+        this.extractionReport = extractionReport;
+        return this;
+    }
+
+    /**
+     * Get extractionReport
+     * @return extractionReport
+     */
+    @jakarta.annotation.Nullable public ExtractionReport getExtractionReport() {
+        return extractionReport;
+    }
+
+    public void setExtractionReport(
+            @jakarta.annotation.Nullable ExtractionReport extractionReport) {
+        this.extractionReport = extractionReport;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -169,12 +193,13 @@ public class GenerationRunMetadata {
                 && Objects.equals(this.model, generationRunMetadata.model)
                 && Objects.equals(this.target, generationRunMetadata.target)
                 && Objects.equals(
-                        this.extractionFingerprint, generationRunMetadata.extractionFingerprint);
+                        this.extractionFingerprint, generationRunMetadata.extractionFingerprint)
+                && Objects.equals(this.extractionReport, generationRunMetadata.extractionReport);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, model, target, extractionFingerprint);
+        return Objects.hash(id, date, model, target, extractionFingerprint, extractionReport);
     }
 
     @Override
@@ -188,6 +213,7 @@ public class GenerationRunMetadata {
         sb.append("    extractionFingerprint: ")
                 .append(toIndentedString(extractionFingerprint))
                 .append("\n");
+        sb.append("    extractionReport: ").append(toIndentedString(extractionReport)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -207,7 +233,13 @@ public class GenerationRunMetadata {
         // a set of all properties/fields (JSON key names)
         openapiFields =
                 new HashSet<String>(
-                        Arrays.asList("id", "date", "model", "target", "extraction_fingerprint"));
+                        Arrays.asList(
+                                "id",
+                                "date",
+                                "model",
+                                "target",
+                                "extraction_fingerprint",
+                                "extraction_report"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "date", "model"));
@@ -280,6 +312,11 @@ public class GenerationRunMetadata {
                             java.util.Locale.ROOT,
                             "Expected the field `extraction_fingerprint` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("extraction_fingerprint").toString()));
+        }
+        // validate the optional field `extraction_report`
+        if (jsonObj.get("extraction_report") != null
+                && !jsonObj.get("extraction_report").isJsonNull()) {
+            ExtractionReport.validateJsonElement(jsonObj.get("extraction_report"));
         }
     }
 

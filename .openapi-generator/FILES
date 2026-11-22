@@ -669,6 +669,10 @@ src/main/java/io/vertesia/model/ExportedPromptTemplateRef.java
 src/main/java/io/vertesia/model/ExternalContentSource.java
 src/main/java/io/vertesia/model/ExternalizedToolInputRef.java
 src/main/java/io/vertesia/model/ExtractAppVersionGitRefTypeBranchTagCommit.java
+src/main/java/io/vertesia/model/ExtractionNormalization.java
+src/main/java/io/vertesia/model/ExtractionRepair.java
+src/main/java/io/vertesia/model/ExtractionReport.java
+src/main/java/io/vertesia/model/ExtractionValidationError.java
 src/main/java/io/vertesia/model/FacetSpec.java
 src/main/java/io/vertesia/model/FileBucketResponse.java
 src/main/java/io/vertesia/model/FileListResponse.java
