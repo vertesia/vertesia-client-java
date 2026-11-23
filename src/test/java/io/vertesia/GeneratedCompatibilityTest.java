@@ -106,12 +106,12 @@ class GeneratedCompatibilityTest {
                         "{\"ref_type\":\"incode\",\"id\":\"sys:Test\",\"name\":\"Test\",\"future\":true}",
                         io.vertesia.model.ContentObjectTypeRef.class);
         assertTrue(incode.getActualInstance() instanceof io.vertesia.model.InCodeTypeRef);
-        assertThrows(
-                com.google.gson.JsonSyntaxException.class,
-                () ->
-                        JSON.deserialize(
-                                "{\"ref_type\":\"unknown\",\"id\":\"type-1\",\"name\":\"Test\"}",
-                                io.vertesia.model.ContentObjectTypeRef.class));
+        // A reference type added by a newer server is kept as received.
+        io.vertesia.model.ContentObjectTypeRef future =
+                JSON.deserialize(
+                        "{\"ref_type\":\"unknown\",\"id\":\"type-1\",\"name\":\"Test\"}",
+                        io.vertesia.model.ContentObjectTypeRef.class);
+        assertEquals("unknown", future.getRaw().getAsJsonObject().get("ref_type").getAsString());
     }
 
     @Test
