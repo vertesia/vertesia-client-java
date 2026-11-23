@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,7 +67,8 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBulkOperationResult.toJsonTree(
                                                 (BulkOperationResult) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BulkObjectCreateResult`
@@ -73,7 +76,8 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBulkObjectCreateResult.toJsonTree(
                                                 (BulkObjectCreateResult) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BulkObjectUpdateResult`
@@ -81,7 +85,8 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBulkObjectUpdateResult.toJsonTree(
                                                 (BulkObjectUpdateResult) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `BulkObjectDeleteResult`
@@ -89,7 +94,13 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterBulkObjectDeleteResult.toJsonTree(
                                                 (BulkObjectDeleteResult) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -100,6 +111,11 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                         public BulkOperationResponse read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                BulkOperationResponse ret = new BulkOperationResponse();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -108,6 +124,7 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                             // deserialize BulkOperationResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "generic");
                                 BulkOperationResult.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBulkOperationResult;
                                 match++;
@@ -129,6 +146,7 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                             // deserialize BulkObjectCreateResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "create");
                                 BulkObjectCreateResult.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBulkObjectCreateResult;
                                 match++;
@@ -150,6 +168,7 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                             // deserialize BulkObjectUpdateResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "update");
                                 BulkObjectUpdateResult.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBulkObjectUpdateResult;
                                 match++;
@@ -171,6 +190,7 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                             // deserialize BulkObjectDeleteResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "delete");
                                 BulkObjectDeleteResult.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBulkObjectDeleteResult;
                                 match++;
@@ -193,6 +213,7 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                             if (match == 1) {
                                 BulkOperationResponse ret = new BulkOperationResponse();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 
@@ -241,6 +262,11 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof BulkOperationResult) {
             super.setActualInstance(instance);
             return;
@@ -332,11 +358,15 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to BulkOperationResponse
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with BulkOperationResult
         try {
+            checkDiscriminator(jsonElement, "generic");
             BulkOperationResult.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -349,6 +379,7 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with BulkObjectCreateResult
         try {
+            checkDiscriminator(jsonElement, "create");
             BulkObjectCreateResult.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -361,6 +392,7 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with BulkObjectUpdateResult
         try {
+            checkDiscriminator(jsonElement, "update");
             BulkObjectUpdateResult.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -373,6 +405,7 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with BulkObjectDeleteResult
         try {
+            checkDiscriminator(jsonElement, "delete");
             BulkObjectDeleteResult.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -391,6 +424,46 @@ public class BulkOperationResponse extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("operation");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "create":
+            case "delete":
+            case "generic":
+            case "update":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("operation");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected operation to be " + value);
         }
     }
 

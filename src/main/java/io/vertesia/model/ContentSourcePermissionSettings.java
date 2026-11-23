@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,7 +72,8 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                                         adapterProjectContentSourcePermissions.toJsonTree(
                                                 (ProjectContentSourcePermissions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -81,7 +84,13 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                                         adapterSharePointContentSourcePermissions.toJsonTree(
                                                 (SharePointContentSourcePermissions)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -93,6 +102,12 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                                 throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                ContentSourcePermissionSettings ret =
+                                        new ContentSourcePermissionSettings();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -101,6 +116,7 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                             // deserialize ProjectContentSourcePermissions
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "project");
                                 ProjectContentSourcePermissions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterProjectContentSourcePermissions;
                                 match++;
@@ -122,6 +138,7 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                             // deserialize SharePointContentSourcePermissions
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "source");
                                 SharePointContentSourcePermissions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterSharePointContentSourcePermissions;
                                 match++;
@@ -145,6 +162,7 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                                 ContentSourcePermissionSettings ret =
                                         new ContentSourcePermissionSettings();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 
@@ -191,6 +209,11 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof ProjectContentSourcePermissions) {
             super.setActualInstance(instance);
             return;
@@ -250,11 +273,15 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to ContentSourcePermissionSettings
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with ProjectContentSourcePermissions
         try {
+            checkDiscriminator(jsonElement, "project");
             ProjectContentSourcePermissions.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -267,6 +294,7 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
         }
         // validate the json string with SharePointContentSourcePermissions
         try {
+            checkDiscriminator(jsonElement, "source");
             SharePointContentSourcePermissions.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -285,6 +313,44 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("mode");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "project":
+            case "source":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("mode");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected mode to be " + value);
         }
     }
 

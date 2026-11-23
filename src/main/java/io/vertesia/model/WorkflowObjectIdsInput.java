@@ -23,6 +23,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -185,6 +187,9 @@ public class WorkflowObjectIdsInput {
         return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
+    // The values received for the enum properties that this client version does not know.
+    private transient Object receivedEnumValues;
+
     public static HashSet<String> openapiFields;
     public static HashSet<String> openapiRequiredFields;
 
@@ -265,14 +270,15 @@ public class WorkflowObjectIdsInput {
                         public void write(JsonWriter out, WorkflowObjectIdsInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-                            elementAdapter.write(out, obj);
+                            JsonOutput.writeModel(out, elementAdapter, obj, value);
                         }
 
                         @Override
                         public WorkflowObjectIdsInput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            return UnknownEnumValues.keep(
+                                    jsonElement, thisAdapter.fromJsonTree(jsonElement));
                         }
                     }.nullSafe();
         }

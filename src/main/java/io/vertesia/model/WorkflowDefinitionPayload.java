@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,7 +72,8 @@ public class WorkflowDefinitionPayload extends AbstractOpenApiSchema {
                                         adapterWorkflowDefinitionPayloadWithSteps.toJsonTree(
                                                 (WorkflowDefinitionPayloadWithSteps)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -81,7 +84,13 @@ public class WorkflowDefinitionPayload extends AbstractOpenApiSchema {
                                         adapterWorkflowDefinitionPayloadWithActivities.toJsonTree(
                                                 (WorkflowDefinitionPayloadWithActivities)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -92,6 +101,11 @@ public class WorkflowDefinitionPayload extends AbstractOpenApiSchema {
                         public WorkflowDefinitionPayload read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                WorkflowDefinitionPayload ret = new WorkflowDefinitionPayload();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -100,6 +114,7 @@ public class WorkflowDefinitionPayload extends AbstractOpenApiSchema {
                             // deserialize WorkflowDefinitionPayloadWithSteps
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "steps");
                                 WorkflowDefinitionPayloadWithSteps.validateJsonElement(jsonElement);
                                 actualAdapter = adapterWorkflowDefinitionPayloadWithSteps;
                                 match++;
@@ -121,6 +136,7 @@ public class WorkflowDefinitionPayload extends AbstractOpenApiSchema {
                             // deserialize WorkflowDefinitionPayloadWithActivities
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "activities");
                                 WorkflowDefinitionPayloadWithActivities.validateJsonElement(
                                         jsonElement);
                                 actualAdapter = adapterWorkflowDefinitionPayloadWithActivities;
@@ -144,6 +160,7 @@ public class WorkflowDefinitionPayload extends AbstractOpenApiSchema {
                             if (match == 1) {
                                 WorkflowDefinitionPayload ret = new WorkflowDefinitionPayload();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 
@@ -192,6 +209,11 @@ public class WorkflowDefinitionPayload extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof WorkflowDefinitionPayloadWithSteps) {
             super.setActualInstance(instance);
             return;
@@ -251,11 +273,15 @@ public class WorkflowDefinitionPayload extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to WorkflowDefinitionPayload
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with WorkflowDefinitionPayloadWithSteps
         try {
+            checkDiscriminator(jsonElement, "steps");
             WorkflowDefinitionPayloadWithSteps.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -268,6 +294,7 @@ public class WorkflowDefinitionPayload extends AbstractOpenApiSchema {
         }
         // validate the json string with WorkflowDefinitionPayloadWithActivities
         try {
+            checkDiscriminator(jsonElement, "activities");
             WorkflowDefinitionPayloadWithActivities.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -286,6 +313,44 @@ public class WorkflowDefinitionPayload extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("spec_format");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "activities":
+            case "steps":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("spec_format");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected spec_format to be " + value);
         }
     }
 

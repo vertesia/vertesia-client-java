@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,7 +71,8 @@ public class OAuthLoginNotFoundResponse extends AbstractOpenApiSchema {
                                         adapterOAuthLoginUserNotFoundResponse.toJsonTree(
                                                 (OAuthLoginUserNotFoundResponse)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -80,7 +83,13 @@ public class OAuthLoginNotFoundResponse extends AbstractOpenApiSchema {
                                         adapterOAuthLoginRequestNotFoundResponse.toJsonTree(
                                                 (OAuthLoginRequestNotFoundResponse)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -91,6 +100,11 @@ public class OAuthLoginNotFoundResponse extends AbstractOpenApiSchema {
                         public OAuthLoginNotFoundResponse read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                OAuthLoginNotFoundResponse ret = new OAuthLoginNotFoundResponse();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -99,6 +113,7 @@ public class OAuthLoginNotFoundResponse extends AbstractOpenApiSchema {
                             // deserialize OAuthLoginUserNotFoundResponse
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "user_not_found");
                                 OAuthLoginUserNotFoundResponse.validateJsonElement(jsonElement);
                                 actualAdapter = adapterOAuthLoginUserNotFoundResponse;
                                 match++;
@@ -120,6 +135,7 @@ public class OAuthLoginNotFoundResponse extends AbstractOpenApiSchema {
                             // deserialize OAuthLoginRequestNotFoundResponse
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "not_found");
                                 OAuthLoginRequestNotFoundResponse.validateJsonElement(jsonElement);
                                 actualAdapter = adapterOAuthLoginRequestNotFoundResponse;
                                 match++;
@@ -142,6 +158,7 @@ public class OAuthLoginNotFoundResponse extends AbstractOpenApiSchema {
                             if (match == 1) {
                                 OAuthLoginNotFoundResponse ret = new OAuthLoginNotFoundResponse();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 
@@ -188,6 +205,11 @@ public class OAuthLoginNotFoundResponse extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof OAuthLoginUserNotFoundResponse) {
             super.setActualInstance(instance);
             return;
@@ -247,11 +269,15 @@ public class OAuthLoginNotFoundResponse extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to OAuthLoginNotFoundResponse
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with OAuthLoginUserNotFoundResponse
         try {
+            checkDiscriminator(jsonElement, "user_not_found");
             OAuthLoginUserNotFoundResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -264,6 +290,7 @@ public class OAuthLoginNotFoundResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with OAuthLoginRequestNotFoundResponse
         try {
+            checkDiscriminator(jsonElement, "not_found");
             OAuthLoginRequestNotFoundResponse.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -282,6 +309,44 @@ public class OAuthLoginNotFoundResponse extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("error");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "not_found":
+            case "user_not_found":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("error");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected error to be " + value);
         }
     }
 

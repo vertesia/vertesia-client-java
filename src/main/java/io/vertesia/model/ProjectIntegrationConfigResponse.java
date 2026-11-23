@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,7 +79,8 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterGladiaConfiguration.toJsonTree(
                                                 (GladiaConfiguration) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `GithubConfiguration`
@@ -85,7 +88,8 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterGithubConfiguration.toJsonTree(
                                                 (GithubConfiguration) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `AwsConfiguration`
@@ -93,7 +97,8 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterAwsConfiguration.toJsonTree(
                                                 (AwsConfiguration) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `MagicPdfConfiguration`
@@ -101,7 +106,8 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterMagicPdfConfiguration.toJsonTree(
                                                 (MagicPdfConfiguration) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `SerperConfiguration`
@@ -109,7 +115,8 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterSerperConfiguration.toJsonTree(
                                                 (SerperConfiguration) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ExaConfiguration`
@@ -117,7 +124,8 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterExaConfiguration.toJsonTree(
                                                 (ExaConfiguration) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `LinkupConfiguration`
@@ -125,7 +133,8 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterLinkupConfiguration.toJsonTree(
                                                 (LinkupConfiguration) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ResendConfiguration`
@@ -133,7 +142,8 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterResendConfiguration.toJsonTree(
                                                 (ResendConfiguration) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -143,7 +153,13 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                         adapterAskUserWebhookConfiguration.toJsonTree(
                                                 (AskUserWebhookConfiguration)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -155,6 +171,12 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                 throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                ProjectIntegrationConfigResponse ret =
+                                        new ProjectIntegrationConfigResponse();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -163,6 +185,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                             // deserialize GladiaConfiguration
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "gladia");
                                 GladiaConfiguration.validateJsonElement(jsonElement);
                                 actualAdapter = adapterGladiaConfiguration;
                                 match++;
@@ -184,6 +207,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                             // deserialize GithubConfiguration
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "github");
                                 GithubConfiguration.validateJsonElement(jsonElement);
                                 actualAdapter = adapterGithubConfiguration;
                                 match++;
@@ -205,6 +229,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                             // deserialize AwsConfiguration
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "aws");
                                 AwsConfiguration.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAwsConfiguration;
                                 match++;
@@ -226,6 +251,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                             // deserialize MagicPdfConfiguration
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "magic_pdf");
                                 MagicPdfConfiguration.validateJsonElement(jsonElement);
                                 actualAdapter = adapterMagicPdfConfiguration;
                                 match++;
@@ -247,6 +273,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                             // deserialize SerperConfiguration
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "serper");
                                 SerperConfiguration.validateJsonElement(jsonElement);
                                 actualAdapter = adapterSerperConfiguration;
                                 match++;
@@ -268,6 +295,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                             // deserialize ExaConfiguration
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "exa");
                                 ExaConfiguration.validateJsonElement(jsonElement);
                                 actualAdapter = adapterExaConfiguration;
                                 match++;
@@ -289,6 +317,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                             // deserialize LinkupConfiguration
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "linkup");
                                 LinkupConfiguration.validateJsonElement(jsonElement);
                                 actualAdapter = adapterLinkupConfiguration;
                                 match++;
@@ -310,6 +339,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                             // deserialize ResendConfiguration
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "resend");
                                 ResendConfiguration.validateJsonElement(jsonElement);
                                 actualAdapter = adapterResendConfiguration;
                                 match++;
@@ -331,6 +361,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                             // deserialize AskUserWebhookConfiguration
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "ask_user_webhook");
                                 AskUserWebhookConfiguration.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAskUserWebhookConfiguration;
                                 match++;
@@ -354,6 +385,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                                 ProjectIntegrationConfigResponse ret =
                                         new ProjectIntegrationConfigResponse();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 
@@ -407,6 +439,11 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof GladiaConfiguration) {
             super.setActualInstance(instance);
             return;
@@ -583,11 +620,15 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to ProjectIntegrationConfigResponse
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with GladiaConfiguration
         try {
+            checkDiscriminator(jsonElement, "gladia");
             GladiaConfiguration.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -600,6 +641,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with GithubConfiguration
         try {
+            checkDiscriminator(jsonElement, "github");
             GithubConfiguration.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -612,6 +654,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with AwsConfiguration
         try {
+            checkDiscriminator(jsonElement, "aws");
             AwsConfiguration.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -624,6 +667,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with MagicPdfConfiguration
         try {
+            checkDiscriminator(jsonElement, "magic_pdf");
             MagicPdfConfiguration.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -636,6 +680,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with SerperConfiguration
         try {
+            checkDiscriminator(jsonElement, "serper");
             SerperConfiguration.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -648,6 +693,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with ExaConfiguration
         try {
+            checkDiscriminator(jsonElement, "exa");
             ExaConfiguration.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -660,6 +706,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with LinkupConfiguration
         try {
+            checkDiscriminator(jsonElement, "linkup");
             LinkupConfiguration.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -672,6 +719,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with ResendConfiguration
         try {
+            checkDiscriminator(jsonElement, "resend");
             ResendConfiguration.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -684,6 +732,7 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
         }
         // validate the json string with AskUserWebhookConfiguration
         try {
+            checkDiscriminator(jsonElement, "ask_user_webhook");
             AskUserWebhookConfiguration.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -702,6 +751,51 @@ public class ProjectIntegrationConfigResponse extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("integration");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "ask_user_webhook":
+            case "aws":
+            case "exa":
+            case "github":
+            case "gladia":
+            case "linkup":
+            case "magic_pdf":
+            case "resend":
+            case "serper":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("integration");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected integration to be " + value);
         }
     }
 

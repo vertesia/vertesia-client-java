@@ -24,6 +24,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -480,6 +482,9 @@ public class DSLWorkflowSpecWithActivities {
         return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
+    // The values received for the enum properties that this client version does not know.
+    private transient Object receivedEnumValues;
+
     public static HashSet<String> openapiFields;
     public static HashSet<String> openapiRequiredFields;
 
@@ -658,7 +663,7 @@ public class DSLWorkflowSpecWithActivities {
                                     }
                                 }
                             }
-                            elementAdapter.write(out, obj);
+                            JsonOutput.writeModel(out, elementAdapter, obj, value);
                         }
 
                         @Override
@@ -670,6 +675,7 @@ public class DSLWorkflowSpecWithActivities {
                             // store additional fields in the deserialized instance
                             DSLWorkflowSpecWithActivities instance =
                                     thisAdapter.fromJsonTree(jsonObj);
+                            UnknownEnumValues.keep(jsonObj, instance);
                             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                                 if (!openapiFields.contains(entry.getKey())) {
                                     if (entry.getValue().isJsonPrimitive()) { // primitive type

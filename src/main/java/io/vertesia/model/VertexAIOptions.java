@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,7 +65,8 @@ public class VertexAIOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterImagenOptions.toJsonTree(
                                                 (ImagenOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `VertexAIClaudeOptions`
@@ -71,7 +74,8 @@ public class VertexAIOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterVertexAIClaudeOptions.toJsonTree(
                                                 (VertexAIClaudeOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `VertexAIGeminiOptions`
@@ -79,7 +83,13 @@ public class VertexAIOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterVertexAIGeminiOptions.toJsonTree(
                                                 (VertexAIGeminiOptions) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -160,9 +170,15 @@ public class VertexAIOptions extends AbstractOpenApiSchema {
                             if (match == 1) {
                                 VertexAIOptions ret = new VertexAIOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 
+                            if (isUnknownVariant(jsonElement)) {
+                                VertexAIOptions ret = new VertexAIOptions();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
                             throw new IOException(
                                     String.format(
                                             java.util.Locale.ROOT,
@@ -207,6 +223,11 @@ public class VertexAIOptions extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof ImagenOptions) {
             super.setActualInstance(instance);
             return;
@@ -320,6 +341,9 @@ public class VertexAIOptions extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        if (validCount != 1 && isUnknownVariant(jsonElement)) {
+            return;
+        }
         if (validCount != 1) {
             throw new IOException(
                     String.format(
@@ -329,6 +353,20 @@ public class VertexAIOptions extends AbstractOpenApiSchema {
                             errorMessages,
                             jsonElement.toString()));
         }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: no known variant decodes it.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        return !jsonElement.isJsonNull();
     }
 
     /**

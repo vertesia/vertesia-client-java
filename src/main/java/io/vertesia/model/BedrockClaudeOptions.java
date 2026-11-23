@@ -23,6 +23,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -86,8 +88,9 @@ public class BedrockClaudeOptions {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            OptionIdEnum.fromValue(value);
+            if (!"bedrock-claude".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected _option_id to be bedrock-claude");
+            }
         }
     }
 
@@ -637,6 +640,9 @@ public class BedrockClaudeOptions {
         return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
+    // The values received for the enum properties that this client version does not know.
+    private transient Object receivedEnumValues;
+
     public static HashSet<String> openapiFields;
     public static HashSet<String> openapiRequiredFields;
 
@@ -766,14 +772,15 @@ public class BedrockClaudeOptions {
                         public void write(JsonWriter out, BedrockClaudeOptions value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-                            elementAdapter.write(out, obj);
+                            JsonOutput.writeModel(out, elementAdapter, obj, value);
                         }
 
                         @Override
                         public BedrockClaudeOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            return UnknownEnumValues.keep(
+                                    jsonElement, thisAdapter.fromJsonTree(jsonElement));
                         }
                     }.nullSafe();
         }

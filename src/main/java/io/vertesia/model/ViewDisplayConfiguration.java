@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,7 +70,8 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterViewListDisplay.toJsonTree(
                                                 (ViewListDisplay) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ViewTableDisplay`
@@ -76,7 +79,8 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterViewTableDisplay.toJsonTree(
                                                 (ViewTableDisplay) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ViewCardsDisplay`
@@ -84,7 +88,8 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterViewCardsDisplay.toJsonTree(
                                                 (ViewCardsDisplay) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ViewGalleryDisplay`
@@ -92,7 +97,8 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterViewGalleryDisplay.toJsonTree(
                                                 (ViewGalleryDisplay) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ViewBoardDisplay`
@@ -100,7 +106,13 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterViewBoardDisplay.toJsonTree(
                                                 (ViewBoardDisplay) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -111,6 +123,11 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                         public ViewDisplayConfiguration read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                ViewDisplayConfiguration ret = new ViewDisplayConfiguration();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -119,6 +136,7 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                             // deserialize ViewListDisplay
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "list");
                                 ViewListDisplay.validateJsonElement(jsonElement);
                                 actualAdapter = adapterViewListDisplay;
                                 match++;
@@ -138,6 +156,7 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                             // deserialize ViewTableDisplay
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "table");
                                 ViewTableDisplay.validateJsonElement(jsonElement);
                                 actualAdapter = adapterViewTableDisplay;
                                 match++;
@@ -159,6 +178,7 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                             // deserialize ViewCardsDisplay
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "cards");
                                 ViewCardsDisplay.validateJsonElement(jsonElement);
                                 actualAdapter = adapterViewCardsDisplay;
                                 match++;
@@ -180,6 +200,7 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                             // deserialize ViewGalleryDisplay
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "gallery");
                                 ViewGalleryDisplay.validateJsonElement(jsonElement);
                                 actualAdapter = adapterViewGalleryDisplay;
                                 match++;
@@ -201,6 +222,7 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                             // deserialize ViewBoardDisplay
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "board");
                                 ViewBoardDisplay.validateJsonElement(jsonElement);
                                 actualAdapter = adapterViewBoardDisplay;
                                 match++;
@@ -223,6 +245,7 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                             if (match == 1) {
                                 ViewDisplayConfiguration ret = new ViewDisplayConfiguration();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 
@@ -272,6 +295,11 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof ViewListDisplay) {
             super.setActualInstance(instance);
             return;
@@ -380,11 +408,15 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to ViewDisplayConfiguration
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with ViewListDisplay
         try {
+            checkDiscriminator(jsonElement, "list");
             ViewListDisplay.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -397,6 +429,7 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
         }
         // validate the json string with ViewTableDisplay
         try {
+            checkDiscriminator(jsonElement, "table");
             ViewTableDisplay.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -409,6 +442,7 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
         }
         // validate the json string with ViewCardsDisplay
         try {
+            checkDiscriminator(jsonElement, "cards");
             ViewCardsDisplay.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -421,6 +455,7 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
         }
         // validate the json string with ViewGalleryDisplay
         try {
+            checkDiscriminator(jsonElement, "gallery");
             ViewGalleryDisplay.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -433,6 +468,7 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
         }
         // validate the json string with ViewBoardDisplay
         try {
+            checkDiscriminator(jsonElement, "board");
             ViewBoardDisplay.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -451,6 +487,47 @@ public class ViewDisplayConfiguration extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "board":
+            case "cards":
+            case "gallery":
+            case "list":
+            case "table":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected type to be " + value);
         }
     }
 

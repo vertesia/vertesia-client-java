@@ -21,6 +21,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,7 +76,8 @@ public class PromptSegmentDefTemplate extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterPromptTemplate.toJsonTree(
                                                 (PromptTemplate) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `PromptTemplateRef`
@@ -82,7 +85,13 @@ public class PromptSegmentDefTemplate extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterPromptTemplateRef.toJsonTree(
                                                 (PromptTemplateRef) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -110,6 +119,7 @@ public class PromptSegmentDefTemplate extends AbstractOpenApiSchema {
                                 actualAdapter = adapterString;
                                 PromptSegmentDefTemplate ret = new PromptSegmentDefTemplate();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -130,6 +140,7 @@ public class PromptSegmentDefTemplate extends AbstractOpenApiSchema {
                                 actualAdapter = adapterPromptTemplate;
                                 PromptSegmentDefTemplate ret = new PromptSegmentDefTemplate();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -150,6 +161,7 @@ public class PromptSegmentDefTemplate extends AbstractOpenApiSchema {
                                 actualAdapter = adapterPromptTemplateRef;
                                 PromptSegmentDefTemplate ret = new PromptSegmentDefTemplate();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
@@ -164,6 +176,11 @@ public class PromptSegmentDefTemplate extends AbstractOpenApiSchema {
                                         e);
                             }
 
+                            if (isUnknownVariant(jsonElement)) {
+                                PromptSegmentDefTemplate ret = new PromptSegmentDefTemplate();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
                             throw new IOException(
                                     String.format(
                                             java.util.Locale.ROOT,
@@ -207,6 +224,11 @@ public class PromptSegmentDefTemplate extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof String) {
             super.setActualInstance(instance);
             return;
@@ -322,12 +344,29 @@ public class PromptSegmentDefTemplate extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         throw new IOException(
                 String.format(
                         java.util.Locale.ROOT,
                         "The JSON string is invalid for PromptSegmentDefTemplate with anyOf schemas: PromptTemplate, PromptTemplateRef, String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
                         errorMessages,
                         jsonElement.toString()));
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: no known variant decodes it.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        return !jsonElement.isJsonNull();
     }
 
     /**

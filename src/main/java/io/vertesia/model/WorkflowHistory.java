@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,7 +65,8 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterWorkflowEventsHistory.toJsonTree(
                                                 (WorkflowEventsHistory) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `WorkflowTasksHistory`
@@ -71,7 +74,8 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterWorkflowTasksHistory.toJsonTree(
                                                 (WorkflowTasksHistory) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `WorkflowAgentHistory`
@@ -79,7 +83,13 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterWorkflowAgentHistory.toJsonTree(
                                                 (WorkflowAgentHistory) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -90,6 +100,11 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                         public WorkflowHistory read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                WorkflowHistory ret = new WorkflowHistory();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -98,6 +113,7 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                             // deserialize WorkflowEventsHistory
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "events");
                                 WorkflowEventsHistory.validateJsonElement(jsonElement);
                                 actualAdapter = adapterWorkflowEventsHistory;
                                 match++;
@@ -119,6 +135,7 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                             // deserialize WorkflowTasksHistory
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "tasks");
                                 WorkflowTasksHistory.validateJsonElement(jsonElement);
                                 actualAdapter = adapterWorkflowTasksHistory;
                                 match++;
@@ -140,6 +157,7 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                             // deserialize WorkflowAgentHistory
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "agent");
                                 WorkflowAgentHistory.validateJsonElement(jsonElement);
                                 actualAdapter = adapterWorkflowAgentHistory;
                                 match++;
@@ -162,6 +180,7 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                             if (match == 1) {
                                 WorkflowHistory ret = new WorkflowHistory();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 
@@ -209,6 +228,11 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof WorkflowEventsHistory) {
             super.setActualInstance(instance);
             return;
@@ -283,11 +307,15 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to WorkflowHistory
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with WorkflowEventsHistory
         try {
+            checkDiscriminator(jsonElement, "events");
             WorkflowEventsHistory.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -300,6 +328,7 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
         }
         // validate the json string with WorkflowTasksHistory
         try {
+            checkDiscriminator(jsonElement, "tasks");
             WorkflowTasksHistory.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -312,6 +341,7 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
         }
         // validate the json string with WorkflowAgentHistory
         try {
+            checkDiscriminator(jsonElement, "agent");
             WorkflowAgentHistory.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -330,6 +360,45 @@ public class WorkflowHistory extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "agent":
+            case "events":
+            case "tasks":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected type to be " + value);
         }
     }
 

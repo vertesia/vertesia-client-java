@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,7 +71,8 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterApiKeyTokenRequest.toJsonTree(
                                                 (ApiKeyTokenRequest) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `UserTokenRequest`
@@ -77,7 +80,8 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterUserTokenRequest.toJsonTree(
                                                 (UserTokenRequest) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ProjectTokenRequest`
@@ -85,7 +89,8 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterProjectTokenRequest.toJsonTree(
                                                 (ProjectTokenRequest) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `EnvironmentTokenRequest`
@@ -94,7 +99,8 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                                         adapterEnvironmentTokenRequest.toJsonTree(
                                                 (EnvironmentTokenRequest)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `AgentTokenRequest`
@@ -102,7 +108,8 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterAgentTokenRequest.toJsonTree(
                                                 (AgentTokenRequest) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -112,7 +119,13 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                                         adapterServiceAccountTokenRequest.toJsonTree(
                                                 (ServiceAccountTokenRequest)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -123,6 +136,11 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                         public IssueTokenRequest read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                IssueTokenRequest ret = new IssueTokenRequest();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -131,6 +149,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                             // deserialize ApiKeyTokenRequest
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "apikey");
                                 ApiKeyTokenRequest.validateJsonElement(jsonElement);
                                 actualAdapter = adapterApiKeyTokenRequest;
                                 match++;
@@ -152,6 +171,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                             // deserialize UserTokenRequest
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "user");
                                 UserTokenRequest.validateJsonElement(jsonElement);
                                 actualAdapter = adapterUserTokenRequest;
                                 match++;
@@ -173,6 +193,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                             // deserialize ProjectTokenRequest
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "project");
                                 ProjectTokenRequest.validateJsonElement(jsonElement);
                                 actualAdapter = adapterProjectTokenRequest;
                                 match++;
@@ -194,6 +215,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                             // deserialize EnvironmentTokenRequest
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "environment");
                                 EnvironmentTokenRequest.validateJsonElement(jsonElement);
                                 actualAdapter = adapterEnvironmentTokenRequest;
                                 match++;
@@ -215,6 +237,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                             // deserialize AgentTokenRequest
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "agent");
                                 AgentTokenRequest.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAgentTokenRequest;
                                 match++;
@@ -236,6 +259,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                             // deserialize ServiceAccountTokenRequest
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "service_account");
                                 ServiceAccountTokenRequest.validateJsonElement(jsonElement);
                                 actualAdapter = adapterServiceAccountTokenRequest;
                                 match++;
@@ -258,6 +282,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                             if (match == 1) {
                                 IssueTokenRequest ret = new IssueTokenRequest();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 
@@ -308,6 +333,11 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof ApiKeyTokenRequest) {
             super.setActualInstance(instance);
             return;
@@ -433,11 +463,15 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to IssueTokenRequest
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with ApiKeyTokenRequest
         try {
+            checkDiscriminator(jsonElement, "apikey");
             ApiKeyTokenRequest.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -450,6 +484,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
         }
         // validate the json string with UserTokenRequest
         try {
+            checkDiscriminator(jsonElement, "user");
             UserTokenRequest.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -462,6 +497,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
         }
         // validate the json string with ProjectTokenRequest
         try {
+            checkDiscriminator(jsonElement, "project");
             ProjectTokenRequest.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -474,6 +510,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
         }
         // validate the json string with EnvironmentTokenRequest
         try {
+            checkDiscriminator(jsonElement, "environment");
             EnvironmentTokenRequest.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -486,6 +523,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
         }
         // validate the json string with AgentTokenRequest
         try {
+            checkDiscriminator(jsonElement, "agent");
             AgentTokenRequest.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -498,6 +536,7 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
         }
         // validate the json string with ServiceAccountTokenRequest
         try {
+            checkDiscriminator(jsonElement, "service_account");
             ServiceAccountTokenRequest.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -516,6 +555,48 @@ public class IssueTokenRequest extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "agent":
+            case "apikey":
+            case "environment":
+            case "project":
+            case "service_account":
+            case "user":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("type");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected type to be " + value);
         }
     }
 

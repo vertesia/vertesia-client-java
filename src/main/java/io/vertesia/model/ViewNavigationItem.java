@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
+import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -67,7 +69,8 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterViewLocationNavigation.toJsonTree(
                                                 (ViewLocationNavigation) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type
@@ -77,7 +80,8 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                                         adapterViewCollectionNavigation.toJsonTree(
                                                 (ViewCollectionNavigation)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ViewTermsNavigation`
@@ -85,7 +89,8 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterViewTermsNavigation.toJsonTree(
                                                 (ViewTermsNavigation) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ViewHierarchyNavigation`
@@ -94,7 +99,8 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                                         adapterViewHierarchyNavigation.toJsonTree(
                                                 (ViewHierarchyNavigation)
                                                         value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
                             // check if the actual instance is of the type `ViewRangeNavigation`
@@ -102,7 +108,13 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterViewRangeNavigation.toJsonTree(
                                                 (ViewRangeNavigation) value.getActualInstance());
-                                elementAdapter.write(out, element);
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
+                            if (value.getActualInstance() instanceof JsonElement) {
+                                JsonElement raw = (JsonElement) value.getActualInstance();
+                                JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
@@ -113,6 +125,11 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                         public ViewNavigationItem read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
+                            if (isUnknownVariant(jsonElement)) {
+                                ViewNavigationItem ret = new ViewNavigationItem();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
 
                             int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
@@ -121,6 +138,7 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                             // deserialize ViewLocationNavigation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "location");
                                 ViewLocationNavigation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterViewLocationNavigation;
                                 match++;
@@ -142,6 +160,7 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                             // deserialize ViewCollectionNavigation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "collection");
                                 ViewCollectionNavigation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterViewCollectionNavigation;
                                 match++;
@@ -163,6 +182,7 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                             // deserialize ViewTermsNavigation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "terms");
                                 ViewTermsNavigation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterViewTermsNavigation;
                                 match++;
@@ -184,6 +204,7 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                             // deserialize ViewHierarchyNavigation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "hierarchy");
                                 ViewHierarchyNavigation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterViewHierarchyNavigation;
                                 match++;
@@ -205,6 +226,7 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                             // deserialize ViewRangeNavigation
                             try {
                                 // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "range");
                                 ViewRangeNavigation.validateJsonElement(jsonElement);
                                 actualAdapter = adapterViewRangeNavigation;
                                 match++;
@@ -227,6 +249,7 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                             if (match == 1) {
                                 ViewNavigationItem ret = new ViewNavigationItem();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
                             }
 
@@ -276,6 +299,11 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof JsonElement) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof ViewLocationNavigation) {
             super.setActualInstance(instance);
             return;
@@ -384,11 +412,15 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to ViewNavigationItem
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with ViewLocationNavigation
         try {
+            checkDiscriminator(jsonElement, "location");
             ViewLocationNavigation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -401,6 +433,7 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
         }
         // validate the json string with ViewCollectionNavigation
         try {
+            checkDiscriminator(jsonElement, "collection");
             ViewCollectionNavigation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -413,6 +446,7 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
         }
         // validate the json string with ViewTermsNavigation
         try {
+            checkDiscriminator(jsonElement, "terms");
             ViewTermsNavigation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -425,6 +459,7 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
         }
         // validate the json string with ViewHierarchyNavigation
         try {
+            checkDiscriminator(jsonElement, "hierarchy");
             ViewHierarchyNavigation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -437,6 +472,7 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
         }
         // validate the json string with ViewRangeNavigation
         try {
+            checkDiscriminator(jsonElement, "range");
             ViewRangeNavigation.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
@@ -455,6 +491,47 @@ public class ViewNavigationItem extends AbstractOpenApiSchema {
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Returns a variant added by a newer server, as it was received, or null for a variant this
+     * client version knows.
+     */
+    public JsonElement getRaw() {
+        Object instance = getActualInstance();
+        return instance instanceof JsonElement ? (JsonElement) instance : null;
+    }
+
+    // A variant added by a newer server: a discriminator value this client does not know.
+    private static boolean isUnknownVariant(JsonElement jsonElement) {
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        JsonElement tag = jsonElement.getAsJsonObject().get("source");
+        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
+            return false;
+        }
+        switch (tag.getAsString()) {
+            case "":
+            case "collection":
+            case "hierarchy":
+            case "location":
+            case "range":
+            case "terms":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
+    // accepts any value when the tag is an enum with an unknown-value default.
+    private static void checkDiscriminator(JsonElement jsonElement, String value)
+            throws IOException {
+        JsonElement tag = jsonElement.getAsJsonObject().get("source");
+        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
+            throw new IOException("Expected source to be " + value);
         }
     }
 
