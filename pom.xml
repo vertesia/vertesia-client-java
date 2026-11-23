@@ -70,13 +70,6 @@
                 <artifactId>kotlin-stdlib</artifactId>
                 <version>${kotlin-stdlib-version}</version>
             </dependency>
-            <!-- Oltu 1.0.2 pulls org.json 20140107, which is under the non-open-source JSON License and has
-                 known CVEs. The pinned release is public domain (its POM and the JSON-java LICENSE). -->
-            <dependency>
-                <groupId>org.json</groupId>
-                <artifactId>json</artifactId>
-                <version>${org-json-version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -106,6 +99,20 @@
             <groupId>org.apache.oltu.oauth2</groupId>
             <artifactId>org.apache.oltu.oauth2.client</artifactId>
             <version>1.0.2</version>
+            <exclusions>
+                <!-- Oltu 1.0.2 pulls org.json 20140107, which is under the non-open-source JSON License and has
+                     known CVEs. Consumers resolve this POM without our dependencyManagement, so the old
+                     version is excluded here and the public-domain release declared directly below. -->
+                <exclusion>
+                    <groupId>org.json</groupId>
+                    <artifactId>json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${org-json-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
