@@ -46,7 +46,7 @@
         <kotlin-stdlib-version>2.4.21</kotlin-stdlib-version>
         <jackson-databind-nullable-version>0.2.13</jackson-databind-nullable-version>
         <jakarta-annotation-version>3.0.0</jakarta-annotation-version>
-        <jakarta.ws.rs-api-version>4.0.0</jakarta.ws.rs-api-version>
+        <org-json-version>20260814</org-json-version>
         <junit-version>6.1.3</junit-version>
         <spotless-maven-plugin.version>3.11.0</spotless-maven-plugin.version>
         <google-java-format.version>1.28.0</google-java-format.version>
@@ -69,6 +69,13 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-stdlib</artifactId>
                 <version>${kotlin-stdlib-version}</version>
+            </dependency>
+            <!-- Oltu 1.0.2 pulls org.json 20140107, which is under the non-open-source JSON License and has
+                 known CVEs. The pinned release is public domain (its POM and the JSON-java LICENSE). -->
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>${org-json-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -112,11 +119,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>jakarta.ws.rs</groupId>
-            <artifactId>jakarta.ws.rs-api</artifactId>
-            <version>${jakarta.ws.rs-api-version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.openapitools</groupId>
             <artifactId>jackson-databind-nullable</artifactId>
             <version>${jackson-databind-nullable-version}</version>
@@ -143,6 +145,16 @@
                 <filtering>true</filtering>
                 <includes>
                     <include>io/vertesia/vertesia-client.properties</include>
+                </includes>
+            </resource>
+            <!-- Ship the license and notice in META-INF of the jar and the sources jar. -->
+            <resource>
+                <directory>${project.basedir}</directory>
+                <targetPath>META-INF</targetPath>
+                <filtering>false</filtering>
+                <includes>
+                    <include>LICENSE</include>
+                    <include>NOTICE</include>
                 </includes>
             </resource>
         </resources>
