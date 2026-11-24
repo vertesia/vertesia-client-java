@@ -36,7 +36,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class ExecutionEnvironmentConfigUpdatePayload {
     public static final String SERIALIZED_NAME_ENABLED_MODELS = "enabled_models";
 

@@ -39,7 +39,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class ContentSourceStatus {
     /**
      * &#x60;waiting&#x60; between syncs, &#x60;running&#x60; during one, &#x60;stopped&#x60; when its credentials were refused or the source is being deleted.

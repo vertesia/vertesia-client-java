@@ -14,6 +14,7 @@ package io.vertesia.model;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
@@ -38,7 +39,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class ContentTypeIntakePolicy {
     public static final String SERIALIZED_NAME_MEDIA_ANALYSIS = "media_analysis";
 
@@ -645,7 +646,9 @@ public class ContentTypeIntakePolicy {
                                                 entry.getKey(), (Character) entry.getValue());
                                     else {
                                         JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                                        if (jsonElement.isJsonArray()) {
+                                        if (jsonElement.isJsonNull()) {
+                                            obj.add(entry.getKey(), JsonNull.INSTANCE);
+                                        } else if (jsonElement.isJsonArray()) {
                                             obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                                         } else {
                                             obj.add(entry.getKey(), jsonElement.getAsJsonObject());

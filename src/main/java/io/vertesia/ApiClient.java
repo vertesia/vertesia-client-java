@@ -16,9 +16,6 @@ import io.vertesia.auth.ApiKeyAuth;
 import io.vertesia.auth.Authentication;
 import io.vertesia.auth.HttpBasicAuth;
 import io.vertesia.auth.HttpBearerAuth;
-import io.vertesia.auth.OAuth;
-import io.vertesia.auth.OAuthFlow;
-import io.vertesia.auth.RetryingOAuth;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,7 +50,6 @@ import okhttp3.logging.HttpLoggingInterceptor.Level;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.Okio;
-import org.apache.oltu.oauth2.client.request.OAuthClientRequest.TokenRequestBuilder;
 
 /**
  * <p>ApiClient class.</p>
@@ -112,7 +108,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
-        authentications.put("OAuth2", new OAuth());
+        authentications.put("OAuth2", new HttpBearerAuth("bearer"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -129,76 +125,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
-        authentications.put("OAuth2", new OAuth());
-        // Prevent the authentications from being modified.
-        authentications = Collections.unmodifiableMap(authentications);
-    }
-
-    /**
-     * Constructor for ApiClient to support access token retry on 401/403 configured with client ID
-     *
-     * @param clientId client ID
-     */
-    public ApiClient(String clientId) {
-        this(clientId, null, null);
-    }
-
-    /**
-     * Constructor for ApiClient to support access token retry on 401/403 configured with client ID and additional parameters
-     *
-     * @param clientId client ID
-     * @param parameters a {@link java.util.Map} of parameters
-     */
-    public ApiClient(String clientId, Map<String, String> parameters) {
-        this(clientId, null, parameters);
-    }
-
-    /**
-     * Constructor for ApiClient to support access token retry on 401/403 configured with client ID, secret, and additional parameters
-     *
-     * @param clientId client ID
-     * @param clientSecret client secret
-     * @param parameters a {@link java.util.Map} of parameters
-     */
-    public ApiClient(String clientId, String clientSecret, Map<String, String> parameters) {
-        this(null, clientId, clientSecret, parameters);
-    }
-
-    /**
-     * Constructor for ApiClient to support access token retry on 401/403 configured with base path, client ID, secret, and additional parameters
-     *
-     * @param basePath base path
-     * @param clientId client ID
-     * @param clientSecret client secret
-     * @param parameters a {@link java.util.Map} of parameters
-     */
-    public ApiClient(
-            String basePath, String clientId, String clientSecret, Map<String, String> parameters) {
-        init();
-        if (basePath != null) {
-            this.basePath = basePath;
-        }
-
-        String tokenUrl = "https://sts.vertesia.io/oauth/token";
-        if (!"".equals(tokenUrl) && !URI.create(tokenUrl).isAbsolute()) {
-            URI uri = URI.create(getBasePath());
-            tokenUrl =
-                    uri.getScheme()
-                            + ":"
-                            + (uri.getAuthority() != null ? "//" + uri.getAuthority() : "")
-                            + tokenUrl;
-            if (!URI.create(tokenUrl).isAbsolute()) {
-                throw new IllegalArgumentException("OAuth2 token URL must be an absolute URL");
-            }
-        }
-        RetryingOAuth retryingOAuth =
-                new RetryingOAuth(
-                        tokenUrl, clientId, OAuthFlow.ACCESS_CODE, clientSecret, parameters);
-        authentications.put("OAuth2", retryingOAuth);
-        initHttpClient(Collections.<Interceptor>singletonList(retryingOAuth));
-        // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
-
+        authentications.put("OAuth2", new HttpBearerAuth("bearer"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -466,6 +393,17 @@ public class ApiClient {
     }
 
     /**
+     * <p>Set LocalDateTimeFormat.</p>
+     *
+     * @param dateFormat a {@link java.time.format.DateTimeFormatter} object
+     * @return a {@link io.vertesia.ApiClient} object
+     */
+    public ApiClient setLocalDateTimeFormat(DateTimeFormatter dateFormat) {
+        JSON.setLocalDateTimeFormat(dateFormat);
+        return this;
+    }
+
+    /**
      * <p>Set LenientOnJson.</p>
      *
      * @param lenientOnJson a boolean
@@ -509,11 +447,12 @@ public class ApiClient {
      * @param tokenSupplier The supplier of bearer tokens
      */
     public void setBearerToken(Supplier<String> tokenSupplier) {
-        for (Authentication auth : authentications.values()) {
-            if (auth instanceof HttpBearerAuth) {
-                ((HttpBearerAuth) auth).setBearerToken(tokenSupplier);
-                return;
-            }
+        // By name: the OAuth2 scheme is generated as a bearer scheme too, and must not take this
+        // token.
+        Authentication auth = authentications.get("bearerAuth");
+        if (auth instanceof HttpBearerAuth) {
+            ((HttpBearerAuth) auth).setBearerToken(tokenSupplier);
+            return;
         }
         throw new RuntimeException("No Bearer authentication configured!");
     }
@@ -579,16 +518,17 @@ public class ApiClient {
     }
 
     /**
-     * Helper method to set access token for the first OAuth2 authentication.
+     * Helper method to set the access token for the OAuth2 scheme, sent as {@code Authorization: Bearer <token>}
+     * on the operations that accept OAuth2. Those operations apply OAuth2 before bearerAuth, so a token from
+     * {@link #setBearerToken(String)} or {@link #setBearerToken(Supplier)} takes precedence.
      *
-     * @param accessToken Access token
+     * @param accessToken Access token, or null to clear it
      */
     public void setAccessToken(String accessToken) {
-        for (Authentication auth : authentications.values()) {
-            if (auth instanceof OAuth) {
-                ((OAuth) auth).setAccessToken(accessToken);
-                return;
-            }
+        Authentication auth = authentications.get("OAuth2");
+        if (auth instanceof HttpBearerAuth) {
+            ((HttpBearerAuth) auth).setBearerToken(accessToken);
+            return;
         }
         throw new RuntimeException("No OAuth2 authentication configured!");
     }
@@ -787,21 +727,6 @@ public class ApiClient {
     }
 
     /**
-     * Helper method to configure the token endpoint of the first oauth found in the apiAuthorizations (there should be only one)
-     *
-     * @return Token request builder
-     */
-    public TokenRequestBuilder getTokenEndPoint() {
-        for (Authentication apiAuth : authentications.values()) {
-            if (apiAuth instanceof RetryingOAuth) {
-                RetryingOAuth retryingOAuth = (RetryingOAuth) apiAuth;
-                return retryingOAuth.getTokenRequestBuilder();
-            }
-        }
-        return null;
-    }
-
-    /**
      * Format the given parameter object into string.
      *
      * @param param Parameter
@@ -828,6 +753,46 @@ public class ApiClient {
         } else {
             return String.valueOf(param);
         }
+    }
+
+    /**
+     * Format the given parameter object as an ASCII-safe JSON string.
+     *
+     * @param param Parameter
+     * @return JSON representation of the parameter
+     */
+    public String parameterToJsonString(Object param) {
+        if (param == null) {
+            return "";
+        }
+        String json = JSON.serialize(param);
+        int firstUnsafe = -1;
+        for (int i = 0; i < json.length(); i++) {
+            if (json.charAt(i) >= 0x7f) {
+                firstUnsafe = i;
+                break;
+            }
+        }
+        if (firstUnsafe == -1) {
+            return json;
+        }
+
+        StringBuilder escaped = new StringBuilder(json.length());
+        escaped.append(json, 0, firstUnsafe);
+        for (int i = firstUnsafe; i < json.length(); i++) {
+            char c = json.charAt(i);
+            if (c >= 0x7f) {
+                escaped.append("\\u");
+                escaped.append(Character.forDigit((c >> 12) & 0xf, 16));
+                escaped.append(Character.forDigit((c >> 8) & 0xf, 16));
+                escaped.append(Character.forDigit((c >> 4) & 0xf, 16));
+                escaped.append(Character.forDigit(c & 0xf, 16));
+            } else {
+                escaped.append(c);
+            }
+        }
+
+        return escaped.toString();
     }
 
     /**

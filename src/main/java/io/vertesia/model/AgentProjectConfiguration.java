@@ -35,7 +35,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class AgentProjectConfiguration {
     /**
      * LLM evaluation policy. Defaults to always_on when omitted. disabled prevents evaluation even when requested; opt_in requires evaluate&#x3D;true on the run; always_on evaluates every eligible run without sampling. Deterministic diagnostics are unaffected.

@@ -15,6 +15,7 @@ package io.vertesia.model;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
@@ -42,7 +43,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class AsyncConversationExecutionPayload {
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
@@ -488,7 +489,7 @@ public class AsyncConversationExecutionPayload {
     }
 
     /**
-     * Get data
+     * If a &#x60;@memory&#x60; property exists on the input data then the value will be used as the value of a memory pack location. and the other properties of the data will contain the memory pack mapping. Must be a JSON object: it is passed to the agent run as its input.
      * @return data
      */
     @jakarta.annotation.Nullable public Object getData() {
@@ -586,7 +587,7 @@ public class AsyncConversationExecutionPayload {
     }
 
     /**
-     * Get conversation
+     * The conversation state to be used in the execution if any. If the &#x60;true&#x60; is passed then the conversation will be returned in the result. The true value must be used for the first execution that starts the conversation. If conversation is falsy then no conversation is returned back. For regular executions the conversation is not returned back to save memory.
      * @return conversation
      */
     @jakarta.annotation.Nullable public Object getConversation() {
@@ -2051,7 +2052,9 @@ public class AsyncConversationExecutionPayload {
                                                 entry.getKey(), (Character) entry.getValue());
                                     else {
                                         JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                                        if (jsonElement.isJsonArray()) {
+                                        if (jsonElement.isJsonNull()) {
+                                            obj.add(entry.getKey(), JsonNull.INSTANCE);
+                                        } else if (jsonElement.isJsonArray()) {
                                             obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                                         } else {
                                             obj.add(entry.getKey(), jsonElement.getAsJsonObject());

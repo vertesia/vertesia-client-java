@@ -35,7 +35,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class WebsiteCredentialSecretInputOauth {
     public static final String SERIALIZED_NAME_PROVIDER_ID = "provider_id";
 

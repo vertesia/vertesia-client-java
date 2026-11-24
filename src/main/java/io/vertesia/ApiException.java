@@ -21,7 +21,7 @@ import java.util.Map;
 @SuppressWarnings("serial")
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class ApiException extends Exception {
     private static final long serialVersionUID = 1L;
 

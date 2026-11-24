@@ -14,6 +14,7 @@ package io.vertesia.model;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
@@ -39,7 +40,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class AppInstallationPayload {
     public static final String SERIALIZED_NAME_APP_ID = "app_id";
 
@@ -70,14 +71,12 @@ public class AppInstallationPayload {
     public static final String SERIALIZED_NAME_MCP_SHARED_PARAMETERS = "mcp_shared_parameters";
 
     @SerializedName(SERIALIZED_NAME_MCP_SHARED_PARAMETERS)
-    @jakarta.annotation.Nullable private Map<String, AppInstallationPayloadMcpSharedParametersValue> mcpSharedParameters =
-            new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, String> mcpSharedParameters = new HashMap<>();
 
     public static final String SERIALIZED_NAME_MCP_PARAMETERS = "mcp_parameters";
 
     @SerializedName(SERIALIZED_NAME_MCP_PARAMETERS)
-    @jakarta.annotation.Nullable private Map<String, Map<String, AppInstallationPayloadMcpSharedParametersValue>> mcpParameters =
-            new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Map<String, String>> mcpParameters = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
@@ -210,14 +209,13 @@ public class AppInstallationPayload {
     }
 
     public AppInstallationPayload mcpSharedParameters(
-            @jakarta.annotation.Nullable Map<String, AppInstallationPayloadMcpSharedParametersValue>
-                            mcpSharedParameters) {
+            @jakarta.annotation.Nullable Map<String, String> mcpSharedParameters) {
         this.mcpSharedParameters = mcpSharedParameters;
         return this;
     }
 
     public AppInstallationPayload putMcpSharedParametersItem(
-            String key, AppInstallationPayloadMcpSharedParametersValue mcpSharedParametersItem) {
+            String key, String mcpSharedParametersItem) {
         if (this.mcpSharedParameters == null) {
             this.mcpSharedParameters = new HashMap<>();
         }
@@ -229,26 +227,23 @@ public class AppInstallationPayload {
      * Shared MCP parameter overrides. Omitted values are retained; null clears an override or restores its default.
      * @return mcpSharedParameters
      */
-    @jakarta.annotation.Nullable public Map<String, AppInstallationPayloadMcpSharedParametersValue> getMcpSharedParameters() {
+    @jakarta.annotation.Nullable public Map<String, String> getMcpSharedParameters() {
         return mcpSharedParameters;
     }
 
     public void setMcpSharedParameters(
-            @jakarta.annotation.Nullable Map<String, AppInstallationPayloadMcpSharedParametersValue>
-                            mcpSharedParameters) {
+            @jakarta.annotation.Nullable Map<String, String> mcpSharedParameters) {
         this.mcpSharedParameters = mcpSharedParameters;
     }
 
     public AppInstallationPayload mcpParameters(
-            @jakarta.annotation.Nullable Map<String, Map<String, AppInstallationPayloadMcpSharedParametersValue>>
-                            mcpParameters) {
+            @jakarta.annotation.Nullable Map<String, Map<String, String>> mcpParameters) {
         this.mcpParameters = mcpParameters;
         return this;
     }
 
     public AppInstallationPayload putMcpParametersItem(
-            String key,
-            Map<String, AppInstallationPayloadMcpSharedParametersValue> mcpParametersItem) {
+            String key, Map<String, String> mcpParametersItem) {
         if (this.mcpParameters == null) {
             this.mcpParameters = new HashMap<>();
         }
@@ -260,14 +255,12 @@ public class AppInstallationPayload {
      * Installation parameter overrides by MCP collection id. Omit to preserve; null clears an override. Secret inputs are write-only.
      * @return mcpParameters
      */
-    @jakarta.annotation.Nullable public Map<String, Map<String, AppInstallationPayloadMcpSharedParametersValue>>
-            getMcpParameters() {
+    @jakarta.annotation.Nullable public Map<String, Map<String, String>> getMcpParameters() {
         return mcpParameters;
     }
 
     public void setMcpParameters(
-            @jakarta.annotation.Nullable Map<String, Map<String, AppInstallationPayloadMcpSharedParametersValue>>
-                            mcpParameters) {
+            @jakarta.annotation.Nullable Map<String, Map<String, String>> mcpParameters) {
         this.mcpParameters = mcpParameters;
     }
 
@@ -712,7 +705,9 @@ public class AppInstallationPayload {
                                                 entry.getKey(), (Character) entry.getValue());
                                     else {
                                         JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                                        if (jsonElement.isJsonArray()) {
+                                        if (jsonElement.isJsonNull()) {
+                                            obj.add(entry.getKey(), JsonNull.INSTANCE);
+                                        } else if (jsonElement.isJsonArray()) {
                                             obj.add(entry.getKey(), jsonElement.getAsJsonArray());
                                         } else {
                                             obj.add(entry.getKey(), jsonElement.getAsJsonObject());

@@ -33,7 +33,7 @@ import java.util.logging.Logger;
 
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class InteractionsExportPayloadVersionsInner extends AbstractOpenApiSchema {
     private static final Logger log =
             Logger.getLogger(InteractionsExportPayloadVersionsInner.class.getName());

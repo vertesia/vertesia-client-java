@@ -36,7 +36,7 @@ import java.util.Objects;
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class ContentSourceRoundSummary {
     /**
      * &#x60;import&#x60; lists the whole folder; &#x60;update&#x60; reads the changes since the previous sync.

@@ -39,7 +39,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public class DSLChildWorkflowStepOptions {
     public static final String SERIALIZED_NAME_MEMO = "memo";
 

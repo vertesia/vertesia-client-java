@@ -17,7 +17,7 @@ package io.vertesia.auth;
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
-        comments = "Generator version: 7.22.0")
+        comments = "Generator version: 7.27.0")
 public enum OAuthFlow {
     ACCESS_CODE, // called authorizationCode  in OpenAPI 3.0
     IMPLICIT,
