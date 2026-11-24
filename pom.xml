@@ -154,7 +154,7 @@
                     <include>io/vertesia/vertesia-client.properties</include>
                 </includes>
             </resource>
-            <!-- Ship the license and notice in META-INF of the jar and the sources jar. -->
+            <!-- Ship the license and notice in META-INF of the jar and the sources jar (the javadoc jar is handled by antrun below). -->
             <resource>
                 <directory>${project.basedir}</directory>
                 <targetPath>META-INF</targetPath>
@@ -292,6 +292,33 @@
                         </tag>
                     </tags>
                 </configuration>
+            </plugin>
+            <!-- Ship the license and notice in META-INF of the javadoc jar. The javadoc plugin builds that jar
+                 from generated HTML only, so add the two files to it once it exists (this plugin must stay
+                 after maven-javadoc-plugin: executions of one phase run in declaration order). -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>javadoc-jar-license-notice</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <jar update="true" destfile="${project.build.directory}/${project.build.finalName}-javadoc.jar">
+                                    <zipfileset dir="${project.basedir}" prefix="META-INF">
+                                        <include name="LICENSE"/>
+                                        <include name="NOTICE"/>
+                                    </zipfileset>
+                                </jar>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
