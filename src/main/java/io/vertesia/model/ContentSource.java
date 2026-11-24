@@ -55,6 +55,11 @@ public class ContentSource {
     @SerializedName(SERIALIZED_NAME_ETAG)
     @jakarta.annotation.Nullable private String etag;
 
+    public static final String SERIALIZED_NAME_SHA256 = "sha256";
+
+    @SerializedName(SERIALIZED_NAME_SHA256)
+    @jakarta.annotation.Nullable private String sha256;
+
     public ContentSource() {}
 
     public ContentSource source(@jakarta.annotation.Nullable String source) {
@@ -125,6 +130,23 @@ public class ContentSource {
         this.etag = etag;
     }
 
+    public ContentSource sha256(@jakarta.annotation.Nullable String sha256) {
+        this.sha256 = sha256;
+        return this;
+    }
+
+    /**
+     * Lowercase hex SHA-256 of the content bytes, as computed by the uploader. Unlike &#x60;etag&#x60;, it does not depend on how the storage provider stores the file: an S3 object encrypted with a KMS key, or uploaded in parts, has an etag that is not a hash of its bytes. Omitted when the uploader did not compute it.
+     * @return sha256
+     */
+    @jakarta.annotation.Nullable public String getSha256() {
+        return sha256;
+    }
+
+    public void setSha256(@jakarta.annotation.Nullable String sha256) {
+        this.sha256 = sha256;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -137,12 +159,13 @@ public class ContentSource {
         return Objects.equals(this.source, contentSource.source)
                 && Objects.equals(this.type, contentSource.type)
                 && Objects.equals(this.name, contentSource.name)
-                && Objects.equals(this.etag, contentSource.etag);
+                && Objects.equals(this.etag, contentSource.etag)
+                && Objects.equals(this.sha256, contentSource.sha256);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(source, type, name, etag);
+        return Objects.hash(source, type, name, etag, sha256);
     }
 
     @Override
@@ -153,6 +176,7 @@ public class ContentSource {
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    etag: ").append(toIndentedString(etag)).append("\n");
+        sb.append("    sha256: ").append(toIndentedString(sha256)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -170,7 +194,8 @@ public class ContentSource {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("source", "type", "name", "etag"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("source", "type", "name", "etag", "sha256"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -225,6 +250,14 @@ public class ContentSource {
                             java.util.Locale.ROOT,
                             "Expected the field `etag` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("etag").toString()));
+        }
+        if ((jsonObj.get("sha256") != null && !jsonObj.get("sha256").isJsonNull())
+                && !jsonObj.get("sha256").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `sha256` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("sha256").toString()));
         }
     }
 

@@ -174,6 +174,9 @@ public class InteractionRunsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 502 </td><td> The failed run: the model provider answered with an error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> The failed run: no capacity to run it now; retry later. </td><td>  -  </td></tr>
+         * <tr><td> 504 </td><td> The failed run: the model provider timed out. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
          */
@@ -191,6 +194,9 @@ public class InteractionRunsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 502 </td><td> The failed run: the model provider answered with an error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> The failed run: no capacity to run it now; retry later. </td><td>  -  </td></tr>
+         * <tr><td> 504 </td><td> The failed run: the model provider timed out. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
          */
@@ -210,6 +216,9 @@ public class InteractionRunsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 502 </td><td> The failed run: the model provider answered with an error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> The failed run: no capacity to run it now; retry later. </td><td>  -  </td></tr>
+         * <tr><td> 504 </td><td> The failed run: the model provider timed out. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
          */
@@ -228,6 +237,9 @@ public class InteractionRunsApi {
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 502 </td><td> The failed run: the model provider answered with an error. </td><td>  -  </td></tr>
+         * <tr><td> 503 </td><td> The failed run: no capacity to run it now; retry later. </td><td>  -  </td></tr>
+         * <tr><td> 504 </td><td> The failed run: the model provider timed out. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
          */
@@ -248,6 +260,9 @@ public class InteractionRunsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The created execution run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 502 </td><td> The failed run: the model provider answered with an error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> The failed run: no capacity to run it now; retry later. </td><td>  -  </td></tr>
+     * <tr><td> 504 </td><td> The failed run: the model provider timed out. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
