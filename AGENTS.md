@@ -155,8 +155,6 @@ environment.
 - Generated models are patched for forward compatibility: unknown response
   fields are ignored, and unknown enum values decode to `UNKNOWN_DEFAULT_OPEN_API`
   and are written back as received (`UnknownEnumValues`).
-- The client is generated for bearer authentication only: `openapi-generator-config.yaml`
-  filters out the spec's `OAuth2` scheme, so no OAuth helpers or Apache Oltu dependency.
 - TLS verification cannot be disabled. Use `ApiClient.setSslCaCert(...)` to
   trust a private certificate authority.
 
@@ -201,8 +199,9 @@ Runtime dependencies and Maven plugin versions live in `pom.xml`. There is no
 committed Maven lock file. Keep dependencies compatible with Java 17 and avoid
 broad major version changes unless the user asks for that risk.
 
-Dependabot also bumps the OpenAPI Generator image in `generator/Dockerfile`.
-Those PRs are reviewed by hand: the `Regenerate` job in `test.yaml` regenerates
+On `main`, Dependabot also bumps the OpenAPI Generator image in
+`generator/Dockerfile`; `release/1.6` stays on 7.22.0 so its generated API does
+not change. Bump PRs are reviewed by hand: the `Regenerate` job in `test.yaml` regenerates
 the client with the new release and runs the tests, but the generated code only
 changes on the next sync.
 
