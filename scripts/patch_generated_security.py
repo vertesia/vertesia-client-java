@@ -4,6 +4,9 @@
 OpenAPI Generator's Java ApiClient can emit support for disabling TLS
 verification. This client intentionally does not support that insecure mode;
 use setSslCaCert for private CAs instead.
+
+The client is generated for bearer authentication only, which leaves
+setAccessToken throwing; it is patched to set the bearer token instead.
 """
 
 from __future__ import annotations
@@ -139,6 +142,51 @@ def patch_apply_ssl_settings(text: str) -> tuple[str, bool]:
     return patched, True
 
 
+SET_ACCESS_TOKEN_WITHOUT_OAUTH = re.compile(
+    r"""    /\*\*
+     \* Helper method to set access token for the first OAuth2 authentication\.
+     \*
+     \* @param accessToken Access token
+     \*/
+    public void setAccessToken\(String accessToken\) \{
+        throw new RuntimeException\("No OAuth2 authentication configured!"\);
+    \}
+"""
+)
+
+SET_ACCESS_TOKEN_BEARER = """    /**
+     * Helper method to set the access token sent as {@code Authorization: Bearer <token>}. The client is
+     * generated for bearer authentication only, so this is the same as {@link #setBearerToken(String)}.
+     *
+     * @param accessToken Access token
+     */
+    public void setAccessToken(String accessToken) {
+        setBearerToken(accessToken);
+    }
+"""
+
+SET_ACCESS_TOKEN_DELEGATES = re.compile(
+    r"public void setAccessToken\(String accessToken\) \{\s*setBearerToken\(accessToken\);\s*\}"
+)
+
+
+def patch_set_access_token(text: str) -> tuple[str, bool]:
+    """Keep ApiClient.setAccessToken working when the client is generated without OAuth.
+
+    The generator emits setAccessToken either way; without an OAuth security scheme its body only throws.
+    Callers used it to send a bearer token (through the OAuth2 scheme), so delegate to setBearerToken.
+    """
+    if SET_ACCESS_TOKEN_DELEGATES.search(text):
+        return text, False
+    patched, count = SET_ACCESS_TOKEN_WITHOUT_OAUTH.subn(SET_ACCESS_TOKEN_BEARER, text)
+    if count == 1:
+        return patched, True
+    if "((OAuth) auth).setAccessToken(accessToken);" in text:
+        # Generated with an OAuth scheme: the method already sends the token.
+        return text, False
+    raise RuntimeError("ApiClient.setAccessToken did not match an expected shape")
+
+
 def main() -> None:
     text = API_CLIENT.read_text()
     patched = text.replace(CERTIFICATE_EXCEPTION_IMPORT, "")
@@ -146,7 +194,8 @@ def main() -> None:
 
     patched, set_changed = patch_set_verifying_ssl(patched)
     patched, apply_changed = patch_apply_ssl_settings(patched)
-    changed = changed or set_changed or apply_changed
+    patched, token_changed = patch_set_access_token(patched)
+    changed = changed or set_changed or apply_changed or token_changed
 
     if changed:
         API_CLIENT.write_text(patched)
