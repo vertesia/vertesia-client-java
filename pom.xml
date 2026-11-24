@@ -46,6 +46,7 @@
         <kotlin-stdlib-version>2.4.21</kotlin-stdlib-version>
         <jackson-databind-nullable-version>0.2.13</jackson-databind-nullable-version>
         <jakarta-annotation-version>3.0.0</jakarta-annotation-version>
+        <org-json-version>20260814</org-json-version>
         <jakarta.ws.rs-api-version>4.0.0</jakarta.ws.rs-api-version>
         <junit-version>6.1.3</junit-version>
         <spotless-maven-plugin.version>3.10.4</spotless-maven-plugin.version>
@@ -99,6 +100,20 @@
             <groupId>org.apache.oltu.oauth2</groupId>
             <artifactId>org.apache.oltu.oauth2.client</artifactId>
             <version>1.0.2</version>
+            <exclusions>
+                <!-- Oltu 1.0.2 pulls org.json 20140107, which is under the non-open-source JSON License and has
+                     known CVEs. Consumers resolve this POM without our dependencyManagement, so the old
+                     version is excluded here and the public-domain release declared directly below. -->
+                <exclusion>
+                    <groupId>org.json</groupId>
+                    <artifactId>json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${org-json-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
