@@ -6037,7 +6037,7 @@ public class InteractionsApi {
 
         /**
          * Set environment
-         * @param environment  (optional)
+         * @param environment Environment ID, as 24 hexadecimal characters. An empty string applies no filter. (optional)
          * @return APIlistInteractionTagsRequest
          */
         public APIlistInteractionTagsRequest environment(
@@ -6971,7 +6971,7 @@ public class InteractionsApi {
 
         /**
          * Set environment
-         * @param environment  (optional)
+         * @param environment Environment ID, as 24 hexadecimal characters. An empty string applies no filter. (optional)
          * @return APIlistInteractionsRequest
          */
         public APIlistInteractionsRequest environment(

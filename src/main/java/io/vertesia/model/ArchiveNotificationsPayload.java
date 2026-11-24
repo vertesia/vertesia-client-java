@@ -59,7 +59,7 @@ public class ArchiveNotificationsPayload {
     }
 
     /**
-     * Get ids
+     * Notification IDs, as 24 hexadecimal characters.
      * @return ids
      */
     @jakarta.annotation.Nonnull

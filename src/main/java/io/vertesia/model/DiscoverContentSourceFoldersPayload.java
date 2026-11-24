@@ -145,7 +145,7 @@ public class DiscoverContentSourceFoldersPayload {
     }
 
     /**
-     * An OAuth provider of this project with grant type &#x60;client_credentials&#x60; for the system.
+     * An OAuth provider of this project with grant type &#x60;client_credentials&#x60; for the system, as 24 hexadecimal characters.
      * @return oauthProviderId
      */
     @jakarta.annotation.Nonnull

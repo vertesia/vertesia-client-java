@@ -438,7 +438,7 @@ public class NotificationsApi {
     /**
      * Get a notification
      * Returns one of the current user’s notifications.
-     * @param notificationId  (required)
+     * @param notificationId The notification ID, as 24 hexadecimal characters. (required)
      * @return APIgetNotificationRequest
      * @http.response.details
      * <table border="1">

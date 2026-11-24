@@ -36,7 +36,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Payload for creating an OAuth Provider. The client_secret is accepted as plaintext on create and stored encrypted.
+ * Payload for creating an OAuth Provider. The client_secret is accepted as plaintext on create and stored encrypted. &#x60;private_key_jwt&#x60; and a non-empty &#x60;allowed_scopes&#x60; require the &#x60;client_credentials&#x60; grant; the grant defaults to &#x60;authorization_code&#x60;.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

@@ -76,7 +76,7 @@ public class ExportPropertiesPayload {
     }
 
     /**
-     * Get objectIds
+     * Content object IDs, as 24 hexadecimal characters. Empty exports all objects.
      * @return objectIds
      */
     @jakarta.annotation.Nonnull

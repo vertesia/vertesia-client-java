@@ -1722,7 +1722,7 @@ public class ContentSourcesApi {
      * Get a sync round&#39;s report
      * Pages through the files a sync round created, updated, deleted, skipped or failed, optionally of one action. Round IDs are in the status&#39;s &#x60;recent_rounds&#x60;; the reports of older rounds are deleted. An unknown round has an empty report.  **Required permissions:** Any of &#x60;content_source:manage&#x60;, &#x60;project:settings_write&#x60;
      * @param sourceId  (required)
-     * @param roundId  (required)
+     * @param roundId The sync round ID: 1 to 64 letters, digits, &#x60;_&#x60; or &#x60;-&#x60;. (required)
      * @return APIgetContentSourceRoundReportRequest
      * @http.response.details
      * <table border="1">

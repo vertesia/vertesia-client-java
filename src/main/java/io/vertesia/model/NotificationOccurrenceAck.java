@@ -61,7 +61,7 @@ public class NotificationOccurrenceAck {
     }
 
     /**
-     * Get type
+     * The occurrence type: agent_request, task, agent_run_end, agent_turn, object, inference_budget.
      * @return type
      */
     @jakarta.annotation.Nonnull

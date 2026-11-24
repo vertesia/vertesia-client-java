@@ -64,7 +64,7 @@ public class MarkNotificationsReadPayload {
     }
 
     /**
-     * Get ids
+     * Notification IDs, as 24 hexadecimal characters.
      * @return ids
      */
     @jakarta.annotation.Nullable public List<String> getIds() {
