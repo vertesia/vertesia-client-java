@@ -895,6 +895,7 @@ src/main/java/io/vertesia/model/ObjectSearchResponse.java
 src/main/java/io/vertesia/model/OidcFederationConnection.java
 src/main/java/io/vertesia/model/OidcFederationConnectionPayload.java
 src/main/java/io/vertesia/model/OnboardingProgress.java
+src/main/java/io/vertesia/model/OpenAICompatibleApi.java
 src/main/java/io/vertesia/model/OpenAiAudioOptions.java
 src/main/java/io/vertesia/model/OpenAiDalleOptions.java
 src/main/java/io/vertesia/model/OpenAiGptImageOptions.java
