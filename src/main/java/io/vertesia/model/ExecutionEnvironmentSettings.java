@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
+import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -42,6 +43,11 @@ public class ExecutionEnvironmentSettings {
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_HEADERS)
     @jakarta.annotation.Nullable private Map<String, String> defaultHeaders;
+
+    public static final String SERIALIZED_NAME_OPENAI_API = "openai_api";
+
+    @SerializedName(SERIALIZED_NAME_OPENAI_API)
+    @jakarta.annotation.Nullable private OpenAICompatibleApi openaiApi;
 
     public ExecutionEnvironmentSettings() {}
 
@@ -70,6 +76,24 @@ public class ExecutionEnvironmentSettings {
 
     public void setDefaultHeaders(@jakarta.annotation.Nullable Map<String, String> defaultHeaders) {
         this.defaultHeaders = defaultHeaders;
+    }
+
+    public ExecutionEnvironmentSettings openaiApi(
+            @jakarta.annotation.Nullable OpenAICompatibleApi openaiApi) {
+        this.openaiApi = openaiApi;
+        return this;
+    }
+
+    /**
+     * Get openaiApi
+     * @return openaiApi
+     */
+    @jakarta.annotation.Nullable public OpenAICompatibleApi getOpenaiApi() {
+        return openaiApi;
+    }
+
+    public void setOpenaiApi(@jakarta.annotation.Nullable OpenAICompatibleApi openaiApi) {
+        this.openaiApi = openaiApi;
     }
 
     /**
@@ -128,6 +152,7 @@ public class ExecutionEnvironmentSettings {
         ExecutionEnvironmentSettings executionEnvironmentSettings =
                 (ExecutionEnvironmentSettings) o;
         return Objects.equals(this.defaultHeaders, executionEnvironmentSettings.defaultHeaders)
+                && Objects.equals(this.openaiApi, executionEnvironmentSettings.openaiApi)
                 && Objects.equals(
                         this.additionalProperties,
                         executionEnvironmentSettings.additionalProperties);
@@ -135,7 +160,7 @@ public class ExecutionEnvironmentSettings {
 
     @Override
     public int hashCode() {
-        return Objects.hash(defaultHeaders, additionalProperties);
+        return Objects.hash(defaultHeaders, openaiApi, additionalProperties);
     }
 
     @Override
@@ -143,6 +168,7 @@ public class ExecutionEnvironmentSettings {
         StringBuilder sb = new StringBuilder();
         sb.append("class ExecutionEnvironmentSettings {\n");
         sb.append("    defaultHeaders: ").append(toIndentedString(defaultHeaders)).append("\n");
+        sb.append("    openaiApi: ").append(toIndentedString(openaiApi)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -158,12 +184,15 @@ public class ExecutionEnvironmentSettings {
         return o == null ? "null" : o.toString().replace("\n", "\n    ");
     }
 
+    // The values received for the enum properties that this client version does not know.
+    private transient Object receivedEnumValues;
+
     public static HashSet<String> openapiFields;
     public static HashSet<String> openapiRequiredFields;
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("default_headers"));
+        openapiFields = new HashSet<String>(Arrays.asList("default_headers", "openai_api"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -187,6 +216,10 @@ public class ExecutionEnvironmentSettings {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `openai_api`
+        if (jsonObj.get("openai_api") != null && !jsonObj.get("openai_api").isJsonNull()) {
+            OpenAICompatibleApi.validateJsonElement(jsonObj.get("openai_api"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -243,6 +276,7 @@ public class ExecutionEnvironmentSettings {
                             // store additional fields in the deserialized instance
                             ExecutionEnvironmentSettings instance =
                                     thisAdapter.fromJsonTree(jsonObj);
+                            UnknownEnumValues.keep(jsonObj, instance);
                             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                                 if (!openapiFields.contains(entry.getKey())) {
                                     if (entry.getValue().isJsonPrimitive()) { // primitive type
