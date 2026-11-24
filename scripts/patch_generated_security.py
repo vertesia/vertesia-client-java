@@ -155,7 +155,7 @@ SET_ACCESS_TOKEN_WITHOUT_OAUTH = re.compile(
 """
 )
 
-OAUTH2_SCHEME_SETTER = """    /**
+ACCESS_TOKEN_SETTER = """    /**
      * Helper method to set the access token for the OAuth2 scheme, sent as {@code Authorization: Bearer <token>}
      * on the operations that accept OAuth2. Those operations apply OAuth2 before bearerAuth, so a token from
      * {@link #setBearerToken(String)} or {@link #setBearerToken(Supplier)} takes precedence.
@@ -218,9 +218,9 @@ def patch_set_access_token(text: str) -> tuple[str, bool]:
     Callers used it to send a bearer token through the OAuth2 scheme, so set that scheme's token: the
     operations keep their OAuth2 entry, ordered before bearerAuth, so scope and precedence are unchanged.
     """
-    if OAUTH2_SCHEME_SETTER in text:
+    if ACCESS_TOKEN_SETTER in text:
         return text, False
-    patched, count = SET_ACCESS_TOKEN_WITHOUT_OAUTH.subn(OAUTH2_SCHEME_SETTER, text)
+    patched, count = SET_ACCESS_TOKEN_WITHOUT_OAUTH.subn(ACCESS_TOKEN_SETTER, text)
     if count == 1:
         if 'authentications.put("OAuth2", new HttpBearerAuth(' not in text:
             raise RuntimeError("ApiClient has no OAuth2 bearer scheme for setAccessToken")
