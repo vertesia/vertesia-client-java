@@ -6,7 +6,8 @@ verification. This client intentionally does not support that insecure mode;
 use setSslCaCert for private CAs instead.
 
 The client is generated for bearer authentication only, which leaves
-setAccessToken throwing; it is patched to set the bearer token instead.
+setAccessToken throwing; it is patched to keep the access token as a fallback
+bearer token, which a token from setBearerToken overrides.
 """
 
 from __future__ import annotations
@@ -154,19 +155,37 @@ SET_ACCESS_TOKEN_WITHOUT_OAUTH = re.compile(
 """
 )
 
-SET_ACCESS_TOKEN_BEARER = """    /**
-     * Helper method to set the access token sent as {@code Authorization: Bearer <token>}. The client is
-     * generated for bearer authentication only, so this is the same as {@link #setBearerToken(String)}.
+SET_ACCESS_TOKEN_FALLBACK = """    /**
+     * Access token set by {@link #setAccessToken(String)}, sent when no bearer token is configured.
+     */
+    private String fallbackAccessToken;
+
+    /**
+     * Helper method to set the access token sent as {@code Authorization: Bearer <token>} on authenticated
+     * requests. A token from {@link #setBearerToken(String)} or {@link #setBearerToken(Supplier)} takes
+     * precedence: the access token is sent only when no bearer token is set or the supplier returns null.
      *
-     * @param accessToken Access token
+     * @param accessToken Access token, or null to clear it
      */
     public void setAccessToken(String accessToken) {
-        setBearerToken(accessToken);
+        this.fallbackAccessToken = accessToken;
     }
 """
 
-SET_ACCESS_TOKEN_DELEGATES = re.compile(
-    r"public void setAccessToken\(String accessToken\) \{\s*setBearerToken\(accessToken\);\s*\}"
+UPDATE_PARAMS_FOR_AUTH_LOOP = re.compile(
+    r"(    public void updateParamsForAuth\([^)]*\) throws ApiException \{\n)"
+    r"(        for \(String authName : authNames\) \{\n)"
+)
+
+UPDATE_PARAMS_FOR_AUTH_FALLBACK = r"""\1        if (fallbackAccessToken != null && authNames.length > 0) {
+            // Applied before the security schemes, so a bearer token from setBearerToken overrides it.
+            headerParams.put("Authorization", "Bearer " + fallbackAccessToken);
+        }
+\2"""
+
+FALLBACK_MARKERS = (
+    "private String fallbackAccessToken;",
+    "if (fallbackAccessToken != null && authNames.length > 0) {",
 )
 
 
@@ -174,15 +193,23 @@ def patch_set_access_token(text: str) -> tuple[str, bool]:
     """Keep ApiClient.setAccessToken working when the client is generated without OAuth.
 
     The generator emits setAccessToken either way; without an OAuth security scheme its body only throws.
-    Callers used it to send a bearer token (through the OAuth2 scheme), so delegate to setBearerToken.
+    Callers used it to send a bearer token through the OAuth2 scheme, which every operation applied before
+    bearerAuth: a token from setBearerToken (or a supplier returning non-null) won, and the access token was
+    the fallback. Keep that order by storing the access token and applying it before the security schemes.
     """
-    if SET_ACCESS_TOKEN_DELEGATES.search(text):
+    present = [marker in text for marker in FALLBACK_MARKERS]
+    if all(present):
         return text, False
-    patched, count = SET_ACCESS_TOKEN_WITHOUT_OAUTH.subn(SET_ACCESS_TOKEN_BEARER, text)
+    if any(present):
+        raise RuntimeError("ApiClient.setAccessToken is partly patched")
+    patched, count = SET_ACCESS_TOKEN_WITHOUT_OAUTH.subn(SET_ACCESS_TOKEN_FALLBACK, text)
     if count == 1:
+        patched, count = UPDATE_PARAMS_FOR_AUTH_LOOP.subn(UPDATE_PARAMS_FOR_AUTH_FALLBACK, patched)
+        if count != 1:
+            raise RuntimeError("ApiClient.updateParamsForAuth did not match the expected shape")
         return patched, True
     if "((OAuth) auth).setAccessToken(accessToken);" in text:
-        # Generated with an OAuth scheme: the method already sends the token.
+        # Generated with an OAuth scheme: the method already sends the token, with the same precedence.
         return text, False
     raise RuntimeError("ApiClient.setAccessToken did not match an expected shape")
 
