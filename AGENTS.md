@@ -82,7 +82,7 @@ needed, use:
 scripts/regenerate.sh
 ```
 
-This requires `openapi-generator` on `PATH`. The script runs:
+This requires `openapi-generator` 7.23.0 or later on `PATH`. The script runs:
 
 ```sh
 openapi-generator generate -c openapi-generator-config.yaml -i target/generator-spec.json
@@ -153,6 +153,8 @@ environment.
 - Generated models are patched for forward compatibility: unknown response
   fields are ignored, and unknown enum values decode to `UNKNOWN_DEFAULT_OPEN_API`
   and are written back as received (`UnknownEnumValues`).
+- The client is generated for bearer authentication only: `openapi-generator-config.yaml`
+  filters out the spec's `OAuth2` scheme, so no OAuth helpers or Apache Oltu dependency.
 - TLS verification cannot be disabled. Use `ApiClient.setSslCaCert(...)` to
   trust a private certificate authority.
 
