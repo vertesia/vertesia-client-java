@@ -32,3 +32,16 @@ updates:
           - "*"
     cooldown:
       default-days: 7
+
+  # The OpenAPI Generator release (generator/Dockerfile). Kept out of auto-merge: a new release can change the
+  # generated API, and the "Regenerate" test job shows whether it still builds and passes the tests.
+  - package-ecosystem: docker
+    directory: "/generator"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "10:00"
+      timezone: Etc/UTC
+    open-pull-requests-limit: 1
+    cooldown:
+      default-days: 7

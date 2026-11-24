@@ -82,10 +82,12 @@ needed, use:
 scripts/regenerate.sh
 ```
 
-This requires `openapi-generator` 7.23.0 or later on `PATH`. The script runs:
+This requires Docker: the script runs the OpenAPI Generator image pinned in
+`generator/Dockerfile`, which Dependabot keeps current. The upstream sync job
+runs the same image. The script runs:
 
 ```sh
-openapi-generator generate -c openapi-generator-config.yaml -i target/generator-spec.json
+docker run ... <generator/Dockerfile image> generate -c openapi-generator-config.yaml -i target/generator-spec.json
 scripts/post_generate.sh
 mvn -B test
 ```
@@ -198,6 +200,11 @@ uvx zizmor@1.24.1 --no-exit-codes --persona=auditor .github
 Runtime dependencies and Maven plugin versions live in `pom.xml`. There is no
 committed Maven lock file. Keep dependencies compatible with Java 17 and avoid
 broad major version changes unless the user asks for that risk.
+
+Dependabot also bumps the OpenAPI Generator image in `generator/Dockerfile`.
+Those PRs are reviewed by hand: the `Regenerate` job in `test.yaml` regenerates
+the client with the new release and runs the tests, but the generated code only
+changes on the next sync.
 
 Dependabot also manages GitHub Actions updates. When updating workflow action
 pins, resolve and pin the actual commit for the desired tag and update the tag
