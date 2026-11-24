@@ -12,10 +12,10 @@ import unittest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from patch_generated_security import patch_set_access_token  # noqa: E402
+from patch_generated_security import patch_set_access_token, patch_set_bearer_token  # noqa: E402
 
-# Shape of the openapi-generator v7 okhttp-gson ApiClient before Spotless runs, when the spec has no OAuth
-# security scheme (the client is generated for bearer authentication only).
+# Shapes of the openapi-generator v7 okhttp-gson ApiClient before Spotless runs. Without an oauth2-typed scheme,
+# setAccessToken only throws.
 SET_ACCESS_TOKEN_WITHOUT_OAUTH = """    /**
      * Helper method to set access token for the first OAuth2 authentication.
      *
@@ -26,21 +26,28 @@ SET_ACCESS_TOKEN_WITHOUT_OAUTH = """    /**
     }
 """
 
-UPDATE_PARAMS_FOR_AUTH = """    public void updateParamsForAuth(String[] authNames, List<Pair> queryParams, Map<String, String> headerParams,
-                                    Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException {
-        for (String authName : authNames) {
-            Authentication auth = authentications.get(authName);
-            if (auth == null) {
-                throw new RuntimeException("Authentication undefined: " + authName);
+SET_BEARER_TOKEN = """    public void setBearerToken(Supplier<String> tokenSupplier) {
+        for (Authentication auth : authentications.values()) {
+            if (auth instanceof HttpBearerAuth) {
+                ((HttpBearerAuth) auth).setBearerToken(tokenSupplier);
+                return;
             }
-            auth.applyToParams(queryParams, headerParams, cookieParams, payload, method, uri);
         }
+        throw new RuntimeException("No Bearer authentication configured!");
     }
 """
 
-WITHOUT_OAUTH = SET_ACCESS_TOKEN_WITHOUT_OAUTH + "\n" + UPDATE_PARAMS_FOR_AUTH
+# Shape with the spec's OAuth2 scheme generated as a bearer scheme (SET_BEARER_AUTH_FOR_NAME).
+TWO_BEARER_SCHEMES = (
+    """        authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
+        authentications.put("OAuth2", new HttpBearerAuth("bearer"));
+"""
+    + SET_BEARER_TOKEN
+    + "\n"
+    + SET_ACCESS_TOKEN_WITHOUT_OAUTH
+)
 
-# The same methods when the spec has an OAuth security scheme.
+# The same methods when the spec's OAuth2 scheme is generated as oauth2.
 WITH_OAUTH = """    /**
      * Helper method to set access token for the first OAuth2 authentication.
      *
@@ -55,23 +62,18 @@ WITH_OAUTH = """    /**
         }
         throw new RuntimeException("No OAuth2 authentication configured!");
     }
-
-""" + UPDATE_PARAMS_FOR_AUTH
+"""
 
 
 class PatchSetAccessTokenTest(unittest.TestCase):
-    def test_keeps_the_access_token_as_a_fallback_without_oauth(self) -> None:
-        patched, changed = patch_set_access_token(WITHOUT_OAUTH)
+    def test_sets_the_oauth2_bearer_scheme(self) -> None:
+        patched, changed = patch_set_access_token(TWO_BEARER_SCHEMES)
         self.assertTrue(changed)
-        self.assertIn("this.fallbackAccessToken = accessToken;", patched)
-        self.assertNotIn("No OAuth2 authentication configured!", patched)
-        # The fallback goes in before the security schemes run, so a bearer token overrides it.
-        fallback = patched.index('headerParams.put("Authorization", "Bearer " + fallbackAccessToken);')
-        self.assertLess(fallback, patched.index("for (String authName : authNames) {"))
-        self.assertGreater(fallback, patched.index("public void updateParamsForAuth("))
+        self.assertIn('Authentication auth = authentications.get("OAuth2");', patched)
+        self.assertIn("((HttpBearerAuth) auth).setBearerToken(accessToken);", patched)
 
     def test_is_idempotent(self) -> None:
-        patched, _ = patch_set_access_token(WITHOUT_OAUTH)
+        patched, _ = patch_set_access_token(TWO_BEARER_SCHEMES)
         again, changed = patch_set_access_token(patched)
         self.assertFalse(changed)
         self.assertEqual(patched, again)
@@ -81,13 +83,32 @@ class PatchSetAccessTokenTest(unittest.TestCase):
         self.assertFalse(changed)
         self.assertEqual(WITH_OAUTH, patched)
 
-    def test_fails_without_the_auth_loop(self) -> None:
+    def test_fails_without_an_oauth2_bearer_scheme(self) -> None:
+        # The OAuth2 scheme filtered out: setAccessToken would have nothing to set.
         with self.assertRaises(RuntimeError):
             patch_set_access_token(SET_ACCESS_TOKEN_WITHOUT_OAUTH)
 
     def test_fails_on_an_unknown_shape(self) -> None:
         with self.assertRaises(RuntimeError):
             patch_set_access_token("    public void setAccessToken(String accessToken) {\n        return;\n    }\n")
+
+
+class PatchSetBearerTokenTest(unittest.TestCase):
+    def test_sets_the_bearer_auth_scheme_by_name(self) -> None:
+        patched, changed = patch_set_bearer_token(SET_BEARER_TOKEN)
+        self.assertTrue(changed)
+        self.assertIn('Authentication auth = authentications.get("bearerAuth");', patched)
+        self.assertNotIn("authentications.values()", patched)
+
+    def test_is_idempotent(self) -> None:
+        patched, _ = patch_set_bearer_token(SET_BEARER_TOKEN)
+        again, changed = patch_set_bearer_token(patched)
+        self.assertFalse(changed)
+        self.assertEqual(patched, again)
+
+    def test_fails_on_an_unknown_shape(self) -> None:
+        with self.assertRaises(RuntimeError):
+            patch_set_bearer_token("    public void setBearerToken(Supplier<String> tokenSupplier) {\n    }\n")
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.sun.net.httpserver.HttpServer;
+import io.vertesia.api.AccountsApi;
 import io.vertesia.api.ProjectsApi;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
@@ -14,22 +15,23 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Callers of the low-level {@link ApiClient} authenticate with {@code setAccessToken}, {@code setBearerToken}
- * or both. The access token is sent as a bearer token, and a token from {@code setBearerToken} takes precedence
- * over it, whether or not the client is generated with an OAuth security scheme.
+ * or both. The access token is sent as a bearer token on the operations that accept the spec's OAuth2 scheme,
+ * and a token from {@code setBearerToken} takes precedence over it, whether the OAuth2 scheme is generated as
+ * oauth2 or as a bearer scheme.
  */
 class ApiClientAccessTokenTest {
     @Test
     void setAccessTokenSendsABearerAuthorizationHeader() throws Exception {
         assertEquals(
                 "Bearer access-token",
-                authorizationSentWith(client -> client.setAccessToken("access-token")));
+                projectsAuthorizationSentWith(client -> client.setAccessToken("access-token")));
     }
 
     @Test
     void aBearerTokenSupplierTakesPrecedenceOverTheAccessToken() throws Exception {
         assertEquals(
                 "Bearer supplied-token",
-                authorizationSentWith(
+                projectsAuthorizationSentWith(
                         client -> {
                             client.setBearerToken(() -> "supplied-token");
                             client.setAccessToken("fallback-token");
@@ -40,7 +42,7 @@ class ApiClientAccessTokenTest {
     void theAccessTokenIsSentWhenTheSupplierReturnsNull() throws Exception {
         assertEquals(
                 "Bearer fallback-token",
-                authorizationSentWith(
+                projectsAuthorizationSentWith(
                         client -> {
                             client.setBearerToken(() -> null);
                             client.setAccessToken("fallback-token");
@@ -51,7 +53,7 @@ class ApiClientAccessTokenTest {
     void clearingTheAccessTokenKeepsTheBearerTokenSupplier() throws Exception {
         assertEquals(
                 "Bearer supplied-token",
-                authorizationSentWith(
+                projectsAuthorizationSentWith(
                         client -> {
                             client.setBearerToken(() -> "supplied-token");
                             client.setAccessToken(null);
@@ -61,14 +63,45 @@ class ApiClientAccessTokenTest {
     @Test
     void clearingTheAccessTokenAloneSendsNoAuthorizationHeader() throws Exception {
         assertNull(
-                authorizationSentWith(
+                projectsAuthorizationSentWith(
                         client -> {
                             client.setAccessToken("access-token");
                             client.setAccessToken(null);
                         }));
     }
 
-    private static String authorizationSentWith(Consumer<ApiClient> configure) throws Exception {
+    // getStripeBillingStatus declares only bearerAuth: the access token never applied to it.
+    @Test
+    void theAccessTokenIsNotSentToOperationsThatOnlyAcceptBearerAuth() throws Exception {
+        assertNull(billingAuthorizationSentWith(client -> client.setAccessToken("access-token")));
+    }
+
+    @Test
+    void theBearerTokenIsSentToOperationsThatOnlyAcceptBearerAuth() throws Exception {
+        assertEquals(
+                "Bearer bearer-token",
+                billingAuthorizationSentWith(client -> client.setBearerToken("bearer-token")));
+    }
+
+    private static String projectsAuthorizationSentWith(Consumer<ApiClient> configure)
+            throws Exception {
+        return authorizationSentWith(
+                configure, client -> new ProjectsApi(client).listProjects().buildCall(null));
+    }
+
+    private static String billingAuthorizationSentWith(Consumer<ApiClient> configure)
+            throws Exception {
+        return authorizationSentWith(
+                configure,
+                client -> new AccountsApi(client).getStripeBillingStatus().buildCall(null));
+    }
+
+    private interface CallFactory {
+        okhttp3.Call create(ApiClient client) throws ApiException;
+    }
+
+    private static String authorizationSentWith(Consumer<ApiClient> configure, CallFactory request)
+            throws Exception {
         AtomicReference<String> authorization = new AtomicReference<>();
         HttpServer server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
         server.createContext(
@@ -88,7 +121,9 @@ class ApiClientAccessTokenTest {
             client.setBasePath("http://127.0.0.1:" + server.getAddress().getPort() + "/api/v1");
             configure.accept(client);
 
-            new ProjectsApi(client).listProjects().execute();
+            try (okhttp3.Response response = request.create(client).execute()) {
+                assertEquals(200, response.code());
+            }
 
             return authorization.get();
         } finally {

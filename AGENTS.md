@@ -155,9 +155,12 @@ environment.
 - Generated models are patched for forward compatibility: unknown response
   fields are ignored, and unknown enum values decode to `UNKNOWN_DEFAULT_OPEN_API`
   and are written back as received (`UnknownEnumValues`).
-- `openapi-generator-config.yaml` filters out the spec's `OAuth2` scheme, so the
-  generator writes a bearer-only client: no OAuth helpers, and
-  `ApiClient.setAccessToken` keeps working as a fallback behind `setBearerToken`.
+- `openapi-generator-config.yaml` generates the spec's `OAuth2` scheme as a
+  second bearer scheme (`SET_BEARER_AUTH_FOR_NAME`), so the generator writes no
+  OAuth helpers. Operations keep their spec security lists: `setAccessToken`
+  sets the `OAuth2` scheme, `setBearerToken` sets `bearerAuth` and wins where an
+  operation accepts both (`scripts/patch_generated_security.py` makes both
+  helpers pick their scheme by name).
   Until the upstream sync regenerates the client with this configuration, the
   committed sources still contain `RetryingOAuth`/`OAuthOkHttpClient`, and
   `pom.xml` keeps Apache Oltu; remove Oltu from `pom.xml` only after that sync.

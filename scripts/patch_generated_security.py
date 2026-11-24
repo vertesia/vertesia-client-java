@@ -5,9 +5,9 @@ OpenAPI Generator's Java ApiClient can emit support for disabling TLS
 verification. This client intentionally does not support that insecure mode;
 use setSslCaCert for private CAs instead.
 
-The client is generated for bearer authentication only, which leaves
-setAccessToken throwing; it is patched to keep the access token as a fallback
-bearer token, which a token from setBearerToken overrides.
+The spec's OAuth2 scheme is generated as a second bearer scheme, which leaves
+setAccessToken throwing and setBearerToken picking whichever bearer scheme a
+HashMap yields first; both are patched to set their scheme by name.
 """
 
 from __future__ import annotations
@@ -155,61 +155,78 @@ SET_ACCESS_TOKEN_WITHOUT_OAUTH = re.compile(
 """
 )
 
-SET_ACCESS_TOKEN_FALLBACK = """    /**
-     * Access token set by {@link #setAccessToken(String)}, sent when no bearer token is configured.
-     */
-    private String fallbackAccessToken;
-
-    /**
-     * Helper method to set the access token sent as {@code Authorization: Bearer <token>} on authenticated
-     * requests. A token from {@link #setBearerToken(String)} or {@link #setBearerToken(Supplier)} takes
-     * precedence: the access token is sent only when no bearer token is set or the supplier returns null.
+SET_ACCESS_TOKEN_OAUTH2_BEARER = """    /**
+     * Helper method to set the access token for the OAuth2 scheme, sent as {@code Authorization: Bearer <token>}
+     * on the operations that accept OAuth2. Those operations apply OAuth2 before bearerAuth, so a token from
+     * {@link #setBearerToken(String)} or {@link #setBearerToken(Supplier)} takes precedence.
      *
      * @param accessToken Access token, or null to clear it
      */
     public void setAccessToken(String accessToken) {
-        this.fallbackAccessToken = accessToken;
+        Authentication auth = authentications.get("OAuth2");
+        if (auth instanceof HttpBearerAuth) {
+            ((HttpBearerAuth) auth).setBearerToken(accessToken);
+            return;
+        }
+        throw new RuntimeException("No OAuth2 authentication configured!");
     }
 """
 
-UPDATE_PARAMS_FOR_AUTH_LOOP = re.compile(
-    r"(    public void updateParamsForAuth\([^)]*\) throws ApiException \{\n)"
-    r"(        for \(String authName : authNames\) \{\n)"
+SET_BEARER_TOKEN_FIRST = re.compile(
+    r"""    public void setBearerToken\(Supplier<String> tokenSupplier\) \{
+        for \(Authentication auth : authentications\.values\(\)\) \{
+            if \(auth instanceof HttpBearerAuth\) \{
+                \(\(HttpBearerAuth\) auth\)\.setBearerToken\(tokenSupplier\);
+                return;
+            \}
+        \}
+        throw new RuntimeException\("No Bearer authentication configured!"\);
+    \}
+"""
 )
 
-UPDATE_PARAMS_FOR_AUTH_FALLBACK = r"""\1        if (fallbackAccessToken != null && authNames.length > 0) {
-            // Applied before the security schemes, so a bearer token from setBearerToken overrides it.
-            headerParams.put("Authorization", "Bearer " + fallbackAccessToken);
+SET_BEARER_TOKEN_BY_NAME = """    public void setBearerToken(Supplier<String> tokenSupplier) {
+        // By name: the OAuth2 scheme is generated as a bearer scheme too, and must not take this token.
+        Authentication auth = authentications.get("bearerAuth");
+        if (auth instanceof HttpBearerAuth) {
+            ((HttpBearerAuth) auth).setBearerToken(tokenSupplier);
+            return;
         }
-\2"""
+        throw new RuntimeException("No Bearer authentication configured!");
+    }
+"""
 
-FALLBACK_MARKERS = (
-    "private String fallbackAccessToken;",
-    "if (fallbackAccessToken != null && authNames.length > 0) {",
-)
+
+def patch_set_bearer_token(text: str) -> tuple[str, bool]:
+    """Make ApiClient.setBearerToken set the bearerAuth scheme by name.
+
+    The generated helper sets the first HttpBearerAuth in a HashMap. With OAuth2 generated as a bearer scheme
+    there are two, and OAuth2 iterates first, so operations that only accept bearerAuth would get no token.
+    """
+    if SET_BEARER_TOKEN_BY_NAME in text:
+        return text, False
+    patched, count = SET_BEARER_TOKEN_FIRST.subn(SET_BEARER_TOKEN_BY_NAME, text)
+    if count != 1:
+        raise RuntimeError("ApiClient.setBearerToken(Supplier) did not match the expected shape")
+    return patched, True
 
 
 def patch_set_access_token(text: str) -> tuple[str, bool]:
-    """Keep ApiClient.setAccessToken working when the client is generated without OAuth.
+    """Keep ApiClient.setAccessToken working when OAuth2 is generated as a bearer scheme.
 
-    The generator emits setAccessToken either way; without an OAuth security scheme its body only throws.
-    Callers used it to send a bearer token through the OAuth2 scheme, which every operation applied before
-    bearerAuth: a token from setBearerToken (or a supplier returning non-null) won, and the access token was
-    the fallback. Keep that order by storing the access token and applying it before the security schemes.
+    The generator emits setAccessToken either way; without an oauth2-typed scheme its body only throws.
+    Callers used it to send a bearer token through the OAuth2 scheme, so set that scheme's token: the
+    operations keep their OAuth2 entry, ordered before bearerAuth, so scope and precedence are unchanged.
     """
-    present = [marker in text for marker in FALLBACK_MARKERS]
-    if all(present):
+    if SET_ACCESS_TOKEN_OAUTH2_BEARER in text:
         return text, False
-    if any(present):
-        raise RuntimeError("ApiClient.setAccessToken is partly patched")
-    patched, count = SET_ACCESS_TOKEN_WITHOUT_OAUTH.subn(SET_ACCESS_TOKEN_FALLBACK, text)
+    patched, count = SET_ACCESS_TOKEN_WITHOUT_OAUTH.subn(SET_ACCESS_TOKEN_OAUTH2_BEARER, text)
     if count == 1:
-        patched, count = UPDATE_PARAMS_FOR_AUTH_LOOP.subn(UPDATE_PARAMS_FOR_AUTH_FALLBACK, patched)
-        if count != 1:
-            raise RuntimeError("ApiClient.updateParamsForAuth did not match the expected shape")
+        if 'authentications.put("OAuth2", new HttpBearerAuth(' not in text:
+            raise RuntimeError("ApiClient has no OAuth2 bearer scheme for setAccessToken")
         return patched, True
     if "((OAuth) auth).setAccessToken(accessToken);" in text:
-        # Generated with an OAuth scheme: the method already sends the token, with the same precedence.
+        # Generated with an OAuth scheme: the method already sends the token.
         return text, False
     raise RuntimeError("ApiClient.setAccessToken did not match an expected shape")
 
@@ -222,7 +239,8 @@ def main() -> None:
     patched, set_changed = patch_set_verifying_ssl(patched)
     patched, apply_changed = patch_apply_ssl_settings(patched)
     patched, token_changed = patch_set_access_token(patched)
-    changed = changed or set_changed or apply_changed or token_changed
+    patched, bearer_changed = patch_set_bearer_token(patched)
+    changed = changed or set_changed or apply_changed or token_changed or bearer_changed
 
     if changed:
         API_CLIENT.write_text(patched)
