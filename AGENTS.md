@@ -82,10 +82,12 @@ needed, use:
 scripts/regenerate.sh
 ```
 
-This requires `openapi-generator` on `PATH`. The script runs:
+This requires Docker: the script runs the OpenAPI Generator image pinned in
+`generator/Dockerfile`, which Dependabot keeps current. The upstream sync job
+runs the same image. The script runs:
 
 ```sh
-openapi-generator generate -c openapi-generator-config.yaml -i target/generator-spec.json
+docker run ... <generator/Dockerfile image> generate -c openapi-generator-config.yaml -i target/generator-spec.json
 scripts/post_generate.sh
 mvn -B test
 ```
@@ -153,6 +155,15 @@ environment.
 - Generated models are patched for forward compatibility: unknown response
   fields are ignored, and unknown enum values decode to `UNKNOWN_DEFAULT_OPEN_API`
   and are written back as received (`UnknownEnumValues`).
+- `openapi-generator-config.yaml` generates the spec's `OAuth2` scheme as a
+  second bearer scheme (`SET_BEARER_AUTH_FOR_NAME`), so the generator writes no
+  OAuth helpers. Operations keep their spec security lists: `setAccessToken`
+  sets the `OAuth2` scheme, `setBearerToken` sets `bearerAuth` and wins where an
+  operation accepts both (`scripts/patch_generated_security.py` makes both
+  helpers pick their scheme by name).
+  Until the upstream sync regenerates the client with this configuration, the
+  committed sources still contain `RetryingOAuth`/`OAuthOkHttpClient`, and
+  `pom.xml` keeps Apache Oltu; remove Oltu from `pom.xml` only after that sync.
 - TLS verification cannot be disabled. Use `ApiClient.setSslCaCert(...)` to
   trust a private certificate authority.
 
@@ -196,6 +207,11 @@ uvx zizmor@1.24.1 --no-exit-codes --persona=auditor .github
 Runtime dependencies and Maven plugin versions live in `pom.xml`. There is no
 committed Maven lock file. Keep dependencies compatible with Java 17 and avoid
 broad major version changes unless the user asks for that risk.
+
+Dependabot also bumps the OpenAPI Generator image in `generator/Dockerfile`.
+Those PRs are reviewed by hand: the `Regenerate` job in `test.yaml` regenerates
+the client with the new release and runs the tests, but the generated code only
+changes on the next sync.
 
 Dependabot also manages GitHub Actions updates. When updating workflow action
 pins, resolve and pin the actual commit for the desired tag and update the tag

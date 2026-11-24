@@ -34,3 +34,11 @@ additionalProperties:
   useSingleRequestParameter: true
   licenseName: Apache-2.0
   licenseUrl: https://www.apache.org/licenses/LICENSE-2.0
+
+openapiNormalizer:
+  # Generate the spec's OAuth2 scheme as a second bearer scheme. The client authenticates with bearer tokens
+  # (VertesiaClient, TokenSource); as an oauth2 scheme it would make the generator emit browser-flow helpers
+  # built on Apache Oltu, which is retired. Keeping the scheme, rather than filtering it out, keeps each
+  # operation's security list as the spec declares it, so ApiClient.setAccessToken still applies to exactly the
+  # operations that accept OAuth2 (see scripts/patch_generated_security.py).
+  SET_BEARER_AUTH_FOR_NAME: "OAuth2"
