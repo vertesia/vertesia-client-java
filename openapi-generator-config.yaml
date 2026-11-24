@@ -38,5 +38,6 @@ additionalProperties:
 openapiNormalizer:
   # Generate for bearer tokens only. The client authenticates with bearer tokens (VertesiaClient, TokenSource);
   # the spec's OAuth2 scheme would make the generator emit browser-flow helpers built on Apache Oltu, which is
-  # retired. Needs openapi-generator 7.23.0 or later; older releases ignore the rule with a warning.
+  # retired. Needs openapi-generator 7.23.0 or later (pinned in generator/Dockerfile); older releases ignore
+  # the rule with a warning.
   SECURITY_SCHEMES_FILTER: "key:bearerAuth"
