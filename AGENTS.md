@@ -155,8 +155,12 @@ environment.
 - Generated models are patched for forward compatibility: unknown response
   fields are ignored, and unknown enum values decode to `UNKNOWN_DEFAULT_OPEN_API`
   and are written back as received (`UnknownEnumValues`).
-- The client is generated for bearer authentication only: `openapi-generator-config.yaml`
-  filters out the spec's `OAuth2` scheme, so no OAuth helpers or Apache Oltu dependency.
+- `openapi-generator-config.yaml` filters out the spec's `OAuth2` scheme, so the
+  generator writes a bearer-only client: no OAuth helpers, and
+  `ApiClient.setAccessToken` keeps working as a fallback behind `setBearerToken`.
+  Until the upstream sync regenerates the client with this configuration, the
+  committed sources still contain `RetryingOAuth`/`OAuthOkHttpClient`, and
+  `pom.xml` keeps Apache Oltu; remove Oltu from `pom.xml` only after that sync.
 - TLS verification cannot be disabled. Use `ApiClient.setSslCaCert(...)` to
   trust a private certificate authority.
 
