@@ -237,6 +237,11 @@ public class ConversationState {
     @SerializedName(SERIALIZED_NAME_PENDING_MCP_CONNECTIONS)
     @jakarta.annotation.Nullable private List<PendingMcpConnection> pendingMcpConnections = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_HELD_MCP_RECONNECTS = "held_mcp_reconnects";
+
+    @SerializedName(SERIALIZED_NAME_HELD_MCP_RECONNECTS)
+    @jakarta.annotation.Nullable private List<HeldMcpReconnect> heldMcpReconnects = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_ACTIVE_ACTIVITY_GROUP_ID =
             "active_activity_group_id";
 
@@ -1060,6 +1065,33 @@ public class ConversationState {
         this.pendingMcpConnections = pendingMcpConnections;
     }
 
+    public ConversationState heldMcpReconnects(
+            @jakarta.annotation.Nullable List<HeldMcpReconnect> heldMcpReconnects) {
+        this.heldMcpReconnects = heldMcpReconnects;
+        return this;
+    }
+
+    public ConversationState addHeldMcpReconnectsItem(HeldMcpReconnect heldMcpReconnectsItem) {
+        if (this.heldMcpReconnects == null) {
+            this.heldMcpReconnects = new ArrayList<>();
+        }
+        this.heldMcpReconnects.add(heldMcpReconnectsItem);
+        return this;
+    }
+
+    /**
+     * MCP reconnects held after a server refused a tool (&#x60;refused_tool&#x60;) again although the user reconnected to grant &#x60;required_scope&#x60;; the agent asked the user whether to reconnect, continue without it, or stop. Until the user answers, that tool does not run again and its server is not offered for reconnection; once they answer, the hold is offered as a reconnect.
+     * @return heldMcpReconnects
+     */
+    @jakarta.annotation.Nullable public List<HeldMcpReconnect> getHeldMcpReconnects() {
+        return heldMcpReconnects;
+    }
+
+    public void setHeldMcpReconnects(
+            @jakarta.annotation.Nullable List<HeldMcpReconnect> heldMcpReconnects) {
+        this.heldMcpReconnects = heldMcpReconnects;
+    }
+
     public ConversationState activeActivityGroupId(
             @jakarta.annotation.Nullable String activeActivityGroupId) {
         this.activeActivityGroupId = activeActivityGroupId;
@@ -1266,6 +1298,7 @@ public class ConversationState {
                         this.disabledMcpCollections, conversationState.disabledMcpCollections)
                 && Objects.equals(
                         this.pendingMcpConnections, conversationState.pendingMcpConnections)
+                && Objects.equals(this.heldMcpReconnects, conversationState.heldMcpReconnects)
                 && Objects.equals(
                         this.activeActivityGroupId, conversationState.activeActivityGroupId)
                 && Objects.equals(this.finishReason, conversationState.finishReason)
@@ -1317,6 +1350,7 @@ public class ConversationState {
                 initializationCallIds,
                 disabledMcpCollections,
                 pendingMcpConnections,
+                heldMcpReconnects,
                 activeActivityGroupId,
                 finishReason,
                 llmAttempt,
@@ -1391,6 +1425,9 @@ public class ConversationState {
         sb.append("    pendingMcpConnections: ")
                 .append(toIndentedString(pendingMcpConnections))
                 .append("\n");
+        sb.append("    heldMcpReconnects: ")
+                .append(toIndentedString(heldMcpReconnects))
+                .append("\n");
         sb.append("    activeActivityGroupId: ")
                 .append(toIndentedString(activeActivityGroupId))
                 .append("\n");
@@ -1462,6 +1499,7 @@ public class ConversationState {
                                 "initialization_call_ids",
                                 "disabled_mcp_collections",
                                 "pending_mcp_connections",
+                                "held_mcp_reconnects",
                                 "active_activity_group_id",
                                 "finish_reason",
                                 "llm_attempt",
@@ -1777,6 +1815,26 @@ public class ConversationState {
                 // validate the optional field `pending_mcp_connections` (array)
                 for (int i = 0; i < jsonArraypendingMcpConnections.size(); i++) {
                     PendingMcpConnection.validateJsonElement(jsonArraypendingMcpConnections.get(i));
+                }
+                ;
+            }
+        }
+        if (jsonObj.get("held_mcp_reconnects") != null
+                && !jsonObj.get("held_mcp_reconnects").isJsonNull()) {
+            JsonArray jsonArrayheldMcpReconnects = jsonObj.getAsJsonArray("held_mcp_reconnects");
+            if (jsonArrayheldMcpReconnects != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("held_mcp_reconnects").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `held_mcp_reconnects` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("held_mcp_reconnects").toString()));
+                }
+
+                // validate the optional field `held_mcp_reconnects` (array)
+                for (int i = 0; i < jsonArrayheldMcpReconnects.size(); i++) {
+                    HeldMcpReconnect.validateJsonElement(jsonArrayheldMcpReconnects.get(i));
                 }
                 ;
             }

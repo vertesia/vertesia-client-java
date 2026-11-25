@@ -69,6 +69,11 @@ public class OAuthAuthStatus {
     @SerializedName(SERIALIZED_NAME_SCOPE)
     @jakarta.annotation.Nullable private String scope;
 
+    public static final String SERIALIZED_NAME_STEP_UP_ATTEMPT = "step_up_attempt";
+
+    @SerializedName(SERIALIZED_NAME_STEP_UP_ATTEMPT)
+    @jakarta.annotation.Nullable private String stepUpAttempt;
+
     public OAuthAuthStatus() {}
 
     public OAuthAuthStatus collectionId(@jakarta.annotation.Nonnull String collectionId) {
@@ -177,6 +182,23 @@ public class OAuthAuthStatus {
         this.scope = scope;
     }
 
+    public OAuthAuthStatus stepUpAttempt(@jakarta.annotation.Nullable String stepUpAttempt) {
+        this.stepUpAttempt = stepUpAttempt;
+        return this;
+    }
+
+    /**
+     * The &#x60;step_up_attempt&#x60; of the reconnect that stored the user&#39;s grant, when that reconnect asked for a scope the MCP server had refused a call for.
+     * @return stepUpAttempt
+     */
+    @jakarta.annotation.Nullable public String getStepUpAttempt() {
+        return stepUpAttempt;
+    }
+
+    public void setStepUpAttempt(@jakarta.annotation.Nullable String stepUpAttempt) {
+        this.stepUpAttempt = stepUpAttempt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -191,13 +213,20 @@ public class OAuthAuthStatus {
                 && Objects.equals(this.authenticated, oauthAuthStatus.authenticated)
                 && Objects.equals(this.mcpServerUrl, oauthAuthStatus.mcpServerUrl)
                 && Objects.equals(this.expiresAt, oauthAuthStatus.expiresAt)
-                && Objects.equals(this.scope, oauthAuthStatus.scope);
+                && Objects.equals(this.scope, oauthAuthStatus.scope)
+                && Objects.equals(this.stepUpAttempt, oauthAuthStatus.stepUpAttempt);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                collectionId, collectionName, authenticated, mcpServerUrl, expiresAt, scope);
+                collectionId,
+                collectionName,
+                authenticated,
+                mcpServerUrl,
+                expiresAt,
+                scope,
+                stepUpAttempt);
     }
 
     @Override
@@ -210,6 +239,7 @@ public class OAuthAuthStatus {
         sb.append("    mcpServerUrl: ").append(toIndentedString(mcpServerUrl)).append("\n");
         sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
         sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+        sb.append("    stepUpAttempt: ").append(toIndentedString(stepUpAttempt)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -235,7 +265,8 @@ public class OAuthAuthStatus {
                                 "authenticated",
                                 "mcp_server_url",
                                 "expires_at",
-                                "scope"));
+                                "scope",
+                                "step_up_attempt"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -313,6 +344,14 @@ public class OAuthAuthStatus {
                             java.util.Locale.ROOT,
                             "Expected the field `scope` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("scope").toString()));
+        }
+        if ((jsonObj.get("step_up_attempt") != null && !jsonObj.get("step_up_attempt").isJsonNull())
+                && !jsonObj.get("step_up_attempt").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `step_up_attempt` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("step_up_attempt").toString()));
         }
     }
 

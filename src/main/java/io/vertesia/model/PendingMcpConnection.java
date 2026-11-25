@@ -63,6 +63,16 @@ public class PendingMcpConnection {
     @SerializedName(SERIALIZED_NAME_NAMESPACE)
     @jakarta.annotation.Nullable private String namespace;
 
+    public static final String SERIALIZED_NAME_REQUIRED_SCOPE = "required_scope";
+
+    @SerializedName(SERIALIZED_NAME_REQUIRED_SCOPE)
+    @jakarta.annotation.Nullable private String requiredScope;
+
+    public static final String SERIALIZED_NAME_REFUSED_TOOL = "refused_tool";
+
+    @SerializedName(SERIALIZED_NAME_REFUSED_TOOL)
+    @jakarta.annotation.Nullable private String refusedTool;
+
     public PendingMcpConnection() {}
 
     public PendingMcpConnection appInstallId(@jakarta.annotation.Nonnull String appInstallId) {
@@ -153,6 +163,40 @@ public class PendingMcpConnection {
         this.namespace = namespace;
     }
 
+    public PendingMcpConnection requiredScope(@jakarta.annotation.Nullable String requiredScope) {
+        this.requiredScope = requiredScope;
+        return this;
+    }
+
+    /**
+     * The scope the server refused a tool call for (&#x60;insufficient_scope&#x60;): reconnecting asks for it too.
+     * @return requiredScope
+     */
+    @jakarta.annotation.Nullable public String getRequiredScope() {
+        return requiredScope;
+    }
+
+    public void setRequiredScope(@jakarta.annotation.Nullable String requiredScope) {
+        this.requiredScope = requiredScope;
+    }
+
+    public PendingMcpConnection refusedTool(@jakarta.annotation.Nullable String refusedTool) {
+        this.refusedTool = refusedTool;
+        return this;
+    }
+
+    /**
+     * The tool the server refused for &#x60;required_scope&#x60;.
+     * @return refusedTool
+     */
+    @jakarta.annotation.Nullable public String getRefusedTool() {
+        return refusedTool;
+    }
+
+    public void setRefusedTool(@jakarta.annotation.Nullable String refusedTool) {
+        this.refusedTool = refusedTool;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -166,12 +210,21 @@ public class PendingMcpConnection {
                 && Objects.equals(this.collectionId, pendingMcpConnection.collectionId)
                 && Objects.equals(this.name, pendingMcpConnection.name)
                 && Objects.equals(this.description, pendingMcpConnection.description)
-                && Objects.equals(this.namespace, pendingMcpConnection.namespace);
+                && Objects.equals(this.namespace, pendingMcpConnection.namespace)
+                && Objects.equals(this.requiredScope, pendingMcpConnection.requiredScope)
+                && Objects.equals(this.refusedTool, pendingMcpConnection.refusedTool);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(appInstallId, collectionId, name, description, namespace);
+        return Objects.hash(
+                appInstallId,
+                collectionId,
+                name,
+                description,
+                namespace,
+                requiredScope,
+                refusedTool);
     }
 
     @Override
@@ -183,6 +236,8 @@ public class PendingMcpConnection {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+        sb.append("    requiredScope: ").append(toIndentedString(requiredScope)).append("\n");
+        sb.append("    refusedTool: ").append(toIndentedString(refusedTool)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -207,7 +262,9 @@ public class PendingMcpConnection {
                                 "collection_id",
                                 "name",
                                 "description",
-                                "namespace"));
+                                "namespace",
+                                "required_scope",
+                                "refused_tool"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -280,6 +337,22 @@ public class PendingMcpConnection {
                             java.util.Locale.ROOT,
                             "Expected the field `namespace` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("namespace").toString()));
+        }
+        if ((jsonObj.get("required_scope") != null && !jsonObj.get("required_scope").isJsonNull())
+                && !jsonObj.get("required_scope").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `required_scope` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("required_scope").toString()));
+        }
+        if ((jsonObj.get("refused_tool") != null && !jsonObj.get("refused_tool").isJsonNull())
+                && !jsonObj.get("refused_tool").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `refused_tool` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("refused_tool").toString()));
         }
     }
 

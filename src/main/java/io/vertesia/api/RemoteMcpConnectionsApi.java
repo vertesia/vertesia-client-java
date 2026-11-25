@@ -72,6 +72,9 @@ public class RemoteMcpConnectionsApi {
     private okhttp3.Call authorizeRemoteMcpConnectionCall(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nullable String requiredScope,
+            @jakarta.annotation.Nullable String refusedTool,
+            @jakarta.annotation.Nullable String scopeMode,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -105,6 +108,20 @@ public class RemoteMcpConnectionsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (requiredScope != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("required_scope", requiredScope));
+        }
+
+        if (refusedTool != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("refused_tool", refusedTool));
+        }
+
+        if (scopeMode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("scope_mode", scopeMode));
+        }
+
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -137,6 +154,9 @@ public class RemoteMcpConnectionsApi {
     private okhttp3.Call authorizeRemoteMcpConnectionValidateBeforeCall(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nullable String requiredScope,
+            @jakarta.annotation.Nullable String refusedTool,
+            @jakarta.annotation.Nullable String scopeMode,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appInstallId' is set
@@ -151,15 +171,20 @@ public class RemoteMcpConnectionsApi {
                     "Missing the required parameter 'collectionId' when calling authorizeRemoteMcpConnection(Async)");
         }
 
-        return authorizeRemoteMcpConnectionCall(appInstallId, collectionId, _callback);
+        return authorizeRemoteMcpConnectionCall(
+                appInstallId, collectionId, requiredScope, refusedTool, scopeMode, _callback);
     }
 
     private ApiResponse<OAuthAuthorizeResponse> authorizeRemoteMcpConnectionWithHttpInfo(
             @jakarta.annotation.Nonnull String appInstallId,
-            @jakarta.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nullable String requiredScope,
+            @jakarta.annotation.Nullable String refusedTool,
+            @jakarta.annotation.Nullable String scopeMode)
             throws ApiException {
         okhttp3.Call localVarCall =
-                authorizeRemoteMcpConnectionValidateBeforeCall(appInstallId, collectionId, null);
+                authorizeRemoteMcpConnectionValidateBeforeCall(
+                        appInstallId, collectionId, requiredScope, refusedTool, scopeMode, null);
         Type localVarReturnType = new TypeToken<OAuthAuthorizeResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -167,12 +192,20 @@ public class RemoteMcpConnectionsApi {
     private okhttp3.Call authorizeRemoteMcpConnectionAsync(
             @jakarta.annotation.Nonnull String appInstallId,
             @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nullable String requiredScope,
+            @jakarta.annotation.Nullable String refusedTool,
+            @jakarta.annotation.Nullable String scopeMode,
             final ApiCallback<OAuthAuthorizeResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 authorizeRemoteMcpConnectionValidateBeforeCall(
-                        appInstallId, collectionId, _callback);
+                        appInstallId,
+                        collectionId,
+                        requiredScope,
+                        refusedTool,
+                        scopeMode,
+                        _callback);
         Type localVarReturnType = new TypeToken<OAuthAuthorizeResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -181,12 +214,48 @@ public class RemoteMcpConnectionsApi {
     public class APIauthorizeRemoteMcpConnectionRequest {
         @jakarta.annotation.Nonnull private final String appInstallId;
         @jakarta.annotation.Nonnull private final String collectionId;
+        @jakarta.annotation.Nullable private String requiredScope;
+        @jakarta.annotation.Nullable private String refusedTool;
+        @jakarta.annotation.Nullable private String scopeMode;
 
         private APIauthorizeRemoteMcpConnectionRequest(
                 @jakarta.annotation.Nonnull String appInstallId,
                 @jakarta.annotation.Nonnull String collectionId) {
             this.appInstallId = appInstallId;
             this.collectionId = collectionId;
+        }
+
+        /**
+         * Set requiredScope
+         * @param requiredScope A scope the MCP server refused a tool call for (&#x60;insufficient_scope&#x60;). The authorization request asks for it too, unless the collection uses a shared OAuth provider, whose scope is configured by an administrator. A malformed scope is refused with 400. (optional)
+         * @return APIauthorizeRemoteMcpConnectionRequest
+         */
+        public APIauthorizeRemoteMcpConnectionRequest requiredScope(
+                @jakarta.annotation.Nullable String requiredScope) {
+            this.requiredScope = requiredScope;
+            return this;
+        }
+
+        /**
+         * Set refusedTool
+         * @param refusedTool The tool the server refused, recorded with the step-up. (optional)
+         * @return APIauthorizeRemoteMcpConnectionRequest
+         */
+        public APIauthorizeRemoteMcpConnectionRequest refusedTool(
+                @jakarta.annotation.Nullable String refusedTool) {
+            this.refusedTool = refusedTool;
+            return this;
+        }
+
+        /**
+         * Set scopeMode
+         * @param scopeMode  (optional)
+         * @return APIauthorizeRemoteMcpConnectionRequest
+         */
+        public APIauthorizeRemoteMcpConnectionRequest scopeMode(
+                @jakarta.annotation.Nullable String scopeMode) {
+            this.scopeMode = scopeMode;
+            return this;
         }
 
         /**
@@ -204,7 +273,8 @@ public class RemoteMcpConnectionsApi {
          * </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return authorizeRemoteMcpConnectionCall(appInstallId, collectionId, _callback);
+            return authorizeRemoteMcpConnectionCall(
+                    appInstallId, collectionId, requiredScope, refusedTool, scopeMode, _callback);
         }
 
         /**
@@ -222,7 +292,8 @@ public class RemoteMcpConnectionsApi {
          */
         public OAuthAuthorizeResponse execute() throws ApiException {
             ApiResponse<OAuthAuthorizeResponse> localVarResp =
-                    authorizeRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
+                    authorizeRemoteMcpConnectionWithHttpInfo(
+                            appInstallId, collectionId, requiredScope, refusedTool, scopeMode);
             return localVarResp.getData();
         }
 
@@ -240,7 +311,8 @@ public class RemoteMcpConnectionsApi {
          * </table>
          */
         public ApiResponse<OAuthAuthorizeResponse> executeWithHttpInfo() throws ApiException {
-            return authorizeRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
+            return authorizeRemoteMcpConnectionWithHttpInfo(
+                    appInstallId, collectionId, requiredScope, refusedTool, scopeMode);
         }
 
         /**
@@ -259,13 +331,14 @@ public class RemoteMcpConnectionsApi {
          */
         public okhttp3.Call executeAsync(final ApiCallback<OAuthAuthorizeResponse> _callback)
                 throws ApiException {
-            return authorizeRemoteMcpConnectionAsync(appInstallId, collectionId, _callback);
+            return authorizeRemoteMcpConnectionAsync(
+                    appInstallId, collectionId, requiredScope, refusedTool, scopeMode, _callback);
         }
     }
 
     /**
      * Authorize a remote MCP connection
-     * Starts the OAuth flow for an OAuth-enabled MCP collection and returns the authorization URL or immediate connected status.
+     * Starts the OAuth flow for an OAuth-enabled MCP collection and returns the authorization URL or immediate connected status. After the MCP server refused a tool call with &#x60;insufficient_scope&#x60;, &#x60;required_scope&#x60; asks for that scope too, together with the scope already granted and the server&#39;s advertised scopes.
      * @param appInstallId  (required)
      * @param collectionId  (required)
      * @return APIauthorizeRemoteMcpConnectionRequest

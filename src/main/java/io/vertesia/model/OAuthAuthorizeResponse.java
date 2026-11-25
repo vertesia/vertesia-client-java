@@ -50,6 +50,11 @@ public class OAuthAuthorizeResponse {
     @SerializedName(SERIALIZED_NAME_CONNECTED)
     @jakarta.annotation.Nullable private Boolean connected;
 
+    public static final String SERIALIZED_NAME_STEP_UP_ATTEMPT = "step_up_attempt";
+
+    @SerializedName(SERIALIZED_NAME_STEP_UP_ATTEMPT)
+    @jakarta.annotation.Nullable private String stepUpAttempt;
+
     public OAuthAuthorizeResponse() {}
 
     public OAuthAuthorizeResponse authorizationUrl(
@@ -104,6 +109,23 @@ public class OAuthAuthorizeResponse {
         this.connected = connected;
     }
 
+    public OAuthAuthorizeResponse stepUpAttempt(@jakarta.annotation.Nullable String stepUpAttempt) {
+        this.stepUpAttempt = stepUpAttempt;
+        return this;
+    }
+
+    /**
+     * Set when the request asked for &#x60;required_scope&#x60;: an id for this reconnect. Once the user completes it, the collection status reports it as &#x60;step_up_attempt&#x60;, so the caller can confirm that the grant is the one it started, even without a message from the callback page.
+     * @return stepUpAttempt
+     */
+    @jakarta.annotation.Nullable public String getStepUpAttempt() {
+        return stepUpAttempt;
+    }
+
+    public void setStepUpAttempt(@jakarta.annotation.Nullable String stepUpAttempt) {
+        this.stepUpAttempt = stepUpAttempt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -115,12 +137,13 @@ public class OAuthAuthorizeResponse {
         OAuthAuthorizeResponse oauthAuthorizeResponse = (OAuthAuthorizeResponse) o;
         return Objects.equals(this.authorizationUrl, oauthAuthorizeResponse.authorizationUrl)
                 && Objects.equals(this.state, oauthAuthorizeResponse.state)
-                && Objects.equals(this.connected, oauthAuthorizeResponse.connected);
+                && Objects.equals(this.connected, oauthAuthorizeResponse.connected)
+                && Objects.equals(this.stepUpAttempt, oauthAuthorizeResponse.stepUpAttempt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorizationUrl, state, connected);
+        return Objects.hash(authorizationUrl, state, connected, stepUpAttempt);
     }
 
     @Override
@@ -130,6 +153,7 @@ public class OAuthAuthorizeResponse {
         sb.append("    authorizationUrl: ").append(toIndentedString(authorizationUrl)).append("\n");
         sb.append("    state: ").append(toIndentedString(state)).append("\n");
         sb.append("    connected: ").append(toIndentedString(connected)).append("\n");
+        sb.append("    stepUpAttempt: ").append(toIndentedString(stepUpAttempt)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -148,7 +172,9 @@ public class OAuthAuthorizeResponse {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields =
-                new HashSet<String>(Arrays.asList("authorization_url", "state", "connected"));
+                new HashSet<String>(
+                        Arrays.asList(
+                                "authorization_url", "state", "connected", "step_up_attempt"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -188,6 +214,14 @@ public class OAuthAuthorizeResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `state` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("state").toString()));
+        }
+        if ((jsonObj.get("step_up_attempt") != null && !jsonObj.get("step_up_attempt").isJsonNull())
+                && !jsonObj.get("step_up_attempt").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `step_up_attempt` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("step_up_attempt").toString()));
         }
     }
 

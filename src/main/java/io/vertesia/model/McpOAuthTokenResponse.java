@@ -41,6 +41,26 @@ public class McpOAuthTokenResponse {
     @jakarta.annotation.Nonnull
     private String accessToken;
 
+    public static final String SERIALIZED_NAME_USER_GRANT = "user_grant";
+
+    @SerializedName(SERIALIZED_NAME_USER_GRANT)
+    @jakarta.annotation.Nullable private Boolean userGrant;
+
+    public static final String SERIALIZED_NAME_STEP_UP_SCOPE = "step_up_scope";
+
+    @SerializedName(SERIALIZED_NAME_STEP_UP_SCOPE)
+    @jakarta.annotation.Nullable private String stepUpScope;
+
+    public static final String SERIALIZED_NAME_STEP_UP_TOOL = "step_up_tool";
+
+    @SerializedName(SERIALIZED_NAME_STEP_UP_TOOL)
+    @jakarta.annotation.Nullable private String stepUpTool;
+
+    public static final String SERIALIZED_NAME_STEP_UP_ATTEMPT = "step_up_attempt";
+
+    @SerializedName(SERIALIZED_NAME_STEP_UP_ATTEMPT)
+    @jakarta.annotation.Nullable private String stepUpAttempt;
+
     public McpOAuthTokenResponse() {}
 
     public McpOAuthTokenResponse accessToken(@jakarta.annotation.Nonnull String accessToken) {
@@ -61,6 +81,74 @@ public class McpOAuthTokenResponse {
         this.accessToken = accessToken;
     }
 
+    public McpOAuthTokenResponse userGrant(@jakarta.annotation.Nullable Boolean userGrant) {
+        this.userGrant = userGrant;
+        return this;
+    }
+
+    /**
+     * True when the token is the user&#39;s own OAuth grant for this server, which the user can renew with more scope by reconnecting. Absent for project credentials (client credentials, API keys) and from servers older than this field.
+     * @return userGrant
+     */
+    @jakarta.annotation.Nullable public Boolean getUserGrant() {
+        return userGrant;
+    }
+
+    public void setUserGrant(@jakarta.annotation.Nullable Boolean userGrant) {
+        this.userGrant = userGrant;
+    }
+
+    public McpOAuthTokenResponse stepUpScope(@jakarta.annotation.Nullable String stepUpScope) {
+        this.stepUpScope = stepUpScope;
+        return this;
+    }
+
+    /**
+     * The scope the stored grant was last requested for after the server refused a call with &#x60;insufficient_scope&#x60;. A second refusal for this scope means the grant did not include it, so the user should not be asked to reconnect again.
+     * @return stepUpScope
+     */
+    @jakarta.annotation.Nullable public String getStepUpScope() {
+        return stepUpScope;
+    }
+
+    public void setStepUpScope(@jakarta.annotation.Nullable String stepUpScope) {
+        this.stepUpScope = stepUpScope;
+    }
+
+    public McpOAuthTokenResponse stepUpTool(@jakarta.annotation.Nullable String stepUpTool) {
+        this.stepUpTool = stepUpTool;
+        return this;
+    }
+
+    /**
+     * The tool whose refusal led to &#x60;step_up_scope&#x60;.
+     * @return stepUpTool
+     */
+    @jakarta.annotation.Nullable public String getStepUpTool() {
+        return stepUpTool;
+    }
+
+    public void setStepUpTool(@jakarta.annotation.Nullable String stepUpTool) {
+        this.stepUpTool = stepUpTool;
+    }
+
+    public McpOAuthTokenResponse stepUpAttempt(@jakarta.annotation.Nullable String stepUpAttempt) {
+        this.stepUpAttempt = stepUpAttempt;
+        return this;
+    }
+
+    /**
+     * The id of the reconnect that recorded &#x60;step_up_scope&#x60;, to send back when reporting its outcome.
+     * @return stepUpAttempt
+     */
+    @jakarta.annotation.Nullable public String getStepUpAttempt() {
+        return stepUpAttempt;
+    }
+
+    public void setStepUpAttempt(@jakarta.annotation.Nullable String stepUpAttempt) {
+        this.stepUpAttempt = stepUpAttempt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -70,12 +158,16 @@ public class McpOAuthTokenResponse {
             return false;
         }
         McpOAuthTokenResponse mcpOAuthTokenResponse = (McpOAuthTokenResponse) o;
-        return Objects.equals(this.accessToken, mcpOAuthTokenResponse.accessToken);
+        return Objects.equals(this.accessToken, mcpOAuthTokenResponse.accessToken)
+                && Objects.equals(this.userGrant, mcpOAuthTokenResponse.userGrant)
+                && Objects.equals(this.stepUpScope, mcpOAuthTokenResponse.stepUpScope)
+                && Objects.equals(this.stepUpTool, mcpOAuthTokenResponse.stepUpTool)
+                && Objects.equals(this.stepUpAttempt, mcpOAuthTokenResponse.stepUpAttempt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accessToken);
+        return Objects.hash(accessToken, userGrant, stepUpScope, stepUpTool, stepUpAttempt);
     }
 
     @Override
@@ -83,6 +175,10 @@ public class McpOAuthTokenResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class McpOAuthTokenResponse {\n");
         sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
+        sb.append("    userGrant: ").append(toIndentedString(userGrant)).append("\n");
+        sb.append("    stepUpScope: ").append(toIndentedString(stepUpScope)).append("\n");
+        sb.append("    stepUpTool: ").append(toIndentedString(stepUpTool)).append("\n");
+        sb.append("    stepUpAttempt: ").append(toIndentedString(stepUpAttempt)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,7 +196,14 @@ public class McpOAuthTokenResponse {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("access_token"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList(
+                                "access_token",
+                                "user_grant",
+                                "step_up_scope",
+                                "step_up_tool",
+                                "step_up_attempt"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("access_token"));
@@ -142,6 +245,30 @@ public class McpOAuthTokenResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `access_token` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("access_token").toString()));
+        }
+        if ((jsonObj.get("step_up_scope") != null && !jsonObj.get("step_up_scope").isJsonNull())
+                && !jsonObj.get("step_up_scope").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `step_up_scope` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("step_up_scope").toString()));
+        }
+        if ((jsonObj.get("step_up_tool") != null && !jsonObj.get("step_up_tool").isJsonNull())
+                && !jsonObj.get("step_up_tool").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `step_up_tool` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("step_up_tool").toString()));
+        }
+        if ((jsonObj.get("step_up_attempt") != null && !jsonObj.get("step_up_attempt").isJsonNull())
+                && !jsonObj.get("step_up_attempt").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `step_up_attempt` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("step_up_attempt").toString()));
         }
     }
 

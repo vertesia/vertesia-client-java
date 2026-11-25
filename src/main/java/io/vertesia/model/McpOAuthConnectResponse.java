@@ -41,6 +41,11 @@ public class McpOAuthConnectResponse {
     @jakarta.annotation.Nonnull
     private Boolean success;
 
+    public static final String SERIALIZED_NAME_MISSING_SCOPE = "missing_scope";
+
+    @SerializedName(SERIALIZED_NAME_MISSING_SCOPE)
+    @jakarta.annotation.Nullable private String missingScope;
+
     public McpOAuthConnectResponse() {}
 
     public McpOAuthConnectResponse success(@jakarta.annotation.Nonnull Boolean success) {
@@ -61,6 +66,23 @@ public class McpOAuthConnectResponse {
         this.success = success;
     }
 
+    public McpOAuthConnectResponse missingScope(@jakarta.annotation.Nullable String missingScope) {
+        this.missingScope = missingScope;
+        return this;
+    }
+
+    /**
+     * After a reconnect that asked for a scope the server had refused a call for: the part of that scope the authorization server did not grant. The account may lack the permission, or an administrator may need to consent to it.
+     * @return missingScope
+     */
+    @jakarta.annotation.Nullable public String getMissingScope() {
+        return missingScope;
+    }
+
+    public void setMissingScope(@jakarta.annotation.Nullable String missingScope) {
+        this.missingScope = missingScope;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -70,12 +92,13 @@ public class McpOAuthConnectResponse {
             return false;
         }
         McpOAuthConnectResponse mcpOAuthConnectResponse = (McpOAuthConnectResponse) o;
-        return Objects.equals(this.success, mcpOAuthConnectResponse.success);
+        return Objects.equals(this.success, mcpOAuthConnectResponse.success)
+                && Objects.equals(this.missingScope, mcpOAuthConnectResponse.missingScope);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(success);
+        return Objects.hash(success, missingScope);
     }
 
     @Override
@@ -83,6 +106,7 @@ public class McpOAuthConnectResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class McpOAuthConnectResponse {\n");
         sb.append("    success: ").append(toIndentedString(success)).append("\n");
+        sb.append("    missingScope: ").append(toIndentedString(missingScope)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,7 +124,7 @@ public class McpOAuthConnectResponse {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("success"));
+        openapiFields = new HashSet<String>(Arrays.asList("success", "missing_scope"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("success"));
@@ -136,6 +160,14 @@ public class McpOAuthConnectResponse {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("missing_scope") != null && !jsonObj.get("missing_scope").isJsonNull())
+                && !jsonObj.get("missing_scope").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `missing_scope` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("missing_scope").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

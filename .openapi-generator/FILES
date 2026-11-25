@@ -707,6 +707,7 @@ src/main/java/io/vertesia/model/GroundedExtractionResultResponse.java
 src/main/java/io/vertesia/model/GroundedExtractionResultResponseReview.java
 src/main/java/io/vertesia/model/GroundedExtractionVerdict.java
 src/main/java/io/vertesia/model/GroundedVerificationBreakdown.java
+src/main/java/io/vertesia/model/HeldMcpReconnect.java
 src/main/java/io/vertesia/model/HttpTimeoutOptions.java
 src/main/java/io/vertesia/model/HumanTaskDefinition.java
 src/main/java/io/vertesia/model/ICreateProjectPayload.java
