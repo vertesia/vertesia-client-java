@@ -52,6 +52,11 @@ public class CreateContentSourcePayload extends AbstractOpenApiSchema {
             final TypeAdapter<CreateBoxContentSourcePayload> adapterCreateBoxContentSourcePayload =
                     gson.getDelegateAdapter(
                             this, TypeToken.get(CreateBoxContentSourcePayload.class));
+            final TypeAdapter<CreateGoogleDriveContentSourcePayload>
+                    adapterCreateGoogleDriveContentSourcePayload =
+                            gson.getDelegateAdapter(
+                                    this,
+                                    TypeToken.get(CreateGoogleDriveContentSourcePayload.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<CreateContentSourcePayload>() {
@@ -87,13 +92,25 @@ public class CreateContentSourcePayload extends AbstractOpenApiSchema {
                                         out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
+                            // check if the actual instance is of the type
+                            // `CreateGoogleDriveContentSourcePayload`
+                            if (value.getActualInstance()
+                                    instanceof CreateGoogleDriveContentSourcePayload) {
+                                JsonElement element =
+                                        adapterCreateGoogleDriveContentSourcePayload.toJsonTree(
+                                                (CreateGoogleDriveContentSourcePayload)
+                                                        value.getActualInstance());
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
                             if (value.getActualInstance() instanceof JsonElement) {
                                 JsonElement raw = (JsonElement) value.getActualInstance();
                                 JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: CreateBoxContentSourcePayload, CreateSharePointContentSourcePayload");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: CreateBoxContentSourcePayload, CreateGoogleDriveContentSourcePayload, CreateSharePointContentSourcePayload");
                         }
 
                         @Override
@@ -155,6 +172,29 @@ public class CreateContentSourcePayload extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'CreateBoxContentSourcePayload'",
                                         e);
                             }
+                            // deserialize CreateGoogleDriveContentSourcePayload
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "google-drive");
+                                CreateGoogleDriveContentSourcePayload.validateJsonElement(
+                                        jsonElement);
+                                actualAdapter = adapterCreateGoogleDriveContentSourcePayload;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'CreateGoogleDriveContentSourcePayload'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for CreateGoogleDriveContentSourcePayload failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'CreateGoogleDriveContentSourcePayload'",
+                                        e);
+                            }
 
                             if (match == 1) {
                                 CreateContentSourcePayload ret = new CreateContentSourcePayload();
@@ -191,6 +231,9 @@ public class CreateContentSourcePayload extends AbstractOpenApiSchema {
         schemas.put(
                 "CreateSharePointContentSourcePayload", CreateSharePointContentSourcePayload.class);
         schemas.put("CreateBoxContentSourcePayload", CreateBoxContentSourcePayload.class);
+        schemas.put(
+                "CreateGoogleDriveContentSourcePayload",
+                CreateGoogleDriveContentSourcePayload.class);
     }
 
     @Override
@@ -201,7 +244,7 @@ public class CreateContentSourcePayload extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CreateBoxContentSourcePayload, CreateSharePointContentSourcePayload
+     * CreateBoxContentSourcePayload, CreateGoogleDriveContentSourcePayload, CreateSharePointContentSourcePayload
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -222,15 +265,20 @@ public class CreateContentSourcePayload extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof CreateGoogleDriveContentSourcePayload) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         throw new RuntimeException(
-                "Invalid instance type. Must be CreateBoxContentSourcePayload, CreateSharePointContentSourcePayload");
+                "Invalid instance type. Must be CreateBoxContentSourcePayload, CreateGoogleDriveContentSourcePayload, CreateSharePointContentSourcePayload");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CreateBoxContentSourcePayload, CreateSharePointContentSourcePayload
+     * CreateBoxContentSourcePayload, CreateGoogleDriveContentSourcePayload, CreateSharePointContentSourcePayload
      *
-     * @return The actual instance (CreateBoxContentSourcePayload, CreateSharePointContentSourcePayload)
+     * @return The actual instance (CreateBoxContentSourcePayload, CreateGoogleDriveContentSourcePayload, CreateSharePointContentSourcePayload)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -262,6 +310,19 @@ public class CreateContentSourcePayload extends AbstractOpenApiSchema {
     public CreateBoxContentSourcePayload getCreateBoxContentSourcePayload()
             throws ClassCastException {
         return (CreateBoxContentSourcePayload) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CreateGoogleDriveContentSourcePayload`. If the actual instance is not `CreateGoogleDriveContentSourcePayload`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CreateGoogleDriveContentSourcePayload`
+     * @throws ClassCastException if the instance is not `CreateGoogleDriveContentSourcePayload`
+     */
+    @SuppressWarnings("unchecked")
+    public CreateGoogleDriveContentSourcePayload getCreateGoogleDriveContentSourcePayload()
+            throws ClassCastException {
+        return (CreateGoogleDriveContentSourcePayload) super.getActualInstance();
     }
 
     /**
@@ -303,11 +364,24 @@ public class CreateContentSourcePayload extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with CreateGoogleDriveContentSourcePayload
+        try {
+            checkDiscriminator(jsonElement, "google-drive");
+            CreateGoogleDriveContentSourcePayload.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for CreateGoogleDriveContentSourcePayload failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for CreateContentSourcePayload with oneOf schemas: CreateBoxContentSourcePayload, CreateSharePointContentSourcePayload. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for CreateContentSourcePayload with oneOf schemas: CreateBoxContentSourcePayload, CreateGoogleDriveContentSourcePayload, CreateSharePointContentSourcePayload. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
@@ -335,6 +409,7 @@ public class CreateContentSourcePayload extends AbstractOpenApiSchema {
         switch (tag.getAsString()) {
             case "":
             case "box":
+            case "google-drive":
             case "sharepoint":
                 return false;
             default:

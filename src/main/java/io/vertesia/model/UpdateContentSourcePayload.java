@@ -36,6 +36,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.27.0")
 public class UpdateContentSourcePayload {
+    public static final String SERIALIZED_NAME_SELECTION = "selection";
+
+    @SerializedName(SERIALIZED_NAME_SELECTION)
+    @jakarta.annotation.Nullable private GoogleDriveSelection selection;
+
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -77,6 +82,24 @@ public class UpdateContentSourcePayload {
     @jakarta.annotation.Nullable private String folderPath;
 
     public UpdateContentSourcePayload() {}
+
+    public UpdateContentSourcePayload selection(
+            @jakarta.annotation.Nullable GoogleDriveSelection selection) {
+        this.selection = selection;
+        return this;
+    }
+
+    /**
+     * Get selection
+     * @return selection
+     */
+    @jakarta.annotation.Nullable public GoogleDriveSelection getSelection() {
+        return selection;
+    }
+
+    public void setSelection(@jakarta.annotation.Nullable GoogleDriveSelection selection) {
+        this.selection = selection;
+    }
 
     public UpdateContentSourcePayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
@@ -229,7 +252,8 @@ public class UpdateContentSourcePayload {
             return false;
         }
         UpdateContentSourcePayload updateContentSourcePayload = (UpdateContentSourcePayload) o;
-        return Objects.equals(this.name, updateContentSourcePayload.name)
+        return Objects.equals(this.selection, updateContentSourcePayload.selection)
+                && Objects.equals(this.name, updateContentSourcePayload.name)
                 && Objects.equals(this.description, updateContentSourcePayload.description)
                 && Objects.equals(this.sync, updateContentSourcePayload.sync)
                 && Objects.equals(this.samplePercent, updateContentSourcePayload.samplePercent)
@@ -251,7 +275,15 @@ public class UpdateContentSourcePayload {
     @Override
     public int hashCode() {
         return Objects.hash(
-                name, description, sync, samplePercent, permissions, rootId, folderId, folderPath);
+                selection,
+                name,
+                description,
+                sync,
+                samplePercent,
+                permissions,
+                rootId,
+                folderId,
+                folderPath);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -265,6 +297,7 @@ public class UpdateContentSourcePayload {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateContentSourcePayload {\n");
+        sb.append("    selection: ").append(toIndentedString(selection)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
@@ -293,6 +326,7 @@ public class UpdateContentSourcePayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "selection",
                                 "name",
                                 "description",
                                 "sync",
@@ -324,6 +358,10 @@ public class UpdateContentSourcePayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `selection`
+        if (jsonObj.get("selection") != null && !jsonObj.get("selection").isJsonNull()) {
+            GoogleDriveSelection.validateJsonElement(jsonObj.get("selection"));
+        }
         if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
                 && !jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(

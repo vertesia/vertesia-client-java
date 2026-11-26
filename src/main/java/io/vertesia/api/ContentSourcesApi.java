@@ -34,9 +34,12 @@ import io.vertesia.model.DiscoverContentSourceSamplePayload;
 import io.vertesia.model.DiscoverContentSourceSchemaPayload;
 import io.vertesia.model.DiscoverContentSourceSitePayload;
 import io.vertesia.model.ExternalContentSource;
+import io.vertesia.model.GoogleDriveReader;
+import io.vertesia.model.GoogleDriveReaderConfig;
 import io.vertesia.model.InspectContentSourceFoldersPayload;
 import io.vertesia.model.InspectContentSourceSamplePayload;
 import io.vertesia.model.InspectContentSourceSchemaPayload;
+import io.vertesia.model.SuccessResponse;
 import io.vertesia.model.SyncContentSourcePayload;
 import io.vertesia.model.UpdateContentSourcePayload;
 import java.lang.reflect.Type;
@@ -80,6 +83,198 @@ public class ContentSourcesApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    private okhttp3.Call configureGoogleDriveReaderCall(
+            @jakarta.annotation.Nonnull GoogleDriveReaderConfig googleDriveReaderConfig,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = googleDriveReaderConfig;
+
+        // create path and map variables
+        String localVarPath = "/google-drive-readers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call configureGoogleDriveReaderValidateBeforeCall(
+            @jakarta.annotation.Nonnull GoogleDriveReaderConfig googleDriveReaderConfig,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'googleDriveReaderConfig' is set
+        if (googleDriveReaderConfig == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'googleDriveReaderConfig' when calling configureGoogleDriveReader(Async)");
+        }
+
+        return configureGoogleDriveReaderCall(googleDriveReaderConfig, _callback);
+    }
+
+    private ApiResponse<GoogleDriveReader> configureGoogleDriveReaderWithHttpInfo(
+            @jakarta.annotation.Nonnull GoogleDriveReaderConfig googleDriveReaderConfig)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                configureGoogleDriveReaderValidateBeforeCall(googleDriveReaderConfig, null);
+        Type localVarReturnType = new TypeToken<GoogleDriveReader>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call configureGoogleDriveReaderAsync(
+            @jakarta.annotation.Nonnull GoogleDriveReaderConfig googleDriveReaderConfig,
+            final ApiCallback<GoogleDriveReader> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                configureGoogleDriveReaderValidateBeforeCall(googleDriveReaderConfig, _callback);
+        Type localVarReturnType = new TypeToken<GoogleDriveReader>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIconfigureGoogleDriveReaderRequest {
+        @jakarta.annotation.Nonnull private final GoogleDriveReaderConfig googleDriveReaderConfig;
+
+        private APIconfigureGoogleDriveReaderRequest(
+                @jakarta.annotation.Nonnull GoogleDriveReaderConfig googleDriveReaderConfig) {
+            this.googleDriveReaderConfig = googleDriveReaderConfig;
+        }
+
+        /**
+         * Build call for configureGoogleDriveReader
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return configureGoogleDriveReaderCall(googleDriveReaderConfig, _callback);
+        }
+
+        /**
+         * Execute configureGoogleDriveReader request
+         * @return GoogleDriveReader
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public GoogleDriveReader execute() throws ApiException {
+            ApiResponse<GoogleDriveReader> localVarResp =
+                    configureGoogleDriveReaderWithHttpInfo(googleDriveReaderConfig);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute configureGoogleDriveReader request with HTTP info returned
+         * @return ApiResponse&lt;GoogleDriveReader&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<GoogleDriveReader> executeWithHttpInfo() throws ApiException {
+            return configureGoogleDriveReaderWithHttpInfo(googleDriveReaderConfig);
+        }
+
+        /**
+         * Execute configureGoogleDriveReader request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GoogleDriveReader> _callback)
+                throws ApiException {
+            return configureGoogleDriveReaderAsync(googleDriveReaderConfig, _callback);
+        }
+    }
+
+    /**
+     * Register a federated shared-drive reader
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param googleDriveReaderConfig  (required)
+     * @return APIconfigureGoogleDriveReaderRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIconfigureGoogleDriveReaderRequest configureGoogleDriveReader(
+            @jakarta.annotation.Nonnull GoogleDriveReaderConfig googleDriveReaderConfig) {
+        return new APIconfigureGoogleDriveReaderRequest(googleDriveReaderConfig);
     }
 
     private okhttp3.Call createContentSourceCall(
@@ -462,6 +657,192 @@ public class ContentSourcesApi {
     public APIdeleteContentSourceRequest deleteContentSource(
             @jakarta.annotation.Nonnull String sourceId) {
         return new APIdeleteContentSourceRequest(sourceId);
+    }
+
+    private okhttp3.Call disconnectGoogleDriveReaderCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/google-drive-readers/{id}"
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call disconnectGoogleDriveReaderValidateBeforeCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling disconnectGoogleDriveReader(Async)");
+        }
+
+        return disconnectGoogleDriveReaderCall(id, _callback);
+    }
+
+    private ApiResponse<SuccessResponse> disconnectGoogleDriveReaderWithHttpInfo(
+            @jakarta.annotation.Nonnull String id) throws ApiException {
+        okhttp3.Call localVarCall = disconnectGoogleDriveReaderValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call disconnectGoogleDriveReaderAsync(
+            @jakarta.annotation.Nonnull String id, final ApiCallback<SuccessResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = disconnectGoogleDriveReaderValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdisconnectGoogleDriveReaderRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIdisconnectGoogleDriveReaderRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for disconnectGoogleDriveReader
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return disconnectGoogleDriveReaderCall(id, _callback);
+        }
+
+        /**
+         * Execute disconnectGoogleDriveReader request
+         * @return SuccessResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SuccessResponse execute() throws ApiException {
+            ApiResponse<SuccessResponse> localVarResp = disconnectGoogleDriveReaderWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute disconnectGoogleDriveReader request with HTTP info returned
+         * @return ApiResponse&lt;SuccessResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SuccessResponse> executeWithHttpInfo() throws ApiException {
+            return disconnectGoogleDriveReaderWithHttpInfo(id);
+        }
+
+        /**
+         * Execute disconnectGoogleDriveReader request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SuccessResponse> _callback)
+                throws ApiException {
+            return disconnectGoogleDriveReaderAsync(id, _callback);
+        }
+    }
+
+    /**
+     * Disconnect the federated reader from all its sources
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param id  (required)
+     * @return APIdisconnectGoogleDriveReaderRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIdisconnectGoogleDriveReaderRequest disconnectGoogleDriveReader(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIdisconnectGoogleDriveReaderRequest(id);
     }
 
     private okhttp3.Call discoverContentSourceFoldersCall(
@@ -3117,6 +3498,407 @@ public class ContentSourcesApi {
      */
     public APIlistContentSourcesRequest listContentSources() {
         return new APIlistContentSourcesRequest();
+    }
+
+    private okhttp3.Call listGoogleDriveReaderDrivesCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/google-drive-readers/{id}/drives"
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listGoogleDriveReaderDrivesValidateBeforeCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling listGoogleDriveReaderDrives(Async)");
+        }
+
+        return listGoogleDriveReaderDrivesCall(id, _callback);
+    }
+
+    private ApiResponse<ContentSourceRootsDiscovery> listGoogleDriveReaderDrivesWithHttpInfo(
+            @jakarta.annotation.Nonnull String id) throws ApiException {
+        okhttp3.Call localVarCall = listGoogleDriveReaderDrivesValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<ContentSourceRootsDiscovery>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call listGoogleDriveReaderDrivesAsync(
+            @jakarta.annotation.Nonnull String id,
+            final ApiCallback<ContentSourceRootsDiscovery> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = listGoogleDriveReaderDrivesValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<ContentSourceRootsDiscovery>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIlistGoogleDriveReaderDrivesRequest {
+        @jakarta.annotation.Nonnull private final String id;
+
+        private APIlistGoogleDriveReaderDrivesRequest(@jakarta.annotation.Nonnull String id) {
+            this.id = id;
+        }
+
+        /**
+         * Build call for listGoogleDriveReaderDrives
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return listGoogleDriveReaderDrivesCall(id, _callback);
+        }
+
+        /**
+         * Execute listGoogleDriveReaderDrives request
+         * @return ContentSourceRootsDiscovery
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentSourceRootsDiscovery execute() throws ApiException {
+            ApiResponse<ContentSourceRootsDiscovery> localVarResp =
+                    listGoogleDriveReaderDrivesWithHttpInfo(id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute listGoogleDriveReaderDrives request with HTTP info returned
+         * @return ApiResponse&lt;ContentSourceRootsDiscovery&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentSourceRootsDiscovery> executeWithHttpInfo() throws ApiException {
+            return listGoogleDriveReaderDrivesWithHttpInfo(id);
+        }
+
+        /**
+         * Execute listGoogleDriveReaderDrives request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentSourceRootsDiscovery> _callback)
+                throws ApiException {
+            return listGoogleDriveReaderDrivesAsync(id, _callback);
+        }
+    }
+
+    /**
+     * Discover shared drives the federated reader belongs to
+     * **Required permissions:** Any of &#x60;content_source:manage&#x60;, &#x60;project:settings_write&#x60;
+     * @param id  (required)
+     * @return APIlistGoogleDriveReaderDrivesRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIlistGoogleDriveReaderDrivesRequest listGoogleDriveReaderDrives(
+            @jakarta.annotation.Nonnull String id) {
+        return new APIlistGoogleDriveReaderDrivesRequest(id);
+    }
+
+    private okhttp3.Call reconcileGoogleSharedDrivesCall(
+            @jakarta.annotation.Nonnull String sourceId,
+            @jakarta.annotation.Nonnull SyncContentSourcePayload syncContentSourcePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = syncContentSourcePayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/content-sources/{sourceId}/reconcile-drives"
+                        .replace(
+                                "{" + "sourceId" + "}",
+                                localVarApiClient.escapeString(sourceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call reconcileGoogleSharedDrivesValidateBeforeCall(
+            @jakarta.annotation.Nonnull String sourceId,
+            @jakarta.annotation.Nonnull SyncContentSourcePayload syncContentSourcePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling reconcileGoogleSharedDrives(Async)");
+        }
+
+        // verify the required parameter 'syncContentSourcePayload' is set
+        if (syncContentSourcePayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'syncContentSourcePayload' when calling reconcileGoogleSharedDrives(Async)");
+        }
+
+        return reconcileGoogleSharedDrivesCall(sourceId, syncContentSourcePayload, _callback);
+    }
+
+    private ApiResponse<SuccessResponse> reconcileGoogleSharedDrivesWithHttpInfo(
+            @jakarta.annotation.Nonnull String sourceId,
+            @jakarta.annotation.Nonnull SyncContentSourcePayload syncContentSourcePayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                reconcileGoogleSharedDrivesValidateBeforeCall(
+                        sourceId, syncContentSourcePayload, null);
+        Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call reconcileGoogleSharedDrivesAsync(
+            @jakarta.annotation.Nonnull String sourceId,
+            @jakarta.annotation.Nonnull SyncContentSourcePayload syncContentSourcePayload,
+            final ApiCallback<SuccessResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                reconcileGoogleSharedDrivesValidateBeforeCall(
+                        sourceId, syncContentSourcePayload, _callback);
+        Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIreconcileGoogleSharedDrivesRequest {
+        @jakarta.annotation.Nonnull private final String sourceId;
+        @jakarta.annotation.Nonnull private final SyncContentSourcePayload syncContentSourcePayload;
+
+        private APIreconcileGoogleSharedDrivesRequest(
+                @jakarta.annotation.Nonnull String sourceId,
+                @jakarta.annotation.Nonnull SyncContentSourcePayload syncContentSourcePayload) {
+            this.sourceId = sourceId;
+            this.syncContentSourcePayload = syncContentSourcePayload;
+        }
+
+        /**
+         * Build call for reconcileGoogleSharedDrives
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The selected drives were scheduled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return reconcileGoogleSharedDrivesCall(sourceId, syncContentSourcePayload, _callback);
+        }
+
+        /**
+         * Execute reconcileGoogleSharedDrives request
+         * @return SuccessResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The selected drives were scheduled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public SuccessResponse execute() throws ApiException {
+            ApiResponse<SuccessResponse> localVarResp =
+                    reconcileGoogleSharedDrivesWithHttpInfo(sourceId, syncContentSourcePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute reconcileGoogleSharedDrives request with HTTP info returned
+         * @return ApiResponse&lt;SuccessResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The selected drives were scheduled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<SuccessResponse> executeWithHttpInfo() throws ApiException {
+            return reconcileGoogleSharedDrivesWithHttpInfo(sourceId, syncContentSourcePayload);
+        }
+
+        /**
+         * Execute reconcileGoogleSharedDrives request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The selected drives were scheduled. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SuccessResponse> _callback)
+                throws ApiException {
+            return reconcileGoogleSharedDrivesAsync(sourceId, syncContentSourcePayload, _callback);
+        }
+    }
+
+    /**
+     * Discover selected shared drives and start their sync rounds
+     * **Required permissions:** Any of &#x60;content_source:manage&#x60;, &#x60;project:settings_write&#x60;
+     * @param sourceId  (required)
+     * @param syncContentSourcePayload  (required)
+     * @return APIreconcileGoogleSharedDrivesRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The selected drives were scheduled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIreconcileGoogleSharedDrivesRequest reconcileGoogleSharedDrives(
+            @jakarta.annotation.Nonnull String sourceId,
+            @jakarta.annotation.Nonnull SyncContentSourcePayload syncContentSourcePayload) {
+        return new APIreconcileGoogleSharedDrivesRequest(sourceId, syncContentSourcePayload);
     }
 
     private okhttp3.Call syncContentSourceCall(

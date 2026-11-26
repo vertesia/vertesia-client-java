@@ -142,7 +142,7 @@ public class CreateSharePointContentSourcePayload {
     public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
 
     @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-    @jakarta.annotation.Nullable private ContentSourcePermissionSettings permissions;
+    @jakarta.annotation.Nullable private SharePointPermissionOptions permissions;
 
     public static final String SERIALIZED_NAME_SITE_URL = "site_url";
 
@@ -328,7 +328,7 @@ public class CreateSharePointContentSourcePayload {
     }
 
     public CreateSharePointContentSourcePayload permissions(
-            @jakarta.annotation.Nullable ContentSourcePermissionSettings permissions) {
+            @jakarta.annotation.Nullable SharePointPermissionOptions permissions) {
         this.permissions = permissions;
         return this;
     }
@@ -337,12 +337,12 @@ public class CreateSharePointContentSourcePayload {
      * Get permissions
      * @return permissions
      */
-    @jakarta.annotation.Nullable public ContentSourcePermissionSettings getPermissions() {
+    @jakarta.annotation.Nullable public SharePointPermissionOptions getPermissions() {
         return permissions;
     }
 
     public void setPermissions(
-            @jakarta.annotation.Nullable ContentSourcePermissionSettings permissions) {
+            @jakarta.annotation.Nullable SharePointPermissionOptions permissions) {
         this.permissions = permissions;
     }
 
@@ -608,7 +608,7 @@ public class CreateSharePointContentSourcePayload {
         }
         // validate the optional field `permissions`
         if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
-            ContentSourcePermissionSettings.validateJsonElement(jsonObj.get("permissions"));
+            SharePointPermissionOptions.validateJsonElement(jsonObj.get("permissions"));
         }
         if (!jsonObj.get("site_url").isJsonPrimitive()) {
             throw new IllegalArgumentException(

@@ -41,6 +41,11 @@ public class SetObjectTextPayload {
     @jakarta.annotation.Nonnull
     private String text;
 
+    public static final String SERIALIZED_NAME_EXPECTED_CONTENT_ETAG = "expected_content_etag";
+
+    @SerializedName(SERIALIZED_NAME_EXPECTED_CONTENT_ETAG)
+    @jakarta.annotation.Nullable private String expectedContentEtag;
+
     public static final String SERIALIZED_NAME_ETAG = "etag";
 
     @SerializedName(SERIALIZED_NAME_ETAG)
@@ -64,6 +69,24 @@ public class SetObjectTextPayload {
 
     public void setText(@jakarta.annotation.Nonnull String text) {
         this.text = text;
+    }
+
+    public SetObjectTextPayload expectedContentEtag(
+            @jakarta.annotation.Nullable String expectedContentEtag) {
+        this.expectedContentEtag = expectedContentEtag;
+        return this;
+    }
+
+    /**
+     * Reject stale text when the current content etag differs.
+     * @return expectedContentEtag
+     */
+    @jakarta.annotation.Nullable public String getExpectedContentEtag() {
+        return expectedContentEtag;
+    }
+
+    public void setExpectedContentEtag(@jakarta.annotation.Nullable String expectedContentEtag) {
+        this.expectedContentEtag = expectedContentEtag;
     }
 
     public SetObjectTextPayload etag(@jakarta.annotation.Nullable String etag) {
@@ -93,12 +116,14 @@ public class SetObjectTextPayload {
         }
         SetObjectTextPayload setObjectTextPayload = (SetObjectTextPayload) o;
         return Objects.equals(this.text, setObjectTextPayload.text)
+                && Objects.equals(
+                        this.expectedContentEtag, setObjectTextPayload.expectedContentEtag)
                 && Objects.equals(this.etag, setObjectTextPayload.etag);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(text, etag);
+        return Objects.hash(text, expectedContentEtag, etag);
     }
 
     @Override
@@ -106,6 +131,9 @@ public class SetObjectTextPayload {
         StringBuilder sb = new StringBuilder();
         sb.append("class SetObjectTextPayload {\n");
         sb.append("    text: ").append(toIndentedString(text)).append("\n");
+        sb.append("    expectedContentEtag: ")
+                .append(toIndentedString(expectedContentEtag))
+                .append("\n");
         sb.append("    etag: ").append(toIndentedString(etag)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -124,7 +152,7 @@ public class SetObjectTextPayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("text", "etag"));
+        openapiFields = new HashSet<String>(Arrays.asList("text", "expected_content_etag", "etag"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("text"));
@@ -166,6 +194,15 @@ public class SetObjectTextPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `text` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("text").toString()));
+        }
+        if ((jsonObj.get("expected_content_etag") != null
+                        && !jsonObj.get("expected_content_etag").isJsonNull())
+                && !jsonObj.get("expected_content_etag").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `expected_content_etag` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("expected_content_etag").toString()));
         }
         if ((jsonObj.get("etag") != null && !jsonObj.get("etag").isJsonNull())
                 && !jsonObj.get("etag").isJsonPrimitive()) {

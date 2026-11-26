@@ -53,6 +53,10 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                     adapterSharePointContentSourcePermissions =
                             gson.getDelegateAdapter(
                                     this, TypeToken.get(SharePointContentSourcePermissions.class));
+            final TypeAdapter<GoogleDriveContentSourcePermissions>
+                    adapterGoogleDriveContentSourcePermissions =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(GoogleDriveContentSourcePermissions.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<ContentSourcePermissionSettings>() {
@@ -88,13 +92,25 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                                         out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
+                            // check if the actual instance is of the type
+                            // `GoogleDriveContentSourcePermissions`
+                            if (value.getActualInstance()
+                                    instanceof GoogleDriveContentSourcePermissions) {
+                                JsonElement element =
+                                        adapterGoogleDriveContentSourcePermissions.toJsonTree(
+                                                (GoogleDriveContentSourcePermissions)
+                                                        value.getActualInstance());
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
                             if (value.getActualInstance() instanceof JsonElement) {
                                 JsonElement raw = (JsonElement) value.getActualInstance();
                                 JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: ProjectContentSourcePermissions, SharePointContentSourcePermissions");
+                                    "Failed to serialize as the type doesn't match anyOf schemas: GoogleDriveContentSourcePermissions, ProjectContentSourcePermissions, SharePointContentSourcePermissions");
                         }
 
                         @Override
@@ -102,27 +118,20 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                                 throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
-                            if (isUnknownVariant(jsonElement)) {
-                                ContentSourcePermissionSettings ret =
-                                        new ContentSourcePermissionSettings();
-                                ret.setActualInstance(jsonElement);
-                                return ret;
-                            }
 
-                            int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
                             TypeAdapter actualAdapter = elementAdapter;
 
                             // deserialize ProjectContentSourcePermissions
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                checkDiscriminator(jsonElement, "project");
                                 ProjectContentSourcePermissions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterProjectContentSourcePermissions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'ProjectContentSourcePermissions'");
+                                ContentSourcePermissionSettings ret =
+                                        new ContentSourcePermissionSettings();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -138,13 +147,13 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                             // deserialize SharePointContentSourcePermissions
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                checkDiscriminator(jsonElement, "source");
                                 SharePointContentSourcePermissions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterSharePointContentSourcePermissions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'SharePointContentSourcePermissions'");
+                                ContentSourcePermissionSettings ret =
+                                        new ContentSourcePermissionSettings();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -157,20 +166,40 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'SharePointContentSourcePermissions'",
                                         e);
                             }
-
-                            if (match == 1) {
+                            // deserialize GoogleDriveContentSourcePermissions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                GoogleDriveContentSourcePermissions.validateJsonElement(
+                                        jsonElement);
+                                actualAdapter = adapterGoogleDriveContentSourcePermissions;
                                 ContentSourcePermissionSettings ret =
                                         new ContentSourcePermissionSettings();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                                 UnknownEnumValues.keep(jsonElement, ret.getActualInstance());
                                 return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for GoogleDriveContentSourcePermissions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'GoogleDriveContentSourcePermissions'",
+                                        e);
                             }
 
+                            if (isUnknownVariant(jsonElement)) {
+                                ContentSourcePermissionSettings ret =
+                                        new ContentSourcePermissionSettings();
+                                ret.setActualInstance(jsonElement);
+                                return ret;
+                            }
                             throw new IOException(
                                     String.format(
                                             java.util.Locale.ROOT,
-                                            "Failed deserialization for ContentSourcePermissionSettings: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
-                                            match,
+                                            "Failed deserialization for ContentSourcePermissionSettings: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
                                             errorMessages,
                                             jsonElement.toString()));
                         }
@@ -178,21 +207,23 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
         }
     }
 
-    // store a list of schema names defined in oneOf
+    // store a list of schema names defined in anyOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
     public ContentSourcePermissionSettings() {
-        super("oneOf", Boolean.FALSE);
+        super("anyOf", Boolean.FALSE);
     }
 
     public ContentSourcePermissionSettings(Object o) {
-        super("oneOf", Boolean.FALSE);
+        super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
         schemas.put("ProjectContentSourcePermissions", ProjectContentSourcePermissions.class);
         schemas.put("SharePointContentSourcePermissions", SharePointContentSourcePermissions.class);
+        schemas.put(
+                "GoogleDriveContentSourcePermissions", GoogleDriveContentSourcePermissions.class);
     }
 
     @Override
@@ -201,11 +232,11 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
     }
 
     /**
-     * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas:
-     * ProjectContentSourcePermissions, SharePointContentSourcePermissions
+     * Set the instance that matches the anyOf child schema, check
+     * the instance parameter is valid against the anyOf child schemas:
+     * GoogleDriveContentSourcePermissions, ProjectContentSourcePermissions, SharePointContentSourcePermissions
      *
-     * It could be an instance of the 'oneOf' schemas.
+     * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
@@ -224,15 +255,20 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof GoogleDriveContentSourcePermissions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         throw new RuntimeException(
-                "Invalid instance type. Must be ProjectContentSourcePermissions, SharePointContentSourcePermissions");
+                "Invalid instance type. Must be GoogleDriveContentSourcePermissions, ProjectContentSourcePermissions, SharePointContentSourcePermissions");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * ProjectContentSourcePermissions, SharePointContentSourcePermissions
+     * GoogleDriveContentSourcePermissions, ProjectContentSourcePermissions, SharePointContentSourcePermissions
      *
-     * @return The actual instance (ProjectContentSourcePermissions, SharePointContentSourcePermissions)
+     * @return The actual instance (GoogleDriveContentSourcePermissions, ProjectContentSourcePermissions, SharePointContentSourcePermissions)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -247,7 +283,6 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
      * @return The actual instance of `ProjectContentSourcePermissions`
      * @throws ClassCastException if the instance is not `ProjectContentSourcePermissions`
      */
-    @SuppressWarnings("unchecked")
     public ProjectContentSourcePermissions getProjectContentSourcePermissions()
             throws ClassCastException {
         return (ProjectContentSourcePermissions) super.getActualInstance();
@@ -260,10 +295,21 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
      * @return The actual instance of `SharePointContentSourcePermissions`
      * @throws ClassCastException if the instance is not `SharePointContentSourcePermissions`
      */
-    @SuppressWarnings("unchecked")
     public SharePointContentSourcePermissions getSharePointContentSourcePermissions()
             throws ClassCastException {
         return (SharePointContentSourcePermissions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `GoogleDriveContentSourcePermissions`. If the actual instance is not `GoogleDriveContentSourcePermissions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `GoogleDriveContentSourcePermissions`
+     * @throws ClassCastException if the instance is not `GoogleDriveContentSourcePermissions`
+     */
+    public GoogleDriveContentSourcePermissions getGoogleDriveContentSourcePermissions()
+            throws ClassCastException {
+        return (GoogleDriveContentSourcePermissions) super.getActualInstance();
     }
 
     /**
@@ -273,17 +319,12 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to ContentSourcePermissionSettings
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (isUnknownVariant(jsonElement)) {
-            return;
-        }
-        // validate oneOf schemas one by one
-        int validCount = 0;
+        // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with ProjectContentSourcePermissions
         try {
-            checkDiscriminator(jsonElement, "project");
             ProjectContentSourcePermissions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -294,9 +335,8 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
         }
         // validate the json string with SharePointContentSourcePermissions
         try {
-            checkDiscriminator(jsonElement, "source");
             SharePointContentSourcePermissions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -305,15 +345,27 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
-        if (validCount != 1) {
-            throw new IOException(
+        // validate the json string with GoogleDriveContentSourcePermissions
+        try {
+            GoogleDriveContentSourcePermissions.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for ContentSourcePermissionSettings with oneOf schemas: ProjectContentSourcePermissions, SharePointContentSourcePermissions. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
-                            validCount,
-                            errorMessages,
-                            jsonElement.toString()));
+                            "Deserialization for GoogleDriveContentSourcePermissions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
         }
+        if (isUnknownVariant(jsonElement)) {
+            return;
+        }
+        throw new IOException(
+                String.format(
+                        java.util.Locale.ROOT,
+                        "The JSON string is invalid for ContentSourcePermissionSettings with anyOf schemas: GoogleDriveContentSourcePermissions, ProjectContentSourcePermissions, SharePointContentSourcePermissions. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+                        errorMessages,
+                        jsonElement.toString()));
     }
 
     /**
@@ -325,33 +377,9 @@ public class ContentSourcePermissionSettings extends AbstractOpenApiSchema {
         return instance instanceof JsonElement ? (JsonElement) instance : null;
     }
 
-    // A variant added by a newer server: a discriminator value this client does not know.
+    // A variant added by a newer server: no known variant decodes it.
     private static boolean isUnknownVariant(JsonElement jsonElement) {
-        if (!jsonElement.isJsonObject()) {
-            return false;
-        }
-        JsonElement tag = jsonElement.getAsJsonObject().get("mode");
-        if (tag == null || !tag.isJsonPrimitive() || !tag.getAsJsonPrimitive().isString()) {
-            return false;
-        }
-        switch (tag.getAsString()) {
-            case "":
-            case "project":
-            case "source":
-                return false;
-            default:
-                return true;
-        }
-    }
-
-    // A branch matches only the discriminator value the spec maps to it. Branch validation alone
-    // accepts any value when the tag is an enum with an unknown-value default.
-    private static void checkDiscriminator(JsonElement jsonElement, String value)
-            throws IOException {
-        JsonElement tag = jsonElement.getAsJsonObject().get("mode");
-        if (tag == null || !tag.isJsonPrimitive() || !value.equals(tag.getAsString())) {
-            throw new IOException("Expected mode to be " + value);
-        }
+        return !jsonElement.isJsonNull();
     }
 
     /**

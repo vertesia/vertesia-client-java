@@ -138,6 +138,7 @@ src/main/java/io/vertesia/model/AgentToolDefinition.java
 src/main/java/io/vertesia/model/AgenticViewRerankConfiguration.java
 src/main/java/io/vertesia/model/AgenticViewSearchConfiguration.java
 src/main/java/io/vertesia/model/AggregatedTool.java
+src/main/java/io/vertesia/model/AllGoogleDrivesSelection.java
 src/main/java/io/vertesia/model/AllocateAgentRunBudgetPayload.java
 src/main/java/io/vertesia/model/AllocateAgentRunBudgetPayloadAnyOf.java
 src/main/java/io/vertesia/model/AllocateAgentRunBudgetPayloadAnyOf1.java
@@ -479,6 +480,7 @@ src/main/java/io/vertesia/model/CreateEmailRouteRequest.java
 src/main/java/io/vertesia/model/CreateEmailRouteResponse.java
 src/main/java/io/vertesia/model/CreateEventIngestChannelPayload.java
 src/main/java/io/vertesia/model/CreateEventSubscriptionPayload.java
+src/main/java/io/vertesia/model/CreateGoogleDriveContentSourcePayload.java
 src/main/java/io/vertesia/model/CreateInferenceProfilePayload.java
 src/main/java/io/vertesia/model/CreateOAuthClientPayload.java
 src/main/java/io/vertesia/model/CreateOAuthProviderPayload.java
@@ -708,6 +710,12 @@ src/main/java/io/vertesia/model/GithubConfiguration.java
 src/main/java/io/vertesia/model/GithubConfigurationInput.java
 src/main/java/io/vertesia/model/GladiaConfiguration.java
 src/main/java/io/vertesia/model/GladiaConfigurationInput.java
+src/main/java/io/vertesia/model/GoogleDriveContentSource.java
+src/main/java/io/vertesia/model/GoogleDriveContentSourcePermissions.java
+src/main/java/io/vertesia/model/GoogleDrivePermissionOptions.java
+src/main/java/io/vertesia/model/GoogleDriveReader.java
+src/main/java/io/vertesia/model/GoogleDriveReaderConfig.java
+src/main/java/io/vertesia/model/GoogleDriveSelection.java
 src/main/java/io/vertesia/model/GroqOptions.java
 src/main/java/io/vertesia/model/GroundedAssistantResponse.java
 src/main/java/io/vertesia/model/GroundedExtractionRequest.java
@@ -1137,6 +1145,7 @@ src/main/java/io/vertesia/model/SharePointOrganization.java
 src/main/java/io/vertesia/model/SharePointOrganizationLinkAttempt.java
 src/main/java/io/vertesia/model/SharePointOrganizationReader.java
 src/main/java/io/vertesia/model/SharePointOrganizations.java
+src/main/java/io/vertesia/model/SharePointPermissionOptions.java
 src/main/java/io/vertesia/model/SharePointRegion.java
 src/main/java/io/vertesia/model/SharePointRequestProject.java
 src/main/java/io/vertesia/model/SignalAgentResponse.java
@@ -1144,6 +1153,7 @@ src/main/java/io/vertesia/model/SignalEventProperties.java
 src/main/java/io/vertesia/model/SignalEventPropertiesSender.java
 src/main/java/io/vertesia/model/SignalTask.java
 src/main/java/io/vertesia/model/SigningAlgorithm.java
+src/main/java/io/vertesia/model/SingleGoogleDriveSelection.java
 src/main/java/io/vertesia/model/SkillContextTriggers.java
 src/main/java/io/vertesia/model/SortOption.java
 src/main/java/io/vertesia/model/SortOrder.java

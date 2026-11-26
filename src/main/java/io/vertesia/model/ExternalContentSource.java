@@ -47,6 +47,8 @@ public class ExternalContentSource extends AbstractOpenApiSchema {
                     gson.getDelegateAdapter(this, TypeToken.get(SharePointContentSource.class));
             final TypeAdapter<BoxContentSource> adapterBoxContentSource =
                     gson.getDelegateAdapter(this, TypeToken.get(BoxContentSource.class));
+            final TypeAdapter<GoogleDriveContentSource> adapterGoogleDriveContentSource =
+                    gson.getDelegateAdapter(this, TypeToken.get(GoogleDriveContentSource.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<ExternalContentSource>() {
@@ -77,13 +79,24 @@ public class ExternalContentSource extends AbstractOpenApiSchema {
                                         out, elementAdapter, element, value.getActualInstance());
                                 return;
                             }
+                            // check if the actual instance is of the type
+                            // `GoogleDriveContentSource`
+                            if (value.getActualInstance() instanceof GoogleDriveContentSource) {
+                                JsonElement element =
+                                        adapterGoogleDriveContentSource.toJsonTree(
+                                                (GoogleDriveContentSource)
+                                                        value.getActualInstance());
+                                JsonOutput.writeModel(
+                                        out, elementAdapter, element, value.getActualInstance());
+                                return;
+                            }
                             if (value.getActualInstance() instanceof JsonElement) {
                                 JsonElement raw = (JsonElement) value.getActualInstance();
                                 JsonOutput.writeKeepingNulls(out, elementAdapter, raw);
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: BoxContentSource, SharePointContentSource");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: BoxContentSource, GoogleDriveContentSource, SharePointContentSource");
                         }
 
                         @Override
@@ -144,6 +157,28 @@ public class ExternalContentSource extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'BoxContentSource'",
                                         e);
                             }
+                            // deserialize GoogleDriveContentSource
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                checkDiscriminator(jsonElement, "google-drive");
+                                GoogleDriveContentSource.validateJsonElement(jsonElement);
+                                actualAdapter = adapterGoogleDriveContentSource;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'GoogleDriveContentSource'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for GoogleDriveContentSource failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'GoogleDriveContentSource'",
+                                        e);
+                            }
 
                             if (match == 1) {
                                 ExternalContentSource ret = new ExternalContentSource();
@@ -179,6 +214,7 @@ public class ExternalContentSource extends AbstractOpenApiSchema {
     static {
         schemas.put("SharePointContentSource", SharePointContentSource.class);
         schemas.put("BoxContentSource", BoxContentSource.class);
+        schemas.put("GoogleDriveContentSource", GoogleDriveContentSource.class);
     }
 
     @Override
@@ -189,7 +225,7 @@ public class ExternalContentSource extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * BoxContentSource, SharePointContentSource
+     * BoxContentSource, GoogleDriveContentSource, SharePointContentSource
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -210,15 +246,20 @@ public class ExternalContentSource extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof GoogleDriveContentSource) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         throw new RuntimeException(
-                "Invalid instance type. Must be BoxContentSource, SharePointContentSource");
+                "Invalid instance type. Must be BoxContentSource, GoogleDriveContentSource, SharePointContentSource");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * BoxContentSource, SharePointContentSource
+     * BoxContentSource, GoogleDriveContentSource, SharePointContentSource
      *
-     * @return The actual instance (BoxContentSource, SharePointContentSource)
+     * @return The actual instance (BoxContentSource, GoogleDriveContentSource, SharePointContentSource)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -248,6 +289,18 @@ public class ExternalContentSource extends AbstractOpenApiSchema {
     @SuppressWarnings("unchecked")
     public BoxContentSource getBoxContentSource() throws ClassCastException {
         return (BoxContentSource) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `GoogleDriveContentSource`. If the actual instance is not `GoogleDriveContentSource`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `GoogleDriveContentSource`
+     * @throws ClassCastException if the instance is not `GoogleDriveContentSource`
+     */
+    @SuppressWarnings("unchecked")
+    public GoogleDriveContentSource getGoogleDriveContentSource() throws ClassCastException {
+        return (GoogleDriveContentSource) super.getActualInstance();
     }
 
     /**
@@ -289,11 +342,24 @@ public class ExternalContentSource extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with GoogleDriveContentSource
+        try {
+            checkDiscriminator(jsonElement, "google-drive");
+            GoogleDriveContentSource.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for GoogleDriveContentSource failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for ExternalContentSource with oneOf schemas: BoxContentSource, SharePointContentSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for ExternalContentSource with oneOf schemas: BoxContentSource, GoogleDriveContentSource, SharePointContentSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
@@ -321,6 +387,7 @@ public class ExternalContentSource extends AbstractOpenApiSchema {
         switch (tag.getAsString()) {
             case "":
             case "box":
+            case "google-drive":
             case "sharepoint":
                 return false;
             default:

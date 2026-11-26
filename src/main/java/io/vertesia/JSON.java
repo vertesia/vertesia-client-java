@@ -229,35 +229,6 @@ public class JSON {
                                     }
                                 })
                         .registerTypeSelector(
-                                io.vertesia.model.ContentSourcePermissionSettings.class,
-                                new TypeSelector<
-                                        io.vertesia.model.ContentSourcePermissionSettings>() {
-                                    @Override
-                                    public Class<
-                                                    ? extends
-                                                            io.vertesia.model
-                                                                    .ContentSourcePermissionSettings>
-                                            getClassForElement(JsonElement readElement) {
-                                        Map<String, Class> classByDiscriminatorValue =
-                                                new HashMap<String, Class>();
-                                        classByDiscriminatorValue.put(
-                                                "project",
-                                                io.vertesia.model.ProjectContentSourcePermissions
-                                                        .class);
-                                        classByDiscriminatorValue.put(
-                                                "source",
-                                                io.vertesia.model.SharePointContentSourcePermissions
-                                                        .class);
-                                        classByDiscriminatorValue.put(
-                                                "ContentSourcePermissionSettings",
-                                                io.vertesia.model.ContentSourcePermissionSettings
-                                                        .class);
-                                        return getClassByDiscriminator(
-                                                classByDiscriminatorValue,
-                                                getDiscriminatorValue(readElement, "mode"));
-                                    }
-                                })
-                        .registerTypeSelector(
                                 io.vertesia.model.CreateContentSourcePayload.class,
                                 new TypeSelector<io.vertesia.model.CreateContentSourcePayload>() {
                                     @Override
@@ -271,6 +242,11 @@ public class JSON {
                                         classByDiscriminatorValue.put(
                                                 "box",
                                                 io.vertesia.model.CreateBoxContentSourcePayload
+                                                        .class);
+                                        classByDiscriminatorValue.put(
+                                                "google-drive",
+                                                io.vertesia.model
+                                                        .CreateGoogleDriveContentSourcePayload
                                                         .class);
                                         classByDiscriminatorValue.put(
                                                 "sharepoint",
@@ -518,6 +494,9 @@ public class JSON {
                                         classByDiscriminatorValue.put(
                                                 "box", io.vertesia.model.BoxContentSource.class);
                                         classByDiscriminatorValue.put(
+                                                "google-drive",
+                                                io.vertesia.model.GoogleDriveContentSource.class);
+                                        classByDiscriminatorValue.put(
                                                 "sharepoint",
                                                 io.vertesia.model.SharePointContentSource.class);
                                         classByDiscriminatorValue.put(
@@ -526,6 +505,56 @@ public class JSON {
                                         return getClassByDiscriminator(
                                                 classByDiscriminatorValue,
                                                 getDiscriminatorValue(readElement, "type"));
+                                    }
+                                })
+                        .registerTypeSelector(
+                                io.vertesia.model.GoogleDrivePermissionOptions.class,
+                                new TypeSelector<io.vertesia.model.GoogleDrivePermissionOptions>() {
+                                    @Override
+                                    public Class<
+                                                    ? extends
+                                                            io.vertesia.model
+                                                                    .GoogleDrivePermissionOptions>
+                                            getClassForElement(JsonElement readElement) {
+                                        Map<String, Class> classByDiscriminatorValue =
+                                                new HashMap<String, Class>();
+                                        classByDiscriminatorValue.put(
+                                                "project",
+                                                io.vertesia.model.ProjectContentSourcePermissions
+                                                        .class);
+                                        classByDiscriminatorValue.put(
+                                                "source",
+                                                io.vertesia.model
+                                                        .GoogleDriveContentSourcePermissions.class);
+                                        classByDiscriminatorValue.put(
+                                                "GoogleDrivePermissionOptions",
+                                                io.vertesia.model.GoogleDrivePermissionOptions
+                                                        .class);
+                                        return getClassByDiscriminator(
+                                                classByDiscriminatorValue,
+                                                getDiscriminatorValue(readElement, "mode"));
+                                    }
+                                })
+                        .registerTypeSelector(
+                                io.vertesia.model.GoogleDriveSelection.class,
+                                new TypeSelector<io.vertesia.model.GoogleDriveSelection>() {
+                                    @Override
+                                    public Class<? extends io.vertesia.model.GoogleDriveSelection>
+                                            getClassForElement(JsonElement readElement) {
+                                        Map<String, Class> classByDiscriminatorValue =
+                                                new HashMap<String, Class>();
+                                        classByDiscriminatorValue.put(
+                                                "all",
+                                                io.vertesia.model.AllGoogleDrivesSelection.class);
+                                        classByDiscriminatorValue.put(
+                                                "single",
+                                                io.vertesia.model.SingleGoogleDriveSelection.class);
+                                        classByDiscriminatorValue.put(
+                                                "GoogleDriveSelection",
+                                                io.vertesia.model.GoogleDriveSelection.class);
+                                        return getClassByDiscriminator(
+                                                classByDiscriminatorValue,
+                                                getDiscriminatorValue(readElement, "mode"));
                                     }
                                 })
                         .registerTypeSelector(
@@ -753,6 +782,34 @@ public class JSON {
                                         return getClassByDiscriminator(
                                                 classByDiscriminatorValue,
                                                 getDiscriminatorValue(readElement, "type"));
+                                    }
+                                })
+                        .registerTypeSelector(
+                                io.vertesia.model.SharePointPermissionOptions.class,
+                                new TypeSelector<io.vertesia.model.SharePointPermissionOptions>() {
+                                    @Override
+                                    public Class<
+                                                    ? extends
+                                                            io.vertesia.model
+                                                                    .SharePointPermissionOptions>
+                                            getClassForElement(JsonElement readElement) {
+                                        Map<String, Class> classByDiscriminatorValue =
+                                                new HashMap<String, Class>();
+                                        classByDiscriminatorValue.put(
+                                                "project",
+                                                io.vertesia.model.ProjectContentSourcePermissions
+                                                        .class);
+                                        classByDiscriminatorValue.put(
+                                                "source",
+                                                io.vertesia.model.SharePointContentSourcePermissions
+                                                        .class);
+                                        classByDiscriminatorValue.put(
+                                                "SharePointPermissionOptions",
+                                                io.vertesia.model.SharePointPermissionOptions
+                                                        .class);
+                                        return getClassByDiscriminator(
+                                                classByDiscriminatorValue,
+                                                getDiscriminatorValue(readElement, "mode"));
                                     }
                                 })
                         .registerTypeSelector(
@@ -1175,6 +1232,8 @@ public class JSON {
                 new io.vertesia.model.AgenticViewSearchConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AggregatedTool.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AllGoogleDrivesSelection.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AllocateAgentRunBudgetPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1809,6 +1868,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateEventSubscriptionPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.CreateGoogleDriveContentSourcePayload
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateInferenceProfilePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateOAuthClientPayload.CustomTypeAdapterFactory());
@@ -2229,6 +2291,19 @@ public class JSON {
                 new io.vertesia.model.GladiaConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.GladiaConfigurationInput.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.GoogleDriveContentSource.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.GoogleDriveContentSourcePermissions
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.GoogleDrivePermissionOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.GoogleDriveReader.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.GoogleDriveReaderConfig.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.GoogleDriveSelection.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.GroqOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -2969,6 +3044,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.SharePointOrganizations.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.SharePointPermissionOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.SharePointRegion.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.SharePointRequestProject.CustomTypeAdapterFactory());
@@ -2980,6 +3057,8 @@ public class JSON {
                 new io.vertesia.model.SignalEventPropertiesSender.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.SignalTask.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.SingleGoogleDriveSelection.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.SkillContextTriggers.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

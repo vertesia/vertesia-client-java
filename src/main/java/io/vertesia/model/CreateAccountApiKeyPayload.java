@@ -59,6 +59,12 @@ public class CreateAccountApiKeyPayload {
     @SerializedName(SERIALIZED_NAME_SCIM_ENTRA_MEMBERS_GROUP_ID)
     @jakarta.annotation.Nullable private UUID scimEntraMembersGroupId;
 
+    public static final String SERIALIZED_NAME_SCIM_GOOGLE_DRIVE_READER_ID =
+            "scim_google_drive_reader_id";
+
+    @SerializedName(SERIALIZED_NAME_SCIM_GOOGLE_DRIVE_READER_ID)
+    @jakarta.annotation.Nullable private String scimGoogleDriveReaderId;
+
     public CreateAccountApiKeyPayload() {}
 
     public CreateAccountApiKeyPayload name(@jakarta.annotation.Nonnull String name) {
@@ -134,6 +140,25 @@ public class CreateAccountApiKeyPayload {
         this.scimEntraMembersGroupId = scimEntraMembersGroupId;
     }
 
+    public CreateAccountApiKeyPayload scimGoogleDriveReaderId(
+            @jakarta.annotation.Nullable String scimGoogleDriveReaderId) {
+        this.scimGoogleDriveReaderId = scimGoogleDriveReaderId;
+        return this;
+    }
+
+    /**
+     * Get scimGoogleDriveReaderId
+     * @return scimGoogleDriveReaderId
+     */
+    @jakarta.annotation.Nullable public String getScimGoogleDriveReaderId() {
+        return scimGoogleDriveReaderId;
+    }
+
+    public void setScimGoogleDriveReaderId(
+            @jakarta.annotation.Nullable String scimGoogleDriveReaderId) {
+        this.scimGoogleDriveReaderId = scimGoogleDriveReaderId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -149,12 +174,20 @@ public class CreateAccountApiKeyPayload {
                         this.scimEntraTenantId, createAccountApiKeyPayload.scimEntraTenantId)
                 && Objects.equals(
                         this.scimEntraMembersGroupId,
-                        createAccountApiKeyPayload.scimEntraMembersGroupId);
+                        createAccountApiKeyPayload.scimEntraMembersGroupId)
+                && Objects.equals(
+                        this.scimGoogleDriveReaderId,
+                        createAccountApiKeyPayload.scimGoogleDriveReaderId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, expiresAt, scimEntraTenantId, scimEntraMembersGroupId);
+        return Objects.hash(
+                name,
+                expiresAt,
+                scimEntraTenantId,
+                scimEntraMembersGroupId,
+                scimGoogleDriveReaderId);
     }
 
     @Override
@@ -168,6 +201,9 @@ public class CreateAccountApiKeyPayload {
                 .append("\n");
         sb.append("    scimEntraMembersGroupId: ")
                 .append(toIndentedString(scimEntraMembersGroupId))
+                .append("\n");
+        sb.append("    scimGoogleDriveReaderId: ")
+                .append(toIndentedString(scimGoogleDriveReaderId))
                 .append("\n");
         sb.append("}");
         return sb.toString();
@@ -192,7 +228,8 @@ public class CreateAccountApiKeyPayload {
                                 "name",
                                 "expires_at",
                                 "scim_entra_tenant_id",
-                                "scim_entra_members_group_id"));
+                                "scim_entra_members_group_id",
+                                "scim_google_drive_reader_id"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -252,6 +289,15 @@ public class CreateAccountApiKeyPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `scim_entra_members_group_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("scim_entra_members_group_id").toString()));
+        }
+        if ((jsonObj.get("scim_google_drive_reader_id") != null
+                        && !jsonObj.get("scim_google_drive_reader_id").isJsonNull())
+                && !jsonObj.get("scim_google_drive_reader_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `scim_google_drive_reader_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("scim_google_drive_reader_id").toString()));
         }
     }
 

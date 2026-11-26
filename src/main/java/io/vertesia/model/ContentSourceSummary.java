@@ -64,6 +64,8 @@ public class ContentSourceSummary {
 
         BOX("box"),
 
+        GOOGLE_DRIVE("google-drive"),
+
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
