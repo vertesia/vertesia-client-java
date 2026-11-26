@@ -111,6 +111,11 @@ public class ContentSourceStatus {
     @SerializedName(SERIALIZED_NAME_PERMISSIONS)
     @jakarta.annotation.Nullable private ContentSourcePermissionStatus permissions;
 
+    public static final String SERIALIZED_NAME_NOTIFICATIONS = "notifications";
+
+    @SerializedName(SERIALIZED_NAME_NOTIFICATIONS)
+    @jakarta.annotation.Nullable private ContentSourceNotificationStatus notifications;
+
     public static final String SERIALIZED_NAME_CURRENT_ROUND = "current_round";
 
     @SerializedName(SERIALIZED_NAME_CURRENT_ROUND)
@@ -178,6 +183,25 @@ public class ContentSourceStatus {
     public void setPermissions(
             @jakarta.annotation.Nullable ContentSourcePermissionStatus permissions) {
         this.permissions = permissions;
+    }
+
+    public ContentSourceStatus notifications(
+            @jakarta.annotation.Nullable ContentSourceNotificationStatus notifications) {
+        this.notifications = notifications;
+        return this;
+    }
+
+    /**
+     * The state of the source&#39;s change notifications. Absent unless the source asks for them with &#x60;sync.notifications&#x60;, and before the first attempt to subscribe.
+     * @return notifications
+     */
+    @jakarta.annotation.Nullable public ContentSourceNotificationStatus getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(
+            @jakarta.annotation.Nullable ContentSourceNotificationStatus notifications) {
+        this.notifications = notifications;
     }
 
     public ContentSourceStatus currentRound(
@@ -306,6 +330,7 @@ public class ContentSourceStatus {
         ContentSourceStatus contentSourceStatus = (ContentSourceStatus) o;
         return Objects.equals(this.state, contentSourceStatus.state)
                 && Objects.equals(this.permissions, contentSourceStatus.permissions)
+                && Objects.equals(this.notifications, contentSourceStatus.notifications)
                 && Objects.equals(this.currentRound, contentSourceStatus.currentRound)
                 && Objects.equals(this.lastRound, contentSourceStatus.lastRound)
                 && Objects.equals(this.recentRounds, contentSourceStatus.recentRounds)
@@ -319,6 +344,7 @@ public class ContentSourceStatus {
         return Objects.hash(
                 state,
                 permissions,
+                notifications,
                 currentRound,
                 lastRound,
                 recentRounds,
@@ -333,6 +359,7 @@ public class ContentSourceStatus {
         sb.append("class ContentSourceStatus {\n");
         sb.append("    state: ").append(toIndentedString(state)).append("\n");
         sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
         sb.append("    currentRound: ").append(toIndentedString(currentRound)).append("\n");
         sb.append("    lastRound: ").append(toIndentedString(lastRound)).append("\n");
         sb.append("    recentRounds: ").append(toIndentedString(recentRounds)).append("\n");
@@ -364,6 +391,7 @@ public class ContentSourceStatus {
                         Arrays.asList(
                                 "state",
                                 "permissions",
+                                "notifications",
                                 "current_round",
                                 "last_round",
                                 "recent_rounds",
@@ -417,6 +445,10 @@ public class ContentSourceStatus {
         // validate the optional field `permissions`
         if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
             ContentSourcePermissionStatus.validateJsonElement(jsonObj.get("permissions"));
+        }
+        // validate the optional field `notifications`
+        if (jsonObj.get("notifications") != null && !jsonObj.get("notifications").isJsonNull()) {
+            ContentSourceNotificationStatus.validateJsonElement(jsonObj.get("notifications"));
         }
         // validate the optional field `current_round`
         if (jsonObj.get("current_round") != null && !jsonObj.get("current_round").isJsonNull()) {

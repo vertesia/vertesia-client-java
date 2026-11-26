@@ -406,9 +406,11 @@ src/main/java/io/vertesia/model/ContentSourceColumn.java
 src/main/java/io/vertesia/model/ContentSourceColumnType.java
 src/main/java/io/vertesia/model/ContentSourceContentType.java
 src/main/java/io/vertesia/model/ContentSourceContentTypeCount.java
+src/main/java/io/vertesia/model/ContentSourceFileDownload.java
 src/main/java/io/vertesia/model/ContentSourceFolder.java
 src/main/java/io/vertesia/model/ContentSourceFoldersDiscovery.java
 src/main/java/io/vertesia/model/ContentSourceLibrary.java
+src/main/java/io/vertesia/model/ContentSourceNotificationStatus.java
 src/main/java/io/vertesia/model/ContentSourcePermissionSettings.java
 src/main/java/io/vertesia/model/ContentSourcePermissionStatus.java
 src/main/java/io/vertesia/model/ContentSourceReport.java
@@ -574,6 +576,7 @@ src/main/java/io/vertesia/model/DeleteCountResult.java
 src/main/java/io/vertesia/model/DeleteFileResult.java
 src/main/java/io/vertesia/model/DeleteOperationResult.java
 src/main/java/io/vertesia/model/DeleteSecretResponse.java
+src/main/java/io/vertesia/model/DiscoverContentSourceFilePayload.java
 src/main/java/io/vertesia/model/DiscoverContentSourceFoldersPayload.java
 src/main/java/io/vertesia/model/DiscoverContentSourceSamplePayload.java
 src/main/java/io/vertesia/model/DiscoverContentSourceSchemaPayload.java
@@ -754,6 +757,7 @@ src/main/java/io/vertesia/model/InferenceProfileUsage.java
 src/main/java/io/vertesia/model/InferenceProfileUsageEntry.java
 src/main/java/io/vertesia/model/InheritedPropertyMetadata.java
 src/main/java/io/vertesia/model/InitialToolCall.java
+src/main/java/io/vertesia/model/InspectContentSourceFilePayload.java
 src/main/java/io/vertesia/model/InspectContentSourceFoldersPayload.java
 src/main/java/io/vertesia/model/InspectContentSourceSamplePayload.java
 src/main/java/io/vertesia/model/InspectContentSourceSchemaPayload.java

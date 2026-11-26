@@ -19,6 +19,7 @@ import io.vertesia.ApiException;
 import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
+import io.vertesia.model.ContentSourceFileDownload;
 import io.vertesia.model.ContentSourceFoldersDiscovery;
 import io.vertesia.model.ContentSourceReport;
 import io.vertesia.model.ContentSourceRootsDiscovery;
@@ -29,6 +30,7 @@ import io.vertesia.model.ContentSourceStatus;
 import io.vertesia.model.ContentSourceSummary;
 import io.vertesia.model.CreateContentSourcePayload;
 import io.vertesia.model.DeleteCountResult;
+import io.vertesia.model.DiscoverContentSourceFilePayload;
 import io.vertesia.model.DiscoverContentSourceFoldersPayload;
 import io.vertesia.model.DiscoverContentSourceSamplePayload;
 import io.vertesia.model.DiscoverContentSourceSchemaPayload;
@@ -36,6 +38,7 @@ import io.vertesia.model.DiscoverContentSourceSitePayload;
 import io.vertesia.model.ExternalContentSource;
 import io.vertesia.model.GoogleDriveReader;
 import io.vertesia.model.GoogleDriveReaderConfig;
+import io.vertesia.model.InspectContentSourceFilePayload;
 import io.vertesia.model.InspectContentSourceFoldersPayload;
 import io.vertesia.model.InspectContentSourceSamplePayload;
 import io.vertesia.model.InspectContentSourceSchemaPayload;
@@ -843,6 +846,206 @@ public class ContentSourcesApi {
     public APIdisconnectGoogleDriveReaderRequest disconnectGoogleDriveReader(
             @jakarta.annotation.Nonnull String id) {
         return new APIdisconnectGoogleDriveReaderRequest(id);
+    }
+
+    private okhttp3.Call discoverContentSourceFileCall(
+            @jakarta.annotation.Nonnull
+                    DiscoverContentSourceFilePayload discoverContentSourceFilePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = discoverContentSourceFilePayload;
+
+        // create path and map variables
+        String localVarPath = "/content-sources/discover/file";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call discoverContentSourceFileValidateBeforeCall(
+            @jakarta.annotation.Nonnull
+                    DiscoverContentSourceFilePayload discoverContentSourceFilePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'discoverContentSourceFilePayload' is set
+        if (discoverContentSourceFilePayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'discoverContentSourceFilePayload' when calling discoverContentSourceFile(Async)");
+        }
+
+        return discoverContentSourceFileCall(discoverContentSourceFilePayload, _callback);
+    }
+
+    private ApiResponse<ContentSourceFileDownload> discoverContentSourceFileWithHttpInfo(
+            @jakarta.annotation.Nonnull
+                    DiscoverContentSourceFilePayload discoverContentSourceFilePayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                discoverContentSourceFileValidateBeforeCall(discoverContentSourceFilePayload, null);
+        Type localVarReturnType = new TypeToken<ContentSourceFileDownload>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call discoverContentSourceFileAsync(
+            @jakarta.annotation.Nonnull
+                    DiscoverContentSourceFilePayload discoverContentSourceFilePayload,
+            final ApiCallback<ContentSourceFileDownload> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                discoverContentSourceFileValidateBeforeCall(
+                        discoverContentSourceFilePayload, _callback);
+        Type localVarReturnType = new TypeToken<ContentSourceFileDownload>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdiscoverContentSourceFileRequest {
+        @jakarta.annotation.Nonnull
+        private final DiscoverContentSourceFilePayload discoverContentSourceFilePayload;
+
+        private APIdiscoverContentSourceFileRequest(
+                @jakarta.annotation.Nonnull
+                        DiscoverContentSourceFilePayload discoverContentSourceFilePayload) {
+            this.discoverContentSourceFilePayload = discoverContentSourceFilePayload;
+        }
+
+        /**
+         * Build call for discoverContentSourceFile
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The file and its download URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return discoverContentSourceFileCall(discoverContentSourceFilePayload, _callback);
+        }
+
+        /**
+         * Execute discoverContentSourceFile request
+         * @return ContentSourceFileDownload
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The file and its download URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentSourceFileDownload execute() throws ApiException {
+            ApiResponse<ContentSourceFileDownload> localVarResp =
+                    discoverContentSourceFileWithHttpInfo(discoverContentSourceFilePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute discoverContentSourceFile request with HTTP info returned
+         * @return ApiResponse&lt;ContentSourceFileDownload&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The file and its download URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentSourceFileDownload> executeWithHttpInfo() throws ApiException {
+            return discoverContentSourceFileWithHttpInfo(discoverContentSourceFilePayload);
+        }
+
+        /**
+         * Execute discoverContentSourceFile request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The file and its download URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentSourceFileDownload> _callback)
+                throws ApiException {
+            return discoverContentSourceFileAsync(discoverContentSourceFilePayload, _callback);
+        }
+    }
+
+    /**
+     * Get the download URL of a file of a document library
+     * **Required permissions:** Any of &#x60;content_source:manage&#x60;, &#x60;project:settings_write&#x60;
+     * @param discoverContentSourceFilePayload  (required)
+     * @return APIdiscoverContentSourceFileRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The file and its download URL. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIdiscoverContentSourceFileRequest discoverContentSourceFile(
+            @jakarta.annotation.Nonnull
+                    DiscoverContentSourceFilePayload discoverContentSourceFilePayload) {
+        return new APIdiscoverContentSourceFileRequest(discoverContentSourceFilePayload);
     }
 
     private okhttp3.Call discoverContentSourceFoldersCall(
@@ -2308,6 +2511,229 @@ public class ContentSourcesApi {
     public APIgetContentSourceStatusRequest getContentSourceStatus(
             @jakarta.annotation.Nonnull String sourceId) {
         return new APIgetContentSourceStatusRequest(sourceId);
+    }
+
+    private okhttp3.Call inspectContentSourceFileCall(
+            @jakarta.annotation.Nonnull String sourceId,
+            @jakarta.annotation.Nonnull
+                    InspectContentSourceFilePayload inspectContentSourceFilePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = inspectContentSourceFilePayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/content-sources/{sourceId}/discover/file"
+                        .replace(
+                                "{" + "sourceId" + "}",
+                                localVarApiClient.escapeString(sourceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call inspectContentSourceFileValidateBeforeCall(
+            @jakarta.annotation.Nonnull String sourceId,
+            @jakarta.annotation.Nonnull
+                    InspectContentSourceFilePayload inspectContentSourceFilePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling inspectContentSourceFile(Async)");
+        }
+
+        // verify the required parameter 'inspectContentSourceFilePayload' is set
+        if (inspectContentSourceFilePayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'inspectContentSourceFilePayload' when calling inspectContentSourceFile(Async)");
+        }
+
+        return inspectContentSourceFileCall(sourceId, inspectContentSourceFilePayload, _callback);
+    }
+
+    private ApiResponse<ContentSourceFileDownload> inspectContentSourceFileWithHttpInfo(
+            @jakarta.annotation.Nonnull String sourceId,
+            @jakarta.annotation.Nonnull
+                    InspectContentSourceFilePayload inspectContentSourceFilePayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                inspectContentSourceFileValidateBeforeCall(
+                        sourceId, inspectContentSourceFilePayload, null);
+        Type localVarReturnType = new TypeToken<ContentSourceFileDownload>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call inspectContentSourceFileAsync(
+            @jakarta.annotation.Nonnull String sourceId,
+            @jakarta.annotation.Nonnull
+                    InspectContentSourceFilePayload inspectContentSourceFilePayload,
+            final ApiCallback<ContentSourceFileDownload> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                inspectContentSourceFileValidateBeforeCall(
+                        sourceId, inspectContentSourceFilePayload, _callback);
+        Type localVarReturnType = new TypeToken<ContentSourceFileDownload>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIinspectContentSourceFileRequest {
+        @jakarta.annotation.Nonnull private final String sourceId;
+
+        @jakarta.annotation.Nonnull
+        private final InspectContentSourceFilePayload inspectContentSourceFilePayload;
+
+        private APIinspectContentSourceFileRequest(
+                @jakarta.annotation.Nonnull String sourceId,
+                @jakarta.annotation.Nonnull
+                        InspectContentSourceFilePayload inspectContentSourceFilePayload) {
+            this.sourceId = sourceId;
+            this.inspectContentSourceFilePayload = inspectContentSourceFilePayload;
+        }
+
+        /**
+         * Build call for inspectContentSourceFile
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The file and its download URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return inspectContentSourceFileCall(
+                    sourceId, inspectContentSourceFilePayload, _callback);
+        }
+
+        /**
+         * Execute inspectContentSourceFile request
+         * @return ContentSourceFileDownload
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The file and its download URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ContentSourceFileDownload execute() throws ApiException {
+            ApiResponse<ContentSourceFileDownload> localVarResp =
+                    inspectContentSourceFileWithHttpInfo(sourceId, inspectContentSourceFilePayload);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute inspectContentSourceFile request with HTTP info returned
+         * @return ApiResponse&lt;ContentSourceFileDownload&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The file and its download URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public ApiResponse<ContentSourceFileDownload> executeWithHttpInfo() throws ApiException {
+            return inspectContentSourceFileWithHttpInfo(sourceId, inspectContentSourceFilePayload);
+        }
+
+        /**
+         * Execute inspectContentSourceFile request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         * <table border="1">
+         * <caption>Response Details</caption>
+         * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+         * <tr><td> 200 </td><td> The file and its download URL. </td><td>  -  </td></tr>
+         * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+         * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+         * </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ContentSourceFileDownload> _callback)
+                throws ApiException {
+            return inspectContentSourceFileAsync(
+                    sourceId, inspectContentSourceFilePayload, _callback);
+        }
+    }
+
+    /**
+     * Get the download URL of a file a source reaches
+     * **Required permissions:** Any of &#x60;content_source:manage&#x60;, &#x60;project:settings_write&#x60;
+     * @param sourceId  (required)
+     * @param inspectContentSourceFilePayload  (required)
+     * @return APIinspectContentSourceFileRequest
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The file and its download URL. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public APIinspectContentSourceFileRequest inspectContentSourceFile(
+            @jakarta.annotation.Nonnull String sourceId,
+            @jakarta.annotation.Nonnull
+                    InspectContentSourceFilePayload inspectContentSourceFilePayload) {
+        return new APIinspectContentSourceFileRequest(sourceId, inspectContentSourceFilePayload);
     }
 
     private okhttp3.Call inspectContentSourceFoldersCall(
@@ -4307,7 +4733,7 @@ public class ContentSourcesApi {
 
     /**
      * Update a content source
-     * Changes the name, description, sync settings or sample, and, before the first sync, the library and folder to sync (409 afterwards). Saving sync settings also hands the sync your credentials, which restarts a sync stopped because its previous credentials were refused. Changing &#x60;sample_percent&#x60; makes the next sync an import.  **Required permissions:** Any of &#x60;content_source:manage&#x60;, &#x60;project:settings_write&#x60;
+     * Changes the name, description, sync settings or sample, and, before the first sync, the library and folder to sync (409 afterwards). Saving sync settings also hands the sync your credentials, which restarts a sync stopped because its previous credentials were refused. Changing &#x60;sample_percent&#x60; or &#x60;sample_item_ids&#x60; makes the next sync an import; giving both in one request answers 400.  **Required permissions:** Any of &#x60;content_source:manage&#x60;, &#x60;project:settings_write&#x60;
      * @param sourceId  (required)
      * @param updateContentSourcePayload  (required)
      * @return APIupdateContentSourceRequest

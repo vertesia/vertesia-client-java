@@ -26,8 +26,10 @@ import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
 import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -67,6 +69,11 @@ public class CreateGoogleDriveContentSourcePayload {
 
     @SerializedName(SERIALIZED_NAME_SAMPLE_PERCENT)
     @jakarta.annotation.Nullable private Integer samplePercent;
+
+    public static final String SERIALIZED_NAME_SAMPLE_ITEM_IDS = "sample_item_ids";
+
+    @SerializedName(SERIALIZED_NAME_SAMPLE_ITEM_IDS)
+    @jakarta.annotation.Nullable private List<String> sampleItemIds = new ArrayList<>();
 
     /**
      * Gets or Sets type
@@ -244,7 +251,7 @@ public class CreateGoogleDriveContentSourcePayload {
     }
 
     /**
-     * Sample mode: syncs only about this percentage of the files, to look at real documents before importing them all. A file is in the sample by a hash of its ID, so the same files stay in it from one sync to the next, spread over every folder. A file outside the sample is not imported, and its document is deleted if it has one. Leave out to sync every file.
+     * Sample mode: syncs only about this percentage of the files, to look at real documents before importing them all. A file is in the sample by a hash of its ID, so the same files stay in it from one sync to the next, spread over every folder. A file outside the sample is not imported, and its document is deleted if it has one. Leave out to sync every file. Not with &#x60;sample_item_ids&#x60;.
      * minimum: 1
      * maximum: 99
      * @return samplePercent
@@ -255,6 +262,32 @@ public class CreateGoogleDriveContentSourcePayload {
 
     public void setSamplePercent(@jakarta.annotation.Nullable Integer samplePercent) {
         this.samplePercent = samplePercent;
+    }
+
+    public CreateGoogleDriveContentSourcePayload sampleItemIds(
+            @jakarta.annotation.Nullable List<String> sampleItemIds) {
+        this.sampleItemIds = sampleItemIds;
+        return this;
+    }
+
+    public CreateGoogleDriveContentSourcePayload addSampleItemIdsItem(String sampleItemIdsItem) {
+        if (this.sampleItemIds == null) {
+            this.sampleItemIds = new ArrayList<>();
+        }
+        this.sampleItemIds.add(sampleItemIdsItem);
+        return this;
+    }
+
+    /**
+     * Sample mode with chosen files: syncs only the files with these IDs, as a sample or a file listing returned them, at most 200. A file outside the list is not imported, and its document is deleted if it has one. Leave out to sync every file. Not with &#x60;sample_percent&#x60;.
+     * @return sampleItemIds
+     */
+    @jakarta.annotation.Nullable public List<String> getSampleItemIds() {
+        return sampleItemIds;
+    }
+
+    public void setSampleItemIds(@jakarta.annotation.Nullable List<String> sampleItemIds) {
+        this.sampleItemIds = sampleItemIds;
     }
 
     public CreateGoogleDriveContentSourcePayload type(@jakarta.annotation.Nonnull TypeEnum type) {
@@ -352,6 +385,8 @@ public class CreateGoogleDriveContentSourcePayload {
                 && Objects.equals(this.sync, createGoogleDriveContentSourcePayload.sync)
                 && Objects.equals(
                         this.samplePercent, createGoogleDriveContentSourcePayload.samplePercent)
+                && Objects.equals(
+                        this.sampleItemIds, createGoogleDriveContentSourcePayload.sampleItemIds)
                 && Objects.equals(this.type, createGoogleDriveContentSourcePayload.type)
                 && Objects.equals(
                         this.readerBindingId, createGoogleDriveContentSourcePayload.readerBindingId)
@@ -369,6 +404,7 @@ public class CreateGoogleDriveContentSourcePayload {
                 collectionId,
                 sync,
                 samplePercent,
+                sampleItemIds,
                 type,
                 readerBindingId,
                 selection,
@@ -385,6 +421,7 @@ public class CreateGoogleDriveContentSourcePayload {
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
         sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
         sb.append("    samplePercent: ").append(toIndentedString(samplePercent)).append("\n");
+        sb.append("    sampleItemIds: ").append(toIndentedString(sampleItemIds)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    readerBindingId: ").append(toIndentedString(readerBindingId)).append("\n");
         sb.append("    selection: ").append(toIndentedString(selection)).append("\n");
@@ -418,6 +455,7 @@ public class CreateGoogleDriveContentSourcePayload {
                                 "collection_id",
                                 "sync",
                                 "sample_percent",
+                                "sample_item_ids",
                                 "type",
                                 "reader_binding_id",
                                 "selection",
@@ -494,6 +532,16 @@ public class CreateGoogleDriveContentSourcePayload {
         // validate the optional field `sync`
         if (jsonObj.get("sync") != null && !jsonObj.get("sync").isJsonNull()) {
             ContentSourceSyncSettings.validateJsonElement(jsonObj.get("sync"));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("sample_item_ids") != null
+                && !jsonObj.get("sample_item_ids").isJsonNull()
+                && !jsonObj.get("sample_item_ids").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `sample_item_ids` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("sample_item_ids").toString()));
         }
         if (!jsonObj.get("type").isJsonPrimitive()) {
             throw new IllegalArgumentException(

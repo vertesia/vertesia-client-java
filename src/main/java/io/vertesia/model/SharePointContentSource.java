@@ -27,8 +27,10 @@ import io.vertesia.JsonOutput;
 import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -81,6 +83,11 @@ public class SharePointContentSource {
 
     @SerializedName(SERIALIZED_NAME_SAMPLE_PERCENT)
     @jakarta.annotation.Nullable private Integer samplePercent;
+
+    public static final String SERIALIZED_NAME_SAMPLE_ITEM_IDS = "sample_item_ids";
+
+    @SerializedName(SERIALIZED_NAME_SAMPLE_ITEM_IDS)
+    @jakarta.annotation.Nullable private List<String> sampleItemIds = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
@@ -395,7 +402,7 @@ public class SharePointContentSource {
     }
 
     /**
-     * Sample mode: syncs only about this percentage of the files, to look at real documents before importing them all. A file is in the sample by a hash of its ID, so the same files stay in it from one sync to the next, spread over every folder. A file outside the sample is not imported, and its document is deleted if it has one. Absent when the source syncs every file.
+     * Sample mode: syncs only about this percentage of the files, to look at real documents before importing them all. A file is in the sample by a hash of its ID, so the same files stay in it from one sync to the next, spread over every folder. A file outside the sample is not imported, and its document is deleted if it has one. Absent when the source syncs every file. 1 beside &#x60;sample_item_ids&#x60;, for clients that predate the list: the list decides.
      * minimum: 1
      * maximum: 99
      * @return samplePercent
@@ -406,6 +413,32 @@ public class SharePointContentSource {
 
     public void setSamplePercent(@jakarta.annotation.Nullable Integer samplePercent) {
         this.samplePercent = samplePercent;
+    }
+
+    public SharePointContentSource sampleItemIds(
+            @jakarta.annotation.Nullable List<String> sampleItemIds) {
+        this.sampleItemIds = sampleItemIds;
+        return this;
+    }
+
+    public SharePointContentSource addSampleItemIdsItem(String sampleItemIdsItem) {
+        if (this.sampleItemIds == null) {
+            this.sampleItemIds = new ArrayList<>();
+        }
+        this.sampleItemIds.add(sampleItemIdsItem);
+        return this;
+    }
+
+    /**
+     * Sample mode with chosen files: syncs only the files with these IDs, as a sample or a file listing returned them, at most 200. A file outside the list is not imported, and its document is deleted if it has one. Absent unless the sample is of chosen files.
+     * @return sampleItemIds
+     */
+    @jakarta.annotation.Nullable public List<String> getSampleItemIds() {
+        return sampleItemIds;
+    }
+
+    public void setSampleItemIds(@jakarta.annotation.Nullable List<String> sampleItemIds) {
+        this.sampleItemIds = sampleItemIds;
     }
 
     public SharePointContentSource createdBy(@jakarta.annotation.Nullable String createdBy) {
@@ -658,6 +691,7 @@ public class SharePointContentSource {
                 && Objects.equals(this.collectionId, sharePointContentSource.collectionId)
                 && Objects.equals(this.sync, sharePointContentSource.sync)
                 && Objects.equals(this.samplePercent, sharePointContentSource.samplePercent)
+                && Objects.equals(this.sampleItemIds, sharePointContentSource.sampleItemIds)
                 && Objects.equals(this.createdBy, sharePointContentSource.createdBy)
                 && Objects.equals(this.updatedBy, sharePointContentSource.updatedBy)
                 && Objects.equals(this.createdAt, sharePointContentSource.createdAt)
@@ -684,6 +718,7 @@ public class SharePointContentSource {
                 collectionId,
                 sync,
                 samplePercent,
+                sampleItemIds,
                 createdBy,
                 updatedBy,
                 createdAt,
@@ -711,6 +746,7 @@ public class SharePointContentSource {
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
         sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
         sb.append("    samplePercent: ").append(toIndentedString(samplePercent)).append("\n");
+        sb.append("    sampleItemIds: ").append(toIndentedString(sampleItemIds)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -755,6 +791,7 @@ public class SharePointContentSource {
                                 "collection_id",
                                 "sync",
                                 "sample_percent",
+                                "sample_item_ids",
                                 "created_by",
                                 "updated_by",
                                 "created_at",
@@ -864,6 +901,16 @@ public class SharePointContentSource {
         }
         // validate the required field `sync`
         ContentSourceSyncSettings.validateJsonElement(jsonObj.get("sync"));
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("sample_item_ids") != null
+                && !jsonObj.get("sample_item_ids").isJsonNull()
+                && !jsonObj.get("sample_item_ids").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `sample_item_ids` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("sample_item_ids").toString()));
+        }
         if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull())
                 && !jsonObj.get("created_by").isJsonPrimitive()) {
             throw new IllegalArgumentException(

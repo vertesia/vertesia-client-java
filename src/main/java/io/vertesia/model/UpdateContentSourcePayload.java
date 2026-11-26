@@ -24,8 +24,10 @@ import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -60,6 +62,11 @@ public class UpdateContentSourcePayload {
 
     @SerializedName(SERIALIZED_NAME_SAMPLE_PERCENT)
     @jakarta.annotation.Nullable private Integer samplePercent;
+
+    public static final String SERIALIZED_NAME_SAMPLE_ITEM_IDS = "sample_item_ids";
+
+    @SerializedName(SERIALIZED_NAME_SAMPLE_ITEM_IDS)
+    @jakarta.annotation.Nullable private List<String> sampleItemIds = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
 
@@ -160,7 +167,7 @@ public class UpdateContentSourcePayload {
     }
 
     /**
-     * Sample mode: syncs only about this percentage of the files, to look at real documents before importing them all. A file is in the sample by a hash of its ID, so the same files stay in it from one sync to the next, spread over every folder. A file outside the sample is not imported, and its document is deleted if it has one. &#x60;null&#x60; removes the sample, so that every file is synced. A change, before or after the first sync, makes the next sync an import that lists the whole folder: it imports the files that entered the sample and deletes the documents of those that left it.
+     * Sample mode: syncs only about this percentage of the files, to look at real documents before importing them all. A file is in the sample by a hash of its ID, so the same files stay in it from one sync to the next, spread over every folder. A file outside the sample is not imported, and its document is deleted if it has one. &#x60;null&#x60; removes the sample, of either kind, so that every file is synced. A change, before or after the first sync, makes the next sync an import that lists the whole folder: it imports the files that entered the sample and deletes the documents of those that left it. A percentage replaces a sample of chosen files.
      * minimum: 1
      * maximum: 99
      * @return samplePercent
@@ -171,6 +178,32 @@ public class UpdateContentSourcePayload {
 
     public void setSamplePercent(@jakarta.annotation.Nullable Integer samplePercent) {
         this.samplePercent = samplePercent;
+    }
+
+    public UpdateContentSourcePayload sampleItemIds(
+            @jakarta.annotation.Nullable List<String> sampleItemIds) {
+        this.sampleItemIds = sampleItemIds;
+        return this;
+    }
+
+    public UpdateContentSourcePayload addSampleItemIdsItem(String sampleItemIdsItem) {
+        if (this.sampleItemIds == null) {
+            this.sampleItemIds = new ArrayList<>();
+        }
+        this.sampleItemIds.add(sampleItemIdsItem);
+        return this;
+    }
+
+    /**
+     * Sample mode with chosen files: syncs only the files with these IDs, as a sample or a file listing returned them, at most 200. A file outside the list is not imported, and its document is deleted if it has one. The list replaces a percentage, and &#x60;sample_percent: null&#x60; removes either kind of sample; giving both fields in one request is refused. A change makes the next sync an import, as for &#x60;sample_percent&#x60;.
+     * @return sampleItemIds
+     */
+    @jakarta.annotation.Nullable public List<String> getSampleItemIds() {
+        return sampleItemIds;
+    }
+
+    public void setSampleItemIds(@jakarta.annotation.Nullable List<String> sampleItemIds) {
+        this.sampleItemIds = sampleItemIds;
     }
 
     public UpdateContentSourcePayload permissions(
@@ -257,6 +290,7 @@ public class UpdateContentSourcePayload {
                 && Objects.equals(this.description, updateContentSourcePayload.description)
                 && Objects.equals(this.sync, updateContentSourcePayload.sync)
                 && Objects.equals(this.samplePercent, updateContentSourcePayload.samplePercent)
+                && Objects.equals(this.sampleItemIds, updateContentSourcePayload.sampleItemIds)
                 && Objects.equals(this.permissions, updateContentSourcePayload.permissions)
                 && Objects.equals(this.rootId, updateContentSourcePayload.rootId)
                 && Objects.equals(this.folderId, updateContentSourcePayload.folderId)
@@ -280,6 +314,7 @@ public class UpdateContentSourcePayload {
                 description,
                 sync,
                 samplePercent,
+                sampleItemIds,
                 permissions,
                 rootId,
                 folderId,
@@ -302,6 +337,7 @@ public class UpdateContentSourcePayload {
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
         sb.append("    samplePercent: ").append(toIndentedString(samplePercent)).append("\n");
+        sb.append("    sampleItemIds: ").append(toIndentedString(sampleItemIds)).append("\n");
         sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
         sb.append("    rootId: ").append(toIndentedString(rootId)).append("\n");
         sb.append("    folderId: ").append(toIndentedString(folderId)).append("\n");
@@ -331,6 +367,7 @@ public class UpdateContentSourcePayload {
                                 "description",
                                 "sync",
                                 "sample_percent",
+                                "sample_item_ids",
                                 "permissions",
                                 "root_id",
                                 "folder_id",
@@ -381,6 +418,16 @@ public class UpdateContentSourcePayload {
         // validate the optional field `sync`
         if (jsonObj.get("sync") != null && !jsonObj.get("sync").isJsonNull()) {
             ContentSourceSyncSettings.validateJsonElement(jsonObj.get("sync"));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("sample_item_ids") != null
+                && !jsonObj.get("sample_item_ids").isJsonNull()
+                && !jsonObj.get("sample_item_ids").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `sample_item_ids` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("sample_item_ids").toString()));
         }
         // validate the optional field `permissions`
         if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {

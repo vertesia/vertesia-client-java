@@ -47,6 +47,11 @@ public class ContentSourceSyncSettings {
     @jakarta.annotation.Nonnull
     private Integer intervalMinutes;
 
+    public static final String SERIALIZED_NAME_NOTIFICATIONS = "notifications";
+
+    @SerializedName(SERIALIZED_NAME_NOTIFICATIONS)
+    @jakarta.annotation.Nullable private Boolean notifications;
+
     public ContentSourceSyncSettings() {}
 
     public ContentSourceSyncSettings enabled(@jakarta.annotation.Nonnull Boolean enabled) {
@@ -88,6 +93,24 @@ public class ContentSourceSyncSettings {
         this.intervalMinutes = intervalMinutes;
     }
 
+    public ContentSourceSyncSettings notifications(
+            @jakarta.annotation.Nullable Boolean notifications) {
+        this.notifications = notifications;
+        return this;
+    }
+
+    /**
+     * Also sync as soon as the system notifies a change, instead of waiting for the next scheduled sync. Off unless set to &#x60;true&#x60;. Needs &#x60;enabled&#x60;, a system that sends change notifications (SharePoint) and a region where they are available: the status says whether they are active. When absent in an update, the stored value is kept.
+     * @return notifications
+     */
+    @jakarta.annotation.Nullable public Boolean getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(@jakarta.annotation.Nullable Boolean notifications) {
+        this.notifications = notifications;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -98,12 +121,13 @@ public class ContentSourceSyncSettings {
         }
         ContentSourceSyncSettings contentSourceSyncSettings = (ContentSourceSyncSettings) o;
         return Objects.equals(this.enabled, contentSourceSyncSettings.enabled)
-                && Objects.equals(this.intervalMinutes, contentSourceSyncSettings.intervalMinutes);
+                && Objects.equals(this.intervalMinutes, contentSourceSyncSettings.intervalMinutes)
+                && Objects.equals(this.notifications, contentSourceSyncSettings.notifications);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(enabled, intervalMinutes);
+        return Objects.hash(enabled, intervalMinutes, notifications);
     }
 
     @Override
@@ -112,6 +136,7 @@ public class ContentSourceSyncSettings {
         sb.append("class ContentSourceSyncSettings {\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    intervalMinutes: ").append(toIndentedString(intervalMinutes)).append("\n");
+        sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -129,7 +154,8 @@ public class ContentSourceSyncSettings {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("enabled", "interval_minutes"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("enabled", "interval_minutes", "notifications"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("enabled", "interval_minutes"));
