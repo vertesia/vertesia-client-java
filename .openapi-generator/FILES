@@ -52,6 +52,7 @@ src/main/java/io/vertesia/api/RemoteMcpConnectionsApi.java
 src/main/java/io/vertesia/api/RenderingApi.java
 src/main/java/io/vertesia/api/RolesApi.java
 src/main/java/io/vertesia/api/SecretsApi.java
+src/main/java/io/vertesia/api/SharePointOnboardingApi.java
 src/main/java/io/vertesia/api/TasksApi.java
 src/main/java/io/vertesia/api/TokenServiceApi.java
 src/main/java/io/vertesia/api/ToolsApi.java
@@ -231,6 +232,9 @@ src/main/java/io/vertesia/model/AppVersionStorage.java
 src/main/java/io/vertesia/model/AppVersionTarget.java
 src/main/java/io/vertesia/model/AppVersionUrls.java
 src/main/java/io/vertesia/model/AppWidgetInfo.java
+src/main/java/io/vertesia/model/ApproveSharePointLibraryPayload.java
+src/main/java/io/vertesia/model/ApproveSharePointLibraryPayloadAnyOf.java
+src/main/java/io/vertesia/model/ApproveSharePointLibraryPayloadAnyOf1.java
 src/main/java/io/vertesia/model/ArchiveNotificationsPayload.java
 src/main/java/io/vertesia/model/AskUserWebhookConfiguration.java
 src/main/java/io/vertesia/model/AskUserWebhookConfigurationInput.java
@@ -295,6 +299,7 @@ src/main/java/io/vertesia/model/BedrockMantleResponsesOptions.java
 src/main/java/io/vertesia/model/BedrockMistralOptions.java
 src/main/java/io/vertesia/model/BedrockNovaOptions.java
 src/main/java/io/vertesia/model/BedrockPalmyraOptions.java
+src/main/java/io/vertesia/model/BeginSharePointOrganizationLinkPayload.java
 src/main/java/io/vertesia/model/BillingMethod.java
 src/main/java/io/vertesia/model/BoxContentSource.java
 src/main/java/io/vertesia/model/BranchDefinition.java
@@ -334,6 +339,7 @@ src/main/java/io/vertesia/model/CollectionSecuritySettingsResponse.java
 src/main/java/io/vertesia/model/CollectionStatus.java
 src/main/java/io/vertesia/model/ColumnLayout.java
 src/main/java/io/vertesia/model/CompactMessage.java
+src/main/java/io/vertesia/model/CompleteSharePointOrganizationLinkPayload.java
 src/main/java/io/vertesia/model/CompleteTaskPayload.java
 src/main/java/io/vertesia/model/CompleteUploadSessionPayload.java
 src/main/java/io/vertesia/model/CompleteUploadSessionResponse.java
@@ -367,6 +373,8 @@ src/main/java/io/vertesia/model/ComputeObjectFacetPayload.java
 src/main/java/io/vertesia/model/ComputePromptFacetPayload.java
 src/main/java/io/vertesia/model/ComputedFacetResponse.java
 src/main/java/io/vertesia/model/ConfigModes.java
+src/main/java/io/vertesia/model/ConfigureSharePointLibraryReaderPayload.java
+src/main/java/io/vertesia/model/ConfigureSharePointOrganizationReaderPayload.java
 src/main/java/io/vertesia/model/ContentEmbeddingMap.java
 src/main/java/io/vertesia/model/ContentObjectApiResponse.java
 src/main/java/io/vertesia/model/ContentObjectApiResponseSearchTypeResultInner.java
@@ -819,6 +827,7 @@ src/main/java/io/vertesia/model/MCPOAuthConfig.java
 src/main/java/io/vertesia/model/MCPToolAnnotations.java
 src/main/java/io/vertesia/model/MCPToolCollectionObject.java
 src/main/java/io/vertesia/model/MagicPdfConfiguration.java
+src/main/java/io/vertesia/model/ManagedSharePointLibrary.java
 src/main/java/io/vertesia/model/MarkAllNotificationsReadPayload.java
 src/main/java/io/vertesia/model/MarkNotificationsReadPayload.java
 src/main/java/io/vertesia/model/MarkdownRenditionFormat.java
@@ -1005,6 +1014,7 @@ src/main/java/io/vertesia/model/ProjectRef.java
 src/main/java/io/vertesia/model/ProjectSearchPropertyMapping.java
 src/main/java/io/vertesia/model/ProjectSearchPropertyType.java
 src/main/java/io/vertesia/model/ProjectSearchTier.java
+src/main/java/io/vertesia/model/ProjectSharePointLibraryResponse.java
 src/main/java/io/vertesia/model/ProjectTokenRequest.java
 src/main/java/io/vertesia/model/ProjectToolInfo.java
 src/main/java/io/vertesia/model/ProjectedContentObjectApiResponse.java
@@ -1117,6 +1127,18 @@ src/main/java/io/vertesia/model/SetObjectEmbeddingsResponse.java
 src/main/java/io/vertesia/model/SetObjectTextPayload.java
 src/main/java/io/vertesia/model/SharePointContentSource.java
 src/main/java/io/vertesia/model/SharePointContentSourcePermissions.java
+src/main/java/io/vertesia/model/SharePointLibraryApproval.java
+src/main/java/io/vertesia/model/SharePointLibraryConnection.java
+src/main/java/io/vertesia/model/SharePointLibraryContext.java
+src/main/java/io/vertesia/model/SharePointLibraryReceipt.java
+src/main/java/io/vertesia/model/SharePointLibraryRequest.java
+src/main/java/io/vertesia/model/SharePointLibraryRequests.java
+src/main/java/io/vertesia/model/SharePointOrganization.java
+src/main/java/io/vertesia/model/SharePointOrganizationLinkAttempt.java
+src/main/java/io/vertesia/model/SharePointOrganizationReader.java
+src/main/java/io/vertesia/model/SharePointOrganizations.java
+src/main/java/io/vertesia/model/SharePointRegion.java
+src/main/java/io/vertesia/model/SharePointRequestProject.java
 src/main/java/io/vertesia/model/SignalAgentResponse.java
 src/main/java/io/vertesia/model/SignalEventProperties.java
 src/main/java/io/vertesia/model/SignalEventPropertiesSender.java

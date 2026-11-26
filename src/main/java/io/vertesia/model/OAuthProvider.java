@@ -26,7 +26,6 @@ import io.vertesia.JSON;
 import io.vertesia.JsonOutput;
 import io.vertesia.UnknownEnumValues;
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -288,12 +287,6 @@ public class OAuthProvider {
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_SCOPES)
     @jakarta.annotation.Nullable private List<String> allowedScopes = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_SHAREPOINT_PERMISSION_SITE =
-            "sharepoint_permission_site";
-
-    @SerializedName(SERIALIZED_NAME_SHAREPOINT_PERMISSION_SITE)
-    @jakarta.annotation.Nullable private URI sharepointPermissionSite;
 
     public static final String SERIALIZED_NAME_USE_PKCE = "use_pkce";
 
@@ -595,25 +588,6 @@ public class OAuthProvider {
         this.allowedScopes = allowedScopes;
     }
 
-    public OAuthProvider sharepointPermissionSite(
-            @jakarta.annotation.Nullable URI sharepointPermissionSite) {
-        this.sharepointPermissionSite = sharepointPermissionSite;
-        return this;
-    }
-
-    /**
-     * Get sharepointPermissionSite
-     * @return sharepointPermissionSite
-     */
-    @jakarta.annotation.Nullable public URI getSharepointPermissionSite() {
-        return sharepointPermissionSite;
-    }
-
-    public void setSharepointPermissionSite(
-            @jakarta.annotation.Nullable URI sharepointPermissionSite) {
-        this.sharepointPermissionSite = sharepointPermissionSite;
-    }
-
     public OAuthProvider usePkce(@jakarta.annotation.Nonnull Boolean usePkce) {
         this.usePkce = usePkce;
         return this;
@@ -754,8 +728,6 @@ public class OAuthProvider {
                 && Objects.equals(this.certificate, oauthProvider.certificate)
                 && Objects.equals(this.defaultScopes, oauthProvider.defaultScopes)
                 && Objects.equals(this.allowedScopes, oauthProvider.allowedScopes)
-                && Objects.equals(
-                        this.sharepointPermissionSite, oauthProvider.sharepointPermissionSite)
                 && Objects.equals(this.usePkce, oauthProvider.usePkce)
                 && Objects.equals(this.revocationEndpoint, oauthProvider.revocationEndpoint)
                 && Objects.equals(this.tokenParams, oauthProvider.tokenParams)
@@ -781,7 +753,6 @@ public class OAuthProvider {
                 certificate,
                 defaultScopes,
                 allowedScopes,
-                sharepointPermissionSite,
                 usePkce,
                 revocationEndpoint,
                 tokenParams,
@@ -814,9 +785,6 @@ public class OAuthProvider {
         sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
         sb.append("    defaultScopes: ").append(toIndentedString(defaultScopes)).append("\n");
         sb.append("    allowedScopes: ").append(toIndentedString(allowedScopes)).append("\n");
-        sb.append("    sharepointPermissionSite: ")
-                .append(toIndentedString(sharepointPermissionSite))
-                .append("\n");
         sb.append("    usePkce: ").append(toIndentedString(usePkce)).append("\n");
         sb.append("    revocationEndpoint: ")
                 .append(toIndentedString(revocationEndpoint))
@@ -862,7 +830,6 @@ public class OAuthProvider {
                                 "certificate",
                                 "default_scopes",
                                 "allowed_scopes",
-                                "sharepoint_permission_site",
                                 "use_pkce",
                                 "revocation_endpoint",
                                 "token_params",
@@ -1028,15 +995,6 @@ public class OAuthProvider {
                             java.util.Locale.ROOT,
                             "Expected the field `allowed_scopes` to be an array in the JSON string but got `%s`",
                             jsonObj.get("allowed_scopes").toString()));
-        }
-        if ((jsonObj.get("sharepoint_permission_site") != null
-                        && !jsonObj.get("sharepoint_permission_site").isJsonNull())
-                && !jsonObj.get("sharepoint_permission_site").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `sharepoint_permission_site` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("sharepoint_permission_site").toString()));
         }
         if ((jsonObj.get("revocation_endpoint") != null
                         && !jsonObj.get("revocation_endpoint").isJsonNull())

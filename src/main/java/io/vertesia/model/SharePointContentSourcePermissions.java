@@ -107,15 +107,7 @@ public class SharePointContentSourcePermissions {
     public static final String SERIALIZED_NAME_SCIM_CONNECTION_ID = "scim_connection_id";
 
     @SerializedName(SERIALIZED_NAME_SCIM_CONNECTION_ID)
-    @jakarta.annotation.Nonnull
-    private String scimConnectionId;
-
-    public static final String SERIALIZED_NAME_PERMISSION_READER_PROVIDER_ID =
-            "permission_reader_provider_id";
-
-    @SerializedName(SERIALIZED_NAME_PERMISSION_READER_PROVIDER_ID)
-    @jakarta.annotation.Nonnull
-    private String permissionReaderProviderId;
+    @jakarta.annotation.Nullable private String scimConnectionId;
 
     public static final String SERIALIZED_NAME_TENANT_GROUP_ID = "tenant_group_id";
 
@@ -172,42 +164,21 @@ public class SharePointContentSourcePermissions {
     }
 
     public SharePointContentSourcePermissions scimConnectionId(
-            @jakarta.annotation.Nonnull String scimConnectionId) {
+            @jakarta.annotation.Nullable String scimConnectionId) {
         this.scimConnectionId = scimConnectionId;
         return this;
     }
 
     /**
-     * Get scimConnectionId
+     * Optional verified Entra SCIM connection. Required for tenant_group_id.
      * @return scimConnectionId
      */
-    @jakarta.annotation.Nonnull
-    public String getScimConnectionId() {
+    @jakarta.annotation.Nullable public String getScimConnectionId() {
         return scimConnectionId;
     }
 
-    public void setScimConnectionId(@jakarta.annotation.Nonnull String scimConnectionId) {
+    public void setScimConnectionId(@jakarta.annotation.Nullable String scimConnectionId) {
         this.scimConnectionId = scimConnectionId;
-    }
-
-    public SharePointContentSourcePermissions permissionReaderProviderId(
-            @jakarta.annotation.Nonnull String permissionReaderProviderId) {
-        this.permissionReaderProviderId = permissionReaderProviderId;
-        return this;
-    }
-
-    /**
-     * Get permissionReaderProviderId
-     * @return permissionReaderProviderId
-     */
-    @jakarta.annotation.Nonnull
-    public String getPermissionReaderProviderId() {
-        return permissionReaderProviderId;
-    }
-
-    public void setPermissionReaderProviderId(
-            @jakarta.annotation.Nonnull String permissionReaderProviderId) {
-        this.permissionReaderProviderId = permissionReaderProviderId;
     }
 
     public SharePointContentSourcePermissions tenantGroupId(
@@ -284,9 +255,6 @@ public class SharePointContentSourcePermissions {
                 && Objects.equals(
                         this.scimConnectionId, sharePointContentSourcePermissions.scimConnectionId)
                 && Objects.equals(
-                        this.permissionReaderProviderId,
-                        sharePointContentSourcePermissions.permissionReaderProviderId)
-                && Objects.equals(
                         this.tenantGroupId, sharePointContentSourcePermissions.tenantGroupId)
                 && Objects.equals(
                         this.refreshMinutes, sharePointContentSourcePermissions.refreshMinutes)
@@ -300,7 +268,6 @@ public class SharePointContentSourcePermissions {
                 mode,
                 entraTenantId,
                 scimConnectionId,
-                permissionReaderProviderId,
                 tenantGroupId,
                 refreshMinutes,
                 maxStaleHours);
@@ -313,9 +280,6 @@ public class SharePointContentSourcePermissions {
         sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
         sb.append("    entraTenantId: ").append(toIndentedString(entraTenantId)).append("\n");
         sb.append("    scimConnectionId: ").append(toIndentedString(scimConnectionId)).append("\n");
-        sb.append("    permissionReaderProviderId: ")
-                .append(toIndentedString(permissionReaderProviderId))
-                .append("\n");
         sb.append("    tenantGroupId: ").append(toIndentedString(tenantGroupId)).append("\n");
         sb.append("    refreshMinutes: ").append(toIndentedString(refreshMinutes)).append("\n");
         sb.append("    maxStaleHours: ").append(toIndentedString(maxStaleHours)).append("\n");
@@ -345,19 +309,12 @@ public class SharePointContentSourcePermissions {
                                 "mode",
                                 "entra_tenant_id",
                                 "scim_connection_id",
-                                "permission_reader_provider_id",
                                 "tenant_group_id",
                                 "refresh_minutes",
                                 "max_stale_hours"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields =
-                new HashSet<String>(
-                        Arrays.asList(
-                                "mode",
-                                "entra_tenant_id",
-                                "scim_connection_id",
-                                "permission_reader_provider_id"));
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("mode", "entra_tenant_id"));
     }
 
     /**
@@ -407,19 +364,14 @@ public class SharePointContentSourcePermissions {
                             "Expected the field `entra_tenant_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("entra_tenant_id").toString()));
         }
-        if (!jsonObj.get("scim_connection_id").isJsonPrimitive()) {
+        if ((jsonObj.get("scim_connection_id") != null
+                        && !jsonObj.get("scim_connection_id").isJsonNull())
+                && !jsonObj.get("scim_connection_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
                             "Expected the field `scim_connection_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("scim_connection_id").toString()));
-        }
-        if (!jsonObj.get("permission_reader_provider_id").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `permission_reader_provider_id` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("permission_reader_provider_id").toString()));
         }
         if ((jsonObj.get("tenant_group_id") != null && !jsonObj.get("tenant_group_id").isJsonNull())
                 && !jsonObj.get("tenant_group_id").isJsonPrimitive()) {

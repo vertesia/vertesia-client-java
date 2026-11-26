@@ -51,8 +51,7 @@ public class CreateSharePointContentSourcePayload {
     public static final String SERIALIZED_NAME_OAUTH_PROVIDER_ID = "oauth_provider_id";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDER_ID)
-    @jakarta.annotation.Nonnull
-    private String oauthProviderId;
+    @jakarta.annotation.Nullable private String oauthProviderId;
 
     public static final String SERIALIZED_NAME_LOCATION_ROOT = "location_root";
 
@@ -134,6 +133,12 @@ public class CreateSharePointContentSourcePayload {
     @jakarta.annotation.Nonnull
     private TypeEnum type;
 
+    public static final String SERIALIZED_NAME_SHAREPOINT_LIBRARY_BINDING_ID =
+            "sharepoint_library_binding_id";
+
+    @SerializedName(SERIALIZED_NAME_SHAREPOINT_LIBRARY_BINDING_ID)
+    @jakarta.annotation.Nullable private String sharepointLibraryBindingId;
+
     public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
 
     @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -194,21 +199,20 @@ public class CreateSharePointContentSourcePayload {
     }
 
     public CreateSharePointContentSourcePayload oauthProviderId(
-            @jakarta.annotation.Nonnull String oauthProviderId) {
+            @jakarta.annotation.Nullable String oauthProviderId) {
         this.oauthProviderId = oauthProviderId;
         return this;
     }
 
     /**
-     * An OAuth provider of this project with grant type &#x60;client_credentials&#x60; for the system, as 24 hexadecimal characters.
+     * Required for a project OAuth source. Omitted for trusted registration of an organization-managed library.
      * @return oauthProviderId
      */
-    @jakarta.annotation.Nonnull
-    public String getOauthProviderId() {
+    @jakarta.annotation.Nullable public String getOauthProviderId() {
         return oauthProviderId;
     }
 
-    public void setOauthProviderId(@jakarta.annotation.Nonnull String oauthProviderId) {
+    public void setOauthProviderId(@jakarta.annotation.Nullable String oauthProviderId) {
         this.oauthProviderId = oauthProviderId;
     }
 
@@ -302,6 +306,25 @@ public class CreateSharePointContentSourcePayload {
 
     public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
+    }
+
+    public CreateSharePointContentSourcePayload sharepointLibraryBindingId(
+            @jakarta.annotation.Nullable String sharepointLibraryBindingId) {
+        this.sharepointLibraryBindingId = sharepointLibraryBindingId;
+        return this;
+    }
+
+    /**
+     * The approved SharePoint library binding this source is registered for.
+     * @return sharepointLibraryBindingId
+     */
+    @jakarta.annotation.Nullable public String getSharepointLibraryBindingId() {
+        return sharepointLibraryBindingId;
+    }
+
+    public void setSharepointLibraryBindingId(
+            @jakarta.annotation.Nullable String sharepointLibraryBindingId) {
+        this.sharepointLibraryBindingId = sharepointLibraryBindingId;
     }
 
     public CreateSharePointContentSourcePayload permissions(
@@ -402,6 +425,9 @@ public class CreateSharePointContentSourcePayload {
                         this.samplePercent, createSharePointContentSourcePayload.samplePercent)
                 && Objects.equals(this.type, createSharePointContentSourcePayload.type)
                 && Objects.equals(
+                        this.sharepointLibraryBindingId,
+                        createSharePointContentSourcePayload.sharepointLibraryBindingId)
+                && Objects.equals(
                         this.permissions, createSharePointContentSourcePayload.permissions)
                 && Objects.equals(this.siteUrl, createSharePointContentSourcePayload.siteUrl)
                 && Objects.equals(
@@ -420,6 +446,7 @@ public class CreateSharePointContentSourcePayload {
                 sync,
                 samplePercent,
                 type,
+                sharepointLibraryBindingId,
                 permissions,
                 siteUrl,
                 libraryName,
@@ -438,6 +465,9 @@ public class CreateSharePointContentSourcePayload {
         sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
         sb.append("    samplePercent: ").append(toIndentedString(samplePercent)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    sharepointLibraryBindingId: ")
+                .append(toIndentedString(sharepointLibraryBindingId))
+                .append("\n");
         sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
         sb.append("    siteUrl: ").append(toIndentedString(siteUrl)).append("\n");
         sb.append("    libraryName: ").append(toIndentedString(libraryName)).append("\n");
@@ -473,14 +503,14 @@ public class CreateSharePointContentSourcePayload {
                                 "sync",
                                 "sample_percent",
                                 "type",
+                                "sharepoint_library_binding_id",
                                 "permissions",
                                 "site_url",
                                 "library_name",
                                 "folder_path"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields =
-                new HashSet<String>(Arrays.asList("name", "oauth_provider_id", "type", "site_url"));
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "type", "site_url"));
     }
 
     /**
@@ -529,7 +559,9 @@ public class CreateSharePointContentSourcePayload {
                             "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("description").toString()));
         }
-        if (!jsonObj.get("oauth_provider_id").isJsonPrimitive()) {
+        if ((jsonObj.get("oauth_provider_id") != null
+                        && !jsonObj.get("oauth_provider_id").isJsonNull())
+                && !jsonObj.get("oauth_provider_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
@@ -565,6 +597,15 @@ public class CreateSharePointContentSourcePayload {
         }
         // validate the required field `type`
         TypeEnum.validateJsonElement(jsonObj.get("type"));
+        if ((jsonObj.get("sharepoint_library_binding_id") != null
+                        && !jsonObj.get("sharepoint_library_binding_id").isJsonNull())
+                && !jsonObj.get("sharepoint_library_binding_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `sharepoint_library_binding_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("sharepoint_library_binding_id").toString()));
+        }
         // validate the optional field `permissions`
         if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
             ContentSourcePermissionSettings.validateJsonElement(jsonObj.get("permissions"));

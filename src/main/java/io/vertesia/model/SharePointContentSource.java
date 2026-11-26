@@ -58,8 +58,7 @@ public class SharePointContentSource {
     public static final String SERIALIZED_NAME_OAUTH_PROVIDER_ID = "oauth_provider_id";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDER_ID)
-    @jakarta.annotation.Nonnull
-    private String oauthProviderId;
+    @jakarta.annotation.Nullable private String oauthProviderId;
 
     public static final String SERIALIZED_NAME_LOCATION_ROOT = "location_root";
 
@@ -163,6 +162,64 @@ public class SharePointContentSource {
     @jakarta.annotation.Nonnull
     private TypeEnum type;
 
+    /**
+     * The managed library uses its organization reader, without a project OAuth provider.
+     */
+    @JsonAdapter(ReaderModeEnum.Adapter.class)
+    public enum ReaderModeEnum {
+        ORGANIZATION("organization"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ReaderModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ReaderModeEnum fromValue(String value) {
+            for (ReaderModeEnum b : ReaderModeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ReaderModeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ReaderModeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ReaderModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ReaderModeEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ReaderModeEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_READER_MODE = "reader_mode";
+
+    @SerializedName(SERIALIZED_NAME_READER_MODE)
+    @jakarta.annotation.Nullable private ReaderModeEnum readerMode;
+
     public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
 
     @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -260,7 +317,7 @@ public class SharePointContentSource {
     }
 
     public SharePointContentSource oauthProviderId(
-            @jakarta.annotation.Nonnull String oauthProviderId) {
+            @jakarta.annotation.Nullable String oauthProviderId) {
         this.oauthProviderId = oauthProviderId;
         return this;
     }
@@ -269,12 +326,11 @@ public class SharePointContentSource {
      * The project&#39;s OAuth provider (grant type &#x60;client_credentials&#x60;) that issues the system&#39;s tokens.
      * @return oauthProviderId
      */
-    @jakarta.annotation.Nonnull
-    public String getOauthProviderId() {
+    @jakarta.annotation.Nullable public String getOauthProviderId() {
         return oauthProviderId;
     }
 
-    public void setOauthProviderId(@jakarta.annotation.Nonnull String oauthProviderId) {
+    public void setOauthProviderId(@jakarta.annotation.Nullable String oauthProviderId) {
         this.oauthProviderId = oauthProviderId;
     }
 
@@ -440,6 +496,24 @@ public class SharePointContentSource {
         this.type = type;
     }
 
+    public SharePointContentSource readerMode(
+            @jakarta.annotation.Nullable ReaderModeEnum readerMode) {
+        this.readerMode = readerMode;
+        return this;
+    }
+
+    /**
+     * The managed library uses its organization reader, without a project OAuth provider.
+     * @return readerMode
+     */
+    @jakarta.annotation.Nullable public ReaderModeEnum getReaderMode() {
+        return readerMode;
+    }
+
+    public void setReaderMode(@jakarta.annotation.Nullable ReaderModeEnum readerMode) {
+        this.readerMode = readerMode;
+    }
+
     public SharePointContentSource permissions(
             @jakarta.annotation.Nullable ContentSourcePermissionSettings permissions) {
         this.permissions = permissions;
@@ -589,6 +663,7 @@ public class SharePointContentSource {
                 && Objects.equals(this.createdAt, sharePointContentSource.createdAt)
                 && Objects.equals(this.updatedAt, sharePointContentSource.updatedAt)
                 && Objects.equals(this.type, sharePointContentSource.type)
+                && Objects.equals(this.readerMode, sharePointContentSource.readerMode)
                 && Objects.equals(this.permissions, sharePointContentSource.permissions)
                 && Objects.equals(this.siteUrl, sharePointContentSource.siteUrl)
                 && Objects.equals(this.siteId, sharePointContentSource.siteId)
@@ -614,6 +689,7 @@ public class SharePointContentSource {
                 createdAt,
                 updatedAt,
                 type,
+                readerMode,
                 permissions,
                 siteUrl,
                 siteId,
@@ -640,6 +716,7 @@ public class SharePointContentSource {
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    readerMode: ").append(toIndentedString(readerMode)).append("\n");
         sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
         sb.append("    siteUrl: ").append(toIndentedString(siteUrl)).append("\n");
         sb.append("    siteId: ").append(toIndentedString(siteId)).append("\n");
@@ -683,6 +760,7 @@ public class SharePointContentSource {
                                 "created_at",
                                 "updated_at",
                                 "type",
+                                "reader_mode",
                                 "permissions",
                                 "site_url",
                                 "site_id",
@@ -697,7 +775,6 @@ public class SharePointContentSource {
                         Arrays.asList(
                                 "id",
                                 "name",
-                                "oauth_provider_id",
                                 "location_root",
                                 "sync",
                                 "type",
@@ -761,7 +838,9 @@ public class SharePointContentSource {
                             "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("description").toString()));
         }
-        if (!jsonObj.get("oauth_provider_id").isJsonPrimitive()) {
+        if ((jsonObj.get("oauth_provider_id") != null
+                        && !jsonObj.get("oauth_provider_id").isJsonNull())
+                && !jsonObj.get("oauth_provider_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
@@ -810,6 +889,18 @@ public class SharePointContentSource {
         }
         // validate the required field `type`
         TypeEnum.validateJsonElement(jsonObj.get("type"));
+        if ((jsonObj.get("reader_mode") != null && !jsonObj.get("reader_mode").isJsonNull())
+                && !jsonObj.get("reader_mode").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `reader_mode` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("reader_mode").toString()));
+        }
+        // validate the optional field `reader_mode`
+        if (jsonObj.get("reader_mode") != null && !jsonObj.get("reader_mode").isJsonNull()) {
+            ReaderModeEnum.validateJsonElement(jsonObj.get("reader_mode"));
+        }
         // validate the optional field `permissions`
         if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
             ContentSourcePermissionSettings.validateJsonElement(jsonObj.get("permissions"));

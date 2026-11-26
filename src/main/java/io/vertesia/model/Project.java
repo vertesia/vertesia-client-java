@@ -13,6 +13,7 @@
 package io.vertesia.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
@@ -71,6 +72,18 @@ public class Project {
     @jakarta.annotation.Nonnull
     private String account;
 
+    public static final String SERIALIZED_NAME_SHAREPOINT_LIBRARY_BINDING =
+            "sharepoint_library_binding";
+
+    @SerializedName(SERIALIZED_NAME_SHAREPOINT_LIBRARY_BINDING)
+    @jakarta.annotation.Nullable private ManagedSharePointLibrary sharepointLibraryBinding;
+
+    public static final String SERIALIZED_NAME_SHAREPOINT_LIBRARY_ATTACHMENTS =
+            "sharepoint_library_attachments";
+
+    @SerializedName(SERIALIZED_NAME_SHAREPOINT_LIBRARY_ATTACHMENTS)
+    @jakarta.annotation.Nullable private List<ManagedSharePointLibrary> sharepointLibraryAttachments = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
 
     @SerializedName(SERIALIZED_NAME_CONFIGURATION)
@@ -123,6 +136,11 @@ public class Project {
     private OffsetDateTime updatedAt;
 
     public Project() {}
+
+    public Project(List<ManagedSharePointLibrary> sharepointLibraryAttachments) {
+        this();
+        this.sharepointLibraryAttachments = sharepointLibraryAttachments;
+    }
 
     public Project id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
@@ -211,6 +229,33 @@ public class Project {
 
     public void setAccount(@jakarta.annotation.Nonnull String account) {
         this.account = account;
+    }
+
+    public Project sharepointLibraryBinding(
+            @jakarta.annotation.Nullable ManagedSharePointLibrary sharepointLibraryBinding) {
+        this.sharepointLibraryBinding = sharepointLibraryBinding;
+        return this;
+    }
+
+    /**
+     * Get sharepointLibraryBinding
+     * @return sharepointLibraryBinding
+     */
+    @jakarta.annotation.Nullable public ManagedSharePointLibrary getSharepointLibraryBinding() {
+        return sharepointLibraryBinding;
+    }
+
+    public void setSharepointLibraryBinding(
+            @jakarta.annotation.Nullable ManagedSharePointLibrary sharepointLibraryBinding) {
+        this.sharepointLibraryBinding = sharepointLibraryBinding;
+    }
+
+    /**
+     * Get sharepointLibraryAttachments
+     * @return sharepointLibraryAttachments
+     */
+    @jakarta.annotation.Nullable public List<ManagedSharePointLibrary> getSharepointLibraryAttachments() {
+        return sharepointLibraryAttachments;
     }
 
     public Project _configuration(@jakarta.annotation.Nonnull ProjectConfiguration _configuration) {
@@ -455,6 +500,9 @@ public class Project {
                 && Objects.equals(this.namespace, project.namespace)
                 && Objects.equals(this.description, project.description)
                 && Objects.equals(this.account, project.account)
+                && Objects.equals(this.sharepointLibraryBinding, project.sharepointLibraryBinding)
+                && Objects.equals(
+                        this.sharepointLibraryAttachments, project.sharepointLibraryAttachments)
                 && Objects.equals(this._configuration, project._configuration)
                 && Objects.equals(this.integrations, project.integrations)
                 && Objects.equals(this.plugins, project.plugins)
@@ -484,6 +532,8 @@ public class Project {
                 namespace,
                 description,
                 account,
+                sharepointLibraryBinding,
+                sharepointLibraryAttachments,
                 _configuration,
                 integrations,
                 plugins,
@@ -512,6 +562,12 @@ public class Project {
         sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
+        sb.append("    sharepointLibraryBinding: ")
+                .append(toIndentedString(sharepointLibraryBinding))
+                .append("\n");
+        sb.append("    sharepointLibraryAttachments: ")
+                .append(toIndentedString(sharepointLibraryAttachments))
+                .append("\n");
         sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
         sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
         sb.append("    plugins: ").append(toIndentedString(plugins)).append("\n");
@@ -549,6 +605,8 @@ public class Project {
                                 "namespace",
                                 "description",
                                 "account",
+                                "sharepoint_library_binding",
+                                "sharepoint_library_attachments",
                                 "configuration",
                                 "integrations",
                                 "plugins",
@@ -640,6 +698,33 @@ public class Project {
                             java.util.Locale.ROOT,
                             "Expected the field `account` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("account").toString()));
+        }
+        // validate the optional field `sharepoint_library_binding`
+        if (jsonObj.get("sharepoint_library_binding") != null
+                && !jsonObj.get("sharepoint_library_binding").isJsonNull()) {
+            ManagedSharePointLibrary.validateJsonElement(jsonObj.get("sharepoint_library_binding"));
+        }
+        if (jsonObj.get("sharepoint_library_attachments") != null
+                && !jsonObj.get("sharepoint_library_attachments").isJsonNull()) {
+            JsonArray jsonArraysharepointLibraryAttachments =
+                    jsonObj.getAsJsonArray("sharepoint_library_attachments");
+            if (jsonArraysharepointLibraryAttachments != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("sharepoint_library_attachments").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `sharepoint_library_attachments` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("sharepoint_library_attachments").toString()));
+                }
+
+                // validate the optional field `sharepoint_library_attachments` (array)
+                for (int i = 0; i < jsonArraysharepointLibraryAttachments.size(); i++) {
+                    ManagedSharePointLibrary.validateJsonElement(
+                            jsonArraysharepointLibraryAttachments.get(i));
+                }
+                ;
+            }
         }
         // validate the required field `configuration`
         ProjectConfiguration.validateJsonElement(jsonObj.get("configuration"));
