@@ -10217,6 +10217,7 @@ public class AppsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The app name is not available: another app in the region already uses it. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -10234,6 +10235,7 @@ public class AppsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The app name is not available: another app in the region already uses it. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -10253,6 +10255,7 @@ public class AppsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The app name is not available: another app in the region already uses it. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -10271,6 +10274,7 @@ public class AppsApi {
          * <caption>Response Details</caption>
          * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
          * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
+         * <tr><td> 409 </td><td> The app name is not available: another app in the region already uses it. </td><td>  -  </td></tr>
          * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
          * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
          * </table>
@@ -10291,6 +10295,7 @@ public class AppsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The started app scaffold workflow. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The app name is not available: another app in the region already uses it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
