@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * The OpenAI API an OpenAI-compatible environment calls: &#x60;responses&#x60; (the default when omitted) or &#x60;chat_completions&#x60;, for services that implement only Chat Completions.
+ * The OpenAI API the environment calls: &#x60;responses&#x60; or &#x60;chat_completions&#x60;. Supported by OpenAI-compatible, OpenRouter, Groq, Together AI and xAI environments. When omitted, OpenAI-compatible and xAI environments call &#x60;responses&#x60;, and OpenRouter, Groq and Together AI environments call &#x60;chat_completions&#x60;.
  */
 @JsonAdapter(OpenAICompatibleApi.Adapter.class)
 public enum OpenAICompatibleApi {
