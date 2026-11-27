@@ -145,6 +145,11 @@ public class AgentTokenRequest {
     @jakarta.annotation.Nonnull
     private String onBehalfOf;
 
+    public static final String SERIALIZED_NAME_TTL_SECONDS = "ttl_seconds";
+
+    @SerializedName(SERIALIZED_NAME_TTL_SECONDS)
+    @jakarta.annotation.Nullable private Integer ttlSeconds;
+
     public AgentTokenRequest() {}
 
     public AgentTokenRequest type(@jakarta.annotation.Nonnull TypeEnum type) {
@@ -324,6 +329,25 @@ public class AgentTokenRequest {
         this.onBehalfOf = onBehalfOf;
     }
 
+    public AgentTokenRequest ttlSeconds(@jakarta.annotation.Nullable Integer ttlSeconds) {
+        this.ttlSeconds = ttlSeconds;
+        return this;
+    }
+
+    /**
+     * Shortens the lifetime of the issued token to this many seconds. It never extends it: the token expires at the earliest of this lifetime, the default lifetime and, when &#x60;on_behalf_of&#x60; is a signed token, the expiry of that token.
+     * minimum: 60
+     * maximum: 3600
+     * @return ttlSeconds
+     */
+    @jakarta.annotation.Nullable public Integer getTtlSeconds() {
+        return ttlSeconds;
+    }
+
+    public void setTtlSeconds(@jakarta.annotation.Nullable Integer ttlSeconds) {
+        this.ttlSeconds = ttlSeconds;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -342,7 +366,8 @@ public class AgentTokenRequest {
                 && Objects.equals(this.accountId, agentTokenRequest.accountId)
                 && Objects.equals(this.projectId, agentTokenRequest.projectId)
                 && Objects.equals(this.name, agentTokenRequest.name)
-                && Objects.equals(this.onBehalfOf, agentTokenRequest.onBehalfOf);
+                && Objects.equals(this.onBehalfOf, agentTokenRequest.onBehalfOf)
+                && Objects.equals(this.ttlSeconds, agentTokenRequest.ttlSeconds);
     }
 
     @Override
@@ -357,7 +382,8 @@ public class AgentTokenRequest {
                 accountId,
                 projectId,
                 name,
-                onBehalfOf);
+                onBehalfOf,
+                ttlSeconds);
     }
 
     @Override
@@ -380,6 +406,7 @@ public class AgentTokenRequest {
         sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    onBehalfOf: ").append(toIndentedString(onBehalfOf)).append("\n");
+        sb.append("    ttlSeconds: ").append(toIndentedString(ttlSeconds)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -412,7 +439,8 @@ public class AgentTokenRequest {
                                 "account_id",
                                 "project_id",
                                 "name",
-                                "on_behalf_of"));
+                                "on_behalf_of",
+                                "ttl_seconds"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
